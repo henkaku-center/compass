@@ -21,6 +21,7 @@
     main {
       max-width: 900px;
       margin: 0 auto;
+      padding-top: 3rem;
     }
 
     h1, h2, h3 {
@@ -57,32 +58,83 @@
       padding: 1rem;
       overflow-x: auto;
     }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
   </style>
 
   <!-- Marked.js (Markdown parser) -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
+  <nav>
+    <div class="nav-inner">
+      <strong>Antidisciplinary Charter</strong>
+      <div class="nav-links">
+        <a href="#" data-doc="readme.md">README</a>
+        <a href="#" data-doc="charter.md">Charter</a>
+      </div>
+    </div>
+  </nav>
   <main id="content">
     Loading…
   </main>
 
   <script>
-    fetch("charter.md")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Failed to load charter.md");
-        }
-        return response.text();
-      })
-      .then(markdown => {
-        document.getElementById("content").innerHTML = marked.parse(markdown);
-      })
-      .catch(error => {
-        document.getElementById("content").innerHTML =
-          "<p>Error loading charter.</p>";
-        console.error(error);
+    const contentEl = document.getElementById("content");
+
+    function loadDoc(path) {
+      fetch(path)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to load ${path}`);
+          }
+          return response.text();
+        })
+        .then(markdown => {
+          contentEl.innerHTML = marked.parse(markdown);
+        })
+        .catch(error => {
+          contentEl.innerHTML = "<p>Error loading document.</p>";
+          console.error(error);
+        });
+    }
+
+    // Default document
+    loadDoc("readme.md");
+
+    // Navigation handling
+    document.querySelectorAll("nav a[data-doc]").forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        loadDoc(link.getAttribute("data-doc"));
       });
+    });
   </script>
 </body>
 </html>
