@@ -86,6 +86,32 @@
     .nav-links a:hover {
       text-decoration: underline;
     }
+
+    footer {
+      margin-top: 5rem;
+      padding: 2rem 0 1rem 0;
+      border-top: 1px solid #e5e5e5;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-inner a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
+    }
   </style>
 
   <!-- Marked.js (Markdown parser) -->
@@ -104,6 +130,19 @@
   <main id="content">
     Loading…
   </main>
+  <footer>
+    <div class="footer-inner">
+      <a href="https://henkaku.center" target="_blank" rel="noopener noreferrer">
+        Henkaku Center
+      </a>
+      <a href="https://sds.chibatech.dev" target="_blank" rel="noopener noreferrer">
+        School of Design and Science
+      </a>
+      <a href="https://compass.henkaku.center" target="_blank" rel="noopener noreferrer">
+        Henkaku Compass Initiative
+      </a>
+    </div>
+  </footer>
 
   <script>
     const contentEl = document.getElementById("content");
