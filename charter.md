@@ -65,11 +65,6 @@ We engage these four domains not by training specialists in each, but by cultiva
 
 ---
 
-¹ Drawn from the Toyota Production System.  
-² Neri Oxman, *Age of Entanglement*, Journal of Design and Science, 2016.
-
----
-
 _This charter is a living document. What remains fundamental to SDS are our principles, process, and domains of creative exploration. If you are reading a printed version, it may be out of date already. The latest version can be read or downloaded at: https://sds.chibatech.dev/charter_
 
 ---
@@ -154,3 +149,15 @@ SDS was planned in close collaboration with CIT and will continue to work closel
 - Mizuki Oka  
 - Sputniko! (Hiro Ozaki)  
 - Ira Winder
+
+---
+
+¹ Drawn from the Toyota Production System.  
+² Neri Oxman, *Age of Entanglement*, Journal of Design and Science, 2016.  
+³ Joichi Ito, "Antidisciplinary," Joi Ito’s Web, October 2, 2014, https://doi.org/10.31859/20141002.1939  
+⁴ Joichi Ito, *The Practice of Change* (PhD diss., Keio University Graduate School of Media and Governance, 2018)  
+⁵ Thomas S. Kuhn, *The Structure of Scientific Revolutions*, 2nd ed., enlarged, International Encyclopedia of Unified Science 2, no. 2 (Chicago: University of Chicago Press, 1994)  
+⁶ Donella Meadows, "Leverage Points: Places to Intervene in a System" (Hartland, VT: Sustainability Institute, 1999), https://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/  
+⁷ Martin A. Nowak, "Five Rules for the Evolution of Cooperation," *Science* 314, no. 5805 (2006): 1560–63, https://doi.org/10.1126/science.1133755  
+⁸ AT&T Bell Laboratories, former industrial research institution whose invention portfolio includes transistors, solar cells, and lasers  
+⁹ Ralph Bown, "Vitality of a Research Institution and How to Maintain It" (paper presented at the Sixth Annual Conference on the Administration of Research, 1952), Bell Telephone System Technical Publications, Monograph 2207
