@@ -1,7 +1,7 @@
 # School of Design & Science (SDS)  
 **Chiba Institute of Technology (CIT)**  
 December 2025  
-v0.2
+v0.2.0
 
 ---
 
