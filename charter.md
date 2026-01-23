@@ -31,6 +31,29 @@ Clarify the difference between incremental improvement and transformation at the
 State that radical transformation is pursued deliberately, cautiously, and with awareness of second-order effects.
 -->
 
+### 3. Human and Artificial Intelligence
+
+<!--
+This section establishes how human and artificial intelligence interact
+within the scope of this Charter.
+
+Key principles to articulate here:
+
+- Artificial intelligence systems do not possess moral, legal, or institutional agency.
+  They may act within defined workflows, but they do not bear responsibility or authority.
+- Human agency may be amplified through computational and agentic systems,
+  but it may not be transferred or abdicated.
+- Every decision, action, or outcome produced with the assistance of AI
+  must have a clear and identifiable line of human accountability.
+- Agentic workflows are treated as designed coordination systems,
+  including their interfaces, constraints, feedback loops, and escalation paths.
+- As system autonomy increases, requirements for oversight, legibility,
+  auditability, and intervention increase proportionally.
+
+Ambiguity of responsibility in human–machine systems is considered a
+design failure and must be addressed through governance, tooling, or process.
+-->
+
 ---
 
 ## II. Values and Commitments
@@ -111,15 +134,51 @@ Requirements for legibility, auditability, and oversight.
 
 ## IV. Institutional Relationships
 
-### 1. Relationship Between Chiba Tech, SDS, and Henkaku Center
+This section articulates how the Charter understands and governs relationships among participating institutions. These relationships are not assumed to be flat or symmetrical. Instead, they are treated as **explicitly designed interfaces** between organizations with different mandates, tempos, and constraints.
+
+The aim is not to dissolve institutional boundaries, but to enable **productive coupling** across them—preserving accountability, authority, and trust while allowing for experimentation and collaboration.
+
+### 1. Chiba Institute of Technology (Host Institution)
 
 <!--
-Clarify distinct roles and responsibilities.
-Shared infrastructure vs autonomous programs.
-Respect for institutional boundaries and mandates.
+Describe Chiba Tech as the host institution that provides legal standing,
+infrastructure, and long-term continuity.
+
+Acknowledge that while Chiba Tech is forward-looking, it necessarily
+operates under constraints of scale, regulation, and tradition.
+
+State that antidisciplinary and experimental work is pursued within
+these constraints, not in opposition to them.
 -->
 
-### 2. Affiliates, Visiting Researchers, and External Partners
+### 2. Henkaku Center and Graduate School of Design & Science (SDS)
+
+<!--
+Describe Henkaku Center and SDS as distinct but closely coupled entities.
+
+Clarify that:
+- Henkaku Center functions as a research and experimentation arm,
+  supporting exploratory work, infrastructure, and cross-cutting initiatives.
+- SDS functions as the academic arm, responsible for curriculum,
+  degrees, and student learning.
+
+State that faculty and students may participate in both contexts,
+but that governance, accountability, and evaluation differ by role.
+-->
+
+### 3. Interaction, Flow, and Boundary Management
+
+<!--
+Describe how students, faculty, and researchers may move between
+SDS and Henkaku Center contexts.
+
+Emphasize that:
+- Roles and expectations are context-dependent
+- Authority does not automatically transfer across contexts
+- Transparency and role clarity are required when operating across boundaries
+-->
+
+### 4. Affiliates, Visiting Researchers, and External Partners
 
 <!--
 Expectations for alignment with this Charter.
