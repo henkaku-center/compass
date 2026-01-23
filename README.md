@@ -14,7 +14,7 @@ In addition, the Charter’s infrastructure is being designed with **agentic wor
 
 ---
 
-## Why a Charter?
+## Purpose and Motivation
 
 The Charter exists to:
 
@@ -32,7 +32,7 @@ The Charter exists to:
 
 ---
 
-## Beyond a Static Document
+## Governance and Evolution
 
 In parallel with the text itself, this repository is intended to support experimentation with **consensus and contribution mechanisms** for foundational documents.
 
@@ -45,7 +45,7 @@ Over time, this repository may therefore include not only the Charter text, but 
 
 ---
 
-## How to Use This Repository
+## Engagement and Use
 
 - **Read** the Charter to understand its principles, process, and scope.
 - **Track changes** through version history to see how the document evolves.
@@ -54,7 +54,7 @@ Over time, this repository may therefore include not only the Charter text, but 
 
 ---
 
-## Attribution and Institutional Context
+## Origin, Stewardship, and Institutional Context
 
 The Antidisciplinary Charter is developed and stewarded by researchers affiliated with **Chiba Tech**, the **Henkaku Center for Radical Transformation**, and the **Graduate School of Design & Science (SDS)**, as part of the **Henkaku Compass Initiative**.
 
@@ -94,6 +94,6 @@ While these institutions provide the originating context and ongoing stewardship
 
 ---
 
-## Status
+## Project Status and Maturity
 
 This project is intentionally evolving. Some structures and processes described here may be aspirational or under active development. The Charter itself should be treated as authoritative regarding values and intent, even as its form and governance mechanisms continue to mature.
