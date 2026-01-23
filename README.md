@@ -76,7 +76,7 @@ The **Henkaku Center for Radical Transformation** is a research center within Ch
 
 The Center supports experimental programs, institutional prototyping, and cross-cutting initiatives—such as the Henkaku Compass Initiative—that explore new models of coordination, governance, and social impact.
 
-### The Henkaku Compass Initiative
+### Henkaku Compass Initiative
 
 Based in Henkaku Center, The **Henkaku Compass Initiative** is an umbrella effort to design and experiment with **radical coordination technology** — tools, frameworks, and practices that help groups align, make decisions, and evolve together without defaulting to rigid hierarchy or static rules.
 
