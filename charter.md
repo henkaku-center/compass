@@ -181,19 +181,31 @@ Organizations covered by this Charter must establish and maintain a **project re
 
 The registry serves as coordination infrastructure, making work visible and enabling participants to identify connections, gaps, and conflicts across the ecosystem.
 
+**Projects as Bounded Units of Transformation**: Projects are distinguished from open-ended research programs or permanent organizational functions by their finite, mission-driven nature. Every project must articulate not only what it aims to achieve, but also what would make it complete.
+
 #### Requirements
 
 **Project Definition Template**: Each project submission must articulate:
-- **Intent**: What transformation is being pursued, and why
-- **Scope**: Boundaries of the project (what it includes and excludes)
-- **Measurability**: How impact or progress will be assessed, whether qualitatively or quantitatively
-- **Participants**: Who has authority, accountability, and contribution roles
-- **Status**: Current state (proposed, active, paused, completed, archived)
-- **Dependencies**: What this project requires or enables
+
+- **Intent**: What specific situation, breakdown, or opportunity this project addresses, what transformation is being pursued, and why. This includes both the motivating problem and the intended outcome.
+
+- **Scope**: Boundaries of the project—what it includes and excludes, what it will build or measure or change, and what outputs it will produce. Clear scope prevents indefinite expansion and enables evaluation of completeness.
+
+- **Temporal Bounds**: When the project begins, when it is expected to complete, and key milestones along the way. Projects must be time-bounded to maintain focus and accountability.
+
+- **Measurability and Completion**: How impact or progress will be assessed (whether qualitatively or quantitatively), and what specific evidence would indicate success or failure. Projects must also state what would make the work complete—not just successful, but done.
+
+- **Participants**: Who has authority, accountability, and contribution roles. This includes project ownership (who is responsible for delivery) and contributors (who supports the work and in what capacity).
+
+- **Dependencies**: What this project requires from other efforts, and what other efforts depend on this project. Dependencies make coordination visible and help identify critical paths and bottlenecks.
+
+- **Status**: Current state (proposed, active, paused, completed, archived). Status enables tracking project progression through its lifecycle.
+
+- **Resources** (where applicable): Funding sources, resource allocation, and budgeted areas. Financial and material accountability supports transparency and coordination.
 
 **Measurability with Forgiveness**: Projects must articulate how outcomes will be evaluated, but the Charter recognizes that some impacts—especially systemic, cultural, or long-term transformations—resist clean measurement.
 
-Projects should state *what would count as evidence of success or failure*, even if that evidence cannot be fully quantified. Unmeasurable does not mean unevaluable.
+Projects should state *what would count as evidence of success or failure*, even if that evidence cannot be fully quantified. Unmeasurable does not mean unevaluable. Qualitative assessment, stakeholder feedback, and narrative evaluation are legitimate forms of measurement.
 
 **Overlap and Coherence Analysis**: The platform must support participants in:
 - Identifying **overlapping scope** between projects (potential redundancy or collaboration opportunity)
@@ -213,6 +225,7 @@ This analysis may be manual, computational, or hybrid, but it must be legible an
 - The platform must be accessible to all participants covered by this Charter.
 - The template may evolve through governance processes (Section V), but changes must preserve backward compatibility or provide migration paths for existing entries.
 - The platform should lower barriers to entry while maintaining clarity—favoring lightweight initial submissions that can be refined over time.
+- Implementations should provide guidance and prompts that help project authors meet these requirements without imposing unnecessary bureaucracy.
 
 ---
 
