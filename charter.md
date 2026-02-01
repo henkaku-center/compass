@@ -13,7 +13,63 @@ Purpose:
 
 ---
 
-## I. Foundational Orientation
+## I. Founding Principles
+
+<!--
+These twelve principles define the institutional position of the organizations
+covered by this Charter in conceptual space. Each principle represents a
+directional orientation along a contested axis—a deliberate choice about what
+we prioritize.
+
+These are not absolute rules but preferential tensions. "Resilience over
+strength" does not reject strength, but signals that resilience is the primary
+optimization target. Taken together, these twelve binary choices define one
+specific point in a 12-dimensional space of 4,096 possible permutations.
+
+These principles, originally articulated in the School of Design & Science
+founding charter, are upheld in perpetuity as the defining coordinates of
+institutional identity.
+-->
+
+**RESILIENCE** over strength.
+強さではなく、しなやかさを持つ。
+
+**SYSTEMS** over objects.
+モノではなく、システムに焦点を合わせる。
+
+**DISOBEDIENCE** over compliance.
+服従ではなく、反抗する。
+
+**PULL** over push.
+「押す」のではなく、「引く」。
+
+**COMPASSES** over maps.
+地図ではなく、良いコンパスを持つ。
+
+**EMERGENCE** over authority.
+専門家ではなく、クラウド（人々）に向かう。
+
+**RISK** over safety.
+安全ではなく、リスクを取る。
+
+**PRACTICE** over theory.
+理論ではなく、実践に基づく。
+
+**LEARNING** over education.
+教育ではなく、学びに焦点を当てる。
+
+**SUSTAINABILITY** over growth.
+拡大ではなく、持続可能性。
+
+**PUBLIC** over individuals.
+個人の利益ではなく、公共的な視点を持つこと。
+
+**MODULAR** over monolithic.
+一枚岩ではなく、モジュール型のデザインを意識すること。
+
+---
+
+## II. Foundational Orientation
 
 ### 1. Antidisciplinarity
 
@@ -56,7 +112,7 @@ design failure and must be addressed through governance, tooling, or process.
 
 ---
 
-## II. Values and Commitments
+## III. Values and Commitments
 
 ### 1. Intellectual Integrity
 
@@ -105,7 +161,7 @@ Identify common coordination failure modes this ecosystem seeks to avoid.
 
 ---
 
-## III. Research and Educational Practice
+## IV. Research and Educational Practice
 
 ### 1. Project-Centered Inquiry
 
@@ -132,7 +188,7 @@ Requirements for legibility, auditability, and oversight.
 
 ---
 
-## IV. Institutional Relationships
+## V. Institutional Relationships
 
 This section articulates how the Charter understands and governs relationships among participating institutions. These relationships are not assumed to be flat or symmetrical. Instead, they are treated as **explicitly designed interfaces** between organizations with different mandates, tempos, and constraints.
 
@@ -188,7 +244,7 @@ Norms for exit, disengagement, and dissociation.
 
 ---
 
-## V. Governance and Stewardship
+## VI. Governance and Stewardship
 
 ### 1. Stewardship of the Charter
 
@@ -216,7 +272,7 @@ Emphasis on repair over punishment-first responses.
 
 ---
 
-## VI. Evolution and Adaptation
+## VII. Evolution and Adaptation
 
 ### 1. Living Nature of the Charter
 
@@ -235,7 +291,7 @@ Obligations of derivative charters.
 
 ---
 
-## VII. Closing Provisions
+## VIII. Closing Provisions
 
 ### 1. Authority and Interpretation
 
