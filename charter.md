@@ -175,6 +175,45 @@ Explicit prohibitions on delegating authority or accountability.
 Requirements for legibility, auditability, and oversight.
 -->
 
+### 4. Project Registry and Coordination Infrastructure
+
+Organizations covered by this Charter must establish and maintain a **project registry**—a shared platform for defining, submitting, and browsing active projects and initiatives.
+
+The registry serves as coordination infrastructure, making work visible and enabling participants to identify connections, gaps, and conflicts across the ecosystem.
+
+#### Requirements
+
+**Project Definition Template**: Each project submission must articulate:
+- **Intent**: What transformation is being pursued, and why
+- **Scope**: Boundaries of the project (what it includes and excludes)
+- **Measurability**: How impact or progress will be assessed, whether qualitatively or quantitatively
+- **Participants**: Who has authority, accountability, and contribution roles
+- **Status**: Current state (proposed, active, paused, completed, archived)
+- **Dependencies**: What this project requires or enables
+
+**Measurability with Forgiveness**: Projects must articulate how outcomes will be evaluated, but the Charter recognizes that some impacts—especially systemic, cultural, or long-term transformations—resist clean measurement.
+
+Projects should state *what would count as evidence of success or failure*, even if that evidence cannot be fully quantified. Unmeasurable does not mean unevaluable.
+
+**Overlap and Coherence Analysis**: The platform must support participants in:
+- Identifying **overlapping scope** between projects (potential redundancy or collaboration opportunity)
+- Recognizing **distinctiveness** (how projects differ in approach, method, or aim)
+- Surfacing **incoherence** (where projects pursue conflicting goals or undermine each other)
+
+This analysis may be manual, computational, or hybrid, but it must be legible and actionable.
+
+#### Governance
+
+- The registry is a **coordination tool**, not an approval mechanism. Projects do not require permission to be listed, but listing signals accountability to Charter principles.
+- The registry does not replace formal institutional processes (course approvals, research ethics review, funding applications). It complements them.
+- Projects that violate Charter principles may be flagged for review, but the registry itself does not have enforcement authority.
+
+#### Implementation
+
+- The platform must be accessible to all participants covered by this Charter.
+- The template may evolve through governance processes (Section V), but changes must preserve backward compatibility or provide migration paths for existing entries.
+- The platform should lower barriers to entry while maintaining clarity—favoring lightweight initial submissions that can be refined over time.
+
 ---
 
 ## IV. Institutional Relationships

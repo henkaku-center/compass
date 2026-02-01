@@ -73,6 +73,7 @@ When working with the Charter:
 - All changes should be tracked through Git with clear commit messages
 - Version history serves as institutional memory - it documents how principles evolved
 - The Charter is designed to make "institutional drift" visible through version control
+- Before pushing to remote, make sure that any changes to remote have already been pulled, merged and reconciled.
 
 **Git Authorship**:
 - Commits should be authored by the human decision-maker, not attributed to AI assistance
