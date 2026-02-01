@@ -1,4 +1,4 @@
-# Antidisciplinary Charter
+# Charter
 
 ---
 
@@ -13,22 +13,17 @@ Purpose:
 
 ---
 
-## I. Founding Principles
+## I. Foundational Orientations
 
 <!--
-These twelve principles define the institutional position of the organizations
+These conceptual orientations define the guiding ethos of the organizations
 covered by this Charter in conceptual space. Each principle represents a
 directional orientation along a contested axis—a deliberate choice about what
 we prioritize.
 
 These are not absolute rules but preferential tensions. "Resilience over
 strength" does not reject strength, but signals that resilience is the primary
-optimization target. Taken together, these twelve binary choices define one
-specific point in a 12-dimensional space of 4,096 possible permutations.
-
-These principles, originally articulated in the School of Design & Science
-founding charter, are upheld in perpetuity as the defining coordinates of
-institutional identity.
+optimization target.
 -->
 
 **RESILIENCE** over strength.
@@ -67,9 +62,7 @@ institutional identity.
 **MODULAR** over monolithic.
 一枚岩ではなく、モジュール型のデザインを意識すること。
 
----
-
-## II. Foundational Orientation
+## II. Values and Commitments
 
 ### 1. Antidisciplinarity
 
@@ -110,32 +103,28 @@ Ambiguity of responsibility in human–machine systems is considered a
 design failure and must be addressed through governance, tooling, or process.
 -->
 
----
-
-## III. Values and Commitments
-
-### 1. Intellectual Integrity
+### 4. Intellectual Integrity
 
 <!--
 Commitments to truth-seeking, clarity, and rigor.
 Distinguish speculation, research, and deployment.
 -->
 
-### 2. Experimentation and Risk
+### 5. Experimentation and Risk
 
 <!--
 Legitimacy of experimentation and failure.
 Boundaries on experimentation involving people, institutions, or public trust.
 -->
 
-### 3. Cultural and Contextual Respect
+### 6. Cultural and Contextual Respect
 
 <!--
 Role of Japanese cultural context as a constraint and resource.
 Approach to global collaboration without cultural flattening.
 -->
 
-### 4. Openness with Discernment
+### 7. Openness with Discernment
 
 <!--
 When openness and transparency are required.
@@ -143,7 +132,7 @@ When discretion or confidentiality is necessary.
 Tradeoffs between transparency and potential harm.
 -->
 
-### 5. Human Primacy and Responsibility
+### 8. Human Primacy and Responsibility
 
 <!--
 Assert that authority, accountability, and legitimacy are irreducibly human.
@@ -151,7 +140,7 @@ Clarify roles of individuals vs institutions.
 Explicitly state limits on delegation to computational or automated systems.
 -->
 
-### 6. Coordination as a Design Problem
+### 9. Coordination as a Design Problem
 
 <!--
 Frame coordination as a first-order object of inquiry.
@@ -161,7 +150,7 @@ Identify common coordination failure modes this ecosystem seeks to avoid.
 
 ---
 
-## IV. Research and Educational Practice
+## III. Research and Educational Practice
 
 ### 1. Project-Centered Inquiry
 
@@ -188,7 +177,7 @@ Requirements for legibility, auditability, and oversight.
 
 ---
 
-## V. Institutional Relationships
+## IV. Institutional Relationships
 
 This section articulates how the Charter understands and governs relationships among participating institutions. These relationships are not assumed to be flat or symmetrical. Instead, they are treated as **explicitly designed interfaces** between organizations with different mandates, tempos, and constraints.
 
@@ -244,7 +233,7 @@ Norms for exit, disengagement, and dissociation.
 
 ---
 
-## VI. Governance and Stewardship
+## V. Governance and Stewardship
 
 ### 1. Stewardship of the Charter
 
@@ -272,7 +261,7 @@ Emphasis on repair over punishment-first responses.
 
 ---
 
-## VII. Evolution and Adaptation
+## VI. Evolution and Adaptation
 
 ### 1. Living Nature of the Charter
 
@@ -291,7 +280,7 @@ Obligations of derivative charters.
 
 ---
 
-## VIII. Closing Provisions
+## VII. Closing Provisions
 
 ### 1. Authority and Interpretation
 
@@ -310,7 +299,7 @@ Non-coercive nature of adoption.
 
 ---
 
-## Appendices (Living)
+## Appendices
 
 <!--
 Optional sections, to be added or removed over time:
