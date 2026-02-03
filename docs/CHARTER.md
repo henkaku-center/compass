@@ -243,6 +243,27 @@ Requirements for legibility, auditability, and oversight.
 Role of AI in augmenting but not replacing human learning and inquiry.
 -->
 
+Educational programs covered by this Charter integrate AI as a foundational assumption, not an optional enhancement. Students must learn to work effectively with AI tools while developing capacities that remain uniquely human.
+
+**Two Complementary Pillars**:
+
+**Teaching AI** — Students develop judgment and workflow literacy that transfers across tools:
+- **Effective AI Workflows**: Environments that support thinking rather than replacing it, creating natural checkpoints for reflection and making students more thoughtful, not just faster
+- **Sustained Projects**: Strategies for managing extended work—maintaining plans, preserving context across sessions, and keeping AI collaborators aligned with evolving objectives
+- **Security and Privacy**: Understanding data flows, handling sensitive information, recognizing manipulation vectors, and operational security awareness
+- **Human Collaboration**: AI as part of broader collaborative environments, facilitating shared context, handoffs, and asynchronous work with other people
+
+**Teaching with AI** — Using AI as a medium through which students develop genuine conceptual understanding:
+- **Problem Posing over Problem Solving**: While AI systems solve problems, humans remain essential for identifying what's worth solving, framing ambiguous situations, and recognizing when solutions address real needs. Education shifts toward developing these problem-posing abilities.
+- **Assessment of Judgment**: Evaluation focuses not on answer correctness but on problem framing, approach appropriateness, error identification in AI outputs, and meaningful improvements upon AI-generated solutions. Assessment evaluates questions and judgment, not just answers.
+- **Designing for Uncertainty**: Rather than assignments built around current AI limitations, develop students' capacity to work productively with AI systems of any capability level. The core question remains: what uniquely human contributions are valuable, and how do we develop students' ability to make them?
+
+**Implementation Requirements**:
+- AI integration is not optional—students and faculty are already using these tools
+- Learning experiences must remain meaningful when students have access to powerful AI collaborators
+- Assessment must distinguish between human judgment and AI execution
+- Privacy and security awareness must be taught explicitly and reinforced continuously
+
 ---
 
 ## V. Institutional Relationships
