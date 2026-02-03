@@ -13,8 +13,8 @@ Unlike traditional static charters (PDFs or archived documents), this Charter is
 ### Living Document Architecture
 
 The Charter exists in multiple forms:
-- `charter.md` - The primary template structure with HTML comments indicating what content should go in each section
-- `20220123_charter.md` - A historical version containing SDS founding precepts (v0.2.0 from December 2025)
+- `docs/CHARTER.md` - The primary template structure with HTML comments indicating what content should go in each section
+- `src/20260123_charter.md` - A historical version containing SDS founding precepts (v0.2.0 from December 2025)
 - `README.md` - Public-facing documentation explaining purpose, governance model, and institutional context
 - `index.html` - Static web viewer that uses marked.js to render markdown documents
 
@@ -43,7 +43,7 @@ AI agents are treated as **integrated components of contribution infrastructure*
 
 ## Document Structure
 
-The Charter (`charter.md`) is organized as a template with 8 major sections:
+The Charter (`docs/CHARTER.md`) is organized as a template with 8 major sections:
 
 1. **Founding Principles** - The 12 defining coordinates (resilience over strength, systems over objects, etc.) that position the institution in conceptual space—one specific point among 4,096 possible permutations (2^12). These represent directional choices along contested axes rather than absolute rules.
 2. **Foundational Orientation** - Antidisciplinarity, radical transformation, and human/AI interaction principles
@@ -85,12 +85,12 @@ When working with the Charter:
 
 The `index.html` file provides a static web viewer:
 - Uses marked.js (via CDN) for client-side markdown rendering
-- Navigation switches between README.md and charter.md
+- Navigation switches between README.md and docs/CHARTER.md
 - No build process required - open index.html directly in a browser
 
 ### Historical Context
 
-`20220123_charter.md` contains earlier founding precepts from the School of Design & Science. Key principles from that document:
+`src/20260123_charter.md` contains earlier founding precepts from the School of Design & Science. Key principles from that document:
 - Resilience over strength
 - Systems over objects
 - Practice over theory
