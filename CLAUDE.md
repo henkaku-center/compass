@@ -287,6 +287,60 @@ When moving/renaming files:
 2. Update all references in documentation (README.md, CLAUDE.md, index.html)
 3. Commit with clear explanation of why the change improves organization
 
+### Maintaining STATUS.md
+
+**Purpose**: STATUS.md provides progress updates for non-technical stakeholders. Keep it current as work progresses.
+
+**When to update**:
+- After completing significant work (new sections, major features, structural changes)
+- When project status changes materially
+- When completing items from "What Still Needs Work"
+- At least before major meetings or reviews
+
+**How to update**:
+
+1. **Update the date** at the top: "Last Updated: [Month Day, Year]"
+
+2. **Move completed items**: When work is finished, move descriptions from "What Still Needs Work" to "What We've Accomplished"
+
+3. **Add new accomplishments**: When new features or documents are added, describe them in accessible language under appropriate headings
+
+4. **Update "What Still Needs Work"**: Adjust descriptions to reflect current state (e.g., "Data structure designed but not implemented" → "Implementation in progress")
+
+5. **Keep questions current**: Update "Questions to Discuss" section to reflect actual open decisions
+
+**Writing style**:
+- Use plain language - avoid technical jargon (git, repos, CLI, etc.)
+- Focus on what things do, not how they work technically
+- Think: "What would a non-technical board member need to know?"
+- Be specific but accessible (e.g., "Created a template for defining projects" not "Implemented PROJECT_SCHEMA.md")
+
+**Structure to maintain**:
+- What We've Accomplished (past tense, grouped by category)
+- What Still Needs Work (present/future tense, clear gaps)
+- Questions to Discuss (numbered, actionable questions)
+- Reference section (can update if planning context changes)
+
+**Example update flow**:
+```
+Before:
+  What Still Needs Work:
+  - Project registry platform not built
+
+After completing work:
+  What We've Accomplished:
+  - Project Registry Platform
+    - Built web interface for submitting projects
+    - Added search and filtering capabilities
+
+  What Still Needs Work:
+  - (Remove this item or update to reflect remaining work)
+```
+
+**Commit STATUS.md updates** with clear messages like:
+- "docs: update STATUS.md - completed project registry platform"
+- "docs: update STATUS.md for February review meeting"
+
 ## Repository Evolution
 
 This repository continues to evolve. Recent changes include:
