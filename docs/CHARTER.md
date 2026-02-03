@@ -150,32 +150,18 @@ Identify common coordination failure modes this ecosystem seeks to avoid.
 
 ---
 
-## III. Research and Educational Practice
+## III. Research Practice
 
 ### 1. Project-Centered Inquiry
 
 <!--
-Define projects as the unit of learning and research.
-Criteria for a legitimate project.
+Define projects as the unit of research inquiry.
+Criteria for a legitimate research project.
 Project lifecycle: initiation, evolution, completion, and archival.
+Relationship between research projects and academic outputs.
 -->
 
-### 2. Learning Through Making and Doing
-
-<!--
-Role of prototypes, artifacts, simulations, and interventions.
-Expectation of reflection, documentation, and learning capture.
--->
-
-### 3. Use of Computational and Agentic Systems
-
-<!--
-AI and agentic systems as tools within human-led workflows.
-Explicit prohibitions on delegating authority or accountability.
-Requirements for legibility, auditability, and oversight.
--->
-
-### 4. Project Registry and Coordination Infrastructure
+### 2. Project Registry and Coordination Infrastructure
 
 Organizations covered by this Charter must establish and maintain a **project registry**—a shared platform for defining, submitting, and browsing active projects and initiatives.
 
@@ -223,13 +209,43 @@ This analysis may be manual, computational, or hybrid, but it must be legible an
 #### Implementation
 
 - The platform must be accessible to all participants covered by this Charter.
-- The template may evolve through governance processes (Section V), but changes must preserve backward compatibility or provide migration paths for existing entries.
+- The template may evolve through governance processes (Section VI), but changes must preserve backward compatibility or provide migration paths for existing entries.
 - The platform should lower barriers to entry while maintaining clarity—favoring lightweight initial submissions that can be refined over time.
 - Implementations should provide guidance and prompts that help project authors meet these requirements without imposing unnecessary bureaucracy.
 
 ---
 
-## IV. Institutional Relationships
+## IV. Educational Practice
+
+### 1. Project-Centered Learning
+
+<!--
+Define projects as the unit of learning and pedagogy.
+Criteria for a legitimate educational project.
+Relationship between learning projects and academic assessment.
+Student agency and ownership in project selection and execution.
+-->
+
+### 2. Learning Through Making and Doing
+
+<!--
+Role of prototypes, artifacts, simulations, and interventions in education.
+Expectation of reflection, documentation, and learning capture.
+Integration of theory and practice in project-based learning.
+-->
+
+### 3. Use of Computational and Agentic Systems
+
+<!--
+AI and agentic systems as tools within human-led workflows (research and education).
+Explicit prohibitions on delegating authority or accountability.
+Requirements for legibility, auditability, and oversight.
+Role of AI in augmenting but not replacing human learning and inquiry.
+-->
+
+---
+
+## V. Institutional Relationships
 
 This section articulates how the Charter understands and governs relationships among participating institutions. These relationships are not assumed to be flat or symmetrical. Instead, they are treated as **explicitly designed interfaces** between organizations with different mandates, tempos, and constraints.
 
@@ -285,7 +301,7 @@ Norms for exit, disengagement, and dissociation.
 
 ---
 
-## V. Governance and Stewardship
+## VI. Governance and Stewardship
 
 ### 1. Stewardship of the Charter
 
@@ -313,7 +329,7 @@ Emphasis on repair over punishment-first responses.
 
 ---
 
-## VI. Evolution and Adaptation
+## VII. Evolution and Adaptation
 
 ### 1. Living Nature of the Charter
 
@@ -332,7 +348,7 @@ Obligations of derivative charters.
 
 ---
 
-## VII. Closing Provisions
+## VIII. Closing Provisions
 
 ### 1. Authority and Interpretation
 

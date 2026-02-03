@@ -91,19 +91,22 @@ The Charter (`docs/CHARTER.md`) is organized with the following structure:
 8. Human Primacy and Responsibility
 9. Coordination as a Design Problem
 
-**III. Research and Educational Practice** - Four subsections:
+**III. Research Practice** - Two subsections:
 1. Project-Centered Inquiry
+2. **Project Registry and Coordination Infrastructure** - Mandates shared platform for project definition
+
+**IV. Educational Practice** - Three subsections:
+1. Project-Centered Learning
 2. Learning Through Making and Doing
 3. Use of Computational and Agentic Systems
-4. **Project Registry and Coordination Infrastructure** - Mandates shared platform for project definition
 
-**IV. Institutional Relationships** - Governance between Chiba Tech, Henkaku Center, SDS, and external partners
+**V. Institutional Relationships** - Governance between Chiba Tech, Henkaku Center, SDS, and external partners
 
-**V. Governance and Stewardship** - Charter evolution, decision-making, conflict resolution
+**VI. Governance and Stewardship** - Charter evolution, decision-making, conflict resolution
 
-**VI. Evolution and Adaptation** - Versioning, portability, reuse conditions
+**VII. Evolution and Adaptation** - Versioning, portability, reuse conditions
 
-**VII. Closing Provisions** - Authority, interpretation, ratification
+**VIII. Closing Provisions** - Authority, interpretation, ratification
 
 **Appendices** - Optional sections to be added over time
 
