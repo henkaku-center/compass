@@ -1,6 +1,6 @@
 # Charter Platform Progress Update
 
-**Last Updated: February 3, 2026**
+**Last Updated: February 4, 2026**
 
 Since our January meeting, we've made substantial progress on building the Charter as a living document:
 
@@ -9,7 +9,7 @@ Since our January meeting, we've made substantial progress on building the Chart
 **Charter Structure**
 - Created a clear template showing what belongs in each section
 - Completed the 12 foundational principles (in English and Japanese)
-- Organized the Charter into 7 main sections
+- Organized the Charter into 8 main sections (recently split Research and Educational Practice into separate sections)
 - Added guidance notes throughout explaining what content should go in each part
 
 **Project Definition System**
@@ -25,6 +25,8 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Made the guidance notes visible (they show up in light gray)
 - Added the project template to the website
 - Organized files so it's easy to find what you need
+- Added direct linking - can share URLs that go straight to specific pages
+- Added social media preview cards for sharing on Twitter, Facebook, etc.
 
 **Consensus Mechanism Design**
 - Drafted user stories describing how people will interact with the Charter
@@ -35,6 +37,8 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Updated the overview to explain how everything is organized
 - Created instructions for people helping with this work
 - Documented how we track changes over time
+- Added this status page to track progress for non-technical stakeholders
+- Comprehensive guide for AI assistants working on this project
 
 ## What Still Needs Work
 
