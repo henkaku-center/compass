@@ -26,6 +26,11 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Added the project template to the website
 - Organized files so it's easy to find what you need
 
+**Consensus Mechanism Design**
+- Drafted user stories describing how people will interact with the Charter
+- Designed data structure for tracking proposals, reviews, and decisions
+- Laid groundwork for formal approval process
+
 **Documentation**
 - Updated the overview to explain how everything is organized
 - Created instructions for people helping with this work
@@ -34,8 +39,9 @@ Since our January meeting, we've made substantial progress on building the Chart
 ## What Still Needs Work
 
 **Decision-Making Process**
-- We're tracking all changes, but haven't finalized how we approve changes
-- Need to decide: Who can suggest changes? How do we review them? How do we decide if a change is accepted?
+- Data structure and user stories drafted, but system not yet implemented
+- Need to build the actual tools for submitting, reviewing, and approving changes
+- Need to finalize: approval thresholds, reviewer requirements, voting mechanisms
 
 **Charter Content**
 - The 12 principles are done, but most other sections are still empty
