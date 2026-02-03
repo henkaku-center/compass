@@ -26,40 +26,40 @@ strength" does not reject strength, but signals that resilience is the primary
 optimization target.
 -->
 
-**RESILIENCE** over strength.
+**RESILIENCE** over strength.  
 強さではなく、しなやかさを持つ。
 
-**SYSTEMS** over objects.
+**SYSTEMS** over objects.  
 モノではなく、システムに焦点を合わせる。
 
-**DISOBEDIENCE** over compliance.
+**DISOBEDIENCE** over compliance.  
 服従ではなく、反抗する。
 
-**PULL** over push.
+**PULL** over push.  
 「押す」のではなく、「引く」。
 
-**COMPASSES** over maps.
+**COMPASSES** over maps.  
 地図ではなく、良いコンパスを持つ。
 
-**EMERGENCE** over authority.
+**EMERGENCE** over authority.  
 専門家ではなく、クラウド（人々）に向かう。
 
-**RISK** over safety.
+**RISK** over safety.  
 安全ではなく、リスクを取る。
 
-**PRACTICE** over theory.
+**PRACTICE** over theory.  
 理論ではなく、実践に基づく。
 
-**LEARNING** over education.
+**LEARNING** over education.  
 教育ではなく、学びに焦点を当てる。
 
-**SUSTAINABILITY** over growth.
+**SUSTAINABILITY** over growth.  
 拡大ではなく、持続可能性。
 
-**PUBLIC** over individuals.
+**PUBLIC** over individuals.  
 個人の利益ではなく、公共的な視点を持つこと。
 
-**MODULAR** over monolithic.
+**MODULAR** over monolithic.  
 一枚岩ではなく、モジュール型のデザインを意識すること。
 
 ## II. Values and Commitments
