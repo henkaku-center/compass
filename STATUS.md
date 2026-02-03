@@ -1,6 +1,6 @@
 # Charter Platform Progress Update
 
-**Last Updated: February 4, 2026**
+**Last Updated: February 4, 2026** (updated evening)
 
 Since our January meeting, we've made substantial progress on building the Charter as a living document:
 
@@ -11,6 +11,13 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Completed the 12 foundational principles (in English and Japanese)
 - Organized the Charter into 8 main sections (recently split Research and Educational Practice into separate sections)
 - Added guidance notes throughout explaining what content should go in each part
+
+**Charter Content Development**
+- Drafted comprehensive AI pedagogy framework for Educational Practice section
+- Two-pillar approach: Teaching AI (workflow literacy) and Teaching with AI (developing human judgment)
+- Emphasizes problem posing over problem solving
+- Assessment focuses on judgment and questions, not just answers
+- Based on "Teaching AI and Teaching with AI" by Gal Raz & Joseph Austerweil
 
 **Project Definition System**
 - Added a new Charter section requiring organizations to track their projects
@@ -48,8 +55,10 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Need to finalize: approval thresholds, reviewer requirements, voting mechanisms
 
 **Charter Content**
-- The 12 principles are done, but most other sections are still empty
-- Each section has notes explaining what should go there—now we need to write the actual content
+- The 12 principles are complete
+- Educational Practice section now has substantial content on AI pedagogy
+- Most other sections still have guidance notes but need content written
+- Priority sections: Research Practice, Values and Commitments, Institutional Relationships
 
 **Project Registry Platform**
 - We have the template for how to describe projects
