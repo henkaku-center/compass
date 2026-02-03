@@ -14,7 +14,7 @@ Unlike traditional static charters (PDFs or archived documents), this Charter is
 
 The Charter exists in multiple forms:
 - `docs/CHARTER.md` - The primary template structure with HTML comments indicating what content should go in each section
-- `src/20260123_charter.md` - A historical version containing SDS founding precepts (v0.2.0 from December 2025)
+- `reference/20260123_charter.md` - A historical version containing SDS founding precepts (v0.2.0 from December 2025)
 - `README.md` - Public-facing documentation explaining purpose, governance model, and institutional context
 - `index.html` - Static web viewer that uses marked.js to render markdown documents
 
@@ -90,7 +90,7 @@ The `index.html` file provides a static web viewer:
 
 ### Historical Context
 
-`src/20260123_charter.md` contains earlier founding precepts from the School of Design & Science. Key principles from that document:
+`reference/20260123_charter.md` contains earlier founding precepts from the School of Design & Science. Key principles from that document:
 - Resilience over strength
 - Systems over objects
 - Practice over theory

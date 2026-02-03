@@ -54,8 +54,8 @@ This repository is organized as follows:
 - **`README.md`** - This overview and institutional context
 - **`CLAUDE.md`** - Documentation for AI assistants working with this repository
 - **`index.html`** - Static web viewer for browsing Charter documents
-- **`src/`** - Source documents and historical versions
-  - `src/20260123_charter.md` - Historical SDS founding precepts (v0.2.0, December 2025)
+- **`reference/`** - Source documents and historical versions
+  - `reference/20260123_charter.md` - Historical SDS founding precepts (v0.2.0, December 2025)
 
 ### Key Documents
 
