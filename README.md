@@ -45,10 +45,38 @@ Over time, this repository may therefore include not only the Charter text, but 
 
 ---
 
+## Repository Structure
+
+This repository is organized as follows:
+
+- **`docs/CHARTER.md`** - The primary Charter document, organized as a template with specifications for each section
+- **`docs/PROJECT_SCHEMA.md`** - Structured schema for defining projects that implement Charter requirements
+- **`README.md`** - This overview and institutional context
+- **`CLAUDE.md`** - Documentation for AI assistants working with this repository
+- **`index.html`** - Static web viewer for browsing Charter documents
+- **`src/`** - Source documents and historical versions
+  - `src/20260123_charter.md` - Historical SDS founding precepts (v0.2.0, December 2025)
+
+### Key Documents
+
+The Charter establishes principles and infrastructure for coordination, including:
+
+- **Section III.4: Project Registry and Coordination Infrastructure** - Mandates a shared platform for defining and browsing projects with requirements for intent, scope, measurability, participants, status, dependencies, and resources.
+
+The **Project Schema** (`docs/PROJECT_SCHEMA.md`) implements these requirements with structured templates based on four essential prompts:
+1. What specific situation or moment is this project addressing?
+2. What will this project build, measure, or change?
+3. How will you know when the project has succeeded?
+4. What would make this project complete?
+
+---
+
 ## Engagement and Use
 
-- **Read** the Charter to understand its principles, process, and scope.
-- **Track changes** through version history to see how the document evolves.
+- **Read** the Charter (`docs/CHARTER.md`) to understand its principles, process, and scope.
+- **Browse online** via the static web viewer at `index.html` (serves README, Charter, and Project Schema).
+- **Track changes** through version history to see how the document evolves over time.
+- **Define projects** using the Project Schema (`docs/PROJECT_SCHEMA.md`) template.
 - **Propose revisions** via pull requests or other contribution mechanisms as defined in this repo.
 - **Reuse or adapt** the Charter for other contexts where antidisciplinary or paradigm‑level coordination is desired.
 
