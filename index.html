@@ -140,10 +140,10 @@
     <div class="nav-inner">
       <strong>Antidisciplinary Charter</strong>
       <div class="nav-links">
-        <a href="#" data-doc="README.md">README</a>
-        <a href="#" data-doc="STATUS.md">Status</a>
-        <a href="#" data-doc="docs/CHARTER.md">Charter</a>
-        <a href="#" data-doc="docs/PROJECT_SCHEMA.md">Project Schema</a>
+        <a href="#readme">README</a>
+        <a href="#status">Status</a>
+        <a href="#charter">Charter</a>
+        <a href="#schema">Project Schema</a>
       </div>
     </div>
   </nav>
@@ -166,6 +166,14 @@
 
   <script>
     const contentEl = document.getElementById("content");
+
+    // Map hash fragments to document paths
+    const routes = {
+      'readme': 'README.md',
+      'status': 'STATUS.md',
+      'charter': 'docs/CHARTER.md',
+      'schema': 'docs/PROJECT_SCHEMA.md'
+    };
 
     function loadDoc(path) {
       // Add timestamp to bypass cache
@@ -211,16 +219,18 @@
         });
     }
 
-    // Default document
-    loadDoc("README.md");
+    // Load document based on current hash
+    function loadFromHash() {
+      const hash = window.location.hash.slice(1) || 'readme'; // Remove # and default to readme
+      const path = routes[hash] || routes['readme'];
+      loadDoc(path);
+    }
 
-    // Navigation handling
-    document.querySelectorAll("nav a[data-doc]").forEach(link => {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        loadDoc(link.getAttribute("data-doc"));
-      });
-    });
+    // Load initial document based on URL hash
+    loadFromHash();
+
+    // Listen for hash changes (back/forward navigation, manual URL changes)
+    window.addEventListener('hashchange', loadFromHash);
   </script>
 </body>
 </html>
