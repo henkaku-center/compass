@@ -166,7 +166,9 @@
     const contentEl = document.getElementById("content");
 
     function loadDoc(path) {
-      fetch(path)
+      // Add timestamp to bypass cache
+      const cacheBuster = `?t=${Date.now()}`;
+      fetch(path + cacheBuster, { cache: 'no-store' })
         .then(response => {
           if (!response.ok) {
             throw new Error(`Failed to load ${path}`);
@@ -177,19 +179,26 @@
           // Extract and preserve HTML comments for light rendering
           const commentPlaceholders = [];
           let processedMarkdown = markdown.replace(/<!--([\s\S]*?)-->/g, (match, content) => {
-            const placeholder = `___COMMENT_${commentPlaceholders.length}___`;
+            const index = commentPlaceholders.length;
             commentPlaceholders.push(content.trim());
-            return placeholder;
+            // Use an HTML comment as placeholder so it survives markdown parsing
+            return `<!--PLACEHOLDER_${index}-->`;
           });
 
           // Parse markdown
           let html = marked.parse(processedMarkdown);
 
-          // Replace placeholders with styled comment divs
+          // Replace HTML comment placeholders with styled comment divs
           commentPlaceholders.forEach((content, index) => {
-            const placeholder = `___COMMENT_${index}___`;
-            const commentDiv = `<div class="html-comment">${content.replace(/\n/g, '<br>')}</div>`;
-            html = html.replace(new RegExp(placeholder, 'g'), commentDiv);
+            const placeholder = `<!--PLACEHOLDER_${index}-->`;
+            // Escape any HTML in the comment content for safe display
+            const escapedContent = content
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/\n/g, '<br>');
+            const commentDiv = `<div class="html-comment">${escapedContent}</div>`;
+            html = html.replace(placeholder, commentDiv);
           });
 
           contentEl.innerHTML = html;
