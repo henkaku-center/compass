@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Repository Overview
 
-This repository contains **Compass**—the coordination infrastructure for the Henkaku Compass Initiative. Compass includes the Charter (a version-controlled living document), Registry Schema, Curriculum documentation, and supporting tools for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
+This repository contains **Compass**—the coordination infrastructure for the Compass Initiative. It includes the Charter (a version-controlled living document), Registry Schema, Curriculum documentation, and supporting tools for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
 
 Unlike traditional static institutional documents (PDFs or archived documents), Compass is designed to evolve through transparent, peer-reviewed contributions with version control as the system of record.
 
@@ -51,7 +51,7 @@ Compass comprises multiple documents and tools:
 
 ### Institutional Context
 
-Three closely coupled entities organized under the Henkaku Compass Initiative:
+Three closely coupled entities organized under the Compass Initiative:
 
 1. **Chiba Institute of Technology (Chiba Tech)** - Host institution providing legal standing and infrastructure (founded 1942 as Kōa Institute of Technology, Japan's oldest private technology institute)
 
@@ -59,7 +59,7 @@ Three closely coupled entities organized under the Henkaku Compass Initiative:
 
 3. **Henkaku Center for Radical Transformation** - Research center providing shared infrastructure, experimental programs, and connective tissue across education, research, and policy
 
-The **Henkaku Compass Initiative** explores radical coordination technology—tools, frameworks, and practices that help groups align, make decisions, and evolve together without rigid hierarchy.
+The **Compass Initiative** explores radical coordination technology—tools, frameworks, and practices that help groups align, make decisions, and evolve together without rigid hierarchy.
 
 ### Antidisciplinary vs. Interdisciplinary
 

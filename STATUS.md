@@ -2,7 +2,7 @@
 
 **Last Updated: February 4, 2026**
 
-Since our January meeting, we've made substantial progress on building Compass—the coordination infrastructure for the Henkaku Compass Initiative:
+Since our January meeting, we've made substantial progress on building Compass—the coordination infrastructure for the initiative:
 
 ## What We've Accomplished
 

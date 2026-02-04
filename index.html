@@ -5,21 +5,30 @@
   <title>Compass - Henkaku Center</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Henkaku Compass Initiative." />
+  <meta name="description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Compass Initiative." />
+  <meta name="keywords" content="Henkaku, coordination, antidisciplinary, charter, governance, Chiba Institute of Technology, SDS, Design Science" />
+  <meta name="author" content="Henkaku Center" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="canonical" href="https://compass.henkaku.center/" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Compass Initiative" />
   <meta property="og:title" content="Compass - Henkaku Center" />
-  <meta property="og:description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Henkaku Compass Initiative." />
-  <meta property="og:url" content="https://compass.henkaku.center" />
+  <meta property="og:description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Compass Initiative." />
+  <meta property="og:url" content="https://compass.henkaku.center/" />
+  <meta property="og:image" content="https://compass.henkaku.center/compass-icon.png" />
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Compass - Henkaku Center" />
-  <meta name="twitter:description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Henkaku Compass Initiative." />
+  <meta name="twitter:description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Compass Initiative." />
+  <meta name="twitter:image" content="https://compass.henkaku.center/compass-icon.png" />
 
-  <!-- Favicon -->
+  <!-- Favicon & Icons -->
   <link rel="icon" type="image/png" href="compass-icon.png" />
+  <link rel="apple-touch-icon" href="compass-icon.png" />
 
   <style>
     * {
@@ -53,6 +62,23 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.95rem;
+    }
+
+    .site-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .site-title:hover {
+      opacity: 0.8;
+    }
+
+    .site-title img {
+      height: 24px;
+      width: auto;
     }
 
     .nav-links a {
@@ -393,12 +419,30 @@
     }
   </style>
 
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Henkaku Center",
+    "url": "https://compass.henkaku.center",
+    "logo": "https://compass.henkaku.center/compass-icon.png",
+    "description": "Coordination infrastructure for antidisciplinary work across the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.",
+    "sameAs": [
+      "https://github.com/henkaku-center/compass"
+    ]
+  }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <nav>
     <div class="nav-inner">
-      <strong>Compass</strong>
+      <a href="#home" class="site-title">
+        <img src="compass-icon.png" alt="Compass icon" />
+        <strong>Compass</strong>
+      </a>
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#status">Status</a>
@@ -431,7 +475,7 @@
         School of Design and Science
       </a>
       <a href="https://compass.henkaku.center" target="_blank" rel="noopener noreferrer">
-        Henkaku Compass Initiative
+        Compass Initiative
       </a>
     </div>
   </footer>

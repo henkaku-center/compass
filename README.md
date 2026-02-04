@@ -106,11 +106,11 @@ Core elements of the SDS curriculum include antidisciplinary collaboration, enga
 
 The **Henkaku Center for Radical Transformation** is a research center within Chiba Tech that provides shared infrastructure and connective tissue across education, research, and policy initiatives.
 
-The Center supports experimental programs, institutional prototyping, and cross-cutting initiatives—such as the Henkaku Compass Initiative—that explore new models of coordination, governance, and social impact.
+The Center supports experimental programs, institutional prototyping, and cross-cutting initiatives—such as the Compass Initiative—that explore new models of coordination, governance, and social impact.
 
-### Henkaku Compass Initiative
+### Compass Initiative
 
-Based in Henkaku Center, The **Henkaku Compass Initiative** is an umbrella effort to design and experiment with **radical coordination technology** — tools, frameworks, and practices that help groups align, make decisions, and evolve together without defaulting to rigid hierarchy or static rules.
+Based in Henkaku Center, the **Compass Initiative** is an umbrella effort to design and experiment with **radical coordination technology** — tools, frameworks, and practices that help groups align, make decisions, and evolve together without defaulting to rigid hierarchy or static rules.
 
 The Initiative explores questions such as:
 
