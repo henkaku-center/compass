@@ -83,12 +83,12 @@ The Charter (`docs/CHARTER.md`) is organized with the following structure:
 **II. Values and Commitments** - Nine subsections covering:
 1. Antidisciplinarity
 2. Radical Transformation
-3. Human and Artificial Intelligence
-4. Intellectual Integrity
-5. Experimentation and Risk
-6. Cultural and Contextual Respect
-7. Openness with Discernment
-8. Human Primacy and Responsibility
+3. Human and Artificial Intelligence (symbiosis, accountability, collaboration design)
+4. Complexity and Magic (resisting reduction, valuing the unmeasurable)
+5. Intellectual Integrity (antidisciplinary-specific: humility, attribution, calibrated claims)
+6. Experimentation and Risk
+7. Cultural and Contextual Respect (neurodiversity, Japanese traditions, global/local integration)
+8. Openness with Discernment
 9. Coordination as a Design Problem
 
 **III. Research Practice** - Two subsections:

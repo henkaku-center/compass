@@ -4,7 +4,7 @@
 
 ## Preamble
 
-This Charter articulates the foundational values, governance principles, and operational commitments shared across the Henkaku Center, the Graduate School of Design & Science (SDS), and affiliated programs within Chiba Institute of Technology.
+This Charter articulates the foundational values, governance principles, and operational commitments shared across the Henkaku Center for Radical Transformation, the Graduate School of Design & Science (SDS), and affiliated programs within Chiba Institute of Technology.
 
 **Scope and Applicability**
 
@@ -126,42 +126,41 @@ This framing has practical implications: when evaluating programs, projects, and
 
 ### 3. Human and Artificial Intelligence
 
-This section establishes principles specific to AI systems and their integration into work. For general principles about human accountability that apply to all systems (including committees, processes, and non-AI automation), see Section II.8.
+**Symbiosis, Not Replacement**
 
-**AI Systems Do Not Bear Agency**
+Human-AI collaboration opens possibilities that neither humans nor AI could achieve alone. AI systems can extend human reach, accelerate exploration, surface patterns in complexity, and enable work at scales previously impossible. This symbiosis is welcomed, encouraged, and central to how we work.
 
-Artificial intelligence systems—including large language models, autonomous agents, and AI-assisted workflows—do not possess moral, legal, or institutional agency. They may act within defined parameters, generate outputs, and operate with significant autonomy, but they do not bear responsibility. They cannot be accountable. They are not members of our community in the way humans are.
+The goal is not to minimize AI involvement or treat it as a necessary evil to be constrained. It is to design collaboration that amplifies human creativity, judgment, and capability. When human-AI partnerships work well, humans become more effective, not less relevant.
 
-This is not a statement about AI capabilities, which continue to evolve. It is a statement about the structure of responsibility. Regardless of how capable AI systems become, this Charter maintains that accountability remains with humans.
+**Accountability in Partnership**
 
-**Human Agency: Amplified but Not Transferred**
+As AI becomes more capable and autonomous, questions of responsibility become more important, not less. This Charter holds that accountability remains with humans—not because AI is untrustworthy, but because responsibility requires the kind of moral and social standing that humans possess and AI systems do not.
 
-AI systems may amplify human agency—extending reach, accelerating work, enabling capabilities that would otherwise be impossible. This amplification is welcomed and encouraged.
+This is a statement about the structure of responsibility, not a prediction about AI capabilities. Regardless of how capable AI systems become, the humans who deploy, direct, and work alongside them remain accountable for outcomes. "The AI decided" is not an acceptable abdication of responsibility—just as "the committee decided" or "the process determined" are not.
 
-However, human agency may not be transferred to AI systems or abdicated through their use. "The AI decided" is not an acceptable explanation. "The AI did it" is not an acceptable assignment of responsibility. Humans who deploy AI systems remain accountable for the outcomes those systems produce.
+**Designing for Collaboration**
 
-**Clear Lines of Accountability**
+Effective human-AI collaboration requires thoughtful design:
 
-Every decision, action, or outcome produced with AI assistance must have a clear and identifiable line of human accountability. This means:
+- **Legibility**: Humans should be able to understand what AI systems are doing and why, at whatever level of detail is appropriate for the context
+- **Intervention**: Humans should be able to redirect, correct, or override AI systems when judgment calls for it
+- **Feedback**: The performance of human-AI collaboration should be visible and improvable over time
+- **Appropriate autonomy**: Different tasks warrant different levels of AI independence, calibrated to risk and reversibility
 
-- Someone specific is responsible for the decision to use AI in a given context
-- Someone specific is responsible for reviewing and approving AI-generated outputs before they take effect
-- Someone specific is responsible for the consequences when AI-assisted work causes harm
+The aim is neither to micromanage AI systems nor to let them operate without human awareness. It is to find the right balance for each context—more autonomy where stakes are lower and reversibility is high, more oversight where consequences are significant.
 
-When these lines of accountability are unclear, that ambiguity is a design failure requiring correction through governance, tooling, or process.
+**Boundaries Worth Maintaining**
 
-**Agentic Workflows as Designed Systems**
+Some decisions should remain with humans regardless of AI capability:
 
-Agentic workflows—systems where AI operates with significant autonomy—are treated as designed coordination systems. They require explicit attention to:
+- Decisions affecting individuals' standing, evaluation, or continuation in programs
+- Commitments that bind the institution to external parties
+- Responses to situations involving safety, ethics, or significant uncertainty
+- Interpretations of this Charter or other governance documents
 
-- Interfaces: How humans interact with and direct the system
-- Constraints: What the system is and is not permitted to do
-- Feedback loops: How the system's performance is monitored and corrected
-- Escalation paths: When and how the system hands off to human judgment
+These boundaries exist not because AI cannot inform such decisions—it often can, valuably—but because legitimacy flows from human judgment exercised through appropriate processes. A decision is legitimate because a human with appropriate authority made it, for defensible reasons, not because an algorithm recommended it.
 
-As system autonomy increases, requirements for oversight, legibility, auditability, and intervention capacity increase proportionally. More autonomous systems require more robust human oversight, not less.
-
-### 4. Intellectual Integrity
+### 4. Complexity and Magic
 
 **Resisting Reduction**
 
@@ -173,11 +172,11 @@ Resisting reduction means:
 
 - **Questioning quantification**: The tendency to treat everything as countable—and therefore monetizable or optimizable—comes from industrial-era thinking that renders reality into ones and zeroes. Not everything that matters can be measured, and not everything that can be measured matters. Numbers are tools, not truths.
 
-- **Holding multiple frames**: Complex situations often require multiple explanatory frameworks that cannot be fully reconciled. Intellectual integrity means being able to work within a frame while remaining aware of its limitations and the validity of alternative perspectives.
+- **Holding multiple frames**: Complex situations often require multiple explanatory frameworks that cannot be fully reconciled. This means being able to work within a frame while remaining aware of its limitations and the validity of alternative perspectives.
 
 - **Resisting premature closure**: The pressure to have answers, make decisions, and move on often leads to conclusions that foreclose better understanding. Staying with uncertainty longer than is comfortable often produces better outcomes than rushing to resolution.
 
-This is not an argument against clarity or decisiveness. Resisting reduction is compatible with taking action under uncertainty—it simply requires honesty about what we don't know and humility about the limits of our models.
+This is not an argument against clarity or decisiveness. Resisting reduction is compatible with taking action under uncertainty—it simply requires acknowledging what remains unknown and respecting the limits of our models.
 
 **Valuing What Escapes Measurement**
 
@@ -195,9 +194,68 @@ This principle complements rather than contradicts the commitment to measurabili
 
 - **Beware metric fixation**: Systems that optimize only what can be measured tend to produce measurable but hollow outcomes. The unmeasurable dimensions often carry the real value.
 
-This is not an excuse for vagueness or an argument against rigor. It is a reminder that intellectual integrity includes honesty about the limits of our instruments, and that some of the most important things we do will be recognized by their resonance rather than their metrics.
+This is not an excuse for vagueness or an argument against rigor. It is a reminder that our instruments have limits, and that some of the most important things we do will be recognized by their resonance rather than their metrics.
 
-### 5. Experimentation and Risk
+### 5. Intellectual Integrity
+
+Antidisciplinary work carries distinctive integrity obligations. Working across and beyond disciplines means engaging with traditions, methods, and standards that are not your own—and doing so honestly.
+
+**Intellectual Humility**
+
+Antidisciplinary practitioners regularly work at the edges of their expertise. Intellectual integrity requires acknowledging what you don't know:
+
+- Be explicit about the limits of your training and the boundaries of your competence
+- Distinguish between areas where you have deep expertise and areas where you are learning, borrowing, or synthesizing
+- Invite correction from those with deeper knowledge in domains you're drawing from
+- Treat "I don't know" and "I might be wrong about this" as signs of integrity, not weakness
+
+Working outside your discipline is encouraged. Pretending you're inside it is not.
+
+**Honest Engagement with Other Fields**
+
+When drawing from disciplines that are not your own:
+
+- Represent those fields accurately, not as caricatures or convenient simplifications
+- Understand methods and concepts in their original context before transplanting them
+- Acknowledge when you're using ideas in ways their originators might not endorse
+- Avoid "cargo cult" adoption—using the forms of a discipline without understanding its foundations
+
+Antidisciplinary work synthesizes across fields. This requires engaging with those fields on their own terms, not just extracting what's convenient.
+
+**Attribution and Credit**
+
+Ideas have histories. Intellectual integrity requires acknowledging sources:
+
+- Credit the traditions, disciplines, and individuals whose work you build on
+- When synthesizing across fields, make the synthesis visible—show where ideas come from and how you're combining them
+- In collaborative work, ensure contributions are recognized appropriately
+- Distinguish between your original contributions and your integration of others' work
+
+Attribution is not merely academic convention. It is how intellectual communities maintain trust and enable others to trace and verify claims.
+
+**Calibrated Claims**
+
+The scope of your claims should match the strength of your evidence:
+
+- Acknowledge uncertainty rather than projecting false confidence
+- Be clear about what your evidence supports and what remains speculative
+- When synthesizing across fields with different evidentiary standards, be explicit about how you're navigating those differences
+- Resist the temptation to overclaim when speaking to audiences unfamiliar with your sources
+
+Antidisciplinary work often operates in spaces where established standards don't apply cleanly. This makes careful calibration more important, not less.
+
+**Integrity in Collaboration**
+
+Collaborative work distributes both credit and accountability:
+
+- Be clear about who contributed what, especially when work crosses disciplinary boundaries
+- Share credit generously; hoard accountability appropriately
+- When disagreements arise about interpretation or direction, engage them directly rather than papering over them
+- Maintain intellectual honesty even when it creates friction with collaborators
+
+The goal is not frictionless agreement but honest engagement that produces better work.
+
+### 6. Experimentation and Risk
 
 Experimentation is legitimate and necessary. Progress requires trying things that might not work, and learning from both success and failure.
 
@@ -225,7 +283,7 @@ The legitimacy of experimentation does not override responsibilities to:
 
 The goal is appropriate risk: proportionate to potential benefit, bounded by ethical constraints, and taken with clear accountability for outcomes.
 
-### 6. Cultural and Contextual Respect
+### 7. Cultural and Contextual Respect
 
 **Neurodiversity and Cognitive Difference**
 
@@ -260,7 +318,42 @@ As technical work increasingly involves shaping AI behavior and communicating in
 
 Programs covered by this Charter are encouraged to integrate awareness practices into education and research—not as mandatory spiritual exercises, but as legitimate methods for developing capacities that conventional curricula often neglect.
 
-### 7. Openness with Discernment
+**Global Institution, Japanese Roots**
+
+This Charter governs institutions physically located in Japan, culturally shaped by Japanese context, and intentionally oriented toward global engagement. These are not competing commitments but complementary ones—being rooted somewhere specific enables distinctive contributions to global conversations.
+
+**What Japanese Context Offers**
+
+Japanese intellectual and aesthetic traditions provide resources that inform how we work:
+
+- ***Wa* (和) — Productive harmony**: Not passive consensus or conflict avoidance, but the active cultivation of coherence among diverse elements. Harmony as a design goal—creating conditions where differences can coexist and collaborate without requiring uniformity.
+
+- ***Ma* (間) — Negative space and timing**: The recognition that what is absent shapes what is present. In design, the space around objects. In conversation, the pause that allows meaning to settle. In institutions, the deliberate creation of openness rather than filling every gap with structure.
+
+- ***Aimai* (曖昧) — Productive ambiguity**: The understanding that precision is not always clarity, and that some truths are better held loosely than pinned down. Ambiguity as a resource for navigating complexity, not a failure of specification to be corrected.
+
+- ***Wabi-sabi* — Imperfection and impermanence**: Beauty in the weathered, the asymmetrical, the incomplete. Resistance to the industrial drive toward flawless uniformity. Recognition that things change, decay, and end—and that this is part of their meaning, not a defect.
+
+- ***Monozukuri* (ものづくり) — The craft of making**: Deep respect for the process of creating things well. Attention to materials, methods, and the accumulated knowledge of practice. The understanding that how something is made is inseparable from what it is.
+
+These concepts are not decorative additions to an otherwise universal framework. They shape how we approach design, collaboration, ambiguity, and craft throughout this Charter.
+
+**Global Orientation, Local Grounding**
+
+Being rooted in Japanese context does not limit global engagement—it enables distinctive contribution to it. The goal is not to be a Japanese institution that happens to accept international participants, nor a generic global institution that happens to be located in Japan. It is to be genuinely both: shaped by place while open to the world.
+
+This means:
+
+- **English as working language**: Ensuring accessibility to participants from any background, while recognizing that language carries culture and that working in English involves translation of more than words
+- **Cultural fluency as asset, not requirement**: Japanese cultural knowledge enriches participation but is not a prerequisite. Those unfamiliar with Japanese context should feel welcomed, not excluded—while also being invited into deeper engagement over time
+- **Exporting perspective, not just importing talent**: Contributing distinctive viewpoints to global conversations, not merely participating in frameworks defined elsewhere
+- **Hospitality as practice**: The Japanese tradition of *omotenashi* (おもてなし)—attentive care for guests—as a model for how global participants are received and supported
+
+**Design as Cultural Bridge**
+
+Japan's distinctive design tradition—from architecture to product design to information design—offers a bridge between cultural specificity and global relevance. Design speaks across languages; well-designed things communicate their logic through use. The emphasis on design throughout this Charter reflects both Japanese cultural strengths and a strategy for global engagement that doesn't require abandoning local identity.
+
+### 8. Openness with Discernment
 
 Openness is a default, not an absolute. Transparency supports accountability, collaboration, and trust. But openness requires judgment about what to share, when, and with whom.
 
@@ -298,39 +391,6 @@ When transparency and confidentiality conflict, the resolution depends on:
 - Who has standing to make the decision
 
 The goal is thoughtful openness—sharing by default, protecting when necessary, and being transparent about the boundaries of transparency itself.
-
-### 8. Human Primacy and Responsibility
-
-Authority, accountability, and legitimacy are irreducibly human. This is not merely a preference but a structural commitment that shapes how this ecosystem operates.
-
-This principle applies broadly—not only to AI systems (see Section II.3) but to all systems that might diffuse or obscure human responsibility: committees, bureaucratic processes, voting mechanisms, algorithmic tools, and institutional procedures. The failure mode is the same whether responsibility disappears into an AI model or into "the committee decided."
-
-**Authority Remains Human**
-
-Decisions that affect people's lives, work, and futures must be made by humans who can be held accountable for those decisions. Authority may be delegated from one human to another, but it cannot be delegated to systems—computational, procedural, or otherwise—in ways that remove human judgment from consequential choices.
-
-This does not prohibit automation or AI assistance. It requires that a human remains in the loop for decisions that matter, with genuine authority to override, modify, or reject automated recommendations.
-
-**Accountability Cannot Be Distributed Away**
-
-When something goes wrong, there must be a human who is responsible. Accountability cannot be diffused across committees, processes, or technologies until no one is responsible. "The system did it" and "the committee decided" are not acceptable final answers.
-
-Institutions bear collective responsibility, but institutions act through individuals. Identifying which individuals bear accountability for which decisions is a requirement, not an obstacle to collaborative work.
-
-**Legitimacy Through Human Judgment**
-
-Legitimacy—the recognition that an action or decision is rightful—flows from human judgment exercised through appropriate processes. Algorithmic outputs, however sophisticated, do not confer legitimacy. A decision is not legitimate because an AI recommended it; it is legitimate because a human with appropriate authority made it, for defensible reasons, through a recognized process.
-
-**Limits on Delegation**
-
-Certain functions may not be delegated to automated systems without human oversight:
-
-- Decisions affecting individuals' standing, evaluation, or continuation in programs
-- Commitments that bind the institution to external parties
-- Responses to situations involving safety, ethics, or significant uncertainty
-- Interpretations of this Charter or other governance documents
-
-Automation may inform these decisions but may not make them. The human in the loop must have genuine understanding and genuine authority, not merely nominal sign-off on predetermined outcomes.
 
 ### 9. Coordination as a Design Problem
 

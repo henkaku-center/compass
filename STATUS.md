@@ -36,16 +36,20 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Added "Uniqueness" principle—if someone else can do it, we shouldn't (Section III.1)
 - Added "Bias Toward Action"—the art of getting things done (Section IV.2)
 - Added "Magic"—valuing what escapes measurement (Section II.4)
+- Revised Section II.3 (Human and AI) to emphasize symbiosis and collaboration, not just constraints
+- Renamed Section II.4 to "Complexity and Magic" (was "Intellectual Integrity")
+- Added new Section II.5 "Intellectual Integrity" with antidisciplinary-specific obligations: intellectual humility, honest engagement with other fields, attribution, calibrated claims, collaboration integrity
+- Added "Global Institution, Japanese Roots" to Section II.7 with key Japanese concepts (*wa*, *ma*, *aimai*, *wabi-sabi*, *monozukuri*) and global/local integration framing
+- Section II now has 9 subsections (was 8 after earlier merge)
 
 **Charter Draft Ready for Review (February 4-5, 2026)**
 - All sections now contain full text—no placeholder notes remain
 - Converted 17 placeholder sections to full Charter text:
   - Preamble: scope, applicability, what Charter is not, living document nature
   - II.1 Antidisciplinarity: definition, distinction from inter/transdisciplinary
-  - II.3 Human and AI: agency, accountability, agentic workflows, oversight
-  - II.5 Experimentation and Risk: legitimacy of failure, boundaries
-  - II.7 Openness with Discernment: when transparency vs. confidentiality
-  - II.8 Human Primacy: authority, accountability, legitimacy as human
+  - II.3 Human and Artificial Intelligence: symbiosis, accountability in partnership, designing for collaboration, boundaries
+  - II.6 Experimentation and Risk: legitimacy of failure, boundaries
+  - II.8 Openness with Discernment: when transparency vs. confidentiality
   - II.9 Coordination as Design Problem: failure modes to avoid
   - IV.1 Project-Centered Learning: projects as learning unit, student agency
   - V.2 Chiba Tech: host institution framing, operating within constraints
