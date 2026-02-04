@@ -2,7 +2,7 @@
 
 > **Viewing on the web?** This site renders content from the [Compass GitHub repository](https://github.com/henkaku-center/compass). The source files are version-controlled Markdown documents that you can also browse, fork, or contribute to on GitHub.
 
-**Compass** articulates foundational values, governance principles, and operational practices for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
+**Compass** articulates foundational values, governance principles, and operational practices for the [Henkaku Center](https://henkaku.center), [Graduate School of Design & Science (SDS)](https://sds.chibatech.dev), and [Chiba Institute of Technology](https://chibatech.jp/).
 
 Compass includes:
 
