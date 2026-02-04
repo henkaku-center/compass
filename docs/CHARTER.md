@@ -126,7 +126,7 @@ This framing has practical implications: when evaluating programs, projects, and
 
 ### 3. Human and Artificial Intelligence
 
-This Charter establishes principles for how human and artificial intelligence interact within the ecosystem.
+This section establishes principles specific to AI systems and their integration into work. For general principles about human accountability that apply to all systems (including committees, processes, and non-AI automation), see Section II.8.
 
 **AI Systems Do Not Bear Agency**
 
@@ -302,6 +302,8 @@ The goal is thoughtful openness—sharing by default, protecting when necessary,
 ### 8. Human Primacy and Responsibility
 
 Authority, accountability, and legitimacy are irreducibly human. This is not merely a preference but a structural commitment that shapes how this ecosystem operates.
+
+This principle applies broadly—not only to AI systems (see Section II.3) but to all systems that might diffuse or obscure human responsibility: committees, bureaucratic processes, voting mechanisms, algorithmic tools, and institutional procedures. The failure mode is the same whether responsibility disappears into an AI model or into "the committee decided."
 
 **Authority Remains Human**
 
@@ -638,6 +640,8 @@ The ecosystem covered by this Charter comprises individuals in the following bro
 
 **Visiting Researchers** — Individuals temporarily affiliated with the ecosystem for research purposes, typically maintaining primary appointments elsewhere. Visiting researchers operate under the guidance of a faculty member or principal researcher who serves as their institutional liaison.
 
+**Students** — Individuals enrolled in degree programs within SDS. Students are the primary beneficiaries of educational programs and active participants in project-based learning. While students do not bear institutional accountability in the same way as faculty or staff, they are expected to engage with Charter principles and contribute to the community's culture and work.
+
 **Affiliates** — Individuals with formal but non-employment relationships to the ecosystem—including adjunct faculty, advisors, collaborators, and partners. Affiliates may participate in research, education, or governance according to the terms of their affiliation.
 
 These categories are not mutually exclusive beyond the structural constraints noted above. Individuals may hold multiple roles, and role boundaries may evolve as the ecosystem matures. What matters is clarity: at any given moment, for any given activity, individuals should be able to identify which role they occupy and what accountability that role entails.
@@ -892,7 +896,57 @@ Non-antagonistic engagement reflects several commitments:
 
 This stance is not naivety or conflict avoidance. Some situations require direct confrontation; some actors operate in bad faith; some harms demand clear opposition. But antagonism as a *default mode*—treating disagreement as combat, seeking to defeat rather than persuade—is corrosive to the collaborative culture this Charter seeks to build.
 
-The aim is a community that can hold difference, work through conflict, and emerge with relationships intact.
+**Distinguishing Types of Conflict**
+
+Not all conflicts are the same, and different types require different responses:
+
+- **Disagreement**: Differing views on approach, priorities, or interpretation. These are normal and healthy. Resolution through dialogue, not escalation.
+
+- **Interpersonal conflict**: Friction between individuals that affects working relationships. May require mediation, adjusted collaboration structures, or simply time and space.
+
+- **Misconduct**: Violation of Charter principles, institutional policies, or ethical standards. Requires formal response through appropriate institutional channels.
+
+- **Harm**: Actions that damage individuals, relationships, or the community. Requires acknowledgment, accountability, and repair—not merely procedural compliance.
+
+- **Systemic failure**: When problems recur or patterns emerge, the issue may be structural rather than individual. These require institutional response, not just individual accountability.
+
+The appropriate response depends on accurate diagnosis. Treating disagreement as misconduct creates a hostile environment; treating misconduct as mere disagreement fails those who are harmed.
+
+**Accountability Processes**
+
+When harm occurs or misconduct is alleged:
+
+- **Clear reporting paths**: Participants should know how to raise concerns and to whom. Multiple pathways (direct supervisor, ombudsperson, designated Charter steward) prevent concerns from being suppressed.
+
+- **Proportionate response**: Minor issues warrant informal resolution; serious matters require formal process. Escalation should be available but not automatic.
+
+- **Due process**: Those accused of misconduct deserve fair hearing before consequences. Accountability requires evidence and opportunity to respond, not summary judgment.
+
+- **Institutional channels**: Serious misconduct—harassment, discrimination, safety violations, research ethics breaches—must be handled through Chiba Tech's formal processes, which take precedence over Charter-level response.
+
+**Repair Over Punishment**
+
+This Charter favors repair-oriented responses where possible:
+
+- **Focus on harm, not just rules**: The question is not only "was a rule broken?" but "who was harmed, and what do they need?"
+
+- **Accountability as acknowledgment**: Genuine accountability involves understanding impact, not merely accepting penalty. People who acknowledge harm and demonstrate change deserve paths back to full participation.
+
+- **Restoration of relationships**: Where possible, aim to restore working relationships rather than permanent exclusion. Some harms may make this impossible, but it should be the goal.
+
+- **Learning over punishment**: When failures stem from ignorance, confusion, or systemic factors, education and system change are more appropriate than individual punishment.
+
+- **Boundaries when necessary**: Repair orientation does not mean unlimited tolerance. Some conduct warrants removal from programs or roles. Protection of community members takes precedence over rehabilitation of those who harm them.
+
+**When Repair Fails**
+
+Not all conflicts can be resolved. When good-faith efforts at resolution fail:
+
+- Participants may need to work separately, with explicit boundaries
+- Decisions may need to be made despite ongoing disagreement
+- In extreme cases, separation from Charter-covered programs may be necessary
+
+The goal is not conflict-free harmony but a community capable of working through difficulty while protecting its members and maintaining its values.
 
 ---
 
