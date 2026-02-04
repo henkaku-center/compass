@@ -18,7 +18,6 @@ compass/
 │   └── CURRICULUM.md          # SDS Master's and PhD curriculum
 ├── reference/                 # Historical versions and reference materials
 │   ├── 20260203_Teaching AI and Teaching with AI.pdf
-│   ├── 20260123_Chiba Tech × Microsoft_ Areas for Collaboration.pdf
 │   ├── 20260120_Charter_v0.pdf
 │   ├── 20251114_SDS_Open House_Brochure_fin.pdf
 │   ├── 20250710_Research_Project_Schema.pdf
