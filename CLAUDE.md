@@ -131,55 +131,35 @@ Key requirements:
 - Structured templates with required fields for each entry type
 - **"Measurability with forgiveness"** - recognizes systemic/cultural impacts may resist quantification but must still be evaluable
 - Platform support for identifying overlap, distinctiveness, incoherence, potential collaborators, and network structure
-- Shared across Henkaku Center, SDS, and affiliated programs—not fragmented into separate systems
+- Shared across all Charter-covered organizations—not fragmented into separate systems
 
-### PROJECT_SCHEMA.md
+### REGISTRY_SCHEMA.md
 
-`docs/PROJECT_SCHEMA.md` implements the Charter's project registry requirements as a structured template.
+`docs/REGISTRY_SCHEMA.md` is a unified schema document implementing the Charter's registry requirements. It defines structured templates for all three entry types: people, projects, and initiatives.
 
-**Core framework**: Four essential prompts that ground every project:
-1. What specific situation or moment is this project addressing?
-2. What will this project build, measure, or change?
-3. How will you know when the project has succeeded?
-4. What would make this project complete?
+**Essential questions for each entry type**:
 
-**Schema structure**: Detailed fields for basic information, intent/problem context, scope/outputs, measurability/completion, timeline, status, team, dependencies, funding, disciplines, and notes.
-
-**Charter alignment**: Every schema field includes "Charter Mapping" showing how it implements specific Charter requirements.
-
-The schema positions PROJECT_SCHEMA.md as a natural, well-supported implementation of Charter principles rather than an arbitrary technical specification.
-
-### PERSON_SCHEMA.md
-
-`docs/PERSON_SCHEMA.md` implements the Charter's requirements for documenting people in the ecosystem.
-
-**Core framework**: Four questions that ground every person entry:
+*People*:
 1. Who is this person and what is their role?
 2. What expertise and interests do they bring?
 3. What are they currently working on?
 4. How can others reach and collaborate with them?
 
-**Schema structure**: Basic information, role/affiliation, expertise/interests, current involvement (projects and initiatives), contact/availability, status, links, and notes.
+*Projects*:
+1. What specific situation or moment is this project addressing?
+2. What will this project build, measure, or change?
+3. How will you know when the project has succeeded?
+4. What would make this project complete?
 
-**Privacy considerations**: The registry is a coordination tool, not a public directory. Access limited to participants; information should be professionally relevant and participant-controlled.
-
-### INITIATIVE_SCHEMA.md
-
-`docs/INITIATIVE_SCHEMA.md` implements the Charter's requirements for documenting ongoing programs.
-
-**Core framework**: Four essential prompts that ground every initiative:
+*Initiatives*:
 1. What ongoing purpose does this initiative serve?
 2. What activities and outputs does it enable or produce?
 3. How will we know if it's still serving its purpose?
 4. What projects has it spawned or does it contain?
 
-**Key differences from projects**:
-- No completion criteria—instead, ongoing justification and review cycles
-- No end date—instead, established date and next review date
-- Tracks spawned/contained projects rather than having completion milestones
-- Status values include `under_review` and `concluding` rather than `completed`
+**Interoperating schemas**: The three entry types reference each other—people link to their projects/initiatives, projects reference their team members and parent initiatives, initiatives track spawned projects and participants.
 
-**Schema structure**: Detailed fields for basic information, purpose/justification, activities/outputs, evaluation/review, projects/relationships, timeline, status, team, resources, domains, and notes.
+**Privacy considerations**: The registry is a coordination tool, not a public directory. Person records should be professionally relevant, participant-controlled, and appropriately scoped.
 
 ## Working with This Repository
 
@@ -191,23 +171,13 @@ The schema positions PROJECT_SCHEMA.md as a natural, well-supported implementati
 - Avoid making changes you haven't read - always read files before suggesting modifications
 - Maintain consistency with Charter principles (bounded projects, measurability with forgiveness, human authority, etc.)
 
-**Project Schema** (`docs/PROJECT_SCHEMA.md`):
+**Registry Schema** (`docs/REGISTRY_SCHEMA.md`):
 - Must remain aligned with Charter Section III.2 requirements
-- Designed for projects (bounded, with completion criteria)
+- Contains schemas for people, projects, and initiatives in one document
+- Three parts interoperate via cross-references (person IDs in projects, project IDs in initiatives, etc.)
 - Changes should preserve backward compatibility or provide migration paths
 - Charter Mapping column helps verify alignment
-
-**Initiative Schema** (`docs/INITIATIVE_SCHEMA.md`):
-- Must remain aligned with Charter Section III.2 requirements
-- Designed for initiatives (ongoing, with review cycles instead of completion)
-- Should maintain parallel structure with Project Schema where appropriate
-- Charter Mapping column helps verify alignment
-
-**Person Schema** (`docs/PERSON_SCHEMA.md`):
-- Must remain aligned with Charter Section III.2 requirements
-- Designed for people (participants in the ecosystem)
-- Links to Project and Initiative schemas via involvement fields
-- Includes privacy considerations—coordination tool, not public directory
+- Privacy considerations apply to person records
 
 **Web viewer** (`index.html`):
 - Renders markdown using marked.js (CDN)
