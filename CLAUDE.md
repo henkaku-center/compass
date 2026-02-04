@@ -86,16 +86,17 @@ The Charter (`docs/CHARTER.md`) is organized with the following structure:
 
 **I. Foundational Orientations** - The 12 defining coordinates (resilience over strength, systems over objects, etc.) that position the institution in conceptual space. These represent directional choices along contested axes, not absolute rules.
 
-**II. Values and Commitments** - Nine subsections covering:
+**II. Values and Commitments** - Ten subsections covering:
 1. Antidisciplinarity
 2. Radical Transformation
 3. Human and Artificial Intelligence (symbiosis, accountability, collaboration design)
 4. Complexity and Magic (resisting reduction, valuing the unmeasurable)
 5. Intellectual Integrity (antidisciplinary-specific: humility, attribution, calibrated claims)
 6. Experimentation and Risk
-7. Cultural and Contextual Respect (neurodiversity, Japanese traditions, global/local integration)
-8. Openness with Discernment
-9. Coordination as a Design Problem
+7. Neurodiversity and Inclusion
+8. Cultural Identity and Global Orientation (Japanese traditions, global/local integration)
+9. Openness with Discernment
+10. Coordination as a Design Problem
 
 **III. Research Practice** - Two subsections:
 1. Project-Centered Inquiry

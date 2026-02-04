@@ -32,41 +32,18 @@ This Charter is designed to evolve. It is maintained under version control, with
 
 ## I. Foundational Orientations
 
-**RESILIENCE** over strength.  
-強さではなく、しなやかさを持つ。
-
-**SYSTEMS** over objects.  
-モノではなく、システムに焦点を合わせる。
-
-**DISOBEDIENCE** over compliance.  
-服従ではなく、反抗する。
-
-**PULL** over push.  
-「押す」のではなく、「引く」。
-
-**COMPASSES** over maps.  
-地図ではなく、良いコンパスを持つ。
-
-**EMERGENCE** over authority.  
-専門家ではなく、クラウド（人々）に向かう。
-
-**RISK** over safety.  
-安全ではなく、リスクを取る。
-
-**PRACTICE** over theory.  
-理論ではなく、実践に基づく。
-
-**LEARNING** over education.  
-教育ではなく、学びに焦点を当てる。
-
-**SUSTAINABILITY** over growth.  
-拡大ではなく、持続可能性。
-
-**PUBLIC** over individuals.  
-個人の利益ではなく、公共的な視点を持つこと。
-
+**RESILIENCE** over strength.
+**SYSTEMS** over objects.
+**DISOBEDIENCE** over compliance.
+**PULL** over push.
+**COMPASSES** over maps.
+**EMERGENCE** over authority.
+**RISK** over safety.
+**PRACTICE** over theory.
+**LEARNING** over education.
+**SUSTAINABILITY** over growth.
+**PUBLIC** over individuals.
 **MODULAR** over monolithic.
-一枚岩ではなく、モジュール型のデザインを意識すること。
 
 ---
 
@@ -74,17 +51,17 @@ This Charter is designed to evolve. It is maintained under version control, with
 
 Beyond directional orientations, this Charter also embraces productive tensions—qualities that might seem opposed yet must be held together. These dichotomies define the institutional character:
 
-- **Inclusive yet Elite**: Open to diverse participants and perspectives, yet uncompromising on standards of excellence and rigor.
+- **Inclusive yet Elite**: Open to diverse participants and perspectives, yet uncompromising on standards of excellence and rigor. In practice: lower barriers to entry, higher expectations once inside. Welcome anyone willing to do the work; hold everyone to the same demanding standards. Diversity of background does not mean diversity of commitment.
 
-- **Broad yet Deep**: Spanning disciplines and domains, yet pursuing genuine depth rather than superficial coverage.
+- **Broad yet Deep**: Spanning disciplines and domains, yet pursuing genuine depth rather than superficial coverage. In practice: range without dilettantism. Encourage exploration across fields while insisting on mastery somewhere. Breadth creates connections; depth creates credibility. Both are required.
 
-- **Diverse yet Harmonious**: Welcoming difference and disagreement, yet cultivating coherence and the ability to act together.
+- **Diverse yet Harmonious**: Welcoming difference and disagreement, yet cultivating coherence and the ability to act together. In practice: productive pluralism. Create space for conflicting viewpoints while building shared commitments that enable collective action. Harmony is not uniformity—it is the capacity to move together despite difference.
 
-- **Calm yet Exciting**: Maintaining groundedness and stability, yet generating energy and momentum.
+- **Calm yet Exciting**: Maintaining groundedness and stability, yet generating energy and momentum. In practice: sustainable intensity. Avoid both the burnout of perpetual urgency and the stagnation of excessive caution. The work should feel vital without feeling frantic; stable without feeling static.
 
-- **Confident yet Thrilling**: Acting with conviction and clarity, yet remaining open to surprise and the unexpected.
+- **Confident yet Thrilling**: Acting with conviction and clarity, yet remaining open to surprise and the unexpected. In practice: humble boldness. Take strong positions while staying genuinely curious. Confidence enables action; openness enables learning. The thrill comes from not knowing exactly how things will turn out.
 
-- **Happy yet Aspirational**: Creating environments where people flourish now, yet always reaching toward what could be better.
+- **Happy yet Aspirational**: Creating environments where people flourish now, yet always reaching toward what could be better. In practice: present satisfaction with future orientation. People should enjoy their work today, not merely endure it for future reward. Yet contentment should not become complacency—always ask what more is possible.
 
 These are not compromises or midpoints. They are both/and commitments—holding apparent opposites in creative tension rather than collapsing into either pole.
 
@@ -283,9 +260,7 @@ The legitimacy of experimentation does not override responsibilities to:
 
 The goal is appropriate risk: proportionate to potential benefit, bounded by ethical constraints, and taken with clear accountability for outcomes.
 
-### 7. Cultural and Contextual Respect
-
-**Neurodiversity and Cognitive Difference**
+### 7. Neurodiversity and Inclusion
 
 This Charter explicitly acknowledges and respects **neurodiversity**—the natural variation in human cognition, perception, and interaction. We recognize that people think, feel, learn, and collaborate in fundamentally different ways, and that these differences are sources of strength rather than deficits to be corrected.
 
@@ -303,6 +278,10 @@ Respect for neurodiversity means:
 
 This commitment extends beyond formal disability accommodation. It reflects a recognition that the full range of human cognitive diversity—including but not limited to autism, ADHD, dyslexia, and other neurological differences—brings perspectives and capabilities that homogeneous environments cannot produce. Explicit norms and direct communication are not merely accommodations—they are better design.
 
+### 8. Cultural Identity and Global Orientation
+
+This Charter governs institutions physically located in Japan, culturally shaped by Japanese context, and intentionally oriented toward global engagement. These are not competing commitments but complementary ones—being rooted somewhere specific enables distinctive contributions to global conversations.
+
 **Awareness Practices and Contemplative Traditions**
 
 Japanese cultural context offers distinctive resources for understanding the relationship between awareness, craft, and human development. Traditions of contemplative practice—including but not limited to tea ceremony, calligraphy, and martial arts—embody ways of knowing that complement analytical and technical approaches.
@@ -317,10 +296,6 @@ These traditions emphasize:
 As technical work increasingly involves shaping AI behavior and communicating intent rather than writing explicit instructions, these capacities become not merely cultural enrichment but practical requirements. The ability to perceive subtle patterns, maintain sustained attention, and act with sensitivity to context are technical skills for the AI era.
 
 Programs covered by this Charter are encouraged to integrate awareness practices into education and research—not as mandatory spiritual exercises, but as legitimate methods for developing capacities that conventional curricula often neglect.
-
-**Global Institution, Japanese Roots**
-
-This Charter governs institutions physically located in Japan, culturally shaped by Japanese context, and intentionally oriented toward global engagement. These are not competing commitments but complementary ones—being rooted somewhere specific enables distinctive contributions to global conversations.
 
 **What Japanese Context Offers**
 
@@ -353,7 +328,7 @@ This means:
 
 Japan's distinctive design tradition—from architecture to product design to information design—offers a bridge between cultural specificity and global relevance. Design speaks across languages; well-designed things communicate their logic through use. The emphasis on design throughout this Charter reflects both Japanese cultural strengths and a strategy for global engagement that doesn't require abandoning local identity.
 
-### 8. Openness with Discernment
+### 9. Openness with Discernment
 
 Openness is a default, not an absolute. Transparency supports accountability, collaboration, and trust. But openness requires judgment about what to share, when, and with whom.
 
@@ -392,7 +367,7 @@ When transparency and confidentiality conflict, the resolution depends on:
 
 The goal is thoughtful openness—sharing by default, protecting when necessary, and being transparent about the boundaries of transparency itself.
 
-### 9. Coordination as a Design Problem
+### 10. Coordination as a Design Problem
 
 Coordination—how groups align, make decisions, and work together—is not a background condition to be assumed. It is a first-order object of inquiry and a domain requiring explicit design.
 
@@ -470,80 +445,34 @@ This is not an argument for obscurity or contrarianism. Important problems deser
 
 Organizations covered by this Charter must establish and maintain a **shared registry**—a common platform for defining, submitting, and browsing people, projects, and initiatives across the ecosystem.
 
-The registry serves as coordination infrastructure, making work and people visible and enabling participants to identify connections, gaps, and potential collaborations. It tracks:
+**Why a Shared Registry**
 
-- **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement in projects and initiatives
-- **Projects**: Bounded units of transformation with clear completion criteria
-- **Initiatives**: Ongoing programs without predetermined endpoints
+Coordination requires visibility. A fragmented landscape of separate tracking systems—where Henkaku Center doesn't know what SDS is doing, where researchers can't find potential collaborators, where duplicate efforts proceed in ignorance of each other—undermines the ecosystem's ability to function as more than a collection of isolated activities.
 
-The shared nature of the registry is essential. A fragmented landscape of separate tracking systems undermines coordination. By maintaining a single, shared registry across Henkaku Center, SDS, and affiliated programs, participants can see who is working on what, identify potential collaborators, and understand how efforts relate to one another.
+The registry makes work and people visible, enabling participants to identify connections, gaps, and potential collaborations. It answers basic coordination questions: Who is working on what? Who has expertise in this area? What projects relate to mine? Where are there gaps no one is addressing?
 
-**Projects as Bounded Units of Transformation**: Projects are distinguished from open-ended research programs or permanent organizational functions by their finite, mission-driven nature. Every project must articulate not only what it aims to achieve, but also what would make it complete.
+**What the Registry Tracks**
 
-**Initiatives as Ongoing Programs**: Initiatives are ongoing or open-ended efforts that do not have predetermined completion criteria. Unlike projects, initiatives may continue indefinitely as long as they serve their purpose. Examples include research programs, standing working groups, recurring events, and cross-cutting coordination functions.
+The registry tracks three types of entries:
 
-Initiatives often contain or spawn multiple projects. A research initiative might generate several bounded projects over its lifetime; a coordination initiative might establish processes that enable project work. The distinction matters because:
+- **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement in projects and initiatives. People appear as nodes in a network, connected to what they work on and who they collaborate with.
 
-- **Projects** require completion criteria and are evaluated on whether they achieved their stated outcomes
-- **Initiatives** require ongoing justification and are evaluated on whether they continue to serve their purpose
+- **Projects**: Bounded units of transformation with clear completion criteria. Projects are finite and mission-driven; they end when their objectives are achieved or abandoned. Every project must articulate what would make it complete.
 
-Both projects and initiatives should be visible in coordination infrastructure, but they have different accountability structures. Projects end; initiatives persist until deliberately concluded or transformed.
+- **Initiatives**: Ongoing programs without predetermined endpoints. Initiatives persist as long as they serve their purpose and may contain or spawn multiple projects over time.
 
-**People as Participants**: The registry tracks people participating in the ecosystem. For each person, the registry should capture:
+The distinction between projects and initiatives matters for accountability: projects are evaluated on whether they achieved their stated outcomes; initiatives are evaluated on whether they continue to justify their existence.
 
-- **Identity and Affiliation**: Name, role category (as defined in Section V.1), and institutional affiliations
-- **Expertise and Interests**: Areas of knowledge, skills, and research interests that enable others to identify potential collaborators
-- **Current Involvement**: Active projects and initiatives the person is participating in, with their role in each
-- **Contact and Availability**: How to reach the person and their general availability for collaboration
+**Principles**
 
-People appear in the registry not as isolated entries but as nodes in a network—connected to projects they lead or contribute to, initiatives they participate in, and other people they collaborate with. This relational view enables the coordination function the registry serves.
+- **Shared, not fragmented**: A single registry across all Charter-covered organizations, not separate systems that cannot see each other
+- **Coordination, not approval**: The registry is a visibility tool, not a gatekeeping mechanism. Listing signals accountability to Charter principles but does not require permission.
+- **Measurability with forgiveness**: Projects must articulate how outcomes will be evaluated, but the Charter recognizes that some impacts resist clean measurement. Qualitative assessment and narrative evaluation are legitimate.
+- **Lightweight entry, progressive detail**: Lower barriers to initial registration; allow entries to be refined over time
 
-#### Requirements
+**Implementation**
 
-**Project Definition Template**: Each project submission must articulate:
-
-- **Intent**: What specific situation, breakdown, or opportunity this project addresses, what transformation is being pursued, and why. This includes both the motivating problem and the intended outcome.
-
-- **Scope**: Boundaries of the project—what it includes and excludes, what it will build or measure or change, and what outputs it will produce. Clear scope prevents indefinite expansion and enables evaluation of completeness.
-
-- **Temporal Bounds**: When the project begins, when it is expected to complete, and key milestones along the way. Projects must be time-bounded to maintain focus and accountability.
-
-- **Measurability and Completion**: How impact or progress will be assessed (whether qualitatively or quantitatively), and what specific evidence would indicate success or failure. Projects must also state what would make the work complete—not just successful, but done.
-
-- **Participants**: Who has authority, accountability, and contribution roles. This includes project ownership (who is responsible for delivery) and contributors (who supports the work and in what capacity).
-
-- **Dependencies**: What this project requires from other efforts, and what other efforts depend on this project. Dependencies make coordination visible and help identify critical paths and bottlenecks.
-
-- **Status**: Current state (proposed, active, paused, completed, archived). Status enables tracking project progression through its lifecycle.
-
-- **Resources** (where applicable): Funding sources, resource allocation, and budgeted areas. Financial and material accountability supports transparency and coordination.
-
-**Measurability with Forgiveness**: Projects must articulate how outcomes will be evaluated, but the Charter recognizes that some impacts—especially systemic, cultural, or long-term transformations—resist clean measurement.
-
-Projects should state *what would count as evidence of success or failure*, even if that evidence cannot be fully quantified. Unmeasurable does not mean unevaluable. Qualitative assessment, stakeholder feedback, and narrative evaluation are legitimate forms of measurement.
-
-**Overlap and Coherence Analysis**: The platform must support participants in:
-- Identifying **overlapping scope** between projects (potential redundancy or collaboration opportunity)
-- Recognizing **distinctiveness** (how projects differ in approach, method, or aim)
-- Surfacing **incoherence** (where projects pursue conflicting goals or undermine each other)
-- Finding **potential collaborators** based on expertise, interests, and availability
-- Understanding **network structure**—who works with whom, which initiatives spawn which projects
-
-This analysis may be manual, computational, or hybrid, but it must be legible and actionable.
-
-#### Governance
-
-- The registry is a **coordination tool**, not an approval mechanism. Projects and initiatives do not require permission to be listed, but listing signals accountability to Charter principles.
-- People are included in the registry upon joining Charter-covered programs. Participation in the registry is expected, not optional, as it enables the coordination function.
-- The registry does not replace formal institutional processes (course approvals, research ethics review, funding applications). It complements them.
-- Projects or initiatives that violate Charter principles may be flagged for review, but the registry itself does not have enforcement authority.
-
-#### Implementation
-
-- The platform must be accessible to all participants covered by this Charter.
-- The template may evolve through governance processes (Section VI), but changes must preserve backward compatibility or provide migration paths for existing entries.
-- The platform should lower barriers to entry while maintaining clarity—favoring lightweight initial submissions that can be refined over time.
-- Implementations should provide guidance and prompts that help project authors meet these requirements without imposing unnecessary bureaucracy.
+Detailed schema definitions for registry entries—including required fields, guidance prompts, and cross-referencing structures—are maintained in the Registry Schema document. The schema may evolve through governance processes (Section VI) while preserving backward compatibility.
 
 ---
 
