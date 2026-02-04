@@ -681,6 +681,10 @@ SDS functions as the academic arm, responsible for:
 
 SDS operates under the regulatory requirements governing accredited graduate programs, with corresponding accountability for academic standards.
 
+**Language of Instruction**
+
+English is the official language for all SDS instruction and collaboration. This reflects the program's global orientation and commitment to attracting students, faculty, and collaborators from any country or background. While Japanese language and cultural competency are valued and supported, English proficiency is expected of all participants in SDS academic programs.
+
 **Relationship Between Entities**
 
 Faculty and students may participate in both Henkaku Center and SDS contexts. A faculty member might teach in SDS while leading a Henkaku Center research initiative. A student might pursue an SDS degree while contributing to Henkaku Center projects.
