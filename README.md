@@ -1,8 +1,10 @@
 # Charter
 
-This repository contains the **Charter** — a version‑controlled, *living document* that articulates foundational values, governance principles, and operational practices for organizing and coordinating across institutions, affiliations, disciplines, and modes of impact.
+> **Viewing on the web?** This site renders content from the [Charter GitHub repository](https://github.com/henkaku-center/charter). The source files are version-controlled Markdown documents that you can also browse, fork, or contribute to on GitHub.
 
-Unlike traditional charters or constitutive documents, which are typically created as static artifacts (for example, a finalized PDF), this project treats the Charter as an evolving system: maintained under version control, updated through transparent review, and designed to support long‑term institutional coherence without rigid hierarchy.
+The **Charter** is a version‑controlled, *living document* that articulates foundational values, governance principles, and operational practices for organizing and coordinating across institutions, affiliations, disciplines, and modes of impact.
+
+Unlike traditional charters or constitutive documents, which are typically created as static artifacts (for example, a finalized PDF), the Charter is an evolving system: maintained under version control, updated through transparent review, and designed to support long‑term institutional coherence without rigid hierarchy.
 
 The Charter is designed as:
 
@@ -34,28 +36,29 @@ The Charter exists to:
 
 ## Governance and Evolution
 
-In parallel with the text itself, this repository is intended to support experimentation with **consensus and contribution mechanisms** for foundational documents.
+In parallel with the Charter text itself, this project supports experimentation with **consensus and contribution mechanisms** for foundational documents.
 
 As described informally during early discussions:
 
 > We’re developing the features and form of a living document of shared principles (“The Charter”), as well as a digital consensus mechanism for making changes and keeping it up to date. Rather than a static PDF artifact, this becomes a version‑controlled document where member contributions are peer‑reviewed and tracked, potentially approved through lightweight, point‑based or reputation‑based systems.  
 > If done well, this approach could inform broader consensus architectures for other documents and processes that benefit from community review, including those mediated or partially automated by agentic systems operating under clearly defined constraints.
 
-Over time, this repository may therefore include not only the Charter text, but also tooling, workflows, and experiments related to collaborative governance.
+Over time, the project may therefore include not only the Charter text, but also tooling, workflows, and experiments related to collaborative governance.
 
 ---
 
-## Repository Structure
+## Documents and Structure
 
-This repository is organized as follows:
+The Charter project includes the following documents (all available via the navigation above or in the [GitHub repository](https://github.com/henkaku-center/charter)):
 
-- **`docs/CHARTER.md`** - The primary Charter document articulating values, governance, and operational commitments
-- **`docs/REGISTRY_SCHEMA.md`** - Unified schema for people, projects, and initiatives registry
-- **`docs/CURRICULUM.md`** - SDS Master's and PhD curriculum with course listings
-- **`README.md`** - This overview and institutional context
-- **`CLAUDE.md`** - Documentation for AI assistants working with this repository
-- **`index.html`** - Static web viewer for browsing Charter documents
-- **`reference/`** - Source documents and historical versions
+- **Charter** — The primary document articulating values, governance, and operational commitments
+- **Registry Schema** — Unified schema for people, projects, and initiatives registry
+- **Curriculum** — SDS Master's and PhD curriculum with course listings
+- **Status** — Progress updates on Charter development
+
+Additional files in the repository:
+- `CLAUDE.md` — Documentation for AI assistants working with the project
+- `reference/` — Source documents and historical versions
 
 ### Key Documents
 
@@ -74,12 +77,11 @@ The **Curriculum** (`docs/CURRICULUM.md`) documents the SDS Master's and PhD pro
 
 ## Engagement and Use
 
-- **Read** the Charter (`docs/CHARTER.md`) to understand its principles, process, and scope.
-- **Browse online** via the static web viewer at `index.html` (serves README, Status, Charter, Curriculum, and Registry Schema).
-- **Track changes** through version history to see how the document evolves over time.
-- **Define registry entries** using the Registry Schema (`docs/REGISTRY_SCHEMA.md`) templates for people, projects, and initiatives.
-- **Propose revisions** via pull requests or other contribution mechanisms as defined in this repo.
-- **Reuse or adapt** the Charter for other contexts where antidisciplinary or paradigm‑level coordination is desired.
+- **Read** the Charter to understand its principles, process, and scope
+- **Track changes** through [version history on GitHub](https://github.com/henkaku-center/charter/commits/main) to see how the document evolves
+- **Define registry entries** using the Registry Schema templates for people, projects, and initiatives
+- **Propose revisions** via [pull requests](https://github.com/henkaku-center/charter/pulls) or other contribution mechanisms
+- **Reuse or adapt** the Charter for other contexts where antidisciplinary or paradigm‑level coordination is desired
 
 ---
 
@@ -115,7 +117,7 @@ The Initiative explores questions such as:
 - How can shared values be encoded without over‑prescription?
 - How can governance processes remain transparent, legible, and participatory at scale?
 
-Within this context, the Antidisciplinary Charter serves as both:
+Within this context, the Charter serves as both:
 - A concrete institutional artifact, and
 - A prototype for how foundational documents themselves can be collaboratively governed.
 
