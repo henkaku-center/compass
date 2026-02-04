@@ -145,6 +145,24 @@ Key requirements:
 
 The schema positions PROJECT_SCHEMA.md as a natural, well-supported implementation of Charter principles rather than an arbitrary technical specification.
 
+### INITIATIVE_SCHEMA.md
+
+`docs/INITIATIVE_SCHEMA.md` implements the Charter's requirements for documenting ongoing programs.
+
+**Core framework**: Four essential prompts that ground every initiative:
+1. What ongoing purpose does this initiative serve?
+2. What activities and outputs does it enable or produce?
+3. How will we know if it's still serving its purpose?
+4. What projects has it spawned or does it contain?
+
+**Key differences from projects**:
+- No completion criteria—instead, ongoing justification and review cycles
+- No end date—instead, established date and next review date
+- Tracks spawned/contained projects rather than having completion milestones
+- Status values include `under_review` and `concluding` rather than `completed`
+
+**Schema structure**: Detailed fields for basic information, purpose/justification, activities/outputs, evaluation/review, projects/relationships, timeline, status, team, resources, domains, and notes.
+
 ## Working with This Repository
 
 ### Editing Philosophy
@@ -157,8 +175,14 @@ The schema positions PROJECT_SCHEMA.md as a natural, well-supported implementati
 
 **Project Schema** (`docs/PROJECT_SCHEMA.md`):
 - Must remain aligned with Charter Section III.2 requirements
-- Designed for projects (bounded); initiatives have different documentation needs
+- Designed for projects (bounded, with completion criteria)
 - Changes should preserve backward compatibility or provide migration paths
+- Charter Mapping column helps verify alignment
+
+**Initiative Schema** (`docs/INITIATIVE_SCHEMA.md`):
+- Must remain aligned with Charter Section III.2 requirements
+- Designed for initiatives (ongoing, with review cycles instead of completion)
+- Should maintain parallel structure with Project Schema where appropriate
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html`):

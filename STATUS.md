@@ -64,6 +64,8 @@ Since our January meeting, we've made substantial progress on building the Chart
 
 **Registry and Coordination Infrastructure**
 - Added a Charter section (III.2) requiring organizations to track projects and initiatives
+- Created Project Schema template for bounded projects with completion criteria
+- Created Initiative Schema template for ongoing programs with review cycles
 - Created a template that helps people define projects clearly by answering:
   - What problem are you addressing?
   - What will you build or change?

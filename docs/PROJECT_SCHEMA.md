@@ -11,7 +11,7 @@ Unlike traditional academic systems organized around disciplines, Henkaku priori
 
 These questions ground each project in real-world relevance and bounded scope, helping distinguish projects from open-ended disciplinary explorations.
 
-**Note on Initiatives**: The Charter distinguishes between *projects* (bounded, with completion criteria) and *initiatives* (ongoing programs without predetermined endpoints). This schema is designed for projects. Initiatives—such as research programs, standing working groups, and cross-cutting coordination functions—require different documentation that emphasizes ongoing justification rather than completion criteria. Initiatives may spawn or contain multiple projects, each of which should be documented using this schema.
+**Note on Initiatives**: The Charter distinguishes between *projects* (bounded, with completion criteria) and *initiatives* (ongoing programs without predetermined endpoints). This schema is designed for projects. Initiatives—such as research programs, standing working groups, and cross-cutting coordination functions—should be documented using the [Initiative Schema](INITIATIVE_SCHEMA.md). Initiatives may spawn or contain multiple projects, each of which should be documented using this schema.
 
 The schema captures a project's key dimensions—problem statements, goals, outputs, contributors, funding sources, success criteria, dependencies, and related disciplines—within a consistent and interoperable format. This structure enables not only clear communication and peer review but also the generation of interactive network visualizations that reveal how people, ideas, and resources flow through the Henkaku ecosystem.
 
@@ -140,7 +140,7 @@ Ultimately, the schema and its accompanying tools support a living knowledge inf
 
 # Alignment with Charter Principles
 
-This schema implements Section III.4 of the Charter by:
+This schema implements Section III.2 of the Charter by:
 
 1. **Making work visible**: Structured format enables browsing and discovery
 2. **Bounded projects**: Required fields enforce finite, mission-driven scope
