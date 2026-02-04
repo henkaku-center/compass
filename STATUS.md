@@ -2,8 +2,6 @@
 
 **Last Updated: February 5, 2026**
 
-Since our January meeting, we've made substantial progress on building Compass—the coordination infrastructure for the initiative:
-
 ## What We've Accomplished
 
 **Charter Structure**
