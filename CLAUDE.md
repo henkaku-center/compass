@@ -139,7 +139,7 @@ Key requirements:
 - Structured templates with required fields for each entry type
 - **"Measurability with forgiveness"** - recognizes systemic/cultural impacts may resist quantification but must still be evaluable
 - Platform support for identifying overlap, distinctiveness, incoherence, potential collaborators, and network structure
-- Shared across all Charter-covered organizations—not fragmented into separate systems
+- Shared across all Charter-covered institutions—not fragmented into separate systems
 
 ### REGISTRY_SCHEMA.md
 

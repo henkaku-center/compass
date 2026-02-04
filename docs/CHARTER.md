@@ -11,16 +11,16 @@ This Charter articulates the foundational values, governance principles, and ope
 This Charter applies to:
 - The Henkaku Center for Radical Transformation and its programs
 - The Graduate School of Design & Science (SDS)
-- Faculty, researchers, staff, and students participating in these organizations
+- Faculty, researchers, staff, and students participating in these institutions
 - Visiting researchers, affiliates, and external partners during their engagement with Charter-covered programs
 
-The Charter provides a shared framework for coordination, decision-making, and accountability across these entities. It establishes expectations without prescribing detailed procedures, which are left to implementing organizations.
+The Charter provides a shared framework for coordination, decision-making, and accountability across these entities. It establishes expectations without prescribing detailed procedures, which are left to implementing institutions.
 
 **What This Charter Is Not**
 
 This Charter is not a legal contract. It does not create enforceable obligations or supersede applicable law, university regulations, or employment agreements.
 
-This Charter is not a policy manual. Operational policies, procedures, and guidelines are developed separately by implementing organizations, consistent with but distinct from this Charter.
+This Charter is not a policy manual. Operational policies, procedures, and guidelines are developed separately by implementing institutions, consistent with but distinct from this Charter.
 
 This Charter is not branding. While it articulates identity and values, it is a governance document, not a marketing instrument. It is meant to be lived, not displayed.
 
@@ -386,7 +386,7 @@ Coordination—how groups align, make decisions, and work together—is not a ba
 
 **Coordination Does Not Happen Automatically**
 
-Groups do not naturally coordinate well. Without deliberate attention, organizations drift toward dysfunction: misaligned incentives, unclear authority, duplicated effort, unresolved conflicts, and decisions that no one owns. Good coordination requires conscious design of institutions, processes, and incentive structures.
+Groups do not naturally coordinate well. Without deliberate attention, institutions drift toward dysfunction: misaligned incentives, unclear authority, duplicated effort, unresolved conflicts, and decisions that no one owns. Good coordination requires conscious design of institutions, processes, and incentive structures.
 
 This Charter treats coordination as a design problem equivalent in importance to the substantive work being coordinated. How we work together is as important as what we work on.
 
@@ -456,7 +456,7 @@ This is not an argument for obscurity or contrarianism. Important problems deser
 
 ### 2. Registry and Coordination Infrastructure
 
-Organizations covered by this Charter must establish and maintain a **shared registry**—a common platform for defining, submitting, and browsing people, projects, and initiatives across the ecosystem.
+Institutions covered by this Charter must establish and maintain a **shared registry**—a common platform for defining, submitting, and browsing people, projects, and initiatives across the ecosystem.
 
 **Why a Shared Registry**
 
@@ -478,7 +478,7 @@ The distinction between projects and initiatives matters for accountability: pro
 
 **Principles**
 
-- **Shared, not fragmented**: A single registry across all Charter-covered organizations, not separate systems that cannot see each other
+- **Shared, not fragmented**: A single registry across all Charter-covered institutions, not separate systems that cannot see each other
 - **Coordination, not approval**: The registry is a visibility tool, not a gatekeeping mechanism. Listing signals accountability to Charter principles but does not require permission.
 - **Measurability with forgiveness**: Projects must articulate how outcomes will be evaluated, but the Charter recognizes that some impacts resist clean measurement. Qualitative assessment and narrative evaluation are legitimate.
 - **Lightweight entry, progressive detail**: Lower barriers to initial registration; allow entries to be refined over time
@@ -622,7 +622,7 @@ Curriculum agility is not instability. The goal is structured adaptability—mai
 
 ## V. Institutional Relationships
 
-This section articulates how the Charter understands and governs relationships among participating institutions. These relationships are not assumed to be flat or symmetrical. Instead, they are treated as **explicitly designed interfaces** between organizations with different mandates, tempos, and constraints.
+This section articulates how the Charter understands and governs relationships among participating institutions. These relationships are not assumed to be flat or symmetrical. Instead, they are treated as **explicitly designed interfaces** between institutions with different mandates, tempos, and constraints.
 
 The aim is not to dissolve institutional boundaries, but to enable **productive coupling** across them—preserving accountability, authority, and trust while allowing for experimentation and collaboration.
 
@@ -672,7 +672,7 @@ The relationship is designed for mutual benefit:
 - Henkaku Center and SDS gain institutional legitimacy, infrastructure, and access to a large student body and established networks
 - Chiba Tech gains innovation capacity, international visibility, and models that may inform broader institutional evolution
 
-Neither entity subsumes the other. The relationship is one of productive coupling—distinct organizations with different characters, working together while maintaining their separate identities.
+Neither entity subsumes the other. The relationship is one of productive coupling—distinct institutions with different characters, working together while maintaining their separate identities.
 
 **Physical Presence and Campus Integration**
 
@@ -839,7 +839,7 @@ The Charter text is primary, but the history of its application provides context
 
 ### 2. Decision-Making Principles
 
-Organizations covered by this Charter operate as **decentralized, horizontally-structured communities** where authority derives from commitment to execution rather than formal designation. This approach recognizes that coordination without rigid hierarchy requires explicit design.
+Institutions covered by this Charter operate as **decentralized, horizontally-structured communities** where authority derives from commitment to execution rather than formal designation. This approach recognizes that coordination without rigid hierarchy requires explicit design.
 
 **Horizontal Authority**
 
@@ -867,7 +867,7 @@ Effective decision-making in horizontal structures balances focus with openness:
 
 - **Focused but Not Closed**: Working groups stay focused by requiring commitment, not by being invitation-only or informally constituted. The distinction is critical: focused execution with transparent access, rather than informal designation.
 
-- **Preventing Drift**: Without explicit pathways and work-based membership, horizontal communities risk defaulting to informal power structures based on social proximity rather than contribution. Charter-governed organizations must actively design against this.
+- **Preventing Drift**: Without explicit pathways and work-based membership, horizontal communities risk defaulting to informal power structures based on social proximity rather than contribution. Charter-governed institutions must actively design against this.
 
 **Legitimacy and Accountability**
 

@@ -14,7 +14,7 @@ The registry serves as coordination infrastructure, making work and people visib
 
 ### Design Principles
 
-**Shared, not fragmented**: The registry must be shared across all Charter-covered organizations. Separate tracking systems undermine coordination.
+**Shared, not fragmented**: The registry must be shared across all Charter-covered institutions. Separate tracking systems undermine coordination.
 
 **Interoperating schemas**: The three entry types reference each other:
 - People link to projects and initiatives they're involved in
@@ -421,7 +421,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 This schema implements Section III.2 of the Charter by:
 
 1. **Making work and people visible**: Structured format enables browsing, discovery, and coordination
-2. **Shared registry**: Single schema for all Charter-covered organizations prevents fragmentation
+2. **Shared registry**: Single schema for all Charter-covered institutions prevents fragmentation
 3. **Role clarity**: Person records establish clear positioning per Section V.1
 4. **Bounded projects**: Required fields enforce finite, mission-driven scope with completion criteria
 5. **Ongoing justification**: Initiative fields ensure programs articulate why they should continue

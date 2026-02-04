@@ -89,7 +89,7 @@ Since our January meeting, we've made substantial progress on building Compass�
 
 **Registry and Coordination Infrastructure**
 - Added a Charter section (III.2) requiring a shared registry for people, projects, and initiatives
-- Registry must be shared across all Charter-covered organizations—not fragmented
+- Registry must be shared across all Charter-covered institutions—not fragmented
 - Created unified Registry Schema (REGISTRY_SCHEMA.md) with three interoperating parts:
   - People: participants with roles, expertise, affiliations, and involvement
   - Projects: bounded endeavors with completion criteria
