@@ -32,6 +32,8 @@ This Charter is designed to evolve. It is maintained under version control, with
 
 ## I. Foundational Orientations
 
+*The twelve orientations and balancing dichotomies in this section draw from Joi Ito's foundational work on SDS principles. See: [GSDS Retreat: Core DNA Ideas](../reference/20240612_GSDS%20Retreat.pdf) and [SDS DNA Cheat Sheet](../reference/20240613_SDS_DNA_CheatSheet.png).*
+
 These twelve orientations define the directional commitments of this Charter. They are not absolute rules but preferences along contested axes—indicating which direction to lean when trade-offs arise.
 
 - **RESILIENCE over strength.** Strength resists force until it breaks. Resilience absorbs shocks, adapts, and recovers. In institutions, this means designing for recovery from failure rather than preventing all failure; building systems that bend rather than shatter.
@@ -493,6 +495,8 @@ Detailed schema definitions for registry entries—including required fields, gu
 
 ### 1. Project-Centered Learning
 
+*For an example of project-centered, antidisciplinary learning in practice, see: [Antidisciplinary Problem Solving](../reference/20251009_Ira_PBL_Example.pdf).*
+
 Projects are the fundamental unit of learning in programs covered by this Charter. Students learn not primarily through courses, lectures, or readings, but through engagement with bounded projects that produce real outcomes.
 
 **What Makes a Legitimate Educational Project**
@@ -582,6 +586,8 @@ This principle draws from craft traditions where the maker's presence remains vi
 In educational contexts, this means valuing works-in-progress, documenting process alongside product, and creating space for the slow development of craft. In research contexts, it means treating methodology as substantive intellectual contribution, not merely scaffolding to be discarded once results are obtained.
 
 ### 3. Use of Computational and Agentic Systems
+
+*The AI pedagogy framework in this section draws from "Teaching AI and Teaching with AI" by Gal Raz & Joseph Austerweil. See: [Teaching AI and Teaching with AI](../reference/20260203_Teaching%20AI%20and%20Teaching%20with%20AI.pdf).*
 
 Educational programs covered by this Charter integrate AI as a foundational assumption, not an optional enhancement. Students must learn to work effectively with AI tools while developing capacities that remain uniquely human.
 
