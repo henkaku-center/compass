@@ -301,6 +301,79 @@
       text-decoration: underline;
     }
 
+    /* References page */
+    .references-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+    }
+
+    .references-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .references-list li:last-child {
+      border-bottom: none;
+    }
+
+    .ref-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .ref-info {
+      flex: 1;
+    }
+
+    .ref-title {
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 0.25rem;
+    }
+
+    .ref-meta {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .ref-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .ref-download:hover {
+      background: #e8e8e8;
+      text-decoration: none;
+    }
+
+    .ref-preview {
+      margin-left: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      background: transparent;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .ref-preview:hover {
+      background: #f5f5f5;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .toc {
@@ -329,6 +402,7 @@
         <a href="#charter">Charter</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#registry-schema">Registry Schema</a>
+        <a href="#references">References</a>
       </div>
     </div>
   </nav>
@@ -373,14 +447,110 @@
       'charter': 'docs/CHARTER.md',
       'curriculum': 'docs/CURRICULUM.md',
       'registry-schema': 'docs/REGISTRY_SCHEMA.md',
-      'schema': 'docs/REGISTRY_SCHEMA.md'
+      'schema': 'docs/REGISTRY_SCHEMA.md',
+      'references': null // Special case: rendered from data
     };
 
     // Documents that should show TOC
     const tocDocs = ['home', 'status', 'charter', 'curriculum', 'registry-schema'];
 
+    // Reference files data
+    const referenceFiles = [
+      {
+        filename: '20260203_Teaching AI and Teaching with AI.pdf',
+        title: 'Teaching AI and Teaching with AI',
+        description: 'Framework for AI pedagogy by Gal Raz & Joseph Austerweil',
+        date: '2026-02-03',
+        size: '80 KB'
+      },
+      {
+        filename: '20260123_Chiba Tech × Microsoft_ Areas for Collaboration.pdf',
+        title: 'Chiba Tech × Microsoft: Areas for Collaboration',
+        description: 'Partnership framework document',
+        date: '2026-01-23',
+        size: '5.9 MB'
+      },
+      {
+        filename: '20260120_Charter_v0.pdf',
+        title: 'Charter v0',
+        description: 'Initial Charter draft (PDF version)',
+        date: '2026-01-20',
+        size: '316 KB'
+      },
+      {
+        filename: '20251114_SDS_Open House_Brochure_fin.pdf',
+        title: 'SDS Open House Brochure',
+        description: 'Graduate School of Design & Science overview',
+        date: '2025-11-14',
+        size: '1.0 MB'
+      },
+      {
+        filename: '20250710_Research_Project_Schema.pdf',
+        title: 'Research Project Schema',
+        description: 'Project definition template (earlier version)',
+        date: '2025-07-10',
+        size: '294 KB'
+      },
+      {
+        filename: '20240613_SDS_DNA_CheatSheet.png',
+        title: 'SDS DNA Cheat Sheet',
+        description: 'Visual summary of SDS principles',
+        date: '2024-06-13',
+        size: '515 KB'
+      },
+      {
+        filename: '20220329_Research_Report-compressed.pdf',
+        title: 'Research Report',
+        description: 'Background research document',
+        date: '2022-03-29',
+        size: '14.6 MB'
+      }
+    ];
+
     let currentDoc = '';
     let headings = [];
+
+    function loadReferences() {
+      currentDoc = 'references';
+      tocEl.classList.remove('visible');
+      layoutEl.classList.remove('has-toc');
+
+      let html = `
+        <h1>References</h1>
+        <p>Source documents, historical versions, and supporting materials. Click to download or preview.</p>
+        <ul class="references-list">
+      `;
+
+      referenceFiles.forEach(file => {
+        const ext = file.filename.split('.').pop().toUpperCase();
+        const isImage = ['PNG', 'JPG', 'JPEG', 'GIF'].includes(ext);
+
+        html += `
+          <li>
+            <div class="ref-item">
+              <div class="ref-info">
+                <div class="ref-title">${file.title}</div>
+                <div class="ref-meta">${file.description} · ${ext} · ${file.size} · ${file.date}</div>
+              </div>
+              <div>
+                <a href="reference/${file.filename}" download class="ref-download">
+                  ↓ Download
+                </a>
+                <a href="reference/${file.filename}" target="_blank" class="ref-preview">
+                  ${isImage ? '🖼 View' : '📄 Open'}
+                </a>
+              </div>
+            </div>
+          </li>
+        `;
+      });
+
+      html += '</ul>';
+
+      contentEl.innerHTML = html;
+      updateActiveNavLink('references');
+      window.scrollTo(0, 0);
+    }
 
     function loadDoc(path, docKey) {
       currentDoc = docKey;
@@ -557,8 +727,13 @@
     function loadFromHash() {
       const hash = window.location.hash.slice(1) || 'home';
       const docKey = Object.keys(routes).includes(hash) ? hash : 'home';
-      const path = routes[docKey];
-      loadDoc(path, docKey);
+
+      if (docKey === 'references') {
+        loadReferences();
+      } else {
+        const path = routes[docKey];
+        loadDoc(path, docKey);
+      }
     }
 
     // Initial load
