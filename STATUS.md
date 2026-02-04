@@ -1,6 +1,6 @@
 # Compass Progress Update
 
-**Last Updated: February 4, 2026**
+**Last Updated: February 5, 2026**
 
 Since our January meeting, we've made substantial progress on building Compass—the coordination infrastructure for the initiative:
 
@@ -112,6 +112,27 @@ Since our January meeting, we've made substantial progress on building Compass�
 - Made the guidance notes visible (they show up in light gray)
 - Direct linking—can share URLs that go straight to specific pages
 - Social media preview cards for sharing on Twitter, Facebook, etc.
+- Site favicon and clickable logo linking to home
+- Footer links to Chiba Tech, Henkaku Center, and SDS
+- SEO improvements (meta tags, structured data, canonical URLs)
+
+**Naming and Terminology (February 5, 2026)**
+- Renamed overall project from "Henkaku Compass Initiative" to "Compass Initiative"
+- Clarified hierarchy: Compass is the project, Charter is a component document within it
+- Standardized terminology: "institutions" for Charter-covered entities (Chiba Tech, SDS, Henkaku Center)
+- Kept "organizations" for external entities and generic references
+
+**Source Documentation**
+- Added source annotations to Charter sections linking to reference documents
+- Section I (Foundational Orientations) references Joi Ito's GSDS Retreat presentation and SDS DNA materials
+- Section IV.1 (Project-Centered Learning) references the Antidisciplinary Problem Solving example
+- Section IV.3 (AI Pedagogy) references "Teaching AI and Teaching with AI" by Gal Raz & Austerweil
+- Expanded reference library with new documents:
+  - Krebs Cycle of Creativity (Neri Oxman, 2017)
+  - GSDS Retreat presentation (Joi Ito, 2024)
+  - Curriculum Whiteboard (2024)
+  - Antidisciplinary Problem Solving PBL example (2025)
+- References now sorted chronologically (oldest to newest)
 
 **Consensus Mechanism Design**
 - Drafted user stories describing how people will interact with the Charter

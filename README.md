@@ -74,6 +74,8 @@ The **Registry Schema** (`docs/REGISTRY_SCHEMA.md`) implements these requirement
 
 The **Curriculum** (`docs/CURRICULUM.md`) documents the SDS Master's and PhD programs launching April 2026.
 
+The **References** page provides source documents that inform Charter principles, including Joi Ito's foundational presentations on SDS principles, curriculum planning materials, and pedagogical frameworks. Charter sections include annotations linking to relevant source documents.
+
 ---
 
 ## Engagement and Use

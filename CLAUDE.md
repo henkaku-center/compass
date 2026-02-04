@@ -387,5 +387,10 @@ This repository continues to evolve. Recent changes include:
 - Organization of documents into `docs/` folder
 - Renaming `src/` to `reference/` for clarity
 - Web viewer enhancements (HTML comment rendering, cache-busting)
+- Renamed "Henkaku Compass Initiative" to "Compass Initiative"
+- Standardized terminology: "institutions" for Charter-covered entities
+- Added source annotations to Charter linking to reference documents
+- Expanded reference library with source materials (sorted chronologically)
+- Site branding: favicon, clickable logo, footer links, SEO improvements
 
 Future evolution should maintain backward compatibility where possible and document breaking changes clearly in commit messages.
