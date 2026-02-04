@@ -1138,12 +1138,91 @@ What it explicitly does not authorize.
 Relationship to formal university governance and applicable law.
 -->
 
+This Charter has no formal legal authority. It does not create enforceable obligations, override institutional policies, or supersede applicable law. It is a normative document—an articulation of shared values, commitments, and expectations that should continuously influence culture, decision-making, and policy development.
+
+**Relationship to Formal Governance**
+
+When this Charter and Chiba Institute of Technology policies conflict, Chiba Tech policy takes precedence. This Charter operates within the framework of university governance, not above or outside it.
+
+However, this Charter should be actively used and referenced in the development of policies, the design of programs, and the resolution of ambiguous situations. It is meant to be lived, not archived. Regular reference to Charter principles in ordinary decision-making is expected.
+
+**What This Charter Authorizes**
+
+This Charter explicitly authorizes:
+
+- The establishment and maintenance of a **project registry** as described in Section III.2, serving as coordination infrastructure for research and educational initiatives across the ecosystem
+
+- The development and delivery of **curriculum for Masters and PhD students** within the Graduate School of Design & Science, consistent with the educational principles articulated in Section IV
+
+- The governance structures and decision-making processes described in Section VI, including the formation of working groups through explicit participation pathways
+
+**What This Charter Does Not Authorize**
+
+This Charter does not authorize:
+
+- Actions that violate Chiba Tech policies, Japanese law, or applicable regulations
+- Commitments that bind Chiba Tech without appropriate institutional approval
+- Unilateral decisions on matters requiring broader consultation or higher authority
+- Exemptions from standard institutional processes (ethics review, financial approval, etc.) unless such exemptions are explicitly granted through proper channels
+
+**Interpretation**
+
+When Charter provisions are ambiguous, interpretation should be guided by:
+
+- The foundational orientations articulated in Section I
+- The values and commitments articulated in Section II
+- The history of Charter evolution and prior interpretations
+- Consultation with Charter stewards and affected stakeholders
+
+Interpretive disputes that cannot be resolved through consultation should be escalated to the Director of the Henkaku Center.
+
 ### 2. Ratification and Acknowledgement
 
 <!--
 How individuals and institutions acknowledge alignment.
 Non-coercive nature of adoption.
 -->
+
+**Initial Ratification**
+
+This Charter takes effect through a special initiating event: **ratification** requiring the consensus of:
+
+- The Director of the Henkaku Center
+- The seven founding faculty of the Graduate School of Design & Science
+
+Ratification signifies that these founding members have reviewed, discussed, and committed to the Charter as the governing framework for the ecosystem. The ratification event and its participants should be recorded in the Charter's version history.
+
+**Individual Acknowledgment**
+
+Individuals must formally acknowledge alignment with this Charter before joining Charter-covered programs or positions:
+
+- **Faculty and researchers**: Acknowledge the Charter as part of appointment or affiliation processes
+- **Students**: Acknowledge the Charter as part of enrollment in SDS programs
+- **Staff**: Acknowledge the Charter as part of onboarding to Henkaku Center or SDS roles
+- **Affiliates and visiting researchers**: Acknowledge the Charter as part of establishing their formal relationship
+
+Acknowledgment means understanding the Charter's principles and committing to operate consistently with them. It does not require agreement with every provision, but it does require good faith engagement.
+
+**Institutional Partners**
+
+Representatives of institutional partners (companies, universities, organizations) entering formal collaboration with Charter-covered programs should acknowledge the Charter on behalf of their institutions, indicating awareness of and willingness to operate consistently with Charter principles during the collaboration.
+
+**Nature of Acknowledgment**
+
+Acknowledgment is a condition of participation, not merely an invitation. Those who cannot in good conscience commit to Charter principles should not join Charter-covered programs.
+
+However, acknowledgment is not coerced conformity. The Charter welcomes disagreement, critique, and proposals for change through appropriate channels. Acknowledging the Charter means committing to engage with it honestly—including honest disagreement—not to suppress one's own judgment.
+
+**Ongoing Commitment**
+
+Acknowledgment is not a one-time formality. Participants are expected to:
+
+- Revisit the Charter periodically as it evolves
+- Raise concerns when they believe Charter principles are being violated
+- Participate in Charter governance when able
+- Model Charter principles in their own conduct
+
+The Charter is a living commitment, renewed through ongoing engagement rather than a signature filed and forgotten.
 
 ---
 
@@ -1156,3 +1235,12 @@ Optional sections, to be added or removed over time:
 - Case Studies and Precedents
 - Experimental Governance Mechanisms
 -->
+
+Appendices may be added over time to supplement the core Charter with:
+
+- **Glossary of Terms**: Definitions of key concepts used throughout the Charter
+- **Historical Notes and Rationale**: Documentation of why specific provisions were adopted and how they evolved
+- **Case Studies and Precedents**: Examples of how Charter principles have been applied in specific situations
+- **Experimental Governance Mechanisms**: Provisional structures being tested before incorporation into the main Charter
+
+Appendices are governed by the same stewardship processes as the main Charter but may be added, modified, or removed with lower approval thresholds, enabling experimentation and documentation without requiring changes to core provisions.

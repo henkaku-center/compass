@@ -53,6 +53,9 @@ Since our January meeting, we've made substantial progress on building the Chart
   - VI.1 Charter Stewardship: who proposes changes, review process
   - VII.1 Living Nature: versioning, revision conditions, deprecation
   - VII.2 Portability and Reuse: forking vs adoption, derivative obligations
+  - VIII.1 Authority and Interpretation: no legal authority but influences culture; Chiba Tech policy takes precedence; authorizes project registry and curriculum
+  - VIII.2 Ratification and Acknowledgement: formal agreement required; initial ratification by Director + seven founding faculty
+  - Appendices: framing for future additions (glossary, historical notes, case studies, experimental mechanisms)
 
 **Project Definition System**
 - Added a new Charter section requiring organizations to track their projects
