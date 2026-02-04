@@ -13,12 +13,17 @@ Unlike traditional static charters (PDFs or archived documents), this Charter is
 ```
 charter/
 ├── docs/                      # Primary Charter documents
-│   ├── CHARTER.md             # Main Charter template with specifications
-│   └── PROJECT_SCHEMA.md      # Structured project definition template
+│   ├── CHARTER.md             # Main Charter document
+│   └── REGISTRY_SCHEMA.md     # Unified schema for people, projects, initiatives
 ├── reference/                 # Historical versions and reference materials
 │   ├── 20260123_charter.md    # SDS founding precepts (v0.2.0, Dec 2025)
-│   ├── 20260120_Charter_v1.pdf
-│   └── 251114_SDS_Open House_Brochure_fin.pdf
+│   ├── 20260120_Charter_v0.pdf
+│   ├── 20251114_SDS_Open House_Brochure_fin.pdf
+│   ├── 20260203_Teaching AI and Teaching with AI.pdf
+│   ├── 20250710_Research_Project_Schema.pdf
+│   ├── 20260123_Chiba Tech × Microsoft_ Areas for Collaboration.pdf
+│   ├── 20240613_SDS_DNA_CheatSheet.png
+│   └── 20220329_Research_Report-compressed.pdf
 ├── README.md                  # Public-facing overview and context
 ├── CLAUDE.md                  # This file - AI assistant guidance
 ├── index.html                 # Static web viewer for browsing documents
@@ -32,12 +37,12 @@ charter/
 The Charter exists in multiple forms and representations:
 
 **Primary Documents:**
-- `docs/CHARTER.md` - The Charter template with HTML comments specifying what content belongs in each section
-- `docs/PROJECT_SCHEMA.md` - Structured schema implementing Charter requirements for project definition
+- `docs/CHARTER.md` - The main Charter document articulating values, governance, and operational commitments
+- `docs/REGISTRY_SCHEMA.md` - Unified schema for people, projects, and initiatives registry
 
 **Supporting Materials:**
 - `README.md` - Public documentation explaining purpose, governance model, and institutional context
-- `index.html` - Static web viewer using marked.js to render markdown (serves README, Charter, and Project Schema)
+- `index.html` - Static web viewer using marked.js to render markdown (serves README, Status, Charter, and Registry Schema)
 - `reference/20260123_charter.md` - Historical SDS founding precepts (v0.2.0 from December 2025)
 
 **Key principle**: The Charter is a living document. Version control tracks how institutional principles evolve, making "institutional drift" visible and auditable.
@@ -116,7 +121,7 @@ As of February 2026, all Charter sections contain full text. HTML comment placeh
 
 **When editing**: Maintain consistency with the Charter's existing tone, structure, and principles. New sections or significant changes should go through the amendment process once ratification is complete.
 
-## Project Schema and Registry
+## Registry Schema
 
 ### Section III.2: Registry and Coordination Infrastructure
 
@@ -166,10 +171,10 @@ Key requirements:
 ### Editing Philosophy
 
 **Charter documents** (`docs/CHARTER.md`):
-- HTML comments define intent and scope—preserve them unless changing the Charter's architecture
-- Distinguish between: template structure (sections/headings), content specifications (HTML comments), and actual content (filled-in text)
+- The Charter is now complete with full text in all sections (no placeholder comments remain)
 - Avoid making changes you haven't read - always read files before suggesting modifications
-- Maintain consistency with Charter principles (bounded projects, measurability with forgiveness, human authority, etc.)
+- Maintain consistency with Charter principles (bounded projects, measurability with forgiveness, human authority, symbiotic AI collaboration, etc.)
+- Changes after ratification should go through the amendment process
 
 **Registry Schema** (`docs/REGISTRY_SCHEMA.md`):
 - Must remain aligned with Charter Section III.2 requirements
@@ -183,7 +188,7 @@ Key requirements:
 - Renders markdown using marked.js (CDN)
 - Extracts HTML comments and displays them with light styling
 - Cache-busting ensures fresh content on every load
-- Navigation links: README, Charter, Project Schema
+- Navigation links: README, Status, Charter, Registry Schema
 
 ### Version Control Practices
 
@@ -221,10 +226,11 @@ The `index.html` file provides a static web viewer:
 - Cache-busting with timestamp query parameters prevents stale content
 - Open `index.html` directly in a browser or run local server: `python3 -m http.server 8000`
 
-Navigation provides access to three documents:
+Navigation provides access to four documents:
 - README (default view)
+- Status (STATUS.md)
 - Charter (docs/CHARTER.md)
-- Project Schema (docs/PROJECT_SCHEMA.md)
+- Registry Schema (docs/REGISTRY_SCHEMA.md)
 
 ### Historical Context
 
@@ -291,13 +297,13 @@ Always read before editing. Use Read tool, not bash commands like `cat`.
 ### Adding new provisions
 1. Determine appropriate section based on Charter structure
 2. Draft content aligned with Charter tone and principles
-3. Consider relationship to existing provisions (e.g., does PROJECT_SCHEMA.md need updating?)
+3. Consider relationship to existing provisions (e.g., does REGISTRY_SCHEMA.md need updating?)
 4. Update documentation (README.md, this file) if structure changes
 
 ### Harmonizing documents
-When Charter and PROJECT_SCHEMA.md need alignment:
+When Charter and REGISTRY_SCHEMA.md need alignment:
 - Charter provides high-level principles and requirements
-- PROJECT_SCHEMA.md implements these as concrete templates
+- REGISTRY_SCHEMA.md implements these as concrete templates for people, projects, and initiatives
 - Neither document "trumps" the other—resolve incoherence by adjusting both
 - Preserve information unless there's actual conflict
 
@@ -368,7 +374,11 @@ This repository continues to evolve. Recent changes include:
 - Simplification of Charter title (from "Antidisciplinary Charter" to "Charter")
 - Consolidation of sections (former Sections II and III merged into Section II)
 - Addition of Registry provision (Section III.2) with project/initiative distinction
-- Creation of PROJECT_SCHEMA.md implementing registry requirements for projects
+- Creation of unified REGISTRY_SCHEMA.md for people, projects, and initiatives
+- Section II restructuring: 9 subsections covering values and commitments
+- Addition of "Intellectual Integrity" section for antidisciplinary-specific obligations
+- Addition of "Global Institution, Japanese Roots" content with key Japanese concepts
+- Revision of "Human and AI" section to emphasize symbiosis and collaboration
 - Organization of documents into `docs/` folder
 - Renaming `src/` to `reference/` for clarity
 - Web viewer enhancements (HTML comment rendering, cache-busting)
