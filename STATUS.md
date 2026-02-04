@@ -1,6 +1,6 @@
 # Charter Platform Progress Update
 
-**Last Updated: February 5, 2026**
+**Last Updated: February 5, 2026** (evening)
 
 Since our January meeting, we've made substantial progress on building the Charter as a living document:
 
@@ -69,12 +69,12 @@ Since our January meeting, we've made substantial progress on building the Chart
   - People: participants with roles, expertise, affiliations, and involvement
   - Projects: bounded endeavors with completion criteria
   - Initiatives: ongoing programs with review cycles
+- Schema is portable—no organization-specific references, can be adopted by other Charter users
 - All three parts cross-reference each other for network visibility
-- Created a template that helps people define projects clearly by answering:
-  - What problem are you addressing?
-  - What will you build or change?
-  - How will you know if you succeeded?
-  - What would make this project complete?
+- Essential questions ground each entry type:
+  - People: Who are they? What do they know? What are they working on? How to reach them?
+  - Projects: What problem? What will change? How measure success? What makes it complete?
+  - Initiatives: What ongoing purpose? What activities? Still serving purpose? What projects spawned?
 
 **Website for Viewing Documents**
 - Built a simple website where people can read the Charter
@@ -108,10 +108,11 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Data structure and user stories drafted, but not yet implemented
 - Need to finalize: how proposals are submitted, reviewed, and approved
 
-**Project Registry Platform**
-- We have the template for how to describe projects
-- We don't yet have a place where people can actually submit and browse projects
+**Registry Platform**
+- We have the schema for how to describe people, projects, and initiatives
+- We don't yet have a place where people can actually submit and browse registry entries
 - Could be as simple as a spreadsheet or as complex as custom software
+- Needs to support the interoperating structure (people linked to their projects/initiatives)
 
 ## Questions to Discuss
 
@@ -119,7 +120,7 @@ Since our January meeting, we've made substantial progress on building the Chart
 
 2. **What does the amendment system need?** How should people propose changes after ratification? What approval process makes sense?
 
-3. **Where do projects live?** Should we use something like Google Sheets, Airtable, or build something custom for people to submit and view projects?
+3. **Where does the registry live?** Should we use something like Google Sheets, Airtable, or build something custom for people to submit and browse people, projects, and initiatives?
 
 4. **When do we aim to ratify?** What timeline makes sense for review and ratification?
 
