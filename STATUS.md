@@ -103,7 +103,8 @@ Since our January meeting, we've made substantial progress on building the Chart
 
 **Website for Viewing Documents**
 - Built a simple website where people can read the Charter and related documents
-- Navigation: Home, Status, Charter, Curriculum, Registry Schema
+- Navigation: Home, Status, Charter, Curriculum, Registry Schema, References
+- **References page** for viewing and downloading source documents (PDFs, images) with descriptions and metadata
 - Table of Contents sidebar on all pages for easy navigation
 - Collapsible sections—click any major heading to expand or collapse its content
 - Scroll tracking highlights your current position in the Table of Contents
