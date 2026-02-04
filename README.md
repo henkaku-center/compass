@@ -114,6 +114,8 @@ The Center supports experimental programs, institutional prototyping, and cross-
 
 Based in Henkaku Center, the **Compass Initiative** is an umbrella effort to design and experiment with **radical coordination technology** — tools, frameworks, and practices that help groups align, make decisions, and evolve together without defaulting to rigid hierarchy or static rules.
 
+The name "Compass" is an homage to the guiding principle **"Compasses over Maps"**—the conviction that navigating uncertainty requires directional orientation and adaptive judgment, not fixed routes or predetermined destinations.
+
 The Initiative explores questions such as:
 
 - How can institutions maintain coherence while remaining adaptive?
