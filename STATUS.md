@@ -103,8 +103,9 @@ Since our January meeting, we've made substantial progress on building the Chart
 
 **Website for Viewing Documents**
 - Built a simple website where people can read the Charter and related documents
-- Navigation bar links to all documents: README, Status, Charter, Curriculum, Registry Schema
-- Table of Contents sidebar on all pages for easy navigation within long documents
+- **Home page** displays README and Status side by side in two columns (stacks on mobile)
+- Navigation: Home, Charter, Curriculum, Registry Schema
+- Table of Contents sidebar for long documents (Charter, Curriculum, Registry Schema)
 - Collapsible sections—click any major heading to expand or collapse its content
 - Scroll tracking highlights your current position in the Table of Contents
 - "Back to top" button appears when scrolling down
