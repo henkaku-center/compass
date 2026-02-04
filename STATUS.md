@@ -37,6 +37,23 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Added "Bias Toward Action"—the art of getting things done (Section IV.2)
 - Added "Magic"—valuing what escapes measurement (Section II.4)
 
+**Major Content Completion (February 4, 2026 - late)**
+- Converted 14 placeholder sections to full Charter text:
+  - Preamble: scope, applicability, what Charter is not, living document nature
+  - II.1 Antidisciplinarity: definition, distinction from inter/transdisciplinary
+  - II.3 Human and AI: agency, accountability, agentic workflows, oversight
+  - II.5 Experimentation and Risk: legitimacy of failure, boundaries
+  - II.7 Openness with Discernment: when transparency vs. confidentiality
+  - II.8 Human Primacy: authority, accountability, legitimacy as human
+  - II.9 Coordination as Design Problem: failure modes to avoid
+  - IV.1 Project-Centered Learning: projects as learning unit, student agency
+  - V.2 Chiba Tech: host institution framing, operating within constraints
+  - V.3 Henkaku/SDS: distinct but coupled entities, different functions
+  - V.4 Boundary Management: context-dependent roles, authority transfer
+  - VI.1 Charter Stewardship: who proposes changes, review process
+  - VII.1 Living Nature: versioning, revision conditions, deprecation
+  - VII.2 Portability and Reuse: forking vs adoption, derivative obligations
+
 **Project Definition System**
 - Added a new Charter section requiring organizations to track their projects
 - Created a template that helps people define projects clearly by answering:
