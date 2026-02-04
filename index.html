@@ -12,19 +12,20 @@
   <meta property="og:title" content="Charter - Henkaku Center" />
   <meta property="og:description" content="A version-controlled living document articulating foundational values, governance principles, and operational practices for antidisciplinary coordination." />
   <meta property="og:url" content="https://charter.henkaku.center" />
-  <!-- <meta property="og:image" content="https://charter.henkaku.center/og-image.png" /> -->
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Charter - Henkaku Center" />
   <meta name="twitter:description" content="A version-controlled living document articulating foundational values, governance principles, and operational practices for antidisciplinary coordination." />
-  <!-- <meta name="twitter:image" content="https://charter.henkaku.center/og-image.png" /> -->
 
-  <!-- Minimal, readable styling -->
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 2rem;
+      padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont,
                    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
@@ -32,19 +33,169 @@
       background: #fff;
     }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding-top: 3rem;
+    /* Top navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      z-index: 100;
     }
 
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-links a.active {
+      font-weight: 600;
+      color: #000;
+    }
+
+    /* Main layout with sidebar */
+    .layout {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: calc(100vh - 60px);
+    }
+
+    /* Table of Contents sidebar */
+    .toc {
+      width: 280px;
+      flex-shrink: 0;
+      padding: 2rem 1rem 2rem 2rem;
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      border-right: 1px solid #e5e5e5;
+      display: none;
+    }
+
+    .toc.visible {
+      display: block;
+    }
+
+    .toc h4 {
+      margin: 0 0 1rem 0;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc li {
+      margin: 0;
+    }
+
+    .toc a {
+      display: block;
+      padding: 0.35rem 0.5rem;
+      text-decoration: none;
+      color: #555;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .toc a:hover {
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .toc a.active {
+      background: #e8f4ff;
+      color: #0066cc;
+      font-weight: 500;
+    }
+
+    .toc .toc-h2 {
+      font-weight: 600;
+      margin-top: 0.75rem;
+    }
+
+    .toc .toc-h3 {
+      padding-left: 1rem;
+      font-size: 0.8rem;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      min-width: 0;
+      padding: 2rem;
+      max-width: 900px;
+    }
+
+    .layout:not(.has-toc) main {
+      margin: 0 auto;
+    }
+
+    /* Typography */
     h1, h2, h3 {
       line-height: 1.25;
       margin-top: 2.5rem;
+      scroll-margin-top: 80px;
     }
 
     h1 {
       margin-top: 0;
+    }
+
+    h2 {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    /* Collapsible sections */
+    .section-header {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-header::before {
+      content: "▼";
+      font-size: 0.7em;
+      color: #999;
+      transition: transform 0.2s;
+    }
+
+    .section-header.collapsed::before {
+      transform: rotate(-90deg);
+    }
+
+    .section-content {
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .section-content.collapsed {
+      max-height: 0 !important;
     }
 
     hr {
@@ -73,61 +224,7 @@
       overflow-x: auto;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e5e5;
-      z-index: 100;
-    }
-
-    .nav-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0.75rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #333;
-    }
-
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 5rem;
-      padding: 2rem 0 1rem 0;
-      border-top: 1px solid #e5e5e5;
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    .footer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-inner a {
-      color: #555;
-      text-decoration: none;
-    }
-
-    .footer-inner a:hover {
-      text-decoration: underline;
-    }
-
-    /* HTML comment styling - light and distinguished */
+    /* HTML comment styling */
     .html-comment {
       margin: 1.5rem 0;
       padding: 1rem 1.25rem;
@@ -144,15 +241,88 @@
       font-style: normal;
       opacity: 0.5;
     }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 50;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #555;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 5rem;
+      padding: 2rem 0 1rem 0;
+      border-top: 1px solid #e5e5e5;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-inner a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .toc {
+        display: none !important;
+      }
+
+      .layout {
+        display: block;
+      }
+
+      main {
+        padding: 1.5rem;
+      }
+    }
   </style>
 
-  <!-- Marked.js (Markdown parser) -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <nav>
     <div class="nav-inner">
-      <strong>Antidisciplinary Charter</strong>
+      <strong>Charter</strong>
       <div class="nav-links">
         <a href="#readme">README</a>
         <a href="#status">Status</a>
@@ -162,9 +332,19 @@
       </div>
     </div>
   </nav>
-  <main id="content">
-    Loading…
-  </main>
+
+  <div class="layout" id="layout">
+    <aside class="toc" id="toc">
+      <h4>Contents</h4>
+      <ul id="toc-list"></ul>
+    </aside>
+    <main id="content">
+      Loading…
+    </main>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+
   <footer>
     <div class="footer-inner">
       <a href="https://henkaku.center" target="_blank" rel="noopener noreferrer">
@@ -181,6 +361,10 @@
 
   <script>
     const contentEl = document.getElementById("content");
+    const tocEl = document.getElementById("toc");
+    const tocListEl = document.getElementById("toc-list");
+    const layoutEl = document.getElementById("layout");
+    const backToTopBtn = document.getElementById("back-to-top");
 
     // Map hash fragments to document paths
     const routes = {
@@ -189,36 +373,39 @@
       'charter': 'docs/CHARTER.md',
       'curriculum': 'docs/CURRICULUM.md',
       'registry-schema': 'docs/REGISTRY_SCHEMA.md',
-      'schema': 'docs/REGISTRY_SCHEMA.md'  // Legacy route
+      'schema': 'docs/REGISTRY_SCHEMA.md'
     };
 
-    function loadDoc(path) {
-      // Add timestamp to bypass cache
+    // Documents that should show TOC (long documents)
+    const tocDocs = ['charter', 'registry-schema'];
+
+    let currentDoc = '';
+    let headings = [];
+
+    function loadDoc(path, docKey) {
+      currentDoc = docKey;
       const cacheBuster = `?t=${Date.now()}`;
+
       fetch(path + cacheBuster, { cache: 'no-store' })
         .then(response => {
-          if (!response.ok) {
-            throw new Error(`Failed to load ${path}`);
-          }
+          if (!response.ok) throw new Error(`Failed to load ${path}`);
           return response.text();
         })
         .then(markdown => {
-          // Extract and preserve HTML comments for light rendering
+          // Extract and preserve HTML comments
           const commentPlaceholders = [];
           let processedMarkdown = markdown.replace(/<!--([\s\S]*?)-->/g, (match, content) => {
             const index = commentPlaceholders.length;
             commentPlaceholders.push(content.trim());
-            // Use an HTML comment as placeholder so it survives markdown parsing
             return `<!--PLACEHOLDER_${index}-->`;
           });
 
           // Parse markdown
           let html = marked.parse(processedMarkdown);
 
-          // Replace HTML comment placeholders with styled comment divs
+          // Replace comment placeholders
           commentPlaceholders.forEach((content, index) => {
             const placeholder = `<!--PLACEHOLDER_${index}-->`;
-            // Escape any HTML in the comment content for safe display
             const escapedContent = content
               .replace(/&/g, '&amp;')
               .replace(/</g, '&lt;')
@@ -229,6 +416,18 @@
           });
 
           contentEl.innerHTML = html;
+
+          // Add IDs to headings and build TOC
+          buildTOC();
+
+          // Make sections collapsible
+          makeCollapsible();
+
+          // Update active nav link
+          updateActiveNavLink(docKey);
+
+          // Scroll to top
+          window.scrollTo(0, 0);
         })
         .catch(error => {
           contentEl.innerHTML = "<p>Error loading document.</p>";
@@ -236,17 +435,138 @@
         });
     }
 
-    // Load document based on current hash
-    function loadFromHash() {
-      const hash = window.location.hash.slice(1) || 'readme'; // Remove # and default to readme
-      const path = routes[hash] || routes['readme'];
-      loadDoc(path);
+    function buildTOC() {
+      headings = [];
+      tocListEl.innerHTML = '';
+
+      const showToc = tocDocs.includes(currentDoc);
+      tocEl.classList.toggle('visible', showToc);
+      layoutEl.classList.toggle('has-toc', showToc);
+
+      if (!showToc) return;
+
+      const h2s = contentEl.querySelectorAll('h2');
+      const h3s = contentEl.querySelectorAll('h3');
+      const allHeadings = contentEl.querySelectorAll('h2, h3');
+
+      allHeadings.forEach((heading, index) => {
+        // Create ID from heading text
+        const text = heading.textContent;
+        const id = 'section-' + text.toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '')
+          .substring(0, 50);
+
+        heading.id = id;
+        headings.push({ id, el: heading, level: heading.tagName });
+
+        // Create TOC entry
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + id;
+        a.textContent = text;
+        a.classList.add('toc-' + heading.tagName.toLowerCase());
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          heading.scrollIntoView({ behavior: 'smooth' });
+          history.pushState(null, '', '#' + currentDoc);
+        });
+        li.appendChild(a);
+        tocListEl.appendChild(li);
+      });
     }
 
-    // Load initial document based on URL hash
+    function makeCollapsible() {
+      const h2s = contentEl.querySelectorAll('h2');
+
+      h2s.forEach(h2 => {
+        // Skip if already processed
+        if (h2.classList.contains('section-header')) return;
+
+        h2.classList.add('section-header');
+
+        // Collect all siblings until next h2 or end
+        const sectionContent = document.createElement('div');
+        sectionContent.classList.add('section-content');
+
+        let sibling = h2.nextElementSibling;
+        const siblings = [];
+
+        while (sibling && sibling.tagName !== 'H2') {
+          siblings.push(sibling);
+          sibling = sibling.nextElementSibling;
+        }
+
+        // Move siblings into section content div
+        siblings.forEach(s => sectionContent.appendChild(s));
+        h2.after(sectionContent);
+
+        // Toggle on click
+        h2.addEventListener('click', () => {
+          h2.classList.toggle('collapsed');
+          sectionContent.classList.toggle('collapsed');
+        });
+      });
+    }
+
+    function updateActiveNavLink(docKey) {
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        const href = a.getAttribute('href').slice(1);
+        a.classList.toggle('active', href === docKey);
+      });
+    }
+
+    // Scroll spy for TOC
+    function updateActiveTocLink() {
+      if (!tocEl.classList.contains('visible')) return;
+
+      let activeId = null;
+      const scrollTop = window.scrollY + 100;
+
+      for (let i = headings.length - 1; i >= 0; i--) {
+        if (headings[i].el.offsetTop <= scrollTop) {
+          activeId = headings[i].id;
+          break;
+        }
+      }
+
+      tocListEl.querySelectorAll('a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + activeId);
+      });
+    }
+
+    // Back to top button
+    function updateBackToTop() {
+      backToTopBtn.classList.toggle('visible', window.scrollY > 300);
+    }
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Throttled scroll handler
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) return;
+      scrollTimeout = setTimeout(() => {
+        updateActiveTocLink();
+        updateBackToTop();
+        scrollTimeout = null;
+      }, 50);
+    });
+
+    // Load document based on hash
+    function loadFromHash() {
+      const hash = window.location.hash.slice(1) || 'readme';
+      const docKey = Object.keys(routes).includes(hash) ? hash : 'readme';
+      const path = routes[docKey];
+      loadDoc(path, docKey);
+    }
+
+    // Initial load
     loadFromHash();
 
-    // Listen for hash changes (back/forward navigation, manual URL changes)
+    // Listen for hash changes
     window.addEventListener('hashchange', loadFromHash);
   </script>
 </body>
