@@ -406,9 +406,15 @@ This is not an argument for obscurity or contrarianism. Important problems deser
 
 ### 2. Registry and Coordination Infrastructure
 
-Organizations covered by this Charter must establish and maintain a **registry**—a shared platform for defining, submitting, and browsing active projects and initiatives.
+Organizations covered by this Charter must establish and maintain a **shared registry**—a common platform for defining, submitting, and browsing people, projects, and initiatives across the ecosystem.
 
-The registry serves as coordination infrastructure, making work visible and enabling participants to identify connections, gaps, and conflicts across the ecosystem. It tracks both bounded projects and ongoing initiatives, with appropriate accountability structures for each.
+The registry serves as coordination infrastructure, making work and people visible and enabling participants to identify connections, gaps, and potential collaborations. It tracks:
+
+- **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement in projects and initiatives
+- **Projects**: Bounded units of transformation with clear completion criteria
+- **Initiatives**: Ongoing programs without predetermined endpoints
+
+The shared nature of the registry is essential. A fragmented landscape of separate tracking systems undermines coordination. By maintaining a single, shared registry across Henkaku Center, SDS, and affiliated programs, participants can see who is working on what, identify potential collaborators, and understand how efforts relate to one another.
 
 **Projects as Bounded Units of Transformation**: Projects are distinguished from open-ended research programs or permanent organizational functions by their finite, mission-driven nature. Every project must articulate not only what it aims to achieve, but also what would make it complete.
 
@@ -420,6 +426,15 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 - **Initiatives** require ongoing justification and are evaluated on whether they continue to serve their purpose
 
 Both projects and initiatives should be visible in coordination infrastructure, but they have different accountability structures. Projects end; initiatives persist until deliberately concluded or transformed.
+
+**People as Participants**: The registry tracks people participating in the ecosystem. For each person, the registry should capture:
+
+- **Identity and Affiliation**: Name, role category (as defined in Section V.1), and institutional affiliations
+- **Expertise and Interests**: Areas of knowledge, skills, and research interests that enable others to identify potential collaborators
+- **Current Involvement**: Active projects and initiatives the person is participating in, with their role in each
+- **Contact and Availability**: How to reach the person and their general availability for collaboration
+
+People appear in the registry not as isolated entries but as nodes in a network—connected to projects they lead or contribute to, initiatives they participate in, and other people they collaborate with. This relational view enables the coordination function the registry serves.
 
 #### Requirements
 
@@ -449,14 +464,17 @@ Projects should state *what would count as evidence of success or failure*, even
 - Identifying **overlapping scope** between projects (potential redundancy or collaboration opportunity)
 - Recognizing **distinctiveness** (how projects differ in approach, method, or aim)
 - Surfacing **incoherence** (where projects pursue conflicting goals or undermine each other)
+- Finding **potential collaborators** based on expertise, interests, and availability
+- Understanding **network structure**—who works with whom, which initiatives spawn which projects
 
 This analysis may be manual, computational, or hybrid, but it must be legible and actionable.
 
 #### Governance
 
-- The registry is a **coordination tool**, not an approval mechanism. Projects do not require permission to be listed, but listing signals accountability to Charter principles.
+- The registry is a **coordination tool**, not an approval mechanism. Projects and initiatives do not require permission to be listed, but listing signals accountability to Charter principles.
+- People are included in the registry upon joining Charter-covered programs. Participation in the registry is expected, not optional, as it enables the coordination function.
 - The registry does not replace formal institutional processes (course approvals, research ethics review, funding applications). It complements them.
-- Projects that violate Charter principles may be flagged for review, but the registry itself does not have enforcement authority.
+- Projects or initiatives that violate Charter principles may be flagged for review, but the registry itself does not have enforcement authority.
 
 #### Implementation
 

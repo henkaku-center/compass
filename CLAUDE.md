@@ -120,14 +120,18 @@ As of February 2026, all Charter sections contain full text. HTML comment placeh
 
 ### Section III.2: Registry and Coordination Infrastructure
 
-This Charter provision mandates that organizations establish a **registry**—a shared platform for defining, submitting, and browsing active projects and initiatives.
+This Charter provision mandates that organizations establish a **shared registry**—a common platform for defining, submitting, and browsing people, projects, and initiatives across the ecosystem.
+
+The registry tracks three types of entries:
+- **People**: Participants with their roles, expertise, affiliations, and involvement in projects/initiatives
+- **Projects**: Bounded units of transformation (finite, mission-driven, with clear completion criteria)
+- **Initiatives**: Ongoing programs (open-ended, without predetermined endpoints, evaluated on ongoing justification)
 
 Key requirements:
-- **Projects** as bounded units of transformation (finite, mission-driven, with clear completion criteria)
-- **Initiatives** as ongoing programs (open-ended, without predetermined endpoints, evaluated on ongoing justification)
-- Structured template with required fields: Intent, Scope, Temporal Bounds, Measurability & Completion, Participants, Dependencies, Status, Resources
+- Structured templates with required fields for each entry type
 - **"Measurability with forgiveness"** - recognizes systemic/cultural impacts may resist quantification but must still be evaluable
-- Platform support for identifying overlap, distinctiveness, and incoherence between projects and initiatives
+- Platform support for identifying overlap, distinctiveness, incoherence, potential collaborators, and network structure
+- Shared across Henkaku Center, SDS, and affiliated programs—not fragmented into separate systems
 
 ### PROJECT_SCHEMA.md
 
@@ -144,6 +148,20 @@ Key requirements:
 **Charter alignment**: Every schema field includes "Charter Mapping" showing how it implements specific Charter requirements.
 
 The schema positions PROJECT_SCHEMA.md as a natural, well-supported implementation of Charter principles rather than an arbitrary technical specification.
+
+### PERSON_SCHEMA.md
+
+`docs/PERSON_SCHEMA.md` implements the Charter's requirements for documenting people in the ecosystem.
+
+**Core framework**: Four questions that ground every person entry:
+1. Who is this person and what is their role?
+2. What expertise and interests do they bring?
+3. What are they currently working on?
+4. How can others reach and collaborate with them?
+
+**Schema structure**: Basic information, role/affiliation, expertise/interests, current involvement (projects and initiatives), contact/availability, status, links, and notes.
+
+**Privacy considerations**: The registry is a coordination tool, not a public directory. Access limited to participants; information should be professionally relevant and participant-controlled.
 
 ### INITIATIVE_SCHEMA.md
 
@@ -184,6 +202,12 @@ The schema positions PROJECT_SCHEMA.md as a natural, well-supported implementati
 - Designed for initiatives (ongoing, with review cycles instead of completion)
 - Should maintain parallel structure with Project Schema where appropriate
 - Charter Mapping column helps verify alignment
+
+**Person Schema** (`docs/PERSON_SCHEMA.md`):
+- Must remain aligned with Charter Section III.2 requirements
+- Designed for people (participants in the ecosystem)
+- Links to Project and Initiative schemas via involvement fields
+- Includes privacy considerations—coordination tool, not public directory
 
 **Web viewer** (`index.html`):
 - Renders markdown using marked.js (CDN)

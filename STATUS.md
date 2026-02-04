@@ -63,9 +63,13 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Distinguished between "projects" (bounded, with completion criteria) and "initiatives" (ongoing programs)
 
 **Registry and Coordination Infrastructure**
-- Added a Charter section (III.2) requiring organizations to track projects and initiatives
-- Created Project Schema template for bounded projects with completion criteria
-- Created Initiative Schema template for ongoing programs with review cycles
+- Added a Charter section (III.2) requiring a shared registry for people, projects, and initiatives
+- Registry must be shared across Henkaku Center, SDS, and affiliated programs—not fragmented
+- Created three schema templates:
+  - Person Schema: participants with roles, expertise, affiliations, and involvement
+  - Project Schema: bounded projects with completion criteria
+  - Initiative Schema: ongoing programs with review cycles
+- All three schemas interoperate—people link to projects and initiatives they're involved in
 - Created a template that helps people define projects clearly by answering:
   - What problem are you addressing?
   - What will you build or change?
