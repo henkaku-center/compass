@@ -32,18 +32,31 @@ This Charter is designed to evolve. It is maintained under version control, with
 
 ## I. Foundational Orientations
 
-**RESILIENCE** over strength.
-**SYSTEMS** over objects.
-**DISOBEDIENCE** over compliance.
-**PULL** over push.
-**COMPASSES** over maps.
-**EMERGENCE** over authority.
-**RISK** over safety.
-**PRACTICE** over theory.
-**LEARNING** over education.
-**SUSTAINABILITY** over growth.
-**PUBLIC** over individuals.
-**MODULAR** over monolithic.
+These twelve orientations define the directional commitments of this Charter. They are not absolute rules but preferences along contested axes—indicating which direction to lean when trade-offs arise.
+
+- **RESILIENCE over strength.** Strength resists force until it breaks. Resilience absorbs shocks, adapts, and recovers. In institutions, this means designing for recovery from failure rather than preventing all failure; building systems that bend rather than shatter.
+
+- **SYSTEMS over objects.** Problems and solutions exist within interconnected systems, not as isolated objects. Interventions have ripple effects; optimizing one component may damage the whole. Think in relationships, feedback loops, and emergent properties.
+
+- **DISOBEDIENCE over compliance.** Progress often requires refusing to accept constraints that others take for granted. Compliance maintains the status quo; disobedience creates possibility. Question rules, challenge assumptions, and be willing to break conventions when they no longer serve.
+
+- **PULL over push.** Attract participation rather than mandating it. Create conditions where people want to engage rather than forcing engagement. Pull works through inspiration and invitation; push works through obligation and control.
+
+- **COMPASSES over maps.** Maps assume known terrain; compasses work when the territory is unmapped. In uncertain environments, direction matters more than detailed plans. Maintain orientation toward goals while remaining flexible about paths.
+
+- **EMERGENCE over authority.** Let solutions arise from collective intelligence rather than top-down direction. Trust that groups often know more than individuals, and that the best ideas may come from unexpected sources. Authority should enable emergence, not replace it.
+
+- **RISK over safety.** Excessive caution is its own form of failure. Taking calculated risks—with appropriate accountability—is how progress happens. An environment where nothing fails is an environment where nothing new is tried.
+
+- **PRACTICE over theory.** Ideas must survive contact with reality. Theory informs practice, but practice tests and refines theory. Prioritize doing over planning, building over specifying, learning from attempts over perfecting designs.
+
+- **LEARNING over education.** Education is what institutions provide; learning is what individuals do. Focus on creating conditions for genuine learning rather than delivering educational content. The goal is transformation, not transmission.
+
+- **SUSTAINABILITY over growth.** Growth without sustainability exhausts resources and creates fragility. Prioritize what can be maintained over what can be maximized. Build for the long term; resist the pressure to scale at the expense of durability.
+
+- **PUBLIC over individuals.** Individual benefit matters, but public benefit matters more. When private and public interests conflict, lean toward the public. Create value that accrues broadly, not just to those directly involved.
+
+- **MODULAR over monolithic.** Monolithic systems are efficient until they fail; then they fail completely. Modular systems are more robust: components can be replaced, updated, or removed without bringing down the whole. Design for interoperability and graceful degradation.
 
 ---
 

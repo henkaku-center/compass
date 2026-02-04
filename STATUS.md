@@ -39,8 +39,14 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Revised Section II.3 (Human and AI) to emphasize symbiosis and collaboration, not just constraints
 - Renamed Section II.4 to "Complexity and Magic" (was "Intellectual Integrity")
 - Added new Section II.5 "Intellectual Integrity" with antidisciplinary-specific obligations: intellectual humility, honest engagement with other fields, attribution, calibrated claims, collaboration integrity
-- Added "Global Institution, Japanese Roots" to Section II.7 with key Japanese concepts (*wa*, *ma*, *aimai*, *wabi-sabi*, *monozukuri*) and global/local integration framing
-- Section II now has 9 subsections (was 8 after earlier merge)
+- Added "Global Institution, Japanese Roots" with key Japanese concepts (*wa*, *ma*, *aimai*, *wabi-sabi*, *monozukuri*) and global/local integration framing
+- Split Section II.7 into two focused sections:
+  - II.7 "Neurodiversity and Inclusion" (accessibility and cognitive diversity)
+  - II.8 "Cultural Identity and Global Orientation" (Japanese context + global engagement)
+- Section II now has 10 subsections
+- Added explanations to all 12 foundational orientations (Section I)
+- Added "In practice" explanations to all 6 balancing dichotomies (Section I)
+- Simplified Section III.2 (Registry) from ~80 lines to ~30 lines—moved detailed specifications to REGISTRY_SCHEMA.md
 
 **Curriculum Documentation**
 - Created CURRICULUM.md documenting SDS Master's and PhD programs
@@ -55,8 +61,8 @@ Since our January meeting, we've made substantial progress on building the Chart
   - II.1 Antidisciplinarity: definition, distinction from inter/transdisciplinary
   - II.3 Human and Artificial Intelligence: symbiosis, accountability in partnership, designing for collaboration, boundaries
   - II.6 Experimentation and Risk: legitimacy of failure, boundaries
-  - II.8 Openness with Discernment: when transparency vs. confidentiality
-  - II.9 Coordination as Design Problem: failure modes to avoid
+  - II.9 Openness with Discernment: when transparency vs. confidentiality
+  - II.10 Coordination as Design Problem: failure modes to avoid
   - IV.1 Project-Centered Learning: projects as learning unit, student agency
   - V.2 Chiba Tech: host institution framing, operating within constraints
   - V.3 Henkaku/SDS: distinct but coupled entities, different functions
