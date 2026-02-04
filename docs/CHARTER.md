@@ -4,13 +4,6 @@
 
 ## Preamble
 
-<!--
-Purpose:
-- State the scope and intent of this Charter.
-- Specify who this Charter applies to (institutions, affiliates, researchers, collaborators).
-- Clarify what this Charter is *not* (e.g., not a legal contract, not a policy manual, not branding).
--->
-
 This Charter articulates the foundational values, governance principles, and operational commitments shared across the Henkaku Center, the Graduate School of Design & Science (SDS), and affiliated programs within Chiba Institute of Technology.
 
 **Scope and Applicability**
@@ -38,17 +31,6 @@ This Charter is designed to evolve. It is maintained under version control, with
 ---
 
 ## I. Foundational Orientations
-
-<!--
-These conceptual orientations define the guiding ethos of the organizations
-covered by this Charter in conceptual space. Each principle represents a
-directional orientation along a contested axis—a deliberate choice about what
-we prioritize.
-
-These are not absolute rules but preferential tensions. "Resilience over
-strength" does not reject strength, but signals that resilience is the primary
-optimization target.
--->
 
 **RESILIENCE** over strength.  
 強さではなく、しなやかさを持つ。
@@ -110,12 +92,6 @@ These are not compromises or midpoints. They are both/and commitments—holding 
 
 ### 1. Antidisciplinarity
 
-<!--
-Define antidisciplinarity.
-Clarify how it differs from interdisciplinarity and transdisciplinarity.
-Explain when disciplinary rigor is required and when it is intentionally suspended.
--->
-
 Antidisciplinarity describes work that operates outside and between established academic disciplines—not by combining disciplines, but by refusing to be constrained by disciplinary boundaries in the first place.
 
 **Distinction from Related Approaches**
@@ -140,12 +116,6 @@ The most important problems often live in the white space between disciplines—
 
 ### 2. Radical Transformation
 
-<!--
-Define "radical transformation" as structural, not cosmetic, change.
-Clarify the difference between incremental improvement and transformation at the level of systems, institutions, and coordination mechanisms.
-State that radical transformation is pursued deliberately, cautiously, and with awareness of second-order effects.
--->
-
 **Human Flourishing as the Aim**
 
 The purpose of transformation is not change for its own sake, but the cultivation of conditions under which humans can flourish. This Charter commits to an understanding of flourishing that encompasses—but extends beyond—productivity, efficiency, and skill acquisition.
@@ -155,27 +125,6 @@ Flourishing includes the development of capacities for meaning-making, ethical j
 This framing has practical implications: when evaluating programs, projects, and institutional decisions, the question is not only "does this work?" but "does this contribute to the flourishing of those involved and affected?" Transformation that optimizes narrow metrics while undermining wellbeing, relationships, or meaning is not radical transformation—it is misdirection.
 
 ### 3. Human and Artificial Intelligence
-
-<!--
-This section establishes how human and artificial intelligence interact
-within the scope of this Charter.
-
-Key principles to articulate here:
-
-- Artificial intelligence systems do not possess moral, legal, or institutional agency.
-  They may act within defined workflows, but they do not bear responsibility or authority.
-- Human agency may be amplified through computational and agentic systems,
-  but it may not be transferred or abdicated.
-- Every decision, action, or outcome produced with the assistance of AI
-  must have a clear and identifiable line of human accountability.
-- Agentic workflows are treated as designed coordination systems,
-  including their interfaces, constraints, feedback loops, and escalation paths.
-- As system autonomy increases, requirements for oversight, legibility,
-  auditability, and intervention increase proportionally.
-
-Ambiguity of responsibility in human–machine systems is considered a
-design failure and must be addressed through governance, tooling, or process.
--->
 
 This Charter establishes principles for how human and artificial intelligence interact within the ecosystem.
 
@@ -214,11 +163,6 @@ As system autonomy increases, requirements for oversight, legibility, auditabili
 
 ### 4. Intellectual Integrity
 
-<!--
-Commitments to truth-seeking, clarity, and rigor.
-Distinguish speculation, research, and deployment.
--->
-
 **Resisting Reduction**
 
 The world is complex, and this Charter resists the impulse to reduce that complexity to easy answers or suspiciously straightforward solutions. Problems worth solving are rarely simple; they are interconnected, context-dependent, and adaptive to changing conditions.
@@ -255,11 +199,6 @@ This is not an excuse for vagueness or an argument against rigor. It is a remind
 
 ### 5. Experimentation and Risk
 
-<!--
-Legitimacy of experimentation and failure.
-Boundaries on experimentation involving people, institutions, or public trust.
--->
-
 Experimentation is legitimate and necessary. Progress requires trying things that might not work, and learning from both success and failure.
 
 **The Legitimacy of Failure**
@@ -287,11 +226,6 @@ The legitimacy of experimentation does not override responsibilities to:
 The goal is appropriate risk: proportionate to potential benefit, bounded by ethical constraints, and taken with clear accountability for outcomes.
 
 ### 6. Cultural and Contextual Respect
-
-<!--
-Role of Japanese cultural context as a constraint and resource.
-Approach to global collaboration without cultural flattening.
--->
 
 **Neurodiversity and Cognitive Difference**
 
@@ -327,12 +261,6 @@ As technical work increasingly involves shaping AI behavior and communicating in
 Programs covered by this Charter are encouraged to integrate awareness practices into education and research—not as mandatory spiritual exercises, but as legitimate methods for developing capacities that conventional curricula often neglect.
 
 ### 7. Openness with Discernment
-
-<!--
-When openness and transparency are required.
-When discretion or confidentiality is necessary.
-Tradeoffs between transparency and potential harm.
--->
 
 Openness is a default, not an absolute. Transparency supports accountability, collaboration, and trust. But openness requires judgment about what to share, when, and with whom.
 
@@ -373,12 +301,6 @@ The goal is thoughtful openness—sharing by default, protecting when necessary,
 
 ### 8. Human Primacy and Responsibility
 
-<!--
-Assert that authority, accountability, and legitimacy are irreducibly human.
-Clarify roles of individuals vs institutions.
-Explicitly state limits on delegation to computational or automated systems.
--->
-
 Authority, accountability, and legitimacy are irreducibly human. This is not merely a preference but a structural commitment that shapes how this ecosystem operates.
 
 **Authority Remains Human**
@@ -409,12 +331,6 @@ Certain functions may not be delegated to automated systems without human oversi
 Automation may inform these decisions but may not make them. The human in the loop must have genuine understanding and genuine authority, not merely nominal sign-off on predetermined outcomes.
 
 ### 9. Coordination as a Design Problem
-
-<!--
-Frame coordination as a first-order object of inquiry.
-Explain why institutions, processes, and incentives must be designed.
-Identify common coordination failure modes this ecosystem seeks to avoid.
--->
 
 Coordination—how groups align, make decisions, and work together—is not a background condition to be assumed. It is a first-order object of inquiry and a domain requiring explicit design.
 
@@ -453,13 +369,6 @@ Coordination is never finished. It requires ongoing attention, evaluation, and a
 ## III. Research Practice
 
 ### 1. Project-Centered Inquiry
-
-<!--
-Define projects as the unit of research inquiry.
-Criteria for a legitimate research project.
-Project lifecycle: initiation, evolution, completion, and archival.
-Relationship between research projects and academic outputs.
--->
 
 **Data Humanism**
 
@@ -553,13 +462,6 @@ This analysis may be manual, computational, or hybrid, but it must be legible an
 
 ### 1. Project-Centered Learning
 
-<!--
-Define projects as the unit of learning and pedagogy.
-Criteria for a legitimate educational project.
-Relationship between learning projects and academic assessment.
-Student agency and ownership in project selection and execution.
--->
-
 Projects are the fundamental unit of learning in programs covered by this Charter. Students learn not primarily through courses, lectures, or readings, but through engagement with bounded projects that produce real outcomes.
 
 **What Makes a Legitimate Educational Project**
@@ -596,12 +498,6 @@ Assessment in project-centered learning evaluates:
 Traditional metrics—exams, grades, credit hours—may be necessary for institutional compatibility but should not drive pedagogy. The question is not "what grade did this earn?" but "what did the student learn, and how is that learning demonstrated?"
 
 ### 2. Learning Through Making and Doing
-
-<!--
-Role of prototypes, artifacts, simulations, and interventions in education.
-Expectation of reflection, documentation, and learning capture.
-Integration of theory and practice in project-based learning.
--->
 
 **Vocational Orientation**
 
@@ -655,13 +551,6 @@ This principle draws from craft traditions where the maker's presence remains vi
 In educational contexts, this means valuing works-in-progress, documenting process alongside product, and creating space for the slow development of craft. In research contexts, it means treating methodology as substantive intellectual contribution, not merely scaffolding to be discarded once results are obtained.
 
 ### 3. Use of Computational and Agentic Systems
-
-<!--
-AI and agentic systems as tools within human-led workflows (research and education).
-Explicit prohibitions on delegating authority or accountability.
-Requirements for legibility, auditability, and oversight.
-Role of AI in augmenting but not replacing human learning and inquiry.
--->
 
 Educational programs covered by this Charter integrate AI as a foundational assumption, not an optional enhancement. Students must learn to work effectively with AI tools while developing capacities that remain uniquely human.
 
@@ -728,17 +617,6 @@ These categories are not mutually exclusive beyond the structural constraints no
 
 ### 2. Chiba Institute of Technology (Host Institution)
 
-<!--
-Describe Chiba Tech as the host institution that provides legal standing,
-infrastructure, and long-term continuity.
-
-Acknowledge that while Chiba Tech is forward-looking, it necessarily
-operates under constraints of scale, regulation, and tradition.
-
-State that antidisciplinary and experimental work is pursued within
-these constraints, not in opposition to them.
--->
-
 Chiba Institute of Technology serves as the host institution for the Henkaku Center and SDS, providing legal standing, infrastructure, and long-term continuity.
 
 Founded in 1942 as Kōa Institute of Technology, Chiba Tech is Japan's oldest private technology institute, with approximately 10,000 students across undergraduate, graduate, and vocational programs. It brings institutional stability, established administrative systems, and deep roots in Japanese engineering education.
@@ -776,19 +654,6 @@ In-person activities of the Henkaku Center and SDS should be primarily based at 
 Off-campus events, external venue meetings, and remote participation are permissible and sometimes necessary. However, good faith effort should be made to hold activities at Tsudanuma whenever reasonably possible. The default assumption is on-campus presence; departures from this default should have clear justification (venue requirements, partner convenience, accessibility needs, or similar considerations).
 
 ### 3. Henkaku Center and Graduate School of Design & Science (SDS)
-
-<!--
-Describe Henkaku Center and SDS as distinct but closely coupled entities.
-
-Clarify that:
-- Henkaku Center functions as a research and experimentation arm,
-  supporting exploratory work, infrastructure, and cross-cutting initiatives.
-- SDS functions as the academic arm, responsible for curriculum,
-  degrees, and student learning.
-
-State that faculty and students may participate in both contexts,
-but that governance, accountability, and evaluation differ by role.
--->
 
 The Henkaku Center and the Graduate School of Design & Science (SDS) are distinct but closely coupled entities within the Chiba Tech ecosystem.
 
@@ -830,16 +695,6 @@ The entities share values, leadership, and many participants, but maintain disti
 
 ### 4. Interaction, Flow, and Boundary Management
 
-<!--
-Describe how students, faculty, and researchers may move between
-SDS and Henkaku Center contexts.
-
-Emphasize that:
-- Roles and expectations are context-dependent
-- Authority does not automatically transfer across contexts
-- Transparency and role clarity are required when operating across boundaries
--->
-
 Participants in this ecosystem frequently operate across institutional boundaries—between SDS and Henkaku Center, between academic and research roles, between internal work and external engagement. Managing these boundaries requires explicit attention.
 
 **Context-Dependent Roles and Expectations**
@@ -874,12 +729,6 @@ The goal is not rigid separation—productive coupling requires fluid movement a
 
 ### 5. Affiliates, Visiting Researchers, and External Partners
 
-<!--
-Expectations for alignment with this Charter.
-Rights and responsibilities of affiliation.
-Norms for exit, disengagement, and dissociation.
--->
-
 **Industry Integration**
 
 This Charter encourages active collaboration with industry partners, including joint supervision of students shared between companies and the institution. Such arrangements recognize that:
@@ -907,12 +756,6 @@ Alignment does not require agreement on all matters, but it does require good fa
 ## VI. Governance and Stewardship
 
 ### 1. Stewardship of the Charter
-
-<!--
-Who may propose changes.
-How changes are reviewed and evaluated.
-Role of precedent and version history.
--->
 
 This Charter is a living document requiring active stewardship. Changes should be possible when needed, but not so easy that the document loses stability and authority.
 
@@ -959,12 +802,6 @@ The Charter text is primary, but the history of its application provides context
 
 ### 2. Decision-Making Principles
 
-<!--
-When consensus is required.
-When delegated authority is appropriate.
-How disagreements and irreconcilable views are handled.
--->
-
 Organizations covered by this Charter operate as **decentralized, horizontally-structured communities** where authority derives from commitment to execution rather than formal designation. This approach recognizes that coordination without rigid hierarchy requires explicit design.
 
 **Horizontal Authority**
@@ -1008,12 +845,6 @@ This approach produces working groups that are both small (through self-selectio
 
 ### 3. Conflict, Accountability, and Repair
 
-<!--
-Processes for addressing harm or misconduct.
-Distinction between personal conflict and institutional failure.
-Emphasis on repair over punishment-first responses.
--->
-
 **Non-Antagonistic Engagement**
 
 This Charter embraces a distinctive stance toward disagreement and change: engagement through invitation and demonstration rather than opposition and critique. This does not mean avoiding conflict or suppressing disagreement—it means choosing how to engage with difference.
@@ -1037,11 +868,6 @@ The aim is a community that can hold difference, work through conflict, and emer
 ## VII. Evolution and Adaptation
 
 ### 1. Living Nature of the Charter
-
-<!--
-Versioning and historical traceability.
-Conditions for revision, deprecation, or removal of sections.
--->
 
 This Charter is designed to evolve. Unlike traditional institutional documents that are drafted once and archived, this Charter is maintained as a living document under version control.
 
@@ -1088,12 +914,6 @@ The Charter should be stable enough to provide reliable guidance and flexible en
 
 ### 2. Portability and Reuse
 
-<!--
-Conditions under which this Charter may be reused or adapted elsewhere.
-Forking vs adoption.
-Obligations of derivative charters.
--->
-
 This Charter is designed to be portable. Other organizations may find value in adapting its principles for their own contexts.
 
 **Conditions for Reuse**
@@ -1131,12 +951,6 @@ The goal is to enable a family of related Charters that share common ancestry wh
 ## VIII. Closing Provisions
 
 ### 1. Authority and Interpretation
-
-<!--
-What this Charter authorizes.
-What it explicitly does not authorize.
-Relationship to formal university governance and applicable law.
--->
 
 This Charter has no formal legal authority. It does not create enforceable obligations, override institutional policies, or supersede applicable law. It is a normative document—an articulation of shared values, commitments, and expectations that should continuously influence culture, decision-making, and policy development.
 
@@ -1177,11 +991,6 @@ When Charter provisions are ambiguous, interpretation should be guided by:
 Interpretive disputes that cannot be resolved through consultation should be escalated to the Director of the Henkaku Center.
 
 ### 2. Ratification and Acknowledgement
-
-<!--
-How individuals and institutions acknowledge alignment.
-Non-coercive nature of adoption.
--->
 
 **Initial Ratification**
 
@@ -1227,14 +1036,6 @@ The Charter is a living commitment, renewed through ongoing engagement rather th
 ---
 
 ## Appendices
-
-<!--
-Optional sections, to be added or removed over time:
-- Glossary of Terms
-- Historical Notes and Rationale
-- Case Studies and Precedents
-- Experimental Governance Mechanisms
--->
 
 Appendices may be added over time to supplement the core Charter with:
 
