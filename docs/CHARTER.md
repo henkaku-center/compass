@@ -118,6 +118,22 @@ Commitments to truth-seeking, clarity, and rigor.
 Distinguish speculation, research, and deployment.
 -->
 
+**Resisting Reduction**
+
+The world is complex, and this Charter resists the impulse to reduce that complexity to easy answers or suspiciously straightforward solutions. Problems worth solving are rarely simple; they are interconnected, context-dependent, and adaptive to changing conditions.
+
+Resisting reduction means:
+
+- **Embracing nuance**: Acknowledging ambiguity, variation, and contested interpretations rather than flattening them into false clarity. When reality is messy, our representations of it should preserve that messiness rather than pretend it away.
+
+- **Questioning quantification**: The tendency to treat everything as countable—and therefore monetizable or optimizable—comes from industrial-era thinking that renders reality into ones and zeroes. Not everything that matters can be measured, and not everything that can be measured matters. Numbers are tools, not truths.
+
+- **Holding multiple frames**: Complex situations often require multiple explanatory frameworks that cannot be fully reconciled. Intellectual integrity means being able to work within a frame while remaining aware of its limitations and the validity of alternative perspectives.
+
+- **Resisting premature closure**: The pressure to have answers, make decisions, and move on often leads to conclusions that foreclose better understanding. Staying with uncertainty longer than is comfortable often produces better outcomes than rushing to resolution.
+
+This is not an argument against clarity or decisiveness. Resisting reduction is compatible with taking action under uncertainty—it simply requires honesty about what we don't know and humility about the limits of our models.
+
 ### 5. Experimentation and Risk
 
 <!--
@@ -201,6 +217,22 @@ Criteria for a legitimate research project.
 Project lifecycle: initiation, evolution, completion, and archival.
 Relationship between research projects and academic outputs.
 -->
+
+**Data Humanism**
+
+Research covered by this Charter adopts a humanistic approach to data—recognizing that data is always shaped by human hands, carrying the fingerprints and biases of its creators. Despite appearances of objectivity, data is physical material formed by human agency. The hand of its creator is always present.
+
+This perspective has practical implications:
+
+- **Context matters**: The relationships and circumstances *between* data points are often more important than the points themselves. This "warm data"—the context, the story, the human situation—is rarely captured in standard visualizations but is fundamental to understanding causality and meaning.
+
+- **Collection is interpretation**: How data is gathered, categorized, and cleaned involves countless decisions that shape what can later be seen. Acknowledging this does not undermine data's value; it makes interpretation more honest.
+
+- **Representation is rhetorical**: Charts, graphs, and dashboards are not neutral windows onto reality. They are arguments, crafted by people with perspectives. Reading data visualizations critically—asking who made this, what choices were made, what is not shown—is a research skill.
+
+- **Qualitative and quantitative are complementary**: Numbers without narrative are incomplete; narrative without evidence is speculation. Good research moves between modes, using each to check and enrich the other.
+
+Data humanism does not reject quantification—it refuses to let quantification obscure the human realities it attempts to represent. The goal is not less data but more honest engagement with what data can and cannot tell us.
 
 ### 2. Project Registry and Coordination Infrastructure
 
@@ -293,6 +325,22 @@ In practice, this means:
 - The pursuit of elegance often reveals simpler, better solutions
 
 Students learn to integrate design thinking with technical implementation from the beginning, not as a separate phase or specialty.
+
+**Process as Content**
+
+The unique identity of a work is expressed not only through what it is, but through how it was made. Process is not merely a means to an end—it is itself content, carrying meaning and value independent of the final artifact.
+
+This principle draws from craft traditions where the maker's presence remains visible in the work:
+
+- **Indexical traces**: The evidence of human hands—brush strokes, tool marks, variations in rhythm—conveys authenticity and care that machine-perfect uniformity cannot. These traces are not flaws to be eliminated but signatures to be valued.
+
+- **Visible repair**: The Japanese tradition of kintsugi—repairing broken pottery with gold—exemplifies how damage and restoration can become part of an object's beauty and meaning. Work that shows its history, including its failures and repairs, tells a richer story than work that hides its past.
+
+- **Tacit knowledge transmission**: Some knowledge cannot be fully articulated in words or diagrams; it must be transmitted through practice, demonstration, and apprenticeship. Making things together is a way of sharing understanding that documentation alone cannot capture.
+
+- **Process-intensive learning**: Students learn not just by producing outputs but by engaging in processes—iteration, revision, collaboration, failure, repair. The discipline of sustained making develops capacities that no amount of reading or discussion can substitute.
+
+In educational contexts, this means valuing works-in-progress, documenting process alongside product, and creating space for the slow development of craft. In research contexts, it means treating methodology as substantive intellectual contribution, not merely scaffolding to be discarded once results are obtained.
 
 ### 3. Use of Computational and Agentic Systems
 
@@ -516,6 +564,24 @@ Processes for addressing harm or misconduct.
 Distinction between personal conflict and institutional failure.
 Emphasis on repair over punishment-first responses.
 -->
+
+**Non-Antagonistic Engagement**
+
+This Charter embraces a distinctive stance toward disagreement and change: engagement through invitation and demonstration rather than opposition and critique. This does not mean avoiding conflict or suppressing disagreement—it means choosing how to engage with difference.
+
+Non-antagonistic engagement reflects several commitments:
+
+- **Future-oriented optimism**: Energy directed toward building what should exist, rather than primarily attacking what currently does. Critique has its place, but construction is the primary mode.
+
+- **Assuming good faith**: Beginning from the assumption that those who disagree may have legitimate reasons, different information, or different values—not that they are malicious or stupid. This assumption can be revised with evidence, but it is the starting point.
+
+- **Invitation over coercion**: Change happens most durably when people choose it. Persuasion, demonstration, and creating attractive alternatives are preferred to force, shame, or exclusion. People who aren't ready to join aren't enemies.
+
+- **Holding disagreement without rupture**: It is possible to disagree profoundly while maintaining relationship and mutual respect. Not every conflict requires resolution; some require only management. The goal is productive coexistence, not ideological uniformity.
+
+This stance is not naivety or conflict avoidance. Some situations require direct confrontation; some actors operate in bad faith; some harms demand clear opposition. But antagonism as a *default mode*—treating disagreement as combat, seeking to defeat rather than persuade—is corrosive to the collaborative culture this Charter seeks to build.
+
+The aim is a community that can hold difference, work through conflict, and emerge with relationships intact.
 
 ---
 

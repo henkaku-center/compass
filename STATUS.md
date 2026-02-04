@@ -28,6 +28,10 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Added curriculum agility requirement—programs must iterate with AI advances (Section IV.3)
 - Added metacognitive development—learning to recognize AI failures (Section IV.3)
 - Added industry integration model with joint supervision expectations (Section V.5)
+- Added "Resisting Reduction" principle—embracing complexity, questioning quantification (Section II.4)
+- Added "Data Humanism" research methodology—warm data, context, human fingerprints on data (Section III.1)
+- Added "Non-Antagonistic Engagement"—future-oriented optimism, invitation over coercion (Section VI.3)
+- Added "Process as Content"—visible craft, kintsugi principle, tacit knowledge (Section IV.2)
 
 **Project Definition System**
 - Added a new Charter section requiring organizations to track their projects
