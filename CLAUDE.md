@@ -14,7 +14,8 @@ Unlike traditional static charters (PDFs or archived documents), this Charter is
 charter/
 ├── docs/                      # Primary Charter documents
 │   ├── CHARTER.md             # Main Charter document
-│   └── REGISTRY_SCHEMA.md     # Unified schema for people, projects, initiatives
+│   ├── REGISTRY_SCHEMA.md     # Unified schema for people, projects, initiatives
+│   └── CURRICULUM.md          # SDS Master's and PhD curriculum
 ├── reference/                 # Historical versions and reference materials
 │   ├── 20260123_charter.md    # SDS founding precepts (v0.2.0, Dec 2025)
 │   ├── 20260120_Charter_v0.pdf
@@ -42,7 +43,7 @@ The Charter exists in multiple forms and representations:
 
 **Supporting Materials:**
 - `README.md` - Public documentation explaining purpose, governance model, and institutional context
-- `index.html` - Static web viewer using marked.js to render markdown (serves README, Status, Charter, and Registry Schema)
+- `index.html` - Static web viewer using marked.js to render markdown (serves README, Status, Charter, Curriculum, and Registry Schema)
 - `reference/20260123_charter.md` - Historical SDS founding precepts (v0.2.0 from December 2025)
 
 **Key principle**: The Charter is a living document. Version control tracks how institutional principles evolve, making "institutional drift" visible and auditable.
@@ -188,7 +189,7 @@ Key requirements:
 - Renders markdown using marked.js (CDN)
 - Extracts HTML comments and displays them with light styling
 - Cache-busting ensures fresh content on every load
-- Navigation links: README, Status, Charter, Registry Schema
+- Navigation links: README, Status, Charter, Curriculum, Registry Schema
 
 ### Version Control Practices
 
@@ -226,10 +227,11 @@ The `index.html` file provides a static web viewer:
 - Cache-busting with timestamp query parameters prevents stale content
 - Open `index.html` directly in a browser or run local server: `python3 -m http.server 8000`
 
-Navigation provides access to four documents:
+Navigation provides access to five documents:
 - README (default view)
 - Status (STATUS.md)
 - Charter (docs/CHARTER.md)
+- Curriculum (docs/CURRICULUM.md)
 - Registry Schema (docs/REGISTRY_SCHEMA.md)
 
 ### Historical Context
