@@ -340,6 +340,47 @@ When delegated authority is appropriate.
 How disagreements and irreconcilable views are handled.
 -->
 
+Organizations covered by this Charter operate as **decentralized, horizontally-structured communities** where authority derives from commitment to execution rather than formal designation. This approach recognizes that coordination without rigid hierarchy requires explicit design.
+
+**Horizontal Authority**
+
+Authority and status are distributed rather than concentrated. Influence flows from demonstrated willingness to do work, not from positional power or informal designation. This creates legitimacy through action: those who commit time and effort to executing decisions earn authority to make them.
+
+**Group Formation and Participation Pathways**
+
+Working groups form through **explicit participation pathways** with clear execution commitments:
+
+- **Open Invitations**: Opportunities to participate in initiatives should be made explicit, even when uptake is expected to be small. Visibility of participation pathways prevents later "who decided this?" dynamics and establishes that membership is tied to work, not status.
+
+- **Self-Selection Through Commitment**: Invitations include specific time and execution requirements. This creates natural filtering—only those willing to do real work join, resulting in small, focused, accountable groups with clear legitimacy.
+
+- **Work-Based Membership**: Membership in decision-making groups is earned through willingness to contribute, not granted through informal designation or social proximity. This ties authority directly to accountability.
+
+- **Transparent Process**: Even if few people opt in, the existence of visible participation opportunities establishes fairness. Transparency in process supports small group size while maintaining legitimacy.
+
+**Decision-Making in Practice**
+
+Effective decision-making in horizontal structures balances focus with openness:
+
+- **Small, Accountable Groups**: Decision-making groups should remain small, especially where subjective judgment is involved (design, tone, framing). Size is controlled through execution commitment requirements, not arbitrary closure.
+
+- **Early Constraint Surfacing**: Openness early in processes helps surface technical, structural, and coordination constraints before decisions harden. This is particularly important when work has both subjective elements (design) and objective dimensions (architecture, maintenance, workflows).
+
+- **Focused but Not Closed**: Working groups stay focused by requiring commitment, not by being invitation-only or informally constituted. The distinction is critical: focused execution with transparent access, rather than informal designation.
+
+- **Preventing Drift**: Without explicit pathways and work-based membership, horizontal communities risk defaulting to informal power structures based on social proximity rather than contribution. Charter-governed organizations must actively design against this.
+
+**Legitimacy and Accountability**
+
+In decentralized settings, legitimacy requires:
+
+1. **Transparent Opportunities**: Participation pathways must be visible, even if not widely taken up
+2. **Commitment-Based Selection**: Authority tied to willingness to execute, not designation
+3. **Small Group Execution**: Actual work done by focused teams with accountability
+4. **Fair Process**: Openness in opportunity creation, focus in execution
+
+This approach produces working groups that are both small (through self-selection) and legitimate (through transparent access), avoiding the coordination failures of both diffuse committees and closed informal networks.
+
 ### 3. Conflict, Accountability, and Repair
 
 <!--
