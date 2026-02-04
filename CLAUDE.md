@@ -375,7 +375,8 @@ After completing work:
 
 This repository continues to evolve. Recent changes include:
 
-- Simplification of Charter title (from "Antidisciplinary Charter" to "Charter")
+- Renamed overall project from "Charter" to "Compass" (the Charter is now a component document within the Compass coordination infrastructure)
+- Simplification of Charter document title (from "Antidisciplinary Charter" to "Charter")
 - Consolidation of sections (former Sections II and III merged into Section II)
 - Addition of Registry provision (Section III.2) with project/initiative distinction
 - Creation of unified REGISTRY_SCHEMA.md for people, projects, and initiatives

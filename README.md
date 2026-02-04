@@ -2,7 +2,7 @@
 
 > **Viewing on the web?** This site renders content from the [Compass GitHub repository](https://github.com/henkaku-center/compass). The source files are version-controlled Markdown documents that you can also browse, fork, or contribute to on GitHub.
 
-**Compass** is the coordination infrastructure for the Henkaku Compass Initiative—a collection of living documents, schemas, and tools for organizing antidisciplinary work across institutions, affiliations, and disciplines.
+**Compass** articulates foundational values, governance principles, and operational practices for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
 
 Compass includes:
 
@@ -19,7 +19,7 @@ The infrastructure is designed with **agentic workflows** in mind—AI agents as
 
 ## Purpose and Motivation
 
-The Charter exists to:
+Compass exists to:
 
 1. **Anchor values over time**  
    Provide a stable set of principles that persist even as people, projects, and structures change.
@@ -88,7 +88,7 @@ The **Curriculum** (`docs/CURRICULUM.md`) documents the SDS Master's and PhD pro
 
 ## Origin, Stewardship, and Institutional Context
 
-The Charter is developed and stewarded by researchers affiliated with **Chiba Tech**, the **Henkaku Center for Radical Transformation**, and the **Graduate School of Design & Science (SDS)**, as part of the **Henkaku Compass Initiative**.
+Compass is developed and stewarded by researchers affiliated with **Chiba Tech**, the **Henkaku Center for Radical Transformation**, and the **Graduate School of Design & Science (SDS)**.
 
 ### Chiba Institute of Technology (Chiba Tech)
 
