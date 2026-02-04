@@ -301,7 +301,49 @@
       text-decoration: underline;
     }
 
+    /* Two-column home layout */
+    .home-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .home-column {
+      min-width: 0;
+    }
+
+    .home-column h1 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e5e5e5;
+    }
+
+    .home-column h2 {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .home-column h3 {
+      font-size: 1rem;
+    }
+
     /* Responsive */
+    @media (max-width: 1100px) {
+      .home-layout {
+        grid-template-columns: 1fr;
+        max-width: 900px;
+      }
+
+      .home-column:first-child {
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e5e5e5;
+      }
+    }
+
     @media (max-width: 900px) {
       .toc {
         display: none !important;
@@ -314,6 +356,10 @@
       main {
         padding: 1.5rem;
       }
+
+      .home-layout {
+        padding: 1.5rem;
+      }
     }
   </style>
 
@@ -324,8 +370,7 @@
     <div class="nav-inner">
       <strong>Charter</strong>
       <div class="nav-links">
-        <a href="#readme">README</a>
-        <a href="#status">Status</a>
+        <a href="#home">Home</a>
         <a href="#charter">Charter</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#registry-schema">Registry Schema</a>
@@ -368,23 +413,97 @@
 
     // Map hash fragments to document paths
     const routes = {
-      'readme': 'README.md',
-      'status': 'STATUS.md',
+      'home': null, // Special case: loads two documents
       'charter': 'docs/CHARTER.md',
       'curriculum': 'docs/CURRICULUM.md',
       'registry-schema': 'docs/REGISTRY_SCHEMA.md',
       'schema': 'docs/REGISTRY_SCHEMA.md'
     };
 
-    // Documents that should show TOC (all documents now)
-    const tocDocs = ['readme', 'status', 'charter', 'curriculum', 'registry-schema'];
+    // Documents that should show TOC
+    const tocDocs = ['charter', 'curriculum', 'registry-schema'];
 
     let currentDoc = '';
     let headings = [];
 
+    function parseMarkdown(markdown) {
+      // Extract and preserve HTML comments
+      const commentPlaceholders = [];
+      let processedMarkdown = markdown.replace(/<!--([\s\S]*?)-->/g, (match, content) => {
+        const index = commentPlaceholders.length;
+        commentPlaceholders.push(content.trim());
+        return `<!--PLACEHOLDER_${index}-->`;
+      });
+
+      // Parse markdown
+      let html = marked.parse(processedMarkdown);
+
+      // Replace comment placeholders
+      commentPlaceholders.forEach((content, index) => {
+        const placeholder = `<!--PLACEHOLDER_${index}-->`;
+        const escapedContent = content
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/\n/g, '<br>');
+        const commentDiv = `<div class="html-comment">${escapedContent}</div>`;
+        html = html.replace(placeholder, commentDiv);
+      });
+
+      return html;
+    }
+
+    function loadHomePage() {
+      currentDoc = 'home';
+      const cacheBuster = `?t=${Date.now()}`;
+
+      // Hide TOC and layout for home page
+      tocEl.classList.remove('visible');
+      layoutEl.classList.remove('has-toc');
+
+      Promise.all([
+        fetch('README.md' + cacheBuster, { cache: 'no-store' }).then(r => r.text()),
+        fetch('STATUS.md' + cacheBuster, { cache: 'no-store' }).then(r => r.text())
+      ])
+        .then(([readmeMarkdown, statusMarkdown]) => {
+          const readmeHtml = parseMarkdown(readmeMarkdown);
+          const statusHtml = parseMarkdown(statusMarkdown);
+
+          // Replace main content area with two-column layout
+          layoutEl.innerHTML = `
+            <div class="home-layout">
+              <div class="home-column">${readmeHtml}</div>
+              <div class="home-column">${statusHtml}</div>
+            </div>
+          `;
+
+          updateActiveNavLink('home');
+          window.scrollTo(0, 0);
+        })
+        .catch(error => {
+          layoutEl.innerHTML = '<main><p>Error loading documents.</p></main>';
+          console.error(error);
+        });
+    }
+
     function loadDoc(path, docKey) {
       currentDoc = docKey;
       const cacheBuster = `?t=${Date.now()}`;
+
+      // Restore normal layout structure if coming from home page
+      if (!document.getElementById('content')) {
+        layoutEl.innerHTML = `
+          <aside class="toc" id="toc">
+            <h4>Contents</h4>
+            <ul id="toc-list"></ul>
+          </aside>
+          <main id="content">Loading…</main>
+        `;
+      }
+
+      const contentElement = document.getElementById('content');
+      const tocElement = document.getElementById('toc');
+      const tocListElement = document.getElementById('toc-list');
 
       fetch(path + cacheBuster, { cache: 'no-store' })
         .then(response => {
@@ -392,36 +511,14 @@
           return response.text();
         })
         .then(markdown => {
-          // Extract and preserve HTML comments
-          const commentPlaceholders = [];
-          let processedMarkdown = markdown.replace(/<!--([\s\S]*?)-->/g, (match, content) => {
-            const index = commentPlaceholders.length;
-            commentPlaceholders.push(content.trim());
-            return `<!--PLACEHOLDER_${index}-->`;
-          });
-
-          // Parse markdown
-          let html = marked.parse(processedMarkdown);
-
-          // Replace comment placeholders
-          commentPlaceholders.forEach((content, index) => {
-            const placeholder = `<!--PLACEHOLDER_${index}-->`;
-            const escapedContent = content
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/\n/g, '<br>');
-            const commentDiv = `<div class="html-comment">${escapedContent}</div>`;
-            html = html.replace(placeholder, commentDiv);
-          });
-
-          contentEl.innerHTML = html;
+          const html = parseMarkdown(markdown);
+          contentElement.innerHTML = html;
 
           // Add IDs to headings and build TOC
-          buildTOC();
+          buildTOC(contentElement, tocElement, tocListElement);
 
           // Make sections collapsible
-          makeCollapsible();
+          makeCollapsible(contentElement);
 
           // Update active nav link
           updateActiveNavLink(docKey);
@@ -430,24 +527,22 @@
           window.scrollTo(0, 0);
         })
         .catch(error => {
-          contentEl.innerHTML = "<p>Error loading document.</p>";
+          contentElement.innerHTML = "<p>Error loading document.</p>";
           console.error(error);
         });
     }
 
-    function buildTOC() {
+    function buildTOC(contentElement, tocElement, tocListElement) {
       headings = [];
-      tocListEl.innerHTML = '';
+      if (tocListElement) tocListElement.innerHTML = '';
 
       const showToc = tocDocs.includes(currentDoc);
-      tocEl.classList.toggle('visible', showToc);
+      if (tocElement) tocElement.classList.toggle('visible', showToc);
       layoutEl.classList.toggle('has-toc', showToc);
 
-      if (!showToc) return;
+      if (!showToc || !contentElement || !tocListElement) return;
 
-      const h2s = contentEl.querySelectorAll('h2');
-      const h3s = contentEl.querySelectorAll('h3');
-      const allHeadings = contentEl.querySelectorAll('h2, h3');
+      const allHeadings = contentElement.querySelectorAll('h2, h3');
 
       allHeadings.forEach((heading, index) => {
         // Create ID from heading text
@@ -472,12 +567,13 @@
           history.pushState(null, '', '#' + currentDoc);
         });
         li.appendChild(a);
-        tocListEl.appendChild(li);
+        tocListElement.appendChild(li);
       });
     }
 
-    function makeCollapsible() {
-      const h2s = contentEl.querySelectorAll('h2');
+    function makeCollapsible(contentElement) {
+      if (!contentElement) return;
+      const h2s = contentElement.querySelectorAll('h2');
 
       h2s.forEach(h2 => {
         // Skip if already processed
@@ -518,7 +614,9 @@
 
     // Scroll spy for TOC
     function updateActiveTocLink() {
-      if (!tocEl.classList.contains('visible')) return;
+      const tocListElement = document.getElementById('toc-list');
+      const tocElement = document.getElementById('toc');
+      if (!tocElement || !tocElement.classList.contains('visible')) return;
 
       let activeId = null;
       const scrollTop = window.scrollY + 100;
@@ -530,9 +628,11 @@
         }
       }
 
-      tocListEl.querySelectorAll('a').forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + activeId);
-      });
+      if (tocListElement) {
+        tocListElement.querySelectorAll('a').forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + activeId);
+        });
+      }
     }
 
     // Back to top button
@@ -557,10 +657,15 @@
 
     // Load document based on hash
     function loadFromHash() {
-      const hash = window.location.hash.slice(1) || 'readme';
-      const docKey = Object.keys(routes).includes(hash) ? hash : 'readme';
-      const path = routes[docKey];
-      loadDoc(path, docKey);
+      const hash = window.location.hash.slice(1) || 'home';
+      const docKey = Object.keys(routes).includes(hash) ? hash : 'home';
+
+      if (docKey === 'home') {
+        loadHomePage();
+      } else {
+        const path = routes[docKey];
+        loadDoc(path, docKey);
+      }
     }
 
     // Initial load
