@@ -1,6 +1,6 @@
 # Charter Platform Progress Update
 
-**Last Updated: February 4, 2026** (updated evening)
+**Last Updated: February 4, 2026** (updated late evening)
 
 Since our January meeting, we've made substantial progress on building the Charter as a living document:
 
@@ -18,6 +18,10 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Emphasizes problem posing over problem solving
 - Assessment focuses on judgment and questions, not just answers
 - Based on "Teaching AI and Teaching with AI" by Gal Raz & Joseph Austerweil
+- Added Roles and Positions section defining categories of people in the ecosystem: Director, Faculty, Principal Researchers, Researchers, Staff, Visiting Researchers, and Affiliates
+- Clarified that faculty simultaneously function as principal researchers, reflecting integration of education and research
+- Added physical presence expectations: in-person activities should primarily be at Tsudanuma Campus, with off-campus/remote permissible when justified
+- Added neurodiversity commitment: respect for different modes of thinking, feeling, and collaborating; emphasis on making implicit expectations explicit so people don't have to guess at unstated rules
 
 **Project Definition System**
 - Added a new Charter section requiring organizations to track their projects

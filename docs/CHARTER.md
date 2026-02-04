@@ -124,6 +124,24 @@ Role of Japanese cultural context as a constraint and resource.
 Approach to global collaboration without cultural flattening.
 -->
 
+**Neurodiversity and Cognitive Difference**
+
+This Charter explicitly acknowledges and respects **neurodiversity**—the natural variation in human cognition, perception, and interaction. We recognize that people think, feel, learn, and collaborate in fundamentally different ways, and that these differences are sources of strength rather than deficits to be corrected.
+
+Respect for neurodiversity means:
+
+- **Valuing different modes of thinking**: Analytical, intuitive, visual, verbal, linear, associative—different cognitive styles contribute different capabilities. Environments and processes should not implicitly privilege one mode over others.
+
+- **Accommodating different modes of feeling**: Emotional expression, sensory sensitivity, and social energy vary widely. Expectations around interaction, presence, and communication should allow for this variation rather than enforcing a single norm.
+
+- **Supporting different modes of collaborating**: Some people thrive in spontaneous discussion; others need time to process before contributing. Some prefer written communication; others prefer verbal. Collaboration structures should create multiple pathways for meaningful participation.
+
+- **Designing for flexibility**: Physical spaces, meeting formats, communication channels, and work rhythms should be designed with variation in mind—not as afterthought accommodations, but as fundamental assumptions.
+
+- **Making the implicit explicit**: Many people—particularly those on the autism spectrum—thrive when expectations, norms, and "rules of the game" are stated directly rather than left to inference. Environments that require participants to guess at unstated expectations, read between the lines, or navigate unspoken social dynamics create unnecessary barriers. Clear communication about what is expected, what is valued, and how decisions are made benefits everyone and is essential for some.
+
+This commitment extends beyond formal disability accommodation. It reflects a recognition that the full range of human cognitive diversity—including but not limited to autism, ADHD, dyslexia, and other neurological differences—brings perspectives and capabilities that homogeneous environments cannot produce. Explicit norms and direct communication are not merely accommodations—they are better design.
+
 ### 7. Openness with Discernment
 
 <!--
@@ -304,6 +322,18 @@ operates under constraints of scale, regulation, and tradition.
 State that antidisciplinary and experimental work is pursued within
 these constraints, not in opposition to them.
 -->
+
+**Physical Presence and Campus Integration**
+
+In-person activities of the Henkaku Center and SDS should be primarily based at the **Chiba Institute of Technology Tsudanuma Campus**. This expectation reflects several commitments:
+
+- **Institutional integration**: Physical presence on campus reinforces that Henkaku Center and SDS are part of Chiba Tech, not separate entities that happen to share an affiliation. Visibility and proximity support collaboration with the broader university community.
+
+- **Shared infrastructure**: Tsudanuma Campus provides facilities, services, and administrative support that enable research and education. Making use of this infrastructure honors the relationship with the host institution.
+
+- **Community formation**: Regular physical co-presence builds relationships, trust, and informal knowledge exchange that remote interaction cannot fully replicate.
+
+Off-campus events, external venue meetings, and remote participation are permissible and sometimes necessary. However, good faith effort should be made to hold activities at Tsudanuma whenever reasonably possible. The default assumption is on-campus presence; departures from this default should have clear justification (venue requirements, partner convenience, accessibility needs, or similar considerations).
 
 ### 3. Henkaku Center and Graduate School of Design & Science (SDS)
 
