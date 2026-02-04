@@ -4,28 +4,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Repository Overview
 
-This repository contains the **Charter** (formerly "Antidisciplinary Charter"), a version-controlled living document that articulates foundational values, governance principles, and operational practices for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
+This repository contains **Compass**—the coordination infrastructure for the Henkaku Compass Initiative. Compass includes the Charter (a version-controlled living document), Registry Schema, Curriculum documentation, and supporting tools for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
 
-Unlike traditional static charters (PDFs or archived documents), this Charter is designed to evolve through transparent, peer-reviewed contributions with version control as the system of record.
+Unlike traditional static institutional documents (PDFs or archived documents), Compass is designed to evolve through transparent, peer-reviewed contributions with version control as the system of record.
 
 ## Repository Structure
 
 ```
-charter/
-├── docs/                      # Primary Charter documents
+compass/
+├── docs/                      # Primary documents
 │   ├── CHARTER.md             # Main Charter document
 │   ├── REGISTRY_SCHEMA.md     # Unified schema for people, projects, initiatives
 │   └── CURRICULUM.md          # SDS Master's and PhD curriculum
 ├── reference/                 # Historical versions and reference materials
-│   ├── 20260123_charter.md    # SDS founding precepts (v0.2.0, Dec 2025)
+│   ├── 20260203_Teaching AI and Teaching with AI.pdf
+│   ├── 20260123_Chiba Tech × Microsoft_ Areas for Collaboration.pdf
 │   ├── 20260120_Charter_v0.pdf
 │   ├── 20251114_SDS_Open House_Brochure_fin.pdf
-│   ├── 20260203_Teaching AI and Teaching with AI.pdf
 │   ├── 20250710_Research_Project_Schema.pdf
-│   ├── 20260123_Chiba Tech × Microsoft_ Areas for Collaboration.pdf
 │   ├── 20240613_SDS_DNA_CheatSheet.png
 │   └── 20220329_Research_Report-compressed.pdf
 ├── README.md                  # Public-facing overview and context
+├── STATUS.md                  # Progress updates
 ├── CLAUDE.md                  # This file - AI assistant guidance
 ├── index.html                 # Static web viewer for browsing documents
 └── CNAME                      # Custom domain configuration
@@ -35,18 +35,20 @@ charter/
 
 ### Living Document Architecture
 
-The Charter exists in multiple forms and representations:
+Compass comprises multiple documents and tools:
 
 **Primary Documents:**
 - `docs/CHARTER.md` - The main Charter document articulating values, governance, and operational commitments
 - `docs/REGISTRY_SCHEMA.md` - Unified schema for people, projects, and initiatives registry
+- `docs/CURRICULUM.md` - SDS Master's and PhD curriculum documentation
 
 **Supporting Materials:**
 - `README.md` - Public documentation explaining purpose, governance model, and institutional context
-- `index.html` - Static web viewer using marked.js to render markdown (serves README, Status, Charter, Curriculum, and Registry Schema)
-- `reference/20260123_charter.md` - Historical SDS founding precepts (v0.2.0 from December 2025)
+- `STATUS.md` - Progress updates on Compass development
+- `index.html` - Static web viewer using marked.js (serves Home, Status, Charter, Curriculum, Registry Schema, and References)
+- `reference/` - Historical versions and source documents
 
-**Key principle**: The Charter is a living document. Version control tracks how institutional principles evolve, making "institutional drift" visible and auditable.
+**Key principle**: Compass documents are living documents. Version control tracks how institutional principles evolve, making "institutional drift" visible and auditable.
 
 ### Institutional Context
 

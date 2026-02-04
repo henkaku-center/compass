@@ -1,18 +1,19 @@
-# Charter
+# Compass
 
-> **Viewing on the web?** This site renders content from the [Charter GitHub repository](https://github.com/henkaku-center/charter). The source files are version-controlled Markdown documents that you can also browse, fork, or contribute to on GitHub.
+> **Viewing on the web?** This site renders content from the [Compass GitHub repository](https://github.com/henkaku-center/compass). The source files are version-controlled Markdown documents that you can also browse, fork, or contribute to on GitHub.
 
-The **Charter** is a version‑controlled, *living document* that articulates foundational values, governance principles, and operational practices for organizing and coordinating across institutions, affiliations, disciplines, and modes of impact.
+**Compass** is the coordination infrastructure for the Henkaku Compass Initiative—a collection of living documents, schemas, and tools for organizing antidisciplinary work across institutions, affiliations, and disciplines.
 
-Unlike traditional charters or constitutive documents, which are typically created as static artifacts (for example, a finalized PDF), the Charter is an evolving system: maintained under version control, updated through transparent review, and designed to support long‑term institutional coherence without rigid hierarchy.
+Compass includes:
 
-The Charter is designed as:
+- **Charter** — The foundational governance document articulating values, principles, and operational commitments
+- **Registry Schema** — Structured templates for tracking people, projects, and initiatives
+- **Curriculum** — Documentation of SDS Master's and PhD programs
+- **Reference Materials** — Source documents and historical versions
 
-- A **living document**, maintained in Markdown and tracked under version control
-- A text that evolves through **transparent, peer‑reviewed contributions**
-- A shared reference point that encodes values, principles, and process rather than fixed outcomes
+Unlike traditional institutional documents created as static artifacts (PDFs archived and forgotten), Compass treats governance as an evolving system: maintained under version control, updated through transparent review, and designed for long‑term coherence without rigid hierarchy.
 
-In addition, the Charter’s infrastructure is being designed with **agentic workflows** in mind. This includes anticipating AI agents as **integrated components of the contribution infrastructure**, supporting drafting, analysis, review, and reasoning about proposed changes, while authority, accountability, and final decision-making remain explicitly human.
+The infrastructure is designed with **agentic workflows** in mind—AI agents as integrated components supporting drafting, analysis, and review, while authority, accountability, and final decision-making remain explicitly human.
 
 ---
 
@@ -49,16 +50,16 @@ Over time, the project may therefore include not only the Charter text, but also
 
 ## Documents and Structure
 
-The Charter project includes the following documents (all available via the navigation above or in the [GitHub repository](https://github.com/henkaku-center/charter)):
+Compass includes the following documents (all available via the navigation above or in the [GitHub repository](https://github.com/henkaku-center/compass)):
 
-- **Charter** — The primary document articulating values, governance, and operational commitments
+- **Charter** — The primary governance document articulating values and operational commitments
 - **Registry Schema** — Unified schema for people, projects, and initiatives registry
 - **Curriculum** — SDS Master's and PhD curriculum with course listings
-- **Status** — Progress updates on Charter development
+- **Status** — Progress updates on Compass development
+- **References** — Source documents and historical versions available for download
 
 Additional files in the repository:
-- `CLAUDE.md` — Documentation for AI assistants working with the project
-- `reference/` — Source documents and historical versions
+- `CLAUDE.md` — Documentation for AI assistants working with Compass
 
 ### Key Documents
 
@@ -77,10 +78,10 @@ The **Curriculum** (`docs/CURRICULUM.md`) documents the SDS Master's and PhD pro
 
 ## Engagement and Use
 
-- **Read** the Charter to understand its principles, process, and scope
-- **Track changes** through [version history on GitHub](https://github.com/henkaku-center/charter/commits/main) to see how the document evolves
+- **Read** the Charter to understand the principles, process, and scope
+- **Track changes** through [version history on GitHub](https://github.com/henkaku-center/compass/commits/main) to see how documents evolve
 - **Define registry entries** using the Registry Schema templates for people, projects, and initiatives
-- **Propose revisions** via [pull requests](https://github.com/henkaku-center/charter/pulls) or other contribution mechanisms
+- **Propose revisions** via [pull requests](https://github.com/henkaku-center/compass/pulls) or other contribution mechanisms
 - **Reuse or adapt** the Charter for other contexts where antidisciplinary or paradigm‑level coordination is desired
 
 ---

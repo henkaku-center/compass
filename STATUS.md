@@ -1,8 +1,8 @@
-# Charter Platform Progress Update
+# Compass Progress Update
 
 **Last Updated: February 4, 2026**
 
-Since our January meeting, we've made substantial progress on building the Charter as a living document:
+Since our January meeting, we've made substantial progress on building Compass—the coordination infrastructure for the Henkaku Compass Initiative:
 
 ## What We've Accomplished
 
