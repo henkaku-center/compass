@@ -59,8 +59,28 @@ optimization target.
 **PUBLIC** over individuals.  
 個人の利益ではなく、公共的な視点を持つこと。
 
-**MODULAR** over monolithic.  
+**MODULAR** over monolithic.
 一枚岩ではなく、モジュール型のデザインを意識すること。
+
+---
+
+**Balancing Dichotomies**
+
+Beyond directional orientations, this Charter also embraces productive tensions—qualities that might seem opposed yet must be held together. These dichotomies define the institutional character:
+
+- **Inclusive yet Elite**: Open to diverse participants and perspectives, yet uncompromising on standards of excellence and rigor.
+
+- **Broad yet Deep**: Spanning disciplines and domains, yet pursuing genuine depth rather than superficial coverage.
+
+- **Diverse yet Harmonious**: Welcoming difference and disagreement, yet cultivating coherence and the ability to act together.
+
+- **Calm yet Exciting**: Maintaining groundedness and stability, yet generating energy and momentum.
+
+- **Confident yet Thrilling**: Acting with conviction and clarity, yet remaining open to surprise and the unexpected.
+
+- **Happy yet Aspirational**: Creating environments where people flourish now, yet always reaching toward what could be better.
+
+These are not compromises or midpoints. They are both/and commitments—holding apparent opposites in creative tension rather than collapsing into either pole.
 
 ## II. Values and Commitments
 
@@ -133,6 +153,24 @@ Resisting reduction means:
 - **Resisting premature closure**: The pressure to have answers, make decisions, and move on often leads to conclusions that foreclose better understanding. Staying with uncertainty longer than is comfortable often produces better outcomes than rushing to resolution.
 
 This is not an argument against clarity or decisiveness. Resisting reduction is compatible with taking action under uncertainty—it simply requires honesty about what we don't know and humility about the limits of our models.
+
+**Valuing What Escapes Measurement**
+
+"If you can measure it, it probably isn't magic."
+
+The most significant outcomes—transformation, insight, connection, meaning—often resist quantification. This is not a failure of measurement but a feature of what makes them significant. Work that can be fully captured in metrics is, almost by definition, work that operates within existing frameworks rather than transcending them.
+
+This principle complements rather than contradicts the commitment to measurability elsewhere in this Charter. Projects should articulate how outcomes will be evaluated, and accountability requires evidence. But:
+
+- **Metrics are proxies**: They point toward what matters; they are not themselves what matters. Optimizing metrics while losing sight of underlying goals is a common failure mode.
+
+- **Transformative work creates new categories**: The most important outcomes may not be measurable in advance because the frameworks for understanding them don't yet exist. Genuine innovation changes what counts, not just how much.
+
+- **Presence of magic is a positive signal**: When work produces effects that participants struggle to articulate—when it feels meaningful in ways that resist explanation—that difficulty is evidence of depth, not vagueness.
+
+- **Beware metric fixation**: Systems that optimize only what can be measured tend to produce measurable but hollow outcomes. The unmeasurable dimensions often carry the real value.
+
+This is not an excuse for vagueness or an argument against rigor. It is a reminder that intellectual integrity includes honesty about the limits of our instruments, and that some of the most important things we do will be recognized by their resonance rather than their metrics.
 
 ### 5. Experimentation and Risk
 
@@ -234,6 +272,24 @@ This perspective has practical implications:
 
 Data humanism does not reject quantification—it refuses to let quantification obscure the human realities it attempts to represent. The goal is not less data but more honest engagement with what data can and cannot tell us.
 
+**Uniqueness as Selection Criterion**
+
+"If someone else can do it, we shouldn't do it."
+
+This principle guides what work this ecosystem pursues. Given finite resources and attention, projects should be selected not merely for importance but for *fit*—work that this particular combination of people, institutions, and capabilities is uniquely positioned to accomplish.
+
+This means:
+
+- **Comparative advantage**: Prioritize work where our specific strengths—antidisciplinary orientation, cultural context, institutional flexibility, network position—create distinctive value that others cannot easily replicate.
+
+- **Avoid redundancy**: Before launching initiatives, ask whether capable others are already doing this work well. If so, consider collaboration, support, or complementary positioning rather than duplication.
+
+- **Embrace the gaps**: The most important work is often what falls between established categories—too applied for academia, too speculative for industry, too cross-cutting for any single discipline. This is where antidisciplinary institutions can contribute most.
+
+- **Accept opportunity cost**: Saying yes to one project means saying no to others. Uniqueness as a criterion helps ensure that the work we do take on is work that wouldn't happen without us.
+
+This is not an argument for obscurity or contrarianism. Important problems deserve attention from many actors. But within the space of important problems, this ecosystem should gravitate toward those where its contribution is irreplaceable.
+
 ### 2. Project Registry and Coordination Infrastructure
 
 Organizations covered by this Charter must establish and maintain a **project registry**—a shared platform for defining, submitting, and browsing active projects and initiatives.
@@ -312,6 +368,22 @@ Integration of theory and practice in project-based learning.
 This Charter affirms a vocational orientation: the commitment to building things, not merely theorizing about them. Students and researchers are expected to produce artifacts—prototypes, systems, interventions, works—that exist in the world and can be evaluated against reality, not only against abstract criteria.
 
 This orientation does not diminish theory; it insists that theory be tested through practice. The goal is not anti-intellectualism but a refusal to let intellectual work become detached from consequence. Ideas that cannot survive contact with implementation are incomplete.
+
+**Bias Toward Action**
+
+Impact is the art of getting things done. This Charter values tangible outcomes over process theater, shipped work over endless planning, and learning through doing over learning through discussion alone.
+
+A bias toward action means:
+
+- **Default to trying**: When uncertain whether something will work, try it. Small experiments teach more than extended deliberation. Failure is information; paralysis is not.
+
+- **Finish things**: Starting is easy; finishing is hard. The discipline of completing work—pushing through the difficult final stages, making hard decisions, accepting imperfection—is itself a core competency.
+
+- **Reduce time to feedback**: The faster work reaches reality, the faster learning happens. Tight feedback loops between intention and outcome are more valuable than elaborate upfront planning.
+
+- **Distinguish motion from progress**: Activity is not accomplishment. Meetings, documents, and discussions are means, not ends. The question is always: what changed in the world?
+
+This is not an argument against reflection, planning, or careful thought. It is an argument against using those activities as substitutes for action, or as ways to avoid the vulnerability of putting work into the world where it can be judged.
 
 **Unity of Function and Design**
 

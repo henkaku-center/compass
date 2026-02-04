@@ -32,6 +32,10 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Added "Data Humanism" research methodology—warm data, context, human fingerprints on data (Section III.1)
 - Added "Non-Antagonistic Engagement"—future-oriented optimism, invitation over coercion (Section VI.3)
 - Added "Process as Content"—visible craft, kintsugi principle, tacit knowledge (Section IV.2)
+- Added "Balancing Dichotomies"—six productive tensions defining institutional character (Section I)
+- Added "Uniqueness" principle—if someone else can do it, we shouldn't (Section III.1)
+- Added "Bias Toward Action"—the art of getting things done (Section IV.2)
+- Added "Magic"—valuing what escapes measurement (Section II.4)
 
 **Project Definition System**
 - Added a new Charter section requiring organizations to track their projects
