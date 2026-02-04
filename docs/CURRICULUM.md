@@ -88,7 +88,3 @@ The curriculum reflects several Charter commitments:
 - **Awareness Practices (Section II.7)**: Principles of Awareness integrates contemplative traditions as legitimate educational methods
 - **Human and AI Collaboration (Section II.3)**: Intelligent Agents and Human and Machine Learning courses address symbiotic human-AI work
 - **Ethical Grounding**: Law and Governance, Technology and Values, and Engineering Ethics ensure ethical reflection accompanies technical capability
-
----
-
-*Source: [sds.chibatech.dev/curriculum](https://sds.chibatech.dev/curriculum)*

@@ -42,6 +42,12 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Added "Global Institution, Japanese Roots" to Section II.7 with key Japanese concepts (*wa*, *ma*, *aimai*, *wabi-sabi*, *monozukuri*) and global/local integration framing
 - Section II now has 9 subsections (was 8 after earlier merge)
 
+**Curriculum Documentation**
+- Created CURRICULUM.md documenting SDS Master's and PhD programs
+- Master's program: 30 credits (5 mandatory courses, 9 elective options)
+- PhD program: 17 credits (6 mandatory courses, 5 advanced electives)
+- Mapped curriculum to Charter principles (project-centered learning, antidisciplinarity, awareness practices, human-AI collaboration, ethical grounding)
+
 **Charter Draft Ready for Review (February 4-5, 2026)**
 - All sections now contain full text—no placeholder notes remain
 - Converted 17 placeholder sections to full Charter text:
