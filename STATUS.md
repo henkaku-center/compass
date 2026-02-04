@@ -59,9 +59,11 @@ Since our January meeting, we've made substantial progress on building the Chart
   - VIII.2 Ratification and Acknowledgement: formal agreement required; initial ratification by Director + seven founding faculty
   - Appendices: framing for future additions (glossary, historical notes, case studies, experimental mechanisms)
 - Removed all HTML comment placeholders—the draft is now ready for review by ratifying members
+- Added English language policy for SDS (V.3)
+- Distinguished between "projects" (bounded, with completion criteria) and "initiatives" (ongoing programs)
 
-**Project Definition System**
-- Added a new Charter section requiring organizations to track their projects
+**Registry and Coordination Infrastructure**
+- Added a Charter section (III.2) requiring organizations to track projects and initiatives
 - Created a template that helps people define projects clearly by answering:
   - What problem are you addressing?
   - What will you build or change?

@@ -1,6 +1,6 @@
 # Introduction
 
-The Henkaku Project Schema is a structured framework developed to define, evaluate, and visualize research efforts across the Henkaku community. This schema implements the requirements established in Section III.4 of the Charter (Project Registry and Coordination Infrastructure).
+The Henkaku Project Schema is a structured framework developed to define, evaluate, and visualize research efforts across the Henkaku community. This schema implements the requirements established in Section III.2 of the Charter (Registry and Coordination Infrastructure).
 
 Unlike traditional academic systems organized around disciplines, Henkaku prioritizes projects—**finite, bounded, mission-driven endeavors** with clear goals, collaborators, outputs, and measures of success. This schema formalizes that orientation by requiring every project to begin with answers to four essential prompts:
 
@@ -10,6 +10,8 @@ Unlike traditional academic systems organized around disciplines, Henkaku priori
 4. *What would make this project complete?*
 
 These questions ground each project in real-world relevance and bounded scope, helping distinguish projects from open-ended disciplinary explorations.
+
+**Note on Initiatives**: The Charter distinguishes between *projects* (bounded, with completion criteria) and *initiatives* (ongoing programs without predetermined endpoints). This schema is designed for projects. Initiatives—such as research programs, standing working groups, and cross-cutting coordination functions—require different documentation that emphasizes ongoing justification rather than completion criteria. Initiatives may spawn or contain multiple projects, each of which should be documented using this schema.
 
 The schema captures a project's key dimensions—problem statements, goals, outputs, contributors, funding sources, success criteria, dependencies, and related disciplines—within a consistent and interoperable format. This structure enables not only clear communication and peer review but also the generation of interactive network visualizations that reveal how people, ideas, and resources flow through the Henkaku ecosystem.
 

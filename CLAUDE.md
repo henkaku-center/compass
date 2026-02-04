@@ -93,7 +93,7 @@ The Charter (`docs/CHARTER.md`) is organized with the following structure:
 
 **III. Research Practice** - Two subsections:
 1. Project-Centered Inquiry
-2. **Project Registry and Coordination Infrastructure** - Mandates shared platform for project definition
+2. **Registry and Coordination Infrastructure** - Mandates shared platform for projects and initiatives
 
 **IV. Educational Practice** - Three subsections:
 1. Project-Centered Learning
@@ -110,26 +110,24 @@ The Charter (`docs/CHARTER.md`) is organized with the following structure:
 
 **Appendices** - Optional sections to be added over time
 
-### HTML Comments as Specifications
+### Charter Content Status
 
-Most sections contain HTML comments (`<!-- -->`) that describe what content should be developed there. These comments:
-- Define the intent and scope of each section
-- Serve as specifications for future content development
-- Are rendered lightly on the website (light gray, italic, with notepad emoji prefix)
+As of February 2026, all Charter sections contain full text. HTML comment placeholders that previously served as specifications have been removed. The Charter draft is ready for review by ratifying members.
 
-**When editing**: Treat HTML comments as specification documents that guide what belongs in each section.
+**When editing**: Maintain consistency with the Charter's existing tone, structure, and principles. New sections or significant changes should go through the amendment process once ratification is complete.
 
 ## Project Schema and Registry
 
-### Section III.4: Project Registry and Coordination Infrastructure
+### Section III.2: Registry and Coordination Infrastructure
 
-This Charter provision mandates that organizations establish a **project registry**—a shared platform for defining, submitting, and browsing active projects.
+This Charter provision mandates that organizations establish a **registry**—a shared platform for defining, submitting, and browsing active projects and initiatives.
 
 Key requirements:
-- Projects as **bounded units of transformation** (finite, mission-driven, with clear completion criteria)
+- **Projects** as bounded units of transformation (finite, mission-driven, with clear completion criteria)
+- **Initiatives** as ongoing programs (open-ended, without predetermined endpoints, evaluated on ongoing justification)
 - Structured template with required fields: Intent, Scope, Temporal Bounds, Measurability & Completion, Participants, Dependencies, Status, Resources
 - **"Measurability with forgiveness"** - recognizes systemic/cultural impacts may resist quantification but must still be evaluable
-- Platform support for identifying overlap, distinctiveness, and incoherence between projects
+- Platform support for identifying overlap, distinctiveness, and incoherence between projects and initiatives
 
 ### PROJECT_SCHEMA.md
 
@@ -158,7 +156,8 @@ The schema positions PROJECT_SCHEMA.md as a natural, well-supported implementati
 - Maintain consistency with Charter principles (bounded projects, measurability with forgiveness, human authority, etc.)
 
 **Project Schema** (`docs/PROJECT_SCHEMA.md`):
-- Must remain aligned with Charter Section III.4 requirements
+- Must remain aligned with Charter Section III.2 requirements
+- Designed for projects (bounded); initiatives have different documentation needs
 - Changes should preserve backward compatibility or provide migration paths
 - Charter Mapping column helps verify alignment
 
@@ -350,8 +349,8 @@ This repository continues to evolve. Recent changes include:
 
 - Simplification of Charter title (from "Antidisciplinary Charter" to "Charter")
 - Consolidation of sections (former Sections II and III merged into Section II)
-- Addition of Project Registry provision (Section III.4)
-- Creation of PROJECT_SCHEMA.md implementing registry requirements
+- Addition of Registry provision (Section III.2) with project/initiative distinction
+- Creation of PROJECT_SCHEMA.md implementing registry requirements for projects
 - Organization of documents into `docs/` folder
 - Renaming `src/` to `reference/` for clarity
 - Web viewer enhancements (HTML comment rendering, cache-busting)

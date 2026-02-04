@@ -404,13 +404,22 @@ This means:
 
 This is not an argument for obscurity or contrarianism. Important problems deserve attention from many actors. But within the space of important problems, this ecosystem should gravitate toward those where its contribution is irreplaceable.
 
-### 2. Project Registry and Coordination Infrastructure
+### 2. Registry and Coordination Infrastructure
 
-Organizations covered by this Charter must establish and maintain a **project registry**—a shared platform for defining, submitting, and browsing active projects and initiatives.
+Organizations covered by this Charter must establish and maintain a **registry**—a shared platform for defining, submitting, and browsing active projects and initiatives.
 
-The registry serves as coordination infrastructure, making work visible and enabling participants to identify connections, gaps, and conflicts across the ecosystem.
+The registry serves as coordination infrastructure, making work visible and enabling participants to identify connections, gaps, and conflicts across the ecosystem. It tracks both bounded projects and ongoing initiatives, with appropriate accountability structures for each.
 
 **Projects as Bounded Units of Transformation**: Projects are distinguished from open-ended research programs or permanent organizational functions by their finite, mission-driven nature. Every project must articulate not only what it aims to achieve, but also what would make it complete.
+
+**Initiatives as Ongoing Programs**: Initiatives are ongoing or open-ended efforts that do not have predetermined completion criteria. Unlike projects, initiatives may continue indefinitely as long as they serve their purpose. Examples include research programs, standing working groups, recurring events, and cross-cutting coordination functions.
+
+Initiatives often contain or spawn multiple projects. A research initiative might generate several bounded projects over its lifetime; a coordination initiative might establish processes that enable project work. The distinction matters because:
+
+- **Projects** require completion criteria and are evaluated on whether they achieved their stated outcomes
+- **Initiatives** require ongoing justification and are evaluated on whether they continue to serve their purpose
+
+Both projects and initiatives should be visible in coordination infrastructure, but they have different accountability structures. Projects end; initiatives persist until deliberately concluded or transformed.
 
 #### Requirements
 
@@ -968,7 +977,7 @@ However, this Charter should be actively used and referenced in the development 
 
 This Charter explicitly authorizes:
 
-- The establishment and maintenance of a **project registry** as described in Section III.2, serving as coordination infrastructure for research and educational initiatives across the ecosystem
+- The establishment and maintenance of a **registry** as described in Section III.2, serving as coordination infrastructure for projects and initiatives across the ecosystem
 
 - The development and delivery of **curriculum for Masters and PhD students** within the Graduate School of Design & Science, consistent with the educational principles articulated in Section IV
 
