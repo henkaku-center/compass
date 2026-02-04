@@ -1,16 +1,25 @@
 # Charter Platform Progress Update
 
-**Last Updated: February 5, 2026** (evening)
+**Last Updated: February 4, 2026**
 
 Since our January meeting, we've made substantial progress on building the Charter as a living document:
 
 ## What We've Accomplished
 
 **Charter Structure**
-- Created a clear template showing what belongs in each section
-- Completed the 12 foundational principles (in English and Japanese)
-- Organized the Charter into 8 main sections (recently split Research and Educational Practice into separate sections)
-- Added guidance notes throughout explaining what content should go in each part
+- Organized the Charter into 8 main sections plus Preamble and Appendices:
+  - **Preamble**: Scope, applicability, what the Charter is and isn't
+  - **I. Foundational Orientations**: 12 directional principles plus 6 balancing dichotomies
+  - **II. Values and Commitments**: 10 subsections covering antidisciplinarity, transformation, human-AI collaboration, intellectual integrity, experimentation, neurodiversity, cultural identity, openness, and coordination
+  - **III. Research Practice**: Project-centered inquiry and registry infrastructure
+  - **IV. Educational Practice**: Project-centered learning, learning through making, AI integration
+  - **V. Institutional Relationships**: Roles, Chiba Tech, Henkaku/SDS, boundary management, external partners
+  - **VI. Governance and Stewardship**: Charter stewardship, decision-making, conflict resolution
+  - **VII. Evolution and Adaptation**: Living document nature, portability and reuse
+  - **VIII. Closing Provisions**: Authority, interpretation, ratification
+  - **Appendices**: Framework for future additions (glossary, case studies, etc.)
+- All 12 foundational orientations now include explanatory text
+- All 6 balancing dichotomies now include "In practice" explanations
 
 **Charter Content Development**
 - Drafted comprehensive AI pedagogy framework for Educational Practice section
@@ -93,12 +102,15 @@ Since our January meeting, we've made substantial progress on building the Chart
   - Initiatives: What ongoing purpose? What activities? Still serving purpose? What projects spawned?
 
 **Website for Viewing Documents**
-- Built a simple website where people can read the Charter
+- Built a simple website where people can read the Charter and related documents
+- Navigation bar links to all documents: README, Status, Charter, Curriculum, Registry Schema
+- Table of Contents sidebar on all pages for easy navigation within long documents
+- Collapsible sections—click any major heading to expand or collapse its content
+- Scroll tracking highlights your current position in the Table of Contents
+- "Back to top" button appears when scrolling down
 - Made the guidance notes visible (they show up in light gray)
-- Added the project template to the website
-- Organized files so it's easy to find what you need
-- Added direct linking - can share URLs that go straight to specific pages
-- Added social media preview cards for sharing on Twitter, Facebook, etc.
+- Direct linking—can share URLs that go straight to specific pages
+- Social media preview cards for sharing on Twitter, Facebook, etc.
 
 **Consensus Mechanism Design**
 - Drafted user stories describing how people will interact with the Charter
