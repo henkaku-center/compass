@@ -75,10 +75,18 @@ Explain when disciplinary rigor is required and when it is intentionally suspend
 ### 2. Radical Transformation
 
 <!--
-Define “radical transformation” as structural, not cosmetic, change.
+Define "radical transformation" as structural, not cosmetic, change.
 Clarify the difference between incremental improvement and transformation at the level of systems, institutions, and coordination mechanisms.
 State that radical transformation is pursued deliberately, cautiously, and with awareness of second-order effects.
 -->
+
+**Human Flourishing as the Aim**
+
+The purpose of transformation is not change for its own sake, but the cultivation of conditions under which humans can flourish. This Charter commits to an understanding of flourishing that encompasses—but extends beyond—productivity, efficiency, and skill acquisition.
+
+Flourishing includes the development of capacities for meaning-making, ethical judgment, creative expression, and genuine connection with others. Educational and research programs covered by this Charter aim not merely to produce competent practitioners, but to cultivate people who can live well, contribute meaningfully, and help others do the same.
+
+This framing has practical implications: when evaluating programs, projects, and institutional decisions, the question is not only "does this work?" but "does this contribute to the flourishing of those involved and affected?" Transformation that optimizes narrow metrics while undermining wellbeing, relationships, or meaning is not radical transformation—it is misdirection.
 
 ### 3. Human and Artificial Intelligence
 
@@ -141,6 +149,21 @@ Respect for neurodiversity means:
 - **Making the implicit explicit**: Many people—particularly those on the autism spectrum—thrive when expectations, norms, and "rules of the game" are stated directly rather than left to inference. Environments that require participants to guess at unstated expectations, read between the lines, or navigate unspoken social dynamics create unnecessary barriers. Clear communication about what is expected, what is valued, and how decisions are made benefits everyone and is essential for some.
 
 This commitment extends beyond formal disability accommodation. It reflects a recognition that the full range of human cognitive diversity—including but not limited to autism, ADHD, dyslexia, and other neurological differences—brings perspectives and capabilities that homogeneous environments cannot produce. Explicit norms and direct communication are not merely accommodations—they are better design.
+
+**Awareness Practices and Contemplative Traditions**
+
+Japanese cultural context offers distinctive resources for understanding the relationship between awareness, craft, and human development. Traditions of contemplative practice—including but not limited to tea ceremony, calligraphy, and martial arts—embody ways of knowing that complement analytical and technical approaches.
+
+These traditions emphasize:
+
+- **Direct experience**: Understanding that emerges from practice and presence, not only from abstraction and analysis
+- **Attention and sensitivity**: The cultivation of refined perception as a foundation for good judgment and skilled action
+- **Integration of body and mind**: Recognition that cognition is embodied, and that physical practice shapes mental capability
+- **Process as content**: The insight that how something is done matters as much as what is accomplished
+
+As technical work increasingly involves shaping AI behavior and communicating intent rather than writing explicit instructions, these capacities become not merely cultural enrichment but practical requirements. The ability to perceive subtle patterns, maintain sustained attention, and act with sensitivity to context are technical skills for the AI era.
+
+Programs covered by this Charter are encouraged to integrate awareness practices into education and research—not as mandatory spiritual exercises, but as legitimate methods for developing capacities that conventional curricula often neglect.
 
 ### 7. Openness with Discernment
 
@@ -252,6 +275,25 @@ Expectation of reflection, documentation, and learning capture.
 Integration of theory and practice in project-based learning.
 -->
 
+**Vocational Orientation**
+
+This Charter affirms a vocational orientation: the commitment to building things, not merely theorizing about them. Students and researchers are expected to produce artifacts—prototypes, systems, interventions, works—that exist in the world and can be evaluated against reality, not only against abstract criteria.
+
+This orientation does not diminish theory; it insists that theory be tested through practice. The goal is not anti-intellectualism but a refusal to let intellectual work become detached from consequence. Ideas that cannot survive contact with implementation are incomplete.
+
+**Unity of Function and Design**
+
+Pursuing design excellence directly improves performance. Aesthetics and function are not separate concerns to be traded off against each other, but deeply intertwined aspects of good work. This principle rejects the assumption that something must be ugly to be functional, or that beauty is a luxury applied after engineering problems are solved.
+
+In practice, this means:
+
+- Design decisions are engineering decisions, and engineering decisions are design decisions
+- How something looks, feels, and communicates is inseparable from how well it works
+- Attention to craft and finish is not indulgence but discipline
+- The pursuit of elegance often reveals simpler, better solutions
+
+Students learn to integrate design thinking with technical implementation from the beginning, not as a separate phase or specialty.
+
 ### 3. Use of Computational and Agentic Systems
 
 <!--
@@ -270,6 +312,7 @@ Educational programs covered by this Charter integrate AI as a foundational assu
 - **Sustained Projects**: Strategies for managing extended work—maintaining plans, preserving context across sessions, and keeping AI collaborators aligned with evolving objectives
 - **Security and Privacy**: Understanding data flows, handling sensitive information, recognizing manipulation vectors, and operational security awareness
 - **Human Collaboration**: AI as part of broader collaborative environments, facilitating shared context, handoffs, and asynchronous work with other people
+- **Metacognitive Awareness**: Learning to recognize where AI-assisted workflows break down—when AI outputs are subtly wrong, when the framing is off, when the confident answer misses the point. This requires concrete experience with AI failures, not just AI successes, building the diagnostic capacity to identify deviation and communicate corrections effectively. Metacognitive skill transfers across tools and capability levels.
 
 **Teaching with AI** — Using AI as a medium through which students develop genuine conceptual understanding:
 - **Problem Posing over Problem Solving**: While AI systems solve problems, humans remain essential for identifying what's worth solving, framing ambiguous situations, and recognizing when solutions address real needs. Education shifts toward developing these problem-posing abilities.
@@ -281,6 +324,19 @@ Educational programs covered by this Charter integrate AI as a foundational assu
 - Learning experiences must remain meaningful when students have access to powerful AI collaborators
 - Assessment must distinguish between human judgment and AI execution
 - Privacy and security awareness must be taught explicitly and reinforced continuously
+
+**Curriculum Agility**
+
+Educational programs covered by this Charter must be designed to iterate in real-time with advances in AI capability. Best practices for teaching how to work with AI are in their infancy; what works today may be obsolete or counterproductive within months.
+
+This requires:
+
+- **Modular curriculum design**: Programs structured so that components can be updated, replaced, or removed without requiring wholesale redesign
+- **Continuous experimentation**: Faculty empowered to try different pedagogical approaches, with mechanisms for sharing what works and abandoning what doesn't
+- **Rapid feedback loops**: Assessment and evaluation cycles short enough to detect when approaches stop working, before entire cohorts are affected
+- **Documented learning**: When curriculum changes, the reasoning and results should be captured so that institutional knowledge accumulates rather than cycling through the same discoveries
+
+Curriculum agility is not instability. The goal is structured adaptability—maintaining coherent educational aims while remaining responsive to a rapidly changing technological environment. Programs that cannot evolve will either become irrelevant or will force students to learn outdated practices they must immediately unlearn.
 
 ---
 
@@ -369,6 +425,28 @@ Expectations for alignment with this Charter.
 Rights and responsibilities of affiliation.
 Norms for exit, disengagement, and dissociation.
 -->
+
+**Industry Integration**
+
+This Charter encourages active collaboration with industry partners, including joint supervision of students shared between companies and the institution. Such arrangements recognize that:
+
+- Real-world problems provide learning opportunities that purely academic settings cannot replicate
+- Industry partners bring domain expertise, data, and constraints that enrich research and education
+- Students benefit from exposure to professional practice before graduation
+- Companies gain access to emerging talent and fresh perspectives
+
+Joint supervision means genuine shared responsibility—industry partners participate in defining project scope, providing mentorship, and evaluating outcomes, not merely funding or hosting interns. Students in joint supervision arrangements have accountable mentors in both contexts.
+
+**Expectations for External Partners**
+
+External partners—whether industry collaborators, visiting researchers, or affiliates—are expected to operate consistently with Charter principles while engaged with Charter-covered programs. This includes:
+
+- Respect for human primacy and accountability in AI-assisted work
+- Commitment to intellectual integrity and transparency appropriate to the collaboration
+- Recognition of student and researcher agency and development as goals, not merely deliverables
+- Willingness to engage with the institution's cultural and methodological commitments
+
+Alignment does not require agreement on all matters, but it does require good faith engagement with the principles articulated here. Partners who find Charter principles incompatible with their operations should seek collaboration elsewhere.
 
 ---
 

@@ -22,6 +22,12 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Clarified that faculty simultaneously function as principal researchers, reflecting integration of education and research
 - Added physical presence expectations: in-person activities should primarily be at Tsudanuma Campus, with off-campus/remote permissible when justified
 - Added neurodiversity commitment: respect for different modes of thinking, feeling, and collaborating; emphasis on making implicit expectations explicit so people don't have to guess at unstated rules
+- Added human flourishing as explicit aim of transformation (Section II.2)
+- Added awareness practices and contemplative traditions as educational resources (Section II.6)
+- Added vocational orientation and unity of function/design principles (Section IV.2)
+- Added curriculum agility requirement—programs must iterate with AI advances (Section IV.3)
+- Added metacognitive development—learning to recognize AI failures (Section IV.3)
+- Added industry integration model with joint supervision expectations (Section V.5)
 
 **Project Definition System**
 - Added a new Charter section requiring organizations to track their projects
