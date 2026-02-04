@@ -47,11 +47,11 @@ Each entry type is grounded by essential questions:
 
 ---
 
-# Part I: People
+## Part I: People
 
 People appear in the registry not as isolated entries but as nodes in a networkâ€”connected to projects they lead or contribute to, initiatives they participate in, and other people they collaborate with.
 
-## Basic Information
+### Basic Information
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
@@ -62,7 +62,7 @@ People appear in the registry not as isolated entries but as nodes in a networkâ
 
 ---
 
-## Role and Affiliation
+### Role and Affiliation
 
 *Charter requirement (Section V.1): "at any given moment, for any given activity, individuals should be able to identify which role they occupy"*
 
@@ -76,7 +76,7 @@ People appear in the registry not as isolated entries but as nodes in a networkâ
 
 ---
 
-## Expertise and Interests
+### Expertise and Interests
 
 *Supports Charter's coordination function: enabling others to identify potential collaborators*
 
@@ -88,7 +88,7 @@ People appear in the registry not as isolated entries but as nodes in a networkâ
 
 ---
 
-## Current Involvement
+### Current Involvement
 
 *Charter requirement: "Active projects and initiatives the person is participating in, with their role in each"*
 
@@ -99,7 +99,7 @@ People appear in the registry not as isolated entries but as nodes in a networkâ
 
 ---
 
-## Contact and Availability
+### Contact and Availability
 
 *Charter requirement: "How to reach the person and their general availability for collaboration"*
 
@@ -113,7 +113,7 @@ People appear in the registry not as isolated entries but as nodes in a networkâ
 
 ---
 
-## Person Status
+### Person Status
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
@@ -121,7 +121,7 @@ People appear in the registry not as isolated entries but as nodes in a networkâ
 
 ---
 
-## Links and Profiles
+### Links and Profiles
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
@@ -129,7 +129,7 @@ People appear in the registry not as isolated entries but as nodes in a networkâ
 
 ---
 
-## Person Notes
+### Person Notes
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
@@ -137,7 +137,7 @@ People appear in the registry not as isolated entries but as nodes in a networkâ
 
 ---
 
-## Privacy Considerations
+### Privacy Considerations
 
 The registry is a coordination tool, not a public directory. Access to person records should be limited to participants in Charter-covered programs. Information included should be:
 
@@ -149,13 +149,13 @@ The principle of **openness with discernment** (Charter Section II.7) applies: t
 
 ---
 
-# Part II: Projects
+## Part II: Projects
 
 Projects are **bounded units of transformation**â€”finite, mission-driven endeavors with clear goals, collaborators, outputs, and measures of success. Every project must articulate not only what it aims to achieve, but also what would make it complete.
 
 Projects are distinguished from initiatives by their finite nature. Projects end; initiatives persist until deliberately concluded.
 
-## Basic Information
+### Basic Information
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
@@ -165,7 +165,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Intent and Problem Context
+### Intent and Problem Context
 
 *Charter requirement: "What specific situation, breakdown, or opportunity this project addresses, what transformation is being pursued, and why"*
 
@@ -176,7 +176,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Scope and Outputs
+### Scope and Outputs
 
 *Charter requirement: "Boundaries of the projectâ€”what it includes and excludes, what it will build or measure or change, and what outputs it will produce"*
 
@@ -187,7 +187,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Measurability and Completion
+### Measurability and Completion
 
 *Charter requirement: "How impact or progress will be assessed (whether qualitatively or quantitatively), and what specific evidence would indicate success or failure"*
 
@@ -199,7 +199,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Project Timeline
+### Project Timeline
 
 *Charter requirement: "When the project begins, when it is expected to complete, and key milestones along the way"*
 
@@ -211,7 +211,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Project Status
+### Project Status
 
 *Charter requirement: "Current state (proposed, active, paused, completed, archived)"*
 
@@ -221,7 +221,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Project Team
+### Project Team
 
 *Charter requirement: "Who has authority, accountability, and contribution roles"*
 
@@ -232,7 +232,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Project Dependencies
+### Project Dependencies
 
 *Charter requirement: "What this project requires from other efforts, and what other efforts depend on this project"*
 
@@ -244,7 +244,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Project Funding
+### Project Funding
 
 *Charter requirement: "Funding sources, resource allocation, and budgeted areas" (where applicable)*
 
@@ -255,7 +255,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Project Context
+### Project Context
 
 *Supports Charter's "Overlap and Coherence Analysis" requirements*
 
@@ -265,7 +265,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-## Project Notes
+### Project Notes
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
@@ -273,7 +273,7 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ---
 
-# Part III: Initiatives
+## Part III: Initiatives
 
 Initiatives are **ongoing programs** without predetermined endpoints, evaluated on continuing justification rather than completion. Examples include research programs, standing working groups, recurring events, coordination functions, and cross-cutting efforts that persist as long as they serve their purpose.
 
@@ -281,7 +281,7 @@ Unlike projects, initiatives do not answer "What would make this complete?" Inst
 
 Initiatives often contain or spawn multiple projects. A research initiative might generate several bounded projects over its lifetime; a coordination initiative might establish processes that enable project work.
 
-## Basic Information
+### Basic Information
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
@@ -291,7 +291,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Purpose and Justification
+### Purpose and Justification
 
 *Charter requirement: Initiatives "require ongoing justification and are evaluated on whether they continue to serve their purpose"*
 
@@ -303,7 +303,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Activities and Outputs
+### Activities and Outputs
 
 *What the initiative does on an ongoing basis*
 
@@ -315,7 +315,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Evaluation and Review
+### Evaluation and Review
 
 *How the initiative's ongoing value is assessed*
 
@@ -328,7 +328,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Projects and Relationships
+### Projects and Relationships
 
 *Charter requirement: "Initiatives often contain or spawn multiple projects"*
 
@@ -340,7 +340,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Initiative Timeline
+### Initiative Timeline
 
 *Unlike projects, initiatives do not have predetermined end dates*
 
@@ -352,7 +352,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Initiative Status
+### Initiative Status
 
 *Initiative lifecycle states differ from project states*
 
@@ -362,7 +362,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Initiative Team
+### Initiative Team
 
 *Charter requirement: "Who has authority, accountability, and contribution roles"*
 
@@ -374,7 +374,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Initiative Resources
+### Initiative Resources
 
 *Charter requirement: "Funding sources, resource allocation, and budgeted areas" (where applicable)*
 
@@ -385,7 +385,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Initiative Context
+### Initiative Context
 
 *Supports Charter's "Overlap and Coherence Analysis" requirements*
 
@@ -395,7 +395,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Initiative Notes
+### Initiative Notes
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
@@ -403,7 +403,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-# Comparison: Projects vs. Initiatives
+## Comparison: Projects vs. Initiatives
 
 | | **Projects** | **Initiatives** |
 | --- | --- | --- |
@@ -416,7 +416,7 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-# Alignment with Charter Principles
+## Alignment with Charter Principles
 
 This schema implements Section III.2 of the Charter by:
 
