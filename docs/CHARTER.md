@@ -272,7 +272,27 @@ This section articulates how the Charter understands and governs relationships a
 
 The aim is not to dissolve institutional boundaries, but to enable **productive coupling** across them—preserving accountability, authority, and trust while allowing for experimentation and collaboration.
 
-### 1. Chiba Institute of Technology (Host Institution)
+### 1. Roles and Positions
+
+The ecosystem covered by this Charter comprises individuals in the following broad categories:
+
+**Director** — Executive leadership with strategic and operational authority over one or more institutional units (Henkaku Center, SDS, or designated programs). Directors bear ultimate accountability for organizational direction, resource allocation, and alignment with Charter principles.
+
+**Faculty** — Members holding academic appointments within SDS, responsible for curriculum, student mentorship, and degree program integrity. Faculty simultaneously function as **Principal Researchers**, leading research initiatives and bearing accountability for research outcomes. This dual role reflects the Charter's commitment to integrating education and research practice.
+
+**Principal Researchers** — Individuals who lead and bear accountability for research projects, whether or not they hold faculty appointments. Principal researchers are responsible for project design, execution, and outcomes within their domains.
+
+**Researchers** — Individuals engaged in research activities under the guidance of principal researchers or faculty. Researchers contribute to project execution but do not bear primary accountability for project-level decisions.
+
+**Staff** — Individuals providing operational, administrative, or technical support. Staff enable the functioning of research and educational programs without bearing direct academic or research accountability.
+
+**Visiting Researchers** — Individuals temporarily affiliated with the ecosystem for research purposes, typically maintaining primary appointments elsewhere. Visiting researchers operate under the guidance of a faculty member or principal researcher who serves as their institutional liaison.
+
+**Affiliates** — Individuals with formal but non-employment relationships to the ecosystem—including adjunct faculty, advisors, collaborators, and partners. Affiliates may participate in research, education, or governance according to the terms of their affiliation.
+
+These categories are not mutually exclusive beyond the structural constraints noted above. Individuals may hold multiple roles, and role boundaries may evolve as the ecosystem matures. What matters is clarity: at any given moment, for any given activity, individuals should be able to identify which role they occupy and what accountability that role entails.
+
+### 2. Chiba Institute of Technology (Host Institution)
 
 <!--
 Describe Chiba Tech as the host institution that provides legal standing,
@@ -285,7 +305,7 @@ State that antidisciplinary and experimental work is pursued within
 these constraints, not in opposition to them.
 -->
 
-### 2. Henkaku Center and Graduate School of Design & Science (SDS)
+### 3. Henkaku Center and Graduate School of Design & Science (SDS)
 
 <!--
 Describe Henkaku Center and SDS as distinct but closely coupled entities.
@@ -300,7 +320,7 @@ State that faculty and students may participate in both contexts,
 but that governance, accountability, and evaluation differ by role.
 -->
 
-### 3. Interaction, Flow, and Boundary Management
+### 4. Interaction, Flow, and Boundary Management
 
 <!--
 Describe how students, faculty, and researchers may move between
@@ -312,7 +332,7 @@ Emphasize that:
 - Transparency and role clarity are required when operating across boundaries
 -->
 
-### 4. Affiliates, Visiting Researchers, and External Partners
+### 5. Affiliates, Visiting Researchers, and External Partners
 
 <!--
 Expectations for alignment with this Charter.
