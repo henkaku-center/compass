@@ -37,8 +37,8 @@ Since our January meeting, we've made substantial progress on building the Chart
 - Added "Bias Toward Action"—the art of getting things done (Section IV.2)
 - Added "Magic"—valuing what escapes measurement (Section II.4)
 
-**Charter Content Complete (February 4-5, 2026)**
-- All sections now contain full, camera-ready text—no placeholder notes remain
+**Charter Draft Ready for Review (February 4-5, 2026)**
+- All sections now contain full text—no placeholder notes remain
 - Converted 17 placeholder sections to full Charter text:
   - Preamble: scope, applicability, what Charter is not, living document nature
   - II.1 Antidisciplinarity: definition, distinction from inter/transdisciplinary
@@ -58,7 +58,7 @@ Since our January meeting, we've made substantial progress on building the Chart
   - VIII.1 Authority and Interpretation: no legal authority but influences culture; Chiba Tech policy takes precedence; authorizes project registry and curriculum
   - VIII.2 Ratification and Acknowledgement: formal agreement required; initial ratification by Director + seven founding faculty
   - Appendices: framing for future additions (glossary, historical notes, case studies, experimental mechanisms)
-- Removed all HTML comment placeholders—the Charter is now ready for review and ratification
+- Removed all HTML comment placeholders—the draft is now ready for review by ratifying members
 
 **Project Definition System**
 - Added a new Charter section requiring organizations to track their projects
@@ -90,15 +90,15 @@ Since our January meeting, we've made substantial progress on building the Chart
 
 ## What Still Needs Work
 
-**Charter Ratification**
-- Charter content is complete and ready for review
-- Needs formal ratification by the Director and seven founding faculty
+**Charter Review and Ratification**
+- Draft text is ready for review by the Director and seven founding faculty
+- Ratifying members should review, propose changes, and reach consensus
 - Once ratified, the Charter becomes the governing framework
 
-**Decision-Making Process**
-- Data structure and user stories drafted, but system not yet implemented
-- Need to build the actual tools for submitting, reviewing, and approving changes
-- Need to finalize: approval thresholds, reviewer requirements, voting mechanisms
+**Amendment Proposal System**
+- Need to build a system for proposing and reviewing Charter amendments
+- Data structure and user stories drafted, but not yet implemented
+- Need to finalize: how proposals are submitted, reviewed, and approved
 
 **Project Registry Platform**
 - We have the template for how to describe projects
@@ -107,15 +107,15 @@ Since our January meeting, we've made substantial progress on building the Chart
 
 ## Questions to Discuss
 
-1. **When do we ratify?** The Charter content is complete. When should we convene the Director and founding faculty for formal ratification?
+1. **How should ratifying members review the draft?** What's the process for the Director and founding faculty to review, comment on, and propose changes to the draft before ratification?
 
-2. **How should we make decisions going forward?** Do we need a formal voting system for Charter amendments, or can we keep it simple with reviews and discussions?
+2. **What does the amendment system need?** How should people propose changes after ratification? What approval process makes sense?
 
 3. **Where do projects live?** Should we use something like Google Sheets, Airtable, or build something custom for people to submit and view projects?
 
-4. **What's the review process?** Before ratification, who should review the Charter for completeness and accuracy?
+4. **When do we aim to ratify?** What timeline makes sense for review and ratification?
 
-The Charter is now complete and ready for review and ratification.
+The Charter draft is ready for review. We also need to build the system for proposing amendments.
 
 ---
 
