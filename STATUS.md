@@ -1,6 +1,6 @@
 # Compass Progress Update
 
-**Last Updated: February 5, 2026**
+**Last Updated: February 6, 2026**
 
 ## Current Status
 
@@ -50,6 +50,8 @@ Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with:
 ### Agentic Development
 
 Compass is developed using LLM coding agents—AI tools that draft, edit, and coordinate document changes under human direction. This is not incidental; it is a deliberate practice that informs how contribution workflows are designed. The project serves as a proving ground for agent-assisted governance.
+
+The agentic approach is now documented across the project's supporting files (README, Status, and AI assistant guidance), structured around three dimensions: development with agents, agent-assisted contribution by participants, and planned agentic interfaces (such as chat bots) that will let contributors propose changes without needing direct repository access.
 
 ## What Still Needs Work
 
