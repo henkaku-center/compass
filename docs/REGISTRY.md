@@ -1,14 +1,17 @@
-# Registry Schema
+# Registry
 
-This document defines the structured framework for the shared registry mandated by Section III.2 of the Charter (Registry and Coordination Infrastructure).
+This document defines the structured framework for the shared registry mandated by Section V of the Charter (Registry and Coordination Infrastructure).
 
 ## Overview
 
-The Charter mandates a **shared registry** that tracks three types of entries:
+The Charter mandates a **shared registry** that tracks six types of entries:
 
 - **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement
 - **Projects**: Bounded units of transformation with clear completion criteria
 - **Initiatives**: Ongoing programs without predetermined endpoints
+- **Courses**: Recurring educational units with syllabi, learning objectives, and credit values
+- **Theses**: Bounded academic works with advisors, committees, and defense milestones
+- **Events**: Time-bound gatherings—seminars, workshops, conferences, and other convening occasions
 
 The registry serves as coordination infrastructure, making work and people visible and enabling participants to identify connections, gaps, potential collaborators, and network structure across the ecosystem.
 
@@ -16,10 +19,13 @@ The registry serves as coordination infrastructure, making work and people visib
 
 **Shared, not fragmented**: The registry must be shared across all Charter-covered institutions. Separate tracking systems undermine coordination.
 
-**Interoperating schemas**: The three entry types reference each other:
-- People link to projects and initiatives they're involved in
+**Interoperating schemas**: Entry types reference each other:
+- People link to projects, initiatives, courses, theses, and events they're involved in
 - Projects reference people as owners/contributors
 - Initiatives reference people as leads/participants and track spawned/contained projects
+- Courses link to instructors, Charter principles, and related projects
+- Theses link to advisors, committees, and related projects or initiatives
+- Events link to organizers, related initiatives/projects, and participants
 
 **Measurability with forgiveness**: The Charter recognizes that systemic, cultural, and long-term impacts may resist clean measurement while still being evaluable through qualitative assessment, stakeholder feedback, and narrative evidence.
 
@@ -45,6 +51,24 @@ Each entry type is grounded by essential questions:
 3. How will we know if it's still serving its purpose?
 4. What projects has it spawned or does it contain?
 
+**Courses**:
+1. What capabilities does this course develop?
+2. How does it connect to Charter principles?
+3. Who teaches it and what projects does it support?
+4. How is student learning assessed?
+
+**Theses**:
+1. What question does this thesis address?
+2. Who advises it and what is the expected contribution?
+3. How does it relate to ongoing projects or initiatives?
+4. What are the milestones and defense requirements?
+
+**Events**:
+1. What is the purpose of this gathering?
+2. Who is organizing it and who should attend?
+3. What initiative, project, or course does it serve?
+4. What outcomes or follow-up actions are expected?
+
 ---
 
 ## Part I: People
@@ -64,11 +88,11 @@ People appear in the registry not as isolated entries but as nodes in a network�
 
 ### Role and Affiliation
 
-*Charter requirement (Section V.1): "at any given moment, for any given activity, individuals should be able to identify which role they occupy"*
+*Charter requirement (Section VI.1): "at any given moment, for any given activity, individuals should be able to identify which role they occupy"*
 
 | **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
-| `role_category` — **Role Category** | Primary role as defined in Charter Section V.1. Must be one of:<br>• `director`<br>• `faculty`<br>• `principal_researcher`<br>• `researcher`<br>• `staff`<br>• `visiting_researcher`<br>• `affiliate`<br>• `student` | **Roles and Positions** |
+| `role_categories` — **Role Categories** | List of roles as defined in Charter Section VI.1. Categories are not mutually exclusive—individuals may hold multiple roles. Each entry must be one of:<br>• `director`<br>• `faculty`<br>• `principal_researcher`<br>• `researcher`<br>• `staff`<br>• `visiting_researcher`<br>• `affiliate`<br>• `student` | **Roles and Positions** |
 | `title` — **Title** | *(optional)* Formal title or position (e.g., "Associate Professor", "Research Assistant") | **Roles and Positions** |
 | `affiliations` — **Institutional Affiliations** | List of institutional affiliations. Each entry includes:<br>• `institution`: Institution name<br>• `department`: *(optional)* Department or unit<br>• `role`: Role within that institution<br>• `primary`: Whether this is the primary affiliation (true/false) | **Roles and Positions** (affiliations) |
 | `start_date` — **Start Date** | When the person joined the ecosystem (format: `YYYY-MM-DD`) | *Temporal context* |
@@ -403,31 +427,282 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ---
 
-## Comparison: Projects vs. Initiatives
+## Part IV: Courses
 
-| | **Projects** | **Initiatives** |
+Courses are **recurring educational units** with defined learning objectives, credit values, and instructors. Unlike projects, courses recur across cohorts; unlike initiatives, they have structured syllabi and assessment criteria. Courses connect to the Charter principles they embody, the projects they support, and the capabilities they develop.
+
+Courses appear in the registry to make the curriculum visible, discoverable, and connected to the broader ecosystem. Tracking courses enables participants to understand what capabilities are being developed, how courses evolve across terms, and where curricular gaps or overlaps exist.
+
+### Basic Information
+
+| **Field** | **Description** | **Charter Mapping** |
 | --- | --- | --- |
-| **Nature** | Bounded, finite | Ongoing, open-ended |
-| **End condition** | Completion criteria | Deliberate conclusion or transformation |
-| **Evaluation** | Did it achieve outcomes? | Is it still serving its purpose? |
-| **Time horizon** | Defined start and end | Established date, no predetermined end |
-| **Contains** | Tasks, milestones | Projects, activities |
-| **Key question** | "What would make this complete?" | "Should this continue?" |
+| `id` — **Course ID** | Unique internal identifier (e.g., `course_aps_1`) | *Enables tracking and cross-referencing* |
+| `title` — **Course Title** | Official name of the course | *Part of making work visible* |
+| `summary` — **Course Summary** | A short paragraph (1–2 sentences) describing what the course covers and why | *Supports discoverability* |
+| `credits` — **Credit Value** | Number of credits awarded | **Academic Structure** |
+
+---
+
+### Learning Objectives and Charter Alignment
+
+*Supports visibility of how curriculum connects to Charter principles*
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `learning_objectives` — **Learning Objectives** | What capabilities does this course develop? List of specific, assessable outcomes. Answers essential prompt #1. | **Educational Practice** |
+| `charter_alignment` — **Charter Principle Alignment** | Which Charter principles does this course embody or develop? List of section references with brief explanation (e.g., "Section II.1 Antidisciplinarity — course requires working across disciplinary boundaries"). Answers essential prompt #2. | **Charter Alignment** |
+| `domains` — **Related Domains** | Tags that map this course to research or practice areas | *Enables overlap/coherence analysis* |
+
+---
+
+### Instruction
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `instructors` — **Instructors** | List of people who teach this course. Each entry includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role (e.g., "lead instructor", "co-instructor", "teaching assistant") Answers essential prompt #3. | **Participants** (authority) |
+| `program` — **Degree Program** | Which program(s) this course belongs to. One or more of:<br>• `masters_mandatory`<br>• `masters_elective`<br>• `phd_mandatory`<br>• `phd_elective` | **Academic Structure** |
+| `prerequisites` — **Prerequisites** | *(optional)* Other courses or knowledge expected before enrollment | **Academic Structure** |
+
+---
+
+### Schedule and Delivery
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `term` — **Term Offered** | When this course is typically offered (e.g., "Spring 2026", "Every fall term") | **Temporal Context** |
+| `format` — **Delivery Format** | How the course is delivered. One of:<br>• `in_person`<br>• `remote`<br>• `hybrid` | **Logistics** |
+| `schedule` — **Schedule** | *(optional)* Meeting pattern (e.g., "Tuesdays 10:00–12:00") | **Temporal Context** |
+
+---
+
+### Assessment
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `assessment_approach` — **Assessment Approach** | How is student learning assessed? (e.g., "project-based portfolio", "thesis proposal", "peer review and reflection"). Answers essential prompt #4. | **Educational Practice** (assessment) |
+
+---
+
+### Related Projects and Courses
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `related_projects` — **Related Projects** | *(optional)* Projects that this course supports or feeds into | **Dependencies** |
+| `related_courses` — **Related Courses** | *(optional)* Other courses that complement or build on this one | **Dependencies** |
+
+---
+
+### Course Status
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `status` — **Course Status** | Current state. Must be one of:<br>• `planned` - Course designed but not yet offered<br>• `active` - Currently being taught<br>• `on_hold` - Not offered this term but expected to return<br>• `retired` - No longer offered | **Status** |
+
+---
+
+### Course Notes
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `notes` — **Notes** | Freeform space for pedagogical context, revision history, or planned changes | *Flexibility for additional context* |
+
+---
+
+## Part V: Theses
+
+Theses are **bounded academic works** produced by students in pursuit of a degree. Each thesis has an advisor, a committee, defense milestones, and an expected contribution to knowledge. Theses connect to the projects and initiatives they draw from or contribute to, and to the people who advise and evaluate them.
+
+Tracking theses in the registry makes student research visible across the ecosystem, helps advisors and collaborators identify connections, and creates an institutional record of the questions the community has chosen to investigate.
+
+### Basic Information
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `id` — **Thesis ID** | Unique internal identifier (e.g., `thesis_2026_tanaka`) | *Enables tracking and cross-referencing* |
+| `title` — **Thesis Title** | Working or final title of the thesis | *Part of making work visible* |
+| `summary` — **Thesis Summary** | A short paragraph (1–2 sentences) describing the thesis topic and approach | *Supports discoverability* |
+| `degree` — **Degree Type** | Which degree this thesis is for. One of:<br>• `masters`<br>• `phd` | **Academic Structure** |
+
+---
+
+### Research Question and Contribution
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `research_question` — **Research Question** | What question does this thesis address? Answers essential prompt #1. | **Intent** |
+| `expected_contribution` — **Expected Contribution** | What is the expected contribution to knowledge, practice, or the ecosystem? Answers essential prompt #2. | **Measurability** |
+| `domains` — **Related Domains** | Tags that map this thesis to research or practice areas | *Enables overlap/coherence analysis* |
+
+---
+
+### Advisory Team
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `student` — **Student** | The student authoring the thesis. References a person entry in the registry. | **Participants** (author) |
+| `advisor` — **Primary Advisor** | The faculty member or principal researcher serving as primary advisor. References a person entry. Answers essential prompt #2. | **Participants** (authority/accountability) |
+| `committee` — **Committee Members** | List of people on the thesis committee. Each entry includes:<br>• `person_id`: Reference to person in registry (or `external_name` for non-registry members)<br>• `role`: Role (e.g., "committee chair", "external examiner", "member") | **Participants** (evaluation) |
+
+---
+
+### Milestones and Timeline
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `timeline.start_date` — **Start Date** | When thesis work began (format: `YYYY-MM-DD`) | **Temporal Context** |
+| `timeline.expected_defense` — **Expected Defense Date** | When the defense is anticipated | **Temporal Context** |
+| `timeline.milestones` — **Milestones** | Key milestones. Each entry includes:<br>• `name`: Milestone name (e.g., "Proposal defense", "Mid-term review", "Final defense")<br>• `date`: Date (actual or planned)<br>• `status`: One of `planned`, `completed`, `deferred` Answers essential prompt #4. | **Temporal Context** (milestones) |
+
+---
+
+### Related Work
+
+*Charter requirement: theses should connect to the broader ecosystem*
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `related_projects` — **Related Projects** | Projects this thesis draws from or contributes to. Each entry includes:<br>• `project_id`: Reference to project in registry<br>• `relationship`: How thesis relates (e.g., "extends", "evaluates", "contributes to") Answers essential prompt #3. | **Dependencies** (projects) |
+| `related_initiatives` — **Related Initiatives** | Initiatives this thesis connects to | **Dependencies** (initiatives) |
+| `related_courses` — **Related Courses** | *(optional)* Courses that informed or supported this thesis | **Dependencies** (courses) |
+
+---
+
+### Thesis Status
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `status` — **Thesis Status** | Current lifecycle state. Must be one of:<br>• `proposed` - Topic defined but not yet approved<br>• `in_progress` - Actively working on thesis<br>• `under_review` - Submitted for committee review<br>• `defended` - Defense completed, pending final approval<br>• `approved` - Thesis accepted and degree conferred<br>• `withdrawn` - Student withdrew from thesis | **Status** |
+
+---
+
+### Thesis Output
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `document_url` — **Document** | *(optional)* Link to thesis document (draft or final) | **Documentation** |
+| `artifacts` — **Related Artifacts** | *(optional)* Other outputs produced alongside the thesis (e.g., software, datasets, prototypes) | **Documentation** |
+
+---
+
+### Thesis Notes
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `notes` — **Notes** | Freeform space for context, open questions, or advisory notes | *Flexibility for additional context* |
+
+---
+
+## Part VI: Events
+
+Events are **time-bound gatherings**—seminars, workshops, conferences, open houses, guest lectures, thesis defenses, and other occasions that bring people together around shared purpose. Unlike projects, events are primarily about convening; unlike courses, they are typically singular or irregular rather than recurring on a fixed academic schedule.
+
+Events connect the ecosystem's other entry types: an initiative might host a seminar series, a project might present at a workshop, a course might include a guest lecture, and a thesis defense is itself an event.
+
+### Basic Information
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `id` — **Event ID** | Unique internal identifier (e.g., `event_2026_spring_symposium`) | *Enables tracking and cross-referencing* |
+| `title` — **Event Title** | Clear and specific name of the event | *Part of making work visible* |
+| `summary` — **Event Summary** | A short paragraph (1–2 sentences) describing the event's purpose and context | *Supports discoverability* |
+| `event_type` — **Event Type** | Category of event. One of:<br>• `seminar` - Presentation and discussion<br>• `workshop` - Hands-on collaborative session<br>• `conference` - Multi-session gathering<br>• `open_house` - Public-facing event<br>• `lecture` - Guest or invited talk<br>• `defense` - Thesis or dissertation defense<br>• `review` - Formal project or initiative review<br>• `social` - Community-building gathering<br>• `other` - Events that don't fit other categories | **Classification** |
+
+---
+
+### Purpose and Context
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `purpose` — **Event Purpose** | What is this gathering meant to achieve? What would make it worthwhile? Answers essential prompt #1. | **Intent** |
+| `audience` — **Target Audience** | Who should attend? (e.g., "all faculty and students", "project team members", "external partners", "public") Answers essential prompt #2. | **Scope** |
+| `related_initiative` — **Related Initiative** | *(optional)* Reference to the initiative this event serves | **Context** (initiative) |
+| `related_project` — **Related Project** | *(optional)* Reference to the project this event serves | **Context** (project) |
+| `related_course` — **Related Course** | *(optional)* Reference to the course this event is part of | **Context** (course) |
+
+---
+
+### Scheduling
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `date` — **Event Date** | Date of the event (format: `YYYY-MM-DD`) | **Temporal Context** |
+| `time` — **Start Time** | *(optional)* Start time (format: `HH:MM`, 24-hour) | **Temporal Context** |
+| `duration` — **Duration** | *(optional)* Expected duration (e.g., "2 hours", "full day", "3 days") | **Temporal Context** |
+| `location` — **Location** | Where the event takes place. Includes:<br>• `venue`: Physical location or "remote"<br>• `room`: *(optional)* Specific room or space<br>• `remote_url`: *(optional)* Video call or streaming link | **Logistics** |
+| `recurring` — **Recurring** | *(optional)* Whether this is a recurring event and its schedule (e.g., "monthly, first Thursday", "weekly during term") | **Temporal Context** |
+
+---
+
+### Event Team
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `organizer` — **Organizer** | The person responsible for planning and running the event. References a person entry in the registry. | **Participants** (authority/accountability) |
+| `speakers` — **Speakers/Presenters** | *(optional)* List of people presenting or leading sessions. Each entry includes:<br>• `person_id`: Reference to person in registry (or `external_name` for non-registry participants)<br>• `role`: Role (e.g., "keynote", "panelist", "presenter") | **Participants** (contributors) |
+| `expected_attendees` — **Expected Attendees** | *(optional)* Estimated number of attendees or list of invited groups | **Scope** |
+
+---
+
+### Outcomes
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `expected_outcomes` — **Expected Outcomes** | What should result from this event? (e.g., "decision on registry platform", "feedback on draft Charter", "new collaboration identified") Answers essential prompt #4. | **Measurability** |
+| `actual_outcomes` — **Actual Outcomes** | *(filled after event)* What actually resulted? Decisions made, actions agreed, connections formed. | **Measurability** (retrospective) |
+| `materials` — **Materials** | *(optional)* Links to slides, recordings, notes, or other artifacts from the event | **Documentation** |
+
+---
+
+### Event Status
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `status` — **Event Status** | Current state. Must be one of:<br>• `planned` - Event is scheduled but hasn't occurred<br>• `confirmed` - Event details finalized, invitations sent<br>• `completed` - Event has occurred<br>• `cancelled` - Event was cancelled | **Status** |
+
+---
+
+### Event Context
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `domains` — **Related Domains** | Tags that help map this event to research or practice areas | *Enables overlap/coherence analysis* |
+
+---
+
+### Event Notes
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `notes` — **Notes** | Freeform space for logistics, context, or follow-up items | *Flexibility for additional context* |
+
+---
+
+## Comparison of Entry Types
+
+| | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** |
+| --- | --- | --- | --- | --- | --- |
+| **Nature** | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening |
+| **End condition** | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes |
+| **Evaluation** | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? |
+| **Time horizon** | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) |
+| **Contains** | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations |
+| **Key question** | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" |
 
 ---
 
 ## Alignment with Charter Principles
 
-This schema implements Section III.2 of the Charter by:
+This schema implements Section V of the Charter by:
 
 1. **Making work and people visible**: Structured format enables browsing, discovery, and coordination
 2. **Shared registry**: Single schema for all Charter-covered institutions prevents fragmentation
-3. **Role clarity**: Person records establish clear positioning per Section V.1
+3. **Role clarity**: Person records establish clear positioning per Section VI.1
 4. **Bounded projects**: Required fields enforce finite, mission-driven scope with completion criteria
 5. **Ongoing justification**: Initiative fields ensure programs articulate why they should continue
 6. **Measurability with forgiveness**: Success criteria and health indicators support both quantitative and qualitative assessment
 7. **Accountability**: Owner, lead, and contributor fields establish clear responsibility
-8. **Network visibility**: Cross-references between people, projects, and initiatives show how the ecosystem connects
+8. **Network visibility**: Cross-references between people, projects, initiatives, courses, theses, and events show how the ecosystem connects
 9. **Coordination infrastructure**: Dependencies, domains, and scope boundaries enable overlap/coherence analysis
 
-The schema may evolve through Charter governance processes (Section VI), with changes preserving backward compatibility or providing migration paths for existing entries.
+The schema may evolve through Charter governance processes (Section VII), with changes preserving backward compatibility or providing migration paths for existing entries.

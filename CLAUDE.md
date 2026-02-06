@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Repository Overview
 
-This repository contains **Compass**—the coordination infrastructure for the Compass Initiative. It includes the Charter (a version-controlled living document), Registry Schema, Curriculum documentation, and supporting tools for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
+This repository contains **Compass**—coordination infrastructure that makes institutional work visible and easy to contribute to. It includes the Charter (a version-controlled living document), Registry, Curriculum documentation, and supporting tools for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
 
-Unlike traditional static institutional documents (PDFs or archived documents), Compass is designed to evolve through transparent, peer-reviewed contributions with version control as the system of record.
+Unlike traditional static institutional documents (PDFs or archived documents), Compass is designed to evolve through transparent, peer-reviewed contributions with version control as the system of record. Visibility and ease of contribution are core design goals: participants should be able to see what is happening across the ecosystem and propose changes through accessible pathways.
 
 ## Repository Structure
 
@@ -14,7 +14,7 @@ Unlike traditional static institutional documents (PDFs or archived documents), 
 compass/
 ├── docs/                      # Primary documents
 │   ├── CHARTER.md             # Main Charter document
-│   ├── REGISTRY_SCHEMA.md     # Unified schema for people, projects, initiatives
+│   ├── REGISTRY.md            # Registry for people, projects, initiatives, courses, theses, events
 │   └── CURRICULUM.md          # SDS Master's and PhD curriculum
 ├── reference/                 # Historical versions and reference materials
 │   ├── 20260203_Teaching AI and Teaching with AI.pdf
@@ -38,13 +38,13 @@ Compass comprises multiple documents and tools:
 
 **Primary Documents:**
 - `docs/CHARTER.md` - The main Charter document articulating values, governance, and operational commitments
-- `docs/REGISTRY_SCHEMA.md` - Unified schema for people, projects, and initiatives registry
+- `docs/REGISTRY.md` - Unified schema for people, projects, and initiatives registry
 - `docs/CURRICULUM.md` - SDS Master's and PhD curriculum documentation
 
 **Supporting Materials:**
 - `README.md` - Public documentation explaining purpose, governance model, and institutional context
 - `STATUS.md` - Progress updates on Compass development
-- `index.html` - Static web viewer using marked.js (serves Home, Status, Charter, Curriculum, Registry Schema, and References)
+- `index.html` - Static web viewer using marked.js (serves Home, Status, Charter, Curriculum, Registry, and References)
 - `reference/` - Historical versions and source documents
 
 **Key principle**: Compass documents are living documents. Version control tracks how institutional principles evolve, making "institutional drift" visible and auditable.
@@ -107,22 +107,22 @@ The Charter (`docs/CHARTER.md`) is organized with the following structure:
 9. Openness with Discernment
 10. Coordination as a Design Problem
 
-**III. Research Practice** - Two subsections:
-1. Project-Centered Inquiry
-2. **Registry and Coordination Infrastructure** - Mandates shared platform for projects and initiatives
+**III. Research Practice** - Project-Centered Inquiry
 
 **IV. Educational Practice** - Three subsections:
 1. Project-Centered Learning
 2. Learning Through Making and Doing
 3. Use of Computational and Agentic Systems
 
-**V. Institutional Relationships** - Governance between Chiba Tech, Henkaku Center, SDS, and external partners
+**V. Registry and Coordination Infrastructure** - Shared platform for people, projects, initiatives, courses, theses, and events
 
-**VI. Governance and Stewardship** - Charter evolution, decision-making, conflict resolution
+**VI. Institutional Relationships** - Governance between Chiba Tech, Henkaku Center, SDS, and external partners
 
-**VII. Evolution and Adaptation** - Versioning, portability, reuse conditions
+**VII. Governance and Stewardship** - Charter evolution, decision-making, conflict resolution
 
-**VIII. Closing Provisions** - Authority, interpretation, ratification
+**VIII. Evolution and Adaptation** - Versioning, portability, reuse conditions
+
+**IX. Closing Provisions** - Authority, interpretation, ratification
 
 **Appendices** - Optional sections to be added over time
 
@@ -132,16 +132,19 @@ As of February 2026, all Charter sections contain full text. HTML comment placeh
 
 **When editing**: Maintain consistency with the Charter's existing tone, structure, and principles. New sections or significant changes should go through the amendment process once ratification is complete.
 
-## Registry Schema
+## Registry
 
-### Section III.2: Registry and Coordination Infrastructure
+### Section V: Registry and Coordination Infrastructure
 
-This Charter provision mandates that organizations establish a **shared registry**—a common platform for defining, submitting, and browsing people, projects, and initiatives across the ecosystem.
+This Charter provision mandates that organizations establish a **shared registry**—a common platform for defining, submitting, and browsing people, projects, initiatives, courses, theses, and events across the ecosystem.
 
-The registry tracks three types of entries:
-- **People**: Participants with their roles, expertise, affiliations, and involvement in projects/initiatives
+The registry tracks six types of entries:
+- **People**: Participants with their roles, expertise, affiliations, and involvement
 - **Projects**: Bounded units of transformation (finite, mission-driven, with clear completion criteria)
 - **Initiatives**: Ongoing programs (open-ended, without predetermined endpoints, evaluated on ongoing justification)
+- **Courses**: Recurring educational units with syllabi, learning objectives, credit values, and Charter principle alignment
+- **Theses**: Bounded academic works with advisors, committees, defense milestones, and contribution to knowledge
+- **Events**: Time-bound gatherings (seminars, workshops, conferences) that connect people and advance projects or initiatives
 
 Key requirements:
 - Structured templates with required fields for each entry type
@@ -149,9 +152,9 @@ Key requirements:
 - Platform support for identifying overlap, distinctiveness, incoherence, potential collaborators, and network structure
 - Shared across all Charter-covered institutions—not fragmented into separate systems
 
-### REGISTRY_SCHEMA.md
+### REGISTRY.md
 
-`docs/REGISTRY_SCHEMA.md` is a unified schema document implementing the Charter's registry requirements. It defines structured templates for all three entry types: people, projects, and initiatives.
+`docs/REGISTRY.md` is a unified schema document implementing the Charter's registry requirements. It defines structured templates for registry entry types.
 
 **Essential questions for each entry type**:
 
@@ -173,7 +176,25 @@ Key requirements:
 3. How will we know if it's still serving its purpose?
 4. What projects has it spawned or does it contain?
 
-**Interoperating schemas**: The three entry types reference each other—people link to their projects/initiatives, projects reference their team members and parent initiatives, initiatives track spawned projects and participants.
+*Courses*:
+1. What capabilities does this course develop?
+2. How does it connect to Charter principles?
+3. Who teaches it and what projects does it support?
+4. How is student learning assessed?
+
+*Theses*:
+1. What question does this thesis address?
+2. Who advises it and what is the expected contribution?
+3. How does it relate to ongoing projects or initiatives?
+4. What are the milestones and defense requirements?
+
+*Events*:
+1. What is the purpose of this gathering?
+2. Who is organizing it and who should attend?
+3. What initiative, project, or course does it serve?
+4. What outcomes or follow-up actions are expected?
+
+**Interoperating schemas**: Entry types reference each other—people link to their projects/initiatives/courses, projects reference their team members and parent initiatives, initiatives track spawned projects and participants, courses link to instructors and Charter principles, theses link to advisors and related projects, events link to organizers and related initiatives/projects.
 
 **Privacy considerations**: The registry is a coordination tool, not a public directory. Person records should be professionally relevant, participant-controlled, and appropriately scoped.
 
@@ -187,10 +208,10 @@ Key requirements:
 - Maintain consistency with Charter principles (bounded projects, measurability with forgiveness, human authority, symbiotic AI collaboration, etc.)
 - Changes after ratification should go through the amendment process
 
-**Registry Schema** (`docs/REGISTRY_SCHEMA.md`):
-- Must remain aligned with Charter Section III.2 requirements
-- Contains schemas for people, projects, and initiatives in one document
-- Three parts interoperate via cross-references (person IDs in projects, project IDs in initiatives, etc.)
+**Registry** (`docs/REGISTRY.md`):
+- Must remain aligned with Charter Section V requirements
+- Contains schemas for people, projects, initiatives, courses, theses, and events in one document
+- Entry types interoperate via cross-references (person IDs in projects, project IDs in initiatives, etc.)
 - Changes should preserve backward compatibility or provide migration paths
 - Charter Mapping column helps verify alignment
 - Privacy considerations apply to person records
@@ -199,7 +220,7 @@ Key requirements:
 - Renders markdown using marked.js (CDN)
 - Extracts HTML comments and displays them with light styling
 - Cache-busting ensures fresh content on every load
-- Navigation links: README, Status, Charter, Curriculum, Registry Schema
+- Navigation links: README, Status, Charter, Curriculum, Registry
 
 ### Version Control Practices
 
@@ -242,7 +263,7 @@ Navigation provides access to five documents:
 - Status (STATUS.md)
 - Charter (docs/CHARTER.md)
 - Curriculum (docs/CURRICULUM.md)
-- Registry Schema (docs/REGISTRY_SCHEMA.md)
+- Registry (docs/REGISTRY.md)
 
 ### Historical Context
 
@@ -309,13 +330,13 @@ Always read before editing. Use Read tool, not bash commands like `cat`.
 ### Adding new provisions
 1. Determine appropriate section based on Charter structure
 2. Draft content aligned with Charter tone and principles
-3. Consider relationship to existing provisions (e.g., does REGISTRY_SCHEMA.md need updating?)
+3. Consider relationship to existing provisions (e.g., does REGISTRY.md need updating?)
 4. Update documentation (README.md, this file) if structure changes
 
 ### Harmonizing documents
-When Charter and REGISTRY_SCHEMA.md need alignment:
+When Charter and REGISTRY.md need alignment:
 - Charter provides high-level principles and requirements
-- REGISTRY_SCHEMA.md implements these as concrete templates for people, projects, and initiatives
+- REGISTRY.md implements these as concrete templates for people, projects, and initiatives
 - Neither document "trumps" the other—resolve incoherence by adjusting both
 - Preserve information unless there's actual conflict
 
@@ -386,8 +407,8 @@ This repository continues to evolve. Recent changes include:
 - Renamed overall project from "Charter" to "Compass" (the Charter is now a component document within the Compass coordination infrastructure)
 - Simplification of Charter document title (from "Antidisciplinary Charter" to "Charter")
 - Consolidation of sections (former Sections II and III merged into Section II)
-- Addition of Registry provision (Section III.2) with project/initiative distinction
-- Creation of unified REGISTRY_SCHEMA.md for people, projects, and initiatives
+- Addition of Registry provision (Section V) with project/initiative/course/thesis/event distinction
+- Creation of unified REGISTRY.md for people, projects, and initiatives
 - Section II restructuring: 9 subsections covering values and commitments
 - Addition of "Intellectual Integrity" section for antidisciplinary-specific obligations
 - Addition of "Global Institution, Japanese Roots" content with key Japanese concepts

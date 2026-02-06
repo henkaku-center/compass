@@ -1,11 +1,11 @@
 # Compass
 
-**Compass** articulates foundational values, governance principles, and operational practices for the [Henkaku Center](https://henkaku.center), [Graduate School of Design & Science (SDS)](https://sds.chibatech.dev), and [Chiba Institute of Technology](https://chibatech.jp/).
+**Compass** makes the values, governance, and ongoing work of the [Henkaku Center](https://henkaku.center), [Graduate School of Design & Science (SDS)](https://sds.chibatech.dev), and [Chiba Institute of Technology](https://chibatech.jp/) visible and easy to contribute to.
 
 Compass includes:
 
 - **Charter** — The foundational governance document articulating values, principles, and operational commitments
-- **Registry Schema** — Structured templates for tracking people, projects, and initiatives
+- **Registry** — Structured templates for tracking people, projects, and initiatives
 - **Curriculum** — Documentation of SDS Master's and PhD programs
 - **Reference Materials** — Source documents and historical versions
 
@@ -25,17 +25,20 @@ Authority, accountability, and final decision-making remain explicitly human thr
 
 Compass exists to:
 
-1. **Anchor values over time**  
+1. **Make work visible**
+   Surface who is doing what, how projects and initiatives connect, and where gaps or overlaps exist—so participants can coordinate without bottlenecks.
+
+2. **Lower the barrier to contribution**
+   Provide clear pathways—from pull requests to agent-assisted interfaces—so that anyone in the ecosystem can propose changes, not just those comfortable with technical tooling.
+
+3. **Anchor values over time**
    Provide a stable set of principles that persist even as people, projects, and structures change.
 
-2. **Enable antidisciplinary work**  
+4. **Enable antidisciplinary work**
    Support collaboration across disciplines by focusing on paradigms, systems, and shared purpose rather than domain‑specific authority.
 
-3. **Reduce reliance on centralized control**  
-   Align participants through shared reference points instead of top‑down directives.
-
-4. **Make institutional drift visible**  
-   Offer a clear standard against which future decisions and changes can be evaluated.
+5. **Make institutional drift visible**
+   Track how decisions evolve, so that changes to principles are traceable and auditable rather than silent.
 
 ---
 
@@ -59,7 +62,7 @@ Contribution pathways are designed to include **agent-mediated interfaces**. Rat
 Compass includes the following documents (all available via the navigation above or in the [GitHub repository](https://github.com/henkaku-center/compass)):
 
 - **Charter** — The primary governance document articulating values and operational commitments
-- **Registry Schema** — Unified schema for people, projects, and initiatives registry
+- **Registry** — Unified schema for people, projects, and initiatives registry
 - **Curriculum** — SDS Master's and PhD curriculum with course listings
 - **Status** — Progress updates on Compass development
 - **References** — Source documents and historical versions available for download
@@ -71,9 +74,9 @@ Additional files in the repository:
 
 The Charter establishes principles and infrastructure for coordination, including:
 
-- **Section III.2: Registry and Coordination Infrastructure** - Mandates a shared platform for defining and browsing people, projects, and initiatives across the ecosystem.
+- **Section V: Registry and Coordination Infrastructure** - Mandates a shared platform for defining and browsing people, projects, initiatives, courses, theses, and events across the ecosystem.
 
-The **Registry Schema** (`docs/REGISTRY_SCHEMA.md`) implements these requirements with structured templates for three entry types:
+The **Registry** (`docs/REGISTRY.md`) implements these requirements with structured templates for six entry types:
 - **People**: Who they are, what expertise they bring, what they're working on
 - **Projects**: Bounded endeavors with completion criteria and measurable outcomes
 - **Initiatives**: Ongoing programs evaluated on continuing justification
@@ -88,7 +91,7 @@ The **References** page provides source documents that inform Charter principles
 
 - **Read** the Charter to understand the principles, process, and scope
 - **Track changes** through [version history on GitHub](https://github.com/henkaku-center/compass/commits/main) to see how documents evolve
-- **Define registry entries** using the Registry Schema templates for people, projects, and initiatives
+- **Define registry entries** using the Registry templates for people, projects, and initiatives
 - **Propose revisions** via [pull requests](https://github.com/henkaku-center/compass/pulls), agent-assisted workflows, or agentic interfaces such as chat bots
 - **Reuse or adapt** the Charter for other contexts where antidisciplinary or paradigm‑level coordination is desired
 

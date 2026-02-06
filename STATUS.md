@@ -34,14 +34,14 @@ The Charter is organized into 8 sections plus Preamble and Appendices. All secti
 
 Documented SDS Master's (30 credits) and PhD (17 credits) programs, mapped to Charter principles.
 
-### Registry Schema
+### Registry
 
 Created a unified schema for tracking people, projects, and initiatives across institutions. The three parts cross-reference each other for network visibility.
 
 ### Website
 
 Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with:
-- Navigation across all documents (Home, Status, Charter, Curriculum, Registry Schema, References)
+- Navigation across all documents (Home, Status, Charter, Curriculum, Registry, References)
 - Table of contents sidebar with scroll tracking
 - Collapsible sections
 - References page for source documents

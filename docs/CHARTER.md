@@ -456,39 +456,6 @@ This means:
 
 This is not an argument for obscurity or contrarianism. Important problems deserve attention from many actors. But within the space of important problems, this ecosystem should gravitate toward those where its contribution is irreplaceable.
 
-### 2. Registry and Coordination Infrastructure
-
-Institutions covered by this Charter must establish and maintain a **shared registry**—a common platform for defining, submitting, and browsing people, projects, and initiatives across the ecosystem.
-
-**Why a Shared Registry**
-
-Coordination requires visibility. A fragmented landscape of separate tracking systems—where Henkaku Center doesn't know what SDS is doing, where researchers can't find potential collaborators, where duplicate efforts proceed in ignorance of each other—undermines the ecosystem's ability to function as more than a collection of isolated activities.
-
-The registry makes work and people visible, enabling participants to identify connections, gaps, and potential collaborations. It answers basic coordination questions: Who is working on what? Who has expertise in this area? What projects relate to mine? Where are there gaps no one is addressing?
-
-**What the Registry Tracks**
-
-The registry tracks three types of entries:
-
-- **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement in projects and initiatives. People appear as nodes in a network, connected to what they work on and who they collaborate with.
-
-- **Projects**: Bounded units of transformation with clear completion criteria. Projects are finite and mission-driven; they end when their objectives are achieved or abandoned. Every project must articulate what would make it complete.
-
-- **Initiatives**: Ongoing programs without predetermined endpoints. Initiatives persist as long as they serve their purpose and may contain or spawn multiple projects over time.
-
-The distinction between projects and initiatives matters for accountability: projects are evaluated on whether they achieved their stated outcomes; initiatives are evaluated on whether they continue to justify their existence.
-
-**Principles**
-
-- **Shared, not fragmented**: A single registry across all Charter-covered institutions, not separate systems that cannot see each other
-- **Coordination, not approval**: The registry is a visibility tool, not a gatekeeping mechanism. Listing signals accountability to Charter principles but does not require permission.
-- **Measurability with forgiveness**: Projects must articulate how outcomes will be evaluated, but the Charter recognizes that some impacts resist clean measurement. Qualitative assessment and narrative evaluation are legitimate.
-- **Lightweight entry, progressive detail**: Lower barriers to initial registration; allow entries to be refined over time
-
-**Implementation**
-
-Detailed schema definitions for registry entries—including required fields, guidance prompts, and cross-referencing structures—are maintained in the Registry Schema document. The schema may evolve through governance processes (Section VI) while preserving backward compatibility.
-
 ---
 
 ## IV. Educational Practice
@@ -587,7 +554,7 @@ In educational contexts, this means valuing works-in-progress, documenting proce
 
 ### 3. Use of Computational and Agentic Systems
 
-*The AI pedagogy framework in this section draws from "Teaching AI and Teaching with AI" by Gal Raz & Joseph Austerweil. See: [Teaching AI and Teaching with AI](../reference/20260203_Teaching%20AI%20and%20Teaching%20with%20AI.pdf).*
+*The AI pedagogy framework in this section draws from "Teaching AI and Teaching with AI". See: [Teaching AI and Teaching with AI](../reference/20260203_Teaching%20AI%20and%20Teaching%20with%20AI.pdf).*
 
 Educational programs covered by this Charter integrate AI as a foundational assumption, not an optional enhancement. Students must learn to work effectively with AI tools while developing capacities that remain uniquely human.
 
@@ -626,7 +593,54 @@ Curriculum agility is not instability. The goal is structured adaptability—mai
 
 ---
 
-## V. Institutional Relationships
+## V. Registry and Coordination Infrastructure
+
+Institutions covered by this Charter must establish and maintain a **shared registry**—a common platform for defining, submitting, and browsing people, projects, initiatives, courses, theses, and events across the ecosystem.
+
+**Why a Shared Registry**
+
+Coordination requires visibility. A fragmented landscape of separate tracking systems—where Henkaku Center doesn't know what SDS is doing, where researchers can't find potential collaborators, where duplicate efforts proceed in ignorance of each other—undermines the ecosystem's ability to function as more than a collection of isolated activities.
+
+The registry makes work and people visible, enabling participants to identify connections, gaps, and potential collaborations. It answers basic coordination questions: Who is working on what? Who has expertise in this area? What projects relate to mine? Where are there gaps no one is addressing? What courses develop which capabilities? How do theses connect to ongoing research? What events are coming up?
+
+**What the Registry Tracks**
+
+The registry tracks six types of entries:
+
+- **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement in projects, initiatives, courses, and theses. People appear as nodes in a network, connected to what they work on and who they collaborate with.
+
+- **Projects**: Bounded units of transformation with clear completion criteria. Projects are finite and mission-driven; they end when their objectives are achieved or abandoned. Every project must articulate what would make it complete.
+
+- **Initiatives**: Ongoing programs without predetermined endpoints. Initiatives persist as long as they serve their purpose and may contain or spawn multiple projects over time.
+
+- **Courses**: Recurring educational units with defined learning objectives, credit values, and instructors. Courses connect to the Charter principles they embody, the projects they support, and the capabilities they develop. Unlike projects, courses recur across cohorts; unlike initiatives, they have structured syllabi and assessment criteria.
+
+- **Theses**: Bounded academic works produced by students in pursuit of a degree. Each thesis has an advisor, a committee, defense milestones, and an expected contribution to knowledge. Theses connect to the projects and initiatives they draw from or contribute to, and to the people who advise and evaluate them.
+
+- **Events**: Time-bound gatherings—seminars, workshops, conferences, open houses, guest lectures, defenses, and other occasions that bring people together around shared purpose. Events connect to the initiatives or projects they serve, the people who organize and attend them, and the outcomes they produce. Unlike projects, events are primarily about convening; unlike courses, they are typically singular or irregular rather than recurring on a fixed schedule.
+
+These entry types serve different accountability structures:
+
+- **Projects** are evaluated on whether they achieved their stated outcomes
+- **Initiatives** are evaluated on whether they continue to justify their existence
+- **Courses** are evaluated on whether they develop the capabilities they promise and remain aligned with Charter principles
+- **Theses** are evaluated on the quality of their contribution, the rigor of their inquiry, and their connection to the broader ecosystem
+- **Events** are evaluated on whether they achieved their convening purpose—the connections made, knowledge shared, or decisions advanced
+
+**Principles**
+
+- **Shared, not fragmented**: A single registry across all Charter-covered institutions, not separate systems that cannot see each other
+- **Coordination, not approval**: The registry is a visibility tool, not a gatekeeping mechanism. Listing signals accountability to Charter principles but does not require permission.
+- **Measurability with forgiveness**: Entries must articulate how outcomes will be evaluated, but the Charter recognizes that some impacts resist clean measurement. Qualitative assessment and narrative evaluation are legitimate.
+- **Lightweight entry, progressive detail**: Lower barriers to initial registration; allow entries to be refined over time
+
+**Implementation**
+
+Detailed schema definitions for registry entries—including required fields, guidance prompts, and cross-referencing structures—are maintained in the Registry document. The schema may evolve through governance processes (Section VII) while preserving backward compatibility.
+
+---
+
+## VI. Institutional Relationships
 
 This section articulates how the Charter understands and governs relationships among participating institutions. These relationships are not assumed to be flat or symmetrical. Instead, they are treated as **explicitly designed interfaces** between institutions with different mandates, tempos, and constraints.
 
@@ -638,7 +652,7 @@ The ecosystem covered by this Charter comprises individuals in the following bro
 
 **Director** — Executive leadership with strategic and operational authority over one or more institutional units (Henkaku Center, SDS, or designated programs). Directors bear ultimate accountability for organizational direction, resource allocation, and alignment with Charter principles.
 
-**Faculty** — Members holding academic appointments within SDS, responsible for curriculum, student mentorship, and degree program integrity. Faculty simultaneously function as **Principal Researchers**, leading research initiatives and bearing accountability for research outcomes. This dual role reflects the Charter's commitment to integrating education and research practice.
+**Faculty** — Members holding academic appointments within SDS, responsible for curriculum, student mentorship, and degree program integrity. Faculty may also hold the Principal Researcher role, reflecting the Charter's commitment to integrating education and research practice.
 
 **Principal Researchers** — Individuals who lead and bear accountability for research projects, whether or not they hold faculty appointments. Principal researchers are responsible for project design, execution, and outcomes within their domains.
 
@@ -796,7 +810,7 @@ Alignment does not require agreement on all matters, but it does require good fa
 
 ---
 
-## VI. Governance and Stewardship
+## VII. Governance and Stewardship
 
 ### 1. Stewardship of the Charter
 
@@ -958,7 +972,7 @@ The goal is not conflict-free harmony but a community capable of working through
 
 ---
 
-## VII. Evolution and Adaptation
+## VIII. Evolution and Adaptation
 
 ### 1. Living Nature of the Charter
 
@@ -1041,7 +1055,7 @@ The goal is to enable a family of related Charters that share common ancestry wh
 
 ---
 
-## VIII. Closing Provisions
+## IX. Closing Provisions
 
 ### 1. Authority and Interpretation
 
@@ -1057,11 +1071,11 @@ However, this Charter should be actively used and referenced in the development 
 
 This Charter explicitly authorizes:
 
-- The establishment and maintenance of a **registry** as described in Section III.2, serving as coordination infrastructure for projects and initiatives across the ecosystem
+- The establishment and maintenance of a **registry** as described in Section V, serving as coordination infrastructure for people, projects, initiatives, courses, theses, and events across the ecosystem
 
 - The development and delivery of **curriculum for Masters and PhD students** within the Graduate School of Design & Science, consistent with the educational principles articulated in Section IV
 
-- The governance structures and decision-making processes described in Section VI, including the formation of working groups through explicit participation pathways
+- The governance structures and decision-making processes described in Section VII, including the formation of working groups through explicit participation pathways
 
 **What This Charter Does Not Authorize**
 
