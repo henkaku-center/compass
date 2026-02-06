@@ -125,9 +125,11 @@ Six entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html`):
-- Single-page app with hash routing (`#home`, `#charter`, `#archetypes`, `#curriculum`, `#references`, `#status`, `#about`)
+- Single-page app with hash routing (`#home`, `#charter`, `#archetypes`, `#curriculum`, `#references`, `#changes`, `#status`, `#about`)
 - Client-side markdown rendering with marked.js (no build process)
-- Landing page organized into DNA / Emergent / unlabeled meta groups
+- `#changes` page fetches commit history from the GitHub API (no build step)
+- Landing page organized into DNA / Emergent / unlabeled meta groups with animated card entrances
+- Compass icon has a magnetic-settle animation tied to the orientation rotator
 - Cache-busting with timestamp query parameters
 
 ### Version Control

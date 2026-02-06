@@ -44,10 +44,12 @@ Documented SDS Master's (30 credits) and PhD (17 credits) programs, mapped to Ch
 
 ### Website
 
-Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with navigation, table of contents, collapsible sections, a references page, and a landing page organized into two layers:
+Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with navigation, table of contents, collapsible sections, a references page, a changes page, and a landing page organized into two layers:
 
 - **DNA** — Foundational documents (Charter, Archetypes)
-- **Emergent** — Living content instantiated from those templates (Curriculum, with placeholders for future People, Projects, Initiatives, Theses, and Events directories)
+- **Emergent** — Living content that grows from the DNA (Curriculum, with placeholders for future People, Projects, Initiatives, Theses, and Events directories)
+
+The landing page features an animated compass icon and a rotator that cycles through the 12 Foundational Orientations. A dedicated Changes page shows the project's commit history pulled live from GitHub, grouped by date with author attribution and color-coded commit types.
 
 ### Agentic Development
 

@@ -40,6 +40,7 @@ As the ecosystem grows, this layer will expand to include populated directories 
 ### Supporting
 
 - **References** — Source documents and historical materials
+- **Changes** — Commit history pulled from the GitHub repository, grouped by date with author attribution
 - **Status** — Progress updates on Compass development
 - **About** — This page
 
@@ -98,7 +99,7 @@ Within this context, the Charter serves as both a concrete institutional artifac
 ## Engagement
 
 - **Read** the Charter to understand the principles, process, and scope
-- **Track changes** through [version history on GitHub](https://github.com/henkaku-center/compass/commits/main) to see how documents evolve
+- **Track changes** through the [Changes page](https://compass.henkaku.center/#changes) or [GitHub history](https://github.com/henkaku-center/compass/commits/main) to see how documents evolve
 - **Define entries** using the Archetypes templates for people, projects, initiatives, courses, theses, and events
 - **Propose revisions** via [pull requests](https://github.com/henkaku-center/compass/pulls), agent-assisted workflows, or agentic interfaces
 - **Reuse or adapt** the Charter for other contexts where antidisciplinary coordination is desired
