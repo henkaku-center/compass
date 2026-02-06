@@ -409,6 +409,134 @@
       background: #f5f5f5;
     }
 
+    /* Landing page */
+    .landing {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .landing-hero {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .landing-hero img {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+    }
+
+    .landing-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.75rem;
+    }
+
+    .landing-hero .tagline {
+      font-size: 1.15rem;
+      color: #444;
+      max-width: 540px;
+      margin: 0 auto 1rem;
+      line-height: 1.5;
+    }
+
+    .landing-hero .subtitle {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .landing-hero .subtitle a {
+      color: #666;
+      text-decoration: none;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .landing-hero .subtitle a:hover {
+      color: #111;
+      border-bottom-color: #999;
+    }
+
+    .landing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .landing-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .landing-card:hover {
+      border-color: #ccc;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .landing-card .card-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .landing-card .card-desc {
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.45;
+    }
+
+    .landing-orientations {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .landing-orientations h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #999;
+      border: none;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+
+    .landing-orientations ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+    }
+
+    .landing-orientations li {
+      font-size: 0.85rem;
+      color: #777;
+      white-space: nowrap;
+    }
+
+    .landing-orientations li strong {
+      font-weight: 600;
+      color: #444;
+    }
+
+    .landing-agentic {
+      text-align: center;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-top: 1px solid #eee;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .toc {
@@ -421,6 +549,18 @@
 
       main {
         padding: 1.5rem;
+      }
+
+      .landing {
+        padding: 2rem 1.5rem 1rem;
+      }
+
+      .landing-hero h1 {
+        font-size: 2rem;
+      }
+
+      .landing-cards {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -451,11 +591,12 @@
       </a>
       <div class="nav-links">
         <a href="#home">Home</a>
-        <a href="#status">Status</a>
         <a href="#charter">Charter</a>
-        <a href="#curriculum">Curriculum</a>
         <a href="#registry-schema">Registry Schema</a>
+        <a href="#curriculum">Curriculum</a>
         <a href="#references">References</a>
+        <a href="#status">Status</a>
+        <a href="#about">About</a>
         <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener noreferrer" class="github-link" title="View on GitHub">GitHub</a>
       </div>
     </div>
@@ -496,7 +637,8 @@
 
     // Map hash fragments to document paths
     const routes = {
-      'home': 'README.md',
+      'home': null, // Special case: landing page
+      'about': 'README.md',
       'status': 'STATUS.md',
       'charter': 'docs/CHARTER.md',
       'curriculum': 'docs/CURRICULUM.md',
@@ -506,7 +648,7 @@
     };
 
     // Documents that should show TOC
-    const tocDocs = ['home', 'status', 'charter', 'curriculum', 'registry-schema'];
+    const tocDocs = ['about', 'status', 'charter', 'curriculum', 'registry-schema'];
 
     // Reference files data (sorted oldest to newest)
     const referenceFiles = [
@@ -577,6 +719,81 @@
 
     let currentDoc = '';
     let headings = [];
+
+    function loadLanding() {
+      currentDoc = 'home';
+      tocEl.classList.remove('visible');
+      layoutEl.classList.remove('has-toc');
+
+      contentEl.innerHTML = `
+        <div class="landing">
+          <div class="landing-hero">
+            <img src="compass-icon.png" alt="Compass" />
+            <h1>Compass</h1>
+            <p class="tagline">
+              Coordination infrastructure for antidisciplinary work.
+            </p>
+            <p class="subtitle">
+              <a href="https://henkaku.center" target="_blank" rel="noopener">Henkaku Center</a> &middot;
+              <a href="https://sds.chibatech.dev" target="_blank" rel="noopener">Graduate School of Design &amp; Science</a> &middot;
+              <a href="https://chibatech.jp" target="_blank" rel="noopener">Chiba Institute of Technology</a>
+            </p>
+          </div>
+
+          <div class="landing-cards">
+            <a href="#charter" class="landing-card">
+              <div class="card-title">Charter</div>
+              <div class="card-desc">Foundational values, governance principles, and operational commitments.</div>
+            </a>
+            <a href="#curriculum" class="landing-card">
+              <div class="card-title">Curriculum</div>
+              <div class="card-desc">SDS Master's and PhD programs launching April 2026.</div>
+            </a>
+            <a href="#registry-schema" class="landing-card">
+              <div class="card-title">Registry Schema</div>
+              <div class="card-desc">Structured templates for tracking people, projects, and initiatives.</div>
+            </a>
+            <a href="#about" class="landing-card">
+              <div class="card-title">About</div>
+              <div class="card-desc">Purpose, institutional context, and how Compass works.</div>
+            </a>
+            <a href="#references" class="landing-card">
+              <div class="card-title">References</div>
+              <div class="card-desc">Source documents and historical materials.</div>
+            </a>
+            <a href="#status" class="landing-card">
+              <div class="card-title">Status</div>
+              <div class="card-desc">Progress updates and open questions.</div>
+            </a>
+          </div>
+
+          <div class="landing-orientations">
+            <h2>Foundational Orientations</h2>
+            <ul>
+              <li><strong>Resilience</strong> over strength</li>
+              <li><strong>Systems</strong> over objects</li>
+              <li><strong>Disobedience</strong> over compliance</li>
+              <li><strong>Pull</strong> over push</li>
+              <li><strong>Compasses</strong> over maps</li>
+              <li><strong>Emergence</strong> over authority</li>
+              <li><strong>Risk</strong> over safety</li>
+              <li><strong>Practice</strong> over theory</li>
+              <li><strong>Learning</strong> over education</li>
+              <li><strong>Sustainability</strong> over growth</li>
+              <li><strong>Public</strong> over individuals</li>
+              <li><strong>Modular</strong> over monolithic</li>
+            </ul>
+          </div>
+
+          <div class="landing-agentic">
+            Built with agentic workflows&mdash;AI agents as integrated components of the development and contribution process, with human authority throughout.
+          </div>
+        </div>
+      `;
+
+      updateActiveNavLink('home');
+      window.scrollTo(0, 0);
+    }
 
     function loadReferences() {
       currentDoc = 'references';
@@ -796,7 +1013,9 @@
       const hash = window.location.hash.slice(1) || 'home';
       const docKey = Object.keys(routes).includes(hash) ? hash : 'home';
 
-      if (docKey === 'references') {
+      if (docKey === 'home') {
+        loadLanding();
+      } else if (docKey === 'references') {
         loadReferences();
       } else {
         const path = routes[docKey];
