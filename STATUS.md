@@ -47,6 +47,10 @@ Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with:
 - References page for source documents
 - Direct linking to specific pages
 
+### Agentic Development
+
+Compass is developed using LLM coding agents—AI tools that draft, edit, and coordinate document changes under human direction. This is not incidental; it is a deliberate practice that informs how contribution workflows are designed. The project serves as a proving ground for agent-assisted governance.
+
 ## What Still Needs Work
 
 1. **Charter Review and Ratification** — The draft needs review by the Director and seven founding faculty before ratification
@@ -54,6 +58,8 @@ Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with:
 2. **Amendment System** — A process for proposing and reviewing changes after ratification (data structure drafted, not yet implemented)
 
 3. **Registry Platform** — We have the schema but need a place to actually submit and browse entries (could be a spreadsheet or custom software)
+
+4. **Agentic Contribution Interfaces** — Tools (such as chat bots or Slack integrations) that let contributors propose Charter changes without needing direct access to the repository
 
 ## Questions to Discuss
 
@@ -64,6 +70,8 @@ Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with:
 3. **Registry platform** — Google Sheets, Airtable, or custom software?
 
 4. **Timeline** — When do we aim to ratify?
+
+5. **Agentic contribution pathways** — What interfaces (Slack bots, web forms, coding agents) should contributors use to propose changes?
 
 ---
 

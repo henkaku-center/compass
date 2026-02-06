@@ -13,7 +13,13 @@ Compass includes:
 
 Unlike traditional institutional documents created as static artifacts (PDFs archived and forgotten), Compass treats governance as an evolving system: maintained under version control, updated through transparent review, and designed for long‑term coherence without rigid hierarchy.
 
-The infrastructure is designed with **agentic workflows** in mind—AI agents as integrated components supporting drafting, analysis, and review, while authority, accountability, and final decision-making remain explicitly human.
+Compass is developed with **agentic workflows** as a first-class concern:
+
+- **Built with agents**: The project itself is developed using LLM coding agents that draft, edit, and coordinate content under human direction.
+- **Agent-assisted contribution**: Contributors are expected to work with coding agents when proposing amendments, reviews, and revisions to Compass documents.
+- **Agentic interfaces**: Intermediate agents—such as chat bots or Slack integrations—will provide contributors pathways to interact with Compass without requiring direct repository access.
+
+Authority, accountability, and final decision-making remain explicitly human throughout.
 
 ---
 
@@ -45,6 +51,8 @@ As described informally during early discussions:
 > If done well, this approach could inform broader consensus architectures for other documents and processes that benefit from community review, including those mediated or partially automated by agentic systems operating under clearly defined constraints.
 
 Over time, the project may therefore include not only the Charter text, but also tooling, workflows, and experiments related to collaborative governance.
+
+Contribution pathways are designed to include **agent-mediated interfaces**. Rather than requiring all contributors to work directly with Git, Compass anticipates that participants will propose changes through coding agents, chat bots, or other agentic intermediaries that translate contributor intent into structured pull requests. This lowers the barrier to participation while preserving the auditability and transparency that version control provides.
 
 ---
 
@@ -83,7 +91,7 @@ The **References** page provides source documents that inform Charter principles
 - **Read** the Charter to understand the principles, process, and scope
 - **Track changes** through [version history on GitHub](https://github.com/henkaku-center/compass/commits/main) to see how documents evolve
 - **Define registry entries** using the Registry Schema templates for people, projects, and initiatives
-- **Propose revisions** via [pull requests](https://github.com/henkaku-center/compass/pulls) or other contribution mechanisms
+- **Propose revisions** via [pull requests](https://github.com/henkaku-center/compass/pulls), agent-assisted workflows, or agentic interfaces such as chat bots
 - **Reuse or adapt** the Charter for other contexts where antidisciplinary or paradigm‑level coordination is desired
 
 ---

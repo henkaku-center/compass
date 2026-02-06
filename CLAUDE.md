@@ -69,7 +69,15 @@ Interdisciplinary work combines existing disciplines (e.g., bioengineering). Ant
 
 ### Agentic Workflows and Human Authority
 
-AI agents are treated as **integrated components of contribution infrastructure** for drafting, analysis, and review. However:
+AI agents are treated as **integrated components of contribution infrastructure** across three dimensions:
+
+**Development** — This repository is itself developed using LLM coding agents. Agents draft content, edit documents, and coordinate changes under human direction. This is a deliberate practice, not a workaround—the project serves as a proving ground for agent-assisted governance workflows.
+
+**Contribution** — Contributors are expected to use coding agents when proposing amendments, reviews, and revisions. Agent-assisted pull requests and agent-drafted content are normal parts of the workflow, provided a human author reviews and approves the result.
+
+**Interfaces** — Intermediate agentic entities (bots) will be developed to let contributors interact with Compass through channels like Slack or web interfaces, without requiring direct repository access. These bots translate contributor intent into structured proposals (e.g., pull requests) while preserving auditability.
+
+In all three dimensions, the following guardrails apply:
 
 - **Authority, accountability, and final decision-making remain explicitly human**
 - AI systems do not possess moral, legal, or institutional agency
