@@ -5,7 +5,7 @@
 Compass includes:
 
 - **Charter** — The foundational governance document articulating values, principles, and operational commitments
-- **Registry** — Structured templates for tracking people, projects, and initiatives
+- **Archetypes** — Structural templates for people, projects, initiatives, courses, theses, and events
 - **Curriculum** — Documentation of SDS Master's and PhD programs
 - **Reference Materials** — Source documents and historical versions
 
@@ -62,7 +62,7 @@ Contribution pathways are designed to include **agent-mediated interfaces**. Rat
 Compass includes the following documents (all available via the navigation above or in the [GitHub repository](https://github.com/henkaku-center/compass)):
 
 - **Charter** — The primary governance document articulating values and operational commitments
-- **Registry** — Unified schema for people, projects, and initiatives registry
+- **Archetypes** — Structural templates for people, projects, initiatives, courses, theses, and events
 - **Curriculum** — SDS Master's and PhD curriculum with course listings
 - **Status** — Progress updates on Compass development
 - **References** — Source documents and historical versions available for download
@@ -76,7 +76,7 @@ The Charter establishes principles and infrastructure for coordination, includin
 
 - **Section V: Registry and Coordination Infrastructure** - Mandates a shared platform for defining and browsing people, projects, initiatives, courses, theses, and events across the ecosystem.
 
-The **Registry** (`docs/REGISTRY.md`) implements these requirements with structured templates for six entry types:
+The **Archetypes** document (`docs/ARCHETYPES.md`) defines the structural templates for six entry types:
 - **People**: Who they are, what expertise they bring, what they're working on
 - **Projects**: Bounded endeavors with completion criteria and measurable outcomes
 - **Initiatives**: Ongoing programs evaluated on continuing justification
@@ -91,7 +91,7 @@ The **References** page provides source documents that inform Charter principles
 
 - **Read** the Charter to understand the principles, process, and scope
 - **Track changes** through [version history on GitHub](https://github.com/henkaku-center/compass/commits/main) to see how documents evolve
-- **Define registry entries** using the Registry templates for people, projects, and initiatives
+- **Define registry entries** using the Archetypes templates for people, projects, and initiatives
 - **Propose revisions** via [pull requests](https://github.com/henkaku-center/compass/pulls), agent-assisted workflows, or agentic interfaces such as chat bots
 - **Reuse or adapt** the Charter for other contexts where antidisciplinary or paradigm‑level coordination is desired
 

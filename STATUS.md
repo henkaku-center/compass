@@ -16,7 +16,7 @@ The Charter is organized into 8 sections plus Preamble and Appendices. All secti
 - **Preamble** — Scope and applicability
 - **I. Foundational Orientations** — 12 directional principles (resilience over strength, systems over objects, etc.) plus 6 balancing dichotomies
 - **II. Values and Commitments** — 10 subsections: antidisciplinarity, transformation, human-AI collaboration, complexity, intellectual integrity, experimentation, neurodiversity, cultural identity, openness, coordination
-- **III. Research Practice** — Project-centered inquiry, registry infrastructure
+- **III. Research Practice** — Project-centered inquiry
 - **IV. Educational Practice** — Project-centered learning, learning through making, AI pedagogy
 - **V. Institutional Relationships** — Roles, Chiba Tech, Henkaku/SDS, external partners
 - **VI. Governance** — Charter stewardship, decision-making, conflict resolution
@@ -34,14 +34,14 @@ The Charter is organized into 8 sections plus Preamble and Appendices. All secti
 
 Documented SDS Master's (30 credits) and PhD (17 credits) programs, mapped to Charter principles.
 
-### Registry
+### Archetypes
 
-Created a unified schema for tracking people, projects, and initiatives across institutions. The three parts cross-reference each other for network visibility.
+Created structural templates for tracking people, projects, initiatives, courses, theses, and events across institutions. The six parts cross-reference each other for network visibility.
 
 ### Website
 
 Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with:
-- Navigation across all documents (Home, Status, Charter, Curriculum, Registry, References)
+- Navigation across all documents (Home, Status, Charter, Curriculum, Archetypes, References)
 - Table of contents sidebar with scroll tracking
 - Collapsible sections
 - References page for source documents
@@ -59,7 +59,7 @@ The agentic approach is now documented across the project's supporting files (RE
 
 2. **Amendment System** — A process for proposing and reviewing changes after ratification (data structure drafted, not yet implemented)
 
-3. **Registry Platform** — We have the schema but need a place to actually submit and browse entries (could be a spreadsheet or custom software)
+3. **Registry Platform** — We have the archetypes (structural templates) but need a place to actually submit and browse entries (could be a spreadsheet or custom software)
 
 4. **Agentic Contribution Interfaces** — Tools (such as chat bots or Slack integrations) that let contributors propose Charter changes without needing direct access to the repository
 
@@ -69,7 +69,7 @@ The agentic approach is now documented across the project's supporting files (RE
 
 2. **Amendment workflow** — How should people propose changes after ratification?
 
-3. **Registry platform** — Google Sheets, Airtable, or custom software?
+3. **Registry platform** — The archetypes define the structure; what platform should host actual entries? Google Sheets, Airtable, or custom software?
 
 4. **Timeline** — When do we aim to ratify?
 

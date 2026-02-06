@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Repository Overview
 
-This repository contains **Compass**—coordination infrastructure that makes institutional work visible and easy to contribute to. It includes the Charter (a version-controlled living document), Registry, Curriculum documentation, and supporting tools for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
+This repository contains **Compass**—coordination infrastructure that makes institutional work visible and easy to contribute to. It includes the Charter (a version-controlled living document), Archetypes, Curriculum documentation, and supporting tools for the Henkaku Center, Graduate School of Design & Science (SDS), and Chiba Institute of Technology.
 
 Unlike traditional static institutional documents (PDFs or archived documents), Compass is designed to evolve through transparent, peer-reviewed contributions with version control as the system of record. Visibility and ease of contribution are core design goals: participants should be able to see what is happening across the ecosystem and propose changes through accessible pathways.
 
@@ -14,7 +14,7 @@ Unlike traditional static institutional documents (PDFs or archived documents), 
 compass/
 ├── docs/                      # Primary documents
 │   ├── CHARTER.md             # Main Charter document
-│   ├── REGISTRY.md            # Registry for people, projects, initiatives, courses, theses, events
+│   ├── ARCHETYPES.md           # Structural templates for people, projects, initiatives, courses, theses, events
 │   └── CURRICULUM.md          # SDS Master's and PhD curriculum
 ├── reference/                 # Historical versions and reference materials
 │   ├── 20260203_Teaching AI and Teaching with AI.pdf
@@ -34,17 +34,20 @@ compass/
 
 ### Living Document Architecture
 
-Compass comprises multiple documents and tools:
+Compass comprises multiple documents and tools, organized into two layers:
 
-**Primary Documents:**
+**DNA** — Foundational documents that define structure, principles, and templates:
 - `docs/CHARTER.md` - The main Charter document articulating values, governance, and operational commitments
-- `docs/REGISTRY.md` - Unified schema for people, projects, and initiatives registry
+- `docs/ARCHETYPES.md` - Structural templates for people, projects, initiatives, courses, theses, and events
+
+**Emergent** — Living content instantiated from the foundational templates:
 - `docs/CURRICULUM.md` - SDS Master's and PhD curriculum documentation
+- *(future)* Registry entries: actual people, projects, initiatives, theses, and events
 
 **Supporting Materials:**
 - `README.md` - Public documentation explaining purpose, governance model, and institutional context
 - `STATUS.md` - Progress updates on Compass development
-- `index.html` - Static web viewer using marked.js (serves Home, Status, Charter, Curriculum, Registry, and References)
+- `index.html` - Static web viewer using marked.js (serves Home, Status, Charter, Curriculum, Archetypes, and References)
 - `reference/` - Historical versions and source documents
 
 **Key principle**: Compass documents are living documents. Version control tracks how institutional principles evolve, making "institutional drift" visible and auditable.
@@ -132,11 +135,11 @@ As of February 2026, all Charter sections contain full text. HTML comment placeh
 
 **When editing**: Maintain consistency with the Charter's existing tone, structure, and principles. New sections or significant changes should go through the amendment process once ratification is complete.
 
-## Registry
+## Archetypes
 
 ### Section V: Registry and Coordination Infrastructure
 
-This Charter provision mandates that organizations establish a **shared registry**—a common platform for defining, submitting, and browsing people, projects, initiatives, courses, theses, and events across the ecosystem.
+The Charter mandates a shared registry—a common platform for coordination. The **Archetypes** document (`docs/ARCHETYPES.md`) defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
 The registry tracks six types of entries:
 - **People**: Participants with their roles, expertise, affiliations, and involvement
@@ -152,9 +155,9 @@ Key requirements:
 - Platform support for identifying overlap, distinctiveness, incoherence, potential collaborators, and network structure
 - Shared across all Charter-covered institutions—not fragmented into separate systems
 
-### REGISTRY.md
+### ARCHETYPES.md
 
-`docs/REGISTRY.md` is a unified schema document implementing the Charter's registry requirements. It defines structured templates for registry entry types.
+`docs/ARCHETYPES.md` defines the structural archetypes—templates and schemas—for registry entries. It implements the Charter's registry requirements.
 
 **Essential questions for each entry type**:
 
@@ -208,9 +211,9 @@ Key requirements:
 - Maintain consistency with Charter principles (bounded projects, measurability with forgiveness, human authority, symbiotic AI collaboration, etc.)
 - Changes after ratification should go through the amendment process
 
-**Registry** (`docs/REGISTRY.md`):
+**Archetypes** (`docs/ARCHETYPES.md`):
 - Must remain aligned with Charter Section V requirements
-- Contains schemas for people, projects, initiatives, courses, theses, and events in one document
+- Contains structural templates for people, projects, initiatives, courses, theses, and events in one document
 - Entry types interoperate via cross-references (person IDs in projects, project IDs in initiatives, etc.)
 - Changes should preserve backward compatibility or provide migration paths
 - Charter Mapping column helps verify alignment
@@ -220,7 +223,7 @@ Key requirements:
 - Renders markdown using marked.js (CDN)
 - Extracts HTML comments and displays them with light styling
 - Cache-busting ensures fresh content on every load
-- Navigation links: README, Status, Charter, Curriculum, Registry
+- Navigation links: README, Status, Charter, Curriculum, Archetypes
 
 ### Version Control Practices
 
@@ -263,7 +266,7 @@ Navigation provides access to five documents:
 - Status (STATUS.md)
 - Charter (docs/CHARTER.md)
 - Curriculum (docs/CURRICULUM.md)
-- Registry (docs/REGISTRY.md)
+- Archetypes (docs/ARCHETYPES.md)
 
 ### Historical Context
 
@@ -330,13 +333,13 @@ Always read before editing. Use Read tool, not bash commands like `cat`.
 ### Adding new provisions
 1. Determine appropriate section based on Charter structure
 2. Draft content aligned with Charter tone and principles
-3. Consider relationship to existing provisions (e.g., does REGISTRY.md need updating?)
+3. Consider relationship to existing provisions (e.g., does ARCHETYPES.md need updating?)
 4. Update documentation (README.md, this file) if structure changes
 
 ### Harmonizing documents
-When Charter and REGISTRY.md need alignment:
+When Charter and ARCHETYPES.md need alignment:
 - Charter provides high-level principles and requirements
-- REGISTRY.md implements these as concrete templates for people, projects, and initiatives
+- ARCHETYPES.md implements these as structural templates for people, projects, initiatives, courses, theses, and events
 - Neither document "trumps" the other—resolve incoherence by adjusting both
 - Preserve information unless there's actual conflict
 
@@ -408,7 +411,7 @@ This repository continues to evolve. Recent changes include:
 - Simplification of Charter document title (from "Antidisciplinary Charter" to "Charter")
 - Consolidation of sections (former Sections II and III merged into Section II)
 - Addition of Registry provision (Section V) with project/initiative/course/thesis/event distinction
-- Creation of unified REGISTRY.md for people, projects, and initiatives
+- Creation of Archetypes document (ARCHETYPES.md) defining structural templates for registry entry types
 - Section II restructuring: 9 subsections covering values and commitments
 - Addition of "Intellectual Integrity" section for antidisciplinary-specific obligations
 - Addition of "Global Institution, Japanese Roots" content with key Japanese concepts
@@ -421,5 +424,7 @@ This repository continues to evolve. Recent changes include:
 - Added source annotations to Charter linking to reference documents
 - Expanded reference library with source materials (sorted chronologically)
 - Site branding: favicon, clickable logo, footer links, SEO improvements
+- Landing page organized into DNA (foundational documents) and Emergent (living content) layers
+- Renamed Registry Schema to Archetypes — structural templates distinct from populated registry entries
 
 Future evolution should maintain backward compatibility where possible and document breaking changes clearly in commit messages.

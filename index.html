@@ -5,7 +5,7 @@
   <title>Compass - Henkaku Center</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Compass Initiative." />
+  <meta name="description" content="Coordination infrastructure for antidisciplinary work: Charter, Archetypes, Curriculum, and governance tools from the Compass Initiative." />
   <meta name="keywords" content="Henkaku, coordination, antidisciplinary, charter, governance, Chiba Institute of Technology, SDS, Design Science" />
   <meta name="author" content="Henkaku Center" />
   <meta name="robots" content="index, follow" />
@@ -16,14 +16,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Compass" />
   <meta property="og:title" content="Compass - Henkaku Center" />
-  <meta property="og:description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Compass Initiative." />
+  <meta property="og:description" content="Coordination infrastructure for antidisciplinary work: Charter, Archetypes, Curriculum, and governance tools from the Compass Initiative." />
   <meta property="og:url" content="https://compass.henkaku.center/" />
   <meta property="og:image" content="https://compass.henkaku.center/compass-icon.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Compass - Henkaku Center" />
-  <meta name="twitter:description" content="Coordination infrastructure for antidisciplinary work: Charter, Registry, Curriculum, and governance tools from the Compass Initiative." />
+  <meta name="twitter:description" content="Coordination infrastructure for antidisciplinary work: Charter, Archetypes, Curriculum, and governance tools from the Compass Initiative." />
   <meta name="twitter:image" content="https://compass.henkaku.center/compass-icon.png" />
 
   <!-- Favicon & Icons -->
@@ -459,11 +459,26 @@
       border-bottom-color: #999;
     }
 
+    .landing-group {
+      margin-bottom: 2.5rem;
+    }
+
+    .landing-group:last-child {
+      margin-bottom: 4rem;
+    }
+
+    .landing-group-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #999;
+      margin-bottom: 0.75rem;
+    }
+
     .landing-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
-      margin-bottom: 4rem;
     }
 
     .landing-card {
@@ -478,6 +493,18 @@
     .landing-card:hover {
       border-color: #ccc;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .landing-card.placeholder {
+      border-style: dashed;
+      border-color: #ddd;
+      opacity: 0.55;
+      cursor: default;
+    }
+
+    .landing-card.placeholder:hover {
+      border-color: #ddd;
+      box-shadow: none;
     }
 
     .landing-card .card-title {
@@ -592,7 +619,7 @@
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#charter">Charter</a>
-        <a href="#registry">Registry</a>
+        <a href="#archetypes">Archetypes</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#references">References</a>
         <a href="#status">Status</a>
@@ -642,12 +669,12 @@
       'status': 'STATUS.md',
       'charter': 'docs/CHARTER.md',
       'curriculum': 'docs/CURRICULUM.md',
-      'registry': 'docs/REGISTRY.md',
+      'archetypes': 'docs/ARCHETYPES.md',
       'references': null // Special case: rendered from data
     };
 
     // Documents that should show TOC
-    const tocDocs = ['about', 'status', 'charter', 'curriculum', 'registry'];
+    const tocDocs = ['about', 'status', 'charter', 'curriculum', 'archetypes'];
 
     // Reference files data (sorted oldest to newest)
     const referenceFiles = [
@@ -739,31 +766,65 @@
             </p>
           </div>
 
-          <div class="landing-cards">
-            <a href="#charter" class="landing-card">
-              <div class="card-title">Charter</div>
-              <div class="card-desc">Foundational values, governance principles, and operational commitments.</div>
-            </a>
-            <a href="#registry" class="landing-card">
-              <div class="card-title">Registry</div>
-              <div class="card-desc">Structured templates for tracking people, projects, and initiatives.</div>
-            </a>
-            <a href="#curriculum" class="landing-card">
-              <div class="card-title">Curriculum</div>
-              <div class="card-desc">SDS Master's and PhD programs launching April 2026.</div>
-            </a>
-            <a href="#about" class="landing-card">
-              <div class="card-title">About</div>
-              <div class="card-desc">Purpose, institutional context, and how Compass works.</div>
-            </a>
-            <a href="#references" class="landing-card">
-              <div class="card-title">References</div>
-              <div class="card-desc">Source documents and historical materials.</div>
-            </a>
-            <a href="#status" class="landing-card">
-              <div class="card-title">Status</div>
-              <div class="card-desc">Progress updates and open questions.</div>
-            </a>
+          <div class="landing-group">
+            <div class="landing-group-label">DNA</div>
+            <div class="landing-cards">
+              <a href="#charter" class="landing-card">
+                <div class="card-title">Charter</div>
+                <div class="card-desc">Foundational values, governance principles, and operational commitments.</div>
+              </a>
+              <a href="#archetypes" class="landing-card">
+                <div class="card-title">Archetypes</div>
+                <div class="card-desc">Structural templates for people, projects, initiatives, courses, theses, and events.</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="landing-group">
+            <div class="landing-group-label">Emergent</div>
+            <div class="landing-cards">
+              <a href="#curriculum" class="landing-card">
+                <div class="card-title">Curriculum</div>
+                <div class="card-desc">SDS Master's and PhD programs launching April 2026.</div>
+              </a>
+              <span class="landing-card placeholder">
+                <div class="card-title">People</div>
+                <div class="card-desc">Coming soon</div>
+              </span>
+              <span class="landing-card placeholder">
+                <div class="card-title">Projects</div>
+                <div class="card-desc">Coming soon</div>
+              </span>
+              <span class="landing-card placeholder">
+                <div class="card-title">Initiatives</div>
+                <div class="card-desc">Coming soon</div>
+              </span>
+              <span class="landing-card placeholder">
+                <div class="card-title">Theses</div>
+                <div class="card-desc">Coming soon</div>
+              </span>
+              <span class="landing-card placeholder">
+                <div class="card-title">Events</div>
+                <div class="card-desc">Coming soon</div>
+              </span>
+            </div>
+          </div>
+
+          <div class="landing-group">
+            <div class="landing-cards">
+              <a href="#about" class="landing-card">
+                <div class="card-title">About</div>
+                <div class="card-desc">Purpose, institutional context, and how Compass works.</div>
+              </a>
+              <a href="#references" class="landing-card">
+                <div class="card-title">References</div>
+                <div class="card-desc">Source documents and historical materials.</div>
+              </a>
+              <a href="#status" class="landing-card">
+                <div class="card-title">Status</div>
+                <div class="card-desc">Progress updates and open questions.</div>
+              </a>
+            </div>
           </div>
 
           <div class="landing-orientations">

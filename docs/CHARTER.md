@@ -636,7 +636,7 @@ These entry types serve different accountability structures:
 
 **Implementation**
 
-Detailed schema definitions for registry entries—including required fields, guidance prompts, and cross-referencing structures—are maintained in the Registry document. The schema may evolve through governance processes (Section VII) while preserving backward compatibility.
+Detailed schema definitions for registry entries—including required fields, guidance prompts, and cross-referencing structures—are maintained in the Archetypes document. The archetypes may evolve through governance processes (Section VII) while preserving backward compatibility.
 
 ---
 

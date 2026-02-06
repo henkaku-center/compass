@@ -1,6 +1,6 @@
-# Registry
+# Archetypes
 
-This document defines the structured framework for the shared registry mandated by Section V of the Charter (Registry and Coordination Infrastructure).
+This document defines the structural archetypes—the templates and schemas—for entries in the shared registry mandated by Section V of the Charter (Registry and Coordination Infrastructure).
 
 ## Overview
 
