@@ -644,29 +644,29 @@
 
 
 
-    /* Changes timeline */
-    .changes-page {
+    /* History page */
+    .history-page {
       max-width: 720px;
       margin: 0 auto;
     }
 
-    .changes-page h1 {
+    .history-page h1 {
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
-    .changes-page .changes-subtitle {
+    .history-page .history-subtitle {
       color: #888;
       font-size: 0.9rem;
       margin-bottom: 2.5rem;
     }
 
-    .changes-date-group {
+    .history-date-group {
       margin-bottom: 2rem;
     }
 
-    .changes-date-group h2 {
+    .history-date-group h2 {
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -676,22 +676,51 @@
       padding: 0;
     }
 
-    .change-entry {
-      padding: 0.6rem 0;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      gap: 0.75rem;
-      align-items: baseline;
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .history-table th {
+      text-align: left;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #999;
+      font-weight: 600;
+      padding: 0 0 0.5rem 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .history-row {
       text-decoration: none;
       color: inherit;
+      cursor: pointer;
     }
 
-    .change-entry:hover .change-message {
-      color: #000;
+    .history-row:hover td {
+      background: #fafafa;
     }
 
-    .change-entry:last-child {
+    .history-row td {
+      padding: 0.5rem 0.75rem 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+      vertical-align: baseline;
+    }
+
+    .history-row:last-child td {
       border-bottom: none;
+    }
+
+    .col-contributor {
+      white-space: nowrap;
+      color: #555;
+      width: 120px;
+    }
+
+    .col-type {
+      width: 80px;
     }
 
     .change-type {
@@ -702,7 +731,6 @@
       padding: 0.15rem 0.45rem;
       border-radius: 3px;
       white-space: nowrap;
-      flex-shrink: 0;
     }
 
     .change-type.feat { background: #e8f5e9; color: #2e7d32; }
@@ -711,52 +739,18 @@
     .change-type.refactor { background: #f3e5f5; color: #7b1fa2; }
     .change-type.other { background: #f5f5f5; color: #616161; }
 
-    .change-message {
-      font-size: 0.9rem;
+    .col-memo {
       color: #333;
       line-height: 1.4;
     }
 
-    .change-author {
-      font-size: 0.75rem;
-      color: #999;
-      flex-shrink: 0;
-    }
-
-    .change-author a {
-      color: #999;
-      text-decoration: none;
-    }
-
-    .change-author a:hover {
-      color: #555;
-      text-decoration: underline;
-    }
-
-    .change-hash {
-      font-size: 0.75rem;
-      color: #bbb;
-      font-family: monospace;
-      flex-shrink: 0;
-    }
-
-    .change-hash a {
-      color: #bbb;
-      text-decoration: none;
-    }
-
-    .change-hash a:hover {
-      color: #666;
-      text-decoration: underline;
-    }
-
-    .changes-loading {
+    .history-loading {
       text-align: center;
       color: #999;
       padding: 3rem 0;
     }
 
-    .changes-error {
+    .history-error {
       text-align: center;
       color: #c62828;
       padding: 2rem 0;
@@ -821,7 +815,7 @@
         <a href="#curriculum">Curriculum</a>
         <a href="#references">References</a>
         <a href="#status">Status</a>
-        <a href="#changes">Changes</a>
+        <a href="#history">History</a>
         <a href="#about">About</a>
         <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener noreferrer" class="github-link" title="View on GitHub">GitHub</a>
       </div>
@@ -870,7 +864,7 @@
       'curriculum': 'docs/CURRICULUM.md',
       'archetypes': 'docs/ARCHETYPES.md',
       'references': null, // Special case: rendered from data
-      'changes': null // Special case: rendered from GitHub API
+      'history': null // Special case: rendered from GitHub API
     };
 
     // Documents that should show TOC
@@ -1031,8 +1025,8 @@
                 <div class="card-title">Status</div>
                 <div class="card-desc">Progress updates and open questions.</div>
               </a>
-              <a href="#changes" class="landing-card">
-                <div class="card-title">Changes</div>
+              <a href="#history" class="landing-card">
+                <div class="card-title">History</div>
                 <div class="card-desc">Commit history from the project repository.</div>
               </a>
             </div>
@@ -1154,21 +1148,21 @@
       window.scrollTo(0, 0);
     }
 
-    function loadChanges() {
+    function loadHistory() {
       clearOrientationRotator();
-      currentDoc = 'changes';
+      currentDoc = 'history';
       tocEl.classList.remove('visible');
       layoutEl.classList.remove('has-toc');
 
       contentEl.innerHTML = `
-        <div class="changes-page">
-          <h1>Changes</h1>
-          <p class="changes-subtitle">Commit history from the project repository.</p>
-          <div id="changes-list" class="changes-loading">Loading commit history&hellip;</div>
+        <div class="history-page">
+          <h1>History</h1>
+          <p class="history-subtitle">Commit history from the project repository.</p>
+          <div id="history-list" class="history-loading">Loading commit history&hellip;</div>
         </div>
       `;
 
-      updateActiveNavLink('changes');
+      updateActiveNavLink('history');
       window.scrollTo(0, 0);
 
       const owner = 'henkaku-center';
@@ -1183,7 +1177,7 @@
           return res.json();
         })
         .then(commits => {
-          const container = document.getElementById('changes-list');
+          const container = document.getElementById('history-list');
           if (!container) return;
 
           // Group commits by date
@@ -1198,14 +1192,19 @@
           Object.keys(groups).sort().reverse().forEach(date => {
             const d = new Date(date + 'T00:00:00');
             const label = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            html += `<div class="changes-date-group"><h2>${label}</h2>`;
+            html += `<div class="history-date-group"><h2>${label}</h2>
+              <table class="history-table">
+                <thead><tr>
+                  <th>Contributor</th>
+                  <th>Type</th>
+                  <th>Memo</th>
+                </tr></thead>
+                <tbody>`;
 
             groups[date].forEach(c => {
               const msg = c.commit.message.split('\n')[0];
-              const sha = c.sha.slice(0, 7);
               const url = c.html_url;
               const authorLogin = c.author ? c.author.login : null;
-              const authorUrl = c.author ? c.author.html_url : null;
 
               // Parse conventional commit prefix
               const prefixMatch = msg.match(/^(feat|fix|docs|refactor|chore|style|test|perf|ci|build)(\(.+?\))?:\s*/i);
@@ -1216,34 +1215,29 @@
                 cleanMsg = msg.slice(prefixMatch[0].length);
               }
 
-              // Normalize to known badge types
               const badgeType = ['feat', 'fix', 'docs', 'refactor'].includes(type) ? type : 'other';
               const badgeLabel = prefixMatch ? prefixMatch[1].toLowerCase() : 'commit';
-
-              const authorHtml = authorLogin
-                ? `<span class="change-author"><a href="${authorUrl}" target="_blank" rel="noopener">@${authorLogin}</a></span>`
-                : '';
+              const contributor = authorLogin ? `@${authorLogin}` : '';
 
               html += `
-                <a class="change-entry" href="${url}" target="_blank" rel="noopener">
-                  <span class="change-type ${badgeType}">${badgeLabel}</span>
-                  <span class="change-message">${cleanMsg}</span>
-                  ${authorHtml}
-                  <span class="change-hash">${sha}</span>
-                </a>
+                <tr class="history-row" onclick="window.open('${url}', '_blank')">
+                  <td class="col-contributor">${contributor}</td>
+                  <td class="col-type"><span class="change-type ${badgeType}">${badgeLabel}</span></td>
+                  <td class="col-memo">${cleanMsg}</td>
+                </tr>
               `;
             });
 
-            html += '</div>';
+            html += '</tbody></table></div>';
           });
 
           container.className = '';
           container.innerHTML = html;
         })
         .catch(err => {
-          const container = document.getElementById('changes-list');
+          const container = document.getElementById('history-list');
           if (container) {
-            container.className = 'changes-error';
+            container.className = 'history-error';
             container.innerHTML = `Could not load commit history. <br><small>${err.message}</small>`;
           }
         });
@@ -1430,8 +1424,8 @@
         loadLanding();
       } else if (docKey === 'references') {
         loadReferences();
-      } else if (docKey === 'changes') {
-        loadChanges();
+      } else if (docKey === 'history') {
+        loadHistory();
       } else {
         const path = routes[docKey];
         loadDoc(path, docKey);
