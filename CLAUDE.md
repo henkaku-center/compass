@@ -136,6 +136,7 @@ Six entry types:
 - Commits must be authored by the human decision-maker
 - Do NOT include "Claude" or AI assistant references in commit messages or co-authorship
 - Write commit messages explaining the "why" not just the "what"
+- Never include "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>" in commits
 
 ### Common Tasks
 

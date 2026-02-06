@@ -325,6 +325,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
+      justify-content: center;
     }
 
     .footer-inner a {
@@ -421,11 +422,36 @@
       margin-bottom: 4rem;
     }
 
+    @keyframes compassAppear {
+      0%   { opacity: 0; transform: scale(0.6) rotate(0deg); }
+      100% { opacity: 0.85; transform: scale(1) rotate(0deg); }
+    }
+
     .landing-hero img {
       width: 72px;
       height: 72px;
       margin-bottom: 1.5rem;
-      opacity: 0.85;
+      opacity: 0;
+      transform: rotate(0deg);
+      animation: compassAppear 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .landing-hero img.attracted {
+      transform: rotate(-22deg);
+    }
+
+    .landing-hero img.released {
+      transform: rotate(0deg);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .landing-hero img {
+        opacity: 0.85;
+        transform: rotate(0deg);
+        transition: none;
+      }
     }
 
     .landing-hero h1 {
@@ -493,6 +519,17 @@
       gap: 1rem;
     }
 
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .landing-card {
       border: 1px solid #e5e5e5;
       border-radius: 8px;
@@ -500,6 +537,15 @@
       text-decoration: none;
       color: inherit;
       transition: border-color 0.15s, box-shadow 0.15s;
+      opacity: 0;
+      animation: cardIn 0.4s ease-out forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .landing-card {
+        animation: none;
+        opacity: 1;
+      }
     }
 
     .landing-card:hover {
@@ -519,16 +565,17 @@
       box-shadow: none;
     }
 
-    .landing-card .card-title {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
+    @keyframes orientationIn {
+      0%   { transform: rotate(-15deg) translateX(-8px); opacity: 0; }
+      35%  { transform: rotate(3deg) translateX(2px);    opacity: 0.85; }
+      55%  { transform: rotate(-1.5deg) translateX(-1px); opacity: 0.9; }
+      75%  { transform: rotate(0.5deg) translateX(0);    opacity: 0.95; }
+      100% { transform: rotate(0deg) translateX(0);      opacity: 1; }
     }
 
-    .landing-card .card-desc {
-      font-size: 0.875rem;
-      color: #666;
-      line-height: 1.45;
+    @keyframes orientationOut {
+      0%   { opacity: 1; transform: rotate(0deg); }
+      100% { opacity: 0; transform: rotate(8deg) translateX(8px); }
     }
 
     .landing-orientations {
@@ -546,34 +593,173 @@
       padding: 0;
     }
 
-    .landing-orientations ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem 1.25rem;
-    }
-
-    .landing-orientations li {
-      font-size: 0.85rem;
+    .orientation-rotator {
+      font-size: 0.95rem;
       color: #777;
-      white-space: nowrap;
+      height: 1.6em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .landing-orientations li strong {
+    .orientation-rotator span {
+      display: inline-block;
+      transform-origin: left center;
+    }
+
+    .orientation-rotator span.settling {
+      animation: orientationIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .orientation-rotator span.leaving {
+      animation: orientationOut 0.3s ease-in forwards;
+    }
+
+    .orientation-rotator strong {
       font-weight: 600;
       color: #444;
     }
 
-    .landing-agentic {
-      text-align: center;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-top: 1px solid #eee;
+    @media (prefers-reduced-motion: reduce) {
+      .orientation-rotator span.settling,
+      .orientation-rotator span.leaving {
+        animation: none;
+      }
+      .orientation-rotator span {
+        opacity: 1;
+      }
+    }
+
+    .landing-card .card-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .landing-card .card-desc {
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.45;
+    }
+
+
+
+    /* Changes timeline */
+    .changes-page {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .changes-page h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .changes-page .changes-subtitle {
       color: #888;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .changes-date-group {
+      margin-bottom: 2rem;
+    }
+
+    .changes-date-group h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #999;
+      border: none;
+      margin-bottom: 0.75rem;
+      padding: 0;
+    }
+
+    .change-entry {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .change-entry:hover .change-message {
+      color: #000;
+    }
+
+    .change-entry:last-child {
+      border-bottom: none;
+    }
+
+    .change-type {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .change-type.feat { background: #e8f5e9; color: #2e7d32; }
+    .change-type.fix { background: #fff3e0; color: #e65100; }
+    .change-type.docs { background: #e3f2fd; color: #1565c0; }
+    .change-type.refactor { background: #f3e5f5; color: #7b1fa2; }
+    .change-type.other { background: #f5f5f5; color: #616161; }
+
+    .change-message {
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    .change-author {
+      font-size: 0.75rem;
+      color: #999;
+      flex-shrink: 0;
+    }
+
+    .change-author a {
+      color: #999;
+      text-decoration: none;
+    }
+
+    .change-author a:hover {
+      color: #555;
+      text-decoration: underline;
+    }
+
+    .change-hash {
+      font-size: 0.75rem;
+      color: #bbb;
+      font-family: monospace;
+      flex-shrink: 0;
+    }
+
+    .change-hash a {
+      color: #bbb;
+      text-decoration: none;
+    }
+
+    .change-hash a:hover {
+      color: #666;
+      text-decoration: underline;
+    }
+
+    .changes-loading {
+      text-align: center;
+      color: #999;
+      padding: 3rem 0;
+    }
+
+    .changes-error {
+      text-align: center;
+      color: #c62828;
+      padding: 2rem 0;
     }
 
     /* Responsive */
@@ -634,6 +820,7 @@
         <a href="#archetypes">Archetypes</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#references">References</a>
+        <a href="#changes">Changes</a>
         <a href="#status">Status</a>
         <a href="#about">About</a>
         <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener noreferrer" class="github-link" title="View on GitHub">GitHub</a>
@@ -659,10 +846,10 @@
         Chiba Tech
       </a>
       <a href="https://henkaku.center" target="_blank" rel="noopener noreferrer">
-        Henkaku Center
+        Henkaku Center for Radical Transformation
       </a>
       <a href="https://sds.chibatech.dev" target="_blank" rel="noopener noreferrer">
-        School of Design and Science
+        Graduate School of Design and Science
       </a>
     </div>
   </footer>
@@ -682,7 +869,8 @@
       'charter': 'docs/CHARTER.md',
       'curriculum': 'docs/CURRICULUM.md',
       'archetypes': 'docs/ARCHETYPES.md',
-      'references': null // Special case: rendered from data
+      'references': null, // Special case: rendered from data
+      'changes': null // Special case: rendered from GitHub API
     };
 
     // Documents that should show TOC
@@ -765,37 +953,40 @@
 
       contentEl.innerHTML = `
         <div class="landing">
+          <div class="landing-orientations">
+            <div class="orientation-rotator" id="orientation-rotator"></div>
+          </div>
           <div class="landing-hero">
             <img src="compass-icon.png" alt="Compass" />
-            <h1>Compass</h1>
             <p class="tagline">
-              Making shared values and ongoing work visible and easy to contribute to&mdash;infrastructure for decentralized, antidisciplinary coordination.
+              <b>Compass</b> is the infrastructure for decentralized, antidisciplinary coordination&mdash;designed to make shared values and ongoing work visible and easy to contribute to.
             </p>
+            <br>
             <p class="subtitle">
+              <a href="https://chibatech.jp" target="_blank" rel="noopener">Chiba Tech</a> &middot;
               <a href="https://henkaku.center" target="_blank" rel="noopener">Henkaku Center</a> &middot;
-              <a href="https://sds.chibatech.dev" target="_blank" rel="noopener">Graduate School of Design &amp; Science</a> &middot;
-              <a href="https://chibatech.jp" target="_blank" rel="noopener">Chiba Institute of Technology</a>
+              <a href="https://sds.chibatech.dev" target="_blank" rel="noopener">SDS</a>
             </p>
           </div>
 
           <div class="landing-group">
             <div class="landing-group-label">DNA</div>
-            <div class="landing-group-desc">Foundational documents that define principles, governance, and structural templates.</div>
+            <div class="landing-group-desc">Two documents. The rest follows from them.</div>
             <div class="landing-cards">
               <a href="#charter" class="landing-card">
                 <div class="card-title">Charter</div>
-                <div class="card-desc">Foundational values, governance principles, and operational commitments.</div>
+                <div class="card-desc">Shared principles and commitments that orient all work.</div>
               </a>
               <a href="#archetypes" class="landing-card">
                 <div class="card-title">Archetypes</div>
-                <div class="card-desc">Structural templates for people, projects, initiatives, courses, theses, and events.</div>
+                <div class="card-desc">Templates that give structure to people, projects, and programs.</div>
               </a>
             </div>
           </div>
 
           <div class="landing-group">
             <div class="landing-group-label">Emergent</div>
-            <div class="landing-group-desc">Living content&mdash;actual programs, people, and activities expressed from the templates above.</div>
+            <div class="landing-group-desc">Living content&mdash;programs, people, and activities that grow from the DNA.</div>
             <div class="landing-cards">
               <a href="#curriculum" class="landing-card">
                 <div class="card-title">Curriculum</div>
@@ -843,35 +1034,81 @@
             </div>
           </div>
 
-          <div class="landing-orientations">
-            <h2>Foundational Orientations</h2>
-            <ul>
-              <li><strong>Resilience</strong> over strength</li>
-              <li><strong>Systems</strong> over objects</li>
-              <li><strong>Disobedience</strong> over compliance</li>
-              <li><strong>Pull</strong> over push</li>
-              <li><strong>Compasses</strong> over maps</li>
-              <li><strong>Emergence</strong> over authority</li>
-              <li><strong>Risk</strong> over safety</li>
-              <li><strong>Practice</strong> over theory</li>
-              <li><strong>Learning</strong> over education</li>
-              <li><strong>Sustainability</strong> over growth</li>
-              <li><strong>Public</strong> over individuals</li>
-              <li><strong>Modular</strong> over monolithic</li>
-            </ul>
-          </div>
 
-          <div class="landing-agentic">
-            Built with agentic workflows&mdash;AI agents as integrated components of the development and contribution process, with human authority throughout.
-          </div>
         </div>
       `;
+
+      contentEl.querySelectorAll('.landing-card').forEach((card, i) => {
+        card.style.animationDelay = `${i * 60}ms`;
+      });
+
+      // Orientation rotator
+      const orientations = [
+        '<strong>Resilience</strong> over strength',
+        '<strong>Systems</strong> over objects',
+        '<strong>Disobedience</strong> over compliance',
+        '<strong>Pull</strong> over push',
+        '<strong>Compasses</strong> over maps',
+        '<strong>Emergence</strong> over authority',
+        '<strong>Risk</strong> over safety',
+        '<strong>Practice</strong> over theory',
+        '<strong>Learning</strong> over education',
+        '<strong>Sustainability</strong> over growth',
+        '<strong>Public</strong> over individuals',
+        '<strong>Modular</strong> over monolithic',
+      ];
+      const rotator = document.getElementById('orientation-rotator');
+      const compassImg = contentEl.querySelector('.landing-hero img');
+      if (rotator && compassImg) {
+        let idx = 0;
+        function showOrientation() {
+          const el = document.createElement('span');
+          el.innerHTML = orientations[idx];
+          el.classList.add('settling');
+          rotator.innerHTML = '';
+          rotator.appendChild(el);
+          idx = (idx + 1) % orientations.length;
+          compassImg.classList.remove('released');
+          compassImg.classList.add('attracted');
+        }
+        function cycleOrientation() {
+          const current = rotator.querySelector('span');
+          if (current) {
+            compassImg.classList.remove('attracted');
+            compassImg.classList.add('released');
+            current.classList.remove('settling');
+            current.classList.add('leaving');
+            current.addEventListener('animationend', () => {
+              showOrientation();
+            }, { once: true });
+          } else {
+            showOrientation();
+          }
+        }
+        // Wait for the appear animation to finish, then hand off to transitions
+        compassImg.addEventListener('animationend', () => {
+          compassImg.style.animation = 'none';
+          compassImg.style.opacity = '0.85';
+          setTimeout(() => {
+            showOrientation();
+            window._orientationInterval = setInterval(cycleOrientation, 2500);
+          }, 200);
+        }, { once: true });
+      }
 
       updateActiveNavLink('home');
       window.scrollTo(0, 0);
     }
 
+    function clearOrientationRotator() {
+      if (window._orientationInterval) {
+        clearInterval(window._orientationInterval);
+        window._orientationInterval = null;
+      }
+    }
+
     function loadReferences() {
+      clearOrientationRotator();
       currentDoc = 'references';
       tocEl.classList.remove('visible');
       layoutEl.classList.remove('has-toc');
@@ -913,7 +1150,103 @@
       window.scrollTo(0, 0);
     }
 
+    function loadChanges() {
+      clearOrientationRotator();
+      currentDoc = 'changes';
+      tocEl.classList.remove('visible');
+      layoutEl.classList.remove('has-toc');
+
+      contentEl.innerHTML = `
+        <div class="changes-page">
+          <h1>Changes</h1>
+          <p class="changes-subtitle">Commit history from the project repository.</p>
+          <div id="changes-list" class="changes-loading">Loading commit history&hellip;</div>
+        </div>
+      `;
+
+      updateActiveNavLink('changes');
+      window.scrollTo(0, 0);
+
+      const owner = 'henkaku-center';
+      const repo = 'compass';
+      const perPage = 100;
+
+      fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=${perPage}`, {
+        headers: { 'Accept': 'application/vnd.github.v3+json' }
+      })
+        .then(res => {
+          if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
+          return res.json();
+        })
+        .then(commits => {
+          const container = document.getElementById('changes-list');
+          if (!container) return;
+
+          // Group commits by date
+          const groups = {};
+          commits.forEach(c => {
+            const date = c.commit.author.date.slice(0, 10);
+            if (!groups[date]) groups[date] = [];
+            groups[date].push(c);
+          });
+
+          let html = '';
+          Object.keys(groups).sort().reverse().forEach(date => {
+            const d = new Date(date + 'T00:00:00');
+            const label = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            html += `<div class="changes-date-group"><h2>${label}</h2>`;
+
+            groups[date].forEach(c => {
+              const msg = c.commit.message.split('\n')[0];
+              const sha = c.sha.slice(0, 7);
+              const url = c.html_url;
+              const authorLogin = c.author ? c.author.login : null;
+              const authorUrl = c.author ? c.author.html_url : null;
+
+              // Parse conventional commit prefix
+              const prefixMatch = msg.match(/^(feat|fix|docs|refactor|chore|style|test|perf|ci|build)(\(.+?\))?:\s*/i);
+              let type = 'other';
+              let cleanMsg = msg;
+              if (prefixMatch) {
+                type = prefixMatch[1].toLowerCase();
+                cleanMsg = msg.slice(prefixMatch[0].length);
+              }
+
+              // Normalize to known badge types
+              const badgeType = ['feat', 'fix', 'docs', 'refactor'].includes(type) ? type : 'other';
+              const badgeLabel = prefixMatch ? prefixMatch[1].toLowerCase() : 'commit';
+
+              const authorHtml = authorLogin
+                ? `<span class="change-author"><a href="${authorUrl}" target="_blank" rel="noopener">@${authorLogin}</a></span>`
+                : '';
+
+              html += `
+                <a class="change-entry" href="${url}" target="_blank" rel="noopener">
+                  <span class="change-type ${badgeType}">${badgeLabel}</span>
+                  <span class="change-message">${cleanMsg}</span>
+                  ${authorHtml}
+                  <span class="change-hash">${sha}</span>
+                </a>
+              `;
+            });
+
+            html += '</div>';
+          });
+
+          container.className = '';
+          container.innerHTML = html;
+        })
+        .catch(err => {
+          const container = document.getElementById('changes-list');
+          if (container) {
+            container.className = 'changes-error';
+            container.innerHTML = `Could not load commit history. <br><small>${err.message}</small>`;
+          }
+        });
+    }
+
     function loadDoc(path, docKey) {
+      clearOrientationRotator();
       currentDoc = docKey;
       const cacheBuster = `?t=${Date.now()}`;
 
@@ -1093,6 +1426,8 @@
         loadLanding();
       } else if (docKey === 'references') {
         loadReferences();
+      } else if (docKey === 'changes') {
+        loadChanges();
       } else {
         const path = routes[docKey];
         loadDoc(path, docKey);
