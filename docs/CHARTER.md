@@ -607,6 +607,8 @@ The registry makes work and people visible, enabling participants to identify co
 
 The registry tracks seven types of entries:
 
+- **Institutions**: Organizations that participate in the ecosystem—universities, research centers, companies, and other bodies that provide infrastructure, legitimacy, resources, or collaboration. Institutions have mandates, governance structures, and constraints that shape what the ecosystem can do. Tracking institutions makes the organizational landscape visible: who the partners are, what each brings, how they relate to each other, and what constraints they impose.
+
 - **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement in projects, initiatives, courses, and theses. People appear as nodes in a network, connected to what they work on and who they collaborate with.
 
 - **Projects**: Bounded units of transformation with clear completion criteria. Projects are finite and mission-driven; they end when their objectives are achieved or abandoned. Every project must articulate what would make it complete.
@@ -619,16 +621,14 @@ The registry tracks seven types of entries:
 
 - **Events**: Time-bound gatherings—seminars, workshops, conferences, open houses, guest lectures, defenses, and other occasions that bring people together around shared purpose. Events connect to the initiatives or projects they serve, the people who organize and attend them, and the outcomes they produce. Unlike projects, events are primarily about convening; unlike courses, they are typically singular or irregular rather than recurring on a fixed schedule.
 
-- **Institutions**: Organizations that participate in the ecosystem—universities, research centers, companies, and other bodies that provide infrastructure, legitimacy, resources, or collaboration. Institutions have mandates, governance structures, and constraints that shape what the ecosystem can do. Tracking institutions makes the organizational landscape visible: who the partners are, what each brings, how they relate to each other, and what constraints they impose.
-
 These entry types serve different accountability structures:
 
+- **Institutions** are evaluated on whether the relationship remains productive—the capabilities provided, constraints navigated, and mutual benefit sustained
 - **Projects** are evaluated on whether they achieved their stated outcomes
 - **Initiatives** are evaluated on whether they continue to justify their existence
 - **Courses** are evaluated on whether they develop the capabilities they promise and remain aligned with Charter principles
 - **Theses** are evaluated on the quality of their contribution, the rigor of their inquiry, and their connection to the broader ecosystem
 - **Events** are evaluated on whether they achieved their convening purpose—the connections made, knowledge shared, or decisions advanced
-- **Institutions** are evaluated on whether the relationship remains productive—the capabilities provided, constraints navigated, and mutual benefit sustained
 
 **Principles**
 
