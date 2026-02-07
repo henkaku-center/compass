@@ -6,13 +6,13 @@ This document defines the structural archetypes—the templates and schemas—fo
 
 The Charter mandates a **shared registry** that tracks seven types of entries:
 
+- **Institutions**: Organizations that participate in the ecosystem—their mandates, capabilities, and relationships
 - **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement
 - **Projects**: Bounded units of transformation with clear completion criteria
 - **Initiatives**: Ongoing programs without predetermined endpoints
 - **Courses**: Recurring educational units with syllabi, learning objectives, and credit values
 - **Theses**: Bounded academic works with advisors, committees, and defense milestones
 - **Events**: Time-bound gatherings—seminars, workshops, conferences, and other convening occasions
-- **Institutions**: Organizations that participate in the ecosystem—their mandates, capabilities, and relationships
 
 The registry serves as coordination infrastructure, making work and people visible and enabling participants to identify connections, gaps, potential collaborators, and network structure across the ecosystem.
 
@@ -21,19 +21,25 @@ The registry serves as coordination infrastructure, making work and people visib
 **Shared, not fragmented**: The registry must be shared across all Charter-covered institutions. Separate tracking systems undermine coordination.
 
 **Interoperating schemas**: Entry types reference each other:
+- Institutions link to people, projects, initiatives, and other institutions they collaborate with
 - People link to projects, initiatives, courses, theses, events, and institutions they're involved in
 - Projects reference people as owners/contributors and institutions as hosts or sponsors
 - Initiatives reference people as leads/participants and track spawned/contained projects
 - Courses link to instructors, Charter principles, and related projects
 - Theses link to advisors, committees, and related projects or initiatives
 - Events link to organizers, related initiatives/projects, and participants
-- Institutions link to people, projects, initiatives, and other institutions they collaborate with
 
 **Measurability with forgiveness**: The Charter recognizes that systemic, cultural, and long-term impacts may resist clean measurement while still being evaluable through qualitative assessment, stakeholder feedback, and narrative evidence.
 
 ### Essential Questions
 
 Each entry type is grounded by essential questions:
+
+**Institutions**:
+1. What is this institution's mandate and what role does it play in the ecosystem?
+2. What distinctive capabilities or resources does it bring?
+3. How does it relate to other institutions in the ecosystem?
+4. What are its constraints, and how does the ecosystem work within them?
 
 **People**:
 1. Who is this person and what is their role?
@@ -70,12 +76,6 @@ Each entry type is grounded by essential questions:
 2. Who is organizing it and who should attend?
 3. What initiative, project, or course does it serve?
 4. What outcomes or follow-up actions are expected?
-
-**Institutions**:
-1. What is this institution's mandate and what role does it play in the ecosystem?
-2. What distinctive capabilities or resources does it bring?
-3. How does it relate to other institutions in the ecosystem?
-4. What are its constraints, and how does the ecosystem work within them?
 
 ---
 
@@ -791,14 +791,14 @@ Tracking institutions in the registry makes the ecosystem's organizational lands
 
 ## Comparison of Entry Types
 
-| | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** | **Institutions** |
+| | **Institutions** | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Nature** | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening | Persistent, organizational |
-| **End condition** | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes | Dissolution or withdrawal |
-| **Evaluation** | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? | Is the relationship productive? |
-| **Time horizon** | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) | Indefinite |
-| **Contains** | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations | People, programs, infrastructure |
-| **Key question** | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" | "What does this enable?" |
+| **Nature** | Persistent, organizational | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening |
+| **End condition** | Dissolution or withdrawal | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes |
+| **Evaluation** | Is the relationship productive? | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? |
+| **Time horizon** | Indefinite | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) |
+| **Contains** | People, programs, infrastructure | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations |
+| **Key question** | "What does this enable?" | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" |
 
 ---
 
