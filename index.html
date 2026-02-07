@@ -102,6 +102,55 @@
       border-left: 1px solid #ddd;
     }
 
+    /* Hamburger toggle — hidden on desktop */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 120;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #333;
+      border-radius: 1px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .nav-toggle span + span {
+      margin-top: 5px;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile menu overlay backdrop */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 99;
+    }
+
+    .nav-overlay.visible {
+      display: block;
+    }
+
     /* Main layout with sidebar */
     .layout {
       display: flex;
@@ -781,6 +830,57 @@
       .landing-cards {
         grid-template-columns: 1fr;
       }
+
+      /* Show hamburger */
+      .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Mobile nav links */
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid #e5e5e5;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 0.5rem 0;
+        z-index: 110;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-links a {
+        margin-left: 0;
+        padding: 0.75rem 2rem;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 1rem;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links a:active {
+        background: #f5f5f5;
+      }
+
+      .nav-links .github-link {
+        margin-left: 0;
+        padding-left: 2rem;
+        border-left: none;
+        border-top: 1px solid #e5e5e5;
+        margin-top: 0.25rem;
+        padding-top: 0.75rem;
+      }
     }
   </style>
 
@@ -808,7 +908,10 @@
         <img src="compass-icon.png" alt="Compass icon" />
         <strong>Compass</strong>
       </a>
-      <div class="nav-links">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="#home">Home</a>
         <a href="#charter">Charter</a>
         <a href="#archetypes">Archetypes</a>
@@ -822,6 +925,7 @@
     </div>
   </nav>
 
+  <div class="nav-overlay" id="nav-overlay"></div>
   <div class="layout" id="layout">
     <aside class="toc" id="toc">
       <h4>Contents</h4>
@@ -854,6 +958,38 @@
     const tocListEl = document.getElementById("toc-list");
     const layoutEl = document.getElementById("layout");
     const backToTopBtn = document.getElementById("back-to-top");
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinks = document.getElementById("nav-links");
+    const navOverlay = document.getElementById("nav-overlay");
+
+    function closeNav() {
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navLinks.classList.remove("open");
+      navOverlay.classList.remove("visible");
+      document.body.style.overflow = "";
+    }
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.contains("open");
+      if (isOpen) {
+        closeNav();
+      } else {
+        navToggle.classList.add("open");
+        navToggle.setAttribute("aria-expanded", "true");
+        navLinks.classList.add("open");
+        navOverlay.classList.add("visible");
+        document.body.style.overflow = "hidden";
+      }
+    });
+
+    navOverlay.addEventListener("click", closeNav);
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeNav);
+    });
 
     // Map hash fragments to document paths
     const routes = {
