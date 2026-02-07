@@ -14,11 +14,11 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 **DNA** — Foundational documents that define principles, governance, and structural templates:
 - `docs/CHARTER.md` — Values, governance, and operational commitments (9 sections)
-- `docs/ARCHETYPES.md` — Structural templates for six registry entry types
+- `docs/ARCHETYPES.md` — Structural templates for seven registry entry types
 
 **Emergent** — Living content instantiated from the foundational templates:
 - `docs/CURRICULUM.md` — SDS Master's and PhD curriculum
-- *(future)* Populated registry entries: actual people, projects, initiatives, courses, theses, and events
+- *(future)* Populated registry entries: actual people, projects, initiatives, courses, theses, events, and institutions
 
 **Supporting:**
 - `README.md` — Purpose, structure, institutional context
@@ -83,7 +83,7 @@ The Charter (`docs/CHARTER.md`) has 9 sections:
 - **II. Values and Commitments** — 10 subsections: antidisciplinarity, transformation, human-AI collaboration, complexity, intellectual integrity, experimentation, neurodiversity, cultural identity, openness, coordination
 - **III. Research Practice** — Project-centered inquiry
 - **IV. Educational Practice** — Project-centered learning, learning through making, AI pedagogy
-- **V. Registry and Coordination Infrastructure** — Shared platform for people, projects, initiatives, courses, theses, and events
+- **V. Registry and Coordination Infrastructure** — Shared platform for people, projects, initiatives, courses, theses, events, and institutions
 - **VI. Institutional Relationships** — Roles, Chiba Tech, Henkaku/SDS, external partners
 - **VII. Governance and Stewardship** — Charter evolution, decision-making, conflict resolution
 - **VIII. Evolution and Adaptation** — Versioning, portability, reuse conditions
@@ -95,17 +95,18 @@ All sections contain full text. The draft is ready for review by ratifying membe
 
 The Charter (Section V) mandates a shared registry. The **Archetypes** document defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
-Six entry types:
+Seven entry types:
 - **People** — Roles, expertise, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
 - **Initiatives** — Ongoing programs evaluated on continuing justification
 - **Courses** — Recurring educational units with learning objectives and Charter alignment
 - **Theses** — Bounded academic works with advisors, committees, and defense milestones
 - **Events** — Time-bound gatherings that connect people and advance work
+- **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 
 **Essential questions** guide each entry type (4 prompts each — see `docs/ARCHETYPES.md`).
 
-**Interoperating schemas**: Entry types cross-reference each other — people link to projects, projects reference contributors, initiatives track spawned projects, courses link to instructors, theses link to advisors, events link to organizers.
+**Interoperating schemas**: Entry types cross-reference each other — people link to projects, projects reference contributors, initiatives track spawned projects, courses link to instructors, theses link to advisors, events link to organizers, institutions link to people and projects they host.
 
 **Privacy**: The registry is a coordination tool, not a public directory. Person records should be professionally relevant, participant-controlled, and appropriately scoped.
 

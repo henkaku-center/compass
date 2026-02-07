@@ -17,7 +17,7 @@ The Charter articulates the values, principles, and governance commitments share
 - **II. Values and Commitments** — Antidisciplinarity, human-AI collaboration, intellectual integrity, cultural identity, and more
 - **III. Research Practice** — Project-centered inquiry
 - **IV. Educational Practice** — Project-centered learning, learning through making, AI pedagogy
-- **V. Registry and Coordination Infrastructure** — Shared platform for tracking people, projects, initiatives, courses, theses, and events
+- **V. Registry and Coordination Infrastructure** — Shared platform for tracking people, projects, initiatives, courses, theses, events, and institutions
 - **VI. Institutional Relationships** — Roles, Chiba Tech, Henkaku/SDS, external partners
 - **VII. Governance** — Charter stewardship, decision-making, conflict resolution
 - **VIII. Evolution** — Living document nature, portability
@@ -27,7 +27,7 @@ All sections contain full text — no placeholders remain.
 
 ### Archetypes
 
-The Archetypes document defines structural templates for six types of registry entries:
+The Archetypes document defines structural templates for seven types of registry entries:
 
 - **People** — Roles, expertise, affiliations, and project involvement
 - **Projects** — Bounded endeavors with completion criteria
@@ -35,6 +35,7 @@ The Archetypes document defines structural templates for six types of registry e
 - **Courses** — Educational units with learning objectives and Charter alignment
 - **Theses** — Student research with advisors, committees, and defense milestones
 - **Events** — Gatherings that connect people and advance work
+- **Institutions** — Organizations with mandates, capabilities, and ecosystem relationships
 
 These templates cross-reference each other, so a person links to their projects, a thesis links to its advisor, and a course links to the Charter principles it embodies.
 
@@ -47,7 +48,7 @@ Documented SDS Master's (30 credits) and PhD (17 credits) programs, mapped to Ch
 Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with navigation, table of contents, collapsible sections, a references page, a history page, and a landing page organized into two layers:
 
 - **DNA** — Foundational documents (Charter, Archetypes)
-- **Emergent** — Living content that grows from the DNA (Curriculum, with placeholders for future People, Projects, Initiatives, Theses, and Events directories)
+- **Emergent** — Living content that grows from the DNA (Curriculum, with placeholders for future People, Projects, Initiatives, Theses, Events, and Institutions directories)
 
 The landing page features an animated compass icon and a rotator that cycles through the 12 Foundational Orientations. A dedicated History page shows the project's commit history pulled live from GitHub in a three-column table: contributor, type, and memo.
 
