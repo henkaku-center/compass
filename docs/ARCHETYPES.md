@@ -4,7 +4,7 @@ This document defines the structural archetypes—the templates and schemas—fo
 
 ## Overview
 
-The Charter mandates a **shared registry** that tracks six types of entries:
+The Charter mandates a **shared registry** that tracks seven types of entries:
 
 - **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement
 - **Projects**: Bounded units of transformation with clear completion criteria
@@ -12,6 +12,7 @@ The Charter mandates a **shared registry** that tracks six types of entries:
 - **Courses**: Recurring educational units with syllabi, learning objectives, and credit values
 - **Theses**: Bounded academic works with advisors, committees, and defense milestones
 - **Events**: Time-bound gatherings—seminars, workshops, conferences, and other convening occasions
+- **Institutions**: Organizations that participate in the ecosystem—their mandates, capabilities, and relationships
 
 The registry serves as coordination infrastructure, making work and people visible and enabling participants to identify connections, gaps, potential collaborators, and network structure across the ecosystem.
 
@@ -20,12 +21,13 @@ The registry serves as coordination infrastructure, making work and people visib
 **Shared, not fragmented**: The registry must be shared across all Charter-covered institutions. Separate tracking systems undermine coordination.
 
 **Interoperating schemas**: Entry types reference each other:
-- People link to projects, initiatives, courses, theses, and events they're involved in
-- Projects reference people as owners/contributors
+- People link to projects, initiatives, courses, theses, events, and institutions they're involved in
+- Projects reference people as owners/contributors and institutions as hosts or sponsors
 - Initiatives reference people as leads/participants and track spawned/contained projects
 - Courses link to instructors, Charter principles, and related projects
 - Theses link to advisors, committees, and related projects or initiatives
 - Events link to organizers, related initiatives/projects, and participants
+- Institutions link to people, projects, initiatives, and other institutions they collaborate with
 
 **Measurability with forgiveness**: The Charter recognizes that systemic, cultural, and long-term impacts may resist clean measurement while still being evaluable through qualitative assessment, stakeholder feedback, and narrative evidence.
 
@@ -68,6 +70,12 @@ Each entry type is grounded by essential questions:
 2. Who is organizing it and who should attend?
 3. What initiative, project, or course does it serve?
 4. What outcomes or follow-up actions are expected?
+
+**Institutions**:
+1. What is this institution's mandate and what role does it play in the ecosystem?
+2. What distinctive capabilities or resources does it bring?
+3. How does it relate to other institutions in the ecosystem?
+4. What are its constraints, and how does the ecosystem work within them?
 
 ---
 
@@ -678,16 +686,119 @@ Events connect the ecosystem's other entry types: an initiative might host a sem
 
 ---
 
+## Part VII: Institutions
+
+Institutions are **organizations that participate in the ecosystem**—universities, research centers, companies, government agencies, and other bodies that provide infrastructure, legitimacy, resources, or collaboration. Unlike people (who are individuals), institutions have mandates, governance structures, and constraints that shape what the ecosystem can do.
+
+Tracking institutions in the registry makes the ecosystem's organizational landscape visible: who the institutional partners are, what each brings, how they relate to each other, and what constraints they impose. This supports the Charter's commitment to **productive coupling**—preserving institutional boundaries while enabling collaboration across them.
+
+### Basic Information
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `id` — **Institution ID** | Unique internal identifier (e.g., `inst_chibatech`, `inst_henkaku`) | *Enables tracking and cross-referencing* |
+| `name` — **Institution Name** | Official name of the institution | *Part of making work visible* |
+| `short_name` — **Short Name** | *(optional)* Common abbreviation or informal name (e.g., "Chiba Tech", "SDS") | *Supports discoverability* |
+| `summary` — **Institution Summary** | A short paragraph (1–2 sentences) describing the institution's purpose and role in the ecosystem | *Supports discoverability* |
+| `institution_type` — **Institution Type** | Category of institution. One of:<br>• `university` - Degree-granting academic institution<br>• `graduate_school` - Graduate-level academic program<br>• `research_center` - Research-focused organization<br>• `company` - Private-sector entity<br>• `government` - Government agency or body<br>• `nonprofit` - Non-governmental, non-profit organization<br>• `other` - Institutions that don't fit other categories | **Classification** |
+
+---
+
+### Mandate and Role
+
+*Charter requirement (Section VI): Institutional relationships are "explicitly designed interfaces" with different mandates, tempos, and constraints*
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `mandate` — **Institutional Mandate** | What is this institution's core purpose or mission? What is it chartered or authorized to do? Answers essential prompt #1. | **Institutional Relationships** (mandate) |
+| `ecosystem_role` — **Role in the Ecosystem** | What function does this institution serve within the Charter-covered ecosystem? (e.g., "host institution providing legal standing and infrastructure", "academic arm delivering degree programs", "research center providing shared infrastructure") | **Institutional Relationships** (role) |
+| `founding_date` — **Founding Date** | *(optional)* When the institution was established (format: `YYYY` or `YYYY-MM-DD`) | *Historical context* |
+
+---
+
+### Capabilities and Resources
+
+*What distinctive assets this institution contributes to the ecosystem*
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `capabilities` — **Distinctive Capabilities** | What does this institution bring that others in the ecosystem do not? (e.g., "degree-granting authority", "laboratory facilities", "industry networks", "policy access") Answers essential prompt #2. | **Institutional Relationships** (mutual benefit) |
+| `infrastructure` — **Infrastructure Provided** | *(optional)* Physical or organizational infrastructure available to the ecosystem (e.g., "campus facilities", "administrative systems", "research equipment") | **Institutional Relationships** (infrastructure) |
+| `location` — **Location** | *(optional)* Primary physical location or headquarters | **Logistics** |
+
+---
+
+### Institutional Relationships
+
+*Charter requirement (Section VI): "productive coupling across institutional boundaries—preserving accountability, authority, and trust"*
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `parent_institution` — **Parent Institution** | *(optional)* Reference to a parent or host institution (e.g., SDS references Chiba Tech) | **Institutional Relationships** (hierarchy) |
+| `related_institutions` — **Related Institutions** | Other institutions this one collaborates with, hosts, or is hosted by. Each entry includes:<br>• `institution_id`: Reference to institution in registry<br>• `relationship`: Nature of relationship (e.g., "host", "hosted_by", "partner", "funder", "affiliate") Answers essential prompt #3. | **Institutional Relationships** (coupling) |
+| `charter_coverage` — **Charter Coverage** | Whether and how this institution is covered by the Charter. One of:<br>• `primary` - Directly governed by Charter principles<br>• `partner` - Operates consistently with Charter during collaboration<br>• `external` - Independent institution with formal relationship | **Institutional Relationships** (applicability) |
+
+---
+
+### Constraints and Operating Context
+
+*Charter requirement (Section VI.2): Institutions "operate under constraints of scale, regulation, and tradition"*
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `constraints` — **Operating Constraints** | What regulatory, administrative, or structural constraints does this institution operate under? (e.g., "accreditation requirements", "government reporting obligations", "legacy administrative systems") Answers essential prompt #4. | **Institutional Relationships** (constraints) |
+| `language` — **Working Language** | *(optional)* Primary working language(s) of the institution | **Cultural Context** |
+| `governance_structure` — **Governance Structure** | *(optional)* Brief description of how the institution is governed (e.g., "university senate", "board of directors", "director-led") | **Governance** |
+
+---
+
+### People and Work
+
+*How this institution connects to the ecosystem's people and activities*
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `key_contacts` — **Key Contacts** | People who serve as primary liaisons between this institution and the ecosystem. Each entry includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role in the relationship (e.g., "director", "liaison", "administrative contact") | **Participants** (contacts) |
+| `hosted_projects` — **Hosted Projects** | *(optional)* Projects that this institution hosts, funds, or sponsors | **Dependencies** (projects) |
+| `hosted_initiatives` — **Hosted Initiatives** | *(optional)* Initiatives that operate under this institution's umbrella | **Dependencies** (initiatives) |
+
+---
+
+### Institution Status
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `status` — **Institution Status** | Current relationship status. Must be one of:<br>• `active` - Currently participating in the ecosystem<br>• `prospective` - In discussion but not yet formally participating<br>• `inactive` - Previously active, currently not participating<br>• `historical` - No longer operating or relevant, retained for record | **Status** |
+
+---
+
+### Institution Context
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `domains` — **Related Domains** | Tags that map this institution to research or practice areas | *Enables overlap/coherence analysis* |
+| `website` — **Website** | *(optional)* Institution's primary website URL | *Discoverability* |
+
+---
+
+### Institution Notes
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `notes` — **Notes** | Freeform space for historical context, relationship details, or operational notes | *Flexibility for additional context* |
+
+---
+
 ## Comparison of Entry Types
 
-| | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** |
-| --- | --- | --- | --- | --- | --- |
-| **Nature** | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening |
-| **End condition** | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes |
-| **Evaluation** | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? |
-| **Time horizon** | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) |
-| **Contains** | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations |
-| **Key question** | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" |
+| | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** | **Institutions** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Nature** | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening | Persistent, organizational |
+| **End condition** | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes | Dissolution or withdrawal |
+| **Evaluation** | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? | Is the relationship productive? |
+| **Time horizon** | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) | Indefinite |
+| **Contains** | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations | People, programs, infrastructure |
+| **Key question** | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" | "What does this enable?" |
 
 ---
 
@@ -702,7 +813,7 @@ This schema implements Section V of the Charter by:
 5. **Ongoing justification**: Initiative fields ensure programs articulate why they should continue
 6. **Measurability with forgiveness**: Success criteria and health indicators support both quantitative and qualitative assessment
 7. **Accountability**: Owner, lead, and contributor fields establish clear responsibility
-8. **Network visibility**: Cross-references between people, projects, initiatives, courses, theses, and events show how the ecosystem connects
+8. **Network visibility**: Cross-references between people, projects, initiatives, courses, theses, events, and institutions show how the ecosystem connects
 9. **Coordination infrastructure**: Dependencies, domains, and scope boundaries enable overlap/coherence analysis
 
 The schema may evolve through Charter governance processes (Section VII), with changes preserving backward compatibility or providing migration paths for existing entries.

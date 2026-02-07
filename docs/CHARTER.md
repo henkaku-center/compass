@@ -595,17 +595,17 @@ Curriculum agility is not instability. The goal is structured adaptability—mai
 
 ## V. Registry and Coordination Infrastructure
 
-Institutions covered by this Charter must establish and maintain a **shared registry**—a common platform for defining, submitting, and browsing people, projects, initiatives, courses, theses, and events across the ecosystem.
+Institutions covered by this Charter must establish and maintain a **shared registry**—a common platform for defining, submitting, and browsing people, projects, initiatives, courses, theses, events, and institutions across the ecosystem.
 
 **Why a Shared Registry**
 
 Coordination requires visibility. A fragmented landscape of separate tracking systems—where Henkaku Center doesn't know what SDS is doing, where researchers can't find potential collaborators, where duplicate efforts proceed in ignorance of each other—undermines the ecosystem's ability to function as more than a collection of isolated activities.
 
-The registry makes work and people visible, enabling participants to identify connections, gaps, and potential collaborations. It answers basic coordination questions: Who is working on what? Who has expertise in this area? What projects relate to mine? Where are there gaps no one is addressing? What courses develop which capabilities? How do theses connect to ongoing research? What events are coming up?
+The registry makes work and people visible, enabling participants to identify connections, gaps, and potential collaborations. It answers basic coordination questions: Who is working on what? Who has expertise in this area? What projects relate to mine? Where are there gaps no one is addressing? What courses develop which capabilities? How do theses connect to ongoing research? What events are coming up? What institutions are involved and what do they bring?
 
 **What the Registry Tracks**
 
-The registry tracks six types of entries:
+The registry tracks seven types of entries:
 
 - **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement in projects, initiatives, courses, and theses. People appear as nodes in a network, connected to what they work on and who they collaborate with.
 
@@ -619,6 +619,8 @@ The registry tracks six types of entries:
 
 - **Events**: Time-bound gatherings—seminars, workshops, conferences, open houses, guest lectures, defenses, and other occasions that bring people together around shared purpose. Events connect to the initiatives or projects they serve, the people who organize and attend them, and the outcomes they produce. Unlike projects, events are primarily about convening; unlike courses, they are typically singular or irregular rather than recurring on a fixed schedule.
 
+- **Institutions**: Organizations that participate in the ecosystem—universities, research centers, companies, and other bodies that provide infrastructure, legitimacy, resources, or collaboration. Institutions have mandates, governance structures, and constraints that shape what the ecosystem can do. Tracking institutions makes the organizational landscape visible: who the partners are, what each brings, how they relate to each other, and what constraints they impose.
+
 These entry types serve different accountability structures:
 
 - **Projects** are evaluated on whether they achieved their stated outcomes
@@ -626,6 +628,7 @@ These entry types serve different accountability structures:
 - **Courses** are evaluated on whether they develop the capabilities they promise and remain aligned with Charter principles
 - **Theses** are evaluated on the quality of their contribution, the rigor of their inquiry, and their connection to the broader ecosystem
 - **Events** are evaluated on whether they achieved their convening purpose—the connections made, knowledge shared, or decisions advanced
+- **Institutions** are evaluated on whether the relationship remains productive—the capabilities provided, constraints navigated, and mutual benefit sustained
 
 **Principles**
 
@@ -1071,7 +1074,7 @@ However, this Charter should be actively used and referenced in the development 
 
 This Charter explicitly authorizes:
 
-- The establishment and maintenance of a **registry** as described in Section V, serving as coordination infrastructure for people, projects, initiatives, courses, theses, and events across the ecosystem
+- The establishment and maintenance of a **registry** as described in Section V, serving as coordination infrastructure for people, projects, initiatives, courses, theses, events, and institutions across the ecosystem
 
 - The development and delivery of **curriculum for Masters and PhD students** within the Graduate School of Design & Science, consistent with the educational principles articulated in Section IV
 
