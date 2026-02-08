@@ -101,13 +101,13 @@ All sections contain full text. The draft is ready for review by ratifying membe
 The Charter (Section V) mandates a shared registry. The **Archetypes** document defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
 Seven entry types:
+- **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 - **People** — Roles, expertise, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
 - **Initiatives** — Ongoing programs evaluated on continuing justification
 - **Courses** — Recurring educational units with learning objectives and Charter alignment
 - **Theses** — Bounded academic works with advisors, committees, and defense milestones
 - **Events** — Time-bound gatherings that connect people and advance work
-- **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 
 **Essential questions** guide each entry type (4 prompts each — see `docs/ARCHETYPES.md`).
 
