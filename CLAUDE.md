@@ -26,6 +26,7 @@ Compass documents are organized into two layers, inspired by a biological analog
 - `index.html` — Static web viewer with hash routing and marked.js rendering
 - `reference/` — Historical versions and source documents
 - `CLAUDE.md` — This file
+- `CNAME` — GitHub Pages custom domain (`compass.henkaku.center`)
 
 ## Repository Structure
 
@@ -37,11 +38,15 @@ compass/
 │   └── CURRICULUM.md
 ├── reference/
 │   ├── 20260203_Teaching AI and Teaching with AI.pdf
-│   ├── 20260120_Charter_v0.pdf
 │   ├── 20251114_SDS_Open House_Brochure_fin.pdf
+│   ├── 20251009_Ira_PBL_Example.pdf
 │   ├── 20250710_Research_Project_Schema.pdf
+│   ├── 20240705_Curriculum_Whiteboard.pdf
 │   ├── 20240613_SDS_DNA_CheatSheet.png
-│   └── 20220329_Research_Report-compressed.pdf
+│   ├── 20240612_GSDS Retreat.pdf
+│   ├── 20220329_Research_Report-compressed.pdf
+│   └── 20171231_Neri Oxman Krebs Cycle of Creativity.jpeg
+├── compass-icon.png
 ├── README.md
 ├── STATUS.md
 ├── CLAUDE.md
@@ -128,7 +133,7 @@ Seven entry types:
 **Web viewer** (`index.html`):
 - Single-page app with hash routing (`#home`, `#charter`, `#archetypes`, `#curriculum`, `#references`, `#history`, `#status`, `#about`)
 - Client-side markdown rendering with marked.js (no build process)
-- `#history` page fetches commit history from the GitHub API (no build step)
+- `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes)
 - Landing page organized into DNA / Emergent / unlabeled meta groups with animated card entrances
 - Compass icon has a magnetic-settle animation tied to the orientation rotator
 - Cache-busting with timestamp query parameters
