@@ -26,7 +26,7 @@ Compass documents are organized into two layers:
 
 Foundational documents that define principles, governance, and structural templates.
 
-- **Charter** — Values, governance principles, and operational commitments across 9 sections
+- **[Charter](https://charter.henkaku.center)** — Values, governance principles, and operational commitments across 9 sections (hosted externally)
 - **Archetypes** — Structural templates for seven registry entry types: people, projects, initiatives, courses, theses, events, and institutions
 
 ### Emergent
@@ -98,7 +98,7 @@ Within this context, the Charter serves as both a concrete institutional artifac
 
 ## Engagement
 
-- **Read** the Charter to understand the principles, process, and scope
+- **Read** the [Charter](https://charter.henkaku.center) to understand the principles, process, and scope
 - **Track changes** through the [History page](https://compass.henkaku.center/#history) or [GitHub commits](https://github.com/henkaku-center/compass/commits/main) to see how documents evolve
 - **Define entries** using the Archetypes templates for people, projects, initiatives, courses, theses, events, and institutions
 - **Propose revisions** via [pull requests](https://github.com/henkaku-center/compass/pulls), agent-assisted workflows, or agentic interfaces

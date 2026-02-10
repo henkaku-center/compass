@@ -913,7 +913,7 @@
       </button>
       <div class="nav-links" id="nav-links">
         <a href="#home">Home</a>
-        <a href="#charter">Charter</a>
+        <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer">Charter</a>
         <a href="#archetypes">Archetypes</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#references">References</a>
@@ -996,7 +996,7 @@
       'home': null, // Special case: landing page
       'about': 'README.md',
       'status': 'STATUS.md',
-      'charter': 'docs/CHARTER.md',
+      'charter': null, // External: redirects to charter.henkaku.center
       'curriculum': 'docs/CURRICULUM.md',
       'archetypes': 'docs/ARCHETYPES.md',
       'references': null, // Special case: rendered from data
@@ -1004,7 +1004,7 @@
     };
 
     // Documents that should show TOC
-    const tocDocs = ['about', 'status', 'charter', 'curriculum', 'archetypes'];
+    const tocDocs = ['about', 'status', 'curriculum', 'archetypes'];
 
     // Reference files data (sorted oldest to newest)
     const referenceFiles = [
@@ -1103,7 +1103,7 @@
             <div class="landing-group-label">DNA</div>
             <div class="landing-group-desc">Two documents. The rest follows from them.</div>
             <div class="landing-cards">
-              <a href="#charter" class="landing-card">
+              <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer" class="landing-card">
                 <div class="card-title">Charter</div>
                 <div class="card-desc">Shared principles and commitments that orient all work.</div>
               </a>
@@ -1560,7 +1560,10 @@
       const hash = window.location.hash.slice(1) || 'home';
       const docKey = Object.keys(routes).includes(hash) ? hash : 'home';
 
-      if (docKey === 'home') {
+      if (docKey === 'charter') {
+        window.location.href = 'https://charter.henkaku.center';
+        return;
+      } else if (docKey === 'home') {
         loadLanding();
       } else if (docKey === 'references') {
         loadReferences();

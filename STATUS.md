@@ -10,7 +10,7 @@
 
 ### Charter
 
-The Charter articulates the values, principles, and governance commitments shared across Henkaku Center, SDS, and Chiba Tech. It is organized into 9 sections:
+The Charter articulates the values, principles, and governance commitments shared across Henkaku Center, SDS, and Chiba Tech. It now lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center). It is organized into 9 sections:
 
 - **Preamble** — Scope and applicability
 - **I. Foundational Orientations** — 12 directional principles (resilience over strength, systems over objects, etc.)
@@ -47,7 +47,7 @@ Documented SDS Master's (30 credits) and PhD (17 credits) programs, mapped to Ch
 
 Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with navigation, table of contents, collapsible sections, a references page, a history page, and a landing page organized into two layers:
 
-- **DNA** — Foundational documents (Charter, Archetypes)
+- **DNA** — Foundational documents ([Charter](https://charter.henkaku.center), Archetypes)
 - **Emergent** — Living content that grows from the DNA (Curriculum, with placeholders for future People, Projects, Initiatives, Theses, Events, and Institutions directories)
 
 The landing page features an animated compass icon and a rotator that cycles through the 12 Foundational Orientations. A dedicated History page shows the project's commit history pulled live from GitHub in a three-column table: contributor, type, and memo.

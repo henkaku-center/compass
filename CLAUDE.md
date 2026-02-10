@@ -13,7 +13,7 @@ Unlike traditional static institutional documents, Compass is designed to evolve
 Compass documents are organized into two layers, inspired by a biological analogy: foundational documents are the "DNA" (structural code), while instantiated content is "emergent" (expressed from those templates).
 
 **DNA** — Foundational documents that define principles, governance, and structural templates:
-- `docs/CHARTER.md` — Values, governance, and operational commitments (9 sections)
+- **Charter** — Values, governance, and operational commitments (9 sections). Lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center) (source: `https://charter.henkaku.center/content/CHARTER.md`)
 - `docs/ARCHETYPES.md` — Structural templates for seven registry entry types
 
 **Emergent** — Living content instantiated from the foundational templates:
@@ -33,7 +33,6 @@ Compass documents are organized into two layers, inspired by a biological analog
 ```
 compass/
 ├── docs/
-│   ├── CHARTER.md
 │   ├── ARCHETYPES.md
 │   └── CURRICULUM.md
 ├── reference/
@@ -81,7 +80,7 @@ AI agents are integrated components of contribution infrastructure across three 
 
 ## Charter Structure
 
-The Charter (`docs/CHARTER.md`) has 9 sections:
+The Charter is hosted externally at [charter.henkaku.center](https://charter.henkaku.center) (markdown source: `https://charter.henkaku.center/content/CHARTER.md`). It has 9 sections:
 
 - **Preamble** — Scope, intent, applicability
 - **I. Foundational Orientations** — 12 directional principles (resilience over strength, systems over objects, etc.)
@@ -119,10 +118,10 @@ Seven entry types:
 
 ### Editing Philosophy
 
-**Charter** (`docs/CHARTER.md`):
-- Always read before editing
-- Maintain consistency with existing tone, structure, and principles
-- Changes after ratification should go through the amendment process
+**Charter** (external — [charter.henkaku.center](https://charter.henkaku.center)):
+- The Charter lives in its own repository. Compass links to it but does not host it.
+- To read the Charter markdown source, fetch `https://charter.henkaku.center/content/CHARTER.md`
+- Changes to the Charter are made in the Charter repository, not here.
 
 **Archetypes** (`docs/ARCHETYPES.md`):
 - Must remain aligned with Charter Section V requirements
@@ -131,7 +130,7 @@ Seven entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html`):
-- Single-page app with hash routing (`#home`, `#charter`, `#archetypes`, `#curriculum`, `#references`, `#history`, `#status`, `#about`)
+- Single-page app with hash routing (`#home`, `#archetypes`, `#curriculum`, `#references`, `#history`, `#status`, `#about`). Charter links navigate to external site `charter.henkaku.center`.
 - Client-side markdown rendering with marked.js (no build process)
 - `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes)
 - Landing page organized into DNA / Emergent / unlabeled meta groups with animated card entrances
