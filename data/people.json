@@ -79,18 +79,19 @@
       "faculty",
       "principal_researcher"
     ],
-    "title": "Associate Professor",
+    "title": "Professor",
     "affiliations": [
       {
-        "institution": "Graduate School of Design & Science",
+        "institution": "Graduate School of Design & Science (SDS)",
         "institution_id": "inst_sds",
-        "role": "Faculty",
+        "role": "Associate Professor",
         "primary": true
       },
       {
-        "institution": "Henkaku Center",
+        "institution": "Henkaku Center for Radical Transformation (Henkaku Center)",
         "institution_id": "inst_henkaku",
-        "role": "Principal Researcher"
+        "role": "Principal Research Scientist",
+        "primary": false
       }
     ],
     "expertise": [
