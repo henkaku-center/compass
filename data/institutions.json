@@ -8,21 +8,48 @@
     "mandate": "Provide higher education in science, technology, and design with a commitment to societal contribution through applied research.",
     "ecosystem_role": "Host institution providing legal standing, administrative infrastructure, and degree-granting authority.",
     "founding_date": "1942",
-    "capabilities": ["degree-granting authority", "campus facilities", "administrative systems", "accreditation"],
+    "capabilities": [
+      "degree-granting authority",
+      "campus facilities",
+      "administrative systems",
+      "accreditation"
+    ],
     "location": "Narashino, Chiba, Japan",
     "related_institutions": [
-      { "institution_id": "inst_henkaku", "relationship": "host" },
-      { "institution_id": "inst_sds", "relationship": "host" }
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "host"
+      },
+      {
+        "institution_id": "inst_sds",
+        "relationship": "host"
+      }
     ],
     "charter_coverage": "primary",
-    "constraints": ["accreditation requirements", "MEXT reporting obligations", "legacy administrative systems", "Japanese higher education regulations"],
+    "constraints": [
+      "accreditation requirements",
+      "MEXT reporting obligations",
+      "legacy administrative systems",
+      "Japanese higher education regulations"
+    ],
     "language": "Japanese",
     "key_contacts": [
-      { "person_id": "person_ito_joi", "role": "director" }
+      {
+        "person_id": "person_ito_joi",
+        "role": "director"
+      }
     ],
-    "hosted_initiatives": ["init_sds_launch", "init_compass_initiative"],
+    "hosted_initiatives": [
+      "init_sds_launch",
+      "init_compass_initiative"
+    ],
     "status": "active",
-    "domains": ["engineering", "design", "technology", "education"],
+    "domains": [
+      "engineering",
+      "design",
+      "technology",
+      "education"
+    ],
     "website": "https://chibatech.jp"
   },
   {
@@ -33,23 +60,51 @@
     "institution_type": "research_center",
     "mandate": "Explore radical coordination technology and provide shared infrastructure for antidisciplinary research and education.",
     "ecosystem_role": "Research center providing shared infrastructure, convening capacity, and coordination tools across education, research, and policy.",
-    "capabilities": ["research infrastructure", "coordination tools", "convening capacity", "policy access", "industry networks"],
+    "capabilities": [
+      "research infrastructure",
+      "coordination tools",
+      "convening capacity",
+      "policy access",
+      "industry networks"
+    ],
     "location": "Narashino, Chiba, Japan",
     "parent_institution": "inst_chibatech",
     "related_institutions": [
-      { "institution_id": "inst_chibatech", "relationship": "hosted_by" },
-      { "institution_id": "inst_sds", "relationship": "partner" }
+      {
+        "institution_id": "inst_chibatech",
+        "relationship": "hosted_by"
+      },
+      {
+        "institution_id": "inst_sds",
+        "relationship": "partner"
+      }
     ],
     "charter_coverage": "primary",
-    "constraints": ["operates within Chiba Tech administrative framework", "funding cycles"],
-    "key_contacts": [
-      { "person_id": "person_ito_joi", "role": "director" },
-      { "person_id": "person_winder_ira", "role": "faculty" }
+    "constraints": [
+      "operates within Chiba Tech administrative framework",
+      "funding cycles"
     ],
-    "hosted_projects": ["proj_compass", "proj_registry_platform"],
-    "hosted_initiatives": ["init_compass_initiative", "init_ai_research"],
+    "key_contacts": [
+      {
+        "person_id": "person_ito_joi",
+        "role": "director"
+      }
+    ],
+    "hosted_projects": [
+      "proj_compass",
+      "proj_registry_platform"
+    ],
+    "hosted_initiatives": [
+      "init_compass_initiative",
+      "init_sds_launch"
+    ],
     "status": "active",
-    "domains": ["coordination", "antidisciplinary research", "AI", "governance"],
+    "domains": [
+      "coordination",
+      "antidisciplinary research",
+      "AI",
+      "governance"
+    ],
     "website": "https://henkaku.center"
   },
   {
@@ -61,23 +116,53 @@
     "mandate": "Deliver antidisciplinary graduate education through project-based learning, launching April 2026.",
     "ecosystem_role": "Academic arm delivering degree programs with antidisciplinary, project-based curriculum.",
     "founding_date": "2026-04",
-    "capabilities": ["graduate education", "project-based learning", "antidisciplinary curriculum", "thesis supervision"],
+    "capabilities": [
+      "graduate education",
+      "project-based learning",
+      "antidisciplinary curriculum",
+      "thesis supervision"
+    ],
     "location": "Narashino, Chiba, Japan",
     "parent_institution": "inst_chibatech",
     "related_institutions": [
-      { "institution_id": "inst_chibatech", "relationship": "hosted_by" },
-      { "institution_id": "inst_henkaku", "relationship": "partner" }
+      {
+        "institution_id": "inst_chibatech",
+        "relationship": "hosted_by"
+      },
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "partner"
+      }
     ],
     "charter_coverage": "primary",
-    "constraints": ["MEXT accreditation requirements", "Chiba Tech academic calendar", "degree program regulations"],
-    "key_contacts": [
-      { "person_id": "person_winder_ira", "role": "faculty" },
-      { "person_id": "person_tanaka_yuki", "role": "faculty" }
+    "constraints": [
+      "MEXT accreditation requirements",
+      "Chiba Tech academic calendar",
+      "degree program regulations"
     ],
-    "hosted_projects": ["proj_ai_pedagogy"],
-    "hosted_initiatives": ["init_sds_launch"],
+    "key_contacts": [
+      {
+        "person_id": "person_winder_ira",
+        "role": "faculty"
+      },
+      {
+        "person_id": "person_tanaka_yuki",
+        "role": "faculty"
+      }
+    ],
+    "hosted_projects": [
+      "proj_ai_pedagogy"
+    ],
+    "hosted_initiatives": [
+      "init_sds_launch"
+    ],
     "status": "active",
-    "domains": ["design", "science", "education", "antidisciplinary"],
+    "domains": [
+      "design",
+      "science",
+      "education",
+      "antidisciplinary"
+    ],
     "website": "https://sds.chibatech.dev"
   }
 ]
