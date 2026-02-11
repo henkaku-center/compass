@@ -144,16 +144,11 @@
     ],
     "key_contacts": [
       {
-        "person_id": "person_winder_ira",
-        "role": "faculty"
-      },
-      {
-        "person_id": "person_tanaka_yuki",
-        "role": "faculty"
+        "person_id": "person_austerweil_joseph",
+        "role": "Academic Director"
       }
     ],
     "hosted_projects": [
-      "proj_ai_pedagogy",
       "proj_sds_launch"
     ],
     "hosted_initiatives": [],
