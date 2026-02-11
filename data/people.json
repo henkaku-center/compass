@@ -26,6 +26,11 @@
         "institution_id": "inst_sds",
         "role": "Faculty",
         "primary": true
+      },
+      {
+        "institution": "Japan Probabilistic Computing Association",
+        "institution_id": "inst_jpcca",
+        "role": "Director"
       }
     ],
     "expertise": [
@@ -303,6 +308,11 @@
       {
         "institution": "University of Tsukuba",
         "role": "Associate Professor"
+      },
+      {
+        "institution": "Japan Probabilistic Computing Association",
+        "institution_id": "inst_jpcca",
+        "role": "Researcher"
       }
     ],
     "expertise": [
@@ -512,6 +522,11 @@
       {
         "institution": "Japan Probabilistic Computing Association",
         "institution_id": "inst_jpcca",
+        "role": "Researcher"
+      },
+      {
+        "institution": "Artificial Life Institute",
+        "institution_id": "inst_alife",
         "role": "Researcher"
       }
     ],

@@ -260,6 +260,39 @@
       margin: 0 auto;
     }
 
+    /* Markdown tables (curriculum course/credit tables) */
+    main table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      margin: 1rem 0;
+    }
+
+    main table th,
+    main table td {
+      text-align: left;
+      padding: 0.4rem 0.75rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    main table th {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #666;
+    }
+
+    main table th:first-child {
+      width: auto;
+    }
+
+    main table th:last-child {
+      width: 80px;
+    }
+
+    main table td:last-child {
+      text-align: center;
+    }
+
     /* Typography */
     h1, h2, h3 {
       line-height: 1.25;
@@ -1761,7 +1794,6 @@
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="nav-links">
-        <a href="#home">Home</a>
         <a href="#feedback">Feedback</a>
         <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener noreferrer" class="github-link" title="View on GitHub">GitHub</a>
         <span class="nav-login" id="nav-login"></span>
@@ -1872,6 +1904,7 @@
       'projects': null, // Registry list page
       'initiatives': null, // Registry list page
       'institutions': null, // Registry list page
+      'courses': null, // Registry list page
       'network': null, // Graph visualization page
       'feedback': null // Feedback submission page
     };
@@ -1888,7 +1921,7 @@
       { key: 'initiatives', label: 'Initiatives' },
       { key: 'institutions', label: 'Institutions' },
       { key: 'curriculum', label: 'Curriculum' },
-      { key: 'courses', label: 'Courses', placeholder: true },
+      { key: 'courses', label: 'Courses' },
       { key: 'theses', label: 'Theses', placeholder: true },
       { key: 'posts', label: 'Posts', placeholder: true },
       { key: 'events', label: 'Events', placeholder: true },
@@ -2040,10 +2073,10 @@
                 <div class="card-title">Posts</div>
                 <div class="card-desc">Coming soon</div>
               </span>
-              <span class="landing-card placeholder">
+              <a href="#courses" class="landing-card">
                 <div class="card-title">Courses</div>
-                <div class="card-desc">Coming soon</div>
-              </span>
+                <div class="card-desc">25 planned courses across Master's and PhD programs.</div>
+              </a>
               <span class="landing-card placeholder">
                 <div class="card-title">Theses</div>
                 <div class="card-desc">Coming soon</div>
@@ -2313,9 +2346,10 @@
         fetchRegistryData('institutions'),
         fetchRegistryData('people'),
         fetchRegistryData('projects'),
-        fetchRegistryData('initiatives')
-      ]).then(([institutions, people, projects, initiatives]) => ({
-        institutions, people, projects, initiatives
+        fetchRegistryData('initiatives'),
+        fetchRegistryData('courses')
+      ]).then(([institutions, people, projects, initiatives, courses]) => ({
+        institutions, people, projects, initiatives, courses
       }));
     }
 
@@ -2360,6 +2394,12 @@
         plural: 'Institutions',
         description: 'Organizations that provide infrastructure, legitimacy, resources, and collaboration.',
         color: '#7a8490'
+      },
+      courses: {
+        singular: 'Course',
+        plural: 'Courses',
+        description: 'Recurring educational units with learning objectives, credit values, and Charter alignment.',
+        color: '#7b68ae'
       }
     };
 
@@ -2472,6 +2512,22 @@
               return `${init ? init.title : r.initiative_id} (${r.relationship})`;
             }).join(', ');
             relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Related:</strong> ${related}`;
+          }
+          break;
+
+        case 'courses':
+          nameField = entry.title;
+          if (entry.short_name) {
+            nameField = `${entry.title} (${entry.short_name})`;
+          }
+          metaHtml += `<span class="type-badge">${entry.credits} credit${entry.credits !== 1 ? 's' : ''}</span>`;
+          if (entry.program) {
+            entry.program.forEach(p => {
+              metaHtml += `<span class="type-badge">${p.replace(/_/g, ' ')}</span>`;
+            });
+          }
+          if (entry.domains) {
+            relationsHtml += `<strong>Domains:</strong> ${entry.domains.join(', ')}`;
           }
           break;
       }
@@ -2593,6 +2649,27 @@
         }
       }
 
+      if (type === 'courses') {
+        if (entry.charter_alignment && entry.charter_alignment.length > 0) {
+          detailHtml += `<p class="detail-label">Charter Alignment</p>`;
+          detailHtml += entry.charter_alignment.map(a => `<p>${a}</p>`).join('');
+        }
+        if (entry.prerequisites && entry.prerequisites.length > 0) {
+          detailHtml += `<p class="detail-label">Prerequisites</p>`;
+          detailHtml += entry.prerequisites.map(pid => {
+            var prereq = lookup[pid];
+            return `<p>${prereq ? prereq.title : pid}</p>`;
+          }).join('');
+        }
+        if (entry.related_courses && entry.related_courses.length > 0) {
+          detailHtml += `<p class="detail-label">Related Courses</p>`;
+          detailHtml += entry.related_courses.map(rid => {
+            var rel = lookup[rid];
+            return `<p>${rel ? rel.title : rid}</p>`;
+          }).join('');
+        }
+      }
+
       const editBtnHtml = isLoggedIn() ? `<button class="card-edit-btn">Edit</button>` : '';
 
       card.innerHTML = `
@@ -2650,7 +2727,7 @@
       fetchAllRegistryData()
         .then(allData => {
           const lookup = buildLookup(allData);
-          const entries = allData[type].filter(e => !e.status || e.status === 'active');
+          const entries = allData[type].filter(e => !e.status || e.status === 'active' || e.status === 'planned');
           const list = document.getElementById('registry-list');
           if (!list) return;
           list.innerHTML = '';
@@ -2672,7 +2749,7 @@
       institutions: '#7a8490',
       people: '#b0b8c0',
       projects: '#e8a840',
-      initiatives: '#5a6270'
+      initiatives: '#4a9e6a'
     };
 
     function buildGraphData(allData) {
@@ -3929,7 +4006,7 @@
         loadReferences();
       } else if (docKey === 'history') {
         loadHistory();
-      } else if (['people', 'projects', 'initiatives', 'institutions'].includes(docKey)) {
+      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses'].includes(docKey)) {
         loadRegistryList(docKey);
       } else if (docKey === 'network') {
         loadNetwork();

@@ -20,6 +20,10 @@
       {
         "project_id": "proj_registry_platform",
         "relationship": "incubated"
+      },
+      {
+        "project_id": "proj_charter",
+        "relationship": "incubated"
       }
     ],
     "related_initiatives": [],
@@ -29,6 +33,12 @@
       "Cross-institutional adoption"
     ],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "hosted_by"
+      }
+    ],
     "domains": [
       "coordination",
       "governance",
@@ -52,6 +62,12 @@
     ],
     "health_indicators": ["Workshop attendance", "Community growth", "Research outputs"],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_aisi",
+        "relationship": "partner"
+      }
+    ],
     "domains": ["AI safety", "AI ethics", "responsible AI"]
   },
   {
@@ -73,6 +89,12 @@
     ],
     "health_indicators": ["Research publications", "System complexity achieved", "Cross-disciplinary collaborations"],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_alife",
+        "relationship": "partner"
+      }
+    ],
     "domains": ["artificial life", "complex systems", "embodied intelligence"]
   },
   {
@@ -90,6 +112,12 @@
     ],
     "health_indicators": ["Students enrolled", "Research projects active", "Scholarship recipients"],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "hosted_by"
+      }
+    ],
     "domains": ["education", "international collaboration", "satellite technology"]
   },
   {
@@ -107,6 +135,12 @@
     ],
     "health_indicators": ["Curriculum adoption", "Learner outcomes", "Research publications"],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "hosted_by"
+      }
+    ],
     "domains": ["neurodiversity", "education", "connected learning", "inclusive design"]
   },
   {
@@ -129,6 +163,12 @@
     ],
     "health_indicators": ["Research publications", "Tool adoption", "Cross-institutional collaborations"],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_jpcca",
+        "relationship": "partner"
+      }
+    ],
     "domains": ["probabilistic computing", "probabilistic programming", "AI", "machine reasoning"]
   },
   {
@@ -146,6 +186,12 @@
     ],
     "health_indicators": ["Number of nominations", "Impact of recipients", "Public engagement"],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "hosted_by"
+      }
+    ],
     "domains": ["transformation", "human flourishing", "awards"]
   },
   {
@@ -163,6 +209,12 @@
     ],
     "health_indicators": ["Gathering frequency", "Community participation", "Cross-cultural engagement"],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "hosted_by"
+      }
+    ],
     "domains": ["tea philosophy", "community", "humane technology", "cultural practice"]
   },
   {
@@ -180,6 +232,12 @@
     ],
     "health_indicators": ["Research publications", "Prototype demonstrations", "MIT collaboration activity"],
     "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "hosted_by"
+      }
+    ],
     "domains": ["robotics", "sustainable construction", "voxel-based design"]
   }
 ]

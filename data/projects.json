@@ -128,5 +128,51 @@
       "design",
       "science"
     ]
+  },
+  {
+    "id": "proj_charter",
+    "title": "Antidisciplinary Charter",
+    "summary": "Drafting and ratifying the shared governance charter that articulates foundational values, principles, and operational commitments across the Henkaku Center, SDS, and Chiba Tech.",
+    "status": "active",
+    "owner": "person_winder_ira",
+    "contributors": [
+      {
+        "person_id": "person_ito_joi",
+        "role": "Author"
+      },
+      {
+        "person_id": "person_wang_sophia",
+        "role": "Collaborator"
+      },
+      {
+        "person_id": "person_bates_samantha",
+        "role": "Collaborator"
+      }
+    ],
+    "parent_initiative": "init_compass_initiative",
+    "problem_statement": "Three closely coupled institutions need a shared normative framework — not a legal contract, but a living document that articulates values, governance, and coordination principles so that participants can align without rigid hierarchy.",
+    "project_goals": [
+      "Articulate foundational orientations and balancing dichotomies",
+      "Define governance and stewardship processes",
+      "Establish registry and coordination infrastructure mandates",
+      "Achieve ratification by founding faculty consensus"
+    ],
+    "completion_criterion": "Charter ratified by consensus of the Director of the Henkaku Center and seven founding faculty members of SDS.",
+    "success_criteria": "Charter adopted as the normative governance document guiding research, education, and coordination across all three institutions.",
+    "dependencies": {
+      "enables": [
+        {
+          "project_id": "proj_compass",
+          "description": "Charter provides the principles and mandates that Compass implements as infrastructure"
+        }
+      ]
+    },
+    "domains": [
+      "governance",
+      "antidisciplinary",
+      "coordination",
+      "values"
+    ],
+    "website": "https://charter.henkaku.center"
   }
 ]

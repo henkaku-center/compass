@@ -200,6 +200,14 @@
     "language": "Japanese",
     "key_contacts": [
       {
+        "person_id": "person_ito_joi",
+        "role": "director"
+      },
+      {
+        "person_id": "person_oka_mizuki",
+        "role": "researcher"
+      },
+      {
         "person_id": "person_austerweil_joseph",
         "role": "researcher"
       },
@@ -246,6 +254,10 @@
       {
         "person_id": "person_oka_mizuki",
         "role": "steering committee"
+      },
+      {
+        "person_id": "person_szep_grisha",
+        "role": "researcher"
       }
     ],
     "status": "active",
