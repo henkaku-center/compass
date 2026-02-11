@@ -48,14 +48,14 @@
         "project_id": "proj_compass",
         "title": "Compass Coordination Infrastructure",
         "role": "advisor"
+      },
+      {
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
+        "role": "lead"
       }
     ],
     "initiatives": [
-      {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
-        "role": "lead"
-      },
       {
         "initiative_id": "init_compass_initiative",
         "title": "Compass Initiative",
@@ -114,6 +114,11 @@
         "project_id": "proj_compass",
         "title": "Compass Coordination Infrastructure",
         "role": "owner"
+      },
+      {
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
+        "role": "participant"
       }
     ],
     "initiatives": [
@@ -121,11 +126,6 @@
         "initiative_id": "init_compass_initiative",
         "title": "Compass Initiative",
         "role": "lead"
-      },
-      {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
-        "role": "participant"
       }
     ],
     "links": [
@@ -173,14 +173,14 @@
       "Asian cultural perspectives"
     ],
     "background": "Cultural architect, digital culture researcher, and strategist who designs and analyzes digital platforms as spaces of identity, expression, and global connection. Ph.D. from Keio University's Graduate School of Media and Governance.",
-    "projects": [],
-    "initiatives": [
+    "projects": [
       {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
         "role": "participant"
       }
     ],
+    "initiatives": [],
     "links": [],
     "status": "active",
     "portrait": "data/portraits/Daum_Kim.png"
@@ -220,14 +220,14 @@
       "philosophy of law"
     ],
     "background": "International legal scholar with expertise in digital governance, open source licensing, and cross-border regulation of emerging technologies. Former director at Creative Commons managing the global license porting project. Founder of the Software Compliance Academy.",
-    "projects": [],
-    "initiatives": [
+    "projects": [
       {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
         "role": "participant"
       }
     ],
+    "initiatives": [],
     "links": [],
     "status": "active",
     "portrait": "data/portraits/Catharina_Maracke.png"
@@ -267,14 +267,14 @@
       "knowledge representation"
     ],
     "background": "Physicist and complex systems scientist investigating how adaptive behavior and cognition emerge at the intersection of biological, artificial, and social systems. Ph.D. in Physics from the University of Tokyo.",
-    "projects": [],
-    "initiatives": [
+    "projects": [
       {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
         "role": "participant"
       }
     ],
+    "initiatives": [],
     "links": [],
     "status": "active",
     "portrait": "data/portraits/Hiroki_Kojima.png"
@@ -319,14 +319,14 @@
       "knowledge representation"
     ],
     "background": "Researcher in artificial life, generative computation, and open-ended intelligence. D. in Engineering, Project Manager of the MITOU Program, and chairperson of the Artificial Life Research Group.",
-    "projects": [],
-    "initiatives": [
+    "projects": [
       {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
         "role": "participant"
       }
     ],
+    "initiatives": [],
     "links": [],
     "status": "active",
     "portrait": "data/portraits/Mizuki_Oka.png"
@@ -366,14 +366,14 @@
       "Bayesian reasoning"
     ],
     "background": "Cognitive psychologist and machine learning researcher investigating how people retrieve, learn, create, and teach knowledge. Uses probabilistic models, neural networks, and behavioral experiments.",
-    "projects": [],
-    "initiatives": [
+    "projects": [
       {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
         "role": "participant"
       }
     ],
+    "initiatives": [],
     "links": [],
     "status": "active",
     "portrait": "data/portraits/Joe_Austerweil.png"
@@ -413,14 +413,14 @@
       "technology policy"
     ],
     "background": "British-Japanese artist whose work explores the intersection of technology, identity, and society through films, robotics, music, and interactive installations that challenge social norms and imagine ethical implications of emerging technologies.",
-    "projects": [],
-    "initiatives": [
+    "projects": [
       {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
         "role": "participant"
       }
     ],
+    "initiatives": [],
     "links": [],
     "status": "active",
     "portrait": "data/portraits/Hiromi_Ozaki.png"
@@ -606,14 +606,14 @@
       "international coordination"
     ],
     "background": "Program Manager overseeing the launch of Japan's first antidisciplinary graduate school opening April 2026. Bridges academic innovation with practical implementation, coordinating international faculty and designing educational programs.",
-    "projects": [],
-    "initiatives": [
+    "projects": [
       {
-        "initiative_id": "init_sds_launch",
-        "title": "SDS Program Launch",
+        "project_id": "proj_sds_launch",
+        "title": "SDS Launch",
         "role": "participant"
       }
     ],
+    "initiatives": [],
     "links": [],
     "status": "active",
     "portrait": "data/portraits/fiza-razik.jpg"

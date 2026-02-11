@@ -39,8 +39,10 @@
         "role": "director"
       }
     ],
+    "hosted_projects": [
+      "proj_sds_launch"
+    ],
     "hosted_initiatives": [
-      "init_sds_launch",
       "init_compass_initiative"
     ],
     "status": "active",
@@ -92,11 +94,11 @@
     ],
     "hosted_projects": [
       "proj_compass",
-      "proj_registry_platform"
+      "proj_registry_platform",
+      "proj_sds_launch"
     ],
     "hosted_initiatives": [
-      "init_compass_initiative",
-      "init_sds_launch"
+      "init_compass_initiative"
     ],
     "status": "active",
     "domains": [
@@ -151,11 +153,10 @@
       }
     ],
     "hosted_projects": [
-      "proj_ai_pedagogy"
+      "proj_ai_pedagogy",
+      "proj_sds_launch"
     ],
-    "hosted_initiatives": [
-      "init_sds_launch"
-    ],
+    "hosted_initiatives": [],
     "status": "active",
     "domains": [
       "design",

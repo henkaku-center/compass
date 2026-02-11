@@ -22,12 +22,7 @@
         "relationship": "incubated"
       }
     ],
-    "related_initiatives": [
-      {
-        "initiative_id": "init_sds_launch",
-        "relationship": "supports"
-      }
-    ],
+    "related_initiatives": [],
     "health_indicators": [
       "Number of registry entries maintained",
       "Contributor engagement",
@@ -38,63 +33,6 @@
       "coordination",
       "governance",
       "infrastructure"
-    ]
-  },
-  {
-    "id": "init_sds_launch",
-    "title": "SDS Launch",
-    "summary": "Launching the Graduate School of Design & Science with antidisciplinary project-based curriculum, opening April 2026.",
-    "status": "active",
-    "lead": "person_ito_joi",
-    "participants": [
-      {
-        "person_id": "person_winder_ira",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_austerweil_joseph",
-        "role": "Academic Director"
-      },
-      {
-        "person_id": "person_kim_daum",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_oka_mizuki",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_maracke_catharina",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_ozaki_hiromi",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_kojima_hiroki",
-        "role": "Incoming Faculty"
-      }
-    ],
-    "purpose": "Establish a new graduate school offering antidisciplinary, project-based Master's and PhD degrees.",
-    "contained_projects": [],
-    "related_initiatives": [
-      {
-        "initiative_id": "init_compass_initiative",
-        "relationship": "supported by"
-      }
-    ],
-    "health_indicators": [
-      "Student enrollment numbers",
-      "Curriculum completion",
-      "Accreditation milestones"
-    ],
-    "review_cycle": "every 6 months",
-    "domains": [
-      "education",
-      "antidisciplinary",
-      "design",
-      "science"
     ]
   },
   {

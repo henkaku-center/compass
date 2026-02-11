@@ -52,6 +52,45 @@
     ]
   },
   {
+    "id": "proj_sds_launch",
+    "title": "SDS Launch",
+    "summary": "Launching the Graduate School of Design & Science with antidisciplinary project-based curriculum, opening April 2026.",
+    "status": "active",
+    "owner": "person_ito_joi",
+    "contributors": [
+      { "person_id": "person_winder_ira", "role": "Incoming Faculty" },
+      { "person_id": "person_austerweil_joseph", "role": "Academic Director" },
+      { "person_id": "person_kim_daum", "role": "Incoming Faculty" },
+      { "person_id": "person_oka_mizuki", "role": "Incoming Faculty" },
+      { "person_id": "person_maracke_catharina", "role": "Incoming Faculty" },
+      { "person_id": "person_ozaki_hiromi", "role": "Incoming Faculty" },
+      { "person_id": "person_kojima_hiroki", "role": "Incoming Faculty" },
+      { "person_id": "person_razik_fiza", "role": "Program Manager" }
+    ],
+    "project_goals": [
+      "Complete accreditation process",
+      "Finalize curriculum and course offerings",
+      "Enroll first cohort of Master's and PhD students",
+      "Launch program in April 2026"
+    ],
+    "completion_criterion": "First cohort enrolled and classes begin April 2026.",
+    "timeline": {
+      "start_date": "2024-06-01",
+      "end_date": "2026-04-01"
+    },
+    "dependencies": {
+      "enables": [
+        { "project_id": "proj_compass", "description": "SDS needs coordination infrastructure" }
+      ]
+    },
+    "domains": [
+      "education",
+      "antidisciplinary",
+      "design",
+      "science"
+    ]
+  },
+  {
     "id": "proj_sustainable_robotics",
     "title": "Sustainable Robotics Construction",
     "summary": "Developing voxel-based, sustainable robotic construction methods in collaboration with MIT.",
