@@ -137,15 +137,23 @@
     "owner": "person_winder_ira",
     "contributors": [
       {
-        "person_id": "person_ito_joi",
-        "role": "Author"
+        "person_id": "person_winder_ira",
+        "role": "Project Lead"
       },
       {
         "person_id": "person_wang_sophia",
-        "role": "Collaborator"
+        "role": "Project Lead"
       },
       {
         "person_id": "person_bates_samantha",
+        "role": "Collaborator"
+      },
+      {
+        "person_id": "person_razik_fiza",
+        "role": "Collaborator"
+      },
+      {
+        "person_id": "person_kim_daum",
         "role": "Collaborator"
       }
     ],
@@ -160,12 +168,7 @@
     "completion_criterion": "Charter ratified by consensus of the Director of the Henkaku Center and seven founding faculty members of SDS.",
     "success_criteria": "Charter adopted as the normative governance document guiding research, education, and coordination across all three institutions.",
     "dependencies": {
-      "enables": [
-        {
-          "project_id": "proj_compass",
-          "description": "Charter provides the principles and mandates that Compass implements as infrastructure"
-        }
-      ]
+      "requires": []
     },
     "domains": [
       "governance",
