@@ -34,8 +34,10 @@ Compass documents are organized into two layers, inspired by a biological analog
 ```
 compass/
 ├── data/
+│   ├── feedback.json      (created via GitHub API on first submission)
 │   ├── institutions.json
 │   ├── people.json
+│   ├── portraits/         (profile photos for people entries)
 │   ├── projects.json
 │   └── initiatives.json
 ├── docs/
@@ -136,11 +138,14 @@ Seven entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html`):
-- Single-page app with hash routing (`#home`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#network`, `#references`, `#history`, `#status`, `#about`). Charter links navigate to external site `charter.henkaku.center`.
+- Single-page app with hash routing (`#home`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`). Charter links navigate to external site `charter.henkaku.center`.
+- Nav bar shows a simplified set of links (Home, Charter, Network, About, Feedback, GitHub, Login); other pages are accessible from the landing page cards
 - Client-side markdown rendering with marked.js (no build process)
 - `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes)
-- Landing page organized into DNA / Emergent / unlabeled meta groups with animated card entrances
+- `#feedback` page lets logged-in users submit bug reports and feature requests, committed to `data/feedback.json` via GitHub API
+- Landing page organized into three labeled groups: DNA, Emergent, and Info, with animated card entrances
 - Compass icon has a magnetic-settle animation tied to the orientation rotator
+- Login via GitHub personal access token (stored in sessionStorage) enables inline editing of registry entries and feedback submission
 - Cache-busting with timestamp query parameters
 - 3D network graph visualization uses 3d-force-graph (CDN) with Three.js and d3-force-3d
 
@@ -148,7 +153,9 @@ Seven entry types:
 - One JSON file per entry type, each containing an array of objects
 - Field names match `docs/ARCHETYPES.md` schemas
 - Cross-references use IDs (e.g., `person_winder_ira`, `proj_compass`)
-- Currently contains demonstration entries; some entries are fictional (marked with `notes: "Placeholder entry for demonstration"`)
+- Contains real data: 3 institutions, 62 people (with portraits), 2 projects, 2 initiatives
+- `data/feedback.json` stores user-submitted feedback (created automatically on first submission)
+- `data/portraits/` contains profile photos referenced by people entries
 
 ### Version Control
 
