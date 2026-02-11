@@ -1,0 +1,68 @@
+{
+  "nodes": [
+    {
+      "id": "fac_ira_winder",
+      "label": "Ira Winder",
+      "type": "individual",
+      "group": "Ira Winder",
+      "description": "Engineer of Emergent Complexity focused on systems, simulation, productivity, economics, and institutional design.",
+      "long_description": "Ira Winder builds tools, models, and interactive systems that help people understand and navigate complex problems, especially those involving human cooperation. His work lies at the intersection of systems engineering, computational modeling, and creative technology. He is guided by the belief that well-designed systems can empower people to collaborate more effectively, make better decisions, and create lasting impact. Ira encourages researchers to develop both technical and conceptual fluency across domains—from algorithms to institutions, from infrastructure to personal productivity. His current research explores new instruments for cooperation and frameworks for measuring personal and collective impact. He is particularly interested in how societies can incentivize participation while acknowledging the uneven conditions people face—a perspective that informs his work on balanced meritocracy and systems that support both ambition and care. As CTO and Head of Research at Outliers Fund, Ira develops financial engineering models and simulation frameworks to inform investment and exit strategies. He serves on the investment committee, where he contributes technical due diligence and evaluates the feasibility, scalability, and long-term sustainability of potential deals. He also serves on the Board of Directors for the MIT Club of Japan. At MIT, Ira was a Lecturer in Computational Urban Science in the School of Architecture and Planning, where he helped launch the degree program Urban Science and Planning with Computer Science. As a Research Scientist at the MIT Media Lab, he invented and deployed participatory simulation platforms such as the Tangible Interactive Matrix (TIM) and CityScope. He holds a Master in City Planning (MCP) and a B.S. in Art and Design, both from MIT. His work has been featured at the G7, TEDx, the UN World Urban Forum, and Ars Electronica, and has been implemented in cities across five continents."
+    },
+    {
+      "id": "fac_daum_kim",
+      "label": "Daum Kim",
+      "type": "individual",
+      "group": "Daum Kim",
+      "description": "Cultural architect bridging scholarship and practice across media, digital culture, and platform design—crafting digital spaces and narratives that foster global understanding.",
+      "long_description": "Daum Kim is a cultural architect, digital culture researcher, and strategist who designs and analyzes digital platforms as spaces of identity, expression, and global connection. With a Ph.D. from Keio University's Graduate School of Media and Governance, she bridges scholarship and practice to examine how narratives, interfaces, and social mechanisms shape our collective digital lives. Daum has contributed to media and platform strategy for global events such as the Olympics, while also exploring the cultural and emotional dimensions of online interaction.\n\nHer work focuses on how people perceive themselves and others through digital architectures—such as anonymity, reaction mechanisms, time constraints, and algorithmic visibility. Drawing from critical theory, media studies, and design practice, she investigates how platform design influences belonging, participation, and representation across cultures. She is particularly interested in the semiotics of interface expression and the ways emotional and social feedback loops are embedded into our everyday technologies. Through her research and creative practice, Daum aims to foster digital environments that support empathy, resilience, and inclusive global understanding."
+    },
+    {
+      "id": "fac_catharina_maracke",
+      "label": "Catharina Maracke",
+      "type": "individual",
+      "group": "Catharina Maracke",
+      "description": "Legal scholar working on digital governance, open source, policy infrastructure.",
+      "long_description": "Catharina Maracke is an international legal scholar with expertise in digital governance, open source licensing, and cross-border regulation of emerging technologies. She has held academic positions in Japan, Europe, and the U.S., and has worked on policy issues at institutions such as the Open Source Initiative and Creative Commons. Her work explores how legal frameworks shape the values, rights, and constraints embedded in digital systems. Catharina focuses on software compliance, digital constitutionalism, and data governance, with a strong emphasis on the institutional and ethical implications of code. She is interested in how norms are translated into practice, and how platform policies and algorithmic regulations mediate governance across multiple jurisdictions. She also explores how institutions can be designed to better support openness, equity, and interoperability at the planetary scale. Her work connects law, ethics, and design—addressing both the letter of regulation and the lived experience of those it affects."
+    },
+    {
+      "id": "fac_hiroki_kojima",
+      "label": "Hiroki Kojima",
+      "type": "individual",
+      "group": "Hiroki Kojima",
+      "description": "Complex systems scientist studying emergence, artificial life, and embodied cognition.",
+      "long_description": "Hiroki Kojima is a physicist and complex systems scientist whose research investigates how adaptive behavior and cognition emerge at the intersection of biological, artificial, and social systems. With a Ph.D. in Physics from the University of Tokyo and appointments in cognitive neuroscience, computational psychiatry, and biological computation, he explores the deep structure of life-like dynamics and intelligent systems. Hiroki’s projects span from modeling dyadic human interactions and memory-driven neural networks to building Lenia-inspired reaction-diffusion automata and studying collective behavior in microbial life. He employs tools like synthetic biology, machine learning, and neural simulation to examine how cognition and agency arise from spatial, temporal, and information-theoretic principles. Hiroki is particularly interested in the bridging of artificial and biological systems—how we model thought, emergence, and adaptability through computation and embodied forms."
+    },
+    {
+      "id": "fac_mizuki_oka",
+      "label": "Mizuki Oka",
+      "type": "individual",
+      "group": "Mizuki Oka",
+      "description": "Artificial life researcher working on generative evolution, speculative models, and cognitive diversity.",
+      "long_description": "Mizuki Oka is a researcher in artificial life, generative computation, and open-ended intelligence. She designs and studies systems that evolve, adapt, and create—building algorithmic models that simulate the emergence of complexity, cognition, and novelty. Her work sits at the intersection of artificial intelligence, speculative design, and systems evolution, drawing from symbolic AI, neural networks, and probabilistic reasoning. Mizuki is also a leading thinker in generative evolution and synthetic autonomy, interested in how life-like processes can be fostered in code and computation. She experiments with bio-inspired agents, hybrid intelligences, and critical simulations that challenge our understanding of what machines can become. She also explores how these systems interface with human understanding—through speculative narratives, interface prototypes, and provocative models that test both scientific and philosophical boundaries."
+    },
+    {
+      "id": "fac_joe_austerweil",
+      "label": "Joe Austerweil",
+      "type": "individual",
+      "group": "Joe Austerweil",
+      "description": "Cognitive scientist focused on reasoning, learning, and probabilistic modeling.",
+      "long_description": "Joe Austerweil is a cognitive scientist and computational psychologist who uses probabilistic models, neural networks, and behavioral experiments to understand how humans learn, generalize, and teach. His work explores concept formation, Bayesian reasoning, causal inference, and the psychology of explanation. Joe is deeply interested in how the mind represents and organizes knowledge, especially in ways that are scalable, adaptable, and explainable. He integrates empirical research with machine learning to model human learning systems, with applications in education, human-computer interaction, and cognitive design. Joe's research also addresses participatory cognition—how people revise their beliefs and understanding in social or interactive contexts. He is particularly drawn to tools that align probabilistic reasoning with educational goals, and in designing systems that help people reflect on how they know what they know."
+    },
+    {
+      "id": "fac_hiromi_ozaki",
+      "label": "Sputniko! (Hiro Ozaki)",
+      "type": "individual",
+      "group": "Sputniko!",
+      "description": "Speculative designer exploring culture, gender, narrative, and future systems.",
+      "long_description": "Hiro Ozaki, also known as Sputniko!, is a speculative designer, artist, and critical technologist whose work explores gender, identity, and social transformation through provocative design fictions and narrative systems. Her projects span wearable technologies, biotechnology rituals, social robotics, and feminist critique—often delivered through performances, installations, and visual storytelling. With a background in design and media arts, and academic roles at MIT and the University of Tokyo, she creates artifacts and scenarios that question the politics and possibilities of technology. Hiromi is especially focused on gender representation in AI, cultural rituals in tech design, and the aesthetic expression of future imaginaries. Her work is deeply interdisciplinary, merging philosophy, design, art, and science to provoke new ways of thinking about societal change."
+    },
+    {
+      "id": "fac_joi_ito",
+      "label": "Joi Ito",
+      "type": "individual",
+      "group": "Joi Ito",
+      "description": "Systems thinker and institutional catalyst spanning all thematic areas at SDS.",
+      "long_description": "Joi Ito is a systems thinker, institutional designer, and public philosopher known for pioneering antidisciplinary research at the MIT Media Lab, and for advancing global discussions on digital culture, decentralized governance, and ethical innovation. His intellectual framework draws from complexity theory, resilience engineering, and philosophy of science. Joi emphasizes practice over theory, cooperation over compliance, and emergence over control—core values that shape his approach to technology, learning, and leadership. At SDS and beyond, Joi is interested in how institutions can adapt to rapid change, how probabilistic models and decentralized tools can support resilience, and how we can ethically navigate uncertainty. He explores how knowledge systems evolve, how technology embeds values, and how designers and communities can co-create sustainable futures. His influence spans every major research area at SDS, from AI and ethics to institutional policy and cultural critique."
+    }
+  ]
+}

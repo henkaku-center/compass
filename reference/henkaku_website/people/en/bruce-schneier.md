@@ -1,0 +1,9 @@
+---
+name: Bruce Schneier
+position: visiting_researcher
+website: https://www.schneier.com/
+---
+
+
+Bruce Schneier is an internationally renowned security technologist, called a “security guru” by *The Economist*. He is the author of over one dozen [books](https://schneier-production.mystagingwebsite.com/books/)–including his latest, *[We Have Root](https://www.schneier.com/books/root/)*–as well as hundreds of articles, [essays](https://schneier-production.mystagingwebsite.com/essays/), and [academic papers](https://schneier-production.mystagingwebsite.com/cryptography.html). His influential newsletter “[Crypto-Gram](https://schneier-production.mystagingwebsite.com/crypto-gram/)” and his blog “[Schneier on Security](https://schneier-production.mystagingwebsite.com/)” are read by over 250,000 people. He has testified before Congress, is a frequent guest on television and radio, has served on several government committees, and is regularly [quoted](https://schneier-production.mystagingwebsite.com/news/) in the press. Schneier is a fellow at the [Berkman Klein Center for Internet & Society](http://cyber.law.harvard.edu/) at Harvard University; a Lecturer in Public Policy at the [Harvard Kennedy School](https://www.hks.harvard.edu/); a board member of the [Electronic Frontier Foundation](https://www.eff.org/) and [AccessNow](https://www.accessnow.org/); and an Advisory Board Member of the [Electronic Privacy Information Center](https://epic.org/)
+ and [VerifiedVoting.org](https://www.verifiedvoting.org/). He is the Chief of Security Architecture at [Inrupt, Inc.](https://inrupt.com/)

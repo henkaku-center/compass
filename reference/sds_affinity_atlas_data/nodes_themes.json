@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "id": "theme_design_expression",
+      "label": "Design & Expression",
+      "type": "theme",
+      "description": "Creative and communicative approaches to shaping systems, artifacts, and meaning."
+    },
+    {
+      "id": "theme_knowledge_systems",
+      "label": "Knowledge & Systems",
+      "type": "theme",
+      "description": "Organizing, simulating, and evolving information and institutions."
+    },
+    {
+      "id": "theme_culture_identity",
+      "label": "Culture & Identity",
+      "type": "theme",
+      "description": "How individuals and communities construct meaning, values, and belonging."
+    },
+    {
+      "id": "theme_computing_ai",
+      "label": "Computing & AI",
+      "type": "theme",
+      "description": "Tools, models, and architectures for inference, automation, and adaptive reasoning."
+    },
+    {
+      "id": "theme_governance_ethics",
+      "label": "Governance & Ethics",
+      "type": "theme",
+      "description": "Structures, norms, and power in tech and society."
+    },
+    {
+      "id": "theme_learning_agency",
+      "label": "Learning & Agency",
+      "type": "theme",
+      "description": "Supporting learning, growth, and intentional action across diverse minds."
+    }
+  ]
+}

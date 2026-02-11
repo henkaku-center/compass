@@ -1,0 +1,221 @@
+{
+  "nodes": [
+    {
+      "id": "cat_complex_systems",
+      "label": "Complex Systems",
+      "type": "category",
+      "description": "Emergent, dynamic, and nonlinear systems across natural and artificial domains."
+    },
+    {
+      "id": "cat_ai",
+      "label": "Artificial Life",
+      "type": "category",
+      "description": "The design and study of life-like behaviors in software and machines. Includes generative systems, synthetic biology, open-ended evolution, and adaptive autonomy."
+    },
+    {
+      "id": "cat_prob_comp",
+      "label": "Probabilistic Computing",
+      "type": "category",
+      "description": "Structured reasoning under uncertainty and statistical inference."
+    },
+    {
+      "id": "cat_simulation",
+      "label": "Simulation",
+      "type": "category",
+      "description": "Digital models of behavior, cities, systems, and agents."
+    },
+    {
+      "id": "cat_cognitive_sci",
+      "label": "Cognitive Science",
+      "type": "category",
+      "description": "Study of knowledge, reasoning, memory, perception, attention, judgment, and decision-making."
+    },
+    {
+      "id": "cat_neurodiversity",
+      "label": "Neurodiversity",
+      "type": "category",
+      "description": "Design for and study of cognitive differences and inclusion."
+    },
+    {
+      "id": "cat_design_thinking",
+      "label": "Design Thinking",
+      "type": "category",
+      "description": "Creative and iterative problem-solving methods."
+    },
+    {
+      "id": "cat_speculative_design",
+      "label": "Speculative Design",
+      "type": "category",
+      "description": "Critical design that imagines alternative futures."
+    },
+    {
+      "id": "cat_technology_policy",
+      "label": "Technology Policy",
+      "type": "category",
+      "description": "Law and regulation frameworks for technology and society."
+    },
+    {
+      "id": "cat_governance",
+      "label": "Governance Architecture",
+      "type": "category",
+      "description": "Design of institutions, rules, and collective norms."
+    },
+    {
+      "id": "cat_digital_identity",
+      "label": "Digital Identity",
+      "type": "category",
+      "description": "Self-expression and reputation systems online."
+    },
+    {
+      "id": "cat_platform_ethics",
+      "label": "Platform Ethics",
+      "type": "category",
+      "description": "Ethical issues in user experience, attention, and digital life."
+    },
+    {
+      "id": "cat_cultural_systems",
+      "label": "Cultural Contexts",
+      "type": "category",
+      "description": "Values, narratives, and meaning-making across societies."
+    },
+    {
+      "id": "cat_gender_tech",
+      "label": "Gender & Technology",
+      "type": "category",
+      "description": "Power and identity examined through technical systems."
+    },
+    {
+      "id": "cat_participatory",
+      "label": "Participatory Interfaces",
+      "type": "category",
+      "description": "Interactive systems built for feedback and engagement."
+    },
+    {
+      "id": "cat_edu_systems",
+      "label": "Education Systems",
+      "type": "category",
+      "description": "The structure and transformation of teaching and learning."
+    },
+    {
+      "id": "cat_intentional",
+      "label": "Intentional Design",
+      "type": "category",
+      "description": "Feedback-driven frameworks that align effort with impact, including systems for time design, productivity, decision-making, and reflective evaluation across personal and institutional scales."
+    },
+    {
+      "id": "cat_knowledge_repr",
+      "label": "Knowledge Representation",
+      "type": "category",
+      "description": "Structures for modeling, accessing, and organizing information."
+    },
+    {
+      "id": "cat_collective_intel",
+      "label": "Collective Intelligence",
+      "type": "category",
+      "description": "Group cognition, coordination, and decision-making."
+    },
+    {
+      "id": "cat_digital_infra",
+      "label": "Digital Infrastructure",
+      "type": "category",
+      "description": "Civic tech, networks, protocols, and data systems."
+    },
+    {
+      "id": "cat_design_ethics",
+      "label": "Design Ethics",
+      "type": "category",
+      "description": "Moral reflection embedded in design decisions."
+    },
+    {
+      "id": "cat_aesthetic",
+      "label": "Aesthetic Forms",
+      "type": "category",
+      "description": "Visual and symbolic expression in cultural and technical systems."
+    },
+    {
+      "id": "cat_emotional_tech",
+      "label": "Emotional Technology",
+      "type": "category",
+      "description": "Technology that engages, supports, or manipulates affect."
+    },
+    {
+      "id": "cat_institutional_resilience",
+      "label": "Institutional Resilience",
+      "type": "category",
+      "description": "Adaptability and longevity of socio-technical systems."
+    },
+    {
+      "id": "cat_embodied_intelligence",
+      "label": "Embodied Intelligence",
+      "type": "category",
+      "description": "Systems that emphasize physical, biological, and spatial grounding in cognition, perception, interaction, and design. This includes embodied AI, sensorimotor intelligence, and biohybrid interaction."
+    },
+    {
+      "id": "cat_philosophy",
+      "label": "Philosophy",
+      "type": "category",
+      "description": "Theoretical foundations of ethics, knowledge, and being, as applied to technology and complex systems."
+    },
+    {
+      "id": "cat_society",
+      "label": "Society",
+      "type": "category",
+      "description": "Social systems, norms, rituals, and the collective structures that shape human life."
+    },
+    {
+      "id": "cat_awareness",
+      "label": "Awareness",
+      "type": "category",
+      "description": "Investigation of conscious experience, perception, selfhood, and intersubjectivity\u2014bridging biological, philosophical, and computational perspectives."
+    },
+    {
+      "id": "cat_rapid_prototyping",
+      "label": "Rapid Prototyping",
+      "type": "category",
+      "description": "Design and fabrication processes that support fast, iterative development of ideas through tangible or testable outputs. Emphasizes experimentation, learning, and material feedback."
+    },
+    {
+      "id": "cat_machine_reasoning",
+      "label": "Machine Reasoning",
+      "type": "category",
+      "description": "Design of symbolic, statistical, and hybrid methods for rule-based logic, inference, and explainable decision-making in machines."
+    },
+    {
+      "id": "cat_cognitive_architecture",
+      "label": "Cognitive Architecture",
+      "type": "category",
+      "description": "Study and construction of computational models that mimic or simulate human-like cognition\u2014integrating memory, reasoning, and perception."
+    },
+    {
+      "id": "cat_story_telling",
+      "label": "Story Telling",
+      "type": "category",
+      "description": "Design of environments, media, and narratives that communicate complex ideas, cultural values, or speculative futures through storytelling and experiential formats."
+    },
+    {
+      "id": "cat_incentive_design",
+      "label": "Incentives Design",
+      "type": "category",
+      "description": "Development of mechanisms\u2014financial, social, or symbolic\u2014that influence behavior, motivate participation, and shape organizational dynamics."
+    },
+    {
+      "id": "cat_radical_economics",
+      "label": "Novel Economics",
+      "type": "category",
+      "description": "Exploration of alternative economic models that challenge traditional assumptions about the nature of value, transactions, and growth."
+    },
+    {
+      "id": "cat_financial_engineering",
+      "label": "Financial Engineering",
+      "type": "category",
+      "description": "Modeling, optimization, and structuring of financial instruments and systems\u2014with applications in risk, sustainability, and experimental value creation."
+    }
+    ,
+    {
+      "id": "cat_asian_sensibilities",
+      "label": "Asian Sensibilities",
+      "type": "category",
+      "description": "Exploration of aesthetic, philosophical, and cultural values rooted in diverse Asian traditions—emphasizing harmony, relationality, impermanence, and context-aware design across art, technology, and society."
+    }
+  ]
+}

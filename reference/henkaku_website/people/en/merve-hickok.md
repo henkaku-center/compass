@@ -1,0 +1,13 @@
+---
+name: Merve Hickok
+position: visiting_researcher
+website: https://www.si.umich.edu/people/merve-hickok
+---
+
+Merve Hickok is the President at [Center for AI & Digital Policy](http://www.caidp.org/), providing expertise in global AI policy and regulations across the U.S. federal government, European Commission, UNESCO, the Council of Europe, OECD, and United Nations. CAIDP educates AI policy practitioners and advocates across 80+ countries, advises national governments and international organizations. Merve has testified at the U.S. Congress on AI policy, as well as the State of California, New York City, and Detroit City. Her work focuses on the impact of AI systems on individuals and society – with a particular focus on fundamental rights, democratic values, and public sector use of AI. She has written extensively about these topics in her [book](https://www.degruyter.com/document/isbn/9783111250182/html), leading [journals](https://www.aiethicist.org/mervehickok) and other publications.
+
+Merve is a Council on Foreign Relations – Hitachi International Affairs Fellow, researching Japan’s approach to AI policy and governance, and understanding the cultural, geopolitical, and social priorities shaping Japan’s perspective.
+
+Merve is also the founder of [AIethicist.org](http://aiethicist.org/), providing training and consultancy to C-suite leaders, and to public and private organizations on responsible AI development, procurement, and governance. At University of Michigan, Merve is a lecturer at School of Information, Responsible Data and AI Advisor at Michigan Institute for Data, AI and Society, and affiliated faculty at Gerald R. Ford School of Public Policy (Science, Technology, and Public Policy Program).
+
+She is a globally renowned expert on AI policy, ethics and governance. Her contributions and perspective have featured in the Guardian, CNN, Forbes, Bloomberg, Wired, Scientific American, Politico, Protocol, Vox, The Economist and S&P. Merve has been recognized by several organizations – most recently with [Lifetime Achievement Award - Women in AI of the Year - 2023, as Runner-up for Responsible AI Leader of the Year - 2022 (Women in AI)](https://www.womeninai.co/waiawardsna) and as one of the [100 Brilliant Women in AI Ethics™ – 2021](https://100brilliantwomeninaiethics.com/the-list/of-2021/). Previously, Merve held various senior roles in Fortune 100 companies for more than 15 years.
