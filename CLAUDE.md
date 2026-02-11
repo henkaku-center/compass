@@ -18,7 +18,8 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 **Emergent** — Living content instantiated from the foundational templates:
 - `docs/CURRICULUM.md` — SDS Master's and PhD curriculum
-- *(future)* Populated registry entries: actual people, projects, initiatives, courses, theses, events, and institutions
+- `data/` — Registry entries as JSON files (institutions, people, projects, initiatives)
+- *(future)* Courses, theses, and events registry entries
 
 **Supporting:**
 - `README.md` — Purpose, structure, institutional context
@@ -32,6 +33,11 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 ```
 compass/
+├── data/
+│   ├── institutions.json
+│   ├── people.json
+│   ├── projects.json
+│   └── initiatives.json
 ├── docs/
 │   ├── ARCHETYPES.md
 │   └── CURRICULUM.md
@@ -130,12 +136,19 @@ Seven entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html`):
-- Single-page app with hash routing (`#home`, `#archetypes`, `#curriculum`, `#references`, `#history`, `#status`, `#about`). Charter links navigate to external site `charter.henkaku.center`.
+- Single-page app with hash routing (`#home`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#network`, `#references`, `#history`, `#status`, `#about`). Charter links navigate to external site `charter.henkaku.center`.
 - Client-side markdown rendering with marked.js (no build process)
 - `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes)
 - Landing page organized into DNA / Emergent / unlabeled meta groups with animated card entrances
 - Compass icon has a magnetic-settle animation tied to the orientation rotator
 - Cache-busting with timestamp query parameters
+- 3D network graph visualization uses 3d-force-graph (CDN) with Three.js and d3-force-3d
+
+**Registry data** (`data/` directory):
+- One JSON file per entry type, each containing an array of objects
+- Field names match `docs/ARCHETYPES.md` schemas
+- Cross-references use IDs (e.g., `person_winder_ira`, `proj_compass`)
+- Currently contains demonstration entries; some entries are fictional (marked with `notes: "Placeholder entry for demonstration"`)
 
 ### Version Control
 

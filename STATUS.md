@@ -1,6 +1,6 @@
 # Compass Progress Update
 
-**Last Updated: February 6, 2026**
+**Last Updated: February 11, 2026**
 
 ## Current Status
 
@@ -48,9 +48,17 @@ Documented SDS Master's (30 credits) and PhD (17 credits) programs, mapped to Ch
 Built a viewer at [compass.henkaku.org](https://compass.henkaku.org) with navigation, table of contents, collapsible sections, a references page, a history page, and a landing page organized into two layers:
 
 - **DNA** — Foundational documents ([Charter](https://charter.henkaku.center), Archetypes)
-- **Emergent** — Living content that grows from the DNA (Curriculum, with placeholders for future People, Projects, Initiatives, Theses, Events, and Institutions directories)
+- **Emergent** — Living content that grows from the DNA (Curriculum, People, Projects, Initiatives, Institutions, Network visualization, with placeholders for Courses, Theses, and Events)
 
 The landing page features an animated compass icon and a rotator that cycles through the 12 Foundational Orientations. A dedicated History page shows the project's commit history pulled live from GitHub in a three-column table: contributor, type, and memo.
+
+### Registry and Network Visualization
+
+Populated four registry types with demonstration entries: 3 institutions, 5 people, 4 projects, and 3 initiatives. Each entry follows the structural templates defined in the Archetypes document, with cross-references between entries (for example, people link to their projects, projects link to their parent initiatives, and institutions link to the people and programs they host).
+
+The website now has browsable list pages for each of these four types, accessible from the landing page. A new **Network** page shows an interactive relational map of all entries — a graph with color-coded nodes for each type and lines representing their connections. You can click on any node to see details, filter by type, and pan/zoom to explore.
+
+Three registry types (Courses, Theses, Events) remain as placeholders for future population.
 
 ### Agentic Development
 
