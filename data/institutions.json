@@ -109,7 +109,12 @@
       "proj_sds_launch"
     ],
     "hosted_initiatives": [
-      "init_compass_initiative"
+      "init_compass_initiative",
+      "init_daboteng_house",
+      "init_neurodiversity_connected_learning",
+      "init_sustainable_robotics",
+      "init_tea_project",
+      "init_radical_transformation_award"
     ],
     "status": "active",
     "domains": [
