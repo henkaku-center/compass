@@ -1527,6 +1527,146 @@
       background: #f5f5f5;
       border-color: #ccc;
     }
+
+    /* Feedback page */
+    .feedback-page {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .feedback-page h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feedback-page .feedback-subtitle {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .feedback-form-section {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      background: #fafafa;
+    }
+
+    .feedback-form-section h2 {
+      font-size: 1rem;
+      margin: 0 0 1rem;
+      padding: 0;
+      border: none;
+    }
+
+    .feedback-form-error {
+      display: none;
+      padding: 0.6rem 0.75rem;
+      background: #fef2f2;
+      color: #c62828;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-form-error.visible {
+      display: block;
+    }
+
+    .feedback-login-prompt {
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #666;
+    }
+
+    .feedback-login-prompt button {
+      margin-top: 0.75rem;
+    }
+
+    .feedback-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 0.75rem;
+      transition: border-color 0.15s;
+    }
+
+    .feedback-card:hover {
+      border-color: #ccc;
+    }
+
+    .feedback-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .feedback-card-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .feedback-card-desc {
+      font-size: 0.875rem;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .feedback-card-meta {
+      font-size: 0.78rem;
+      color: #999;
+    }
+
+    .feedback-type-badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.12rem 0.45rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .feedback-type-badge.feature { background: #e3f2fd; color: #1565c0; }
+    .feedback-type-badge.bug { background: #fff3e0; color: #e65100; }
+
+    .feedback-status-badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.12rem 0.45rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .feedback-status-badge.open { background: #e8f5e9; color: #2e7d32; }
+    .feedback-status-badge.in_progress { background: #fff3e0; color: #e65100; }
+    .feedback-status-badge.resolved { background: #e3f2fd; color: #1565c0; }
+    .feedback-status-badge.closed { background: #f5f5f5; color: #616161; }
+
+    .feedback-status-select {
+      font-size: 0.75rem;
+      padding: 0.1rem 0.3rem;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .feedback-empty {
+      text-align: center;
+      color: #999;
+      padding: 3rem 0;
+    }
   </style>
 
   <!-- Structured Data -->
@@ -1569,6 +1709,7 @@
         <a href="#status">Status</a>
         <a href="#history">History</a>
         <a href="#about">About</a>
+        <a href="#feedback">Feedback</a>
         <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener noreferrer" class="github-link" title="View on GitHub">GitHub</a>
         <span class="nav-login" id="nav-login"></span>
       </div>
@@ -1678,7 +1819,8 @@
       'projects': null, // Registry list page
       'initiatives': null, // Registry list page
       'institutions': null, // Registry list page
-      'network': null // Graph visualization page
+      'network': null, // Graph visualization page
+      'feedback': null // Feedback submission page
     };
 
     // Documents that should show TOC
@@ -1854,6 +1996,10 @@
               <a href="#history" class="landing-card">
                 <div class="card-title">History</div>
                 <div class="card-desc">Commit history from the project repository.</div>
+              </a>
+              <a href="#feedback" class="landing-card">
+                <div class="card-title">Feedback</div>
+                <div class="card-desc">Submit bug reports and feature requests.</div>
               </a>
             </div>
           </div>
@@ -3628,10 +3774,277 @@
         loadRegistryList(docKey);
       } else if (docKey === 'network') {
         loadNetwork();
+      } else if (docKey === 'feedback') {
+        loadFeedback();
       } else {
         const path = routes[docKey];
         loadDoc(path, docKey);
       }
+    }
+
+    // --- Feedback page ---
+
+    function loadFeedback() {
+      clearOrientationRotator();
+      currentDoc = 'feedback';
+      tocEl.classList.remove('visible');
+      layoutEl.classList.remove('has-toc');
+
+      var formHtml = '';
+      if (isLoggedIn()) {
+        formHtml = `
+          <div class="feedback-form-section">
+            <h2>Submit Feedback</h2>
+            <div class="feedback-form-error" id="feedback-form-error"></div>
+            <div class="form-group">
+              <label for="feedback-type">Type</label>
+              <select id="feedback-type">
+                <option value="feature_request">Feature Request</option>
+                <option value="bug_report">Bug Report</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="feedback-title">Title</label>
+              <input type="text" id="feedback-title" placeholder="Brief summary" />
+            </div>
+            <div class="form-group">
+              <label for="feedback-desc">Description</label>
+              <textarea id="feedback-desc" class="tall" placeholder="Detailed description..."></textarea>
+            </div>
+            <div class="modal-actions">
+              <button class="btn btn-primary" id="feedback-submit-btn" onclick="handleFeedbackSubmit()">Submit</button>
+            </div>
+          </div>
+        `;
+      } else {
+        formHtml = `
+          <div class="feedback-login-prompt">
+            <p>Log in with a GitHub token to submit feedback.</p>
+            <button class="btn" onclick="showLoginModal()">Login</button>
+          </div>
+        `;
+      }
+
+      contentEl.innerHTML = `
+        <div class="feedback-page">
+          <h1>Feedback</h1>
+          <p class="feedback-subtitle">Bug reports and feature requests for the Compass project.</p>
+          ${formHtml}
+          <div id="feedback-entries"><div class="feedback-empty">Loading&hellip;</div></div>
+        </div>
+      `;
+
+      updateActiveNavLink('feedback');
+      window.scrollTo(0, 0);
+      loadFeedbackEntries();
+    }
+
+    function loadFeedbackEntries() {
+      var entriesEl = document.getElementById('feedback-entries');
+      if (!entriesEl) return;
+
+      var url = 'https://api.github.com/repos/henkaku-center/compass/contents/data/feedback.json';
+      var headers = { 'Accept': 'application/vnd.github.v3+json' };
+      var pat = getPAT();
+      if (pat) headers['Authorization'] = 'Bearer ' + pat;
+
+      fetch(url, { headers: headers })
+        .then(function(res) {
+          if (res.status === 404) return [];
+          if (!res.ok) throw new Error('Failed to load feedback: ' + res.status);
+          return res.json().then(function(fileData) {
+            var content = decodeBase64Unicode(fileData.content.replace(/\n/g, ''));
+            return JSON.parse(content);
+          });
+        })
+        .then(function(entries) {
+          if (!entries || entries.length === 0) {
+            entriesEl.innerHTML = '<div class="feedback-empty">No feedback submitted yet.</div>';
+            return;
+          }
+          // Sort newest first
+          entries.sort(function(a, b) { return b.submitted_at.localeCompare(a.submitted_at); });
+          entriesEl.innerHTML = '<h2 style="font-size:1rem;border:none;margin:0 0 1rem;padding:0;">Existing Feedback</h2>';
+          entries.forEach(function(entry) {
+            entriesEl.appendChild(renderFeedbackCard(entry));
+          });
+        })
+        .catch(function(err) {
+          entriesEl.innerHTML = '<div class="feedback-empty" style="color:#c62828;">Error loading feedback: ' + escapeHtml(err.message) + '</div>';
+        });
+    }
+
+    function renderFeedbackCard(entry) {
+      var card = document.createElement('div');
+      card.className = 'feedback-card';
+
+      var typeLabel = entry.type === 'bug_report' ? 'Bug' : 'Feature';
+      var typeCls = entry.type === 'bug_report' ? 'bug' : 'feature';
+      var statusLabel = (entry.status || 'open').replace('_', ' ');
+
+      var statusHtml = '';
+      if (isLoggedIn()) {
+        var statuses = ['open', 'in_progress', 'resolved', 'closed'];
+        statusHtml = '<select class="feedback-status-select" onchange="handleFeedbackStatusChange(this)" data-entry-id="' + escapeAttr(entry.id) + '">';
+        statuses.forEach(function(s) {
+          var selected = s === entry.status ? ' selected' : '';
+          statusHtml += '<option value="' + s + '"' + selected + '>' + s.replace('_', ' ') + '</option>';
+        });
+        statusHtml += '</select>';
+      } else {
+        statusHtml = '<span class="feedback-status-badge ' + escapeAttr(entry.status || 'open') + '">' + escapeHtml(statusLabel) + '</span>';
+      }
+
+      var date = entry.submitted_at ? new Date(entry.submitted_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+
+      card.innerHTML =
+        '<div class="feedback-card-header">' +
+          '<span class="feedback-type-badge ' + typeCls + '">' + escapeHtml(typeLabel) + '</span>' +
+          statusHtml +
+          '<span class="feedback-card-title">' + escapeHtml(entry.title || '') + '</span>' +
+        '</div>' +
+        (entry.description ? '<div class="feedback-card-desc">' + escapeHtml(entry.description) + '</div>' : '') +
+        '<div class="feedback-card-meta">by ' + escapeHtml(entry.submitted_by || 'unknown') + (date ? ' on ' + date : '') + '</div>';
+
+      return card;
+    }
+
+    function showFeedbackFormError(msg) {
+      var el = document.getElementById('feedback-form-error');
+      if (!el) return;
+      if (msg) {
+        el.textContent = msg;
+        el.classList.add('visible');
+      } else {
+        el.textContent = '';
+        el.classList.remove('visible');
+      }
+    }
+
+    function handleFeedbackSubmit() {
+      showFeedbackFormError('');
+      var title = (document.getElementById('feedback-title').value || '').trim();
+      var desc = (document.getElementById('feedback-desc').value || '').trim();
+      var type = document.getElementById('feedback-type').value;
+
+      if (!title) {
+        showFeedbackFormError('Title is required.');
+        return;
+      }
+
+      var entry = {
+        id: 'fb_' + Date.now(),
+        type: type,
+        title: title,
+        description: desc,
+        submitted_by: getUsername() || 'unknown',
+        submitted_at: new Date().toISOString(),
+        status: 'open'
+      };
+
+      var btn = document.getElementById('feedback-submit-btn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Submitting\u2026'; }
+
+      commitFeedback(entry, false)
+        .then(function() {
+          // Clear form and reload entries
+          document.getElementById('feedback-title').value = '';
+          document.getElementById('feedback-desc').value = '';
+          showFeedbackFormError('');
+          if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
+          loadFeedbackEntries();
+        })
+        .catch(function(err) {
+          showFeedbackFormError(err.message);
+          if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
+        });
+    }
+
+    async function commitFeedback(entryOrUpdate, isStatusUpdate) {
+      var pat = getPAT();
+      if (!pat) throw new Error('Not logged in.');
+
+      var filePath = 'data/feedback.json';
+      var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
+      var headers = {
+        'Authorization': 'Bearer ' + pat,
+        'Accept': 'application/vnd.github.v3+json'
+      };
+
+      // GET current file (404 means first-ever submission)
+      var getRes = await fetch(apiUrl, { headers: headers });
+      var allEntries = [];
+      var sha = null;
+
+      if (getRes.ok) {
+        var fileData = await getRes.json();
+        sha = fileData.sha;
+        var content = decodeBase64Unicode(fileData.content.replace(/\n/g, ''));
+        allEntries = JSON.parse(content);
+      } else if (getRes.status === 404) {
+        // File doesn't exist yet — will be created
+      } else {
+        if (getRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
+        throw new Error('Failed to read feedback: ' + getRes.status);
+      }
+
+      var commitMsg;
+      if (isStatusUpdate) {
+        // entryOrUpdate is { id, status }
+        var idx = allEntries.findIndex(function(e) { return e.id === entryOrUpdate.id; });
+        if (idx === -1) throw new Error('Feedback entry not found.');
+        allEntries[idx].status = entryOrUpdate.status;
+        commitMsg = 'feedback: update status of "' + (allEntries[idx].title || entryOrUpdate.id) + '" to ' + entryOrUpdate.status;
+      } else {
+        // New submission
+        allEntries.push(entryOrUpdate);
+        var typeLabel = entryOrUpdate.type === 'bug_report' ? 'bug report' : 'feature request';
+        commitMsg = 'feedback: add ' + typeLabel + ' "' + entryOrUpdate.title + '"';
+      }
+
+      var jsonString = JSON.stringify(allEntries, null, 2) + '\n';
+      var encoded = encodeBase64Unicode(jsonString);
+
+      var putBody = {
+        message: commitMsg,
+        content: encoded,
+        branch: 'main'
+      };
+      if (sha) putBody.sha = sha;
+
+      var putRes = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + pat,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(putBody)
+      });
+
+      if (!putRes.ok) {
+        if (putRes.status === 409) throw new Error('File was modified since you loaded it. Reload and try again.');
+        if (putRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
+        var errData = {};
+        try { errData = await putRes.json(); } catch(e) {}
+        throw new Error(errData.message || 'Save failed: ' + putRes.status);
+      }
+    }
+
+    function handleFeedbackStatusChange(selectEl) {
+      var entryId = selectEl.getAttribute('data-entry-id');
+      var newStatus = selectEl.value;
+      selectEl.disabled = true;
+
+      commitFeedback({ id: entryId, status: newStatus }, true)
+        .then(function() {
+          selectEl.disabled = false;
+        })
+        .catch(function(err) {
+          alert('Failed to update status: ' + err.message);
+          selectEl.disabled = false;
+          loadFeedbackEntries();
+        });
     }
 
     // Initial load
