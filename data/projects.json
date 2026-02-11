@@ -9,6 +9,18 @@
       {
         "person_id": "person_wang_sophia",
         "role": "Researcher"
+      },
+      {
+        "person_id": "person_bates_samantha",
+        "role": "Collaborator"
+      },
+      {
+        "person_id": "person_rich_travis",
+        "role": "Collaborator"
+      },
+      {
+        "person_id": "person_kim_daum",
+        "role": "Collaborator"
       }
     ],
     "parent_initiative": "init_compass_initiative",
@@ -58,14 +70,38 @@
     "status": "active",
     "owner": "person_ito_joi",
     "contributors": [
-      { "person_id": "person_winder_ira", "role": "Incoming Faculty" },
-      { "person_id": "person_austerweil_joseph", "role": "Academic Director" },
-      { "person_id": "person_kim_daum", "role": "Incoming Faculty" },
-      { "person_id": "person_oka_mizuki", "role": "Incoming Faculty" },
-      { "person_id": "person_maracke_catharina", "role": "Incoming Faculty" },
-      { "person_id": "person_ozaki_hiromi", "role": "Incoming Faculty" },
-      { "person_id": "person_kojima_hiroki", "role": "Incoming Faculty" },
-      { "person_id": "person_razik_fiza", "role": "Program Manager" }
+      {
+        "person_id": "person_winder_ira",
+        "role": "Incoming Faculty"
+      },
+      {
+        "person_id": "person_austerweil_joseph",
+        "role": "Academic Director"
+      },
+      {
+        "person_id": "person_kim_daum",
+        "role": "Incoming Faculty"
+      },
+      {
+        "person_id": "person_oka_mizuki",
+        "role": "Incoming Faculty"
+      },
+      {
+        "person_id": "person_maracke_catharina",
+        "role": "Incoming Faculty"
+      },
+      {
+        "person_id": "person_ozaki_hiromi",
+        "role": "Incoming Faculty"
+      },
+      {
+        "person_id": "person_kojima_hiroki",
+        "role": "Incoming Faculty"
+      },
+      {
+        "person_id": "person_razik_fiza",
+        "role": "Program Manager"
+      }
     ],
     "project_goals": [
       "Complete accreditation process",
@@ -80,7 +116,10 @@
     },
     "dependencies": {
       "enables": [
-        { "project_id": "proj_compass", "description": "SDS needs coordination infrastructure" }
+        {
+          "project_id": "proj_compass",
+          "description": "SDS needs coordination infrastructure"
+        }
       ]
     },
     "domains": [
