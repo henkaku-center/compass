@@ -79,6 +79,18 @@
       {
         "institution_id": "inst_sds",
         "relationship": "partner"
+      },
+      {
+        "institution_id": "inst_jpcca",
+        "relationship": "partner"
+      },
+      {
+        "institution_id": "inst_alife",
+        "relationship": "partner"
+      },
+      {
+        "institution_id": "inst_aisi",
+        "relationship": "partner"
       }
     ],
     "charter_coverage": "primary",
@@ -159,5 +171,129 @@
       "antidisciplinary"
     ],
     "website": "https://sds.chibatech.dev"
+  },
+  {
+    "id": "inst_jpcca",
+    "name": "Japan Probabilistic Computing Association",
+    "short_name": "JPCCA",
+    "summary": "Industry-academic association promoting the development and social implementation of probabilistic computing technology in Japan.",
+    "institution_type": "nonprofit",
+    "mandate": "Promote the sound development and social implementation of probabilistic computing technology in Japan, bridging academia and industry.",
+    "ecosystem_role": "External partner connecting the ecosystem to probabilistic computing research and industry networks in Japan.",
+    "capabilities": [
+      "industry-academic bridging",
+      "probabilistic computing expertise",
+      "technology transfer networks"
+    ],
+    "location": "Japan",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "partner"
+      }
+    ],
+    "charter_coverage": "partner",
+    "constraints": [
+      "association governance structure",
+      "member consensus requirements"
+    ],
+    "language": "Japanese",
+    "key_contacts": [
+      {
+        "person_id": "person_austerweil_joseph",
+        "role": "researcher"
+      },
+      {
+        "person_id": "person_szep_grisha",
+        "role": "researcher"
+      }
+    ],
+    "status": "active",
+    "domains": [
+      "probabilistic computing",
+      "AI",
+      "industry-academic collaboration"
+    ],
+    "website": "https://jpcca.org"
+  },
+  {
+    "id": "inst_alife",
+    "name": "Artificial Life Institute",
+    "short_name": "ALife Institute",
+    "summary": "Research institute in Kyoto promoting artificial life research in Japan through seminars, networking, and public outreach.",
+    "institution_type": "research_center",
+    "mandate": "Promote and develop artificial life research in Japan, exploring the essence of life through computational and interdisciplinary methods.",
+    "ecosystem_role": "External partner connecting the ecosystem to artificial life research, open-ended intelligence, and complex systems communities.",
+    "capabilities": [
+      "artificial life research",
+      "interdisciplinary research networks",
+      "international conference organization",
+      "public outreach"
+    ],
+    "location": "Kyoto, Japan",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "partner"
+      }
+    ],
+    "charter_coverage": "partner",
+    "constraints": [
+      "operates as Type II academic society within Japanese Society of Artificial Intelligence"
+    ],
+    "language": "Japanese",
+    "key_contacts": [
+      {
+        "person_id": "person_oka_mizuki",
+        "role": "steering committee"
+      }
+    ],
+    "status": "active",
+    "domains": [
+      "artificial life",
+      "complex systems",
+      "open-ended evolution",
+      "diverse intelligences"
+    ],
+    "website": "https://www.alife-japan.org"
+  },
+  {
+    "id": "inst_aisi",
+    "name": "Japan AI Safety Institute",
+    "short_name": "AISI",
+    "summary": "Japanese government institute examining AI safety evaluation methods and standards, established within the Information-technology Promotion Agency (IPA).",
+    "institution_type": "government",
+    "mandate": "Realize safe, secure, and trustworthy AI by examining and promoting evaluation methods and standards related to AI safety.",
+    "ecosystem_role": "External partner providing AI safety expertise, evaluation frameworks, and policy connections to the ecosystem.",
+    "founding_date": "2024-02-14",
+    "capabilities": [
+      "AI safety evaluation",
+      "standards development",
+      "international AI safety coordination",
+      "government policy access"
+    ],
+    "location": "Tokyo, Japan",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "partner"
+      }
+    ],
+    "charter_coverage": "partner",
+    "constraints": [
+      "government agency operating procedures",
+      "cross-ministry coordination requirements",
+      "operates within IPA administrative framework"
+    ],
+    "language": "Japanese",
+    "key_contacts": [],
+    "status": "active",
+    "domains": [
+      "AI safety",
+      "AI governance",
+      "evaluation standards",
+      "policy"
+    ],
+    "website": "https://aisi.go.jp"
   }
 ]

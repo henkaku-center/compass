@@ -4,7 +4,7 @@ This document defines the structural archetypes—the templates and schemas—fo
 
 ## Overview
 
-The Charter mandates a **shared registry** that tracks seven types of entries:
+The Charter mandates a **shared registry** that tracks eight types of entries:
 
 - **Institutions**: Organizations that participate in the ecosystem—their mandates, capabilities, and relationships
 - **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement
@@ -13,6 +13,7 @@ The Charter mandates a **shared registry** that tracks seven types of entries:
 - **Courses**: Recurring educational units with syllabi, learning objectives, and credit values
 - **Theses**: Bounded academic works with advisors, committees, and defense milestones
 - **Events**: Time-bound gatherings—seminars, workshops, conferences, and other convening occasions
+- **Posts**: Written contributions—reflections, updates, announcements, and commentary from participants
 
 The registry serves as coordination infrastructure, making work and people visible and enabling participants to identify connections, gaps, potential collaborators, and network structure across the ecosystem.
 
@@ -28,6 +29,7 @@ The registry serves as coordination infrastructure, making work and people visib
 - Courses link to instructors, Charter principles, and related projects
 - Theses link to advisors, committees, and related projects or initiatives
 - Events link to organizers, related initiatives/projects, and participants
+- Posts link to authors and optionally to projects, initiatives, or events they relate to
 
 **Measurability with forgiveness**: The Charter recognizes that systemic, cultural, and long-term impacts may resist clean measurement while still being evaluable through qualitative assessment, stakeholder feedback, and narrative evidence.
 
@@ -76,6 +78,12 @@ Each entry type is grounded by essential questions:
 2. Who is organizing it and who should attend?
 3. What initiative, project, or course does it serve?
 4. What outcomes or follow-up actions are expected?
+
+**Posts**:
+1. What is this post communicating and to whom?
+2. What prompted it—what event, realization, or development?
+3. How does it connect to ongoing work in the ecosystem?
+4. What response or action, if any, does it invite?
 
 ---
 
@@ -789,16 +797,73 @@ Events connect the ecosystem's other entry types: an initiative might host a sem
 
 ---
 
+## Part VIII: Posts
+
+<!-- Placeholder — this archetype is under development. The fields below establish the basic structure; details will be refined as the first posts are created. -->
+
+Posts are **written contributions** from participants in the ecosystem—reflections, updates, announcements, opinion pieces, tutorials, or commentary. Unlike theses, posts are informal and do not require committee review; unlike events, they are asynchronous. Posts make thinking visible, share progress, and invite response.
+
+Posts connect to the ecosystem by referencing the projects, initiatives, or events they relate to. They also serve as a lightweight record of institutional memory—capturing insights, decisions, and reasoning that might otherwise be lost.
+
+### Basic Information
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `id` — **Post ID** | Unique internal identifier (e.g., `post_2026_winder_reflections`) | *Enables tracking and cross-referencing* |
+| `title` — **Post Title** | Clear and specific title | *Part of making work visible* |
+| `summary` — **Post Summary** | A short paragraph (1–2 sentences) describing the post | *Supports discoverability* |
+| `post_type` — **Post Type** | Category of post. One of:<br>• `reflection` - Personal or collective reflection on experience<br>• `update` - Progress report or status update<br>• `announcement` - News or notification<br>• `opinion` - Commentary or position<br>• `tutorial` - How-to or instructional content<br>• `other` - Posts that don't fit other categories | **Classification** |
+
+---
+
+### Authorship and Publication
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `author` — **Author** | The person who wrote the post. References a person entry in the registry. | **Participants** (author) |
+| `co_authors` — **Co-Authors** | *(optional)* Additional authors. Each entry includes:<br>• `person_id`: Reference to person in registry | **Participants** (contributors) |
+| `published_date` — **Published Date** | When the post was published (format: `YYYY-MM-DD`) | **Temporal Context** |
+| `content_url` — **Content URL** | *(optional)* Link to the full post if hosted externally | **Documentation** |
+
+---
+
+### Context and Connections
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `related_project` — **Related Project** | *(optional)* Reference to a project this post relates to | **Context** (project) |
+| `related_initiative` — **Related Initiative** | *(optional)* Reference to an initiative this post relates to | **Context** (initiative) |
+| `related_event` — **Related Event** | *(optional)* Reference to an event this post relates to | **Context** (event) |
+| `domains` — **Related Domains** | Tags that map this post to research or practice areas | *Enables overlap/coherence analysis* |
+
+---
+
+### Post Status
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `status` — **Post Status** | Current state. Must be one of:<br>• `draft` - Post is being written<br>• `published` - Post is publicly available<br>• `archived` - Post retained for record but no longer featured | **Status** |
+
+---
+
+### Post Notes
+
+| **Field** | **Description** | **Charter Mapping** |
+| --- | --- | --- |
+| `notes` — **Notes** | Freeform space for editorial context or follow-up items | *Flexibility for additional context* |
+
+---
+
 ## Comparison of Entry Types
 
-| | **Institutions** | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Nature** | Persistent, organizational | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening |
-| **End condition** | Dissolution or withdrawal | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes |
-| **Evaluation** | Is the relationship productive? | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? |
-| **Time horizon** | Indefinite | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) |
-| **Contains** | People, programs, infrastructure | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations |
-| **Key question** | "What does this enable?" | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" |
+| | **Institutions** | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** | **Posts** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Nature** | Persistent, organizational | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening | Asynchronous, written |
+| **End condition** | Dissolution or withdrawal | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes | Published or archived |
+| **Evaluation** | Is the relationship productive? | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? | Does it make thinking visible? |
+| **Time horizon** | Indefinite | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) | Point in time |
+| **Contains** | People, programs, infrastructure | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations | Ideas, updates, commentary |
+| **Key question** | "What does this enable?" | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" | "What needs to be said?" |
 
 ---
 
@@ -813,7 +878,7 @@ This schema implements Section V of the Charter by:
 5. **Ongoing justification**: Initiative fields ensure programs articulate why they should continue
 6. **Measurability with forgiveness**: Success criteria and health indicators support both quantitative and qualitative assessment
 7. **Accountability**: Owner, lead, and contributor fields establish clear responsibility
-8. **Network visibility**: Cross-references between people, projects, initiatives, courses, theses, events, and institutions show how the ecosystem connects
+8. **Network visibility**: Cross-references between people, projects, initiatives, courses, theses, events, posts, and institutions show how the ecosystem connects
 9. **Coordination infrastructure**: Dependencies, domains, and scope boundaries enable overlap/coherence analysis
 
 The schema may evolve through Charter governance processes (Section VII), with changes preserving backward compatibility or providing migration paths for existing entries.

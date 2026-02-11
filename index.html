@@ -225,6 +225,29 @@
       font-size: 0.8rem;
     }
 
+    .toc .toc-group-label {
+      display: block;
+      padding: 0.4rem 0.5rem 0.15rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #999;
+      font-weight: 600;
+      margin-top: 0.75rem;
+    }
+
+    .toc li:first-child .toc-group-label {
+      margin-top: 0;
+    }
+
+    .toc .toc-disabled {
+      display: block;
+      padding: 0.35rem 0.5rem;
+      color: #aaa;
+      font-size: 0.85rem;
+      cursor: default;
+    }
+
     /* Main content */
     main {
       flex: 1;
@@ -600,6 +623,44 @@
     .landing-card:hover {
       border-color: #ccc;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .landing-card.full-row {
+      grid-column: 1 / -1;
+      background: #2a2a2a url('network.png') center / cover no-repeat;
+      color: #ddd;
+      border-color: #3a3a3a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .landing-card.full-row::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 30, 30, 0.55);
+    }
+
+    .landing-card.full-row .card-title,
+    .landing-card.full-row .card-desc {
+      position: relative;
+    }
+
+    .landing-card.full-row .card-desc {
+      color: #ccc;
+    }
+
+    .landing-card.full-row:hover {
+      border-color: #555;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .landing-card.full-row:hover::before {
+      background: rgba(30, 30, 30, 0.45);
+    }
+
+    .landing-card.full-row .card-title {
+      color: #fff;
     }
 
     .landing-card.placeholder {
@@ -1701,9 +1762,6 @@
       </button>
       <div class="nav-links" id="nav-links">
         <a href="#home">Home</a>
-        <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer">Charter</a>
-        <a href="#network">Network</a>
-        <a href="#about">About</a>
         <a href="#feedback">Feedback</a>
         <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener noreferrer" class="github-link" title="View on GitHub">GitHub</a>
         <span class="nav-login" id="nav-login"></span>
@@ -1818,8 +1876,29 @@
       'feedback': null // Feedback submission page
     };
 
-    // Documents that should show TOC
-    const tocDocs = ['about', 'status', 'curriculum', 'archetypes'];
+    // Site map for sidebar navigation (groups + pages)
+    const siteMap = [
+      { group: 'DNA' },
+      { key: 'charter', label: 'Charter', external: 'https://charter.henkaku.center' },
+      { key: 'archetypes', label: 'Archetypes' },
+      { group: 'Emergent' },
+      { key: 'network', label: 'Network' },
+      { key: 'people', label: 'People' },
+      { key: 'projects', label: 'Projects' },
+      { key: 'initiatives', label: 'Initiatives' },
+      { key: 'institutions', label: 'Institutions' },
+      { key: 'curriculum', label: 'Curriculum' },
+      { key: 'courses', label: 'Courses', placeholder: true },
+      { key: 'theses', label: 'Theses', placeholder: true },
+      { key: 'posts', label: 'Posts', placeholder: true },
+      { key: 'events', label: 'Events', placeholder: true },
+      { group: 'Info' },
+      { key: 'about', label: 'About' },
+      { key: 'references', label: 'References' },
+      { key: 'status', label: 'Status' },
+      { key: 'history', label: 'History' },
+      { key: 'feedback', label: 'Feedback' },
+    ];
 
     // Reference files data (sorted oldest to newest)
     const referenceFiles = [
@@ -1933,6 +2012,10 @@
             <div class="landing-group-label">Emergent</div>
             <div class="landing-group-desc">Living content&mdash;programs, people, and activities that grow from the DNA.</div>
             <div class="landing-cards">
+              <a href="#network" class="landing-card full-row">
+                <div class="card-title">Network</div>
+                <div class="card-desc">Relational map of people, projects, initiatives, and institutions.</div>
+              </a>
               <a href="#people" class="landing-card">
                 <div class="card-title">People</div>
                 <div class="card-desc">Roles, expertise, and project involvement across the ecosystem.</div>
@@ -1949,24 +2032,24 @@
                 <div class="card-title">Institutions</div>
                 <div class="card-desc">Organizations providing infrastructure, mandate, and capabilities.</div>
               </a>
-              <span class="landing-card placeholder">
-                <div class="card-title">Events</div>
-                <div class="card-desc">Coming soon</div>
-              </span>
-              <a href="#network" class="landing-card">
-                <div class="card-title">Network</div>
-                <div class="card-desc">Relational map of people, projects, initiatives, and institutions.</div>
-              </a>
               <a href="#curriculum" class="landing-card">
                 <div class="card-title">Curriculum</div>
                 <div class="card-desc">SDS Master's and PhD programs launching April 2026.</div>
               </a>
+              <span class="landing-card placeholder">
+                <div class="card-title">Posts</div>
+                <div class="card-desc">Coming soon</div>
+              </span>
               <span class="landing-card placeholder">
                 <div class="card-title">Courses</div>
                 <div class="card-desc">Coming soon</div>
               </span>
               <span class="landing-card placeholder">
                 <div class="card-title">Theses</div>
+                <div class="card-desc">Coming soon</div>
+              </span>
+              <span class="landing-card placeholder">
+                <div class="card-title">Events</div>
                 <div class="card-desc">Coming soon</div>
               </span>
             </div>
@@ -2074,8 +2157,7 @@
     function loadReferences() {
       clearOrientationRotator();
       currentDoc = 'references';
-      tocEl.classList.remove('visible');
-      layoutEl.classList.remove('has-toc');
+      showSidebar('references');
 
       let html = `
         <h1>References</h1>
@@ -2117,8 +2199,7 @@
     function loadHistory() {
       clearOrientationRotator();
       currentDoc = 'history';
-      tocEl.classList.remove('visible');
-      layoutEl.classList.remove('has-toc');
+      showSidebar('history');
 
       contentEl.innerHTML = `
         <div class="history-page">
@@ -2398,10 +2479,11 @@
       const portraitSrc = entry.portrait || 'compass-icon.png';
       const portraitHtml = `<img class="card-portrait" src="${portraitSrc}" alt="" loading="lazy">`;
 
-      // Build expanded detail section for people
+      // Build expanded detail section
       let detailHtml = '';
+      card.classList.add('expandable');
+
       if (type === 'people') {
-        card.classList.add('expandable');
         if (entry.name_ja) {
           detailHtml += `<p style="opacity:0.6;margin-top:0;">${entry.name_ja}</p>`;
         }
@@ -2436,6 +2518,81 @@
         }
       }
 
+      if (type === 'institutions') {
+        if (entry.mandate) {
+          detailHtml += `<p class="detail-label">Mandate</p><p>${entry.mandate}</p>`;
+        }
+        if (entry.ecosystem_role) {
+          detailHtml += `<p class="detail-label">Ecosystem Role</p><p>${entry.ecosystem_role}</p>`;
+        }
+        if (entry.capabilities && entry.capabilities.length > 0) {
+          detailHtml += `<p class="detail-label">Capabilities</p><p>${entry.capabilities.join(', ')}</p>`;
+        }
+        if (entry.constraints && entry.constraints.length > 0) {
+          detailHtml += `<p class="detail-label">Constraints</p><p>${entry.constraints.join(', ')}</p>`;
+        }
+        if (entry.charter_coverage) {
+          detailHtml += `<p class="detail-label">Charter Coverage</p><p>${entry.charter_coverage}</p>`;
+        }
+        if (entry.location) {
+          detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+        }
+        if (entry.founding_date) {
+          detailHtml += `<p class="detail-label">Founded</p><p>${entry.founding_date}</p>`;
+        }
+        if (entry.website) {
+          detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+        }
+      }
+
+      if (type === 'projects') {
+        if (entry.project_goals && entry.project_goals.length > 0) {
+          detailHtml += `<p class="detail-label">Goals</p>`;
+          detailHtml += entry.project_goals.map(g => `<p>${g}</p>`).join('');
+        }
+        if (entry.completion_criterion) {
+          detailHtml += `<p class="detail-label">Completion Criterion</p><p>${entry.completion_criterion}</p>`;
+        }
+        if (entry.problem_statement) {
+          detailHtml += `<p class="detail-label">Problem Statement</p><p>${entry.problem_statement}</p>`;
+        }
+        if (entry.scope_boundaries) {
+          detailHtml += `<p class="detail-label">Scope Boundaries</p><p>${entry.scope_boundaries}</p>`;
+        }
+        if (entry.success_criteria) {
+          detailHtml += `<p class="detail-label">Success Criteria</p><p>${entry.success_criteria}</p>`;
+        }
+        if (entry.dependencies && entry.dependencies.requires && entry.dependencies.requires.length > 0) {
+          detailHtml += `<p class="detail-label">Dependencies</p>`;
+          detailHtml += entry.dependencies.requires.map(d => {
+            var dep = lookup[d.project_id];
+            return `<p>${dep ? dep.title : d.project_id} — ${d.description}</p>`;
+          }).join('');
+        }
+      }
+
+      if (type === 'initiatives') {
+        if (entry.purpose) {
+          detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
+        }
+        if (entry.activities && entry.activities.length > 0) {
+          detailHtml += `<p class="detail-label">Activities</p>`;
+          detailHtml += entry.activities.map(a => `<p>${a}</p>`).join('');
+        }
+        if (entry.health_indicators && entry.health_indicators.length > 0) {
+          detailHtml += `<p class="detail-label">Health Indicators</p><p>${entry.health_indicators.join(', ')}</p>`;
+        }
+        if (entry.participants && entry.participants.length > 0) {
+          detailHtml += `<p class="detail-label">Participants</p>`;
+          detailHtml += entry.participants.map(p =>
+            `<p>${personName(p.person_id, lookup)} — ${p.role}</p>`
+          ).join('');
+        }
+        if (entry.review_cycle) {
+          detailHtml += `<p class="detail-label">Review Cycle</p><p>${entry.review_cycle}</p>`;
+        }
+      }
+
       const editBtnHtml = isLoggedIn() ? `<button class="card-edit-btn">Edit</button>` : '';
 
       card.innerHTML = `
@@ -2450,13 +2607,11 @@
         ${detailHtml ? `<div class="card-detail">${detailHtml}</div>` : ''}
       `;
 
-      if (type === 'people') {
-        card.addEventListener('click', (e) => {
-          // Don't toggle if clicking a link or button
-          if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
-          card.classList.toggle('expanded');
-        });
-      }
+      card.addEventListener('click', (e) => {
+        // Don't toggle if clicking a link or button
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+        card.classList.toggle('expanded');
+      });
 
       // Edit button handler
       const editBtn = card.querySelector('.card-edit-btn');
@@ -2473,8 +2628,7 @@
     function loadRegistryList(type) {
       clearOrientationRotator();
       currentDoc = type;
-      tocEl.classList.remove('visible');
-      layoutEl.classList.remove('has-toc');
+      showSidebar(type);
 
       const meta = registryMeta[type];
       const addNewBtn = isLoggedIn()
@@ -2922,8 +3076,11 @@
 
           contentEl.innerHTML = html;
 
-          // Add IDs to headings and build TOC
-          buildTOC();
+          // Add IDs to headings for anchor links
+          assignHeadingIds();
+
+          // Show site map sidebar
+          showSidebar(docKey);
 
           // Make sections collapsible
           makeCollapsible();
@@ -2940,42 +3097,49 @@
         });
     }
 
-    function buildTOC() {
-      headings = [];
+    function showSidebar(activeKey) {
+      headings = []; // Clear so scroll spy doesn't interfere
       tocListEl.innerHTML = '';
+      siteMap.forEach(function(item) {
+        var li = document.createElement('li');
+        if (item.group) {
+          var span = document.createElement('span');
+          span.textContent = item.group;
+          span.classList.add('toc-group-label');
+          li.appendChild(span);
+        } else if (item.placeholder) {
+          var span = document.createElement('span');
+          span.textContent = item.label;
+          span.classList.add('toc-disabled');
+          li.appendChild(span);
+        } else {
+          var a = document.createElement('a');
+          if (item.external) {
+            a.href = item.external;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+          } else {
+            a.href = '#' + item.key;
+          }
+          a.textContent = item.label;
+          if (item.key === activeKey) a.classList.add('active');
+          li.appendChild(a);
+        }
+        tocListEl.appendChild(li);
+      });
+      tocEl.querySelector('h4').style.display = 'none';
+      tocEl.classList.add('visible');
+      layoutEl.classList.add('has-toc');
+    }
 
-      const showToc = tocDocs.includes(currentDoc);
-      tocEl.classList.toggle('visible', showToc);
-      layoutEl.classList.toggle('has-toc', showToc);
-
-      if (!showToc) return;
-
-      const allHeadings = contentEl.querySelectorAll('h2, h3');
-
-      allHeadings.forEach((heading, index) => {
-        // Create ID from heading text
-        const text = heading.textContent;
-        const id = 'section-' + text.toLowerCase()
+    function assignHeadingIds() {
+      contentEl.querySelectorAll('h2, h3').forEach(function(heading) {
+        var text = heading.textContent;
+        var id = 'section-' + text.toLowerCase()
           .replace(/[^a-z0-9]+/g, '-')
           .replace(/(^-|-$)/g, '')
           .substring(0, 50);
-
         heading.id = id;
-        headings.push({ id, el: heading, level: heading.tagName });
-
-        // Create TOC entry
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = '#' + id;
-        a.textContent = text;
-        a.classList.add('toc-' + heading.tagName.toLowerCase());
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          heading.scrollIntoView({ behavior: 'smooth' });
-          history.pushState(null, '', '#' + currentDoc);
-        });
-        li.appendChild(a);
-        tocListEl.appendChild(li);
       });
     }
 
@@ -3022,6 +3186,7 @@
     // Scroll spy for TOC
     function updateActiveTocLink() {
       if (!tocEl.classList.contains('visible')) return;
+      if (headings.length === 0) return; // Emergent sidebar, not heading TOC
 
       let activeId = null;
       const scrollTop = window.scrollY + 100;
@@ -3781,8 +3946,7 @@
     function loadFeedback() {
       clearOrientationRotator();
       currentDoc = 'feedback';
-      tocEl.classList.remove('visible');
-      layoutEl.classList.remove('has-toc');
+      showSidebar('feedback');
 
       var formHtml = '';
       if (isLoggedIn()) {

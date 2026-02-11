@@ -351,6 +351,11 @@
         "institution": "Henkaku Center",
         "institution_id": "inst_henkaku",
         "role": "Senior Researcher"
+      },
+      {
+        "institution": "Japan Probabilistic Computing Association",
+        "institution_id": "inst_jpcca",
+        "role": "Researcher"
       }
     ],
     "expertise": [
@@ -503,6 +508,11 @@
         "institution_id": "inst_henkaku",
         "role": "Researcher",
         "primary": true
+      },
+      {
+        "institution": "Japan Probabilistic Computing Association",
+        "institution_id": "inst_jpcca",
+        "role": "Researcher"
       }
     ],
     "expertise": [
