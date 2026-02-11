@@ -347,25 +347,27 @@
     "name_ja": "アウステルウェイル ジョセフ",
     "role_categories": [
       "faculty",
-      "researcher"
+      "principal_researcher"
     ],
     "title": "Senior Researcher",
     "affiliations": [
       {
-        "institution": "Graduate School of Design & Science",
+        "institution": "Graduate School of Design & Science (SDS)",
         "institution_id": "inst_sds",
         "role": "Faculty",
         "primary": true
       },
       {
-        "institution": "Henkaku Center",
+        "institution": "Henkaku Center for Radical Transformation (Henkaku Center)",
         "institution_id": "inst_henkaku",
-        "role": "Senior Researcher"
+        "role": "Senior Researcher",
+        "primary": false
       },
       {
-        "institution": "Japan Probabilistic Computing Association",
+        "institution": "Japan Probabilistic Computing Association (JPCCA)",
         "institution_id": "inst_jpcca",
-        "role": "Researcher"
+        "role": "Researcher",
+        "primary": false
       }
     ],
     "expertise": [
