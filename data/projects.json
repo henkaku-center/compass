@@ -101,6 +101,14 @@
       {
         "person_id": "person_razik_fiza",
         "role": "Program Manager"
+      },
+      {
+        "person_id": "person_bates_samantha",
+        "role": "Collaborator"
+      },
+      {
+        "person_id": "person_raz_gal",
+        "role": "Collaborator"
       }
     ],
     "project_goals": [
@@ -110,17 +118,9 @@
       "Launch program in April 2026"
     ],
     "completion_criterion": "First cohort enrolled and classes begin April 2026.",
-    "timeline": {
-      "start_date": "2024-06-01",
-      "end_date": "2026-04-01"
-    },
+    "timeline": "[object Object]",
     "dependencies": {
-      "enables": [
-        {
-          "project_id": "proj_compass",
-          "description": "SDS needs coordination infrastructure"
-        }
-      ]
+      "requires": []
     },
     "domains": [
       "education",
