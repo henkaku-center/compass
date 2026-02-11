@@ -94,7 +94,6 @@
     ],
     "hosted_projects": [
       "proj_compass",
-      "proj_registry_platform",
       "proj_sds_launch"
     ],
     "hosted_initiatives": [
