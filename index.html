@@ -1827,7 +1827,7 @@
       fetchAllRegistryData()
         .then(allData => {
           const lookup = buildLookup(allData);
-          const entries = allData[type];
+          const entries = allData[type].filter(e => !e.status || e.status === 'active');
           const list = document.getElementById('registry-list');
           if (!list) return;
           list.innerHTML = '';
@@ -1889,8 +1889,8 @@
         }
       });
 
-      // People nodes + links
-      allData.people.forEach(person => {
+      // People nodes + links (active only)
+      allData.people.filter(p => !p.status || p.status === 'active').forEach(person => {
         addNode(person.id, person.name, 'people', person);
         if (person.affiliations) {
           person.affiliations.forEach(a => {
@@ -2164,9 +2164,11 @@
 
             switch (type) {
               case 'people':
+                if (data.name_ja) html += `<p style="opacity: 0.6;">${data.name_ja}</p>`;
                 if (data.title) html += `<p><strong>Title:</strong> ${data.title}</p>`;
                 if (data.role_categories) html += `<p><strong>Roles:</strong> ${data.role_categories.join(', ')}</p>`;
                 if (data.expertise) html += `<p><strong>Expertise:</strong> ${data.expertise.join(', ')}</p>`;
+                if (data.background) html += `<p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.85rem;">${data.background}</p>`;
                 break;
               case 'institutions':
                 if (data.institution_type) html += `<p><strong>Type:</strong> ${data.institution_type.replace(/_/g, ' ')}</p>`;

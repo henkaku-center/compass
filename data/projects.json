@@ -1,0 +1,31 @@
+[
+  {
+    "id": "proj_compass",
+    "title": "Compass Coordination Infrastructure",
+    "summary": "Building the shared coordination infrastructure — charter, archetypes, registry, and web viewer — for the Henkaku Center ecosystem.",
+    "status": "active",
+    "owner": "person_winder_ira",
+    "contributors": [
+      { "person_id": "person_ito_joi", "role": "Advisor" }
+    ],
+    "parent_initiative": "init_compass_initiative",
+    "project_goals": ["Define shared charter and governance framework", "Design registry archetypes for 7 entry types", "Build web viewer for coordination documents"],
+    "domains": ["coordination", "governance", "infrastructure"]
+  },
+  {
+    "id": "proj_registry_platform",
+    "title": "Registry Platform Development",
+    "summary": "Designing and building the platform where registry entries are submitted, browsed, and maintained.",
+    "status": "proposed",
+    "owner": "person_winder_ira",
+    "contributors": [],
+    "parent_initiative": "init_compass_initiative",
+    "dependencies": {
+      "requires": [
+        { "project_id": "proj_compass", "description": "Archetypes and charter must be defined before platform can implement them", "criticality": "high" }
+      ]
+    },
+    "project_goals": ["Evaluate platform options (spreadsheet, database, custom)", "Build submission and browse interfaces", "Implement cross-referencing between entry types"],
+    "domains": ["platform", "data systems", "coordination"]
+  }
+]

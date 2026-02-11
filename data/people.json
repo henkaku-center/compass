@@ -1,0 +1,964 @@
+[
+  {
+    "id": "person_ito_joi",
+    "name": "Joi Ito",
+    "name_ja": "伊藤穰一",
+    "role_categories": ["director"],
+    "title": "Director",
+    "affiliations": [
+      { "institution": "Chiba Institute of Technology", "institution_id": "inst_chibatech", "role": "Director", "primary": true },
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Director" }
+    ],
+    "expertise": ["governance", "institutional resilience", "philosophy", "complex systems", "technology policy", "decentralized systems"],
+    "interests": ["radical coordination", "antidisciplinary practice", "AI governance", "awareness"],
+    "background": "Venture capitalist, entrepreneur, writer, and scholar focusing on the transformation of society and technology. Director of the Center for Radical Transformation at the Chiba Institute of Technology. Previously director of the MIT Media Lab.",
+    "projects": [
+      { "project_id": "proj_compass", "title": "Compass Coordination Infrastructure", "role": "advisor" }
+    ],
+    "initiatives": [
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "lead" },
+      { "initiative_id": "init_compass_initiative", "title": "Compass Initiative", "role": "sponsor" }
+    ],
+    "links": [
+      { "type": "website", "url": "https://joi.ito.com/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_winder_ira",
+    "name": "Ira Winder",
+    "name_ja": "ウィンダー アイラ",
+    "role_categories": ["faculty", "principal_researcher"],
+    "title": "Associate Professor",
+    "affiliations": [
+      { "institution": "Graduate School of Design & Science", "institution_id": "inst_sds", "role": "Faculty", "primary": true },
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Principal Researcher" }
+    ],
+    "expertise": ["simulation", "incentive design", "complex systems", "governance", "computational design", "rapid prototyping", "institutional design"],
+    "interests": ["designed coordination", "antidisciplinary pedagogy", "novel economics"],
+    "background": "Researcher, educator, and practitioner specializing in interactive simulations for solving complex problems. Expertise spans computer science, mathematical modeling, city planning, and architectural design. Former Lecturer and Research Scientist at MIT.",
+    "projects": [
+      { "project_id": "proj_compass", "title": "Compass Coordination Infrastructure", "role": "owner" }
+    ],
+    "initiatives": [
+      { "initiative_id": "init_compass_initiative", "title": "Compass Initiative", "role": "lead" },
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "participant" }
+    ],
+    "links": [
+      { "type": "website", "url": "https://ira.mit.edu" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_kim_daum",
+    "name": "Daum Kim",
+    "name_ja": "金 ダウミ",
+    "role_categories": ["faculty", "staff"],
+    "title": "Project Director",
+    "affiliations": [
+      { "institution": "Graduate School of Design & Science", "institution_id": "inst_sds", "role": "Faculty", "primary": true },
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Project Director" }
+    ],
+    "expertise": ["digital culture", "platform design", "cultural systems", "design ethics", "media studies"],
+    "interests": ["digital identity", "emotional technology", "participatory interfaces", "Asian cultural perspectives"],
+    "background": "Cultural architect, digital culture researcher, and strategist who designs and analyzes digital platforms as spaces of identity, expression, and global connection. Ph.D. from Keio University's Graduate School of Media and Governance.",
+    "projects": [],
+    "initiatives": [
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "participant" }
+    ],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_maracke_catharina",
+    "name": "Catharina Maracke",
+    "name_ja": "カタリーナ・マラッケ",
+    "role_categories": ["faculty", "visiting_researcher"],
+    "affiliations": [
+      { "institution": "Graduate School of Design & Science", "institution_id": "inst_sds", "role": "Faculty", "primary": true },
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher" }
+    ],
+    "expertise": ["technology policy", "governance", "digital infrastructure", "institutional resilience", "intellectual property", "open source licensing"],
+    "interests": ["digital constitutionalism", "data governance", "philosophy of law"],
+    "background": "International legal scholar with expertise in digital governance, open source licensing, and cross-border regulation of emerging technologies. Former director at Creative Commons managing the global license porting project. Founder of the Software Compliance Academy.",
+    "projects": [],
+    "initiatives": [
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "participant" }
+    ],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_kojima_hiroki",
+    "name": "Hiroki Kojima",
+    "name_ja": "小島 大樹",
+    "role_categories": ["faculty", "visiting_researcher"],
+    "affiliations": [
+      { "institution": "Graduate School of Design & Science", "institution_id": "inst_sds", "role": "Faculty", "primary": true },
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher" }
+    ],
+    "expertise": ["complex systems", "artificial life", "embodied intelligence", "collective intelligence", "cognitive architecture", "machine reasoning"],
+    "interests": ["cognitive science", "probabilistic computing", "knowledge representation"],
+    "background": "Physicist and complex systems scientist investigating how adaptive behavior and cognition emerge at the intersection of biological, artificial, and social systems. Ph.D. in Physics from the University of Tokyo.",
+    "projects": [],
+    "initiatives": [
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "participant" }
+    ],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_oka_mizuki",
+    "name": "Mizuki Oka",
+    "name_ja": "岡 瑞起",
+    "role_categories": ["faculty", "principal_researcher"],
+    "title": "Chief Researcher",
+    "affiliations": [
+      { "institution": "Graduate School of Design & Science", "institution_id": "inst_sds", "role": "Faculty", "primary": true },
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Chief Researcher" },
+      { "institution": "University of Tsukuba", "role": "Associate Professor" }
+    ],
+    "expertise": ["artificial life", "complex systems", "embodied intelligence", "machine reasoning", "collective intelligence", "probabilistic computing"],
+    "interests": ["generative evolution", "synthetic autonomy", "knowledge representation"],
+    "background": "Researcher in artificial life, generative computation, and open-ended intelligence. D. in Engineering, Project Manager of the MITOU Program, and chairperson of the Artificial Life Research Group.",
+    "projects": [],
+    "initiatives": [
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "participant" }
+    ],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_austerweil_joseph",
+    "name": "Joseph Austerweil",
+    "name_ja": "アウステルウェイル ジョセフ",
+    "role_categories": ["faculty", "researcher"],
+    "title": "Senior Researcher",
+    "affiliations": [
+      { "institution": "Graduate School of Design & Science", "institution_id": "inst_sds", "role": "Faculty", "primary": true },
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Senior Researcher" }
+    ],
+    "expertise": ["knowledge representation", "probabilistic computing", "cognitive science", "machine reasoning", "cognitive architecture"],
+    "interests": ["education systems", "embodied intelligence", "Bayesian reasoning"],
+    "background": "Cognitive psychologist and machine learning researcher investigating how people retrieve, learn, create, and teach knowledge. Uses probabilistic models, neural networks, and behavioral experiments.",
+    "projects": [],
+    "initiatives": [
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "participant" }
+    ],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_ozaki_hiromi",
+    "name": "Sputniko! (Hiromi Ozaki)",
+    "name_ja": "尾嵜 優美",
+    "role_categories": ["faculty", "visiting_researcher"],
+    "affiliations": [
+      { "institution": "Graduate School of Design & Science", "institution_id": "inst_sds", "role": "Faculty", "primary": true },
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher" }
+    ],
+    "expertise": ["speculative design", "gender & technology", "emotional technology", "cultural systems", "aesthetics", "storytelling"],
+    "interests": ["Asian cultural perspectives", "design ethics", "technology policy"],
+    "background": "British-Japanese artist whose work explores the intersection of technology, identity, and society through films, robotics, music, and interactive installations that challenge social norms and imagine ethical implications of emerging technologies.",
+    "projects": [],
+    "initiatives": [
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "participant" }
+    ],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_priyadarshi_tenzin",
+    "name": "Tenzin Priyadarshi",
+    "role_categories": ["researcher"],
+    "title": "Senior Researcher",
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Senior Researcher", "primary": true }
+    ],
+    "expertise": ["ethics", "transformative values", "contemplative practice", "institutional leadership"],
+    "background": "President and CEO of the Dalai Lama Center for Ethics and Transformative Values at MIT.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://imonk.org/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_raz_gal",
+    "name": "Gal Raz",
+    "name_ja": "ガル・ラズ",
+    "role_categories": ["researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Researcher", "primary": true }
+    ],
+    "expertise": ["cognitive science", "visual attention", "behavioral experiments", "numerical cognition"],
+    "interests": ["educational development", "mindfulness"],
+    "background": "Cognitive scientist who completed his PhD in Brain and Cognitive Sciences at MIT. Previously studied numerical cognition at the University of Oxford. Contributes to educational and economic development in Bhutan.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_szep_grisha",
+    "name": "Grisha Szep",
+    "name_ja": "グリシャ ゼップ",
+    "role_categories": ["researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Researcher", "primary": true }
+    ],
+    "expertise": ["probabilistic computing", "AI-integrated healthcare", "education systems"],
+    "interests": ["open-endedness research", "artificial life"],
+    "background": "Researcher working on probabilistic computing, AI-integrated healthcare and educational systems. Collaborates with open-endedness research teams at the Artificial Life Institute in Kyoto.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_wang_sophia",
+    "name": "Sophia Wang",
+    "name_ja": "ワン ソフィア",
+    "role_categories": ["researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Researcher", "primary": true }
+    ],
+    "expertise": ["coordination technology", "legal frameworks", "systems engineering", "digital fabrication", "policy analysis"],
+    "interests": ["public goods", "complex systems", "food systems"],
+    "background": "Engineer, institution-builder, and policy analyst creating structures that enable the production of technological public goods. Previously an aerospace engineer at NASA. Global ambassador for the Fab Foundation.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_bates_samantha",
+    "name": "Samantha Bates",
+    "name_ja": "サマンサ・ベイツ",
+    "role_categories": ["staff"],
+    "title": "Program Director",
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Program Director", "primary": true }
+    ],
+    "expertise": ["AI ethics", "AI safety", "operations", "academic research"],
+    "background": "Works on AI ethics and safety projects at the Henkaku Center. Brings extensive operations and academic research experience.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_razik_fiza",
+    "name": "Fiza Razik",
+    "name_ja": "フィーザー ラッジク",
+    "role_categories": ["staff"],
+    "title": "Program Manager",
+    "affiliations": [
+      { "institution": "Graduate School of Design & Science", "institution_id": "inst_sds", "role": "Program Manager", "primary": true }
+    ],
+    "expertise": ["program management", "academic innovation", "international coordination"],
+    "background": "Program Manager overseeing the launch of Japan's first antidisciplinary graduate school opening April 2026. Bridges academic innovation with practical implementation, coordinating international faculty and designing educational programs.",
+    "projects": [],
+    "initiatives": [
+      { "initiative_id": "init_sds_launch", "title": "SDS Program Launch", "role": "participant" }
+    ],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_tachibana_madoka",
+    "name": "Madoka Tachibana",
+    "role_categories": ["staff"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Staff", "primary": true }
+    ],
+    "background": "Administrative professional with experience across banking, corporate secretarial work, and international business environments.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_tanaka_mika",
+    "name": "Mika Tanaka",
+    "name_ja": "田中美歌",
+    "role_categories": ["staff"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Staff", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_anthony_boris",
+    "name": "Boris Anthony",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_bateson_nora",
+    "name": "Nora Bateson",
+    "name_ja": "ベイトソン ノラ",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["systems thinking", "warm data", "research design", "education"],
+    "background": "Award-winning filmmaker, research designer, writer, and educator. President of the International Bateson Institute. Creator of the Warm Data theory and practices.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_bletsas_michael",
+    "name": "Michael Bletsas",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_castello_eduardo",
+    "name": "Eduardo Castello",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["robotics"],
+    "background": "Postdoctoral research affiliate at MIT. Researcher specialized in robotics.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://www.eduardocastello.com/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_cohen_revital",
+    "name": "Revital Cohen",
+    "name_ja": "レヴィタル・コーエン",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["art", "installation", "material culture"],
+    "background": "London-based artist working across objects, installation, painting, and film. Collaborative work with Tuur Van Balen examines materials, processes, and feelings formed by mass production.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_dinakar_karthik",
+    "name": "Karthik Dinakar",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["machine learning", "natural language processing", "human-computer interaction"],
+    "background": "Computer scientist in machine learning, NLP, and human-computer interaction. Reid Hoffman Fellow at MIT and recipient of the 2015 Dewey Winburne Award.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_druga_stefania",
+    "name": "Stefania Druga",
+    "name_ja": "ドウルーガ ステフアニア",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["AI", "education", "multimodal learning"],
+    "background": "Research scientist at Sakana.ai, formerly at Google DeepMind. Develops tools and platforms that empower humans and machines to engage in real-time co-discovery and multimodal learning.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_ekblaw_ariel",
+    "name": "Ariel Ekblaw",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["space exploration", "self-assembly", "hardware prototyping"],
+    "background": "Founder and Director of the MIT Space Exploration Initiative, prototyping artifacts of our sci-fi space future with a portfolio of 40+ research projects focused on life in space.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://www.media.mit.edu/people/aekblaw/overview/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_goldman_daniel",
+    "name": "Daniel Goldman",
+    "name_ja": "ダニエル・ゴールドマン",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["systems design", "simulation", "game design", "IT systems"],
+    "background": "Technologist and systems-oriented designer. Senior developer on SimCity and related titles at Maxis with Will Wright. Studied Physics and Computer Science at UC Berkeley.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_hickok_merve",
+    "name": "Merve Hickok",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["AI policy", "AI regulation", "digital policy"],
+    "background": "President at Center for AI & Digital Policy, providing expertise in global AI policy across U.S. federal government, European Commission, UNESCO, Council of Europe, OECD, and United Nations.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://www.si.umich.edu/people/merve-hickok" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_huang_michelle",
+    "name": "Michelle Huang",
+    "name_ja": "フアン・ミシェル",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["experimental interfaces", "care architecture", "spatial design"],
+    "background": "Artist-researcher designing architectures of care. Creates experimental interfaces that support spatial belonging, collective well-being, and scaling wonder.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_ikegami_eiko",
+    "name": "Eiko Ikegami",
+    "name_ja": "池上英子",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "http://www.eikoikegami.com/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_kang_louis",
+    "name": "Louis Kang",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["impact investing", "financial engineering", "healthcare", "climate change", "neuroscience"],
+    "background": "Research affiliate exploring the role of impact investing and financial engineering in healthcare and climate change mitigation. PhD in Applied Physics from Harvard, neuroscience research at MIT.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_kokuryo_jiro",
+    "name": "Jiro Kokuryo",
+    "name_ja": "國領二郎",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true },
+      { "institution": "Keio University", "role": "Professor" }
+    ],
+    "expertise": ["policy management", "media governance"],
+    "background": "Professor at the Faculty of Policy Management and Graduate School of Media and Governance at Keio University.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://sites.google.com/site/jkokuryocom/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_kuramata_toshio",
+    "name": "Toshio Kuramata",
+    "name_ja": "倉又俊夫",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_lessig_lawrence",
+    "name": "Lawrence Lessig",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true },
+      { "institution": "Harvard Law School", "role": "Professor" }
+    ],
+    "expertise": ["law", "internet policy", "institutional reform", "creative commons"],
+    "background": "Roy L. Furman Professor of Law and Leadership at Harvard Law School. Founder of Stanford's Center for Internet and Society. Leading voice in internet governance and institutional reform.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://lessig.org/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_mansinghka_vikash",
+    "name": "Vikash K. Mansinghka",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true },
+      { "institution": "MIT", "role": "Principal Research Scientist" }
+    ],
+    "expertise": ["probabilistic computing", "probabilistic programming", "computational statistics"],
+    "background": "Principal Research Scientist at MIT leading the Probabilistic Computing Project. Holds S.B. degrees in Mathematics and Computer Science, M.Eng., and PhD in Computation from MIT.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_mccallkiley_kate",
+    "name": "Kate McCall-Kiley",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["complex systems", "data science", "federal innovation"],
+    "background": "Complex system enthusiast and co-founder and director at xD, an experimental data lab within the US federal government.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_miyaguchi_aya",
+    "name": "Aya Miyaguchi",
+    "name_ja": "宮口あや",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["decentralized systems", "ecosystem stewardship", "community building"],
+    "background": "President of the Ethereum Foundation, stewarding both the vision and soul of Ethereum. The Foundation supports Ethereum's long-term health through core protocol research, development, and ecosystem resources.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_montgomery_mark",
+    "name": "Mark Montgomery",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_mora_margarita",
+    "name": "Margarita Mora",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["partnerships", "indigenous land stewardship"],
+    "background": "Managing Director, Partnerships at Nia Tero.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_murai_jun",
+    "name": "Jun Murai",
+    "name_ja": "村井純",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true },
+      { "institution": "Keio University", "role": "Professor" }
+    ],
+    "expertise": ["internet infrastructure", "network architecture"],
+    "background": "Known as 'the father of Internet in Japan'. Professor at Keio University and pioneer of Japan's internet infrastructure.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_noveck_beth",
+    "name": "Beth Noveck",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://provost.northeastern.edu/leadership/beth-noveck/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_rich_travis",
+    "name": "Travis Rich",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["knowledge infrastructure", "open publishing"],
+    "background": "Executive Director at Knowledge Futures Group.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_salobir_eric",
+    "name": "Eric Salobir",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["technology ethics", "human technology"],
+    "background": "Roman Catholic priest and member of the Order of Preachers (Dominicans). Chairs the executive committee of the Human Technology Foundation.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_schingler_jessykate",
+    "name": "Jessy Kate Schingler",
+    "name_ja": "ジェシー・ケイト・シングラー",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["legal design", "governance innovation", "institution design"],
+    "background": "Legal design researcher and expert in governance innovation for new entities and jurisdictions. Co-founded the Open Lunar Foundation to advance cooperative frameworks for lunar land tenure and public goods.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_schneier_bruce",
+    "name": "Bruce Schneier",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["security", "cryptography", "privacy", "technology policy"],
+    "background": "Internationally renowned security technologist. Author of over one dozen books on security, privacy, and technology policy.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://www.schneier.com/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_shinada_miho",
+    "name": "Miho Shinada",
+    "name_ja": "品田美帆",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_shinoda_kana",
+    "name": "Kana Shinoda",
+    "name_ja": "篠田佳奈",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["information security", "event organization"],
+    "background": "Organizer of CODE BLUE, an international information security conference where top class specialists gather for cutting edge talks and cross-border exchange.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_takemura_mitsuhiro",
+    "name": "Mitsuhiro Takemura",
+    "name_ja": "武邑光裕",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["media aesthetics", "information design", "media environment studies"],
+    "background": "Scholar of media aesthetics and Founder of Takemura-Juku. Former positions at Kyoto University of Art and Design, University of Tokyo, and Sapporo City University. Fellow at the Center for the Study of Digital Life in New York.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://takemura-juku.space/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_vanbalen_tuur",
+    "name": "Tuur Van Balen",
+    "name_ja": "トゥール・ヴァン・バレン",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["art", "film", "sculpture", "production processes"],
+    "background": "Artist and researcher based in London, working with film, sculpture, and sound. Collaborative art practice with Revital Cohen explores processes of production as cultural, personal, and political practices.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_virza_madars",
+    "name": "Madars Virza",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["cryptography", "zero-knowledge proofs", "digital currency", "AI ethics"],
+    "background": "Research Scientist at MIT Media Lab working on cryptocurrencies and ethics of AI. Co-invented Zerocash and co-founded Zcash.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://madars.org/" }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "person_mulas_victor",
+    "name": "Victor Mulas",
+    "name_ja": "ムラス ビクター",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["innovation ecosystems", "advisory", "strategic consulting"],
+    "background": "Leads CIC's Innovation Ecosystem Services, the company's advisory and consulting branch. First Chief Innovation Officer at CIC.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_xiao_xiao",
+    "name": "Xiao Xiao",
+    "name_ja": "シャオ・シャオ",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["creative technology", "human learning", "future technologies"],
+    "background": "Director of the Institute for Future Technologies at De Vinci Higher Education in Paris-La Défense and Research Affiliate at the MIT Media Lab. Leads the Creative Technology major and Human Learning innovation group.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "active"
+  },
+  {
+    "id": "person_phillips_alexander",
+    "name": "Alexander James Phillips",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["collective intelligence", "sense-making", "biochemistry", "software engineering"],
+    "background": "Researcher, biochemist, and software engineer building tools that help us make sense of our complex and uncertain world and harness conscious collective intelligence.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_moran_brent",
+    "name": "Brent Moran",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["database administration", "data engineering", "automation"],
+    "background": "Automation enthusiast working on Mathesar to make databases approachable for laypeople. Previously engineering data at Creative Commons.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_freer_cameron",
+    "name": "Cameron Freer",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["probabilistic computing", "probabilistic inference", "random structures"],
+    "background": "Researcher exploring interactions of randomness and computation, focusing on foundations of probabilistic computing and efficient samplers for probabilistic inference.",
+    "projects": [],
+    "initiatives": [],
+    "links": [
+      { "type": "website", "url": "https://cfreer.org/" }
+    ],
+    "status": "alumni"
+  },
+  {
+    "id": "person_mostauskis_dominykas",
+    "name": "Dominykas Mostauskis",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "background": "Technologist working on Mathesar, passionate about facilitating change through better tools.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_lin_kevin",
+    "name": "Kevin Lin",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_matsubara_kota",
+    "name": "Kota Matsubara",
+    "name_ja": "松原康太",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_godey_kriti",
+    "name": "Kriti Godey",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["technology management", "open source"],
+    "background": "Manages technology at CCI. Leads the Mathesar project, an open source product to help users of all skill levels work with data.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_schoeneich_magdalena",
+    "name": "Magdalena Schoeneich",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_murali_mukesh",
+    "name": "Mukesh Murali",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["systems engineering", "workflow automation"],
+    "background": "Engineer passionate about building systems that reduce complex problems into simple and elegant solutions.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_kumar_pavish",
+    "name": "Pavish Kumar",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["software engineering", "database accessibility"],
+    "background": "Software engineer working on Mathesar to help databases and data manipulation become more accessible for users of all skill levels.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_zamma_toshiyuki",
+    "name": "Toshiyuki Zamma",
+    "name_ja": "座間 敏如",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["digital government", "international strategy", "public policy"],
+    "background": "Director General for International Strategy at Japan's Digital Agency. Executive Advisor to Chief Digital Officer at Ministry of Finance. Practitioner Faculty at Graduate School of Public Policy, University of Tokyo.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  },
+  {
+    "id": "person_hidaka_zenbo",
+    "name": "Zenbo Hidaka",
+    "name_ja": "飛鷹全法",
+    "role_categories": ["visiting_researcher"],
+    "affiliations": [
+      { "institution": "Henkaku Center", "institution_id": "inst_henkaku", "role": "Visiting Researcher", "primary": true }
+    ],
+    "expertise": ["IT", "software development"],
+    "background": "Koyasan Sanbo-in Deputy Chief Priest and Koyasan Koso-in Chief Priest. Graduated University of Tokyo, Faculty of Law. Established an IT startup during PhD course.",
+    "projects": [],
+    "initiatives": [],
+    "links": [],
+    "status": "alumni"
+  }
+]
