@@ -825,10 +825,24 @@
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     }
 
+    .registry-card .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .registry-card .card-portrait {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
     .registry-card .card-name {
       font-weight: 600;
       font-size: 1rem;
-      margin-bottom: 0.35rem;
     }
 
     .registry-card .card-summary {
@@ -856,6 +870,64 @@
 
     .registry-card .card-relations strong {
       color: #555;
+    }
+
+    .registry-card.expandable {
+      cursor: pointer;
+    }
+
+    .registry-card .card-detail {
+      display: none;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    .registry-card.expanded .card-detail {
+      display: block;
+    }
+
+    .registry-card.expanded {
+      grid-column: 1 / -1;
+    }
+
+    .registry-card.expanded .card-header {
+      gap: 1rem;
+    }
+
+    .registry-card.expanded .card-portrait {
+      width: 80px;
+      height: 80px;
+    }
+
+    .registry-card .card-detail p {
+      margin: 0.4rem 0;
+    }
+
+    .registry-card .card-detail .detail-label {
+      font-weight: 600;
+      color: #555;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 0.75rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .registry-card .card-detail .detail-label:first-child {
+      margin-top: 0;
+    }
+
+    .registry-card .card-detail a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .registry-card .card-detail a:hover {
+      text-decoration: underline;
     }
 
     .status-badge {
@@ -1794,12 +1866,65 @@
           break;
       }
 
+      const portraitSrc = entry.portrait || 'compass-icon.png';
+      const portraitHtml = `<img class="card-portrait" src="${portraitSrc}" alt="" loading="lazy">`;
+
+      // Build expanded detail section for people
+      let detailHtml = '';
+      if (type === 'people') {
+        card.classList.add('expandable');
+        if (entry.name_ja) {
+          detailHtml += `<p style="opacity:0.6;margin-top:0;">${entry.name_ja}</p>`;
+        }
+        if (entry.background) {
+          detailHtml += `<p>${entry.background}</p>`;
+        }
+        if (entry.affiliations && entry.affiliations.length > 0) {
+          detailHtml += `<p class="detail-label">Affiliations</p>`;
+          detailHtml += entry.affiliations.map(a =>
+            `<p>${a.institution}${a.role ? ' — ' + a.role : ''}${a.primary ? ' (primary)' : ''}</p>`
+          ).join('');
+        }
+        if (entry.expertise && entry.expertise.length > 0) {
+          detailHtml += `<p class="detail-label">Expertise</p><p>${entry.expertise.join(', ')}</p>`;
+        }
+        if (entry.interests && entry.interests.length > 0) {
+          detailHtml += `<p class="detail-label">Interests</p><p>${entry.interests.join(', ')}</p>`;
+        }
+        if (entry.projects && entry.projects.length > 0) {
+          detailHtml += `<p class="detail-label">Projects</p>`;
+          detailHtml += entry.projects.map(p => `<p>${p.title} — ${p.role}</p>`).join('');
+        }
+        if (entry.initiatives && entry.initiatives.length > 0) {
+          detailHtml += `<p class="detail-label">Initiatives</p>`;
+          detailHtml += entry.initiatives.map(i => `<p>${i.title} — ${i.role}</p>`).join('');
+        }
+        if (entry.links && entry.links.length > 0) {
+          detailHtml += `<p class="detail-label">Links</p>`;
+          detailHtml += entry.links.map(l =>
+            `<p><a href="${l.url}" target="_blank" rel="noopener">${l.type || l.url}</a></p>`
+          ).join('');
+        }
+      }
+
       card.innerHTML = `
-        <div class="card-name">${nameField}</div>
+        <div class="card-header">
+          ${portraitHtml}
+          <div class="card-name">${nameField}</div>
+        </div>
         <div class="card-meta">${metaHtml}</div>
         ${summaryField ? `<div class="card-summary">${summaryField}</div>` : ''}
         ${relationsHtml ? `<div class="card-relations">${relationsHtml}</div>` : ''}
+        ${detailHtml ? `<div class="card-detail">${detailHtml}</div>` : ''}
       `;
+
+      if (type === 'people') {
+        card.addEventListener('click', (e) => {
+          // Don't toggle if clicking a link
+          if (e.target.tagName === 'A') return;
+          card.classList.toggle('expanded');
+        });
+      }
 
       return card;
     }
@@ -2158,7 +2283,11 @@
             const detail = document.getElementById('network-detail');
             if (!detail || !data) return;
 
-            let html = `<h3>${data.name || data.title || data.id}</h3>`;
+            let html = '';
+            const detailPortrait = data.portrait || 'compass-icon.png';
+            html += `<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">`;
+            html += `<img src="${detailPortrait}" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">`;
+            html += `<h3 style="margin:0">${data.name || data.title || data.id}</h3></div>`;
             if (data.summary) html += `<p>${data.summary}</p>`;
             if (data.status) html += `<p><span class="status-badge ${data.status}">${data.status}</span></p>`;
 
