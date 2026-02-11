@@ -887,6 +887,9 @@
     /* Full-bleed layout (network page) */
     .layout.full-bleed {
       max-width: none;
+      height: calc(100vh - 60px);
+      min-height: 0;
+      overflow: hidden;
     }
 
     .layout.full-bleed main {
@@ -1147,7 +1150,7 @@
 
   <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
 
-  <footer>
+  <footer id="site-footer">
     <div class="footer-inner">
       <a href="https://chibatech.jp/" target="_blank" rel="noopener noreferrer">
         Chiba Tech
@@ -2021,6 +2024,9 @@
           graph.d3Force('charge').strength(-30);
           graph.d3Force('center').strength(0.15);
 
+          // Fit all nodes in view early
+          setTimeout(() => graph.zoomToFit(400, 40), 500);
+
           // Camera: rotate + zoom only, no panning (graph auto-centers on origin)
           const controls = graph.controls();
           controls.enablePan = false;
@@ -2040,6 +2046,14 @@
               }
             }
           });
+
+          // Resize graph when window resizes
+          function resizeGraph() {
+            graph.width(container.clientWidth);
+            graph.height(container.clientHeight);
+          }
+          window._networkResizeHandler = resizeGraph;
+          window.addEventListener('resize', resizeGraph);
 
           // Store graph and full data for filtering
           window._forceGraph = graph;
@@ -2374,8 +2388,18 @@
       const hash = window.location.hash.slice(1) || 'home';
       const docKey = Object.keys(routes).includes(hash) ? hash : 'home';
 
+      // Clean up network resize listener when leaving
+      if (window._networkResizeHandler) {
+        window.removeEventListener('resize', window._networkResizeHandler);
+        window._networkResizeHandler = null;
+      }
+
       // Full-bleed layout for network page only
-      layoutEl.classList.toggle('full-bleed', docKey === 'network');
+      const isNetwork = docKey === 'network';
+      layoutEl.classList.toggle('full-bleed', isNetwork);
+      document.getElementById('site-footer').style.display = isNetwork ? 'none' : '';
+      document.body.style.background = isNetwork ? '#1e1e1e' : '';
+      document.body.style.overflow = isNetwork ? 'hidden' : '';
 
       if (docKey === 'charter') {
         window.location.href = 'https://charter.henkaku.center';
