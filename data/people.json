@@ -69,7 +69,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/sds_profile_pics/Joi_Ito.jpg"
+    "portrait": "data/portraits/Joi_Ito.jpg"
   },
   {
     "id": "person_winder_ira",
@@ -135,7 +135,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/sds_profile_pics/Ira_Winder.png"
+    "portrait": "data/portraits/Ira_Winder.png"
   },
   {
     "id": "person_kim_daum",
@@ -183,7 +183,7 @@
     ],
     "links": [],
     "status": "active",
-    "portrait": "reference/sds_profile_pics/Daum_Kim.png"
+    "portrait": "data/portraits/Daum_Kim.png"
   },
   {
     "id": "person_maracke_catharina",
@@ -230,7 +230,7 @@
     ],
     "links": [],
     "status": "active",
-    "portrait": "reference/sds_profile_pics/Catharina_Maracke.png"
+    "portrait": "data/portraits/Catharina_Maracke.png"
   },
   {
     "id": "person_kojima_hiroki",
@@ -277,7 +277,7 @@
     ],
     "links": [],
     "status": "active",
-    "portrait": "reference/sds_profile_pics/Hiroki_Kojima.png"
+    "portrait": "data/portraits/Hiroki_Kojima.png"
   },
   {
     "id": "person_oka_mizuki",
@@ -329,7 +329,7 @@
     ],
     "links": [],
     "status": "active",
-    "portrait": "reference/sds_profile_pics/Mizuki_Oka.png"
+    "portrait": "data/portraits/Mizuki_Oka.png"
   },
   {
     "id": "person_austerweil_joseph",
@@ -376,7 +376,7 @@
     ],
     "links": [],
     "status": "active",
-    "portrait": "reference/sds_profile_pics/Joe_Austerweil.png"
+    "portrait": "data/portraits/Joe_Austerweil.png"
   },
   {
     "id": "person_ozaki_hiromi",
@@ -423,7 +423,7 @@
     ],
     "links": [],
     "status": "active",
-    "portrait": "reference/sds_profile_pics/Hiromi_Ozaki.png"
+    "portrait": "data/portraits/Hiromi_Ozaki.png"
   },
   {
     "id": "person_priyadarshi_tenzin",
@@ -456,7 +456,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/tenzin-priyadarshi.jpg"
+    "portrait": "data/portraits/tenzin-priyadarshi.jpg"
   },
   {
     "id": "person_raz_gal",
@@ -488,7 +488,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/gal-raz.jpg"
+    "portrait": "data/portraits/gal-raz.jpg"
   },
   {
     "id": "person_szep_grisha",
@@ -519,7 +519,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/grisha-szep.jpg"
+    "portrait": "data/portraits/grisha-szep.jpg"
   },
   {
     "id": "person_wang_sophia",
@@ -553,7 +553,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/sophia-wang.jpg"
+    "portrait": "data/portraits/sophia-wang.jpg"
   },
   {
     "id": "person_bates_samantha",
@@ -582,7 +582,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/samantha-bates.jpg"
+    "portrait": "data/portraits/samantha-bates.jpg"
   },
   {
     "id": "person_razik_fiza",
@@ -616,7 +616,7 @@
     ],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/fiza-razik.jpg"
+    "portrait": "data/portraits/fiza-razik.jpg"
   },
   {
     "id": "person_tachibana_madoka",
@@ -676,7 +676,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/boris-anthony.jpg"
+    "portrait": "data/portraits/boris-anthony.jpg"
   },
   {
     "id": "person_bateson_nora",
@@ -704,7 +704,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/nora-bateson.jpg"
+    "portrait": "data/portraits/nora-bateson.jpg"
   },
   {
     "id": "person_bletsas_michael",
@@ -724,7 +724,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/michael-bletsas.jpg"
+    "portrait": "data/portraits/michael-bletsas.jpg"
   },
   {
     "id": "person_castello_eduardo",
@@ -753,7 +753,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/eduardo-castello.jpg"
+    "portrait": "data/portraits/eduardo-castello.jpg"
   },
   {
     "id": "person_cohen_revital",
@@ -780,7 +780,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/revital-cohen.jpg"
+    "portrait": "data/portraits/revital-cohen.jpg"
   },
   {
     "id": "person_dinakar_karthik",
@@ -806,7 +806,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/karthik-dinakar.jpg"
+    "portrait": "data/portraits/karthik-dinakar.jpg"
   },
   {
     "id": "person_druga_stefania",
@@ -833,7 +833,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/stefania-druga.jpg"
+    "portrait": "data/portraits/stefania-druga.jpg"
   },
   {
     "id": "person_ekblaw_ariel",
@@ -864,7 +864,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/ariel-ekblaw.jpg"
+    "portrait": "data/portraits/ariel-ekblaw.jpg"
   },
   {
     "id": "person_goldman_daniel",
@@ -892,7 +892,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/daniel-goldman.jpg"
+    "portrait": "data/portraits/daniel-goldman.jpg"
   },
   {
     "id": "person_hickok_merve",
@@ -923,7 +923,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/merve-hickok.jpg"
+    "portrait": "data/portraits/merve-hickok.jpg"
   },
   {
     "id": "person_huang_michelle",
@@ -975,7 +975,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/eiko-ikegami.jpg"
+    "portrait": "data/portraits/eiko-ikegami.jpg"
   },
   {
     "id": "person_kang_louis",
@@ -1003,7 +1003,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/louis-kang.jpg"
+    "portrait": "data/portraits/louis-kang.jpg"
   },
   {
     "id": "person_kokuryo_jiro",
@@ -1038,7 +1038,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/jiro-kokuryo.jpg"
+    "portrait": "data/portraits/jiro-kokuryo.jpg"
   },
   {
     "id": "person_kuramata_toshio",
@@ -1059,7 +1059,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/toshio-kuramata.jpg"
+    "portrait": "data/portraits/toshio-kuramata.jpg"
   },
   {
     "id": "person_lessig_lawrence",
@@ -1095,7 +1095,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/lawrence-lessig.jpg"
+    "portrait": "data/portraits/lawrence-lessig.jpg"
   },
   {
     "id": "person_mansinghka_vikash",
@@ -1125,7 +1125,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/vikash-k-mansinghka.jpg"
+    "portrait": "data/portraits/vikash-k-mansinghka.jpg"
   },
   {
     "id": "person_mccallkiley_kate",
@@ -1151,7 +1151,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/kate-mccall-kiley.jpg"
+    "portrait": "data/portraits/kate-mccall-kiley.jpg"
   },
   {
     "id": "person_miyaguchi_aya",
@@ -1178,7 +1178,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/aya-miyaguchi.jpg"
+    "portrait": "data/portraits/aya-miyaguchi.jpg"
   },
   {
     "id": "person_montgomery_mark",
@@ -1222,7 +1222,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/margarita-mora.jpg"
+    "portrait": "data/portraits/margarita-mora.jpg"
   },
   {
     "id": "person_murai_jun",
@@ -1252,7 +1252,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/jun-murai.jpg"
+    "portrait": "data/portraits/jun-murai.jpg"
   },
   {
     "id": "person_noveck_beth",
@@ -1277,7 +1277,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/beth-noveck.jpg"
+    "portrait": "data/portraits/beth-noveck.jpg"
   },
   {
     "id": "person_rich_travis",
@@ -1302,7 +1302,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/travis-rich.jpg"
+    "portrait": "data/portraits/travis-rich.jpg"
   },
   {
     "id": "person_salobir_eric",
@@ -1327,7 +1327,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/eric-salobir.jpg"
+    "portrait": "data/portraits/eric-salobir.jpg"
   },
   {
     "id": "person_schingler_jessykate",
@@ -1354,7 +1354,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/jessy-kate-schingler.jpg"
+    "portrait": "data/portraits/jessy-kate-schingler.jpg"
   },
   {
     "id": "person_schneier_bruce",
@@ -1386,7 +1386,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/bruce-schneier.jpg"
+    "portrait": "data/portraits/bruce-schneier.jpg"
   },
   {
     "id": "person_shinada_miho",
@@ -1432,7 +1432,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/kana-shinoda.jpg"
+    "portrait": "data/portraits/kana-shinoda.jpg"
   },
   {
     "id": "person_takemura_mitsuhiro",
@@ -1464,7 +1464,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/mitsuhiro-takemura.jpg"
+    "portrait": "data/portraits/mitsuhiro-takemura.jpg"
   },
   {
     "id": "person_vanbalen_tuur",
@@ -1492,7 +1492,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/tuur-van-balen.jpg"
+    "portrait": "data/portraits/tuur-van-balen.jpg"
   },
   {
     "id": "person_virza_madars",
@@ -1524,7 +1524,7 @@
       }
     ],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/madars-virza.jpg"
+    "portrait": "data/portraits/madars-virza.jpg"
   },
   {
     "id": "person_mulas_victor",
@@ -1551,7 +1551,7 @@
     "initiatives": [],
     "links": [],
     "status": "active",
-    "portrait": "reference/henkaku_website/people/en/portraits/victor-mulas.jpg"
+    "portrait": "data/portraits/victor-mulas.jpg"
   },
   {
     "id": "person_xiao_xiao",
