@@ -1407,6 +1407,126 @@
       color: #999;
       margin-top: 0.2rem;
     }
+
+    /* Array form fields */
+    .array-items {
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .array-item {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      padding: 0.75rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .array-item:last-child {
+      border-bottom: none;
+    }
+
+    .array-item .sub-fields {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .array-item .sub-field label {
+      font-size: 0.7rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.15rem;
+    }
+
+    .array-item .sub-field input,
+    .array-item .sub-field select,
+    .array-item .sub-field textarea {
+      width: 100%;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.85rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    .array-item .sub-field input:focus,
+    .array-item .sub-field select:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    .array-item .sub-field.checkbox-field {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding-top: 1.2rem;
+    }
+
+    .array-item .sub-field.checkbox-field label {
+      font-size: 0.85rem;
+      color: #555;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .remove-item-btn {
+      background: none;
+      border: none;
+      color: #c62828;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.25rem;
+      line-height: 1;
+      flex-shrink: 0;
+      opacity: 0.4;
+      margin-top: 1rem;
+    }
+
+    .remove-item-btn:hover {
+      opacity: 1;
+    }
+
+    .add-item-btn {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      background: #fafafa;
+      border: 1px dashed #ddd;
+      border-radius: 0 0 6px 6px;
+      margin-top: -1px;
+      cursor: pointer;
+      color: #666;
+      font-size: 0.85rem;
+      transition: background 0.15s;
+    }
+
+    .add-item-btn:hover {
+      background: #f0f0f0;
+    }
+
+    .new-entity-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: #333;
+      transition: background 0.15s, border-color 0.15s;
+      margin-left: 0.75rem;
+    }
+
+    .new-entity-btn:hover {
+      background: #f5f5f5;
+      border-color: #ccc;
+    }
   </style>
 
   <!-- Structured Data -->
@@ -2217,9 +2337,12 @@
       layoutEl.classList.remove('has-toc');
 
       const meta = registryMeta[type];
+      const addNewBtn = isLoggedIn()
+        ? `<button class="new-entity-btn" onclick="showNewEntityModal('${type}')">+ New ${meta.singular}</button>`
+        : '';
       contentEl.innerHTML = `
         <div class="registry-page-header">
-          <h1>${meta.plural}</h1>
+          <h1>${meta.plural}${addNewBtn}</h1>
           <p>${meta.description}</p>
         </div>
         <div class="registry-list" id="registry-list">
@@ -2917,7 +3040,7 @@
 
     // --- Edit Modal ---
 
-    var longTextFields = ['background', 'summary', 'purpose', 'ecosystem_role', 'description', 'scope', 'notes'];
+    var longTextFields = ['background', 'summary', 'purpose', 'ecosystem_role', 'description', 'scope', 'notes', 'mandate'];
     var statusOptionsByType = {
       people: ['active', 'alumni', 'emeritus'],
       projects: ['proposed', 'active', 'paused', 'completed'],
@@ -2925,6 +3048,75 @@
       institutions: ['active', 'inactive']
     };
     var editSkipFields = ['portrait'];
+
+    // Top-level fields that reference a single entity by ID
+    var refFields = {
+      owner: 'people', lead: 'people',
+      parent_initiative: 'initiatives', parent_institution: 'institutions'
+    };
+
+    // Fields that are arrays of entity ID strings
+    var refArrayFields = {
+      hosted_projects: 'projects', hosted_initiatives: 'initiatives'
+    };
+
+    // Sub-field key → entity type for dropdowns within array-of-objects
+    var subFieldRefTypes = {
+      person_id: 'people', project_id: 'projects',
+      initiative_id: 'initiatives', institution_id: 'institutions'
+    };
+
+    // Array-of-objects item templates (used for "Add" and to detect field type)
+    var arrayItemTemplates = {
+      affiliations: { institution: '', institution_id: '', role: '', primary: false },
+      projects: { project_id: '', title: '', role: '' },
+      initiatives: { initiative_id: '', title: '', role: '' },
+      links: { type: '', url: '' },
+      contributors: { person_id: '', role: '' },
+      participants: { person_id: '', role: '' },
+      key_contacts: { person_id: '', role: '' },
+      spawned_projects: { project_id: '', relationship: '' },
+      contained_projects: { project_id: '', relationship: '' },
+      related_initiatives: { initiative_id: '', relationship: '' },
+      related_institutions: { institution_id: '', relationship: '' }
+    };
+
+    // Companion name fields auto-populated from ID selection
+    var companionFieldMap = {
+      affiliations: { institution_id: 'institution' },
+      projects: { project_id: 'title' },
+      initiatives: { initiative_id: 'title' }
+    };
+
+    // Dependencies sub-item template
+    var depsRequiresTemplate = { project_id: '', description: '', criticality: '' };
+
+    // Blank entity templates for "Add New"
+    var entityTemplates = {
+      people: {
+        id: '', name: '', name_ja: '', status: 'active', role_categories: [],
+        title: '', affiliations: [], expertise: [], interests: [],
+        background: '', projects: [], initiatives: [], links: [], notes: ''
+      },
+      projects: {
+        id: '', title: '', status: 'proposed', summary: '', domains: [],
+        owner: '', contributors: [], parent_initiative: '',
+        project_goals: [], completion_criteria: [],
+        dependencies: { requires: [] }, links: [], notes: ''
+      },
+      initiatives: {
+        id: '', title: '', status: 'active', summary: '', purpose: '', domains: [],
+        lead: '', participants: [], spawned_projects: [], contained_projects: [],
+        related_initiatives: [], health_indicators: [], review_cycle: '', links: [], notes: ''
+      },
+      institutions: {
+        id: '', name: '', name_ja: '', short_name: '', status: 'active',
+        institution_type: '', summary: '', ecosystem_role: '', mandate: '',
+        capabilities: [], domains: [], key_contacts: [], parent_institution: '',
+        related_institutions: [], hosted_projects: [], hosted_initiatives: [],
+        links: [], notes: ''
+      }
+    };
 
     function escapeHtml(str) {
       return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -2934,112 +3126,316 @@
       return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    function showEditModal(entry, type) {
-      var name = entry.name || entry.title || entry.id;
-      var formHtml = buildEditForm(entry, type);
+    // Get friendly display name for an entity
+    function entityDisplayName(id, refType, allData) {
+      if (!id) return '';
+      var list = allData[refType] || [];
+      var found = list.find(function(e) { return e.id === id; });
+      if (!found) return id;
+      if (found.short_name) return found.name + ' (' + found.short_name + ')';
+      return found.name || found.title || id;
+    }
+
+    // Build <option> list for a ref dropdown
+    function refOptions(refType, selectedId, allData) {
+      var list = allData[refType] || [];
+      var html = '<option value="">-- None --</option>';
+      list.forEach(function(e) {
+        var label = e.short_name ? e.name + ' (' + e.short_name + ')' : (e.name || e.title || e.id);
+        html += '<option value="' + escapeAttr(e.id) + '"' +
+          (e.id === selectedId ? ' selected' : '') + '>' + escapeHtml(label) + '</option>';
+      });
+      return html;
+    }
+
+    // Render a single item row for an array-of-objects field
+    function renderArrayItemHtml(fieldName, item, allData) {
+      var companions = companionFieldMap[fieldName] || {};
+      var companionKeys = {};
+      Object.keys(companions).forEach(function(k) { companionKeys[companions[k]] = true; });
+
+      var html = '<div class="array-item"><div class="sub-fields">';
+      Object.keys(item).forEach(function(subKey) {
+        // Skip companion name fields (auto-populated)
+        if (companionKeys[subKey]) return;
+        var subVal = item[subKey];
+        var refType = subFieldRefTypes[subKey];
+
+        if (refType) {
+          // Reference dropdown
+          html += '<div class="sub-field"><label>' + escapeHtml(subKey.replace(/_id$/, '').replace(/_/g, ' ')) + '</label>' +
+            '<select data-subfield="' + subKey + '">' + refOptions(refType, subVal, allData) + '</select></div>';
+        } else if (typeof subVal === 'boolean') {
+          html += '<div class="sub-field checkbox-field">' +
+            '<input type="checkbox" data-subfield="' + subKey + '"' + (subVal ? ' checked' : '') + '>' +
+            '<label>' + escapeHtml(subKey.replace(/_/g, ' ')) + '</label></div>';
+        } else {
+          html += '<div class="sub-field"><label>' + escapeHtml(subKey.replace(/_/g, ' ')) + '</label>' +
+            '<input type="text" data-subfield="' + subKey + '" value="' + escapeAttr(String(subVal == null ? '' : subVal)) + '"></div>';
+        }
+      });
+      html += '</div><button type="button" class="remove-item-btn" onclick="this.closest(\'.array-item\').remove()">\u00d7</button></div>';
+      return html;
+    }
+
+    // Add a new blank item to an array-of-objects container
+    function addArrayItem(fieldName) {
+      var container = document.querySelector('[data-array-field="' + fieldName + '"]');
+      if (!container) return;
+      var allData = getCachedAllData();
+      var template = arrayItemTemplates[fieldName] || {};
+      container.insertAdjacentHTML('beforeend', renderArrayItemHtml(fieldName, template, allData));
+    }
+
+    // Add a new blank item to dependencies.requires
+    function addDepsRequiresItem() {
+      var container = document.querySelector('[data-array-field="dependencies.requires"]');
+      if (!container) return;
+      var allData = getCachedAllData();
+      container.insertAdjacentHTML('beforeend', renderArrayItemHtml('_depsRequires', depsRequiresTemplate, allData));
+    }
+
+    // Add a new ref to a ref-array field
+    function addRefArrayItem(fieldName) {
+      var container = document.querySelector('[data-array-field="' + fieldName + '"]');
+      if (!container) return;
+      var refType = refArrayFields[fieldName];
+      var allData = getCachedAllData();
+      var html = '<div class="array-item"><div class="sub-fields" style="display:block;">' +
+        '<select data-subfield="value">' + refOptions(refType, '', allData) + '</select>' +
+        '</div><button type="button" class="remove-item-btn" onclick="this.closest(\'.array-item\').remove()">\u00d7</button></div>';
+      container.insertAdjacentHTML('beforeend', html);
+    }
+
+    function getCachedAllData() {
+      return {
+        institutions: registryCache['institutions'] || [],
+        people: registryCache['people'] || [],
+        projects: registryCache['projects'] || [],
+        initiatives: registryCache['initiatives'] || []
+      };
+    }
+
+    function showEditModal(entry, type, isNew) {
+      var allData = getCachedAllData();
+      var name = isNew ? ('New ' + registryMeta[type].singular) : (entry.name || entry.title || entry.id);
+      var formHtml = buildEditForm(entry, type, allData, isNew);
+      var saveAction = isNew ? 'handleSaveNew' : 'handleSave';
       var html = '<form id="edit-form" onsubmit="return false;">' +
         formHtml +
         '<div class="modal-actions">' +
         '<button type="button" class="btn" onclick="closeModal()">Cancel</button>' +
-        '<button type="button" class="btn btn-primary" id="save-btn" onclick="handleSave(\'' + escapeAttr(entry.id) + '\', \'' + type + '\')">Save</button>' +
+        '<button type="button" class="btn btn-primary" id="save-btn" onclick="' + saveAction + '(\'' + type + '\')">' + (isNew ? 'Create' : 'Save') + '</button>' +
         '</div></form>';
-      showModal('Edit ' + name, html, { wide: true });
+      showModal((isNew ? 'New ' : 'Edit ') + name, html, { wide: true });
     }
 
-    function buildEditForm(entry, type) {
+    function showNewEntityModal(type) {
+      var template = JSON.parse(JSON.stringify(entityTemplates[type]));
+      showEditModal(template, type, true);
+    }
+
+    function buildEditForm(entry, type, allData, isNew) {
       var html = '';
       var keys = Object.keys(entry);
 
       keys.forEach(function(key) {
         if (editSkipFields.indexOf(key) !== -1) return;
         var val = entry[key];
+        var label = escapeHtml(key.replace(/_/g, ' '));
 
+        // ID field
         if (key === 'id') {
-          html += '<div class="form-group"><label>' + key + '</label>' +
-            '<input type="text" name="' + key + '" value="' + escapeAttr(val) + '" readonly /></div>';
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<input type="text" name="id" value="' + escapeAttr(val) + '"' + (isNew ? '' : ' readonly') + ' />' +
+            (isNew ? '<div class="field-hint">e.g. person_lastname_firstname, proj_short_name</div>' : '') + '</div>';
           return;
         }
 
+        // Status dropdown
         if (key === 'status' && statusOptionsByType[type]) {
           var opts = statusOptionsByType[type].map(function(s) {
             return '<option value="' + s + '"' + (val === s ? ' selected' : '') + '>' + s + '</option>';
           }).join('');
-          html += '<div class="form-group"><label>' + key + '</label>' +
+          html += '<div class="form-group"><label>' + label + '</label>' +
             '<select name="' + key + '">' + opts + '</select></div>';
           return;
         }
 
+        // institution_type dropdown
+        if (key === 'institution_type') {
+          var itypes = ['university', 'graduate_school', 'research_center', 'lab', 'institute', 'foundation', 'company', 'government', 'ngo'];
+          var iopts = '<option value="">-- Select --</option>' + itypes.map(function(t) {
+            return '<option value="' + t + '"' + (val === t ? ' selected' : '') + '>' + escapeHtml(t.replace(/_/g, ' ')) + '</option>';
+          }).join('');
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<select name="' + key + '">' + iopts + '</select></div>';
+          return;
+        }
+
+        // Top-level single ref field (owner, lead, parent_initiative, parent_institution)
+        if (refFields[key]) {
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<select name="' + key + '">' + refOptions(refFields[key], val, allData) + '</select></div>';
+          return;
+        }
+
+        // String field
         if (typeof val === 'string') {
           if (longTextFields.indexOf(key) !== -1) {
-            html += '<div class="form-group"><label>' + key + '</label>' +
+            html += '<div class="form-group"><label>' + label + '</label>' +
               '<textarea name="' + key + '" class="tall">' + escapeHtml(val) + '</textarea></div>';
           } else {
-            html += '<div class="form-group"><label>' + key + '</label>' +
+            html += '<div class="form-group"><label>' + label + '</label>' +
               '<input type="text" name="' + key + '" value="' + escapeAttr(val) + '" /></div>';
           }
           return;
         }
 
-        if (Array.isArray(val) && val.length > 0 && val.every(function(v) { return typeof v === 'string'; })) {
-          html += '<div class="form-group"><label>' + key + '</label>' +
-            '<textarea name="' + key + '" data-field-type="string-array">' + escapeHtml(val.join('\n')) + '</textarea>' +
+        // Array of ref ID strings (hosted_projects, hosted_initiatives)
+        if (refArrayFields[key]) {
+          var refType = refArrayFields[key];
+          html += '<div class="form-group"><label>' + label + '</label><div class="array-items" data-array-field="' + key + '">';
+          (val || []).forEach(function(id) {
+            html += '<div class="array-item"><div class="sub-fields" style="display:block;">' +
+              '<select data-subfield="value">' + refOptions(refType, id, allData) + '</select>' +
+              '</div><button type="button" class="remove-item-btn" onclick="this.closest(\'.array-item\').remove()">\u00d7</button></div>';
+          });
+          html += '</div><button type="button" class="add-item-btn" onclick="addRefArrayItem(\'' + key + '\')">+ Add</button></div>';
+          return;
+        }
+
+        // Array of objects (known template)
+        if (Array.isArray(val) && arrayItemTemplates[key]) {
+          html += '<div class="form-group"><label>' + label + '</label><div class="array-items" data-array-field="' + key + '">';
+          val.forEach(function(item) {
+            html += renderArrayItemHtml(key, item, allData);
+          });
+          html += '</div><button type="button" class="add-item-btn" onclick="addArrayItem(\'' + key + '\')">+ Add</button></div>';
+          return;
+        }
+
+        // Array of strings (expertise, interests, domains, etc.)
+        if (Array.isArray(val)) {
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<textarea name="' + key + '" data-field-type="string-array">' + escapeHtml((val || []).join('\n')) + '</textarea>' +
             '<div class="field-hint">One item per line</div></div>';
           return;
         }
 
-        if (typeof val === 'object' && val !== null) {
-          html += '<div class="form-group"><label>' + key + '</label>' +
-            '<textarea name="' + key + '" class="tall" data-field-type="json">' + escapeHtml(JSON.stringify(val, null, 2)) + '</textarea>' +
-            '<div class="field-hint">JSON format</div></div>';
+        // Dependencies object { requires: [...] }
+        if (key === 'dependencies' && typeof val === 'object' && val !== null) {
+          var requires = (val && val.requires) || [];
+          html += '<div class="form-group"><label>dependencies (requires)</label><div class="array-items" data-array-field="dependencies.requires">';
+          requires.forEach(function(item) {
+            html += renderArrayItemHtml('_depsRequires', item, allData);
+          });
+          html += '</div><button type="button" class="add-item-btn" onclick="addDepsRequiresItem()">+ Add</button></div>';
           return;
         }
 
-        // Fallback (numbers, booleans, null)
-        html += '<div class="form-group"><label>' + key + '</label>' +
+        // Fallback for other types
+        html += '<div class="form-group"><label>' + label + '</label>' +
           '<input type="text" name="' + key + '" value="' + escapeAttr(String(val == null ? '' : val)) + '" /></div>';
       });
 
       return html;
     }
 
-    function collectFormData(originalEntry) {
+    function collectFormData(entry, type) {
       var form = document.getElementById('edit-form');
       if (!form) return null;
-
+      var allData = getCachedAllData();
       var updated = {};
-      var keys = Object.keys(originalEntry);
+      var keys = Object.keys(entry);
 
       keys.forEach(function(key) {
         if (editSkipFields.indexOf(key) !== -1) {
-          updated[key] = originalEntry[key];
+          updated[key] = entry[key];
           return;
         }
 
-        var input = form.querySelector('[name="' + key + '"]');
-        if (!input) {
-          updated[key] = originalEntry[key];
+        // Array of ref ID strings
+        if (refArrayFields[key]) {
+          var container = form.querySelector('[data-array-field="' + key + '"]');
+          if (!container) { updated[key] = entry[key]; return; }
+          var ids = [];
+          container.querySelectorAll('.array-item select[data-subfield="value"]').forEach(function(sel) {
+            if (sel.value) ids.push(sel.value);
+          });
+          updated[key] = ids;
           return;
         }
+
+        // Array of objects (known template)
+        if (Array.isArray(entry[key]) && arrayItemTemplates[key]) {
+          var container = form.querySelector('[data-array-field="' + key + '"]');
+          if (!container) { updated[key] = entry[key]; return; }
+          var companions = companionFieldMap[key] || {};
+          var items = [];
+          container.querySelectorAll('.array-item').forEach(function(row) {
+            var item = {};
+            var template = arrayItemTemplates[key];
+            Object.keys(template).forEach(function(subKey) {
+              // Check for companion: auto-populate from ref selection
+              var companionFor = null;
+              Object.keys(companions).forEach(function(refKey) {
+                if (companions[refKey] === subKey) companionFor = refKey;
+              });
+              if (companionFor) {
+                // Auto-populate: get the selected ref's display name
+                var refSel = row.querySelector('[data-subfield="' + companionFor + '"]');
+                var refId = refSel ? refSel.value : '';
+                var refType = subFieldRefTypes[companionFor];
+                item[subKey] = refId ? entityDisplayName(refId, refType, allData) : '';
+                return;
+              }
+              var el = row.querySelector('[data-subfield="' + subKey + '"]');
+              if (!el) { item[subKey] = template[subKey]; return; }
+              if (typeof template[subKey] === 'boolean') {
+                item[subKey] = el.checked;
+              } else {
+                item[subKey] = el.value;
+              }
+            });
+            items.push(item);
+          });
+          updated[key] = items;
+          return;
+        }
+
+        // Dependencies object
+        if (key === 'dependencies') {
+          var container = form.querySelector('[data-array-field="dependencies.requires"]');
+          if (!container) { updated[key] = entry[key]; return; }
+          var requires = [];
+          container.querySelectorAll('.array-item').forEach(function(row) {
+            var item = {};
+            Object.keys(depsRequiresTemplate).forEach(function(subKey) {
+              var el = row.querySelector('[data-subfield="' + subKey + '"]');
+              item[subKey] = el ? el.value : '';
+            });
+            requires.push(item);
+          });
+          updated[key] = { requires: requires };
+          return;
+        }
+
+        // Simple fields (string, select, textarea)
+        var input = form.querySelector('[name="' + key + '"]');
+        if (!input) { updated[key] = entry[key]; return; }
 
         var fieldType = input.getAttribute('data-field-type');
         var rawVal = input.value;
 
-        if (key === 'id') {
-          updated[key] = rawVal;
-          return;
-        }
+        if (key === 'id') { updated[key] = rawVal; return; }
 
         if (fieldType === 'string-array') {
           updated[key] = rawVal.split('\n').map(function(s) { return s.trim(); }).filter(function(s) { return s; });
           return;
         }
 
-        if (fieldType === 'json') {
-          updated[key] = JSON.parse(rawVal);
-          return;
-        }
-
-        var originalVal = originalEntry[key];
+        var originalVal = entry[key];
         if (typeof originalVal === 'number') {
           updated[key] = Number(rawVal);
         } else if (typeof originalVal === 'boolean') {
@@ -3052,8 +3448,10 @@
       return updated;
     }
 
-    async function handleSave(entryId, type) {
+    async function handleSave(type) {
       var saveBtn = document.getElementById('save-btn');
+      var form = document.getElementById('edit-form');
+      var entryId = form ? form.querySelector('[name="id"]').value : '';
       var entries = registryCache[type];
       if (!entries) { showModalError('Data not loaded.'); return; }
 
@@ -3062,9 +3460,9 @@
 
       var updated;
       try {
-        updated = collectFormData(original);
+        updated = collectFormData(original, type);
       } catch (err) {
-        showModalError('Invalid JSON in a field: ' + err.message);
+        showModalError('Error reading form: ' + err.message);
         return;
       }
       if (!updated) { showModalError('Could not read form data.'); return; }
@@ -3072,13 +3470,45 @@
       if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Saving\u2026'; }
 
       try {
-        await updateRegistryFile(type, entryId, updated);
+        await commitRegistryUpdate(type, entryId, updated, false);
         closeModal();
         delete registryCache[type];
         loadFromHash();
       } catch (err) {
         showModalError(err.message);
         if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save'; }
+      }
+    }
+
+    async function handleSaveNew(type) {
+      var saveBtn = document.getElementById('save-btn');
+      var form = document.getElementById('edit-form');
+      var entryId = form ? form.querySelector('[name="id"]').value.trim() : '';
+
+      if (!entryId) { showModalError('ID is required.'); return; }
+      if (/\s/.test(entryId)) { showModalError('ID must not contain spaces.'); return; }
+
+      var template = entityTemplates[type];
+      var updated;
+      try {
+        updated = collectFormData(template, type);
+      } catch (err) {
+        showModalError('Error reading form: ' + err.message);
+        return;
+      }
+      if (!updated) { showModalError('Could not read form data.'); return; }
+      updated.id = entryId;
+
+      if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Creating\u2026'; }
+
+      try {
+        await commitRegistryUpdate(type, entryId, updated, true);
+        closeModal();
+        delete registryCache[type];
+        loadFromHash();
+      } catch (err) {
+        showModalError(err.message);
+        if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Create'; }
       }
     }
 
@@ -3100,7 +3530,7 @@
       return new TextDecoder().decode(bytes);
     }
 
-    async function updateRegistryFile(type, entryId, updatedEntry) {
+    async function commitRegistryUpdate(type, entryId, updatedEntry, isNew) {
       var pat = getPAT();
       if (!pat) throw new Error('Not logged in.');
 
@@ -3123,16 +3553,24 @@
       var content = decodeBase64Unicode(fileData.content.replace(/\n/g, ''));
       var allEntries = JSON.parse(content);
 
-      // Update the entry
-      var idx = allEntries.findIndex(function(e) { return e.id === entryId; });
-      if (idx === -1) throw new Error('Entry ' + entryId + ' not found in ' + filePath + '.');
-      allEntries[idx] = updatedEntry;
+      if (isNew) {
+        // Check for duplicate ID
+        if (allEntries.some(function(e) { return e.id === entryId; })) {
+          throw new Error('An entry with ID "' + entryId + '" already exists.');
+        }
+        allEntries.push(updatedEntry);
+      } else {
+        var idx = allEntries.findIndex(function(e) { return e.id === entryId; });
+        if (idx === -1) throw new Error('Entry ' + entryId + ' not found in ' + filePath + '.');
+        allEntries[idx] = updatedEntry;
+      }
 
       // Encode updated JSON
       var jsonString = JSON.stringify(allEntries, null, 2) + '\n';
       var encoded = encodeBase64Unicode(jsonString);
 
       var name = updatedEntry.name || updatedEntry.title || updatedEntry.id;
+      var verb = isNew ? 'add' : 'update';
 
       // Commit via GitHub Contents API
       var putRes = await fetch(apiUrl, {
@@ -3143,7 +3581,7 @@
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          message: 'registry: update ' + name + ' in ' + type,
+          message: 'registry: ' + verb + ' ' + name + ' in ' + type,
           content: encoded,
           sha: fileData.sha,
           branch: 'main'
