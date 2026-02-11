@@ -1161,6 +1161,251 @@
         margin-top: 0.25rem;
         padding-top: 0.75rem;
       }
+
+      .nav-login {
+        margin-left: 0;
+        padding: 0.75rem 2rem;
+        border-left: none;
+        border-top: 1px solid #e5e5e5;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+      }
+
+      .modal-overlay {
+        padding: 1rem;
+      }
+
+      .modal-box {
+        max-height: calc(100vh - 2rem);
+      }
+    }
+
+    /* Login UI */
+    .nav-login {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1.5rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid #ddd;
+      font-size: 0.9rem;
+    }
+
+    .nav-login .username {
+      color: #555;
+      font-weight: 500;
+    }
+
+    .nav-login button {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 0.25rem 0.65rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: #333;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .nav-login button:hover {
+      background: #f5f5f5;
+      border-color: #ccc;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.visible {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      animation: modalIn 0.2s ease-out;
+    }
+
+    .modal-box.wide {
+      max-width: 800px;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: #333;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-error {
+      display: none;
+      padding: 0.75rem 1.5rem;
+      background: #fef2f2;
+      color: #c62828;
+      font-size: 0.9rem;
+      border-top: 1px solid #fecaca;
+    }
+
+    .modal-error.visible {
+      display: block;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      margin-top: 1.25rem;
+    }
+
+    .btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #333;
+      transition: background 0.15s;
+    }
+
+    .btn:hover {
+      background: #f5f5f5;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #fff;
+      border-color: #2563eb;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Edit button on cards */
+    .card-edit-btn {
+      margin-left: auto;
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      color: #666;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+
+    .card-edit-btn:hover {
+      background: #f0f0f0;
+      border-color: #ccc;
+    }
+
+    /* Form styling */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"],
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .form-group input[readonly] {
+      background: #f5f5f5;
+      color: #888;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .form-group textarea.tall {
+      min-height: 120px;
+    }
+
+    .form-group .field-hint {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 0.2rem;
     }
   </style>
 
@@ -1205,6 +1450,7 @@
         <a href="#history">History</a>
         <a href="#about">About</a>
         <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener noreferrer" class="github-link" title="View on GitHub">GitHub</a>
+        <span class="nav-login" id="nav-login"></span>
       </div>
     </div>
   </nav>
@@ -1235,6 +1481,17 @@
       </a>
     </div>
   </footer>
+
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box" id="modal-box">
+      <div class="modal-header">
+        <h3 id="modal-title"></h3>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-error" id="modal-error"></div>
+    </div>
+  </div>
 
   <script>
     const contentEl = document.getElementById("content");
@@ -1273,6 +1530,18 @@
 
     navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", closeNav);
+    });
+
+    // Modal close handlers
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalCloseBtn = document.getElementById('modal-close');
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+    modalCloseBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('visible')) closeModal();
     });
 
     // Map hash fragments to document paths
@@ -1907,10 +2176,13 @@
         }
       }
 
+      const editBtnHtml = isLoggedIn() ? `<button class="card-edit-btn">Edit</button>` : '';
+
       card.innerHTML = `
         <div class="card-header">
           ${portraitHtml}
           <div class="card-name">${nameField}</div>
+          ${editBtnHtml}
         </div>
         <div class="card-meta">${metaHtml}</div>
         ${summaryField ? `<div class="card-summary">${summaryField}</div>` : ''}
@@ -1920,9 +2192,18 @@
 
       if (type === 'people') {
         card.addEventListener('click', (e) => {
-          // Don't toggle if clicking a link
-          if (e.target.tagName === 'A') return;
+          // Don't toggle if clicking a link or button
+          if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
           card.classList.toggle('expanded');
+        });
+      }
+
+      // Edit button handler
+      const editBtn = card.querySelector('.card-edit-btn');
+      if (editBtn) {
+        editBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showEditModal(entry, type);
         });
       }
 
@@ -2514,6 +2795,370 @@
       }, 50);
     });
 
+    // --- Login & Editing ---
+
+    function isLoggedIn() {
+      return !!sessionStorage.getItem('github_pat');
+    }
+
+    function getPAT() {
+      return sessionStorage.getItem('github_pat');
+    }
+
+    function getUsername() {
+      return sessionStorage.getItem('github_username');
+    }
+
+    function updateLoginUI() {
+      const loginEl = document.getElementById('nav-login');
+      if (!loginEl) return;
+      if (isLoggedIn()) {
+        loginEl.innerHTML = `<span class="username">${getUsername()}</span> <button onclick="logout()">Logout</button>`;
+      } else {
+        loginEl.innerHTML = `<button onclick="showLoginModal()">Login</button>`;
+      }
+    }
+
+    function showModal(title, bodyHtml, opts) {
+      opts = opts || {};
+      const overlay = document.getElementById('modal-overlay');
+      const box = document.getElementById('modal-box');
+      const titleEl = document.getElementById('modal-title');
+      const bodyEl = document.getElementById('modal-body');
+      const errorEl = document.getElementById('modal-error');
+
+      titleEl.textContent = title;
+      bodyEl.innerHTML = bodyHtml;
+      errorEl.textContent = '';
+      errorEl.classList.remove('visible');
+      box.classList.toggle('wide', !!opts.wide);
+      overlay.classList.add('visible');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      var overlay = document.getElementById('modal-overlay');
+      overlay.classList.remove('visible');
+      // Restore overflow based on current page (network needs hidden)
+      var hash = window.location.hash.slice(1) || 'home';
+      document.body.style.overflow = (hash === 'network') ? 'hidden' : '';
+    }
+
+    function showModalError(msg) {
+      const errorEl = document.getElementById('modal-error');
+      errorEl.textContent = msg;
+      errorEl.classList.add('visible');
+    }
+
+    function showLoginModal() {
+      var html = '<div class="form-group">' +
+        '<label for="pat-input">GitHub Personal Access Token</label>' +
+        '<input type="password" id="pat-input" placeholder="ghp_..." />' +
+        '<div class="field-hint">Needs <code>contents:write</code> scope for the compass repo.</div>' +
+        '</div>' +
+        '<div class="modal-actions">' +
+        '<button class="btn" onclick="closeModal()">Cancel</button>' +
+        '<button class="btn btn-primary" id="login-btn" onclick="handleLogin()">Login</button>' +
+        '</div>';
+      showModal('Login with GitHub', html);
+      setTimeout(function() { var el = document.getElementById('pat-input'); if (el) el.focus(); }, 100);
+    }
+
+    async function handleLogin() {
+      var pat = document.getElementById('pat-input');
+      pat = pat ? pat.value.trim() : '';
+      if (!pat) { showModalError('Please enter a token.'); return; }
+
+      var loginBtn = document.getElementById('login-btn');
+      if (loginBtn) { loginBtn.disabled = true; loginBtn.textContent = 'Verifying\u2026'; }
+
+      try {
+        // Verify repo access
+        var repoRes = await fetch('https://api.github.com/repos/henkaku-center/compass', {
+          headers: { 'Authorization': 'Bearer ' + pat, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (!repoRes.ok) {
+          if (repoRes.status === 401) throw new Error('Invalid token.');
+          if (repoRes.status === 403) throw new Error('Insufficient permissions. Token needs repo access.');
+          if (repoRes.status === 404) throw new Error('Repository not found or no access.');
+          throw new Error('GitHub API error: ' + repoRes.status);
+        }
+
+        var repoData = await repoRes.json();
+        if (!repoData.permissions || !repoData.permissions.push) {
+          throw new Error('Token lacks write access to this repository.');
+        }
+
+        // Get username
+        var userRes = await fetch('https://api.github.com/user', {
+          headers: { 'Authorization': 'Bearer ' + pat, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (!userRes.ok) throw new Error('Could not verify user identity.');
+        var userData = await userRes.json();
+
+        sessionStorage.setItem('github_pat', pat);
+        sessionStorage.setItem('github_username', userData.login);
+
+        closeModal();
+        updateLoginUI();
+        loadFromHash();
+      } catch (err) {
+        showModalError(err.message || 'Network error. Check your connection.');
+        if (loginBtn) { loginBtn.disabled = false; loginBtn.textContent = 'Login'; }
+      }
+    }
+
+    function logout() {
+      sessionStorage.removeItem('github_pat');
+      sessionStorage.removeItem('github_username');
+      updateLoginUI();
+      loadFromHash();
+    }
+
+    // --- Edit Modal ---
+
+    var longTextFields = ['background', 'summary', 'purpose', 'ecosystem_role', 'description', 'scope', 'notes'];
+    var statusOptionsByType = {
+      people: ['active', 'alumni', 'emeritus'],
+      projects: ['proposed', 'active', 'paused', 'completed'],
+      initiatives: ['active', 'paused', 'completed'],
+      institutions: ['active', 'inactive']
+    };
+    var editSkipFields = ['portrait'];
+
+    function escapeHtml(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function escapeAttr(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function showEditModal(entry, type) {
+      var name = entry.name || entry.title || entry.id;
+      var formHtml = buildEditForm(entry, type);
+      var html = '<form id="edit-form" onsubmit="return false;">' +
+        formHtml +
+        '<div class="modal-actions">' +
+        '<button type="button" class="btn" onclick="closeModal()">Cancel</button>' +
+        '<button type="button" class="btn btn-primary" id="save-btn" onclick="handleSave(\'' + escapeAttr(entry.id) + '\', \'' + type + '\')">Save</button>' +
+        '</div></form>';
+      showModal('Edit ' + name, html, { wide: true });
+    }
+
+    function buildEditForm(entry, type) {
+      var html = '';
+      var keys = Object.keys(entry);
+
+      keys.forEach(function(key) {
+        if (editSkipFields.indexOf(key) !== -1) return;
+        var val = entry[key];
+
+        if (key === 'id') {
+          html += '<div class="form-group"><label>' + key + '</label>' +
+            '<input type="text" name="' + key + '" value="' + escapeAttr(val) + '" readonly /></div>';
+          return;
+        }
+
+        if (key === 'status' && statusOptionsByType[type]) {
+          var opts = statusOptionsByType[type].map(function(s) {
+            return '<option value="' + s + '"' + (val === s ? ' selected' : '') + '>' + s + '</option>';
+          }).join('');
+          html += '<div class="form-group"><label>' + key + '</label>' +
+            '<select name="' + key + '">' + opts + '</select></div>';
+          return;
+        }
+
+        if (typeof val === 'string') {
+          if (longTextFields.indexOf(key) !== -1) {
+            html += '<div class="form-group"><label>' + key + '</label>' +
+              '<textarea name="' + key + '" class="tall">' + escapeHtml(val) + '</textarea></div>';
+          } else {
+            html += '<div class="form-group"><label>' + key + '</label>' +
+              '<input type="text" name="' + key + '" value="' + escapeAttr(val) + '" /></div>';
+          }
+          return;
+        }
+
+        if (Array.isArray(val) && val.length > 0 && val.every(function(v) { return typeof v === 'string'; })) {
+          html += '<div class="form-group"><label>' + key + '</label>' +
+            '<textarea name="' + key + '" data-field-type="string-array">' + escapeHtml(val.join('\n')) + '</textarea>' +
+            '<div class="field-hint">One item per line</div></div>';
+          return;
+        }
+
+        if (typeof val === 'object' && val !== null) {
+          html += '<div class="form-group"><label>' + key + '</label>' +
+            '<textarea name="' + key + '" class="tall" data-field-type="json">' + escapeHtml(JSON.stringify(val, null, 2)) + '</textarea>' +
+            '<div class="field-hint">JSON format</div></div>';
+          return;
+        }
+
+        // Fallback (numbers, booleans, null)
+        html += '<div class="form-group"><label>' + key + '</label>' +
+          '<input type="text" name="' + key + '" value="' + escapeAttr(String(val == null ? '' : val)) + '" /></div>';
+      });
+
+      return html;
+    }
+
+    function collectFormData(originalEntry) {
+      var form = document.getElementById('edit-form');
+      if (!form) return null;
+
+      var updated = {};
+      var keys = Object.keys(originalEntry);
+
+      keys.forEach(function(key) {
+        if (editSkipFields.indexOf(key) !== -1) {
+          updated[key] = originalEntry[key];
+          return;
+        }
+
+        var input = form.querySelector('[name="' + key + '"]');
+        if (!input) {
+          updated[key] = originalEntry[key];
+          return;
+        }
+
+        var fieldType = input.getAttribute('data-field-type');
+        var rawVal = input.value;
+
+        if (key === 'id') {
+          updated[key] = rawVal;
+          return;
+        }
+
+        if (fieldType === 'string-array') {
+          updated[key] = rawVal.split('\n').map(function(s) { return s.trim(); }).filter(function(s) { return s; });
+          return;
+        }
+
+        if (fieldType === 'json') {
+          updated[key] = JSON.parse(rawVal);
+          return;
+        }
+
+        var originalVal = originalEntry[key];
+        if (typeof originalVal === 'number') {
+          updated[key] = Number(rawVal);
+        } else if (typeof originalVal === 'boolean') {
+          updated[key] = rawVal === 'true';
+        } else {
+          updated[key] = rawVal;
+        }
+      });
+
+      return updated;
+    }
+
+    async function handleSave(entryId, type) {
+      var saveBtn = document.getElementById('save-btn');
+      var entries = registryCache[type];
+      if (!entries) { showModalError('Data not loaded.'); return; }
+
+      var original = entries.find(function(e) { return e.id === entryId; });
+      if (!original) { showModalError('Entry not found.'); return; }
+
+      var updated;
+      try {
+        updated = collectFormData(original);
+      } catch (err) {
+        showModalError('Invalid JSON in a field: ' + err.message);
+        return;
+      }
+      if (!updated) { showModalError('Could not read form data.'); return; }
+
+      if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Saving\u2026'; }
+
+      try {
+        await updateRegistryFile(type, entryId, updated);
+        closeModal();
+        delete registryCache[type];
+        loadFromHash();
+      } catch (err) {
+        showModalError(err.message);
+        if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save'; }
+      }
+    }
+
+    function encodeBase64Unicode(str) {
+      var bytes = new TextEncoder().encode(str);
+      var binary = '';
+      for (var i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binary);
+    }
+
+    function decodeBase64Unicode(b64) {
+      var binary = atob(b64);
+      var bytes = new Uint8Array(binary.length);
+      for (var i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return new TextDecoder().decode(bytes);
+    }
+
+    async function updateRegistryFile(type, entryId, updatedEntry) {
+      var pat = getPAT();
+      if (!pat) throw new Error('Not logged in.');
+
+      var filePath = 'data/' + type + '.json';
+      var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
+      var headers = {
+        'Authorization': 'Bearer ' + pat,
+        'Accept': 'application/vnd.github.v3+json'
+      };
+
+      // Get current file to get sha
+      var getRes = await fetch(apiUrl, { headers: headers });
+      if (!getRes.ok) {
+        if (getRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
+        throw new Error('Failed to read ' + filePath + ': ' + getRes.status);
+      }
+      var fileData = await getRes.json();
+
+      // Decode current content
+      var content = decodeBase64Unicode(fileData.content.replace(/\n/g, ''));
+      var allEntries = JSON.parse(content);
+
+      // Update the entry
+      var idx = allEntries.findIndex(function(e) { return e.id === entryId; });
+      if (idx === -1) throw new Error('Entry ' + entryId + ' not found in ' + filePath + '.');
+      allEntries[idx] = updatedEntry;
+
+      // Encode updated JSON
+      var jsonString = JSON.stringify(allEntries, null, 2) + '\n';
+      var encoded = encodeBase64Unicode(jsonString);
+
+      var name = updatedEntry.name || updatedEntry.title || updatedEntry.id;
+
+      // Commit via GitHub Contents API
+      var putRes = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + pat,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'registry: update ' + name + ' in ' + type,
+          content: encoded,
+          sha: fileData.sha,
+          branch: 'main'
+        })
+      });
+
+      if (!putRes.ok) {
+        if (putRes.status === 409) throw new Error('File was modified since you opened it. Reload and try again.');
+        if (putRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
+        var errData = {};
+        try { errData = await putRes.json(); } catch(e) {}
+        throw new Error(errData.message || 'Save failed: ' + putRes.status);
+      }
+    }
+
     // Load document based on hash
     function loadFromHash() {
       const hash = window.location.hash.slice(1) || 'home';
@@ -2552,6 +3197,7 @@
     }
 
     // Initial load
+    updateLoginUI();
     loadFromHash();
 
     // Listen for hash changes
