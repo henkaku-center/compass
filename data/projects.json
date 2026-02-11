@@ -1,16 +1,27 @@
 [
   {
     "id": "proj_compass",
-    "title": "Compass Coordination Infrastructure",
+    "title": "Compass",
     "summary": "Building the shared coordination infrastructure — charter, archetypes, registry, and web viewer — for the Henkaku Center ecosystem.",
     "status": "active",
     "owner": "person_winder_ira",
     "contributors": [
-      { "person_id": "person_ito_joi", "role": "Advisor" }
+      {
+        "person_id": "person_wang_sophia",
+        "role": "Researcher"
+      }
     ],
     "parent_initiative": "init_compass_initiative",
-    "project_goals": ["Define shared charter and governance framework", "Design registry archetypes for 7 entry types", "Build web viewer for coordination documents"],
-    "domains": ["coordination", "governance", "infrastructure"]
+    "project_goals": [
+      "Define shared charter and governance framework",
+      "Design registry archetypes for 7 entry types",
+      "Build web viewer for coordination documents"
+    ],
+    "domains": [
+      "coordination",
+      "governance",
+      "infrastructure"
+    ]
   },
   {
     "id": "proj_registry_platform",
@@ -22,10 +33,22 @@
     "parent_initiative": "init_compass_initiative",
     "dependencies": {
       "requires": [
-        { "project_id": "proj_compass", "description": "Archetypes and charter must be defined before platform can implement them", "criticality": "high" }
+        {
+          "project_id": "proj_compass",
+          "description": "Archetypes and charter must be defined before platform can implement them",
+          "criticality": "high"
+        }
       ]
     },
-    "project_goals": ["Evaluate platform options (spreadsheet, database, custom)", "Build submission and browse interfaces", "Implement cross-referencing between entry types"],
-    "domains": ["platform", "data systems", "coordination"]
+    "project_goals": [
+      "Evaluate platform options (spreadsheet, database, custom)",
+      "Build submission and browse interfaces",
+      "Implement cross-referencing between entry types"
+    ],
+    "domains": [
+      "platform",
+      "data systems",
+      "coordination"
+    ]
   }
 ]
