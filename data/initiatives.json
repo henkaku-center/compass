@@ -164,5 +164,22 @@
     "health_indicators": ["Gathering frequency", "Community participation", "Cross-cultural engagement"],
     "review_cycle": "annually",
     "domains": ["tea philosophy", "community", "humane technology", "cultural practice"]
+  },
+  {
+    "id": "init_sustainable_robotics",
+    "title": "Sustainable Robotics Construction",
+    "summary": "Developing voxel-based, sustainable robotic construction methods in collaboration with MIT.",
+    "status": "active",
+    "lead": "person_castello_eduardo",
+    "participants": [],
+    "purpose": "Advance sustainable construction through ongoing research into voxel-based robotic methods, in collaboration with MIT.",
+    "activities": [
+      "Developing voxel-based construction methods",
+      "Researching sustainable robotic construction techniques",
+      "Collaborating with MIT on construction robotics"
+    ],
+    "health_indicators": ["Research publications", "Prototype demonstrations", "MIT collaboration activity"],
+    "review_cycle": "annually",
+    "domains": ["robotics", "sustainable construction", "voxel-based design"]
   }
 ]

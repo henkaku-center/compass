@@ -89,23 +89,5 @@
       "design",
       "science"
     ]
-  },
-  {
-    "id": "proj_sustainable_robotics",
-    "title": "Sustainable Robotics Construction",
-    "summary": "Developing voxel-based, sustainable robotic construction methods in collaboration with MIT.",
-    "status": "active",
-    "owner": "person_castello_eduardo",
-    "contributors": [],
-    "project_goals": [
-      "Develop voxel-based construction methods",
-      "Demonstrate sustainable robotic construction techniques",
-      "Publish collaborative research with MIT"
-    ],
-    "domains": [
-      "robotics",
-      "sustainable construction",
-      "voxel-based design"
-    ]
   }
 ]
