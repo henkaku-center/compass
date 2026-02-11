@@ -221,6 +221,9 @@
         "role": "researcher"
       }
     ],
+    "hosted_initiatives": [
+      "init_probabilistic_computing"
+    ],
     "status": "active",
     "domains": [
       "probabilistic computing",
@@ -265,6 +268,9 @@
         "role": "researcher"
       }
     ],
+    "hosted_initiatives": [
+      "init_artificial_life"
+    ],
     "status": "active",
     "domains": [
       "artificial life",
@@ -304,6 +310,9 @@
     ],
     "language": "Japanese",
     "key_contacts": [],
+    "hosted_initiatives": [
+      "init_ai_safety_workshop"
+    ],
     "status": "active",
     "domains": [
       "AI safety",

@@ -36,34 +36,6 @@
     ]
   },
   {
-    "id": "proj_registry_platform",
-    "title": "Registry Platform Development",
-    "summary": "Designing and building the platform where registry entries are submitted, browsed, and maintained.",
-    "status": "proposed",
-    "owner": "person_winder_ira",
-    "contributors": [],
-    "parent_initiative": "init_compass_initiative",
-    "dependencies": {
-      "requires": [
-        {
-          "project_id": "proj_compass",
-          "description": "Archetypes and charter must be defined before platform can implement them",
-          "criticality": "high"
-        }
-      ]
-    },
-    "project_goals": [
-      "Evaluate platform options (spreadsheet, database, custom)",
-      "Build submission and browse interfaces",
-      "Implement cross-referencing between entry types"
-    ],
-    "domains": [
-      "platform",
-      "data systems",
-      "coordination"
-    ]
-  },
-  {
     "id": "proj_sds_launch",
     "title": "SDS Launch",
     "summary": "Launching the Graduate School of Design & Science with antidisciplinary project-based curriculum, opening April 2026.",
