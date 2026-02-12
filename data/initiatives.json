@@ -1,48 +1,17 @@
 [
   {
     "id": "init_compass_initiative",
-    "title": "Compass Initiative",
+    "type": "initiative",
+    "name": "Compass Initiative",
     "summary": "Exploring radical coordination technology — tools, frameworks, and practices for decentralized alignment and decision-making.",
     "status": "active",
-    "lead": "person_winder_ira",
-    "participants": [
-      {
-        "person_id": "person_ito_joi",
-        "role": "Sponsor"
-      }
-    ],
     "purpose": "Develop and maintain coordination infrastructure that makes shared values and ongoing work visible and easy to contribute to.",
-    "spawned_projects": [
-      {
-        "project_id": "proj_compass",
-        "relationship": "incubated"
-      },
-      {
-        "project_id": "proj_charter",
-        "relationship": "incubated"
-      }
-    ],
-    "related_initiatives": [],
     "health_indicators": [
       "Number of registry entries maintained",
       "Contributor engagement",
       "Cross-institutional adoption"
     ],
     "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "hosted_by"
-      },
-      {
-        "institution_id": "inst_sds",
-        "relationship": "partner"
-      },
-      {
-        "institution_id": "inst_chibatech",
-        "relationship": "partner"
-      }
-    ],
     "domains": [
       "coordination",
       "governance",
@@ -51,223 +20,222 @@
   },
   {
     "id": "init_ai_safety_workshop",
-    "title": "AI Safety Workshop",
+    "type": "initiative",
+    "name": "AI Safety Workshop",
     "summary": "Building communities focused on responsible AI development, with the backing of JAISI.",
     "status": "active",
-    "lead": "person_bates_samantha",
-    "participants": [
-      { "person_id": "person_ito_joi", "role": "Sponsor" }
-    ],
     "purpose": "Build and sustain communities focused on responsible AI development, fostering dialogue and shared practices around AI safety.",
     "activities": [
       "Hosting workshops on responsible AI development",
       "Building community networks around AI safety",
       "Coordinating with JAISI on safety initiatives"
     ],
-    "health_indicators": ["Workshop attendance", "Community growth", "Research outputs"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_aisi",
-        "relationship": "partner"
-      }
+    "health_indicators": [
+      "Workshop attendance",
+      "Community growth",
+      "Research outputs"
     ],
-    "domains": ["AI safety", "AI ethics", "responsible AI"]
+    "review_cycle": "annually",
+    "domains": [
+      "AI safety",
+      "AI ethics",
+      "responsible AI"
+    ]
   },
   {
     "id": "init_artificial_life",
-    "title": "Artificial Life",
+    "type": "initiative",
+    "name": "Artificial Life",
     "summary": "Exploring the essence of life by constructing living systems.",
     "status": "active",
-    "lead": "person_oka_mizuki",
-    "participants": [
-      { "person_id": "person_kojima_hiroki", "role": "Researcher" },
-      { "person_id": "person_ikegami_eiko", "role": "Researcher" },
-      { "person_id": "person_szep_grisha", "role": "Researcher" }
-    ],
     "purpose": "Advance understanding of life's fundamental principles through computational and constructive approaches to living systems.",
     "activities": [
       "Constructing artificial living systems",
       "Researching emergence and self-organization",
       "Exploring open-ended evolution"
     ],
-    "health_indicators": ["Research publications", "System complexity achieved", "Cross-disciplinary collaborations"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_alife",
-        "relationship": "partner"
-      }
+    "health_indicators": [
+      "Research publications",
+      "System complexity achieved",
+      "Cross-disciplinary collaborations"
     ],
-    "domains": ["artificial life", "complex systems", "embodied intelligence"]
+    "review_cycle": "annually",
+    "domains": [
+      "artificial life",
+      "complex systems",
+      "embodied intelligence"
+    ]
   },
   {
     "id": "init_daboteng_house",
-    "title": "Daboteng House (Bhutan–Chiba Tech Initiative)",
+    "type": "initiative",
+    "name": "Daboteng House (Bhutan–Chiba Tech Initiative)",
     "summary": "Providing Bhutanese students with scholarship and joint research opportunities such as the satellite project.",
     "status": "active",
-    "lead": "person_ito_joi",
-    "participants": [],
     "purpose": "Create educational and research pathways between Bhutan and Chiba Tech, providing Bhutanese students with scholarships and joint research opportunities.",
     "activities": [
       "Providing scholarships to Bhutanese students",
       "Facilitating joint research projects",
       "Managing the satellite project collaboration"
     ],
-    "health_indicators": ["Students enrolled", "Research projects active", "Scholarship recipients"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "hosted_by"
-      }
+    "health_indicators": [
+      "Students enrolled",
+      "Research projects active",
+      "Scholarship recipients"
     ],
-    "domains": ["education", "international collaboration", "satellite technology"]
+    "review_cycle": "annually",
+    "domains": [
+      "education",
+      "international collaboration",
+      "satellite technology"
+    ]
   },
   {
     "id": "init_neurodiversity_connected_learning",
-    "title": "Neurodiversity & Connected Learning",
+    "type": "initiative",
+    "name": "Neurodiversity & Connected Learning",
     "summary": "Designing education that honors learner's unique mind and fosters individual growth.",
     "status": "active",
-    "lead": "person_austerweil_joseph",
-    "participants": [],
     "purpose": "Design inclusive educational approaches that recognize and honor neurodivergent minds, fostering individual growth through connected learning.",
     "activities": [
       "Designing neurodiverse-friendly curricula",
       "Researching connected learning frameworks",
       "Developing inclusive assessment methods"
     ],
-    "health_indicators": ["Curriculum adoption", "Learner outcomes", "Research publications"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "hosted_by"
-      }
+    "health_indicators": [
+      "Curriculum adoption",
+      "Learner outcomes",
+      "Research publications"
     ],
-    "domains": ["neurodiversity", "education", "connected learning", "inclusive design"]
+    "review_cycle": "annually",
+    "domains": [
+      "neurodiversity",
+      "education",
+      "connected learning",
+      "inclusive design"
+    ]
   },
   {
     "id": "init_probabilistic_computing",
-    "title": "Probabilistic Computing",
+    "type": "initiative",
+    "name": "Probabilistic Computing",
     "summary": "Advancing smarter, safer AI using probabilistic programming to help machines reason more like humans.",
     "status": "active",
-    "lead": "person_mansinghka_vikash",
-    "participants": [
-      { "person_id": "person_kojima_hiroki", "role": "Researcher" },
-      { "person_id": "person_oka_mizuki", "role": "Researcher" },
-      { "person_id": "person_szep_grisha", "role": "Researcher" },
-      { "person_id": "person_freer_cameron", "role": "Researcher" }
-    ],
     "purpose": "Develop probabilistic programming methods that enable machines to reason under uncertainty more like humans, producing smarter and safer AI systems.",
     "activities": [
       "Developing probabilistic programming languages and tools",
       "Researching Bayesian inference methods",
       "Applying probabilistic computing to real-world problems"
     ],
-    "health_indicators": ["Research publications", "Tool adoption", "Cross-institutional collaborations"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_jpcca",
-        "relationship": "partner"
-      }
+    "health_indicators": [
+      "Research publications",
+      "Tool adoption",
+      "Cross-institutional collaborations"
     ],
-    "domains": ["probabilistic computing", "probabilistic programming", "AI", "machine reasoning"]
+    "review_cycle": "annually",
+    "domains": [
+      "probabilistic computing",
+      "probabilistic programming",
+      "AI",
+      "machine reasoning"
+    ]
   },
   {
     "id": "init_radical_transformation_award",
-    "title": "Radical Transformation Award",
+    "type": "initiative",
+    "name": "Radical Transformation Award",
     "summary": "A 10M yen prize recognizing transformative individuals advancing human flourishing.",
     "status": "active",
-    "lead": "person_ito_joi",
-    "participants": [],
     "purpose": "Recognize and support transformative individuals who advance human flourishing through an annual 10 million yen prize.",
     "activities": [
       "Soliciting and reviewing nominations",
       "Selecting award recipients",
       "Hosting award ceremony"
     ],
-    "health_indicators": ["Number of nominations", "Impact of recipients", "Public engagement"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "hosted_by"
-      }
+    "health_indicators": [
+      "Number of nominations",
+      "Impact of recipients",
+      "Public engagement"
     ],
-    "domains": ["transformation", "human flourishing", "awards"]
+    "review_cycle": "annually",
+    "domains": [
+      "transformation",
+      "human flourishing",
+      "awards"
+    ]
   },
   {
     "id": "init_tea_project",
-    "title": "Tea Project",
+    "type": "initiative",
+    "name": "Tea Project",
     "summary": "Cultivating humane technology and community through tea philosophy and the tea house.",
     "status": "active",
-    "lead": "person_ito_joi",
-    "participants": [],
     "purpose": "Cultivate humane technology and community through the practice and philosophy of tea, using the tea house as a space for reflection and connection.",
     "activities": [
       "Hosting tea gatherings and ceremonies",
       "Exploring intersections of tea philosophy and technology",
       "Maintaining the tea house as a community space"
     ],
-    "health_indicators": ["Gathering frequency", "Community participation", "Cross-cultural engagement"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "hosted_by"
-      }
+    "health_indicators": [
+      "Gathering frequency",
+      "Community participation",
+      "Cross-cultural engagement"
     ],
-    "domains": ["tea philosophy", "community", "humane technology", "cultural practice"]
+    "review_cycle": "annually",
+    "domains": [
+      "tea philosophy",
+      "community",
+      "humane technology",
+      "cultural practice"
+    ]
   },
   {
     "id": "init_sustainable_robotics",
-    "title": "Sustainable Robotics Construction",
+    "type": "initiative",
+    "name": "Sustainable Robotics Construction",
     "summary": "Developing voxel-based, sustainable robotic construction methods in collaboration with MIT.",
     "status": "active",
-    "lead": "person_castello_eduardo",
-    "participants": [],
     "purpose": "Advance sustainable construction through ongoing research into voxel-based robotic methods, in collaboration with MIT.",
     "activities": [
       "Developing voxel-based construction methods",
       "Researching sustainable robotic construction techniques",
       "Collaborating with MIT on construction robotics"
     ],
-    "health_indicators": ["Research publications", "Prototype demonstrations", "MIT collaboration activity"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "hosted_by"
-      }
+    "health_indicators": [
+      "Research publications",
+      "Prototype demonstrations",
+      "MIT collaboration activity"
     ],
-    "domains": ["robotics", "sustainable construction", "voxel-based design"]
+    "review_cycle": "annually",
+    "domains": [
+      "robotics",
+      "sustainable construction",
+      "voxel-based design"
+    ]
   },
   {
     "id": "init_ai_healthcare",
-    "title": "AI in Healthcare",
+    "type": "initiative",
+    "name": "AI in Healthcare",
     "summary": "Applying artificial intelligence to transform cardiovascular research and clinical trials through a partnership between Mount Sinai, Chiba Tech, and Fujita Medical University.",
     "status": "active",
-    "lead": "person_ito_joi",
-    "participants": [
-      { "person_id": "person_dinakar_karthik", "role": "Researcher" },
-      { "person_id": "person_szep_grisha", "role": "Researcher" }
-    ],
     "purpose": "Leverage AI to make clinical trials more efficient and lead to faster advances in patient care, focusing on cardiovascular research across institutional partners.",
     "activities": [
       "Developing AI methods for cardiovascular research",
       "Collaborating with Mount Sinai and Fujita Medical University",
       "Making clinical trials more efficient through AI"
     ],
-    "health_indicators": ["Research publications", "Clinical trial improvements", "Cross-institutional collaboration activity"],
-    "review_cycle": "annually",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "hosted_by"
-      }
+    "health_indicators": [
+      "Research publications",
+      "Clinical trial improvements",
+      "Cross-institutional collaboration activity"
     ],
-    "domains": ["AI", "healthcare", "cardiovascular research", "clinical trials"]
+    "review_cycle": "annually",
+    "domains": [
+      "AI",
+      "healthcare",
+      "cardiovascular research",
+      "clinical trials"
+    ]
   }
 ]

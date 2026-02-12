@@ -1,344 +1,468 @@
 [
   {
     "id": "course_dna",
-    "title": "The Antidisciplinary Approach to the Modern World",
+    "type": "course",
+    "name": "The Antidisciplinary Approach to the Modern World",
     "short_name": "DNA",
     "summary": "Introduces antidisciplinary thinking as a foundation for working across and beyond traditional disciplines.",
     "credits": 1,
-    "program": ["masters_mandatory"],
+    "program": [
+      "masters_mandatory"
+    ],
     "charter_alignment": [
       "Section II.1 Antidisciplinarity — explicitly introduces antidisciplinary thinking"
     ],
-    "domains": ["antidisciplinary", "philosophy", "systems thinking"],
-    "instructors": [],
+    "domains": [
+      "antidisciplinary",
+      "philosophy",
+      "systems thinking"
+    ],
     "status": "planned"
   },
   {
     "id": "course_awareness",
-    "title": "Principles of Awareness",
+    "type": "course",
+    "name": "Principles of Awareness",
     "summary": "Integrates contemplative traditions — attention, embodied cognition, and direct experience — as legitimate educational methods.",
     "credits": 2,
-    "program": ["masters_mandatory"],
+    "program": [
+      "masters_mandatory"
+    ],
     "charter_alignment": [
       "Section II.8 Awareness Practices — attention, embodied cognition, and direct experience"
     ],
-    "domains": ["awareness", "contemplative practice", "embodied cognition"],
-    "instructors": [],
+    "domains": [
+      "awareness",
+      "contemplative practice",
+      "embodied cognition"
+    ],
     "status": "planned"
   },
   {
     "id": "course_aps_1",
-    "title": "Practical Antidisciplinary Problem Solving I",
+    "type": "course",
+    "name": "Practical Antidisciplinary Problem Solving I",
     "short_name": "APS I",
     "summary": "Project-based course requiring students to develop AI workflows, manage sustained AI-assisted projects, and build metacognitive awareness.",
     "credits": 6,
-    "program": ["masters_mandatory"],
+    "program": [
+      "masters_mandatory"
+    ],
     "charter_alignment": [
       "Section IV.1 Project-Centered Learning — bounded projects with real deliverables",
       "Section IV.3 Computational and Agentic Systems — AI workflow development",
       "Section II.6 Experimentation and Risk — real stakes, failure as learning"
     ],
-    "domains": ["project-based learning", "AI collaboration", "problem solving"],
-    "instructors": [],
-    "related_courses": ["course_aps_2"],
+    "domains": [
+      "project-based learning",
+      "AI collaboration",
+      "problem solving"
+    ],
     "status": "planned"
   },
   {
     "id": "course_aps_2",
-    "title": "Practical Antidisciplinary Problem Solving II",
+    "type": "course",
+    "name": "Practical Antidisciplinary Problem Solving II",
     "short_name": "APS II",
     "summary": "Continuation of APS I with deeper project complexity, sustained AI collaboration, and emphasis on metacognitive awareness.",
     "credits": 6,
-    "program": ["masters_mandatory"],
-    "prerequisites": ["course_aps_1"],
+    "program": [
+      "masters_mandatory"
+    ],
     "charter_alignment": [
       "Section IV.1 Project-Centered Learning — bounded projects with real deliverables",
       "Section IV.3 Computational and Agentic Systems — AI workflow development",
       "Section II.6 Experimentation and Risk — real stakes, failure as learning"
     ],
-    "domains": ["project-based learning", "AI collaboration", "problem solving"],
-    "instructors": [],
-    "related_courses": ["course_aps_1"],
+    "domains": [
+      "project-based learning",
+      "AI collaboration",
+      "problem solving"
+    ],
     "status": "planned"
   },
   {
     "id": "course_masters_research",
-    "title": "Advanced Research in Master's Program",
+    "type": "course",
+    "name": "Advanced Research in Master's Program",
     "summary": "Extended AI-assisted research with emphasis on maintaining human judgment, context management, and security awareness.",
     "credits": 6,
-    "program": ["masters_mandatory"],
+    "program": [
+      "masters_mandatory"
+    ],
     "charter_alignment": [
       "Section II.5 Intellectual Integrity — calibrated claims, honest engagement",
       "Section IV.3 Computational and Agentic Systems — extended AI collaboration"
     ],
-    "domains": ["research methods", "AI collaboration", "thesis preparation"],
-    "instructors": [],
+    "domains": [
+      "research methods",
+      "AI collaboration",
+      "thesis preparation"
+    ],
     "status": "planned"
   },
   {
     "id": "course_intelligent_agents",
-    "title": "Intelligent Agents",
+    "type": "course",
+    "name": "Intelligent Agents",
     "summary": "Dedicated depth in symbiotic human-AI work, agent architectures, and the design of intelligent systems.",
     "credits": 2,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section II.3 Human and Artificial Intelligence — symbiotic human-AI work"
     ],
-    "domains": ["AI", "intelligent agents", "human-AI collaboration"],
-    "instructors": [],
-    "related_courses": ["course_adv_intelligent_agents"],
+    "domains": [
+      "AI",
+      "intelligent agents",
+      "human-AI collaboration"
+    ],
     "status": "planned"
   },
   {
     "id": "course_law_governance",
-    "title": "Law and Governance",
+    "type": "course",
+    "name": "Law and Governance",
     "summary": "Ethical and legal frameworks for technology, governance structures, and regulatory landscapes.",
     "credits": 2,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section II.5 Intellectual Integrity — ethical reflection alongside technical capability"
     ],
-    "domains": ["law", "governance", "ethics", "policy"],
-    "instructors": [],
-    "related_courses": ["course_adv_law_governance"],
+    "domains": [
+      "law",
+      "governance",
+      "ethics",
+      "policy"
+    ],
     "status": "planned"
   },
   {
     "id": "course_tech_values",
-    "title": "Technology and Values",
+    "type": "course",
+    "name": "Technology and Values",
     "summary": "Examines how values shape technological development and how technology reshapes human values.",
     "credits": 2,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section II.5 Intellectual Integrity — ethical reflection alongside technical capability"
     ],
-    "domains": ["ethics", "values", "technology", "philosophy"],
-    "instructors": [],
+    "domains": [
+      "ethics",
+      "values",
+      "technology",
+      "philosophy"
+    ],
     "status": "planned"
   },
   {
     "id": "course_digital_media",
-    "title": "Digital Media & Flourishing",
+    "type": "course",
+    "name": "Digital Media & Flourishing",
     "summary": "Addresses human flourishing as an aim of technology, exploring how digital media can support or undermine wellbeing.",
     "credits": 2,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section II.2 Radical Transformation and Human Flourishing — flourishing as an aim of technology"
     ],
-    "domains": ["digital media", "human flourishing", "wellbeing"],
-    "instructors": [],
+    "domains": [
+      "digital media",
+      "human flourishing",
+      "wellbeing"
+    ],
     "status": "planned"
   },
   {
     "id": "course_modern_physics",
-    "title": "Modern Physics",
+    "type": "course",
+    "name": "Modern Physics",
     "summary": "Develops capacity to work with irreducible complexity and resist premature reduction through physics foundations.",
     "credits": 2,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section II.4 Complexity and Magic — working with irreducible complexity"
     ],
-    "domains": ["physics", "complexity", "science"],
-    "instructors": [],
+    "domains": [
+      "physics",
+      "complexity",
+      "science"
+    ],
     "status": "planned"
   },
   {
     "id": "course_complex_systems",
-    "title": "Complex System Science",
+    "type": "course",
+    "name": "Complex System Science",
     "summary": "Studies emergent behavior, self-organization, and nonlinear dynamics in complex adaptive systems.",
     "credits": 2,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section II.4 Complexity and Magic — working with irreducible complexity"
     ],
-    "domains": ["complex systems", "emergence", "nonlinear dynamics"],
-    "instructors": [],
-    "related_courses": ["course_adv_complex_systems"],
+    "domains": [
+      "complex systems",
+      "emergence",
+      "nonlinear dynamics"
+    ],
     "status": "planned"
   },
   {
     "id": "course_design_prototyping",
-    "title": "Design & Prototyping",
+    "type": "course",
+    "name": "Design & Prototyping",
     "summary": "Embodies the vocational orientation and bias toward action — students produce artifacts that exist in the world.",
     "credits": 2,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section IV.2 Learning Through Making — vocational orientation, bias toward action"
     ],
-    "domains": ["design", "prototyping", "making"],
-    "instructors": [],
-    "related_courses": ["course_adv_design_prototyping"],
+    "domains": [
+      "design",
+      "prototyping",
+      "making"
+    ],
     "status": "planned"
   },
   {
     "id": "course_human_machine_learning",
-    "title": "Human and Machine Learning",
+    "type": "course",
+    "name": "Human and Machine Learning",
     "summary": "Explores the parallels and intersections between human cognition and machine learning systems.",
     "credits": 2,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section II.3 Human and Artificial Intelligence — symbiotic human-AI work"
     ],
-    "domains": ["machine learning", "cognitive science", "AI"],
-    "instructors": [],
-    "related_courses": ["course_adv_human_machine_learning"],
+    "domains": [
+      "machine learning",
+      "cognitive science",
+      "AI"
+    ],
     "status": "planned"
   },
   {
     "id": "course_modular_seminar",
-    "title": "Modular Practice Seminar",
+    "type": "course",
+    "name": "Modular Practice Seminar",
     "summary": "Lightweight, adaptable format for emerging topics — provides a mechanism for rapid curricular experimentation.",
     "credits": 1,
-    "program": ["masters_elective"],
+    "program": [
+      "masters_elective"
+    ],
     "charter_alignment": [
       "Section IV.3 Computational and Agentic Systems — curriculum agility, iterating with AI advances"
     ],
-    "domains": ["seminar", "emerging topics"],
-    "instructors": [],
+    "domains": [
+      "seminar",
+      "emerging topics"
+    ],
     "status": "planned"
   },
   {
     "id": "course_engineering_ethics",
-    "title": "Engineering Ethics",
+    "type": "course",
+    "name": "Engineering Ethics",
     "summary": "Ensures ethical reflection accompanies technical capability across doctoral research.",
     "credits": 2,
-    "program": ["phd_mandatory"],
+    "program": [
+      "phd_mandatory"
+    ],
     "charter_alignment": [
       "Section II.5 Intellectual Integrity — ethical reflection alongside technical capability"
     ],
-    "domains": ["ethics", "engineering", "responsibility"],
-    "instructors": [],
+    "domains": [
+      "ethics",
+      "engineering",
+      "responsibility"
+    ],
     "status": "planned"
   },
   {
     "id": "course_communication",
-    "title": "Communication Practices",
+    "type": "course",
+    "name": "Communication Practices",
     "summary": "Develops academic and professional communication skills for doctoral researchers.",
     "credits": 2,
-    "program": ["phd_mandatory"],
-    "domains": ["communication", "academic writing", "presentation"],
-    "instructors": [],
+    "program": [
+      "phd_mandatory"
+    ],
+    "domains": [
+      "communication",
+      "academic writing",
+      "presentation"
+    ],
     "status": "planned"
   },
   {
     "id": "course_career_development",
-    "title": "Career Development Exercises",
+    "type": "course",
+    "name": "Career Development Exercises",
     "summary": "Guided exploration of career pathways for doctoral researchers in antidisciplinary fields.",
     "credits": 2,
-    "program": ["phd_mandatory"],
-    "domains": ["career development", "professional skills"],
-    "instructors": [],
+    "program": [
+      "phd_mandatory"
+    ],
+    "domains": [
+      "career development",
+      "professional skills"
+    ],
     "status": "planned"
   },
   {
     "id": "course_doctoral_research_1",
-    "title": "Advanced Research in Doctoral Program I",
+    "type": "course",
+    "name": "Advanced Research in Doctoral Program I",
     "summary": "First phase of extended doctoral research with AI collaboration, emphasizing human judgment and context management.",
     "credits": 3,
-    "program": ["phd_mandatory"],
+    "program": [
+      "phd_mandatory"
+    ],
     "charter_alignment": [
       "Section II.5 Intellectual Integrity — calibrated claims, honest engagement",
       "Section IV.3 Computational and Agentic Systems — extended AI collaboration"
     ],
-    "domains": ["doctoral research", "AI collaboration"],
-    "instructors": [],
-    "related_courses": ["course_doctoral_research_2", "course_doctoral_research_3"],
+    "domains": [
+      "doctoral research",
+      "AI collaboration"
+    ],
     "status": "planned"
   },
   {
     "id": "course_doctoral_research_2",
-    "title": "Advanced Research in Doctoral Program II",
+    "type": "course",
+    "name": "Advanced Research in Doctoral Program II",
     "summary": "Second phase of doctoral research, deepening investigation and advancing toward dissertation milestones.",
     "credits": 3,
-    "program": ["phd_mandatory"],
-    "prerequisites": ["course_doctoral_research_1"],
-    "domains": ["doctoral research", "AI collaboration"],
-    "instructors": [],
-    "related_courses": ["course_doctoral_research_1", "course_doctoral_research_3"],
+    "program": [
+      "phd_mandatory"
+    ],
+    "domains": [
+      "doctoral research",
+      "AI collaboration"
+    ],
     "status": "planned"
   },
   {
     "id": "course_doctoral_research_3",
-    "title": "Advanced Research in Doctoral Program III",
+    "type": "course",
+    "name": "Advanced Research in Doctoral Program III",
     "summary": "Final phase of doctoral research, completing the dissertation and preparing for defense.",
     "credits": 3,
-    "program": ["phd_mandatory"],
-    "prerequisites": ["course_doctoral_research_2"],
-    "domains": ["doctoral research", "AI collaboration"],
-    "instructors": [],
-    "related_courses": ["course_doctoral_research_1", "course_doctoral_research_2"],
+    "program": [
+      "phd_mandatory"
+    ],
+    "domains": [
+      "doctoral research",
+      "AI collaboration"
+    ],
     "status": "planned"
   },
   {
     "id": "course_adv_intelligent_agents",
-    "title": "Advanced Intelligent Agents",
+    "type": "course",
+    "name": "Advanced Intelligent Agents",
     "summary": "PhD-level depth in agent architectures, multi-agent systems, and advanced human-AI collaboration.",
     "credits": 2,
-    "program": ["phd_elective"],
-    "prerequisites": ["course_intelligent_agents"],
+    "program": [
+      "phd_elective"
+    ],
     "charter_alignment": [
       "Section II.3 Human and Artificial Intelligence — symbiotic human-AI work"
     ],
-    "domains": ["AI", "intelligent agents", "multi-agent systems"],
-    "instructors": [],
-    "related_courses": ["course_intelligent_agents"],
+    "domains": [
+      "AI",
+      "intelligent agents",
+      "multi-agent systems"
+    ],
     "status": "planned"
   },
   {
     "id": "course_adv_human_machine_learning",
-    "title": "Advanced Human and Machine Learning",
+    "type": "course",
+    "name": "Advanced Human and Machine Learning",
     "summary": "PhD-level investigation of human cognition and machine learning convergence.",
     "credits": 2,
-    "program": ["phd_elective"],
-    "prerequisites": ["course_human_machine_learning"],
+    "program": [
+      "phd_elective"
+    ],
     "charter_alignment": [
       "Section II.3 Human and Artificial Intelligence — symbiotic human-AI work"
     ],
-    "domains": ["machine learning", "cognitive science", "AI"],
-    "instructors": [],
-    "related_courses": ["course_human_machine_learning"],
+    "domains": [
+      "machine learning",
+      "cognitive science",
+      "AI"
+    ],
     "status": "planned"
   },
   {
     "id": "course_adv_law_governance",
-    "title": "Advanced Law and Governance",
+    "type": "course",
+    "name": "Advanced Law and Governance",
     "summary": "PhD-level examination of legal and governance frameworks in emerging technology contexts.",
     "credits": 2,
-    "program": ["phd_elective"],
-    "prerequisites": ["course_law_governance"],
-    "domains": ["law", "governance", "policy"],
-    "instructors": [],
-    "related_courses": ["course_law_governance"],
+    "program": [
+      "phd_elective"
+    ],
+    "domains": [
+      "law",
+      "governance",
+      "policy"
+    ],
     "status": "planned"
   },
   {
     "id": "course_adv_complex_systems",
-    "title": "Advanced Complex System Science",
+    "type": "course",
+    "name": "Advanced Complex System Science",
     "summary": "PhD-level study of complex adaptive systems, emergence, and computational modeling.",
     "credits": 2,
-    "program": ["phd_elective"],
-    "prerequisites": ["course_complex_systems"],
+    "program": [
+      "phd_elective"
+    ],
     "charter_alignment": [
       "Section II.4 Complexity and Magic — working with irreducible complexity"
     ],
-    "domains": ["complex systems", "computational modeling", "emergence"],
-    "instructors": [],
-    "related_courses": ["course_complex_systems"],
+    "domains": [
+      "complex systems",
+      "computational modeling",
+      "emergence"
+    ],
     "status": "planned"
   },
   {
     "id": "course_adv_design_prototyping",
-    "title": "Advanced Design and Prototyping",
+    "type": "course",
+    "name": "Advanced Design and Prototyping",
     "summary": "PhD-level design research and advanced prototyping methods.",
     "credits": 2,
-    "program": ["phd_elective"],
-    "prerequisites": ["course_design_prototyping"],
+    "program": [
+      "phd_elective"
+    ],
     "charter_alignment": [
       "Section IV.2 Learning Through Making — vocational orientation, bias toward action"
     ],
-    "domains": ["design research", "prototyping", "making"],
-    "instructors": [],
-    "related_courses": ["course_design_prototyping"],
+    "domains": [
+      "design research",
+      "prototyping",
+      "making"
+    ],
     "status": "planned"
   }
 ]

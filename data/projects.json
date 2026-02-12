@@ -1,29 +1,10 @@
 [
   {
     "id": "proj_compass",
-    "title": "Compass",
+    "type": "project",
+    "name": "Compass",
     "summary": "Building the shared coordination infrastructure — charter, archetypes, registry, and web viewer — for the Henkaku Center ecosystem.",
     "status": "active",
-    "owner": "person_winder_ira",
-    "contributors": [
-      {
-        "person_id": "person_wang_sophia",
-        "role": "Researcher"
-      },
-      {
-        "person_id": "person_bates_samantha",
-        "role": "Collaborator"
-      },
-      {
-        "person_id": "person_rich_travis",
-        "role": "Collaborator"
-      },
-      {
-        "person_id": "person_kim_daum",
-        "role": "Collaborator"
-      }
-    ],
-    "parent_initiative": "init_compass_initiative",
     "project_goals": [
       "Define shared charter and governance framework",
       "Design registry archetypes for 7 entry types",
@@ -37,52 +18,10 @@
   },
   {
     "id": "proj_sds_launch",
-    "title": "SDS Launch",
+    "type": "project",
+    "name": "SDS Launch",
     "summary": "Launching the Graduate School of Design & Science with antidisciplinary project-based curriculum, opening April 2026.",
     "status": "active",
-    "owner": "person_ito_joi",
-    "contributors": [
-      {
-        "person_id": "person_winder_ira",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_austerweil_joseph",
-        "role": "Academic Director"
-      },
-      {
-        "person_id": "person_kim_daum",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_oka_mizuki",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_maracke_catharina",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_ozaki_hiromi",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_kojima_hiroki",
-        "role": "Incoming Faculty"
-      },
-      {
-        "person_id": "person_razik_fiza",
-        "role": "Program Manager"
-      },
-      {
-        "person_id": "person_bates_samantha",
-        "role": "Collaborator"
-      },
-      {
-        "person_id": "person_raz_gal",
-        "role": "Collaborator"
-      }
-    ],
     "project_goals": [
       "Complete accreditation process",
       "Finalize curriculum and course offerings",
@@ -91,9 +30,6 @@
     ],
     "completion_criterion": "First cohort enrolled and classes begin April 2026.",
     "timeline": "[object Object]",
-    "dependencies": {
-      "requires": []
-    },
     "domains": [
       "education",
       "antidisciplinary",
@@ -103,33 +39,10 @@
   },
   {
     "id": "proj_charter",
-    "title": "Antidisciplinary Charter",
+    "type": "project",
+    "name": "Antidisciplinary Charter",
     "summary": "Drafting and ratifying the shared governance charter that articulates foundational values, principles, and operational commitments across the Henkaku Center, SDS, and Chiba Tech.",
     "status": "active",
-    "owner": "person_winder_ira",
-    "contributors": [
-      {
-        "person_id": "person_winder_ira",
-        "role": "Project Lead"
-      },
-      {
-        "person_id": "person_wang_sophia",
-        "role": "Project Lead"
-      },
-      {
-        "person_id": "person_bates_samantha",
-        "role": "Collaborator"
-      },
-      {
-        "person_id": "person_razik_fiza",
-        "role": "Collaborator"
-      },
-      {
-        "person_id": "person_kim_daum",
-        "role": "Collaborator"
-      }
-    ],
-    "parent_initiative": "init_compass_initiative",
     "problem_statement": "Three closely coupled institutions need a shared normative framework — not a legal contract, but a living document that articulates values, governance, and coordination principles so that participants can align without rigid hierarchy.",
     "project_goals": [
       "Articulate foundational orientations and balancing dichotomies",
@@ -139,9 +52,6 @@
     ],
     "completion_criterion": "Charter ratified by consensus of the Director of the Henkaku Center and seven founding faculty members of SDS.",
     "success_criteria": "Charter adopted as the normative governance document guiding research, education, and coordination across all three institutions.",
-    "dependencies": {
-      "requires": []
-    },
     "domains": [
       "governance",
       "antidisciplinary",

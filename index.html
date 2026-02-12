@@ -1782,6 +1782,7 @@
   <script src="//unpkg.com/three@0.160.0/build/three.min.js"></script>
   <script src="//unpkg.com/three-spritetext@1.9.5"></script>
   <script src="//unpkg.com/3d-force-graph@1.73.3"></script>
+  <script src="compass-data.js"></script>
 </head>
 <body>
   <nav>
@@ -2325,51 +2326,29 @@
     }
 
     // --- Registry data loading and rendering ---
+    // Data layer provided by compass-data.js (store, loadStore, getEntity, etc.)
 
-    const registryCache = {};
-
-    function fetchRegistryData(type) {
-      if (registryCache[type]) return Promise.resolve(registryCache[type]);
-      const cacheBuster = `?t=${Date.now()}`;
-      return fetch(`data/${type}.json${cacheBuster}`, { cache: 'no-store' })
-        .then(res => {
-          if (!res.ok) throw new Error(`Failed to load data/${type}.json`);
-          return res.json();
-        })
-        .then(data => {
-          registryCache[type] = data;
-          return data;
-        });
+    // Ensure store is loaded (cached after first call)
+    let _storeReady = null;
+    function ensureStore() {
+      if (_storeReady) return _storeReady;
+      _storeReady = loadStore();
+      return _storeReady;
     }
 
-    function fetchAllRegistryData() {
-      return Promise.all([
-        fetchRegistryData('institutions'),
-        fetchRegistryData('people'),
-        fetchRegistryData('projects'),
-        fetchRegistryData('initiatives'),
-        fetchRegistryData('courses'),
-        fetchRegistryData('events')
-      ]).then(([institutions, people, projects, initiatives, courses, events]) => ({
-        institutions, people, projects, initiatives, courses, events
-      }));
+    // Legacy compatibility: return allData-shaped object from store
+    function getAllDataFromStore() {
+      return store.byType;
     }
 
-    // Build a lookup map from ID to entry across all types
-    function buildLookup(allData) {
-      const lookup = {};
-      Object.keys(allData).forEach(type => {
-        allData[type].forEach(entry => {
-          lookup[entry.id] = { ...entry, _type: type };
-        });
-      });
-      return lookup;
+    // Legacy compatibility: lookup from store.entities
+    function getLookupFromStore() {
+      return store.entities;
     }
 
     // Resolve a person ID to a display name
-    function personName(id, lookup) {
-      const p = lookup[id];
-      return p ? p.name : id;
+    function personName(id) {
+      return getEntityDisplay(id);
     }
 
     const registryMeta = {
@@ -2411,11 +2390,11 @@
       }
     };
 
-    function renderRegistryCard(entry, type, lookup) {
+    function renderRegistryCard(entry, type) {
       const card = document.createElement('div');
       card.className = 'registry-card';
 
-      let nameField = entry.name || entry.title || entry.id;
+      let nameField = entry.name || entry.id;
       let summaryField = entry.summary || '';
       let metaHtml = '';
       let relationsHtml = '';
@@ -2433,19 +2412,6 @@
           if (entry.short_name) {
             nameField = `${entry.name} (${entry.short_name})`;
           }
-          if (entry.key_contacts && entry.key_contacts.length > 0) {
-            const contacts = entry.key_contacts.map(c =>
-              `${personName(c.person_id, lookup)} (${c.role})`
-            ).join(', ');
-            relationsHtml += `<strong>Key contacts:</strong> ${contacts}`;
-          }
-          if (entry.related_institutions && entry.related_institutions.length > 0) {
-            const rels = entry.related_institutions.map(r => {
-              const inst = lookup[r.institution_id];
-              return `${inst ? (inst.short_name || inst.name) : r.institution_id} (${r.relationship})`;
-            }).join(', ');
-            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Relationships:</strong> ${rels}`;
-          }
           break;
 
         case 'people':
@@ -2454,18 +2420,14 @@
               metaHtml += `<span class="type-badge">${r.replace(/_/g, ' ')}</span>`;
             });
           }
-          if (entry.title) {
-            nameField = entry.name;
-            summaryField = entry.title + (entry.affiliations && entry.affiliations.length > 0
-              ? ' — ' + entry.affiliations.map(a => a.institution).join(', ')
-              : '');
+          if (entry.job_title) {
+            // Build summary from job_title + affiliations from relations
+            const affiliations = getRelated(entry.id, { type: 'affiliated' });
+            const instNames = affiliations.map(a => getEntityDisplay(a.entity.id));
+            summaryField = entry.job_title + (instNames.length > 0 ? ' — ' + instNames.join(', ') : '');
           }
           if (entry.expertise && entry.expertise.length > 0) {
             relationsHtml += `<strong>Expertise:</strong> ${entry.expertise.join(', ')}`;
-          }
-          if (entry.projects && entry.projects.length > 0) {
-            const projs = entry.projects.map(p => `${p.title} (${p.role})`).join(', ');
-            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Projects:</strong> ${projs}`;
           }
           break;
 
@@ -2475,20 +2437,6 @@
               metaHtml += `<span class="type-badge">${d}</span>`;
             });
           }
-          if (entry.owner) {
-            relationsHtml += `<strong>Owner:</strong> ${personName(entry.owner, lookup)}`;
-          }
-          if (entry.contributors && entry.contributors.length > 0) {
-            const contribs = entry.contributors.map(c =>
-              `${personName(c.person_id, lookup)} (${c.role})`
-            ).join(', ');
-            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Contributors:</strong> ${contribs}`;
-          }
-          if (entry.parent_initiative) {
-            const init = lookup[entry.parent_initiative];
-            relationsHtml += (relationsHtml ? '<br>' : '') +
-              `<strong>Initiative:</strong> ${init ? init.title : entry.parent_initiative}`;
-          }
           break;
 
         case 'initiatives':
@@ -2497,36 +2445,11 @@
               metaHtml += `<span class="type-badge">${d}</span>`;
             });
           }
-          if (entry.lead) {
-            relationsHtml += `<strong>Lead:</strong> ${personName(entry.lead, lookup)}`;
-          }
-          if (entry.spawned_projects && entry.spawned_projects.length > 0) {
-            const spawned = entry.spawned_projects.map(p => {
-              const proj = lookup[p.project_id];
-              return proj ? proj.title : p.project_id;
-            }).join(', ');
-            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Spawned projects:</strong> ${spawned}`;
-          }
-          if (entry.contained_projects && entry.contained_projects.length > 0) {
-            const contained = entry.contained_projects.map(p => {
-              const proj = lookup[p.project_id];
-              return proj ? proj.title : p.project_id;
-            }).join(', ');
-            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Contains:</strong> ${contained}`;
-          }
-          if (entry.related_initiatives && entry.related_initiatives.length > 0) {
-            const related = entry.related_initiatives.map(r => {
-              const init = lookup[r.initiative_id];
-              return `${init ? init.title : r.initiative_id} (${r.relationship})`;
-            }).join(', ');
-            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Related:</strong> ${related}`;
-          }
           break;
 
         case 'courses':
-          nameField = entry.title;
           if (entry.short_name) {
-            nameField = `${entry.title} (${entry.short_name})`;
+            nameField = `${entry.name} (${entry.short_name})`;
           }
           metaHtml += `<span class="type-badge">${entry.credits} credit${entry.credits !== 1 ? 's' : ''}</span>`;
           if (entry.program) {
@@ -2540,21 +2463,24 @@
           break;
 
         case 'events':
-          nameField = entry.title;
-          summaryField = entry.summary;
           if (entry.event_type) {
             metaHtml += `<span class="type-badge">${entry.event_type}</span>`;
           }
           if (entry.date) {
             metaHtml += `<span class="type-badge">${entry.date}</span>`;
           }
-          if (entry.status) {
-            metaHtml += `<span class="type-badge">${entry.status}</span>`;
-          }
           if (entry.location && entry.location.venue) {
             relationsHtml += `<strong>Location:</strong> ${entry.location.venue}`;
           }
           break;
+      }
+
+      // Generic relations for card summary (non-people types that don't already set relationsHtml)
+      if (type !== 'people' && type !== 'courses' && type !== 'events') {
+        const genRels = renderRelationsHtml(entry.id);
+        if (genRels) {
+          relationsHtml += (relationsHtml ? '<br>' : '') + genRels;
+        }
       }
 
       const portraitSrc = entry.portrait || 'compass-icon.png';
@@ -2571,25 +2497,13 @@
         if (entry.background) {
           detailHtml += `<p>${entry.background}</p>`;
         }
-        if (entry.affiliations && entry.affiliations.length > 0) {
-          detailHtml += `<p class="detail-label">Affiliations</p>`;
-          detailHtml += entry.affiliations.map(a =>
-            `<p>${a.institution}${a.role ? ' — ' + a.role : ''}${a.primary ? ' (primary)' : ''}</p>`
-          ).join('');
-        }
+        // Relations from relations.json (affiliations, projects, initiatives, etc.)
+        detailHtml += renderRelationsDetailHtml(entry.id);
         if (entry.expertise && entry.expertise.length > 0) {
           detailHtml += `<p class="detail-label">Expertise</p><p>${entry.expertise.join(', ')}</p>`;
         }
         if (entry.interests && entry.interests.length > 0) {
           detailHtml += `<p class="detail-label">Interests</p><p>${entry.interests.join(', ')}</p>`;
-        }
-        if (entry.projects && entry.projects.length > 0) {
-          detailHtml += `<p class="detail-label">Projects</p>`;
-          detailHtml += entry.projects.map(p => `<p>${p.title} — ${p.role}</p>`).join('');
-        }
-        if (entry.initiatives && entry.initiatives.length > 0) {
-          detailHtml += `<p class="detail-label">Initiatives</p>`;
-          detailHtml += entry.initiatives.map(i => `<p>${i.title} — ${i.role}</p>`).join('');
         }
         if (entry.links && entry.links.length > 0) {
           detailHtml += `<p class="detail-label">Links</p>`;
@@ -2624,6 +2538,7 @@
         if (entry.website) {
           detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
         }
+        detailHtml += renderRelationsDetailHtml(entry.id);
       }
 
       if (type === 'projects') {
@@ -2643,13 +2558,7 @@
         if (entry.success_criteria) {
           detailHtml += `<p class="detail-label">Success Criteria</p><p>${entry.success_criteria}</p>`;
         }
-        if (entry.dependencies && entry.dependencies.requires && entry.dependencies.requires.length > 0) {
-          detailHtml += `<p class="detail-label">Dependencies</p>`;
-          detailHtml += entry.dependencies.requires.map(d => {
-            var dep = lookup[d.project_id];
-            return `<p>${dep ? dep.title : d.project_id} — ${d.description}</p>`;
-          }).join('');
-        }
+        detailHtml += renderRelationsDetailHtml(entry.id);
       }
 
       if (type === 'initiatives') {
@@ -2663,15 +2572,10 @@
         if (entry.health_indicators && entry.health_indicators.length > 0) {
           detailHtml += `<p class="detail-label">Health Indicators</p><p>${entry.health_indicators.join(', ')}</p>`;
         }
-        if (entry.participants && entry.participants.length > 0) {
-          detailHtml += `<p class="detail-label">Participants</p>`;
-          detailHtml += entry.participants.map(p =>
-            `<p>${personName(p.person_id, lookup)} — ${p.role}</p>`
-          ).join('');
-        }
         if (entry.review_cycle) {
           detailHtml += `<p class="detail-label">Review Cycle</p><p>${entry.review_cycle}</p>`;
         }
+        detailHtml += renderRelationsDetailHtml(entry.id);
       }
 
       if (type === 'courses') {
@@ -2679,20 +2583,7 @@
           detailHtml += `<p class="detail-label">Charter Alignment</p>`;
           detailHtml += entry.charter_alignment.map(a => `<p>${a}</p>`).join('');
         }
-        if (entry.prerequisites && entry.prerequisites.length > 0) {
-          detailHtml += `<p class="detail-label">Prerequisites</p>`;
-          detailHtml += entry.prerequisites.map(pid => {
-            var prereq = lookup[pid];
-            return `<p>${prereq ? prereq.title : pid}</p>`;
-          }).join('');
-        }
-        if (entry.related_courses && entry.related_courses.length > 0) {
-          detailHtml += `<p class="detail-label">Related Courses</p>`;
-          detailHtml += entry.related_courses.map(rid => {
-            var rel = lookup[rid];
-            return `<p>${rel ? rel.title : rid}</p>`;
-          }).join('');
-        }
+        detailHtml += renderRelationsDetailHtml(entry.id);
       }
 
       if (type === 'events') {
@@ -2705,7 +2596,7 @@
             let speakers = '';
             if (s.speakers && s.speakers.length > 0) {
               speakers = ' — ' + s.speakers.map(sp =>
-                sp.person_id ? personName(sp.person_id, lookup) : sp.external_name
+                sp.person_id ? personName(sp.person_id) : sp.external_name
               ).join(', ');
             }
             return `<p>${s.time} ${s.title}${speakers}</p>`;
@@ -2717,7 +2608,7 @@
             let people = '';
             if (ex.participants && ex.participants.length > 0) {
               people = ' — ' + ex.participants.map(p =>
-                p.person_id ? personName(p.person_id, lookup) : p.external_name
+                p.person_id ? personName(p.person_id) : p.external_name
               ).join(', ');
             }
             return `<p>${ex.title}${people}</p>`;
@@ -2730,6 +2621,7 @@
         if (entry.website) {
           detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
         }
+        detailHtml += renderRelationsDetailHtml(entry.id);
       }
 
       const editBtnHtml = isLoggedIn() ? `<button class="card-edit-btn">Edit</button>` : '';
@@ -2786,15 +2678,14 @@
       updateActiveNavLink(type);
       window.scrollTo(0, 0);
 
-      fetchAllRegistryData()
-        .then(allData => {
-          const lookup = buildLookup(allData);
-          const entries = allData[type].filter(e => !e.status || e.status !== 'cancelled');
+      ensureStore()
+        .then(() => {
+          const entries = listEntities(type, e => !e.status || e.status !== 'cancelled');
           const list = document.getElementById('registry-list');
           if (!list) return;
           list.innerHTML = '';
           entries.forEach(entry => {
-            list.appendChild(renderRegistryCard(entry, type, lookup));
+            list.appendChild(renderRegistryCard(entry, type));
           });
         })
         .catch(err => {
@@ -2811,100 +2702,12 @@
       institutions: '#7a8490',
       people: '#b0b8c0',
       projects: '#e8a840',
-      initiatives: '#4a9e6a'
+      initiatives: '#4a9e6a',
+      courses: '#7b68ae',
+      events: '#c06050'
     };
 
-    function buildGraphData(allData) {
-      const nodes = [];
-      const links = [];
-      const edgeSet = new Set();
-      const nodeIds = new Set();
-
-      function addNode(id, label, type, raw) {
-        if (nodeIds.has(id)) return;
-        nodeIds.add(id);
-        nodes.push({ id, label, type, raw, val: 2 });
-      }
-
-      function addLink(source, target, label) {
-        const key = `${source}->${target}:${label}`;
-        if (edgeSet.has(key)) return;
-        edgeSet.add(key);
-        links.push({ source, target, label });
-      }
-
-      // Institution nodes + links
-      allData.institutions.forEach(inst => {
-        addNode(inst.id, inst.short_name || inst.name, 'institutions', inst);
-        if (inst.parent_institution) addLink(inst.id, inst.parent_institution, 'parent');
-        if (inst.related_institutions) {
-          inst.related_institutions.forEach(r => addLink(inst.id, r.institution_id, r.relationship));
-        }
-        if (inst.key_contacts) {
-          inst.key_contacts.forEach(c => addLink(inst.id, c.person_id, c.role));
-        }
-        if (inst.hosted_projects) {
-          inst.hosted_projects.forEach(pid => addLink(inst.id, pid, 'hosts'));
-        }
-        if (inst.hosted_initiatives) {
-          inst.hosted_initiatives.forEach(iid => addLink(inst.id, iid, 'hosts'));
-        }
-      });
-
-      // People nodes + links (active only)
-      allData.people.filter(p => !p.status || p.status === 'active').forEach(person => {
-        addNode(person.id, person.name, 'people', person);
-        if (person.affiliations) {
-          person.affiliations.forEach(a => {
-            if (a.institution_id) addLink(person.id, a.institution_id, 'affiliated');
-          });
-        }
-        if (person.projects) {
-          person.projects.forEach(p => addLink(person.id, p.project_id, p.role));
-        }
-        if (person.initiatives) {
-          person.initiatives.forEach(i => addLink(person.id, i.initiative_id, i.role));
-        }
-      });
-
-      // Project nodes + links
-      allData.projects.forEach(proj => {
-        addNode(proj.id, proj.title, 'projects', proj);
-        if (proj.owner) addLink(proj.id, proj.owner, 'owner');
-        if (proj.contributors) {
-          proj.contributors.forEach(c => addLink(proj.id, c.person_id, c.role));
-        }
-        if (proj.parent_initiative) addLink(proj.id, proj.parent_initiative, 'part of');
-        if (proj.dependencies && proj.dependencies.requires) {
-          proj.dependencies.requires.forEach(d => {
-            if (d.project_id) addLink(proj.id, d.project_id, 'depends on');
-          });
-        }
-      });
-
-      // Initiative nodes + links
-      allData.initiatives.forEach(init => {
-        addNode(init.id, init.title, 'initiatives', init);
-        if (init.lead) addLink(init.id, init.lead, 'lead');
-        if (init.participants) {
-          init.participants.forEach(p => addLink(init.id, p.person_id, p.role));
-        }
-        if (init.spawned_projects) {
-          init.spawned_projects.forEach(p => addLink(init.id, p.project_id, 'spawned'));
-        }
-        if (init.contained_projects) {
-          init.contained_projects.forEach(p => addLink(init.id, p.project_id, 'contains'));
-        }
-        if (init.related_initiatives) {
-          init.related_initiatives.forEach(r => addLink(init.id, r.initiative_id, r.relationship));
-        }
-      });
-
-      // Only keep links where both source and target exist as nodes
-      const validLinks = links.filter(l => nodeIds.has(l.source) && nodeIds.has(l.target));
-
-      return { nodes, links: validLinks };
-    }
+    // buildGraphData is now provided by compass-data.js
 
     function loadNetwork() {
       clearOrientationRotator();
@@ -2920,6 +2723,8 @@
               <button class="network-toggle" data-type="people"><span class="toggle-dot" style="background: ${nodeColors.people}"></span> People</button>
               <button class="network-toggle" data-type="projects"><span class="toggle-dot" style="background: ${nodeColors.projects}"></span> Projects</button>
               <button class="network-toggle" data-type="initiatives"><span class="toggle-dot" style="background: ${nodeColors.initiatives}"></span> Initiatives</button>
+              <button class="network-toggle" data-type="courses"><span class="toggle-dot" style="background: ${nodeColors.courses}"></span> Courses</button>
+              <button class="network-toggle" data-type="events"><span class="toggle-dot" style="background: ${nodeColors.events}"></span> Events</button>
             </div>
           </div>
           <div class="network-container" id="network-container"></div>
@@ -2930,9 +2735,9 @@
       updateActiveNavLink('network');
       window.scrollTo(0, 0);
 
-      fetchAllRegistryData()
-        .then(allData => {
-          const graphData = buildGraphData(allData);
+      ensureStore()
+        .then(() => {
+          const graphData = buildGraphData();
           const container = document.getElementById('network-container');
           if (!container) return;
 
@@ -3124,14 +2929,14 @@
             const detailPortrait = data.portrait || 'compass-icon.png';
             html += `<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">`;
             html += `<img src="${detailPortrait}" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">`;
-            html += `<h3 style="margin:0">${data.name || data.title || data.id}</h3></div>`;
+            html += `<h3 style="margin:0">${data.name || data.id}</h3></div>`;
             if (data.summary) html += `<p>${data.summary}</p>`;
             if (data.status) html += `<p><span class="status-badge ${data.status}">${data.status}</span></p>`;
 
             switch (type) {
               case 'people':
                 if (data.name_ja) html += `<p style="opacity: 0.6;">${data.name_ja}</p>`;
-                if (data.title) html += `<p><strong>Title:</strong> ${data.title}</p>`;
+                if (data.job_title) html += `<p><strong>Title:</strong> ${data.job_title}</p>`;
                 if (data.role_categories) html += `<p><strong>Roles:</strong> ${data.role_categories.join(', ')}</p>`;
                 if (data.expertise) html += `<p><strong>Expertise:</strong> ${data.expertise.join(', ')}</p>`;
                 if (data.background) html += `<p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.85rem;">${data.background}</p>`;
@@ -3148,9 +2953,17 @@
                 if (data.purpose) html += `<p><strong>Purpose:</strong> ${data.purpose}</p>`;
                 if (data.domains) html += `<p><strong>Domains:</strong> ${data.domains.join(', ')}</p>`;
                 break;
+              case 'courses':
+                if (data.domains) html += `<p><strong>Domains:</strong> ${data.domains.join(', ')}</p>`;
+                if (data.credits) html += `<p><strong>Credits:</strong> ${data.credits}</p>`;
+                break;
+              case 'events':
+                if (data.date) html += `<p><strong>Date:</strong> ${data.date}</p>`;
+                if (data.event_type) html += `<p><strong>Type:</strong> ${data.event_type}</p>`;
+                break;
             }
 
-            html += `<p style="margin-top: 0.75rem;"><a href="#${type}" style="color: ${nodeColors[type]}; text-decoration: none; border-bottom: 1px solid ${nodeColors[type]};">View all ${registryMeta[type].plural.toLowerCase()}</a></p>`;
+            html += `<p style="margin-top: 0.75rem;"><a href="#${type}" style="color: ${nodeColors[type]}; text-decoration: none; border-bottom: 1px solid ${nodeColors[type]};">View all ${(registryMeta[type] || {}).plural || type}</a></p>`;
 
             detail.innerHTML = html;
             detail.classList.add('visible');
@@ -3487,79 +3300,84 @@
     var longTextFields = ['background', 'summary', 'purpose', 'ecosystem_role', 'description', 'scope', 'notes', 'mandate'];
     var statusOptionsByType = {
       people: ['active', 'alumni', 'emeritus'],
+      courses: ['planned', 'active', 'archived'],
+      events: ['proposed', 'confirmed', 'completed', 'cancelled'],
       projects: ['proposed', 'active', 'paused', 'completed'],
       initiatives: ['active', 'paused', 'completed'],
       institutions: ['active', 'inactive']
     };
-    var editSkipFields = ['portrait'];
+    var editSkipFields = ['portrait', 'type'];
 
-    // Top-level fields that reference a single entity by ID
-    var refFields = {
-      owner: 'people', lead: 'people',
-      parent_initiative: 'initiatives', parent_institution: 'institutions'
-    };
-
-    // Fields that are arrays of entity ID strings
-    var refArrayFields = {
-      hosted_projects: 'projects', hosted_initiatives: 'initiatives'
-    };
-
-    // Sub-field key → entity type for dropdowns within array-of-objects
-    var subFieldRefTypes = {
-      person_id: 'people', project_id: 'projects',
-      initiative_id: 'initiatives', institution_id: 'institutions'
-    };
-
-    // Array-of-objects item templates (used for "Add" and to detect field type)
+    // Array-of-objects item templates (for structural content remaining on entities)
     var arrayItemTemplates = {
-      affiliations: { institution: '', institution_id: '', role: '', primary: false },
-      projects: { project_id: '', title: '', role: '' },
-      initiatives: { initiative_id: '', title: '', role: '' },
-      links: { type: '', url: '' },
-      contributors: { person_id: '', role: '' },
-      participants: { person_id: '', role: '' },
-      key_contacts: { person_id: '', role: '' },
-      spawned_projects: { project_id: '', relationship: '' },
-      contained_projects: { project_id: '', relationship: '' },
-      related_initiatives: { initiative_id: '', relationship: '' },
-      related_institutions: { institution_id: '', relationship: '' }
+      links: { type: '', url: '' }
     };
-
-    // Companion name fields auto-populated from ID selection
-    var companionFieldMap = {
-      affiliations: { institution_id: 'institution' },
-      projects: { project_id: 'title' },
-      initiatives: { initiative_id: 'title' }
-    };
-
-    // Dependencies sub-item template
-    var depsRequiresTemplate = { project_id: '', description: '', criticality: '' };
 
     // Blank entity templates for "Add New"
     var entityTemplates = {
       people: {
-        id: '', name: '', name_ja: '', status: 'active', role_categories: [],
-        title: '', affiliations: [], expertise: [], interests: [],
-        background: '', projects: [], initiatives: [], links: [], notes: ''
+        id: '', type: 'person', name: '', name_ja: '', status: 'active', role_categories: [],
+        job_title: '', expertise: [], interests: [],
+        background: '', links: [], notes: ''
       },
       projects: {
-        id: '', title: '', status: 'proposed', summary: '', domains: [],
-        owner: '', contributors: [], parent_initiative: '',
-        project_goals: [], completion_criteria: [],
-        dependencies: { requires: [] }, links: [], notes: ''
+        id: '', type: 'project', name: '', status: 'proposed', summary: '', domains: [],
+        project_goals: [], links: [], notes: ''
       },
       initiatives: {
-        id: '', title: '', status: 'active', summary: '', purpose: '', domains: [],
-        lead: '', participants: [], spawned_projects: [], contained_projects: [],
-        related_initiatives: [], health_indicators: [], review_cycle: '', links: [], notes: ''
+        id: '', type: 'initiative', name: '', status: 'active', summary: '', purpose: '', domains: [],
+        activities: [], health_indicators: [], review_cycle: '', links: [], notes: ''
       },
       institutions: {
-        id: '', name: '', name_ja: '', short_name: '', status: 'active',
+        id: '', type: 'institution', name: '', name_ja: '', short_name: '', status: 'active',
         institution_type: '', summary: '', ecosystem_role: '', mandate: '',
-        capabilities: [], domains: [], key_contacts: [], parent_institution: '',
-        related_institutions: [], hosted_projects: [], hosted_initiatives: [],
-        links: [], notes: ''
+        capabilities: [], domains: [], links: [], notes: ''
+      },
+      courses: {
+        id: '', type: 'course', name: '', short_name: '', status: 'planned', summary: '',
+        credits: 2, program: [], charter_alignment: [], domains: [], notes: ''
+      },
+      events: {
+        id: '', type: 'event', name: '', status: 'proposed', summary: '', event_type: '',
+        purpose: '', audience: '', date: '', time: '', duration: '', domains: [],
+        expected_outcomes: [], notes: ''
       }
+    };
+
+    // Relation types available per entity type for the relation editor
+    var relationTypesByEntity = {
+      people: [
+        { type: 'affiliated', targetTypes: ['institutions'], label: 'Affiliated with' },
+        { type: 'owner', targetTypes: ['projects'], label: 'Owner of' },
+        { type: 'contributor', targetTypes: ['projects'], label: 'Contributor to' },
+        { type: 'lead', targetTypes: ['initiatives'], label: 'Lead of' },
+        { type: 'participant', targetTypes: ['initiatives'], label: 'Participant in' },
+        { type: 'contact_for', targetTypes: ['institutions'], label: 'Contact for' },
+        { type: 'teaches', targetTypes: ['courses'], label: 'Teaches' },
+        { type: 'organizes', targetTypes: ['events'], label: 'Organizes' },
+        { type: 'speaks_at', targetTypes: ['events'], label: 'Speaks at' },
+        { type: 'exhibits_at', targetTypes: ['events'], label: 'Exhibits at' }
+      ],
+      projects: [
+        { type: 'depends_on', targetTypes: ['projects'], label: 'Depends on' }
+      ],
+      initiatives: [
+        { type: 'spawned', targetTypes: ['projects'], label: 'Spawned project' },
+        { type: 'contains', targetTypes: ['projects'], label: 'Contains project' },
+        { type: 'partner', targetTypes: ['institutions'], label: 'Partner' }
+      ],
+      institutions: [
+        { type: 'hosts', targetTypes: ['projects', 'initiatives', 'institutions', 'events'], label: 'Hosts' },
+        { type: 'parent', targetTypes: ['institutions'], label: 'Parent of' },
+        { type: 'partner', targetTypes: ['institutions'], label: 'Partner' }
+      ],
+      courses: [
+        { type: 'has_prerequisite', targetTypes: ['courses'], label: 'Has prerequisite' },
+        { type: 'related', targetTypes: ['courses'], label: 'Related to' }
+      ],
+      events: [
+        { type: 'partner', targetTypes: ['institutions'], label: 'Partner' }
+      ]
     };
 
     function escapeHtml(str) {
@@ -3570,100 +3388,150 @@
       return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    // Get friendly display name for an entity
-    function entityDisplayName(id, refType, allData) {
-      if (!id) return '';
-      var list = allData[refType] || [];
-      var found = list.find(function(e) { return e.id === id; });
-      if (!found) return id;
-      if (found.short_name) return found.name + ' (' + found.short_name + ')';
-      return found.name || found.title || id;
-    }
-
-    // Build <option> list for a ref dropdown
-    function refOptions(refType, selectedId, allData) {
-      var list = allData[refType] || [];
+    // Build <option> list for an entity dropdown
+    function refOptionsFromStore(typePlural, selectedId) {
+      var list = store.byType[typePlural] || [];
       var html = '<option value="">-- None --</option>';
       list.forEach(function(e) {
-        var label = e.short_name ? e.name + ' (' + e.short_name + ')' : (e.name || e.title || e.id);
+        var label = e.short_name ? e.name + ' (' + e.short_name + ')' : (e.name || e.id);
         html += '<option value="' + escapeAttr(e.id) + '"' +
           (e.id === selectedId ? ' selected' : '') + '>' + escapeHtml(label) + '</option>';
       });
       return html;
     }
 
-    // Render a single item row for an array-of-objects field
-    function renderArrayItemHtml(fieldName, item, allData) {
-      var companions = companionFieldMap[fieldName] || {};
-      var companionKeys = {};
-      Object.keys(companions).forEach(function(k) { companionKeys[companions[k]] = true; });
+    // Build combined options from multiple type arrays
+    function refOptionsMultiType(typeList, selectedId) {
+      var html = '<option value="">-- None --</option>';
+      typeList.forEach(function(typePlural) {
+        var list = store.byType[typePlural] || [];
+        list.forEach(function(e) {
+          var label = e.short_name ? e.name + ' (' + e.short_name + ')' : (e.name || e.id);
+          html += '<option value="' + escapeAttr(e.id) + '"' +
+            (e.id === selectedId ? ' selected' : '') + '>' + escapeHtml(label) + '</option>';
+        });
+      });
+      return html;
+    }
 
+    // Render a single relation row in the edit modal
+    function renderRelationRowHtml(rel) {
+      var targetEntity = store.entities[rel.target];
+      var targetName = targetEntity ? getEntityFullDisplay(rel.target) : rel.target;
+      var relLabel = getRelationLabel(rel.type);
+      var metaStr = '';
+      if (rel.meta) {
+        var parts = [];
+        Object.entries(rel.meta).forEach(function(pair) { parts.push(pair[0] + ': ' + pair[1]); });
+        metaStr = parts.join(', ');
+      }
+      return '<div class="array-item relation-row" data-source="' + escapeAttr(rel.source) +
+        '" data-target="' + escapeAttr(rel.target) + '" data-type="' + escapeAttr(rel.type) + '">' +
+        '<div class="sub-fields"><span class="rel-type-label">' + escapeHtml(relLabel) + '</span> ' +
+        '<span class="rel-target-name">' + escapeHtml(targetName) + '</span>' +
+        (metaStr ? ' <span style="opacity:0.6;font-size:0.85em;">(' + escapeHtml(metaStr) + ')</span>' : '') +
+        '</div>' +
+        '<button type="button" class="remove-item-btn" onclick="this.closest(\'.relation-row\').remove()">\u00d7</button></div>';
+    }
+
+    // Render the relation editor section for an entity
+    function buildRelationEditor(entityId, type) {
+      var related = getRelated(entityId);
+      var html = '<div class="form-group"><label>Relations</label>';
+      html += '<div class="array-items" id="relation-items">';
+
+      // Show outgoing relations (source = this entity)
+      store.relations.forEach(function(r) {
+        if (r.source === entityId) {
+          html += renderRelationRowHtml(r);
+        }
+      });
+
+      // Show incoming relations (target = this entity) with inverse label
+      store.relations.forEach(function(r) {
+        if (r.target === entityId) {
+          var inverse = RELATION_TYPES[r.type] ? RELATION_TYPES[r.type].inverse : r.type;
+          html += renderRelationRowHtml({ source: entityId, target: r.source, type: inverse, meta: r.meta });
+        }
+      });
+
+      html += '</div>';
+
+      // Add relation controls
+      var relTypes = relationTypesByEntity[type] || [];
+      if (relTypes.length > 0) {
+        html += '<div class="add-relation-controls" style="display:flex;gap:0.5rem;margin-top:0.5rem;flex-wrap:wrap;">';
+        html += '<select id="new-rel-type">';
+        relTypes.forEach(function(rt) {
+          html += '<option value="' + escapeAttr(rt.type) + '" data-targets="' + escapeAttr(rt.targetTypes.join(',')) + '">' +
+            escapeHtml(rt.label) + '</option>';
+        });
+        html += '</select>';
+        // Target dropdown (populated based on selected relation type)
+        html += '<select id="new-rel-target" style="flex:1;min-width:200px;"></select>';
+        html += '<input type="text" id="new-rel-role" placeholder="role (optional)" style="width:120px;">';
+        html += '<button type="button" class="add-item-btn" onclick="addRelationRow()">+ Add</button>';
+        html += '</div>';
+      }
+
+      html += '</div>';
+      return html;
+    }
+
+    function updateRelationTargetDropdown() {
+      var typeSelect = document.getElementById('new-rel-type');
+      var targetSelect = document.getElementById('new-rel-target');
+      if (!typeSelect || !targetSelect) return;
+      var opt = typeSelect.options[typeSelect.selectedIndex];
+      var targetTypes = opt ? opt.getAttribute('data-targets').split(',') : [];
+      targetSelect.innerHTML = refOptionsMultiType(targetTypes, '');
+    }
+
+    function addRelationRow() {
+      var typeSelect = document.getElementById('new-rel-type');
+      var targetSelect = document.getElementById('new-rel-target');
+      var roleInput = document.getElementById('new-rel-role');
+      var container = document.getElementById('relation-items');
+      if (!typeSelect || !targetSelect || !container) return;
+
+      var relType = typeSelect.value;
+      var targetId = targetSelect.value;
+      if (!targetId) return;
+
+      var meta = {};
+      if (roleInput && roleInput.value.trim()) meta.role = roleInput.value.trim();
+
+      var rel = { source: '_current', target: targetId, type: relType };
+      if (Object.keys(meta).length > 0) rel.meta = meta;
+      container.insertAdjacentHTML('beforeend', renderRelationRowHtml(rel));
+
+      // Reset
+      targetSelect.value = '';
+      if (roleInput) roleInput.value = '';
+    }
+
+    // Render a single item row for an array-of-objects field (links only now)
+    function renderArrayItemHtml(fieldName, item) {
       var html = '<div class="array-item"><div class="sub-fields">';
       Object.keys(item).forEach(function(subKey) {
-        // Skip companion name fields (auto-populated)
-        if (companionKeys[subKey]) return;
         var subVal = item[subKey];
-        var refType = subFieldRefTypes[subKey];
-
-        if (refType) {
-          // Reference dropdown
-          html += '<div class="sub-field"><label>' + escapeHtml(subKey.replace(/_id$/, '').replace(/_/g, ' ')) + '</label>' +
-            '<select data-subfield="' + subKey + '">' + refOptions(refType, subVal, allData) + '</select></div>';
-        } else if (typeof subVal === 'boolean') {
-          html += '<div class="sub-field checkbox-field">' +
-            '<input type="checkbox" data-subfield="' + subKey + '"' + (subVal ? ' checked' : '') + '>' +
-            '<label>' + escapeHtml(subKey.replace(/_/g, ' ')) + '</label></div>';
-        } else {
-          html += '<div class="sub-field"><label>' + escapeHtml(subKey.replace(/_/g, ' ')) + '</label>' +
-            '<input type="text" data-subfield="' + subKey + '" value="' + escapeAttr(String(subVal == null ? '' : subVal)) + '"></div>';
-        }
+        html += '<div class="sub-field"><label>' + escapeHtml(subKey.replace(/_/g, ' ')) + '</label>' +
+          '<input type="text" data-subfield="' + subKey + '" value="' + escapeAttr(String(subVal == null ? '' : subVal)) + '"></div>';
       });
       html += '</div><button type="button" class="remove-item-btn" onclick="this.closest(\'.array-item\').remove()">\u00d7</button></div>';
       return html;
     }
 
-    // Add a new blank item to an array-of-objects container
     function addArrayItem(fieldName) {
       var container = document.querySelector('[data-array-field="' + fieldName + '"]');
       if (!container) return;
-      var allData = getCachedAllData();
       var template = arrayItemTemplates[fieldName] || {};
-      container.insertAdjacentHTML('beforeend', renderArrayItemHtml(fieldName, template, allData));
-    }
-
-    // Add a new blank item to dependencies.requires
-    function addDepsRequiresItem() {
-      var container = document.querySelector('[data-array-field="dependencies.requires"]');
-      if (!container) return;
-      var allData = getCachedAllData();
-      container.insertAdjacentHTML('beforeend', renderArrayItemHtml('_depsRequires', depsRequiresTemplate, allData));
-    }
-
-    // Add a new ref to a ref-array field
-    function addRefArrayItem(fieldName) {
-      var container = document.querySelector('[data-array-field="' + fieldName + '"]');
-      if (!container) return;
-      var refType = refArrayFields[fieldName];
-      var allData = getCachedAllData();
-      var html = '<div class="array-item"><div class="sub-fields" style="display:block;">' +
-        '<select data-subfield="value">' + refOptions(refType, '', allData) + '</select>' +
-        '</div><button type="button" class="remove-item-btn" onclick="this.closest(\'.array-item\').remove()">\u00d7</button></div>';
-      container.insertAdjacentHTML('beforeend', html);
-    }
-
-    function getCachedAllData() {
-      return {
-        institutions: registryCache['institutions'] || [],
-        people: registryCache['people'] || [],
-        projects: registryCache['projects'] || [],
-        initiatives: registryCache['initiatives'] || []
-      };
+      container.insertAdjacentHTML('beforeend', renderArrayItemHtml(fieldName, template));
     }
 
     function showEditModal(entry, type, isNew) {
-      var allData = getCachedAllData();
-      var name = isNew ? ('New ' + registryMeta[type].singular) : (entry.name || entry.title || entry.id);
-      var formHtml = buildEditForm(entry, type, allData, isNew);
+      var name = isNew ? ('New ' + registryMeta[type].singular) : (entry.name || entry.id);
+      var formHtml = buildEditForm(entry, type, isNew);
       var saveAction = isNew ? 'handleSaveNew' : 'handleSave';
       var html = '<form id="edit-form" onsubmit="return false;">' +
         formHtml +
@@ -3672,6 +3540,13 @@
         '<button type="button" class="btn btn-primary" id="save-btn" onclick="' + saveAction + '(\'' + type + '\')">' + (isNew ? 'Create' : 'Save') + '</button>' +
         '</div></form>';
       showModal((isNew ? 'New ' : 'Edit ') + name, html, { wide: true });
+
+      // Wire up relation type dropdown change handler
+      var typeSelect = document.getElementById('new-rel-type');
+      if (typeSelect) {
+        typeSelect.addEventListener('change', updateRelationTargetDropdown);
+        updateRelationTargetDropdown();
+      }
     }
 
     function showNewEntityModal(type) {
@@ -3679,7 +3554,7 @@
       showEditModal(template, type, true);
     }
 
-    function buildEditForm(entry, type, allData, isNew) {
+    function buildEditForm(entry, type, isNew) {
       var html = '';
       var keys = Object.keys(entry);
 
@@ -3708,19 +3583,12 @@
 
         // institution_type dropdown
         if (key === 'institution_type') {
-          var itypes = ['university', 'graduate_school', 'research_center', 'lab', 'institute', 'foundation', 'company', 'government', 'ngo'];
+          var itypes = ['university', 'graduate_school', 'research_center', 'lab', 'institute', 'foundation', 'company', 'government', 'ngo', 'nonprofit', 'hospital'];
           var iopts = '<option value="">-- Select --</option>' + itypes.map(function(t) {
             return '<option value="' + t + '"' + (val === t ? ' selected' : '') + '>' + escapeHtml(t.replace(/_/g, ' ')) + '</option>';
           }).join('');
           html += '<div class="form-group"><label>' + label + '</label>' +
             '<select name="' + key + '">' + iopts + '</select></div>';
-          return;
-        }
-
-        // Top-level single ref field (owner, lead, parent_initiative, parent_institution)
-        if (refFields[key]) {
-          html += '<div class="form-group"><label>' + label + '</label>' +
-            '<select name="' + key + '">' + refOptions(refFields[key], val, allData) + '</select></div>';
           return;
         }
 
@@ -3736,24 +3604,18 @@
           return;
         }
 
-        // Array of ref ID strings (hosted_projects, hosted_initiatives)
-        if (refArrayFields[key]) {
-          var refType = refArrayFields[key];
-          html += '<div class="form-group"><label>' + label + '</label><div class="array-items" data-array-field="' + key + '">';
-          (val || []).forEach(function(id) {
-            html += '<div class="array-item"><div class="sub-fields" style="display:block;">' +
-              '<select data-subfield="value">' + refOptions(refType, id, allData) + '</select>' +
-              '</div><button type="button" class="remove-item-btn" onclick="this.closest(\'.array-item\').remove()">\u00d7</button></div>';
-          });
-          html += '</div><button type="button" class="add-item-btn" onclick="addRefArrayItem(\'' + key + '\')">+ Add</button></div>';
+        // Number field
+        if (typeof val === 'number') {
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<input type="number" name="' + key + '" value="' + val + '" /></div>';
           return;
         }
 
-        // Array of objects (known template)
+        // Array of objects (links)
         if (Array.isArray(val) && arrayItemTemplates[key]) {
           html += '<div class="form-group"><label>' + label + '</label><div class="array-items" data-array-field="' + key + '">';
           val.forEach(function(item) {
-            html += renderArrayItemHtml(key, item, allData);
+            html += renderArrayItemHtml(key, item);
           });
           html += '</div><button type="button" class="add-item-btn" onclick="addArrayItem(\'' + key + '\')">+ Add</button></div>';
           return;
@@ -3767,21 +3629,20 @@
           return;
         }
 
-        // Dependencies object { requires: [...] }
-        if (key === 'dependencies' && typeof val === 'object' && val !== null) {
-          var requires = (val && val.requires) || [];
-          html += '<div class="form-group"><label>dependencies (requires)</label><div class="array-items" data-array-field="dependencies.requires">';
-          requires.forEach(function(item) {
-            html += renderArrayItemHtml('_depsRequires', item, allData);
-          });
-          html += '</div><button type="button" class="add-item-btn" onclick="addDepsRequiresItem()">+ Add</button></div>';
+        // Skip complex objects (schedule, exhibitions, location) — not editable inline
+        if (typeof val === 'object' && val !== null) {
           return;
         }
 
-        // Fallback for other types
+        // Fallback
         html += '<div class="form-group"><label>' + label + '</label>' +
           '<input type="text" name="' + key + '" value="' + escapeAttr(String(val == null ? '' : val)) + '" /></div>';
       });
+
+      // Add relation editor (only for existing entities)
+      if (!isNew && entry.id) {
+        html += buildRelationEditor(entry.id, type);
+      }
 
       return html;
     }
@@ -3789,7 +3650,6 @@
     function collectFormData(entry, type) {
       var form = document.getElementById('edit-form');
       if (!form) return null;
-      var allData = getCachedAllData();
       var updated = {};
       var keys = Object.keys(entry);
 
@@ -3799,48 +3659,17 @@
           return;
         }
 
-        // Array of ref ID strings
-        if (refArrayFields[key]) {
-          var container = form.querySelector('[data-array-field="' + key + '"]');
-          if (!container) { updated[key] = entry[key]; return; }
-          var ids = [];
-          container.querySelectorAll('.array-item select[data-subfield="value"]').forEach(function(sel) {
-            if (sel.value) ids.push(sel.value);
-          });
-          updated[key] = ids;
-          return;
-        }
-
-        // Array of objects (known template)
+        // Array of objects (links)
         if (Array.isArray(entry[key]) && arrayItemTemplates[key]) {
           var container = form.querySelector('[data-array-field="' + key + '"]');
           if (!container) { updated[key] = entry[key]; return; }
-          var companions = companionFieldMap[key] || {};
           var items = [];
           container.querySelectorAll('.array-item').forEach(function(row) {
             var item = {};
             var template = arrayItemTemplates[key];
             Object.keys(template).forEach(function(subKey) {
-              // Check for companion: auto-populate from ref selection
-              var companionFor = null;
-              Object.keys(companions).forEach(function(refKey) {
-                if (companions[refKey] === subKey) companionFor = refKey;
-              });
-              if (companionFor) {
-                // Auto-populate: get the selected ref's display name
-                var refSel = row.querySelector('[data-subfield="' + companionFor + '"]');
-                var refId = refSel ? refSel.value : '';
-                var refType = subFieldRefTypes[companionFor];
-                item[subKey] = refId ? entityDisplayName(refId, refType, allData) : '';
-                return;
-              }
               var el = row.querySelector('[data-subfield="' + subKey + '"]');
-              if (!el) { item[subKey] = template[subKey]; return; }
-              if (typeof template[subKey] === 'boolean') {
-                item[subKey] = el.checked;
-              } else {
-                item[subKey] = el.value;
-              }
+              item[subKey] = el ? el.value : '';
             });
             items.push(item);
           });
@@ -3848,24 +3677,7 @@
           return;
         }
 
-        // Dependencies object
-        if (key === 'dependencies') {
-          var container = form.querySelector('[data-array-field="dependencies.requires"]');
-          if (!container) { updated[key] = entry[key]; return; }
-          var requires = [];
-          container.querySelectorAll('.array-item').forEach(function(row) {
-            var item = {};
-            Object.keys(depsRequiresTemplate).forEach(function(subKey) {
-              var el = row.querySelector('[data-subfield="' + subKey + '"]');
-              item[subKey] = el ? el.value : '';
-            });
-            requires.push(item);
-          });
-          updated[key] = { requires: requires };
-          return;
-        }
-
-        // Simple fields (string, select, textarea)
+        // Simple fields (string, number, select, textarea)
         var input = form.querySelector('[name="' + key + '"]');
         if (!input) { updated[key] = entry[key]; return; }
 
@@ -3892,11 +3704,31 @@
       return updated;
     }
 
+    // Collect relations from the edit modal's relation editor
+    function collectRelationsFromForm(entityId) {
+      var container = document.getElementById('relation-items');
+      if (!container) return null;
+
+      var newRelations = [];
+      container.querySelectorAll('.relation-row').forEach(function(row) {
+        var source = row.getAttribute('data-source');
+        var target = row.getAttribute('data-target');
+        var type = row.getAttribute('data-type');
+        if (source === '_current') source = entityId;
+        if (target === '_current') target = entityId;
+        if (source && target && type) {
+          newRelations.push({ source: source, target: target, type: type });
+        }
+      });
+
+      return newRelations;
+    }
+
     async function handleSave(type) {
       var saveBtn = document.getElementById('save-btn');
       var form = document.getElementById('edit-form');
       var entryId = form ? form.querySelector('[name="id"]').value : '';
-      var entries = registryCache[type];
+      var entries = store.byType[type];
       if (!entries) { showModalError('Data not loaded.'); return; }
 
       var original = entries.find(function(e) { return e.id === entryId; });
@@ -3911,12 +3743,15 @@
       }
       if (!updated) { showModalError('Could not read form data.'); return; }
 
+      // Collect updated relations
+      var newRelations = collectRelationsFromForm(entryId);
+
       if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Saving\u2026'; }
 
       try {
-        await commitRegistryUpdate(type, entryId, updated, false);
+        await commitRegistryUpdate(type, entryId, updated, false, newRelations);
         closeModal();
-        delete registryCache[type];
+        _storeReady = null; // Force store reload
         loadFromHash();
       } catch (err) {
         showModalError(err.message);
@@ -3942,13 +3777,14 @@
       }
       if (!updated) { showModalError('Could not read form data.'); return; }
       updated.id = entryId;
+      updated.type = TYPE_FROM_PLURAL[type] || type;
 
       if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Creating\u2026'; }
 
       try {
         await commitRegistryUpdate(type, entryId, updated, true);
         closeModal();
-        delete registryCache[type];
+        _storeReady = null; // Force store reload
         loadFromHash();
       } catch (err) {
         showModalError(err.message);
@@ -3974,11 +3810,7 @@
       return new TextDecoder().decode(bytes);
     }
 
-    async function commitRegistryUpdate(type, entryId, updatedEntry, isNew) {
-      var pat = getPAT();
-      if (!pat) throw new Error('Not logged in.');
-
-      var filePath = 'data/' + type + '.json';
+    async function commitGithubFile(pat, filePath, newContent, commitMessage) {
       var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
       var headers = {
         'Authorization': 'Bearer ' + pat,
@@ -3987,18 +3819,67 @@
 
       // Get current file to get sha
       var getRes = await fetch(apiUrl, { headers: headers });
+      var sha = null;
+      if (getRes.ok) {
+        var fileData = await getRes.json();
+        sha = fileData.sha;
+      } else if (getRes.status === 404) {
+        // File doesn't exist yet, will create
+      } else {
+        if (getRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
+        throw new Error('Failed to read ' + filePath + ': ' + getRes.status);
+      }
+
+      var encoded = encodeBase64Unicode(newContent);
+      var body = {
+        message: commitMessage,
+        content: encoded,
+        branch: 'main'
+      };
+      if (sha) body.sha = sha;
+
+      var putRes = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + pat,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+
+      if (!putRes.ok) {
+        if (putRes.status === 409) throw new Error('File was modified since you opened it. Reload and try again.');
+        if (putRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
+        var errData = {};
+        try { errData = await putRes.json(); } catch(e) {}
+        throw new Error(errData.message || 'Save failed: ' + putRes.status);
+      }
+    }
+
+    async function commitRegistryUpdate(type, entryId, updatedEntry, isNew, newRelations) {
+      var pat = getPAT();
+      if (!pat) throw new Error('Not logged in.');
+
+      // --- Commit entity file ---
+      var filePath = 'data/' + type + '.json';
+      var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
+      var headers = {
+        'Authorization': 'Bearer ' + pat,
+        'Accept': 'application/vnd.github.v3+json'
+      };
+
+      var getRes = await fetch(apiUrl, { headers: headers });
       if (!getRes.ok) {
         if (getRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
         throw new Error('Failed to read ' + filePath + ': ' + getRes.status);
       }
       var fileData = await getRes.json();
 
-      // Decode current content
       var content = decodeBase64Unicode(fileData.content.replace(/\n/g, ''));
       var allEntries = JSON.parse(content);
 
       if (isNew) {
-        // Check for duplicate ID
         if (allEntries.some(function(e) { return e.id === entryId; })) {
           throw new Error('An entry with ID "' + entryId + '" already exists.');
         }
@@ -4009,35 +3890,52 @@
         allEntries[idx] = updatedEntry;
       }
 
-      // Encode updated JSON
       var jsonString = JSON.stringify(allEntries, null, 2) + '\n';
-      var encoded = encodeBase64Unicode(jsonString);
-
-      var name = updatedEntry.name || updatedEntry.title || updatedEntry.id;
+      var name = updatedEntry.name || updatedEntry.id;
       var verb = isNew ? 'add' : 'update';
 
-      // Commit via GitHub Contents API
-      var putRes = await fetch(apiUrl, {
-        method: 'PUT',
-        headers: {
-          'Authorization': 'Bearer ' + pat,
-          'Accept': 'application/vnd.github.v3+json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          message: 'registry: ' + verb + ' ' + name + ' in ' + type,
-          content: encoded,
-          sha: fileData.sha,
-          branch: 'main'
-        })
-      });
+      await commitGithubFile(pat, filePath, jsonString, 'registry: ' + verb + ' ' + name + ' in ' + type);
 
-      if (!putRes.ok) {
-        if (putRes.status === 409) throw new Error('File was modified since you opened it. Reload and try again.');
-        if (putRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
-        var errData = {};
-        try { errData = await putRes.json(); } catch(e) {}
-        throw new Error(errData.message || 'Save failed: ' + putRes.status);
+      // --- Commit relations if changed ---
+      if (newRelations) {
+        // Remove old relations where this entity is source or target
+        var updatedRelations = store.relations.filter(function(r) {
+          return r.source !== entryId && r.target !== entryId;
+        });
+
+        // Add back the relations from the form
+        // Need to normalize: form stores all as outgoing from entityId,
+        // but some may actually be inverse types that need flipping
+        newRelations.forEach(function(rel) {
+          var s = rel.source === entryId ? rel.source : rel.source;
+          var t = rel.target;
+          var type = rel.type;
+
+          // Check if this is an inverse type — if so, flip and use canonical
+          var typeInfo = RELATION_TYPES[type];
+          if (typeInfo && typeInfo.inverse !== type) {
+            // Check if the canonical direction should be the other way
+            // We stored inverse types for incoming relations; flip them back
+            var isInverse = false;
+            // Check original store for canonical direction
+            var origRel = store.relations.find(function(r) {
+              return r.target === entryId && r.source === t && RELATION_TYPES[r.type] && RELATION_TYPES[r.type].inverse === type;
+            });
+            if (origRel) {
+              // This was an incoming relation shown as inverse — store in canonical form
+              s = t;
+              t = entryId;
+              type = origRel.type;
+            }
+          }
+
+          var newRel = { source: s, target: t, type: type };
+          if (rel.meta && Object.keys(rel.meta).length > 0) newRel.meta = rel.meta;
+          updatedRelations.push(newRel);
+        });
+
+        var relJsonString = JSON.stringify(updatedRelations, null, 2) + '\n';
+        await commitGithubFile(pat, 'data/relations.json', relJsonString, 'registry: update relations for ' + name);
       }
     }
 

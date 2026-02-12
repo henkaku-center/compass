@@ -1,6 +1,7 @@
 [
   {
     "id": "inst_chibatech",
+    "type": "institution",
     "name": "Chiba Institute of Technology",
     "short_name": "Chiba Tech",
     "summary": "Japan's oldest private technology institute, serving as the host institution for the Compass ecosystem.",
@@ -15,16 +16,6 @@
       "accreditation"
     ],
     "location": "Narashino, Chiba, Japan",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "host"
-      },
-      {
-        "institution_id": "inst_sds",
-        "relationship": "host"
-      }
-    ],
     "charter_coverage": "primary",
     "constraints": [
       "accreditation requirements",
@@ -33,18 +24,6 @@
       "Japanese higher education regulations"
     ],
     "language": "Japanese",
-    "key_contacts": [
-      {
-        "person_id": "person_ito_joi",
-        "role": "director"
-      }
-    ],
-    "hosted_projects": [
-      "proj_sds_launch"
-    ],
-    "hosted_initiatives": [
-      "init_compass_initiative"
-    ],
     "status": "active",
     "domains": [
       "engineering",
@@ -56,6 +35,7 @@
   },
   {
     "id": "inst_henkaku",
+    "type": "institution",
     "name": "Henkaku Center for Radical Transformation",
     "short_name": "Henkaku Center",
     "summary": "Research center providing shared infrastructure for education, research, and policy across the Compass ecosystem.",
@@ -70,59 +50,10 @@
       "industry networks"
     ],
     "location": "Narashino, Chiba, Japan",
-    "parent_institution": "inst_chibatech",
-    "related_institutions": [
-      {
-        "institution_id": "inst_chibatech",
-        "relationship": "hosted_by"
-      },
-      {
-        "institution_id": "inst_sds",
-        "relationship": "partner"
-      },
-      {
-        "institution_id": "inst_jpcca",
-        "relationship": "partner"
-      },
-      {
-        "institution_id": "inst_alife",
-        "relationship": "partner"
-      },
-      {
-        "institution_id": "inst_aisi",
-        "relationship": "partner"
-      },
-      {
-        "institution_id": "inst_mountsinai",
-        "relationship": "partner"
-      },
-      {
-        "institution_id": "inst_fujita",
-        "relationship": "partner"
-      }
-    ],
     "charter_coverage": "primary",
     "constraints": [
       "operates within Chiba Tech administrative framework",
       "funding cycles"
-    ],
-    "key_contacts": [
-      {
-        "person_id": "person_ito_joi",
-        "role": "director"
-      }
-    ],
-    "hosted_projects": [
-      "proj_compass",
-      "proj_sds_launch"
-    ],
-    "hosted_initiatives": [
-      "init_compass_initiative",
-      "init_daboteng_house",
-      "init_neurodiversity_connected_learning",
-      "init_sustainable_robotics",
-      "init_tea_project",
-      "init_radical_transformation_award"
     ],
     "status": "active",
     "domains": [
@@ -135,6 +66,7 @@
   },
   {
     "id": "inst_sds",
+    "type": "institution",
     "name": "Graduate School of Design & Science",
     "short_name": "SDS",
     "summary": "Antidisciplinary graduate program launching April 2026, offering project-based Master's and PhD degrees.",
@@ -149,33 +81,12 @@
       "thesis supervision"
     ],
     "location": "Narashino, Chiba, Japan",
-    "parent_institution": "inst_chibatech",
-    "related_institutions": [
-      {
-        "institution_id": "inst_chibatech",
-        "relationship": "hosted_by"
-      },
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "partner"
-      }
-    ],
     "charter_coverage": "primary",
     "constraints": [
       "MEXT accreditation requirements",
       "Chiba Tech academic calendar",
       "degree program regulations"
     ],
-    "key_contacts": [
-      {
-        "person_id": "person_austerweil_joseph",
-        "role": "Academic Director"
-      }
-    ],
-    "hosted_projects": [
-      "proj_sds_launch"
-    ],
-    "hosted_initiatives": [],
     "status": "active",
     "domains": [
       "design",
@@ -187,6 +98,7 @@
   },
   {
     "id": "inst_jpcca",
+    "type": "institution",
     "name": "Japan Probabilistic Computing Association",
     "short_name": "JPCCA",
     "summary": "Industry-academic association promoting the development and social implementation of probabilistic computing technology in Japan.",
@@ -199,39 +111,12 @@
       "technology transfer networks"
     ],
     "location": "Japan",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "partner"
-      }
-    ],
     "charter_coverage": "partner",
     "constraints": [
       "association governance structure",
       "member consensus requirements"
     ],
     "language": "Japanese",
-    "key_contacts": [
-      {
-        "person_id": "person_ito_joi",
-        "role": "director"
-      },
-      {
-        "person_id": "person_oka_mizuki",
-        "role": "researcher"
-      },
-      {
-        "person_id": "person_austerweil_joseph",
-        "role": "researcher"
-      },
-      {
-        "person_id": "person_szep_grisha",
-        "role": "researcher"
-      }
-    ],
-    "hosted_initiatives": [
-      "init_probabilistic_computing"
-    ],
     "status": "active",
     "domains": [
       "probabilistic computing",
@@ -242,6 +127,7 @@
   },
   {
     "id": "inst_alife",
+    "type": "institution",
     "name": "Artificial Life Institute",
     "short_name": "ALife Institute",
     "summary": "Research institute in Kyoto promoting artificial life research in Japan through seminars, networking, and public outreach.",
@@ -255,30 +141,11 @@
       "public outreach"
     ],
     "location": "Kyoto, Japan",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "partner"
-      }
-    ],
     "charter_coverage": "partner",
     "constraints": [
       "operates as Type II academic society within Japanese Society of Artificial Intelligence"
     ],
     "language": "Japanese",
-    "key_contacts": [
-      {
-        "person_id": "person_oka_mizuki",
-        "role": "steering committee"
-      },
-      {
-        "person_id": "person_szep_grisha",
-        "role": "researcher"
-      }
-    ],
-    "hosted_initiatives": [
-      "init_artificial_life"
-    ],
     "status": "active",
     "domains": [
       "artificial life",
@@ -290,6 +157,7 @@
   },
   {
     "id": "inst_aisi",
+    "type": "institution",
     "name": "Japan AI Safety Institute",
     "short_name": "AISI",
     "summary": "Japanese government institute examining AI safety evaluation methods and standards, established within the Information-technology Promotion Agency (IPA).",
@@ -304,12 +172,6 @@
       "government policy access"
     ],
     "location": "Tokyo, Japan",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "partner"
-      }
-    ],
     "charter_coverage": "partner",
     "constraints": [
       "government agency operating procedures",
@@ -317,10 +179,6 @@
       "operates within IPA administrative framework"
     ],
     "language": "Japanese",
-    "key_contacts": [],
-    "hosted_initiatives": [
-      "init_ai_safety_workshop"
-    ],
     "status": "active",
     "domains": [
       "AI safety",
@@ -332,6 +190,7 @@
   },
   {
     "id": "inst_mountsinai",
+    "type": "institution",
     "name": "Mount Sinai Health System",
     "short_name": "Mount Sinai",
     "summary": "New York-based health system with seven hospital campuses, partnering with Chiba Tech and Fujita Health University on AI-driven cardiovascular research.",
@@ -345,19 +204,9 @@
       "international patient services"
     ],
     "location": "New York, USA",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "partner"
-      }
-    ],
     "charter_coverage": "partner",
     "constraints": [],
     "language": "English",
-    "key_contacts": [],
-    "hosted_initiatives": [
-      "init_ai_healthcare"
-    ],
     "status": "active",
     "domains": [
       "healthcare",
@@ -369,6 +218,7 @@
   },
   {
     "id": "inst_fujita",
+    "type": "institution",
     "name": "Fujita Health University",
     "short_name": "Fujita",
     "summary": "Japanese health university in Aichi prefecture, partnering with Chiba Tech and Mount Sinai on AI-driven cardiovascular research.",
@@ -382,19 +232,9 @@
       "clinical research"
     ],
     "location": "Toyoake, Aichi, Japan",
-    "related_institutions": [
-      {
-        "institution_id": "inst_henkaku",
-        "relationship": "partner"
-      }
-    ],
     "charter_coverage": "partner",
     "constraints": [],
     "language": "Japanese",
-    "key_contacts": [],
-    "hosted_initiatives": [
-      "init_ai_healthcare"
-    ],
     "status": "active",
     "domains": [
       "healthcare",
