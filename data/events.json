@@ -1,0 +1,170 @@
+[
+  {
+    "id": "event_2025_symposium",
+    "title": "Symposium of Design and Science 2025",
+    "summary": "Annual gathering exploring complexity, bridging antidisciplinary research, and celebrating the upcoming launch of SDS in April 2026.",
+    "event_type": "conference",
+    "purpose": "Bring together researchers, practitioners, and partners to explore antidisciplinary approaches, showcase ongoing work, and build momentum for the SDS launch.",
+    "audience": "Faculty, students, partners, and public",
+    "date": "2025-07-05",
+    "time": "08:30",
+    "duration": "full day",
+    "location": {
+      "venue": "Chiba Institute of Technology, Tsudanuma Campus",
+      "room": null,
+      "remote_url": null
+    },
+    "organizer": "person_ito_joi",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "host"
+      }
+    ],
+    "schedule": [
+      { "time": "08:30", "title": "Registration and Breakfast" },
+      { "time": "09:00", "title": "Welcome", "speakers": [{ "person_id": "person_ito_joi", "role": "host" }] },
+      { "time": "09:10", "title": "Keynote", "speakers": [{ "external_name": "Christine Sun Kim", "role": "keynote" }] },
+      {
+        "time": "09:55",
+        "title": "Building an Antidisciplinary Organization",
+        "speakers": [
+          { "person_id": "person_winder_ira", "role": "panelist" },
+          { "person_id": "person_murai_jun", "role": "panelist" },
+          { "person_id": "person_kokuryo_jiro", "role": "panelist" },
+          { "person_id": "person_ozaki_hiromi", "role": "panelist" },
+          { "person_id": "person_xiao_xiao", "role": "panelist" }
+        ]
+      },
+      {
+        "time": "10:55",
+        "title": "Bhutan and the Gelephu Mindfulness City",
+        "speakers": [
+          { "external_name": "Jigme Tenzing", "role": "panelist" },
+          { "external_name": "Jonathan Tow", "role": "panelist" },
+          { "external_name": "Ujjwal Deep Dahal", "role": "panelist" },
+          { "person_id": "person_kim_daum", "role": "panelist" },
+          { "person_id": "person_raz_gal", "role": "panelist" },
+          { "person_id": "person_miyaguchi_aya", "role": "panelist" }
+        ]
+      },
+      {
+        "time": "13:00",
+        "title": "The Digital Commons and the Law",
+        "speakers": [
+          { "person_id": "person_maracke_catharina", "role": "panelist" },
+          { "person_id": "person_schingler_jessykate", "role": "panelist" },
+          { "external_name": "Setsuko Aoki", "role": "panelist" }
+        ]
+      },
+      {
+        "time": "13:45",
+        "title": "AI Safety Evaluations",
+        "speakers": [
+          { "person_id": "person_hickok_merve", "role": "panelist" },
+          { "external_name": "Elham Tabassi", "role": "panelist" },
+          { "person_id": "person_oka_mizuki", "role": "panelist" },
+          { "external_name": "Darren Grayson Chng", "role": "panelist" },
+          { "external_name": "Myoungshin Kim", "role": "panelist" }
+        ]
+      },
+      {
+        "time": "14:45",
+        "title": "Entrepreneurship in Japan",
+        "speakers": [
+          { "person_id": "person_ito_joi", "role": "panelist" },
+          { "external_name": "Phil Wickham", "role": "panelist" },
+          { "external_name": "Sho Ito", "role": "panelist" },
+          { "external_name": "Masumi Ito", "role": "panelist" },
+          { "external_name": "Battushig Myanganbayar", "role": "panelist" }
+        ]
+      },
+      { "time": "15:30", "title": "Unconference Sessions" },
+      { "time": "16:35", "title": "Closing Remarks", "speakers": [{ "person_id": "person_ito_joi", "role": "host" }] },
+      { "time": "16:50", "title": "Exhibitions and Cocktails" }
+    ],
+    "exhibitions": [
+      {
+        "title": "Probabilistic Programming",
+        "participants": [
+          { "person_id": "person_szep_grisha" },
+          { "external_name": "Nanami Iwahashi" },
+          { "external_name": "Shohei Yoshida" },
+          { "external_name": "Ulli Schaechtle" },
+          { "person_id": "person_austerweil_joseph" },
+          { "external_name": "Kohei Arai" }
+        ]
+      },
+      {
+        "title": "Artificial Life",
+        "participants": [
+          { "person_id": "person_kojima_hiroki" },
+          { "external_name": "Ciaran Regan" }
+        ]
+      },
+      {
+        "title": "Institutions of Impact & SDS Affinity Atlas",
+        "participants": [
+          { "person_id": "person_wang_sophia" }
+        ]
+      },
+      {
+        "title": "MirrorMorphose",
+        "participants": [
+          { "external_name": "Maïli Truong" },
+          { "external_name": "Stanley Arnaud" },
+          { "external_name": "Mariana Tamashiro" },
+          { "external_name": "Bianca Cheng" }
+        ]
+      },
+      {
+        "title": "Neurodiversity",
+        "participants": [
+          { "external_name": "Daisuke Okabe" },
+          { "external_name": "Youka Watanabe" },
+          { "external_name": "Eriko Nishimaki" }
+        ]
+      },
+      {
+        "title": "PERC and Planetary Defense",
+        "participants": [
+          { "external_name": "Tomoko Arai" }
+        ]
+      },
+      {
+        "title": "Satellite Building Project",
+        "participants": [
+          { "external_name": "Tetsuro Harada" }
+        ]
+      },
+      {
+        "title": "web3/AI Sandbox",
+        "participants": [
+          { "person_id": "person_shinada_miho" },
+          { "external_name": "Koichi Shimose" },
+          { "external_name": "Nana Nishimura" },
+          { "external_name": "Tatsuya Ishibe" }
+        ]
+      },
+      {
+        "title": "Tea Ceremony",
+        "participants": []
+      }
+    ],
+    "expected_outcomes": [
+      "Showcase antidisciplinary research and initiatives to wider community",
+      "Build momentum for SDS launch in April 2026",
+      "Strengthen connections between ecosystem partners"
+    ],
+    "status": "confirmed",
+    "domains": [
+      "antidisciplinary",
+      "education",
+      "AI safety",
+      "governance",
+      "entrepreneurship",
+      "sustainability"
+    ],
+    "website": "https://symposium25.chibatech.dev"
+  }
+]

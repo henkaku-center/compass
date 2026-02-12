@@ -1905,6 +1905,7 @@
       'initiatives': null, // Registry list page
       'institutions': null, // Registry list page
       'courses': null, // Registry list page
+      'events': null, // Registry list page
       'network': null, // Graph visualization page
       'feedback': null // Feedback submission page
     };
@@ -1924,7 +1925,7 @@
       { key: 'courses', label: 'Courses' },
       { key: 'theses', label: 'Theses', placeholder: true },
       { key: 'posts', label: 'Posts', placeholder: true },
-      { key: 'events', label: 'Events', placeholder: true },
+      { key: 'events', label: 'Events' },
       { group: 'Info' },
       { key: 'about', label: 'About' },
       { key: 'references', label: 'References' },
@@ -2081,10 +2082,10 @@
                 <div class="card-title">Theses</div>
                 <div class="card-desc">Coming soon</div>
               </span>
-              <span class="landing-card placeholder">
+              <a href="#events" class="landing-card">
                 <div class="card-title">Events</div>
-                <div class="card-desc">Coming soon</div>
-              </span>
+                <div class="card-desc">Symposia, workshops, and gatherings that connect the ecosystem.</div>
+              </a>
             </div>
           </div>
 
@@ -2347,9 +2348,10 @@
         fetchRegistryData('people'),
         fetchRegistryData('projects'),
         fetchRegistryData('initiatives'),
-        fetchRegistryData('courses')
-      ]).then(([institutions, people, projects, initiatives, courses]) => ({
-        institutions, people, projects, initiatives, courses
+        fetchRegistryData('courses'),
+        fetchRegistryData('events')
+      ]).then(([institutions, people, projects, initiatives, courses, events]) => ({
+        institutions, people, projects, initiatives, courses, events
       }));
     }
 
@@ -2400,6 +2402,12 @@
         plural: 'Courses',
         description: 'Recurring educational units with learning objectives, credit values, and Charter alignment.',
         color: '#7b68ae'
+      },
+      events: {
+        singular: 'Event',
+        plural: 'Events',
+        description: 'Time-bound gatherings — symposia, workshops, lectures, and other occasions that bring people together.',
+        color: '#c06050'
       }
     };
 
@@ -2528,6 +2536,23 @@
           }
           if (entry.domains) {
             relationsHtml += `<strong>Domains:</strong> ${entry.domains.join(', ')}`;
+          }
+          break;
+
+        case 'events':
+          nameField = entry.title;
+          summaryField = entry.summary;
+          if (entry.event_type) {
+            metaHtml += `<span class="type-badge">${entry.event_type}</span>`;
+          }
+          if (entry.date) {
+            metaHtml += `<span class="type-badge">${entry.date}</span>`;
+          }
+          if (entry.status) {
+            metaHtml += `<span class="type-badge">${entry.status}</span>`;
+          }
+          if (entry.location && entry.location.venue) {
+            relationsHtml += `<strong>Location:</strong> ${entry.location.venue}`;
           }
           break;
       }
@@ -2670,6 +2695,43 @@
         }
       }
 
+      if (type === 'events') {
+        if (entry.purpose) {
+          detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
+        }
+        if (entry.schedule && entry.schedule.length > 0) {
+          detailHtml += `<p class="detail-label">Schedule</p>`;
+          detailHtml += entry.schedule.map(s => {
+            let speakers = '';
+            if (s.speakers && s.speakers.length > 0) {
+              speakers = ' — ' + s.speakers.map(sp =>
+                sp.person_id ? personName(sp.person_id, lookup) : sp.external_name
+              ).join(', ');
+            }
+            return `<p>${s.time} ${s.title}${speakers}</p>`;
+          }).join('');
+        }
+        if (entry.exhibitions && entry.exhibitions.length > 0) {
+          detailHtml += `<p class="detail-label">Exhibitions</p>`;
+          detailHtml += entry.exhibitions.map(ex => {
+            let people = '';
+            if (ex.participants && ex.participants.length > 0) {
+              people = ' — ' + ex.participants.map(p =>
+                p.person_id ? personName(p.person_id, lookup) : p.external_name
+              ).join(', ');
+            }
+            return `<p>${ex.title}${people}</p>`;
+          }).join('');
+        }
+        if (entry.expected_outcomes && entry.expected_outcomes.length > 0) {
+          detailHtml += `<p class="detail-label">Expected Outcomes</p>`;
+          detailHtml += entry.expected_outcomes.map(o => `<p>${o}</p>`).join('');
+        }
+        if (entry.website) {
+          detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+        }
+      }
+
       const editBtnHtml = isLoggedIn() ? `<button class="card-edit-btn">Edit</button>` : '';
 
       card.innerHTML = `
@@ -2727,7 +2789,7 @@
       fetchAllRegistryData()
         .then(allData => {
           const lookup = buildLookup(allData);
-          const entries = allData[type].filter(e => !e.status || e.status === 'active' || e.status === 'planned');
+          const entries = allData[type].filter(e => !e.status || e.status !== 'cancelled');
           const list = document.getElementById('registry-list');
           if (!list) return;
           list.innerHTML = '';
@@ -4006,7 +4068,7 @@
         loadReferences();
       } else if (docKey === 'history') {
         loadHistory();
-      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses'].includes(docKey)) {
+      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events'].includes(docKey)) {
         loadRegistryList(docKey);
       } else if (docKey === 'network') {
         loadNetwork();
