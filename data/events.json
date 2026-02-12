@@ -103,8 +103,16 @@
         ]
       },
       {
-        "title": "Institutions of Impact & SDS Affinity Atlas",
+        "title": "Institutions of Impact",
         "participants": [
+          { "person_id": "person_winder_ira" },
+          { "person_id": "person_wang_sophia" }
+        ]
+      },
+      {
+        "title": "SDS Affinity Atlas",
+        "participants": [
+          { "person_id": "person_winder_ira" },
           { "person_id": "person_wang_sophia" }
         ]
       },
