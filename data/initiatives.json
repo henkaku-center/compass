@@ -33,6 +33,14 @@
       {
         "institution_id": "inst_henkaku",
         "relationship": "hosted_by"
+      },
+      {
+        "institution_id": "inst_sds",
+        "relationship": "partner"
+      },
+      {
+        "institution_id": "inst_chibatech",
+        "relationship": "partner"
       }
     ],
     "domains": [
