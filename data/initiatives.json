@@ -235,5 +235,31 @@
       }
     ],
     "domains": ["robotics", "sustainable construction", "voxel-based design"]
+  },
+  {
+    "id": "init_ai_healthcare",
+    "title": "AI in Healthcare",
+    "summary": "Applying artificial intelligence to transform cardiovascular research and clinical trials through a partnership between Mount Sinai, Chiba Tech, and Fujita Medical University.",
+    "status": "active",
+    "lead": "person_ito_joi",
+    "participants": [
+      { "person_id": "person_dinakar_karthik", "role": "Researcher" },
+      { "person_id": "person_szep_grisha", "role": "Researcher" }
+    ],
+    "purpose": "Leverage AI to make clinical trials more efficient and lead to faster advances in patient care, focusing on cardiovascular research across institutional partners.",
+    "activities": [
+      "Developing AI methods for cardiovascular research",
+      "Collaborating with Mount Sinai and Fujita Medical University",
+      "Making clinical trials more efficient through AI"
+    ],
+    "health_indicators": ["Research publications", "Clinical trial improvements", "Cross-institutional collaboration activity"],
+    "review_cycle": "annually",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "hosted_by"
+      }
+    ],
+    "domains": ["AI", "healthcare", "cardiovascular research", "clinical trials"]
   }
 ]

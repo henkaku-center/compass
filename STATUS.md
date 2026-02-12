@@ -1,107 +1,72 @@
 # Compass Progress Update
 
-**Last Updated: February 11, 2026**
+**Last Updated: February 12, 2026**
 
 ## Current Status
 
-**The Charter draft is complete and ready for review by the Director and founding faculty.**
-
-## What We've Built
-
-### Charter
-
-The Charter articulates the values, principles, and governance commitments shared across Henkaku Center, SDS, and Chiba Tech. It now lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center). It is organized into 9 sections:
-
-- **Preamble** — Scope and applicability
-- **I. Foundational Orientations** — 12 directional principles (resilience over strength, systems over objects, etc.)
-- **II. Values and Commitments** — Antidisciplinarity, human-AI collaboration, intellectual integrity, cultural identity, and more
-- **III. Research Practice** — Project-centered inquiry
-- **IV. Educational Practice** — Project-centered learning, learning through making, AI pedagogy
-- **V. Registry and Coordination Infrastructure** — Shared platform for tracking people, projects, initiatives, courses, theses, events, and institutions
-- **VI. Institutional Relationships** — Roles, Chiba Tech, Henkaku/SDS, external partners
-- **VII. Governance** — Charter stewardship, decision-making, conflict resolution
-- **VIII. Evolution** — Living document nature, portability
-- **IX. Closing Provisions** — Authority, interpretation, ratification
-
-All sections contain full text — no placeholders remain.
-
-### Archetypes
-
-The Archetypes document defines structural templates for seven types of registry entries:
-
-- **People** — Roles, expertise, affiliations, and project involvement
-- **Projects** — Bounded endeavors with completion criteria
-- **Initiatives** — Ongoing programs evaluated on continuing justification
-- **Courses** — Educational units with learning objectives and Charter alignment
-- **Theses** — Student research with advisors, committees, and defense milestones
-- **Events** — Gatherings that connect people and advance work
-- **Institutions** — Organizations with mandates, capabilities, and ecosystem relationships
-
-These templates cross-reference each other, so a person links to their projects, a thesis links to its advisor, and a course links to the Charter principles it embodies.
-
-### Curriculum
-
-Documented SDS Master's (30 credits) and PhD (17 credits) programs, mapped to Charter principles.
-
-### Website
-
-Built a viewer at [compass.henkaku.center](https://compass.henkaku.center) with navigation, table of contents, collapsible sections, a references page, a history page, and a landing page organized into two layers:
-
-- **DNA** — Foundational documents ([Charter](https://charter.henkaku.center), Archetypes)
-- **Emergent** — Living content that grows from the DNA (Curriculum, People, Projects, Initiatives, Institutions, Network visualization, with placeholders for Courses, Theses, and Events)
-
-The landing page features an animated compass icon and a rotator that cycles through the 12 Foundational Orientations. A dedicated History page shows the project's commit history pulled live from GitHub in a three-column table: contributor, type, and memo.
-
-### Registry and Network Visualization
-
-Populated four registry types with real data: 3 institutions, 62 people (with portrait photos), 2 projects, and 2 initiatives. Each entry follows the structural templates defined in the Archetypes document, with cross-references between entries (for example, people link to their projects, projects link to their parent initiatives, and institutions link to the people and programs they host).
-
-The website has browsable list pages for each of these four types, with expandable tiles that show full details on click. A **Network** page shows an interactive 3D relational map of all entries — a force-directed graph with color-coded nodes for each type and lines representing their connections. You can click on any node to see details, filter by type, and pan/zoom to explore.
-
-Three registry types (Courses, Theses, Events) remain as placeholders for future population.
-
-### Login and Editing
-
-Logged-in users can edit registry entries directly on the website. The login uses a GitHub personal access token, and edits are committed straight to the repository through the GitHub API. Each registry card shows an edit button when logged in, opening a structured form with dropdowns for fields like status and role categories. Users can also create new entries from the registry list pages.
-
-### Feedback
-
-A dedicated Feedback page lets logged-in users submit bug reports and feature requests. Submissions are stored in the repository and visible to everyone. Logged-in users can also update the status of existing feedback entries. This provides a lightweight way to collect input without requiring contributors to use GitHub directly.
-
-### Agentic Development
-
-Compass is developed using LLM coding agents — AI tools that draft, edit, and coordinate document changes under human direction. This is a deliberate practice that informs how contribution workflows are designed.
-
-The agentic approach spans three dimensions: development with agents, agent-assisted contribution by participants, and planned agentic interfaces (such as chat bots) that will let contributors propose changes without needing direct repository access.
-
-## What Still Needs Work
-
-1. **Charter Review and Ratification** — The draft needs review by the Director and founding faculty before ratification
-
-2. **Amendment System** — A process for proposing and reviewing changes after ratification
-
-3. **Remaining Registry Types** — Courses, Theses, and Events entry types are defined in the Archetypes but not yet populated with data
-
-4. **Agentic Contribution Interfaces** — Tools (such as chat bots or Slack integrations) that let contributors propose changes without needing direct access to the repository
-
-## Questions to Discuss
-
-1. **Review process** — How should ratifying members review and comment on the draft?
-
-2. **Amendment workflow** — How should people propose changes after ratification?
-
-3. **Timeline** — When do we aim to ratify?
-
-4. **Agentic contribution pathways** — What interfaces (Slack bots, web forms, coding agents) should contributors use to propose changes?
+**The initial Charter draft is complete. A mechanism for faculty submissions and voting on future updates is being developed at [charter.henkaku.center](https://charter.henkaku.center). The Compass website and registry are live with very rough populated data across six of eight entry types. This data is extremely tentative.**
 
 ---
 
-## Reference: Original Planning (January 2026)
+## What's In Place
 
-From our January meeting:
-- Finalize consensus mechanism
-- Finalize charter content (second draft)
-- Finalize design specifications for the platform
-- Identify supporting tools
+### Charter
 
-Note: "finalize" meant having a first pass ready. The platform is designed for ongoing revision.
+The Charter articulates shared values, principles, and governance commitments across Henkaku Center, SDS, and Chiba Tech. It lives at [charter.henkaku.center](https://charter.henkaku.center) in 9 sections covering foundational orientations, values, research and educational practice, registry infrastructure, institutional relationships, governance, and evolution. The initial draft is complete — no placeholders remain. The mechanism for future amendments via faculty submissions and voting is being developed at the same site.
+
+### Archetypes
+
+Structural templates for eight registry entry types: People, Projects, Initiatives, Institutions, Courses, Events, Theses, and Posts. These templates define what information each type carries and how entries cross-reference each other.
+
+### Registry
+
+Six entry types are populated with real data:
+
+| Type | Count | Description |
+|------|-------|-------------|
+| People | 62 | With portrait photos, affiliations, expertise, and project links |
+| Initiatives | 9 | Ongoing programs like Probabilistic Computing, Artificial Life, AI Safety Workshop |
+| Institutions | 6 | Chiba Tech, Henkaku Center, SDS, plus partners JPCCA, ALife Institute, AISI |
+| Projects | 3 | Compass, SDS Launch, Antidisciplinary Charter |
+| Courses | 25 | All Master's and PhD courses extracted from the Curriculum |
+| Events | 1 | Symposium of Design and Science 2025 (July 5, Shibuya) |
+
+Two types remain as placeholders: **Theses** and **Posts**. All registry data is tentative and needs to be reviewed for accuracy.
+
+### Curriculum
+
+The SDS Master's (30 credits) and PhD (17 credits) programs are documented, with each course mapped to Charter principles. The 25 individual courses are also available as browsable registry entries.
+
+### Website
+
+The viewer at [compass.henkaku.center](https://compass.henkaku.center) includes:
+
+- **Landing page** organized into DNA (Charter, Archetypes) and Emergent (registry, curriculum, network) layers, with an animated compass icon and orientation rotator
+- **Sidebar navigation** across all pages showing the full site map
+- **Registry pages** for People, Projects, Initiatives, Institutions, Courses, and Events with expandable cards showing full details
+- **Network visualization** — an interactive 3D graph showing relationships between all registry entries, color-coded by type
+- **Curriculum page** rendering the full program structure with course tables
+- **History page** showing the project's commit history pulled live from GitHub
+- **References page** linking to foundational source documents
+- **Login and inline editing** via GitHub personal access token, with structured forms for editing or creating registry entries
+- **Feedback page** for submitting bug reports and feature requests
+
+### Partner Institutions
+
+Three external partners are now linked to the ecosystem:
+
+- **JPCCA** (Japan Probabilistic Computing Association) — hosts the Probabilistic Computing initiative
+- **ALife Institute** (Artificial Life Institute, Kyoto) — hosts the Artificial Life initiative
+- **AISI** (Japan AI Safety Institute) — hosts the AI Safety Workshop initiative
+
+### Agentic Development
+
+Compass is developed using LLM coding agents under human direction. This is deliberate practice that informs how contribution workflows are designed, spanning three dimensions: development with agents, agent-assisted contribution, and planned agentic interfaces for contributors without direct repository access.
+
+---
+
+## What Still Needs Work
+
+1. **Charter Amendment System** — A mechanism for faculty to submit, discuss, and vote on Charter updates is being developed at [charter.henkaku.center](https://charter.henkaku.center)
+3. **Remaining Registry Types** — Theses and Posts are defined in the Archetypes but not yet populated
+4. **Agentic Contribution Interfaces** — Tools (chat bots, Slack integrations) for contributors without direct repository access

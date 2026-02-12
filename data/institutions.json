@@ -91,6 +91,14 @@
       {
         "institution_id": "inst_aisi",
         "relationship": "partner"
+      },
+      {
+        "institution_id": "inst_mountsinai",
+        "relationship": "partner"
+      },
+      {
+        "institution_id": "inst_fujita",
+        "relationship": "partner"
       }
     ],
     "charter_coverage": "primary",
@@ -321,5 +329,79 @@
       "policy"
     ],
     "website": "https://aisi.go.jp"
+  },
+  {
+    "id": "inst_mountsinai",
+    "name": "Mount Sinai Health System",
+    "short_name": "Mount Sinai",
+    "summary": "New York-based health system with seven hospital campuses, partnering with Chiba Tech and Fujita Health University on AI-driven cardiovascular research.",
+    "institution_type": "hospital",
+    "mandate": "Deliver exceptional medical care through integrated healthcare services, with excellence in research, patient care, and education.",
+    "ecosystem_role": "External partner providing clinical research infrastructure and cardiovascular expertise for the AI in Healthcare initiative.",
+    "capabilities": [
+      "clinical trials",
+      "cardiovascular research",
+      "medical education",
+      "international patient services"
+    ],
+    "location": "New York, USA",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "partner"
+      }
+    ],
+    "charter_coverage": "partner",
+    "constraints": [],
+    "language": "English",
+    "key_contacts": [],
+    "hosted_initiatives": [
+      "init_ai_healthcare"
+    ],
+    "status": "active",
+    "domains": [
+      "healthcare",
+      "cardiovascular research",
+      "clinical trials",
+      "medical education"
+    ],
+    "website": "https://www.mountsinai.org"
+  },
+  {
+    "id": "inst_fujita",
+    "name": "Fujita Health University",
+    "short_name": "Fujita",
+    "summary": "Japanese health university in Aichi prefecture, partnering with Chiba Tech and Mount Sinai on AI-driven cardiovascular research.",
+    "institution_type": "university",
+    "mandate": "Advance health-related education and research with the philosophy 'Our Creativity For The People.'",
+    "ecosystem_role": "External partner providing medical research expertise and clinical infrastructure for the AI in Healthcare initiative.",
+    "capabilities": [
+      "medical research",
+      "health sciences education",
+      "rehabilitation robotics",
+      "clinical research"
+    ],
+    "location": "Toyoake, Aichi, Japan",
+    "related_institutions": [
+      {
+        "institution_id": "inst_henkaku",
+        "relationship": "partner"
+      }
+    ],
+    "charter_coverage": "partner",
+    "constraints": [],
+    "language": "Japanese",
+    "key_contacts": [],
+    "hosted_initiatives": [
+      "init_ai_healthcare"
+    ],
+    "status": "active",
+    "domains": [
+      "healthcare",
+      "medical research",
+      "rehabilitation",
+      "neuroscience"
+    ],
+    "website": "https://www.fujita-hu.ac.jp"
   }
 ]
