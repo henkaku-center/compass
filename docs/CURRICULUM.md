@@ -22,27 +22,29 @@ Both degree pathways include:
 
 ### Mandatory Courses (5 courses, 21 credits)
 
-| Course | Credits |
-|--------|---------|
-| The Antidisciplinary Approach to the Modern World (DNA) | 1 |
-| Principles of Awareness | 2 |
-| Practical Antidisciplinary Problem Solving I (APS) | 6 |
-| Practical Antidisciplinary Problem Solving II (APS) | 6 |
-| Advanced Research in Master's Program | 6 |
+| Course | Credits | Instructor(s) |
+|--------|---------|----------------|
+| The Antidisciplinary Approach to the Modern World (DNA) | 1 | All Faculty |
+| Principles of Awareness | 2 | Joi Ito |
+| Practical Antidisciplinary Problem Solving I (APS) | 6 | All Faculty |
+| Practical Antidisciplinary Problem Solving II (APS) | 6 | All Faculty |
+| Advanced Research in Master's Program | 6 | All Faculty |
 
 ### Elective Courses (9 credits from the following)
 
-| Course | Credits |
-|--------|---------|
-| Intelligent Agents | 2 |
-| Law and Governance | 2 |
-| Technology and Values | 2 |
-| Digital Media & Flourishing | 2 |
-| Modern Physics | 2 |
-| Complex System Science | 2 |
-| Design & Prototyping | 2 |
-| Human and Machine Learning | 2 |
-| Modular Practice Seminar | 1 |
+| Course | Credits | Instructor(s) |
+|--------|---------|----------------|
+| Intelligent Agents | 2 | Mizuki Oka |
+| Law and Governance | 2 | Catharina Maracke |
+| Technology and Values | 2 | Catharina Maracke |
+| Digital Media & Flourishing | 2 | Daum Kim |
+| Modern Physics | 2 | Hiroki Kojima |
+| Complex System Science | 2 | Hiroki Kojima |
+| Design & Prototyping | 2 | Ira Winder |
+| Human and Machine Learning | 2 | Joseph Austerweil |
+| Speculative Design | 2 | Sputniko! |
+| Entrepreneurship | 2 | Joi Ito |
+| Modular Practice Seminar | 1 | All Faculty |
 
 ---
 

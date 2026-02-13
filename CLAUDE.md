@@ -14,17 +14,18 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 **DNA** — Foundational documents that define principles, governance, and structural templates:
 - **Charter** — Values, governance, and operational commitments (9 sections). Lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center) (source: `https://charter.henkaku.center/content/CHARTER.md`)
-- `docs/ARCHETYPES.md` — Structural templates for seven registry entry types
+- `docs/ARCHETYPES.md` — Structural templates for eight registry entry types
 
 **Emergent** — Living content instantiated from the foundational templates:
 - `docs/CURRICULUM.md` — SDS Master's and PhD curriculum
-- `data/` — Registry entries as JSON files (institutions, people, projects, initiatives)
-- *(future)* Courses, theses, and events registry entries
+- `data/` — Registry entries as JSON files (people, projects, initiatives, institutions, courses, events) plus `relations.json`
+- *(future)* Theses and posts registry entries
 
 **Supporting:**
 - `README.md` — Purpose, structure, institutional context
 - `STATUS.md` — Progress updates for non-technical stakeholders
 - `index.html` — Static web viewer with hash routing and marked.js rendering
+- `compass-data.js` — Unified data layer (entity store, relation management, graph building) loaded by `index.html`
 - `reference/` — Historical versions and source documents
 - `CLAUDE.md` — This file
 - `CNAME` — GitHub Pages custom domain (`compass.henkaku.center`)
@@ -34,12 +35,14 @@ Compass documents are organized into two layers, inspired by a biological analog
 ```
 compass/
 ├── data/
-│   ├── feedback.json      (created via GitHub API on first submission)
-│   ├── institutions.json
-│   ├── people.json
+│   ├── courses.json       (25 courses)
+│   ├── events.json        (1 event)
+│   ├── initiatives.json   (10 initiatives)
+│   ├── institutions.json  (8 institutions)
+│   ├── people.json        (62 people)
 │   ├── portraits/         (profile photos for people entries)
-│   ├── projects.json
-│   └── initiatives.json
+│   ├── projects.json      (3 projects)
+│   └── relations.json     (231 relations between entities)
 ├── docs/
 │   ├── ARCHETYPES.md
 │   └── CURRICULUM.md
@@ -52,8 +55,13 @@ compass/
 │   ├── 20240613_SDS_DNA_CheatSheet.png
 │   ├── 20240612_GSDS Retreat.pdf
 │   ├── 20220329_Research_Report-compressed.pdf
-│   └── 20171231_Neri Oxman Krebs Cycle of Creativity.jpeg
+│   ├── 20171231_Neri Oxman Krebs Cycle of Creativity.jpeg
+│   └── (additional images and subdirectories)
+├── scripts/
+│   └── migrate.js         (entity + relations migration tool)
+├── compass-data.js
 ├── compass-icon.png
+├── network.png
 ├── README.md
 ├── STATUS.md
 ├── CLAUDE.md
@@ -107,7 +115,7 @@ All sections contain full text. The draft is ready for review by ratifying membe
 
 The Charter (Section V) mandates a shared registry. The **Archetypes** document defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
-Seven entry types:
+Eight entry types:
 - **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 - **People** — Roles, expertise, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
@@ -115,10 +123,11 @@ Seven entry types:
 - **Courses** — Recurring educational units with learning objectives and Charter alignment
 - **Theses** — Bounded academic works with advisors, committees, and defense milestones
 - **Events** — Time-bound gatherings that connect people and advance work
+- **Posts** — Written contributions (reflections, updates, announcements, commentary) from participants
 
 **Essential questions** guide each entry type (4 prompts each — see `docs/ARCHETYPES.md`).
 
-**Interoperating schemas**: Entry types cross-reference each other — people link to projects, projects reference contributors, initiatives track spawned projects, courses link to instructors, theses link to advisors, events link to organizers, institutions link to people and projects they host.
+**Unified entity + relations architecture**: Entity JSON files contain only intrinsic attributes. All cross-references (affiliations, contributors, instructors, prerequisites, etc.) are stored in `data/relations.json` as `{source, target, type, meta?}` triples. `compass-data.js` provides the runtime data layer that loads entities and relations, manages CRUD, and builds the network graph. `scripts/migrate.js` can re-extract relations from legacy embedded fields.
 
 **Privacy**: The registry is a coordination tool, not a public directory. Person records should be professionally relevant, participant-controlled, and appropriately scoped.
 
@@ -137,12 +146,13 @@ Seven entry types:
 - Changes should preserve backward compatibility or provide migration paths
 - Charter Mapping column helps verify alignment
 
-**Web viewer** (`index.html`):
-- Single-page app with hash routing (`#home`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`). Charter links navigate to external site `charter.henkaku.center`.
-- Nav bar shows a simplified set of links (Home, Charter, Network, About, Feedback, GitHub, Login); other pages are accessible from the landing page cards
+**Web viewer** (`index.html` + `compass-data.js`):
+- Single-page app with hash routing. Routes: `#home`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`. Charter links navigate to external site `charter.henkaku.center`.
+- Top nav bar shows minimal links (Feedback, GitHub, Login). Full site navigation is in a sidebar organized into DNA, Emergent, and Info groups (with Theses and Posts as placeholders)
 - Client-side markdown rendering with marked.js (no build process)
+- `compass-data.js` provides the unified data layer: entity store, relation management, generic graph building, and relation rendering
 - `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes)
-- `#feedback` page lets logged-in users submit bug reports and feature requests, committed to `data/feedback.json` via GitHub API
+- `#feedback` page lets logged-in users submit bug reports and feature requests via GitHub API
 - Landing page organized into three labeled groups: DNA, Emergent, and Info, with animated card entrances
 - Compass icon has a magnetic-settle animation tied to the orientation rotator
 - Login via GitHub personal access token (stored in sessionStorage) enables inline editing of registry entries and feedback submission
@@ -150,11 +160,10 @@ Seven entry types:
 - 3D network graph visualization uses 3d-force-graph (CDN) with Three.js and d3-force-3d
 
 **Registry data** (`data/` directory):
-- One JSON file per entry type, each containing an array of objects
-- Field names match `docs/ARCHETYPES.md` schemas
-- Cross-references use IDs (e.g., `person_winder_ira`, `proj_compass`)
-- Contains real data: 3 institutions, 62 people (with portraits), 2 projects, 2 initiatives
-- `data/feedback.json` stores user-submitted feedback (created automatically on first submission)
+- One JSON file per entity type, each containing an array of objects with intrinsic attributes only
+- `data/relations.json` stores all cross-references as `{source, target, type, meta?}` triples
+- Field names match `docs/ARCHETYPES.md` schemas; IDs follow patterns like `person_winder_ira`, `proj_compass`, `course_dna`, `event_2025_symposium`
+- Contains real data: 62 people (with portraits), 10 initiatives, 8 institutions, 3 projects, 25 courses, 1 event, 231 relations
 - `data/portraits/` contains profile photos referenced by people entries
 
 ### Version Control
