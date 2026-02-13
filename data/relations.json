@@ -2748,5 +2748,20 @@
     "source": "person_winder_ira",
     "target": "domain_intentional",
     "type": "has_affinity_for"
+  },
+  {
+    "source": "person_wang_sophia",
+    "target": "init_compass_initiative",
+    "type": "participant"
+  },
+  {
+    "source": "person_rich_travis",
+    "target": "init_compass_initiative",
+    "type": "participant"
+  },
+  {
+    "source": "person_bates_samantha",
+    "target": "init_compass_initiative",
+    "type": "participant"
   }
 ]
