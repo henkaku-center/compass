@@ -154,7 +154,7 @@
     /* Main layout with sidebar */
     .layout {
       display: flex;
-      max-width: 1200px;
+      max-width: 1440px;
       margin: 0 auto;
       min-height: calc(100vh - 60px);
     }
@@ -258,6 +258,67 @@
 
     .layout:not(.has-toc) main {
       margin: 0 auto;
+    }
+
+    /* Right-hand document TOC */
+    .doc-toc {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem 2rem 1rem;
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      display: none;
+    }
+
+    .doc-toc.visible {
+      display: block;
+    }
+
+    .doc-toc h4 {
+      margin: 0 0 0.75rem 0;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #999;
+    }
+
+    .doc-toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .doc-toc li {
+      margin: 0;
+    }
+
+    .doc-toc a {
+      display: block;
+      padding: 0.25rem 0.5rem;
+      text-decoration: none;
+      color: #888;
+      font-size: 0.78rem;
+      border-left: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      line-height: 1.4;
+    }
+
+    .doc-toc a:hover {
+      color: #333;
+      border-left-color: #ccc;
+    }
+
+    .doc-toc a.active {
+      color: #0066cc;
+      border-left-color: #0066cc;
+      font-weight: 500;
+    }
+
+    .doc-toc .dtoc-h3 {
+      padding-left: 1.25rem;
+      font-size: 0.74rem;
     }
 
     /* Markdown tables */
@@ -1220,7 +1281,7 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .toc {
+      .toc, .doc-toc {
         display: none !important;
       }
 
@@ -1758,6 +1819,100 @@
       color: #999;
     }
 
+    .feedback-file-list {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .feedback-file-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #f0f0f0;
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .feedback-file-chip .remove-file {
+      cursor: pointer;
+      color: #999;
+      font-weight: bold;
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .feedback-file-chip .remove-file:hover {
+      color: #c62828;
+    }
+
+    .feedback-card-attachments {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .feedback-card-attachments a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      color: #0066cc;
+      text-decoration: none;
+      background: #f5f8ff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    .feedback-card-attachments a:hover {
+      background: #e8f0ff;
+    }
+
+    .feedback-card-attachments img.attachment-thumb {
+      max-width: 120px;
+      max-height: 80px;
+      border-radius: 4px;
+      border: 1px solid #e5e5e5;
+      display: block;
+    }
+
+    .feedback-type-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      width: fit-content;
+    }
+
+    .feedback-type-toggle .type-btn {
+      padding: 0.5rem 1.25rem;
+      border: none;
+      background: #fff;
+      color: #555;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .feedback-type-toggle .type-btn:not(:last-child) {
+      border-right: 1px solid #ddd;
+    }
+
+    .feedback-type-toggle .type-btn:hover {
+      background: #f5f5f5;
+    }
+
+    .feedback-type-toggle .type-btn.active {
+      background: #333;
+      color: #fff;
+    }
+
     .feedback-type-badge {
       font-size: 0.68rem;
       font-weight: 600;
@@ -1850,6 +2005,10 @@
     <main id="content">
       Loading…
     </main>
+    <aside class="doc-toc" id="doc-toc">
+      <h4>On this page</h4>
+      <ul id="doc-toc-list"></ul>
+    </aside>
   </div>
 
   <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
@@ -1883,6 +2042,8 @@
     const contentEl = document.getElementById("content");
     const tocEl = document.getElementById("toc");
     const tocListEl = document.getElementById("toc-list");
+    const docTocEl = document.getElementById("doc-toc");
+    const docTocListEl = document.getElementById("doc-toc-list");
     const layoutEl = document.getElementById("layout");
     const backToTopBtn = document.getElementById("back-to-top");
 
@@ -2047,6 +2208,7 @@
     function loadLanding() {
       currentDoc = 'home';
       tocEl.classList.remove('visible');
+      docTocEl.classList.remove('visible');
       layoutEl.classList.remove('has-toc');
 
       contentEl.innerHTML = `
@@ -2752,6 +2914,7 @@
       clearOrientationRotator();
       currentDoc = 'network';
       tocEl.classList.remove('visible');
+      docTocEl.classList.remove('visible');
       layoutEl.classList.remove('has-toc');
 
       contentEl.innerHTML = `
@@ -3096,6 +3259,9 @@
           // Make sections collapsible
           makeCollapsible();
 
+          // Build right-hand document TOC
+          buildDocToc(docKey);
+
           // Update active nav link
           updateActiveNavLink(docKey);
 
@@ -3111,6 +3277,7 @@
     function showSidebar(activeKey) {
       headings = []; // Clear so scroll spy doesn't interfere
       tocListEl.innerHTML = '';
+      docTocEl.classList.remove('visible'); // Hide right TOC until buildDocToc re-enables
       siteMap.forEach(function(item) {
         var li = document.createElement('li');
         if (item.group) {
@@ -3151,6 +3318,63 @@
           .replace(/(^-|-$)/g, '')
           .substring(0, 50);
         heading.id = id;
+      });
+    }
+
+    // Pages that get a right-hand document TOC
+    const docTocPages = ['charter', 'archetypes', 'about', 'status'];
+
+    function buildDocToc(docKey) {
+      docTocListEl.innerHTML = '';
+      headings = [];
+
+      if (!docTocPages.includes(docKey)) {
+        docTocEl.classList.remove('visible');
+        return;
+      }
+
+      contentEl.querySelectorAll('h2, h3').forEach(function(heading) {
+        var id = heading.id;
+        if (!id) return;
+        headings.push({ id: id, el: heading });
+
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = '#' + id;
+        a.textContent = heading.textContent;
+        if (heading.tagName === 'H3') li.classList.add('dtoc-h3');
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.replaceState(null, '', '#' + docKey);
+        });
+        li.appendChild(a);
+        docTocListEl.appendChild(li);
+      });
+
+      if (headings.length > 0) {
+        docTocEl.classList.add('visible');
+      } else {
+        docTocEl.classList.remove('visible');
+      }
+    }
+
+    function updateActiveDocTocLink() {
+      if (!docTocEl.classList.contains('visible')) return;
+      if (headings.length === 0) return;
+
+      let activeId = null;
+      const scrollTop = window.scrollY + 100;
+
+      for (let i = headings.length - 1; i >= 0; i--) {
+        if (headings[i].el.offsetTop <= scrollTop) {
+          activeId = headings[i].id;
+          break;
+        }
+      }
+
+      docTocListEl.querySelectorAll('a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + activeId);
       });
     }
 
@@ -3229,6 +3453,7 @@
       if (scrollTimeout) return;
       scrollTimeout = setTimeout(() => {
         updateActiveTocLink();
+        updateActiveDocTocLink();
         updateBackToTop();
         scrollTimeout = null;
       }, 50);
@@ -4050,12 +4275,12 @@
           <div class="feedback-form-section">
             <h2>Submit Feedback</h2>
             <div class="feedback-form-error" id="feedback-form-error"></div>
+            <input type="hidden" id="feedback-type" value="feature_request" />
             <div class="form-group">
-              <label for="feedback-type">Type</label>
-              <select id="feedback-type">
-                <option value="feature_request">Feature Request</option>
-                <option value="bug_report">Bug Report</option>
-              </select>
+              <div class="feedback-type-toggle">
+                <button type="button" class="type-btn active" data-value="feature_request" onclick="selectFeedbackType(this)">Feature Request</button>
+                <button type="button" class="type-btn" data-value="bug_report" onclick="selectFeedbackType(this)">Bug Report</button>
+              </div>
             </div>
             <div class="form-group">
               <label for="feedback-title">Title</label>
@@ -4064,6 +4289,11 @@
             <div class="form-group">
               <label for="feedback-desc">Description</label>
               <textarea id="feedback-desc" class="tall" placeholder="Detailed description..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="feedback-files">Attachments <span style="font-weight:normal;color:#888;">(images or files, 10 MB max each)</span></label>
+              <input type="file" id="feedback-files" multiple accept="image/*,.pdf,.txt,.md,.json,.csv" />
+              <div id="feedback-file-list" class="feedback-file-list"></div>
             </div>
             <div class="modal-actions">
               <button class="btn btn-primary" id="feedback-submit-btn" onclick="handleFeedbackSubmit()">Submit</button>
@@ -4090,6 +4320,8 @@
 
       updateActiveNavLink('feedback');
       window.scrollTo(0, 0);
+      feedbackSelectedFiles = [];
+      setupFeedbackFileInput();
       loadFeedbackEntries();
     }
 
@@ -4151,6 +4383,22 @@
 
       var date = entry.submitted_at ? new Date(entry.submitted_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
 
+      var attachmentsHtml = '';
+      if (entry.attachments && entry.attachments.length > 0) {
+        var repoBase = 'https://raw.githubusercontent.com/henkaku-center/compass/main/';
+        attachmentsHtml = '<div class="feedback-card-attachments">';
+        entry.attachments.forEach(function(att) {
+          var url = repoBase + att.path;
+          var isImage = (att.type || '').startsWith('image/');
+          if (isImage) {
+            attachmentsHtml += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener noreferrer"><img class="attachment-thumb" src="' + escapeAttr(url) + '" alt="' + escapeAttr(att.name) + '" /></a>';
+          } else {
+            attachmentsHtml += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(att.name) + '</a>';
+          }
+        });
+        attachmentsHtml += '</div>';
+      }
+
       card.innerHTML =
         '<div class="feedback-card-header">' +
           '<span class="feedback-type-badge ' + typeCls + '">' + escapeHtml(typeLabel) + '</span>' +
@@ -4158,6 +4406,7 @@
           '<span class="feedback-card-title">' + escapeHtml(entry.title || '') + '</span>' +
         '</div>' +
         (entry.description ? '<div class="feedback-card-desc">' + escapeHtml(entry.description) + '</div>' : '') +
+        attachmentsHtml +
         '<div class="feedback-card-meta">by ' + escapeHtml(entry.submitted_by || 'unknown') + (date ? ' on ' + date : '') + '</div>';
 
       return card;
@@ -4175,6 +4424,107 @@
       }
     }
 
+    function selectFeedbackType(btn) {
+      document.querySelectorAll('.feedback-type-toggle .type-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      document.getElementById('feedback-type').value = btn.getAttribute('data-value');
+    }
+
+    var feedbackSelectedFiles = [];
+    var MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+
+    function setupFeedbackFileInput() {
+      var input = document.getElementById('feedback-files');
+      if (!input) return;
+      input.addEventListener('change', function() {
+        Array.from(input.files).forEach(function(file) {
+          if (file.size > MAX_FILE_SIZE) {
+            showFeedbackFormError(file.name + ' exceeds 10 MB limit.');
+            return;
+          }
+          if (!feedbackSelectedFiles.some(function(f) { return f.name === file.name && f.size === file.size; })) {
+            feedbackSelectedFiles.push(file);
+          }
+        });
+        input.value = '';
+        renderFeedbackFileList();
+      });
+    }
+
+    function renderFeedbackFileList() {
+      var listEl = document.getElementById('feedback-file-list');
+      if (!listEl) return;
+      listEl.innerHTML = '';
+      feedbackSelectedFiles.forEach(function(file, i) {
+        var chip = document.createElement('span');
+        chip.className = 'feedback-file-chip';
+        var sizeKB = (file.size / 1024).toFixed(0);
+        var sizeStr = file.size >= 1048576 ? (file.size / 1048576).toFixed(1) + ' MB' : sizeKB + ' KB';
+        chip.innerHTML = escapeHtml(file.name) + ' <span style="color:#aaa;">(' + sizeStr + ')</span> <span class="remove-file" data-idx="' + i + '">&times;</span>';
+        chip.querySelector('.remove-file').addEventListener('click', function() {
+          feedbackSelectedFiles.splice(i, 1);
+          renderFeedbackFileList();
+        });
+        listEl.appendChild(chip);
+      });
+    }
+
+    function readFileAsBase64(file) {
+      return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          var result = reader.result;
+          var base64 = result.split(',')[1];
+          resolve(base64);
+        };
+        reader.onerror = function() { reject(new Error('Failed to read ' + file.name)); };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function uploadFeedbackFiles(pat, entryId) {
+      var attachments = [];
+      for (var i = 0; i < feedbackSelectedFiles.length; i++) {
+        var file = feedbackSelectedFiles[i];
+        var ext = file.name.split('.').pop().toLowerCase();
+        var safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+        var filePath = 'data/feedback/' + entryId + '_' + safeName;
+
+        var base64 = await readFileAsBase64(file);
+        var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
+
+        var res = await fetch(apiUrl, {
+          method: 'PUT',
+          headers: {
+            'Authorization': 'Bearer ' + pat,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: 'feedback: attach ' + safeName,
+            content: base64,
+            branch: 'main'
+          })
+        });
+
+        if (!res.ok) {
+          var errData = {};
+          try { errData = await res.json(); } catch(e) {}
+          throw new Error('Failed to upload ' + file.name + ': ' + (errData.message || res.status));
+        }
+
+        attachments.push({
+          name: file.name,
+          path: filePath,
+          size: file.size,
+          type: file.type || 'application/octet-stream'
+        });
+      }
+      return attachments;
+    }
+
     function handleFeedbackSubmit() {
       showFeedbackFormError('');
       var title = (document.getElementById('feedback-title').value || '').trim();
@@ -4186,24 +4536,31 @@
         return;
       }
 
-      var entry = {
-        id: 'fb_' + Date.now(),
-        type: type,
-        title: title,
-        description: desc,
-        submitted_by: getUsername() || 'unknown',
-        submitted_at: new Date().toISOString(),
-        status: 'open'
-      };
-
+      var entryId = 'fb_' + Date.now();
       var btn = document.getElementById('feedback-submit-btn');
       if (btn) { btn.disabled = true; btn.textContent = 'Submitting\u2026'; }
 
-      commitFeedback(entry, false)
+      var pat = getPAT();
+
+      (feedbackSelectedFiles.length > 0 ? uploadFeedbackFiles(pat, entryId) : Promise.resolve([]))
+        .then(function(attachments) {
+          var entry = {
+            id: entryId,
+            type: type,
+            title: title,
+            description: desc,
+            submitted_by: getUsername() || 'unknown',
+            submitted_at: new Date().toISOString(),
+            status: 'open'
+          };
+          if (attachments.length > 0) entry.attachments = attachments;
+          return commitFeedback(entry, false);
+        })
         .then(function() {
-          // Clear form and reload entries
           document.getElementById('feedback-title').value = '';
           document.getElementById('feedback-desc').value = '';
+          feedbackSelectedFiles = [];
+          renderFeedbackFileList();
           showFeedbackFormError('');
           if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
           loadFeedbackEntries();

@@ -37,7 +37,7 @@ Living content instantiated from those templates.
 
 As the ecosystem grows, this layer will expand to include populated directories of people, projects, initiatives, theses, events, and institutions.
 
-### Supporting
+### Other Information
 
 - **References** — Source documents and historical materials
 - **History** — Commit history pulled from the GitHub repository, grouped by date with contributor, type, and memo columns
@@ -45,30 +45,6 @@ As the ecosystem grows, this layer will expand to include populated directories 
 - **About** — This page
 
 All documents are available via the [website](https://compass.henkaku.org) or in the [GitHub repository](https://github.com/henkaku-center/compass).
-
----
-
-## Agentic Workflows
-
-Compass is developed with agentic workflows as a first-class concern:
-
-- **Built with agents** — The project itself is developed using LLM coding agents that draft, edit, and coordinate content under human direction
-- **Agent-assisted contribution** — Contributors are expected to work with coding agents when proposing amendments, reviews, and revisions
-- **Agentic interfaces** — Intermediate agents — such as chat bots or Slack integrations — will provide contributors pathways to interact with Compass without requiring direct repository access
-
-Authority, accountability, and final decision-making remain explicitly human throughout.
-
----
-
-## Governance and Evolution
-
-In parallel with the Charter text itself, Compass supports experimentation with consensus and contribution mechanisms for foundational documents.
-
-> We're developing the features and form of a living document of shared principles ("The Charter"), as well as a digital consensus mechanism for making changes and keeping it up to date. Rather than a static PDF artifact, this becomes a version-controlled document where member contributions are peer-reviewed and tracked, potentially approved through lightweight, point-based or reputation-based systems.
-
-Over time, the project may include not only the Charter text, but also tooling, workflows, and experiments related to collaborative governance — including agent-mediated interfaces that translate contributor intent into structured pull requests.
-
----
 
 ## Origin and Institutional Context
 
@@ -93,19 +69,3 @@ Based in Henkaku Center, the **Compass Initiative** is an umbrella effort to des
 The name "Compass" is an homage to the guiding principle **"Compasses over Maps"** — the conviction that navigating uncertainty requires directional orientation and adaptive judgment, not fixed routes or predetermined destinations.
 
 Within this context, the Charter serves as both a concrete institutional artifact and a prototype for how foundational documents themselves can be collaboratively governed.
-
----
-
-## Engagement
-
-- **Read** the [Charter](https://charter.henkaku.center) to understand the principles, process, and scope
-- **Track changes** through the [History page](https://compass.henkaku.center/#history) or [GitHub commits](https://github.com/henkaku-center/compass/commits/main) to see how documents evolve
-- **Define entries** using the Archetypes templates for people, projects, initiatives, courses, theses, events, and institutions
-- **Propose revisions** via [pull requests](https://github.com/henkaku-center/compass/pulls), agent-assisted workflows, or agentic interfaces
-- **Reuse or adapt** the Charter for other contexts where antidisciplinary coordination is desired
-
----
-
-## Maturity
-
-This project is intentionally evolving. Some structures and processes described here may be aspirational or under active development. The Charter should be treated as authoritative regarding values and intent, even as its form and governance mechanisms continue to mature.
