@@ -257,6 +257,52 @@ function getRelationLabel(relationType) {
   return info ? info.label : relationType.replace(/_/g, ' ');
 }
 
+// --- URL slug helpers ---
+// Strip type prefix from IDs for cleaner URLs
+// e.g. "proj_compass" → "compass", "person_winder_ira" → "winder_ira"
+
+const ID_PREFIXES = {
+  people: 'person_',
+  projects: 'proj_',
+  initiatives: 'init_',
+  institutions: 'inst_',
+  courses: 'course_',
+  events: 'event_',
+  domains: 'domain_',
+  places: 'place_'
+};
+
+function entitySlug(type, id) {
+  const prefix = ID_PREFIXES[type];
+  return (prefix && id.startsWith(prefix)) ? id.slice(prefix.length) : id;
+}
+
+function entityHref(type, id) {
+  return '#' + type + '/' + entitySlug(type, id);
+}
+
+// Build href from just an entity ID (looks up type from store)
+function entityHrefById(id) {
+  const entity = store.entities[id];
+  if (!entity) return '#';
+  const plural = TYPE_FILE_MAP[entity.type] || entity.type;
+  return entityHref(plural, id);
+}
+
+// Build an <a> tag linking to an entity's detail page
+function entityLink(id, displayText) {
+  const text = displayText || getEntityFullDisplay(id);
+  const href = entityHrefById(id);
+  return `<a href="${href}">${text}</a>`;
+}
+
+// Short display variant for card summaries
+function entityLinkShort(id) {
+  const text = getEntityDisplay(id);
+  const href = entityHrefById(id);
+  return `<a href="${href}">${text}</a>`;
+}
+
 // --- Dirty tracking for commits ---
 
 function getModifiedFiles() {
@@ -332,7 +378,7 @@ function renderRelationsHtml(entityId) {
   Object.entries(groups).forEach(([relType, items]) => {
     const label = getRelationLabel(relType);
     const itemStrs = items.map(({ entity, meta }) => {
-      let display = getEntityDisplay(entity.id);
+      let display = entityLinkShort(entity.id);
       if (meta && meta.role) display += ` (${meta.role})`;
       return display;
     });
@@ -343,7 +389,7 @@ function renderRelationsHtml(entityId) {
   return html;
 }
 
-// Render detailed relations for expanded card view
+// Render detailed relations for entity detail view
 // Optional excludeTypes: array of relation types to skip (e.g. ['has_affinity_for'])
 function renderRelationsDetailHtml(entityId, excludeTypes) {
   const related = getRelated(entityId);
@@ -362,7 +408,7 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
     const label = getRelationLabel(relType);
     html += `<p class="detail-label">${label}</p>`;
     items.forEach(({ entity, meta }) => {
-      let display = getEntityFullDisplay(entity.id);
+      let display = entityLink(entity.id);
       if (meta && meta.role) display += ` — ${meta.role}`;
       if (meta && meta.primary) display += ' (primary)';
       if (meta && meta.session) display += ` — ${meta.session}`;

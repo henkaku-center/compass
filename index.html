@@ -1068,6 +1068,16 @@
       color: #555;
     }
 
+    .registry-card .card-relations a {
+      color: inherit;
+      text-decoration: underline dotted;
+      text-underline-offset: 2px;
+    }
+
+    .registry-card .card-relations a:hover {
+      color: #2563eb;
+    }
+
     .registry-card {
       cursor: pointer;
     }
@@ -1450,16 +1460,21 @@
     .nav-login {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
       margin-left: 1.5rem;
       padding-left: 1.5rem;
       border-left: 1px solid #ddd;
-      font-size: 0.9rem;
+    }
+
+    .nav-login .nav-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .nav-login .username {
-      color: #555;
-      font-weight: 500;
+      color: #333;
     }
 
     .nav-login button {
@@ -2685,34 +2700,12 @@
       }
     };
 
-    // URL slug helpers — strip type prefix from IDs for cleaner URLs
-    // e.g. "proj_compass" → "compass", "person_winder_ira" → "winder_ira"
-    const ID_PREFIXES = {
-      people: 'person_',
-      projects: 'proj_',
-      initiatives: 'init_',
-      institutions: 'inst_',
-      courses: 'course_',
-      events: 'event_',
-      domains: 'domain_',
-      places: 'place_'
-    };
-
-    function entitySlug(type, id) {
-      const prefix = ID_PREFIXES[type];
-      return (prefix && id.startsWith(prefix)) ? id.slice(prefix.length) : id;
-    }
-
+    // Resolve URL slug back to entity ID (e.g. "compass" → "proj_compass")
     function slugToEntityId(type, slug) {
       const prefix = ID_PREFIXES[type];
       if (!prefix) return slug;
       const candidate = prefix + slug;
-      // Verify it exists; fall back to raw slug (handles IDs that don't follow the convention)
       return (store.entities && store.entities[candidate]) ? candidate : slug;
-    }
-
-    function entityHref(type, id) {
-      return '#' + type + '/' + entitySlug(type, id);
     }
 
     function renderRegistryCard(entry, type) {
@@ -2975,8 +2968,8 @@
           let summaryHtml = '';
           if (type === 'people' && entry.job_title) {
             const affiliations = getRelated(entry.id, { type: 'affiliated' });
-            const instNames = affiliations.map(a => getEntityDisplay(a.entity.id));
-            summaryHtml = entry.job_title + (instNames.length > 0 ? ' — ' + instNames.join(', ') : '');
+            const instLinks = affiliations.map(a => entityLink(a.entity.id, getEntityDisplay(a.entity.id)));
+            summaryHtml = entry.job_title + (instLinks.length > 0 ? ' — ' + instLinks.join(', ') : '');
           } else if (entry.summary) {
             summaryHtml = entry.summary;
           }
@@ -3093,7 +3086,7 @@
                 let speakers = '';
                 if (s.speakers && s.speakers.length > 0) {
                   speakers = ' — ' + s.speakers.map(sp =>
-                    sp.person_id ? personName(sp.person_id) : sp.external_name
+                    sp.person_id ? entityLink(sp.person_id, personName(sp.person_id)) : sp.external_name
                   ).join(', ');
                 }
                 return `<p>${s.time} ${s.title}${speakers}</p>`;
@@ -3105,7 +3098,7 @@
                 let people = '';
                 if (ex.participants && ex.participants.length > 0) {
                   people = ' — ' + ex.participants.map(p =>
-                    p.person_id ? personName(p.person_id) : p.external_name
+                    p.person_id ? entityLink(p.person_id, personName(p.person_id)) : p.external_name
                   ).join(', ');
                 }
                 return `<p>${ex.title}${people}</p>`;
@@ -3768,7 +3761,10 @@
       const loginEl = document.getElementById('nav-login');
       if (!loginEl) return;
       if (isLoggedIn()) {
-        loginEl.innerHTML = `<span class="username">${getUsername()}</span> <button onclick="logout()">Logout</button>`;
+        const avatar = sessionStorage.getItem('github_avatar');
+        const displayName = sessionStorage.getItem('github_name') || getUsername();
+        const avatarHtml = avatar ? `<img class="nav-avatar" src="${avatar}" alt="">` : '';
+        loginEl.innerHTML = `${avatarHtml}<span class="username">${displayName}</span> <button onclick="logout()">Logout</button>`;
       } else {
         loginEl.innerHTML = `<button onclick="showLoginModal()">Login</button>`;
       }
@@ -3853,6 +3849,8 @@
 
         sessionStorage.setItem('github_pat', pat);
         sessionStorage.setItem('github_username', userData.login);
+        sessionStorage.setItem('github_name', userData.name || userData.login);
+        sessionStorage.setItem('github_avatar', userData.avatar_url || '');
 
         closeModal();
         updateLoginUI();
@@ -3866,6 +3864,8 @@
     function logout() {
       sessionStorage.removeItem('github_pat');
       sessionStorage.removeItem('github_username');
+      sessionStorage.removeItem('github_name');
+      sessionStorage.removeItem('github_avatar');
       updateLoginUI();
       loadFromHash();
     }
