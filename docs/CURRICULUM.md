@@ -54,24 +54,24 @@ Both degree pathways include:
 
 ### Mandatory Courses (6 courses, 15 credits)
 
-| Course | Credits |
-|--------|---------|
-| Engineering Ethics | 2 |
-| Communication Practices | 2 |
-| Career Development Exercises | 2 |
-| Advanced Research in Doctoral Program I | 3 |
-| Advanced Research in Doctoral Program II | 3 |
-| Advanced Research in Doctoral Program III | 3 |
+| Course | Credits | Instructor(s) |
+|--------|---------|----------------|
+| Engineering Ethics | 2 | Joseph Austerweil |
+| Communication Practices | 2 | Joseph Austerweil |
+| Career Development Exercises | 2 | Joseph Austerweil |
+| Advanced Research in Doctoral Program I | 3 | All Faculty |
+| Advanced Research in Doctoral Program II | 3 | All Faculty |
+| Advanced Research in Doctoral Program III | 3 | All Faculty |
 
 ### Elective Courses (2 credits from the following)
 
-| Course | Credits |
-|--------|---------|
-| Advanced Intelligent Agents | 2 |
-| Advanced Human and Machine Learning | 2 |
-| Advanced Law and Governance | 2 |
-| Advanced Complex System Science | 2 |
-| Advanced Design and Prototyping | 2 |
+| Course | Credits | Instructor(s) |
+|--------|---------|----------------|
+| Advanced Intelligent Agents | 2 | Mizuki Oka |
+| Advanced Human and Machine Learning | 2 | Joseph Austerweil |
+| Advanced Law and Governance | 2 | Catharina Maracke |
+| Advanced Complex System Science | 2 | Hiroki Kojima |
+| Advanced Design and Prototyping | 2 | Ira Winder |
 
 ---
 
