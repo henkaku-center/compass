@@ -504,7 +504,7 @@
   {
     "source": "person_austerweil_joseph",
     "target": "init_neurodiversity_connected_learning",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_austerweil_joseph",
@@ -563,7 +563,7 @@
   {
     "source": "person_bates_samantha",
     "target": "init_ai_safety_workshop",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_bates_samantha",
@@ -619,7 +619,7 @@
   {
     "source": "person_castello_eduardo",
     "target": "init_sustainable_robotics",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_castello_eduardo",
@@ -847,7 +847,7 @@
   {
     "source": "person_ito_joi",
     "target": "init_ai_healthcare",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_ito_joi",
@@ -868,17 +868,17 @@
   {
     "source": "person_ito_joi",
     "target": "init_daboteng_house",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_ito_joi",
     "target": "init_radical_transformation_award",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_ito_joi",
     "target": "init_tea_project",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_ito_joi",
@@ -934,8 +934,7 @@
     "target": "inst_sds",
     "type": "affiliated",
     "meta": {
-      "role": "Faculty",
-      "primary": true
+      "role": "Faculty"
     }
   },
   {
@@ -1208,7 +1207,7 @@
   {
     "source": "person_mansinghka_vikash",
     "target": "init_probabilistic_computing",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_mansinghka_vikash",
@@ -1487,7 +1486,7 @@
   {
     "source": "person_oka_mizuki",
     "target": "init_artificial_life",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_oka_mizuki",
@@ -1994,32 +1993,48 @@
   {
     "source": "person_winder_ira",
     "target": "event_2025_symposium",
-    "type": "exhibits_at"
+    "type": "exhibits_at",
+    "meta": {
+      "exhibition": "Institutions of Impact"
+    }
   },
   {
     "source": "person_winder_ira",
     "target": "event_2025_symposium",
-    "type": "exhibits_at"
+    "type": "exhibits_at",
+    "meta": {
+      "exhibition": "SDS Affinity Atlas"
+    }
   },
   {
     "source": "person_winder_ira",
     "target": "event_2025_symposium",
-    "type": "speaks_at"
+    "type": "speaks_at",
+    "meta": {
+      "session": "Building an Antidisciplinary Organization",
+      "role": "moderator"
+    }
   },
   {
     "source": "person_winder_ira",
     "target": "init_compass_initiative",
-    "type": "lead"
+    "type": "owner"
   },
   {
     "source": "person_winder_ira",
     "target": "inst_henkaku",
-    "type": "affiliated"
+    "type": "affiliated",
+    "meta": {
+      "role": "Principal Research Scientist"
+    }
   },
   {
     "source": "person_winder_ira",
     "target": "inst_sds",
-    "type": "affiliated"
+    "type": "affiliated",
+    "meta": {
+      "role": "Associate Professor"
+    }
   },
   {
     "source": "person_winder_ira",
@@ -2071,1242 +2086,777 @@
   {
     "source": "person_ito_joi",
     "target": "domain_governance",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ito_joi",
     "target": "domain_institutional_resilience",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ito_joi",
     "target": "domain_philosophy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ito_joi",
     "target": "domain_complex_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ito_joi",
     "target": "domain_technology_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ito_joi",
     "target": "domain_digital_infra",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ito_joi",
     "target": "domain_coordination",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ito_joi",
     "target": "domain_awareness",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_simulation",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_incentive_design",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_complex_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_governance",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_rapid_prototyping",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_institutional_resilience",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_coordination",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_edu_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_winder_ira",
     "target": "domain_radical_economics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kim_daum",
     "target": "domain_media",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kim_daum",
     "target": "domain_cultural_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kim_daum",
     "target": "domain_platform_ethics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kim_daum",
     "target": "domain_design_ethics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kim_daum",
     "target": "domain_digital_identity",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kim_daum",
     "target": "domain_emotional_tech",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kim_daum",
     "target": "domain_participatory",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kim_daum",
     "target": "domain_asian_sensibilities",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_maracke_catharina",
     "target": "domain_technology_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_maracke_catharina",
     "target": "domain_governance",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_maracke_catharina",
     "target": "domain_digital_infra",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_maracke_catharina",
     "target": "domain_institutional_resilience",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_maracke_catharina",
     "target": "domain_legal",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_maracke_catharina",
     "target": "domain_open_knowledge",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_maracke_catharina",
     "target": "domain_philosophy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_complex_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_ai",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_embodied_intelligence",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_collective_intel",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_cognitive_architecture",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_machine_reasoning",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_cognitive_sci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_prob_comp",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kojima_hiroki",
     "target": "domain_knowledge_repr",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_oka_mizuki",
     "target": "domain_ai",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_oka_mizuki",
     "target": "domain_complex_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_oka_mizuki",
     "target": "domain_embodied_intelligence",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_oka_mizuki",
     "target": "domain_machine_reasoning",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_oka_mizuki",
     "target": "domain_collective_intel",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_oka_mizuki",
     "target": "domain_prob_comp",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_oka_mizuki",
     "target": "domain_knowledge_repr",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_austerweil_joseph",
     "target": "domain_knowledge_repr",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_austerweil_joseph",
     "target": "domain_prob_comp",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_austerweil_joseph",
     "target": "domain_cognitive_sci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_austerweil_joseph",
     "target": "domain_machine_reasoning",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_austerweil_joseph",
     "target": "domain_cognitive_architecture",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_austerweil_joseph",
     "target": "domain_edu_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_austerweil_joseph",
     "target": "domain_embodied_intelligence",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_speculative_design",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_gender_tech",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_emotional_tech",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_cultural_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_aesthetic",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_story_telling",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_asian_sensibilities",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_design_ethics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ozaki_hiromi",
     "target": "domain_technology_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_priyadarshi_tenzin",
     "target": "domain_ai_ethics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_priyadarshi_tenzin",
     "target": "domain_philosophy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_priyadarshi_tenzin",
     "target": "domain_awareness",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_priyadarshi_tenzin",
     "target": "domain_institutional_resilience",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_raz_gal",
     "target": "domain_cognitive_sci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_raz_gal",
     "target": "domain_edu_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_raz_gal",
     "target": "domain_awareness",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_szep_grisha",
     "target": "domain_prob_comp",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_szep_grisha",
     "target": "domain_health",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_szep_grisha",
     "target": "domain_ai_ethics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_szep_grisha",
     "target": "domain_edu_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_szep_grisha",
     "target": "domain_ai",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_wang_sophia",
     "target": "domain_coordination",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_wang_sophia",
     "target": "domain_legal",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_wang_sophia",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_wang_sophia",
     "target": "domain_rapid_prototyping",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_wang_sophia",
     "target": "domain_public_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_wang_sophia",
     "target": "domain_radical_economics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_wang_sophia",
     "target": "domain_complex_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_wang_sophia",
     "target": "domain_society",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "interest"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_bates_samantha",
     "target": "domain_ai_ethics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_razik_fiza",
     "target": "domain_edu_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_razik_fiza",
     "target": "domain_coordination",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_bateson_nora",
     "target": "domain_complex_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_bateson_nora",
     "target": "domain_edu_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_castello_eduardo",
     "target": "domain_robotics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_cohen_revital",
     "target": "domain_art",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_dinakar_karthik",
     "target": "domain_machine_reasoning",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_dinakar_karthik",
     "target": "domain_hci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_druga_stefania",
     "target": "domain_ai",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_druga_stefania",
     "target": "domain_machine_reasoning",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_druga_stefania",
     "target": "domain_edu_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ekblaw_ariel",
     "target": "domain_space",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_ekblaw_ariel",
     "target": "domain_rapid_prototyping",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_goldman_daniel",
     "target": "domain_complex_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_goldman_daniel",
     "target": "domain_simulation",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_goldman_daniel",
     "target": "domain_hci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_goldman_daniel",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_hickok_merve",
     "target": "domain_technology_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_huang_michelle",
     "target": "domain_hci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kang_louis",
     "target": "domain_financial_engineering",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kang_louis",
     "target": "domain_health",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kang_louis",
     "target": "domain_cognitive_sci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kokuryo_jiro",
     "target": "domain_public_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kokuryo_jiro",
     "target": "domain_media",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kokuryo_jiro",
     "target": "domain_governance",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_lessig_lawrence",
     "target": "domain_legal",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_lessig_lawrence",
     "target": "domain_technology_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_lessig_lawrence",
     "target": "domain_institutional_resilience",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_lessig_lawrence",
     "target": "domain_open_knowledge",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_mansinghka_vikash",
     "target": "domain_prob_comp",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_mccallkiley_kate",
     "target": "domain_complex_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_mccallkiley_kate",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_mccallkiley_kate",
     "target": "domain_public_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_miyaguchi_aya",
     "target": "domain_governance",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_miyaguchi_aya",
     "target": "domain_digital_infra",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_miyaguchi_aya",
     "target": "domain_society",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_mora_margarita",
     "target": "domain_society",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_mora_margarita",
     "target": "domain_governance",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_murai_jun",
     "target": "domain_digital_infra",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_rich_travis",
     "target": "domain_open_knowledge",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_salobir_eric",
     "target": "domain_ai_ethics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_schingler_jessykate",
     "target": "domain_legal",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_schingler_jessykate",
     "target": "domain_governance",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_schingler_jessykate",
     "target": "domain_institutional_resilience",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_schneier_bruce",
     "target": "domain_security",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_schneier_bruce",
     "target": "domain_cryptography",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_schneier_bruce",
     "target": "domain_technology_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_shinoda_kana",
     "target": "domain_security",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_takemura_mitsuhiro",
     "target": "domain_media",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_takemura_mitsuhiro",
     "target": "domain_aesthetic",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_vanbalen_tuur",
     "target": "domain_art",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_virza_madars",
     "target": "domain_cryptography",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_virza_madars",
     "target": "domain_ai_ethics",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_mulas_victor",
     "target": "domain_institutional_resilience",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_xiao_xiao",
     "target": "domain_hci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_xiao_xiao",
     "target": "domain_edu_systems",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_xiao_xiao",
     "target": "domain_design_thinking",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_phillips_alexander",
     "target": "domain_collective_intel",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_phillips_alexander",
     "target": "domain_cognitive_sci",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_phillips_alexander",
     "target": "domain_health",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_phillips_alexander",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_moran_brent",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_freer_cameron",
     "target": "domain_prob_comp",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_godey_kriti",
     "target": "domain_open_knowledge",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_godey_kriti",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_murali_mukesh",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_kumar_pavish",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_zamma_toshiyuki",
     "target": "domain_public_policy",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "person_hidaka_zenbo",
     "target": "domain_software",
-    "type": "has_affinity_for",
-    "meta": {
-      "origin": "expertise"
-    }
+    "type": "has_affinity_for"
   },
   {
     "source": "inst_dalab",

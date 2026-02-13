@@ -1126,6 +1126,14 @@
       text-decoration: underline;
     }
 
+    .registry-card .person-bio {
+      line-height: 1.6;
+    }
+
+    .registry-card .person-bio p {
+      margin: 0.6rem 0;
+    }
+
     .status-badge {
       font-size: 0.7rem;
       font-weight: 600;
@@ -2265,7 +2273,7 @@
               </a>
               <a href="#people" class="landing-card">
                 <div class="card-title">People</div>
-                <div class="card-desc">Faculty, researchers, staff, and students with roles and expertise.</div>
+                <div class="card-desc">Faculty, researchers, staff, and students with roles and domains.</div>
               </a>
               <a href="#projects" class="landing-card">
                 <div class="card-title">Projects</div>
@@ -2575,7 +2583,7 @@
       people: {
         singular: 'Person',
         plural: 'People',
-        description: 'Participants in the ecosystem — their roles, expertise, affiliations, and project involvement.',
+        description: 'Participants in the ecosystem — their roles, domain affinities, affiliations, and project involvement.',
         color: '#b0b8c0'
       },
       projects: {
@@ -2647,6 +2655,9 @@
           break;
 
         case 'people':
+          if (entry.name_ja) {
+            nameField += ` <span style="opacity:0.5;font-weight:normal;">${entry.name_ja}</span>`;
+          }
           if (entry.role_categories) {
             entry.role_categories.forEach(r => {
               metaHtml += `<span class="type-badge">${r.replace(/_/g, ' ')}</span>`;
@@ -2658,11 +2669,10 @@
             const instNames = affiliations.map(a => getEntityDisplay(a.entity.id));
             summaryField = entry.job_title + (instNames.length > 0 ? ' — ' + instNames.join(', ') : '');
           }
-          // Show expertise from affinity relations
-          const expertiseRels = getRelated(entry.id, { type: 'has_affinity_for' })
-            .filter(r => r.meta && r.meta.origin === 'expertise');
-          if (expertiseRels.length > 0) {
-            relationsHtml += `<strong>Expertise:</strong> ${expertiseRels.map(r =>
+          // Show domains from affinity relations
+          const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
+          if (domainRels.length > 0) {
+            relationsHtml += `<strong>Domains:</strong> ${domainRels.map(r =>
               `<a href="#domains" style="color:inherit;text-decoration:underline dotted;text-underline-offset:2px;">${getEntityDisplay(r.entity.id)}</a>`
             ).join(', ')}`;
           }
@@ -2740,28 +2750,8 @@
       card.classList.add('expandable');
 
       if (type === 'people') {
-        if (entry.name_ja) {
-          detailHtml += `<p style="opacity:0.6;margin-top:0;">${entry.name_ja}</p>`;
-        }
-        if (entry.background) {
-          detailHtml += `<p>${entry.background}</p>`;
-        }
-        // Relations from relations.json (affiliations, projects, initiatives, etc.)
-        // Exclude affinity relations — rendered separately as Expertise/Interests below
-        detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for']);
-        // Expertise and Interests from affinity relations
-        const allAffinities = getRelated(entry.id, { type: 'has_affinity_for' });
-        const expertiseAffinities = allAffinities.filter(r => r.meta && r.meta.origin === 'expertise');
-        const interestAffinities = allAffinities.filter(r => r.meta && r.meta.origin === 'interest');
-        if (expertiseAffinities.length > 0) {
-          detailHtml += `<p class="detail-label">Expertise</p><p>${expertiseAffinities.map(r =>
-            `<a href="#domains" style="color:inherit;text-decoration:underline dotted;text-underline-offset:2px;">${getEntityDisplay(r.entity.id)}</a>`
-          ).join(', ')}</p>`;
-        }
-        if (interestAffinities.length > 0) {
-          detailHtml += `<p class="detail-label">Interests</p><p>${interestAffinities.map(r =>
-            `<a href="#domains" style="color:inherit;text-decoration:underline dotted;text-underline-offset:2px;">${getEntityDisplay(r.entity.id)}</a>`
-          ).join(', ')}</p>`;
+        if (entry.bio) {
+          detailHtml += `<div class="person-bio">${marked.parse(entry.bio)}</div>`;
         }
         if (entry.links && entry.links.length > 0) {
           detailHtml += `<p class="detail-label">Links</p>`;
@@ -2769,6 +2759,8 @@
             `<p><a href="${l.url}" target="_blank" rel="noopener">${l.type || l.url}</a></p>`
           ).join('');
         }
+        // Relations (affiliations, projects, initiatives — excludes domain affinities shown on card)
+        detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for']);
       }
 
       if (type === 'institutions') {
@@ -3218,8 +3210,8 @@
                 if (data.name_ja) html += `<p style="opacity: 0.6;">${data.name_ja}</p>`;
                 if (data.job_title) html += `<p><strong>Title:</strong> ${data.job_title}</p>`;
                 if (data.role_categories) html += `<p><strong>Roles:</strong> ${data.role_categories.join(', ')}</p>`;
-                const netExpertise = getRelated(data.id, { type: 'has_affinity_for' }).filter(r => r.meta && r.meta.origin === 'expertise');
-                if (netExpertise.length > 0) html += `<p><strong>Expertise:</strong> ${netExpertise.map(r => getEntityDisplay(r.entity.id)).join(', ')}</p>`;
+                const netDomains = getRelated(data.id, { type: 'has_affinity_for' });
+                if (netDomains.length > 0) html += `<p><strong>Domains:</strong> ${netDomains.map(r => getEntityDisplay(r.entity.id)).join(', ')}</p>`;
                 if (data.background) html += `<p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.85rem;">${data.background}</p>`;
                 break;
               case 'institutions':
@@ -3731,7 +3723,7 @@
         { type: 'affiliated', targetTypes: ['institutions'], label: 'Affiliated with' },
         { type: 'owner', targetTypes: ['projects'], label: 'Owner of' },
         { type: 'contributor', targetTypes: ['projects'], label: 'Contributor to' },
-        { type: 'lead', targetTypes: ['initiatives'], label: 'Lead of' },
+        { type: 'owner', targetTypes: ['initiatives'], label: 'Owner of' },
         { type: 'participant', targetTypes: ['initiatives'], label: 'Participant in' },
         { type: 'contact_for', targetTypes: ['institutions'], label: 'Contact for' },
         { type: 'teaches', targetTypes: ['courses'], label: 'Teaches' },
@@ -4007,7 +3999,7 @@
           return;
         }
 
-        // Array of strings (expertise, interests, domains, etc.)
+        // Array of strings (domains, capabilities, etc.)
         if (Array.isArray(val)) {
           html += '<div class="form-group"><label>' + label + '</label>' +
             '<textarea name="' + key + '" data-field-type="string-array">' + escapeHtml((val || []).join('\n')) + '</textarea>' +

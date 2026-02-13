@@ -7,7 +7,7 @@ This document defines the structural archetypes—the templates and schemas—fo
 The Charter mandates a **shared registry** that tracks ten types of entries:
 
 - **Institutions**: Organizations that participate in the ecosystem—their mandates, capabilities, and relationships
-- **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement
+- **People**: Participants in the ecosystem—their roles, domain affinities, affiliations, and involvement
 - **Projects**: Bounded units of transformation with clear completion criteria
 - **Initiatives**: Ongoing programs without predetermined endpoints
 - **Courses**: Recurring educational units with syllabi, learning objectives, and credit values
@@ -49,7 +49,7 @@ Each entry type is grounded by essential questions:
 
 **People**:
 1. Who is this person and what is their role?
-2. What expertise and interests do they bring?
+2. What domains do they work in?
 3. What are they currently working on?
 4. How can others reach and collaborate with them?
 
@@ -235,20 +235,15 @@ People appear in the registry not as isolated entries but as nodes in a network�
 
 ---
 
-### Expertise and Interests
+### Domain Affinities
 
 *Supports Charter's coordination function: enabling others to identify potential collaborators*
 
-Expertise and interests are represented as **domain affinity relations** (`has_affinity_for`) linking people to domain entries in the registry. Each relation carries a `meta.origin` field distinguishing demonstrated expertise from exploratory interest:
-
-- `meta.origin: "expertise"` — domains the person has demonstrated competence in
-- `meta.origin: "interest"` — domains the person is interested in exploring, whether or not they have current expertise
-
-This replaces inline `expertise` and `interests` arrays, connecting people directly to the shared domain vocabulary and enabling discovery through the network graph.
+A person's domains are represented as **`has_affinity_for` relations** linking the person to domain entries in the registry. This connects people directly to the shared domain vocabulary and enables discovery through the network graph.
 
 | **Field** | **Name** | **Description** | **Charter Mapping** |
 | --- | --- | --- | --- |
-| *(relation)* | **Domain Affinities** | `has_affinity_for` relations to domain entries, with `meta.origin` distinguishing expertise from interest. Stored in `relations.json`, not on the person entity. | *Finding potential collaborators* |
+| *(relation)* | **Domains** | `has_affinity_for` relations to domain entries. Stored in `relations.json`, not on the person entity. | *Finding potential collaborators* |
 | `background` | **Background Summary** | *(optional)* Brief narrative (2-3 sentences) describing the person's background, trajectory, or perspective | *Contextual understanding* |
 
 ---

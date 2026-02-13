@@ -119,7 +119,7 @@ The Charter (Section V) mandates a shared registry. The **Archetypes** document 
 
 Ten entry types:
 - **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
-- **People** — Roles, expertise, affiliations, project involvement. `role_categories` supports multiple roles.
+- **People** — Roles, domain affinities, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
 - **Initiatives** — Ongoing programs evaluated on continuing justification
 - **Courses** — Recurring educational units with learning objectives and Charter alignment

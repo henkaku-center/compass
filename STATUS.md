@@ -24,7 +24,7 @@ Eight entry types are populated with real data:
 
 | Type | Count | Description |
 |------|-------|-------------|
-| People | 62 | With portrait photos, affiliations, expertise, and project links |
+| People | 62 | With portrait photos, affiliations, domain links, and project links |
 | Initiatives | 10 | Ongoing programs like Probabilistic Computing, Artificial Life, AI Safety Workshop |
 | Institutions | 8 | Chiba Tech, Henkaku Center, SDS, plus partners JPCCA, ALife Institute, AISI, Mount Sinai, Fujita |
 | Projects | 3 | Compass, SDS Launch, Antidisciplinary Charter |

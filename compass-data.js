@@ -14,8 +14,6 @@ const RELATION_TYPES = {
   owned_by:         { inverse: 'owner',           label: 'Owned by',       inverseLabel: 'Owner' },
   contributor:      { inverse: 'has_contributor',  label: 'Contributor',    inverseLabel: 'Has contributor' },
   has_contributor:  { inverse: 'contributor',      label: 'Has contributor',inverseLabel: 'Contributor' },
-  lead:             { inverse: 'led_by',           label: 'Lead',           inverseLabel: 'Led by' },
-  led_by:           { inverse: 'lead',             label: 'Led by',         inverseLabel: 'Lead' },
   participant:      { inverse: 'has_participant',  label: 'Participant',    inverseLabel: 'Has participant' },
   has_participant:  { inverse: 'participant',      label: 'Has participant',inverseLabel: 'Participant' },
   affiliated:       { inverse: 'has_affiliate',    label: 'Affiliated with',inverseLabel: 'Has affiliate' },

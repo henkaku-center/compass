@@ -102,9 +102,9 @@ projects.forEach(proj => {
 // --- Extract relations from initiatives ---
 
 initiatives.forEach(init => {
-  // lead
+  // owner (formerly lead)
   if (init.lead) {
-    addRelation(init.lead, init.id, 'lead');
+    addRelation(init.lead, init.id, 'owner');
   }
 
   // participants
