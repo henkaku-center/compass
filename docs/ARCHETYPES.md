@@ -95,13 +95,13 @@ Tracking institutions in the registry makes the ecosystem's organizational lands
 
 ### Basic Information
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `id` — **Institution ID** | Unique internal identifier (e.g., `inst_chibatech`, `inst_henkaku`) | *Enables tracking and cross-referencing* |
-| `name` — **Institution Name** | Official name of the institution | *Part of making work visible* |
-| `short_name` — **Short Name** | *(optional)* Common abbreviation or informal name (e.g., "Chiba Tech", "SDS") | *Supports discoverability* |
-| `summary` — **Institution Summary** | A short paragraph (1–2 sentences) describing the institution's purpose and role in the ecosystem | *Supports discoverability* |
-| `institution_type` — **Institution Type** | Category of institution. One of:<br>• `university` - Degree-granting academic institution<br>• `graduate_school` - Graduate-level academic program<br>• `research_center` - Research-focused organization<br>• `company` - Private-sector entity<br>• `government` - Government agency or body<br>• `nonprofit` - Non-governmental, non-profit organization<br>• `other` - Institutions that don't fit other categories | **Classification** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Institution ID** | Unique internal identifier (e.g., `inst_chibatech`, `inst_henkaku`) | *Enables tracking and cross-referencing* |
+| `name` | **Institution Name** | Official name of the institution | *Part of making work visible* |
+| `short_name` | **Short Name** | *(optional)* Common abbreviation or informal name (e.g., "Chiba Tech", "SDS") | *Supports discoverability* |
+| `summary` | **Institution Summary** | A short paragraph (1–2 sentences) describing the institution's purpose and role in the ecosystem | *Supports discoverability* |
+| `institution_type` | **Institution Type** | Category of institution. One of:<br>• `university` - Degree-granting academic institution<br>• `graduate_school` - Graduate-level academic program<br>• `research_center` - Research-focused organization<br>• `company` - Private-sector entity<br>• `government` - Government agency or body<br>• `nonprofit` - Non-governmental, non-profit organization<br>• `other` - Institutions that don't fit other categories | **Classification** |
 
 ---
 
@@ -109,11 +109,11 @@ Tracking institutions in the registry makes the ecosystem's organizational lands
 
 *Charter requirement (Section VI): Institutional relationships are "explicitly designed interfaces" with different mandates, tempos, and constraints*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `mandate` — **Institutional Mandate** | What is this institution's core purpose or mission? What is it chartered or authorized to do? Answers essential prompt #1. | **Institutional Relationships** (mandate) |
-| `ecosystem_role` — **Role in the Ecosystem** | What function does this institution serve within the Charter-covered ecosystem? (e.g., "host institution providing legal standing and infrastructure", "academic arm delivering degree programs", "research center providing shared infrastructure") | **Institutional Relationships** (role) |
-| `founding_date` — **Founding Date** | *(optional)* When the institution was established (format: `YYYY` or `YYYY-MM-DD`) | *Historical context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `mandate` | **Institutional Mandate** | What is this institution's core purpose or mission? What is it chartered or authorized to do? Answers essential prompt #1. | **Institutional Relationships** (mandate) |
+| `ecosystem_role` | **Role in the Ecosystem** | What function does this institution serve within the Charter-covered ecosystem? (e.g., "host institution providing legal standing and infrastructure", "academic arm delivering degree programs", "research center providing shared infrastructure") | **Institutional Relationships** (role) |
+| `founding_date` | **Founding Date** | *(optional)* When the institution was established (format: `YYYY` or `YYYY-MM-DD`) | *Historical context* |
 
 ---
 
@@ -121,11 +121,11 @@ Tracking institutions in the registry makes the ecosystem's organizational lands
 
 *What distinctive assets this institution contributes to the ecosystem*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `capabilities` — **Distinctive Capabilities** | What does this institution bring that others in the ecosystem do not? (e.g., "degree-granting authority", "laboratory facilities", "industry networks", "policy access") Answers essential prompt #2. | **Institutional Relationships** (mutual benefit) |
-| `infrastructure` — **Infrastructure Provided** | *(optional)* Physical or organizational infrastructure available to the ecosystem (e.g., "campus facilities", "administrative systems", "research equipment") | **Institutional Relationships** (infrastructure) |
-| `location` — **Location** | *(optional)* Primary physical location or headquarters | **Logistics** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `capabilities` | **Distinctive Capabilities** | What does this institution bring that others in the ecosystem do not? (e.g., "degree-granting authority", "laboratory facilities", "industry networks", "policy access") Answers essential prompt #2. | **Institutional Relationships** (mutual benefit) |
+| `infrastructure` | **Infrastructure Provided** | *(optional)* Physical or organizational infrastructure available to the ecosystem (e.g., "campus facilities", "administrative systems", "research equipment") | **Institutional Relationships** (infrastructure) |
+| `location` | **Location** | *(optional)* Primary physical location or headquarters | **Logistics** |
 
 ---
 
@@ -133,11 +133,11 @@ Tracking institutions in the registry makes the ecosystem's organizational lands
 
 *Charter requirement (Section VI): "productive coupling across institutional boundaries—preserving accountability, authority, and trust"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `parent_institution` — **Parent Institution** | *(optional)* Reference to a parent or host institution (e.g., SDS references Chiba Tech) | **Institutional Relationships** (hierarchy) |
-| `related_institutions` — **Related Institutions** | Other institutions this one collaborates with, hosts, or is hosted by. Each entry includes:<br>• `institution_id`: Reference to institution in registry<br>• `relationship`: Nature of relationship (e.g., "host", "hosted_by", "partner", "funder", "affiliate") Answers essential prompt #3. | **Institutional Relationships** (coupling) |
-| `charter_coverage` — **Charter Coverage** | Whether and how this institution is covered by the Charter. One of:<br>• `primary` - Directly governed by Charter principles<br>• `partner` - Operates consistently with Charter during collaboration<br>• `external` - Independent institution with formal relationship | **Institutional Relationships** (applicability) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `parent_institution` | **Parent Institution** | *(optional)* Reference to a parent or host institution (e.g., SDS references Chiba Tech) | **Institutional Relationships** (hierarchy) |
+| `related_institutions` | **Related Institutions** | Other institutions this one collaborates with, hosts, or is hosted by. Each entry includes:<br>• `institution_id`: Reference to institution in registry<br>• `relationship`: Nature of relationship (e.g., "host", "hosted_by", "partner", "funder", "affiliate") Answers essential prompt #3. | **Institutional Relationships** (coupling) |
+| `charter_coverage` | **Charter Coverage** | Whether and how this institution is covered by the Charter. One of:<br>• `primary` - Directly governed by Charter principles<br>• `partner` - Operates consistently with Charter during collaboration<br>• `external` - Independent institution with formal relationship | **Institutional Relationships** (applicability) |
 
 ---
 
@@ -145,11 +145,11 @@ Tracking institutions in the registry makes the ecosystem's organizational lands
 
 *Charter requirement (Section VI.2): Institutions "operate under constraints of scale, regulation, and tradition"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `constraints` — **Operating Constraints** | What regulatory, administrative, or structural constraints does this institution operate under? (e.g., "accreditation requirements", "government reporting obligations", "legacy administrative systems") Answers essential prompt #4. | **Institutional Relationships** (constraints) |
-| `language` — **Working Language** | *(optional)* Primary working language(s) of the institution | **Cultural Context** |
-| `governance_structure` — **Governance Structure** | *(optional)* Brief description of how the institution is governed (e.g., "university senate", "board of directors", "director-led") | **Governance** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `constraints` | **Operating Constraints** | What regulatory, administrative, or structural constraints does this institution operate under? (e.g., "accreditation requirements", "government reporting obligations", "legacy administrative systems") Answers essential prompt #4. | **Institutional Relationships** (constraints) |
+| `language` | **Working Language** | *(optional)* Primary working language(s) of the institution | **Cultural Context** |
+| `governance_structure` | **Governance Structure** | *(optional)* Brief description of how the institution is governed (e.g., "university senate", "board of directors", "director-led") | **Governance** |
 
 ---
 
@@ -157,36 +157,36 @@ Tracking institutions in the registry makes the ecosystem's organizational lands
 
 *How this institution connects to the ecosystem's people and activities*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `key_contacts` — **Key Contacts** | People who serve as primary liaisons between this institution and the ecosystem. Each entry includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role in the relationship (e.g., "director", "liaison", "administrative contact") | **Participants** (contacts) |
-| `hosted_projects` — **Hosted Projects** | *(optional)* Projects that this institution hosts, funds, or sponsors | **Dependencies** (projects) |
-| `hosted_initiatives` — **Hosted Initiatives** | *(optional)* Initiatives that operate under this institution's umbrella | **Dependencies** (initiatives) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `key_contacts` | **Key Contacts** | People who serve as primary liaisons between this institution and the ecosystem. Each entry includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role in the relationship (e.g., "director", "liaison", "administrative contact") | **Participants** (contacts) |
+| `hosted_projects` | **Hosted Projects** | *(optional)* Projects that this institution hosts, funds, or sponsors | **Dependencies** (projects) |
+| `hosted_initiatives` | **Hosted Initiatives** | *(optional)* Initiatives that operate under this institution's umbrella | **Dependencies** (initiatives) |
 
 ---
 
 ### Institution Status
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `status` — **Institution Status** | Current relationship status. Must be one of:<br>• `active` - Currently participating in the ecosystem<br>• `prospective` - In discussion but not yet formally participating<br>• `inactive` - Previously active, currently not participating<br>• `historical` - No longer operating or relevant, retained for record | **Status** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Institution Status** | Current relationship status. Must be one of:<br>• `active` - Currently participating in the ecosystem<br>• `prospective` - In discussion but not yet formally participating<br>• `inactive` - Previously active, currently not participating<br>• `historical` - No longer operating or relevant, retained for record | **Status** |
 
 ---
 
 ### Institution Context
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `domains` — **Related Domains** | Tags that map this institution to research or practice areas | *Enables overlap/coherence analysis* |
-| `website` — **Website** | *(optional)* Institution's primary website URL | *Discoverability* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `domains` | **Related Domains** | Tags that map this institution to research or practice areas | *Enables overlap/coherence analysis* |
+| `website` | **Website** | *(optional)* Institution's primary website URL | *Discoverability* |
 
 ---
 
 ### Institution Notes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `notes` — **Notes** | Freeform space for historical context, relationship details, or operational notes | *Flexibility for additional context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for historical context, relationship details, or operational notes | *Flexibility for additional context* |
 
 ---
 
@@ -196,12 +196,12 @@ People appear in the registry not as isolated entries but as nodes in a network�
 
 ### Basic Information
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `id` — **Person ID** | Unique internal identifier (e.g., `person_tanaka_yuki`) | *Enables tracking and cross-referencing* |
-| `name` — **Full Name** | Person's full name as they prefer to be identified | *Identity* |
-| `preferred_name` — **Preferred Name** | *(optional)* Nickname or preferred form of address | *Identity* |
-| `pronouns` — **Pronouns** | *(optional)* Preferred pronouns | *Identity* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Person ID** | Unique internal identifier (e.g., `person_tanaka_yuki`) | *Enables tracking and cross-referencing* |
+| `name` | **Full Name** | Person's full name as they prefer to be identified | *Identity* |
+| `preferred_name` | **Preferred Name** | *(optional)* Nickname or preferred form of address | *Identity* |
+| `pronouns` | **Pronouns** | *(optional)* Preferred pronouns | *Identity* |
 
 ---
 
@@ -209,13 +209,13 @@ People appear in the registry not as isolated entries but as nodes in a network�
 
 *Charter requirement (Section VI.1): "at any given moment, for any given activity, individuals should be able to identify which role they occupy"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `role_categories` — **Role Categories** | List of roles as defined in Charter Section VI.1. Categories are not mutually exclusive—individuals may hold multiple roles. Each entry must be one of:<br>• `director`<br>• `faculty`<br>• `principal_researcher`<br>• `researcher`<br>• `staff`<br>• `visiting_researcher`<br>• `affiliate`<br>• `student` | **Roles and Positions** |
-| `title` — **Title** | *(optional)* Formal title or position (e.g., "Associate Professor", "Research Assistant") | **Roles and Positions** |
-| `affiliations` — **Institutional Affiliations** | List of institutional affiliations. Each entry includes:<br>• `institution`: Institution name<br>• `department`: *(optional)* Department or unit<br>• `role`: Role within that institution<br>• `primary`: Whether this is the primary affiliation (true/false) | **Roles and Positions** (affiliations) |
-| `start_date` — **Start Date** | When the person joined the ecosystem (format: `YYYY-MM-DD`) | *Temporal context* |
-| `end_date` — **End Date** | *(optional)* When the person left or will leave the ecosystem | *Temporal context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `role_categories` | **Role Categories** | List of roles as defined in Charter Section VI.1. Categories are not mutually exclusive—individuals may hold multiple roles. Each entry must be one of:<br>• `director`<br>• `faculty`<br>• `principal_researcher`<br>• `researcher`<br>• `staff`<br>• `visiting_researcher`<br>• `affiliate`<br>• `student` | **Roles and Positions** |
+| `title` | **Title** | *(optional)* Formal title or position (e.g., "Associate Professor", "Research Assistant") | **Roles and Positions** |
+| `affiliations` | **Institutional Affiliations** | List of institutional affiliations. Each entry includes:<br>• `institution`: Institution name<br>• `department`: *(optional)* Department or unit<br>• `role`: Role within that institution<br>• `primary`: Whether this is the primary affiliation (true/false) | **Roles and Positions** (affiliations) |
+| `start_date` | **Start Date** | When the person joined the ecosystem (format: `YYYY-MM-DD`) | *Temporal context* |
+| `end_date` | **End Date** | *(optional)* When the person left or will leave the ecosystem | *Temporal context* |
 
 ---
 
@@ -223,11 +223,11 @@ People appear in the registry not as isolated entries but as nodes in a network�
 
 *Supports Charter's coordination function: enabling others to identify potential collaborators*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `expertise` — **Areas of Expertise** | List of domains, skills, or methods the person has demonstrated competence in. Use specific, searchable terms (e.g., "machine learning", "qualitative research", "interaction design") | *Finding potential collaborators* |
-| `interests` — **Research/Work Interests** | List of topics, questions, or domains the person is interested in exploring—whether or not they have current expertise | *Finding potential collaborators* |
-| `background` — **Background Summary** | *(optional)* Brief narrative (2-3 sentences) describing the person's background, trajectory, or perspective | *Contextual understanding* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `expertise` | **Areas of Expertise** | List of domains, skills, or methods the person has demonstrated competence in. Use specific, searchable terms (e.g., "machine learning", "qualitative research", "interaction design") | *Finding potential collaborators* |
+| `interests` | **Research/Work Interests** | List of topics, questions, or domains the person is interested in exploring—whether or not they have current expertise | *Finding potential collaborators* |
+| `background` | **Background Summary** | *(optional)* Brief narrative (2-3 sentences) describing the person's background, trajectory, or perspective | *Contextual understanding* |
 
 ---
 
@@ -235,10 +235,10 @@ People appear in the registry not as isolated entries but as nodes in a network�
 
 *Charter requirement: "Active projects and initiatives the person is participating in, with their role in each"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `projects` — **Project Involvement** | List of projects the person is involved in. Each entry includes:<br>• `project_id`: Reference to project in registry<br>• `title`: Project title<br>• `role`: Role in this project (e.g., "owner", "contributor", "advisor")<br>• `percent_effort`: *(optional)* Time commitment (0–100%) | **Current Involvement** (projects) |
-| `initiatives` — **Initiative Involvement** | List of initiatives the person participates in. Each entry includes:<br>• `initiative_id`: Reference to initiative in registry<br>• `title`: Initiative title<br>• `role`: Role in this initiative (e.g., "lead", "steward", "participant") | **Current Involvement** (initiatives) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `projects` | **Project Involvement** | List of projects the person is involved in. Each entry includes:<br>• `project_id`: Reference to project in registry<br>• `title`: Project title<br>• `role`: Role in this project (e.g., "owner", "contributor", "advisor")<br>• `percent_effort`: *(optional)* Time commitment (0–100%) | **Current Involvement** (projects) |
+| `initiatives` | **Initiative Involvement** | List of initiatives the person participates in. Each entry includes:<br>• `initiative_id`: Reference to initiative in registry<br>• `title`: Initiative title<br>• `role`: Role in this initiative (e.g., "lead", "steward", "participant") | **Current Involvement** (initiatives) |
 
 ---
 
@@ -246,37 +246,37 @@ People appear in the registry not as isolated entries but as nodes in a network�
 
 *Charter requirement: "How to reach the person and their general availability for collaboration"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `email` — **Email** | Primary email address for professional contact | **Contact** |
-| `location` — **Location** | *(optional)* Primary work location | **Contact** |
-| `availability` — **Collaboration Availability** | General availability for new collaborations. One of:<br>• `available` - Actively seeking collaborations<br>• `limited` - Open to the right opportunity but capacity constrained<br>• `unavailable` - Not taking on new collaborations currently | **Availability** |
-| `office_hours` — **Office Hours** | *(optional)* Regular times when the person is available for meetings or drop-ins | **Availability** |
-| `preferred_contact` — **Preferred Contact Method** | *(optional)* How the person prefers to be contacted (e.g., "email", "Slack", "schedule via calendar link") | **Contact** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `email` | **Email** | Primary email address for professional contact | **Contact** |
+| `location` | **Location** | *(optional)* Primary work location | **Contact** |
+| `availability` | **Collaboration Availability** | General availability for new collaborations. One of:<br>• `available` - Actively seeking collaborations<br>• `limited` - Open to the right opportunity but capacity constrained<br>• `unavailable` - Not taking on new collaborations currently | **Availability** |
+| `office_hours` | **Office Hours** | *(optional)* Regular times when the person is available for meetings or drop-ins | **Availability** |
+| `preferred_contact` | **Preferred Contact Method** | *(optional)* How the person prefers to be contacted (e.g., "email", "Slack", "schedule via calendar link") | **Contact** |
 
 ---
 
 ### Person Status
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `status` — **Status** | Current status in the ecosystem. Must be one of:<br>• `active` - Currently participating<br>• `on_leave` - Temporarily away<br>• `emeritus` - Former active member with ongoing connection<br>• `alumni` - Former participant | **Status** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Status** | Current status in the ecosystem. Must be one of:<br>• `active` - Currently participating<br>• `on_leave` - Temporarily away<br>• `emeritus` - Former active member with ongoing connection<br>• `alumni` - Former participant | **Status** |
 
 ---
 
 ### Links and Profiles
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `links` — **External Links** | *(optional)* List of external profiles or websites. Each entry includes:<br>• `type`: Type of link (e.g., "website", "orcid", "github", "linkedin")<br>• `url`: URL | *Discoverability* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `links` | **External Links** | *(optional)* List of external profiles or websites. Each entry includes:<br>• `type`: Type of link (e.g., "website", "orcid", "github", "linkedin")<br>• `url`: URL | *Discoverability* |
 
 ---
 
 ### Person Notes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `notes` — **Notes** | *(optional)* Freeform space for additional context | *Flexibility* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | *(optional)* Freeform space for additional context | *Flexibility* |
 
 ---
 
@@ -300,11 +300,11 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 ### Basic Information
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `id` — **Project ID** | Unique internal identifier (e.g., `proj_2025_trustsignals`) | *Enables tracking and cross-referencing* |
-| `title` — **Project Title** | Clear and specific name of the project; avoid generic or trendy terms | *Part of making work visible* |
-| `summary` — **Project Summary** | A short paragraph (1–2 sentences) describing the project's aim and context | *Supports discoverability* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Project ID** | Unique internal identifier (e.g., `proj_2025_trustsignals`) | *Enables tracking and cross-referencing* |
+| `title` | **Project Title** | Clear and specific name of the project; avoid generic or trendy terms | *Part of making work visible* |
+| `summary` | **Project Summary** | A short paragraph (1–2 sentences) describing the project's aim and context | *Supports discoverability* |
 
 ---
 
@@ -312,10 +312,10 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Charter requirement: "What specific situation, breakdown, or opportunity this project addresses, what transformation is being pursued, and why"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `problem_statement` — **Problem Statement** | A specific real-world moment, breakdown, or question that motivates the project. Answers essential prompt #1: "What specific situation or moment is this project addressing?" | **Intent** (part 1) |
-| `project_goals` — **Project Goals** | A list of what the project intends to *build, measure, or change*. Use verbs like "prototype", "evaluate", "reframe", etc. Answers essential prompt #2: "What will this project build, measure, or change?" | **Intent** (part 2) + **Scope** (part 1) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `problem_statement` | **Problem Statement** | A specific real-world moment, breakdown, or question that motivates the project. Answers essential prompt #1: "What specific situation or moment is this project addressing?" | **Intent** (part 1) |
+| `project_goals` | **Project Goals** | A list of what the project intends to *build, measure, or change*. Use verbs like "prototype", "evaluate", "reframe", etc. Answers essential prompt #2: "What will this project build, measure, or change?" | **Intent** (part 2) + **Scope** (part 1) |
 
 ---
 
@@ -323,10 +323,10 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Charter requirement: "Boundaries of the project—what it includes and excludes, what it will build or measure or change, and what outputs it will produce"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `proposed_outputs` — **Proposed Outputs** | Concrete deliverables (e.g., a prototype, dataset, report, workshop, intervention) | **Scope** (outputs) |
-| `scope_boundaries` — **Scope Boundaries** | What is explicitly included and excluded from this project. What will the project NOT attempt to do? What related questions are intentionally out of scope? | **Scope** (boundaries) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `proposed_outputs` | **Proposed Outputs** | Concrete deliverables (e.g., a prototype, dataset, report, workshop, intervention) | **Scope** (outputs) |
+| `scope_boundaries` | **Scope Boundaries** | What is explicitly included and excluded from this project. What will the project NOT attempt to do? What related questions are intentionally out of scope? | **Scope** (boundaries) |
 
 ---
 
@@ -334,11 +334,11 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Charter requirement: "How impact or progress will be assessed (whether qualitatively or quantitatively), and what specific evidence would indicate success or failure"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `success_criteria` — **Success Criteria** | Specific outcomes that define whether the project was successful. This may include quantitative metrics (e.g., "used by 3 teams"), qualitative assessments (e.g., "positive stakeholder feedback"), or narrative evidence (e.g., "changed how participants frame the problem"). Answers essential prompt #3: "How will you know when the project has succeeded?" | **Measurability** |
-| `completion_criterion` — **Completion Criterion** | What would make this project complete (not just successful, but done)? Answers essential prompt #4: "What would make this project complete?" | **Measurability and Completion** |
-| `measurement_approach` — **Measurement Approach** | *(optional)* Brief note on assessment method (quantitative, qualitative, mixed, narrative). Acknowledges Charter's "measurability with forgiveness" principle. | **Measurability with Forgiveness** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `success_criteria` | **Success Criteria** | Specific outcomes that define whether the project was successful. This may include quantitative metrics (e.g., "used by 3 teams"), qualitative assessments (e.g., "positive stakeholder feedback"), or narrative evidence (e.g., "changed how participants frame the problem"). Answers essential prompt #3: "How will you know when the project has succeeded?" | **Measurability** |
+| `completion_criterion` | **Completion Criterion** | What would make this project complete (not just successful, but done)? Answers essential prompt #4: "What would make this project complete?" | **Measurability and Completion** |
+| `measurement_approach` | **Measurement Approach** | *(optional)* Brief note on assessment method (quantitative, qualitative, mixed, narrative). Acknowledges Charter's "measurability with forgiveness" principle. | **Measurability with Forgiveness** |
 
 ---
 
@@ -346,11 +346,11 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Charter requirement: "When the project begins, when it is expected to complete, and key milestones along the way"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `timeline.start_date` — **Start Date** | When the project begins (format: `YYYY-MM-DD`) | **Temporal Bounds** |
-| `timeline.end_date` — **End Date** | When the project is expected to finish | **Temporal Bounds** |
-| `timeline.milestones` — **Milestones** | Key internal deadlines or events (e.g., "Prototype v1", "Midterm review", "Final evaluation") | **Temporal Bounds** (milestones) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `timeline.start_date` | **Start Date** | When the project begins (format: `YYYY-MM-DD`) | **Temporal Bounds** |
+| `timeline.end_date` | **End Date** | When the project is expected to finish | **Temporal Bounds** |
+| `timeline.milestones` | **Milestones** | Key internal deadlines or events (e.g., "Prototype v1", "Midterm review", "Final evaluation") | **Temporal Bounds** (milestones) |
 
 ---
 
@@ -358,9 +358,9 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Charter requirement: "Current state (proposed, active, paused, completed, archived)"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `status` — **Project Status** | Current lifecycle state. Must be one of: <br>• `proposed` - Project is defined but not yet started<br>• `active` - Project is currently underway<br>• `paused` - Project temporarily suspended<br>• `completed` - Project has met completion criterion<br>• `archived` - Project formally closed and archived | **Status** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Project Status** | Current lifecycle state. Must be one of: <br>• `proposed` - Project is defined but not yet started<br>• `active` - Project is currently underway<br>• `paused` - Project temporarily suspended<br>• `completed` - Project has met completion criterion<br>• `archived` - Project formally closed and archived | **Status** |
 
 ---
 
@@ -368,10 +368,10 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Charter requirement: "Who has authority, accountability, and contribution roles"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `owner` — **Project Owner** | The person responsible for leading the project, ensuring delivery on the success criteria, and bearing primary accountability. References a person entry in the registry. | **Participants** (authority/accountability) |
-| `contributors` — **Project Contributors** | A list of people helping with the project. Each contributor includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role (e.g., "Research Assistant", "Technical Advisor")<br>• `percent_effort`: Time commitment (0–100%) | **Participants** (contribution roles) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `owner` | **Project Owner** | The person responsible for leading the project, ensuring delivery on the success criteria, and bearing primary accountability. References a person entry in the registry. | **Participants** (authority/accountability) |
+| `contributors` | **Project Contributors** | A list of people helping with the project. Each contributor includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role (e.g., "Research Assistant", "Technical Advisor")<br>• `percent_effort`: Time commitment (0–100%) | **Participants** (contribution roles) |
 
 ---
 
@@ -379,11 +379,11 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Charter requirement: "What this project requires from other efforts, and what other efforts depend on this project"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `dependencies.requires` — **Required Dependencies** | List of other projects, resources, or outputs this project needs to succeed. Each dependency includes:<br>• `project_id` or `resource_name`: What is needed<br>• `description`: Why it's needed<br>• `criticality`: (low/medium/high) How essential is it | **Dependencies** (requirements) |
-| `dependencies.enables` — **Enabled Projects** | List of other projects or initiatives that depend on this project's outputs. Each entry includes:<br>• `project_id` or `initiative_id`: What depends on this<br>• `description`: How this project enables it | **Dependencies** (what this enables) |
-| `parent_initiative` — **Parent Initiative** | *(optional)* Reference to initiative that spawned or contains this project | **Dependencies** (initiative relationship) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `dependencies.requires` | **Required Dependencies** | List of other projects, resources, or outputs this project needs to succeed. Each dependency includes:<br>• `project_id` or `resource_name`: What is needed<br>• `description`: Why it's needed<br>• `criticality`: (low/medium/high) How essential is it | **Dependencies** (requirements) |
+| `dependencies.enables` | **Enabled Projects** | List of other projects or initiatives that depend on this project's outputs. Each entry includes:<br>• `project_id` or `initiative_id`: What depends on this<br>• `description`: How this project enables it | **Dependencies** (what this enables) |
+| `parent_initiative` | **Parent Initiative** | *(optional)* Reference to initiative that spawned or contains this project | **Dependencies** (initiative relationship) |
 
 ---
 
@@ -391,10 +391,10 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Charter requirement: "Funding sources, resource allocation, and budgeted areas" (where applicable)*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `funding.sources` — **Funding Sources** | List of where funding is coming from. Each source includes:<br>• `name`: Name of the funder<br>• `type`: Type (e.g., "Grant", "Gift", "Internal")<br>• `amount`: (optional) Total funding amount<br>• `restricted`: Whether it must be used in a specific way | **Resources** (sources) |
-| `funding.budgeted_areas` — **Budgeted Areas** | How funds are planned to be used. Each entry includes:<br>• `category`: (e.g., "Personnel", "Travel", "Equipment")<br>• `description`: (optional) Notes on purpose<br>• `amount`: (optional) Budgeted amount | **Resources** (allocation) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `funding.sources` | **Funding Sources** | List of where funding is coming from. Each source includes:<br>• `name`: Name of the funder<br>• `type`: Type (e.g., "Grant", "Gift", "Internal")<br>• `amount`: (optional) Total funding amount<br>• `restricted`: Whether it must be used in a specific way | **Resources** (sources) |
+| `funding.budgeted_areas` | **Budgeted Areas** | How funds are planned to be used. Each entry includes:<br>• `category`: (e.g., "Personnel", "Travel", "Equipment")<br>• `description`: (optional) Notes on purpose<br>• `amount`: (optional) Budgeted amount | **Resources** (allocation) |
 
 ---
 
@@ -402,17 +402,17 @@ Projects are distinguished from initiatives by their finite nature. Projects end
 
 *Supports Charter's "Overlap and Coherence Analysis" requirements*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `domains` — **Related Domains** | Tags that help map this project to research or practice areas. These tags enable identifying overlapping scope and distinctiveness across projects. | *Enables overlap/coherence analysis* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `domains` | **Related Domains** | Tags that help map this project to research or practice areas. These tags enable identifying overlapping scope and distinctiveness across projects. | *Enables overlap/coherence analysis* |
 
 ---
 
 ### Project Notes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `notes` — **Notes** | Freeform space for assumptions, risks, open questions, or connections to prior work | *Flexibility for additional context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for assumptions, risks, open questions, or connections to prior work | *Flexibility for additional context* |
 
 ---
 
@@ -426,11 +426,11 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 ### Basic Information
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `id` — **Initiative ID** | Unique internal identifier (e.g., `init_2025_aiethics`) | *Enables tracking and cross-referencing* |
-| `title` — **Initiative Title** | Clear and specific name of the initiative; avoid generic or trendy terms | *Part of making work visible* |
-| `summary` — **Initiative Summary** | A short paragraph (1–2 sentences) describing the initiative's purpose and scope | *Supports discoverability* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Initiative ID** | Unique internal identifier (e.g., `init_2025_aiethics`) | *Enables tracking and cross-referencing* |
+| `title` | **Initiative Title** | Clear and specific name of the initiative; avoid generic or trendy terms | *Part of making work visible* |
+| `summary` | **Initiative Summary** | A short paragraph (1–2 sentences) describing the initiative's purpose and scope | *Supports discoverability* |
 
 ---
 
@@ -438,11 +438,11 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *Charter requirement: Initiatives "require ongoing justification and are evaluated on whether they continue to serve their purpose"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `purpose` — **Ongoing Purpose** | What enduring need, function, or opportunity does this initiative address? Why should it exist on an ongoing basis rather than as a bounded project? Answers essential prompt #1. | **Ongoing Justification** (purpose) |
-| `value_proposition` — **Value Proposition** | What value does this initiative provide to the ecosystem? Who benefits and how? | **Ongoing Justification** (value) |
-| `origin` — **Origin and History** | *(optional)* How and why was this initiative established? What prompted its creation? | *Contextual understanding* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `purpose` | **Ongoing Purpose** | What enduring need, function, or opportunity does this initiative address? Why should it exist on an ongoing basis rather than as a bounded project? Answers essential prompt #1. | **Ongoing Justification** (purpose) |
+| `value_proposition` | **Value Proposition** | What value does this initiative provide to the ecosystem? Who benefits and how? | **Ongoing Justification** (value) |
+| `origin` | **Origin and History** | *(optional)* How and why was this initiative established? What prompted its creation? | *Contextual understanding* |
 
 ---
 
@@ -450,11 +450,11 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *What the initiative does on an ongoing basis*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `activities` — **Core Activities** | What does this initiative do on a regular or recurring basis? (e.g., "hosts monthly seminars", "maintains documentation", "coordinates cross-team communication") Answers essential prompt #2. | **Scope** (activities) |
-| `outputs` — **Typical Outputs** | What does this initiative regularly produce? (e.g., "research papers", "event series", "coordination reports", "infrastructure maintenance") | **Scope** (outputs) |
-| `scope_boundaries` — **Scope Boundaries** | What is explicitly within and outside this initiative's purview? What related activities are intentionally left to other initiatives or projects? | **Scope** (boundaries) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `activities` | **Core Activities** | What does this initiative do on a regular or recurring basis? (e.g., "hosts monthly seminars", "maintains documentation", "coordinates cross-team communication") Answers essential prompt #2. | **Scope** (activities) |
+| `outputs` | **Typical Outputs** | What does this initiative regularly produce? (e.g., "research papers", "event series", "coordination reports", "infrastructure maintenance") | **Scope** (outputs) |
+| `scope_boundaries` | **Scope Boundaries** | What is explicitly within and outside this initiative's purview? What related activities are intentionally left to other initiatives or projects? | **Scope** (boundaries) |
 
 ---
 
@@ -462,12 +462,12 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *How the initiative's ongoing value is assessed*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `health_indicators` — **Health Indicators** | How will we know if the initiative is still serving its purpose? What signals indicate the initiative is healthy and valuable? (e.g., "participation levels", "projects spawned", "stakeholder satisfaction", "problems addressed") Answers essential prompt #3. | **Ongoing Justification** (evaluation) |
-| `review_cycle` — **Review Cycle** | How often is this initiative formally reviewed for continued relevance? (e.g., "annually", "every 6 months") | **Ongoing Justification** (review) |
-| `last_review` — **Last Review** | Date of most recent formal review (format: `YYYY-MM-DD`) | **Ongoing Justification** (review) |
-| `sunset_conditions` — **Sunset Conditions** | *(optional)* Under what circumstances should this initiative be concluded or transformed? What would indicate it's no longer needed? | **Ongoing Justification** (conclusion) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `health_indicators` | **Health Indicators** | How will we know if the initiative is still serving its purpose? What signals indicate the initiative is healthy and valuable? (e.g., "participation levels", "projects spawned", "stakeholder satisfaction", "problems addressed") Answers essential prompt #3. | **Ongoing Justification** (evaluation) |
+| `review_cycle` | **Review Cycle** | How often is this initiative formally reviewed for continued relevance? (e.g., "annually", "every 6 months") | **Ongoing Justification** (review) |
+| `last_review` | **Last Review** | Date of most recent formal review (format: `YYYY-MM-DD`) | **Ongoing Justification** (review) |
+| `sunset_conditions` | **Sunset Conditions** | *(optional)* Under what circumstances should this initiative be concluded or transformed? What would indicate it's no longer needed? | **Ongoing Justification** (conclusion) |
 
 ---
 
@@ -475,11 +475,11 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *Charter requirement: "Initiatives often contain or spawn multiple projects"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `spawned_projects` — **Spawned Projects** | List of projects this initiative has generated. Each entry includes:<br>• `project_id`: Reference to project in registry<br>• `relationship`: How initiative relates to project (e.g., "incubated", "funded", "coordinated") Answers essential prompt #4. | **Projects** (spawned) |
-| `contained_projects` — **Contained Projects** | List of active projects operating within this initiative's scope. Same fields as spawned_projects. | **Projects** (contained) |
-| `related_initiatives` — **Related Initiatives** | Other initiatives this one coordinates with, supports, or depends on | **Dependencies** (initiatives) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `spawned_projects` | **Spawned Projects** | List of projects this initiative has generated. Each entry includes:<br>• `project_id`: Reference to project in registry<br>• `relationship`: How initiative relates to project (e.g., "incubated", "funded", "coordinated") Answers essential prompt #4. | **Projects** (spawned) |
+| `contained_projects` | **Contained Projects** | List of active projects operating within this initiative's scope. Same fields as spawned_projects. | **Projects** (contained) |
+| `related_initiatives` | **Related Initiatives** | Other initiatives this one coordinates with, supports, or depends on | **Dependencies** (initiatives) |
 
 ---
 
@@ -487,11 +487,11 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *Unlike projects, initiatives do not have predetermined end dates*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `timeline.established` — **Established Date** | When the initiative was formally established (format: `YYYY-MM-DD`) | **Temporal Context** |
-| `timeline.next_review` — **Next Review** | When the initiative will next be formally reviewed | **Ongoing Justification** (review) |
-| `timeline.key_dates` — **Key Dates** | *(optional)* Recurring events or important dates (e.g., "Annual symposium: October", "Quarterly reports: end of each quarter") | **Temporal Context** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `timeline.established` | **Established Date** | When the initiative was formally established (format: `YYYY-MM-DD`) | **Temporal Context** |
+| `timeline.next_review` | **Next Review** | When the initiative will next be formally reviewed | **Ongoing Justification** (review) |
+| `timeline.key_dates` | **Key Dates** | *(optional)* Recurring events or important dates (e.g., "Annual symposium: October", "Quarterly reports: end of each quarter") | **Temporal Context** |
 
 ---
 
@@ -499,9 +499,9 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *Initiative lifecycle states differ from project states*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `status` — **Initiative Status** | Current lifecycle state. Must be one of: <br>• `proposed` - Initiative is defined but not yet established<br>• `active` - Initiative is currently operating<br>• `paused` - Initiative temporarily suspended<br>• `under_review` - Initiative undergoing formal evaluation<br>• `concluding` - Initiative winding down deliberately<br>• `concluded` - Initiative formally ended | **Status** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Initiative Status** | Current lifecycle state. Must be one of: <br>• `proposed` - Initiative is defined but not yet established<br>• `active` - Initiative is currently operating<br>• `paused` - Initiative temporarily suspended<br>• `under_review` - Initiative undergoing formal evaluation<br>• `concluding` - Initiative winding down deliberately<br>• `concluded` - Initiative formally ended | **Status** |
 
 ---
 
@@ -509,11 +509,11 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *Charter requirement: "Who has authority, accountability, and contribution roles"*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `lead` — **Initiative Lead** | The person responsible for the initiative's ongoing health, coordination, and accountability. References a person entry in the registry. | **Participants** (authority/accountability) |
-| `stewards` — **Initiative Stewards** | *(optional)* Others who share responsibility for initiative governance and direction | **Participants** (shared authority) |
-| `participants` — **Regular Participants** | People who regularly contribute to the initiative. Each participant includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role within initiative<br>• `since`: When they joined | **Participants** (contribution roles) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `lead` | **Initiative Lead** | The person responsible for the initiative's ongoing health, coordination, and accountability. References a person entry in the registry. | **Participants** (authority/accountability) |
+| `stewards` | **Initiative Stewards** | *(optional)* Others who share responsibility for initiative governance and direction | **Participants** (shared authority) |
+| `participants` | **Regular Participants** | People who regularly contribute to the initiative. Each participant includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role within initiative<br>• `since`: When they joined | **Participants** (contribution roles) |
 
 ---
 
@@ -521,10 +521,10 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *Charter requirement: "Funding sources, resource allocation, and budgeted areas" (where applicable)*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `funding.sources` — **Funding Sources** | List of ongoing or recurring funding. Each source includes:<br>• `name`: Name of the funder<br>• `type`: Type (e.g., "Grant", "Institutional", "Internal")<br>• `recurring`: Whether funding recurs (true/false)<br>• `amount_annual`: (optional) Annual funding amount | **Resources** (sources) |
-| `funding.budget_areas` — **Budget Areas** | How funds are typically allocated. Each entry includes:<br>• `category`: (e.g., "Personnel", "Events", "Infrastructure")<br>• `description`: (optional) Notes on purpose<br>• `amount_annual`: (optional) Typical annual amount | **Resources** (allocation) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `funding.sources` | **Funding Sources** | List of ongoing or recurring funding. Each source includes:<br>• `name`: Name of the funder<br>• `type`: Type (e.g., "Grant", "Institutional", "Internal")<br>• `recurring`: Whether funding recurs (true/false)<br>• `amount_annual`: (optional) Annual funding amount | **Resources** (sources) |
+| `funding.budget_areas` | **Budget Areas** | How funds are typically allocated. Each entry includes:<br>• `category`: (e.g., "Personnel", "Events", "Infrastructure")<br>• `description`: (optional) Notes on purpose<br>• `amount_annual`: (optional) Typical annual amount | **Resources** (allocation) |
 
 ---
 
@@ -532,17 +532,17 @@ Initiatives often contain or spawn multiple projects. A research initiative migh
 
 *Supports Charter's "Overlap and Coherence Analysis" requirements*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `domains` — **Related Domains** | Tags that help map this initiative to research or practice areas. Enables identifying overlapping scope across initiatives. | *Enables overlap/coherence analysis* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `domains` | **Related Domains** | Tags that help map this initiative to research or practice areas. Enables identifying overlapping scope across initiatives. | *Enables overlap/coherence analysis* |
 
 ---
 
 ### Initiative Notes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `notes` — **Notes** | Freeform space for context, history, open questions, or connections to other work | *Flexibility for additional context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for context, history, open questions, or connections to other work | *Flexibility for additional context* |
 
 ---
 
@@ -554,12 +554,12 @@ Courses appear in the registry to make the curriculum visible, discoverable, and
 
 ### Basic Information
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `id` — **Course ID** | Unique internal identifier (e.g., `course_aps_1`) | *Enables tracking and cross-referencing* |
-| `title` — **Course Title** | Official name of the course | *Part of making work visible* |
-| `summary` — **Course Summary** | A short paragraph (1–2 sentences) describing what the course covers and why | *Supports discoverability* |
-| `credits` — **Credit Value** | Number of credits awarded | **Academic Structure** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Course ID** | Unique internal identifier (e.g., `course_aps_1`) | *Enables tracking and cross-referencing* |
+| `title` | **Course Title** | Official name of the course | *Part of making work visible* |
+| `summary` | **Course Summary** | A short paragraph (1–2 sentences) describing what the course covers and why | *Supports discoverability* |
+| `credits` | **Credit Value** | Number of credits awarded | **Academic Structure** |
 
 ---
 
@@ -567,64 +567,64 @@ Courses appear in the registry to make the curriculum visible, discoverable, and
 
 *Supports visibility of how curriculum connects to Charter principles*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `learning_objectives` — **Learning Objectives** | What capabilities does this course develop? List of specific, assessable outcomes. Answers essential prompt #1. | **Educational Practice** |
-| `charter_alignment` — **Charter Principle Alignment** | Which Charter principles does this course embody or develop? List of section references with brief explanation (e.g., "Section II.1 Antidisciplinarity — course requires working across disciplinary boundaries"). Answers essential prompt #2. | **Charter Alignment** |
-| `domains` — **Related Domains** | Tags that map this course to research or practice areas | *Enables overlap/coherence analysis* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `learning_objectives` | **Learning Objectives** | What capabilities does this course develop? List of specific, assessable outcomes. Answers essential prompt #1. | **Educational Practice** |
+| `charter_alignment` | **Charter Principle Alignment** | Which Charter principles does this course embody or develop? List of section references with brief explanation (e.g., "Section II.1 Antidisciplinarity — course requires working across disciplinary boundaries"). Answers essential prompt #2. | **Charter Alignment** |
+| `domains` | **Related Domains** | Tags that map this course to research or practice areas | *Enables overlap/coherence analysis* |
 
 ---
 
 ### Instruction
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `instructors` — **Instructors** | List of people who teach this course. Each entry includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role (e.g., "lead instructor", "co-instructor", "teaching assistant") Answers essential prompt #3. | **Participants** (authority) |
-| `program` — **Degree Program** | Which program(s) this course belongs to. One or more of:<br>• `masters_mandatory`<br>• `masters_elective`<br>• `phd_mandatory`<br>• `phd_elective` | **Academic Structure** |
-| `prerequisites` — **Prerequisites** | *(optional)* Other courses or knowledge expected before enrollment | **Academic Structure** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `instructors` | **Instructors** | List of people who teach this course. Each entry includes:<br>• `person_id`: Reference to person in registry<br>• `role`: Role (e.g., "lead instructor", "co-instructor", "teaching assistant") Answers essential prompt #3. | **Participants** (authority) |
+| `program` | **Degree Program** | Which program(s) this course belongs to. One or more of:<br>• `masters_mandatory`<br>• `masters_elective`<br>• `phd_mandatory`<br>• `phd_elective` | **Academic Structure** |
+| `prerequisites` | **Prerequisites** | *(optional)* Other courses or knowledge expected before enrollment | **Academic Structure** |
 
 ---
 
 ### Schedule and Delivery
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `term` — **Term Offered** | When this course is typically offered (e.g., "Spring 2026", "Every fall term") | **Temporal Context** |
-| `format` — **Delivery Format** | How the course is delivered. One of:<br>• `in_person`<br>• `remote`<br>• `hybrid` | **Logistics** |
-| `schedule` — **Schedule** | *(optional)* Meeting pattern (e.g., "Tuesdays 10:00–12:00") | **Temporal Context** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `term` | **Term Offered** | When this course is typically offered (e.g., "Spring 2026", "Every fall term") | **Temporal Context** |
+| `format` | **Delivery Format** | How the course is delivered. One of:<br>• `in_person`<br>• `remote`<br>• `hybrid` | **Logistics** |
+| `schedule` | **Schedule** | *(optional)* Meeting pattern (e.g., "Tuesdays 10:00–12:00") | **Temporal Context** |
 
 ---
 
 ### Assessment
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `assessment_approach` — **Assessment Approach** | How is student learning assessed? (e.g., "project-based portfolio", "thesis proposal", "peer review and reflection"). Answers essential prompt #4. | **Educational Practice** (assessment) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `assessment_approach` | **Assessment Approach** | How is student learning assessed? (e.g., "project-based portfolio", "thesis proposal", "peer review and reflection"). Answers essential prompt #4. | **Educational Practice** (assessment) |
 
 ---
 
 ### Related Projects and Courses
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `related_projects` — **Related Projects** | *(optional)* Projects that this course supports or feeds into | **Dependencies** |
-| `related_courses` — **Related Courses** | *(optional)* Other courses that complement or build on this one | **Dependencies** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `related_projects` | **Related Projects** | *(optional)* Projects that this course supports or feeds into | **Dependencies** |
+| `related_courses` | **Related Courses** | *(optional)* Other courses that complement or build on this one | **Dependencies** |
 
 ---
 
 ### Course Status
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `status` — **Course Status** | Current state. Must be one of:<br>• `planned` - Course designed but not yet offered<br>• `active` - Currently being taught<br>• `on_hold` - Not offered this term but expected to return<br>• `retired` - No longer offered | **Status** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Course Status** | Current state. Must be one of:<br>• `planned` - Course designed but not yet offered<br>• `active` - Currently being taught<br>• `on_hold` - Not offered this term but expected to return<br>• `retired` - No longer offered | **Status** |
 
 ---
 
 ### Course Notes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `notes` — **Notes** | Freeform space for pedagogical context, revision history, or planned changes | *Flexibility for additional context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for pedagogical context, revision history, or planned changes | *Flexibility for additional context* |
 
 ---
 
@@ -636,42 +636,42 @@ Tracking theses in the registry makes student research visible across the ecosys
 
 ### Basic Information
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `id` — **Thesis ID** | Unique internal identifier (e.g., `thesis_2026_tanaka`) | *Enables tracking and cross-referencing* |
-| `title` — **Thesis Title** | Working or final title of the thesis | *Part of making work visible* |
-| `summary` — **Thesis Summary** | A short paragraph (1–2 sentences) describing the thesis topic and approach | *Supports discoverability* |
-| `degree` — **Degree Type** | Which degree this thesis is for. One of:<br>• `masters`<br>• `phd` | **Academic Structure** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Thesis ID** | Unique internal identifier (e.g., `thesis_2026_tanaka`) | *Enables tracking and cross-referencing* |
+| `title` | **Thesis Title** | Working or final title of the thesis | *Part of making work visible* |
+| `summary` | **Thesis Summary** | A short paragraph (1–2 sentences) describing the thesis topic and approach | *Supports discoverability* |
+| `degree` | **Degree Type** | Which degree this thesis is for. One of:<br>• `masters`<br>• `phd` | **Academic Structure** |
 
 ---
 
 ### Research Question and Contribution
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `research_question` — **Research Question** | What question does this thesis address? Answers essential prompt #1. | **Intent** |
-| `expected_contribution` — **Expected Contribution** | What is the expected contribution to knowledge, practice, or the ecosystem? Answers essential prompt #2. | **Measurability** |
-| `domains` — **Related Domains** | Tags that map this thesis to research or practice areas | *Enables overlap/coherence analysis* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `research_question` | **Research Question** | What question does this thesis address? Answers essential prompt #1. | **Intent** |
+| `expected_contribution` | **Expected Contribution** | What is the expected contribution to knowledge, practice, or the ecosystem? Answers essential prompt #2. | **Measurability** |
+| `domains` | **Related Domains** | Tags that map this thesis to research or practice areas | *Enables overlap/coherence analysis* |
 
 ---
 
 ### Advisory Team
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `student` — **Student** | The student authoring the thesis. References a person entry in the registry. | **Participants** (author) |
-| `advisor` — **Primary Advisor** | The faculty member or principal researcher serving as primary advisor. References a person entry. Answers essential prompt #2. | **Participants** (authority/accountability) |
-| `committee` — **Committee Members** | List of people on the thesis committee. Each entry includes:<br>• `person_id`: Reference to person in registry (or `external_name` for non-registry members)<br>• `role`: Role (e.g., "committee chair", "external examiner", "member") | **Participants** (evaluation) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `student` | **Student** | The student authoring the thesis. References a person entry in the registry. | **Participants** (author) |
+| `advisor` | **Primary Advisor** | The faculty member or principal researcher serving as primary advisor. References a person entry. Answers essential prompt #2. | **Participants** (authority/accountability) |
+| `committee` | **Committee Members** | List of people on the thesis committee. Each entry includes:<br>• `person_id`: Reference to person in registry (or `external_name` for non-registry members)<br>• `role`: Role (e.g., "committee chair", "external examiner", "member") | **Participants** (evaluation) |
 
 ---
 
 ### Milestones and Timeline
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `timeline.start_date` — **Start Date** | When thesis work began (format: `YYYY-MM-DD`) | **Temporal Context** |
-| `timeline.expected_defense` — **Expected Defense Date** | When the defense is anticipated | **Temporal Context** |
-| `timeline.milestones` — **Milestones** | Key milestones. Each entry includes:<br>• `name`: Milestone name (e.g., "Proposal defense", "Mid-term review", "Final defense")<br>• `date`: Date (actual or planned)<br>• `status`: One of `planned`, `completed`, `deferred` Answers essential prompt #4. | **Temporal Context** (milestones) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `timeline.start_date` | **Start Date** | When thesis work began (format: `YYYY-MM-DD`) | **Temporal Context** |
+| `timeline.expected_defense` | **Expected Defense Date** | When the defense is anticipated | **Temporal Context** |
+| `timeline.milestones` | **Milestones** | Key milestones. Each entry includes:<br>• `name`: Milestone name (e.g., "Proposal defense", "Mid-term review", "Final defense")<br>• `date`: Date (actual or planned)<br>• `status`: One of `planned`, `completed`, `deferred` Answers essential prompt #4. | **Temporal Context** (milestones) |
 
 ---
 
@@ -679,36 +679,36 @@ Tracking theses in the registry makes student research visible across the ecosys
 
 *Charter requirement: theses should connect to the broader ecosystem*
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `related_projects` — **Related Projects** | Projects this thesis draws from or contributes to. Each entry includes:<br>• `project_id`: Reference to project in registry<br>• `relationship`: How thesis relates (e.g., "extends", "evaluates", "contributes to") Answers essential prompt #3. | **Dependencies** (projects) |
-| `related_initiatives` — **Related Initiatives** | Initiatives this thesis connects to | **Dependencies** (initiatives) |
-| `related_courses` — **Related Courses** | *(optional)* Courses that informed or supported this thesis | **Dependencies** (courses) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `related_projects` | **Related Projects** | Projects this thesis draws from or contributes to. Each entry includes:<br>• `project_id`: Reference to project in registry<br>• `relationship`: How thesis relates (e.g., "extends", "evaluates", "contributes to") Answers essential prompt #3. | **Dependencies** (projects) |
+| `related_initiatives` | **Related Initiatives** | Initiatives this thesis connects to | **Dependencies** (initiatives) |
+| `related_courses` | **Related Courses** | *(optional)* Courses that informed or supported this thesis | **Dependencies** (courses) |
 
 ---
 
 ### Thesis Status
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `status` — **Thesis Status** | Current lifecycle state. Must be one of:<br>• `proposed` - Topic defined but not yet approved<br>• `in_progress` - Actively working on thesis<br>• `under_review` - Submitted for committee review<br>• `defended` - Defense completed, pending final approval<br>• `approved` - Thesis accepted and degree conferred<br>• `withdrawn` - Student withdrew from thesis | **Status** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Thesis Status** | Current lifecycle state. Must be one of:<br>• `proposed` - Topic defined but not yet approved<br>• `in_progress` - Actively working on thesis<br>• `under_review` - Submitted for committee review<br>• `defended` - Defense completed, pending final approval<br>• `approved` - Thesis accepted and degree conferred<br>• `withdrawn` - Student withdrew from thesis | **Status** |
 
 ---
 
 ### Thesis Output
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `document_url` — **Document** | *(optional)* Link to thesis document (draft or final) | **Documentation** |
-| `artifacts` — **Related Artifacts** | *(optional)* Other outputs produced alongside the thesis (e.g., software, datasets, prototypes) | **Documentation** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `document_url` | **Document** | *(optional)* Link to thesis document (draft or final) | **Documentation** |
+| `artifacts` | **Related Artifacts** | *(optional)* Other outputs produced alongside the thesis (e.g., software, datasets, prototypes) | **Documentation** |
 
 ---
 
 ### Thesis Notes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `notes` — **Notes** | Freeform space for context, open questions, or advisory notes | *Flexibility for additional context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for context, open questions, or advisory notes | *Flexibility for additional context* |
 
 ---
 
@@ -720,80 +720,80 @@ Events connect the ecosystem's other entry types: an initiative might host a sem
 
 ### Basic Information
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `id` — **Event ID** | Unique internal identifier (e.g., `event_2026_spring_symposium`) | *Enables tracking and cross-referencing* |
-| `title` — **Event Title** | Clear and specific name of the event | *Part of making work visible* |
-| `summary` — **Event Summary** | A short paragraph (1–2 sentences) describing the event's purpose and context | *Supports discoverability* |
-| `event_type` — **Event Type** | Category of event. One of:<br>• `seminar` - Presentation and discussion<br>• `workshop` - Hands-on collaborative session<br>• `conference` - Multi-session gathering<br>• `open_house` - Public-facing event<br>• `lecture` - Guest or invited talk<br>• `defense` - Thesis or dissertation defense<br>• `review` - Formal project or initiative review<br>• `social` - Community-building gathering<br>• `other` - Events that don't fit other categories | **Classification** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Event ID** | Unique internal identifier (e.g., `event_2026_spring_symposium`) | *Enables tracking and cross-referencing* |
+| `title` | **Event Title** | Clear and specific name of the event | *Part of making work visible* |
+| `summary` | **Event Summary** | A short paragraph (1–2 sentences) describing the event's purpose and context | *Supports discoverability* |
+| `event_type` | **Event Type** | Category of event. One of:<br>• `seminar` - Presentation and discussion<br>• `workshop` - Hands-on collaborative session<br>• `conference` - Multi-session gathering<br>• `open_house` - Public-facing event<br>• `lecture` - Guest or invited talk<br>• `defense` - Thesis or dissertation defense<br>• `review` - Formal project or initiative review<br>• `social` - Community-building gathering<br>• `other` - Events that don't fit other categories | **Classification** |
 
 ---
 
 ### Purpose and Context
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `purpose` — **Event Purpose** | What is this gathering meant to achieve? What would make it worthwhile? Answers essential prompt #1. | **Intent** |
-| `audience` — **Target Audience** | Who should attend? (e.g., "all faculty and students", "project team members", "external partners", "public") Answers essential prompt #2. | **Scope** |
-| `related_initiative` — **Related Initiative** | *(optional)* Reference to the initiative this event serves | **Context** (initiative) |
-| `related_project` — **Related Project** | *(optional)* Reference to the project this event serves | **Context** (project) |
-| `related_course` — **Related Course** | *(optional)* Reference to the course this event is part of | **Context** (course) |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `purpose` | **Event Purpose** | What is this gathering meant to achieve? What would make it worthwhile? Answers essential prompt #1. | **Intent** |
+| `audience` | **Target Audience** | Who should attend? (e.g., "all faculty and students", "project team members", "external partners", "public") Answers essential prompt #2. | **Scope** |
+| `related_initiative` | **Related Initiative** | *(optional)* Reference to the initiative this event serves | **Context** (initiative) |
+| `related_project` | **Related Project** | *(optional)* Reference to the project this event serves | **Context** (project) |
+| `related_course` | **Related Course** | *(optional)* Reference to the course this event is part of | **Context** (course) |
 
 ---
 
 ### Scheduling
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `date` — **Event Date** | Date of the event (format: `YYYY-MM-DD`) | **Temporal Context** |
-| `time` — **Start Time** | *(optional)* Start time (format: `HH:MM`, 24-hour) | **Temporal Context** |
-| `duration` — **Duration** | *(optional)* Expected duration (e.g., "2 hours", "full day", "3 days") | **Temporal Context** |
-| `location` — **Location** | Where the event takes place. Includes:<br>• `venue`: Physical location or "remote"<br>• `room`: *(optional)* Specific room or space<br>• `remote_url`: *(optional)* Video call or streaming link | **Logistics** |
-| `recurring` — **Recurring** | *(optional)* Whether this is a recurring event and its schedule (e.g., "monthly, first Thursday", "weekly during term") | **Temporal Context** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `date` | **Event Date** | Date of the event (format: `YYYY-MM-DD`) | **Temporal Context** |
+| `time` | **Start Time** | *(optional)* Start time (format: `HH:MM`, 24-hour) | **Temporal Context** |
+| `duration` | **Duration** | *(optional)* Expected duration (e.g., "2 hours", "full day", "3 days") | **Temporal Context** |
+| `location` | **Location** | Where the event takes place. Includes:<br>• `venue`: Physical location or "remote"<br>• `room`: *(optional)* Specific room or space<br>• `remote_url`: *(optional)* Video call or streaming link | **Logistics** |
+| `recurring` | **Recurring** | *(optional)* Whether this is a recurring event and its schedule (e.g., "monthly, first Thursday", "weekly during term") | **Temporal Context** |
 
 ---
 
 ### Event Team
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `organizer` — **Organizer** | The person responsible for planning and running the event. References a person entry in the registry. | **Participants** (authority/accountability) |
-| `speakers` — **Speakers/Presenters** | *(optional)* List of people presenting or leading sessions. Each entry includes:<br>• `person_id`: Reference to person in registry (or `external_name` for non-registry participants)<br>• `role`: Role (e.g., "keynote", "panelist", "presenter") | **Participants** (contributors) |
-| `expected_attendees` — **Expected Attendees** | *(optional)* Estimated number of attendees or list of invited groups | **Scope** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `organizer` | **Organizer** | The person responsible for planning and running the event. References a person entry in the registry. | **Participants** (authority/accountability) |
+| `speakers` | **Speakers/Presenters** | *(optional)* List of people presenting or leading sessions. Each entry includes:<br>• `person_id`: Reference to person in registry (or `external_name` for non-registry participants)<br>• `role`: Role (e.g., "keynote", "panelist", "presenter") | **Participants** (contributors) |
+| `expected_attendees` | **Expected Attendees** | *(optional)* Estimated number of attendees or list of invited groups | **Scope** |
 
 ---
 
 ### Outcomes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `expected_outcomes` — **Expected Outcomes** | What should result from this event? (e.g., "decision on registry platform", "feedback on draft Charter", "new collaboration identified") Answers essential prompt #4. | **Measurability** |
-| `actual_outcomes` — **Actual Outcomes** | *(filled after event)* What actually resulted? Decisions made, actions agreed, connections formed. | **Measurability** (retrospective) |
-| `materials` — **Materials** | *(optional)* Links to slides, recordings, notes, or other artifacts from the event | **Documentation** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `expected_outcomes` | **Expected Outcomes** | What should result from this event? (e.g., "decision on registry platform", "feedback on draft Charter", "new collaboration identified") Answers essential prompt #4. | **Measurability** |
+| `actual_outcomes` | **Actual Outcomes** | *(filled after event)* What actually resulted? Decisions made, actions agreed, connections formed. | **Measurability** (retrospective) |
+| `materials` | **Materials** | *(optional)* Links to slides, recordings, notes, or other artifacts from the event | **Documentation** |
 
 ---
 
 ### Event Status
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `status` — **Event Status** | Current state. Must be one of:<br>• `planned` - Event is scheduled but hasn't occurred<br>• `confirmed` - Event details finalized, invitations sent<br>• `completed` - Event has occurred<br>• `cancelled` - Event was cancelled | **Status** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Event Status** | Current state. Must be one of:<br>• `planned` - Event is scheduled but hasn't occurred<br>• `confirmed` - Event details finalized, invitations sent<br>• `completed` - Event has occurred<br>• `cancelled` - Event was cancelled | **Status** |
 
 ---
 
 ### Event Context
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `domains` — **Related Domains** | Tags that help map this event to research or practice areas | *Enables overlap/coherence analysis* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `domains` | **Related Domains** | Tags that help map this event to research or practice areas | *Enables overlap/coherence analysis* |
 
 ---
 
 ### Event Notes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `notes` — **Notes** | Freeform space for logistics, context, or follow-up items | *Flexibility for additional context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for logistics, context, or follow-up items | *Flexibility for additional context* |
 
 ---
 
@@ -807,50 +807,50 @@ Posts connect to the ecosystem by referencing the projects, initiatives, or even
 
 ### Basic Information
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `id` — **Post ID** | Unique internal identifier (e.g., `post_2026_winder_reflections`) | *Enables tracking and cross-referencing* |
-| `title` — **Post Title** | Clear and specific title | *Part of making work visible* |
-| `summary` — **Post Summary** | A short paragraph (1–2 sentences) describing the post | *Supports discoverability* |
-| `post_type` — **Post Type** | Category of post. One of:<br>• `reflection` - Personal or collective reflection on experience<br>• `update` - Progress report or status update<br>• `announcement` - News or notification<br>• `opinion` - Commentary or position<br>• `tutorial` - How-to or instructional content<br>• `other` - Posts that don't fit other categories | **Classification** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Post ID** | Unique internal identifier (e.g., `post_2026_winder_reflections`) | *Enables tracking and cross-referencing* |
+| `title` | **Post Title** | Clear and specific title | *Part of making work visible* |
+| `summary` | **Post Summary** | A short paragraph (1–2 sentences) describing the post | *Supports discoverability* |
+| `post_type` | **Post Type** | Category of post. One of:<br>• `reflection` - Personal or collective reflection on experience<br>• `update` - Progress report or status update<br>• `announcement` - News or notification<br>• `opinion` - Commentary or position<br>• `tutorial` - How-to or instructional content<br>• `other` - Posts that don't fit other categories | **Classification** |
 
 ---
 
 ### Authorship and Publication
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `author` — **Author** | The person who wrote the post. References a person entry in the registry. | **Participants** (author) |
-| `co_authors` — **Co-Authors** | *(optional)* Additional authors. Each entry includes:<br>• `person_id`: Reference to person in registry | **Participants** (contributors) |
-| `published_date` — **Published Date** | When the post was published (format: `YYYY-MM-DD`) | **Temporal Context** |
-| `content_url` — **Content URL** | *(optional)* Link to the full post if hosted externally | **Documentation** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `author` | **Author** | The person who wrote the post. References a person entry in the registry. | **Participants** (author) |
+| `co_authors` | **Co-Authors** | *(optional)* Additional authors. Each entry includes:<br>• `person_id`: Reference to person in registry | **Participants** (contributors) |
+| `published_date` | **Published Date** | When the post was published (format: `YYYY-MM-DD`) | **Temporal Context** |
+| `content_url` | **Content URL** | *(optional)* Link to the full post if hosted externally | **Documentation** |
 
 ---
 
 ### Context and Connections
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `related_project` — **Related Project** | *(optional)* Reference to a project this post relates to | **Context** (project) |
-| `related_initiative` — **Related Initiative** | *(optional)* Reference to an initiative this post relates to | **Context** (initiative) |
-| `related_event` — **Related Event** | *(optional)* Reference to an event this post relates to | **Context** (event) |
-| `domains` — **Related Domains** | Tags that map this post to research or practice areas | *Enables overlap/coherence analysis* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `related_project` | **Related Project** | *(optional)* Reference to a project this post relates to | **Context** (project) |
+| `related_initiative` | **Related Initiative** | *(optional)* Reference to an initiative this post relates to | **Context** (initiative) |
+| `related_event` | **Related Event** | *(optional)* Reference to an event this post relates to | **Context** (event) |
+| `domains` | **Related Domains** | Tags that map this post to research or practice areas | *Enables overlap/coherence analysis* |
 
 ---
 
 ### Post Status
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `status` — **Post Status** | Current state. Must be one of:<br>• `draft` - Post is being written<br>• `published` - Post is publicly available<br>• `archived` - Post retained for record but no longer featured | **Status** |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Post Status** | Current state. Must be one of:<br>• `draft` - Post is being written<br>• `published` - Post is publicly available<br>• `archived` - Post retained for record but no longer featured | **Status** |
 
 ---
 
 ### Post Notes
 
-| **Field** | **Description** | **Charter Mapping** |
-| --- | --- | --- |
-| `notes` — **Notes** | Freeform space for editorial context or follow-up items | *Flexibility for additional context* |
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for editorial context or follow-up items | *Flexibility for additional context* |
 
 ---
 

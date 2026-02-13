@@ -260,11 +260,10 @@
       margin: 0 auto;
     }
 
-    /* Markdown tables (curriculum course/credit tables) */
+    /* Markdown tables */
     main table {
       width: 100%;
       border-collapse: collapse;
-      table-layout: fixed;
       margin: 1rem 0;
     }
 
@@ -281,21 +280,55 @@
       color: #666;
     }
 
-    main table th:first-child {
+    /* Curriculum tables: fixed 3-column layout (Course / Credits / Instructors) */
+    main[data-page="curriculum"] table {
+      table-layout: fixed;
+    }
+
+    main[data-page="curriculum"] table th:first-child {
       width: 55%;
     }
 
-    main table th:nth-child(2) {
+    main[data-page="curriculum"] table th:nth-child(2) {
       width: 10%;
       text-align: center;
     }
 
-    main table td:nth-child(2) {
+    main[data-page="curriculum"] table td:nth-child(2) {
       text-align: center;
     }
 
-    main table th:nth-child(3) {
+    main[data-page="curriculum"] table th:nth-child(3) {
       width: 35%;
+    }
+
+    /* Charter banner */
+    .charter-banner {
+      background: #2a2a2a;
+      color: #ddd;
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .charter-banner a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .charter-banner a:hover {
+      color: #ccc;
+    }
+
+    .charter-version {
+      font-size: 0.85rem;
+      color: #999;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
     }
 
     /* Typography */
@@ -670,6 +703,7 @@
       border-color: #3a3a3a;
       position: relative;
       overflow: hidden;
+      min-height: 180px;
     }
 
     .landing-card.full-row::before {
@@ -1901,7 +1935,7 @@
       'home': null, // Special case: landing page
       'about': 'README.md',
       'status': 'STATUS.md',
-      'charter': null, // External: redirects to charter.henkaku.center
+      'charter': 'https://charter.henkaku.center/content/CHARTER.md',
       'curriculum': 'docs/CURRICULUM.md',
       'archetypes': 'docs/ARCHETYPES.md',
       'references': null, // Special case: rendered from data
@@ -1919,7 +1953,7 @@
     // Site map for sidebar navigation (groups + pages)
     const siteMap = [
       { group: 'DNA' },
-      { key: 'charter', label: 'Charter', external: 'https://charter.henkaku.center' },
+      { key: 'charter', label: 'Charter' },
       { key: 'archetypes', label: 'Archetypes' },
       { group: 'Emergent' },
       { key: 'network', label: 'Network' },
@@ -2037,13 +2071,13 @@
             <div class="landing-group-label">DNA</div>
             <div class="landing-group-desc">Two documents. The rest follows from them.</div>
             <div class="landing-cards">
-              <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer" class="landing-card">
+              <a href="#charter" class="landing-card">
                 <div class="card-title">Charter</div>
-                <div class="card-desc">Shared principles and commitments that orient all work.</div>
+                <div class="card-desc">Values, governance, and commitments that orient all work.</div>
               </a>
               <a href="#archetypes" class="landing-card">
                 <div class="card-title">Archetypes</div>
-                <div class="card-desc">Templates that give structure to people, projects, and programs.</div>
+                <div class="card-desc">Structural templates for people, projects, initiatives, courses, and more.</div>
               </a>
             </div>
           </div>
@@ -2054,43 +2088,43 @@
             <div class="landing-cards">
               <a href="#network" class="landing-card full-row">
                 <div class="card-title">Network</div>
-                <div class="card-desc">Relational map of people, projects, initiatives, and institutions.</div>
+                <div class="card-desc">Interactive 3D graph of people, projects, initiatives, courses, events, and institutions.</div>
               </a>
               <a href="#people" class="landing-card">
                 <div class="card-title">People</div>
-                <div class="card-desc">Roles, expertise, and project involvement across the ecosystem.</div>
+                <div class="card-desc">Faculty, researchers, staff, and students with roles and expertise.</div>
               </a>
               <a href="#projects" class="landing-card">
                 <div class="card-title">Projects</div>
-                <div class="card-desc">Bounded units of transformation with clear goals and completion criteria.</div>
+                <div class="card-desc">Bounded efforts with goals, teams, and completion criteria.</div>
               </a>
               <a href="#initiatives" class="landing-card">
                 <div class="card-title">Initiatives</div>
-                <div class="card-desc">Ongoing programs that spawn and coordinate projects.</div>
+                <div class="card-desc">Ongoing programs spanning research, education, and coordination.</div>
               </a>
               <a href="#institutions" class="landing-card">
                 <div class="card-title">Institutions</div>
-                <div class="card-desc">Organizations providing infrastructure, mandate, and capabilities.</div>
+                <div class="card-desc">Universities, research centers, and partners in the ecosystem.</div>
               </a>
               <a href="#events" class="landing-card">
                 <div class="card-title">Events</div>
-                <div class="card-desc">Symposia, workshops, and gatherings that connect the ecosystem.</div>
+                <div class="card-desc">Symposia, workshops, and gatherings with schedules and speakers.</div>
               </a>
               <span class="landing-card placeholder">
                 <div class="card-title">Posts</div>
-                <div class="card-desc">Coming soon</div>
+                <div class="card-desc">Written reflections and updates from participants. Coming soon.</div>
               </span>
               <a href="#curriculum" class="landing-card">
                 <div class="card-title">Curriculum</div>
-                <div class="card-desc">SDS Master's and PhD programs launching April 2026.</div>
+                <div class="card-desc">Master's and PhD degree requirements, course tables, and instructors.</div>
               </a>
               <a href="#courses" class="landing-card">
                 <div class="card-title">Courses</div>
-                <div class="card-desc">25 planned courses across Master's and PhD programs.</div>
+                <div class="card-desc">Individual courses with credits, Charter alignment, and instructors.</div>
               </a>
               <span class="landing-card placeholder">
                 <div class="card-title">Theses</div>
-                <div class="card-desc">Coming soon</div>
+                <div class="card-desc">Student research with advisors, committees, and milestones. Coming soon.</div>
               </span>
             </div>
           </div>
@@ -2100,23 +2134,23 @@
             <div class="landing-cards">
               <a href="#about" class="landing-card">
                 <div class="card-title">About</div>
-                <div class="card-desc">Purpose, institutional context, and how Compass works.</div>
+                <div class="card-desc">What Compass is, who it serves, and how the pieces fit together.</div>
               </a>
               <a href="#references" class="landing-card">
                 <div class="card-title">References</div>
-                <div class="card-desc">Source documents and historical materials.</div>
+                <div class="card-desc">Brochures, whiteboards, and source documents behind the design.</div>
               </a>
               <a href="#status" class="landing-card">
                 <div class="card-title">Status</div>
-                <div class="card-desc">Progress updates and open questions.</div>
+                <div class="card-desc">Where things stand and what questions remain open.</div>
               </a>
               <a href="#history" class="landing-card">
                 <div class="card-title">History</div>
-                <div class="card-desc">Commit history from the project repository.</div>
+                <div class="card-desc">Every change to the repository, pulled live from GitHub.</div>
               </a>
               <a href="#feedback" class="landing-card">
                 <div class="card-title">Feedback</div>
-                <div class="card-desc">Submit bug reports and feature requests.</div>
+                <div class="card-desc">Report issues or suggest improvements via GitHub.</div>
               </a>
             </div>
           </div>
@@ -3031,7 +3065,27 @@
             html = html.replace(placeholder, commentDiv);
           });
 
+          // Charter banner: link to definitive source with version info
+          if (docKey === 'charter') {
+            html = '<div class="charter-banner">The definitive source for the Charter is <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer">charter.henkaku.center</a>, which also provides an interface for proposing and voting on amendments and exporting the Charter in various formats.</div><div class="charter-version" id="charter-version-info"></div>' + html;
+          }
+
           contentEl.innerHTML = html;
+
+          // Fetch Charter version info
+          if (docKey === 'charter') {
+            fetch('https://charter.henkaku.center/data/versions.json?t=' + Date.now())
+              .then(r => r.json())
+              .then(versions => {
+                var keys = Object.keys(versions).sort();
+                var latest = versions[keys[keys.length - 1]];
+                var vNum = keys[keys.length - 1].split('_')[0].replace('v', '');
+                var date = new Date(latest.approved_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                var el = document.getElementById('charter-version-info');
+                if (el) el.textContent = 'Version ' + vNum + ' \u00b7 Approved ' + date;
+              })
+              .catch(function() {});
+          }
 
           // Add IDs to headings for anchor links
           assignHeadingIds();
@@ -3955,6 +4009,9 @@
         window._networkResizeHandler = null;
       }
 
+      // Tag content element for page-specific CSS
+      contentEl.setAttribute('data-page', docKey);
+
       // Full-bleed layout for network page only
       const isNetwork = docKey === 'network';
       layoutEl.classList.toggle('full-bleed', isNetwork);
@@ -3962,10 +4019,7 @@
       document.body.style.background = isNetwork ? '#1e1e1e' : '';
       document.body.style.overflow = isNetwork ? 'hidden' : '';
 
-      if (docKey === 'charter') {
-        window.location.href = 'https://charter.henkaku.center';
-        return;
-      } else if (docKey === 'home') {
+      if (docKey === 'home') {
         loadLanding();
       } else if (docKey === 'references') {
         loadReferences();
