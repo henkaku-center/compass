@@ -4,7 +4,7 @@
 
 ## Current Status
 
-**The initial Charter draft is complete. A mechanism for faculty submissions and voting on future updates is being developed at [charter.henkaku.center](https://charter.henkaku.center). The Compass website and registry are live with very rough populated data across six of eight entry types. This data is extremely tentative.**
+**The initial Charter draft is complete. A mechanism for faculty submissions and voting on future updates is being developed at [charter.henkaku.center](https://charter.henkaku.center). The Compass website and registry are live with very rough populated data across eight of ten entry types. This data is extremely tentative.**
 
 ---
 
@@ -16,20 +16,22 @@ The Charter articulates shared values, principles, and governance commitments ac
 
 ### Archetypes
 
-Structural templates for eight registry entry types: People, Projects, Initiatives, Institutions, Courses, Events, Theses, and Posts. These templates define what information each type carries and how entries cross-reference each other.
+Structural templates for ten registry entry types: People, Projects, Initiatives, Institutions, Courses, Events, Theses, Posts, Places, and Domains. These templates define what information each type carries and how entries cross-reference each other.
 
 ### Registry
 
-Six entry types are populated with real data:
+Eight entry types are populated with real data:
 
 | Type | Count | Description |
 |------|-------|-------------|
 | People | 62 | With portrait photos, affiliations, expertise, and project links |
-| Initiatives | 9 | Ongoing programs like Probabilistic Computing, Artificial Life, AI Safety Workshop |
-| Institutions | 6 | Chiba Tech, Henkaku Center, SDS, plus partners JPCCA, ALife Institute, AISI |
+| Initiatives | 10 | Ongoing programs like Probabilistic Computing, Artificial Life, AI Safety Workshop |
+| Institutions | 8 | Chiba Tech, Henkaku Center, SDS, plus partners JPCCA, ALife Institute, AISI, Mount Sinai, Fujita |
 | Projects | 3 | Compass, SDS Launch, Antidisciplinary Charter |
-| Courses | 25 | All Master's and PhD courses extracted from the Curriculum |
+| Courses | 27 | All Master's and PhD courses extracted from the Curriculum |
 | Events | 1 | Symposium of Design and Science 2025 (July 5, Shibuya) |
+| Domains | 36 | Knowledge and research areas mapping the intellectual landscape |
+| Places | 4 | Physical locations including Henkaku Center, Tsudanuma Campus, FabCafe, Crypto Cafe |
 
 Two types remain as placeholders: **Theses** and **Posts**. All registry data is tentative and needs to be reviewed for accuracy.
 
@@ -43,7 +45,7 @@ The viewer at [compass.henkaku.center](https://compass.henkaku.center) includes:
 
 - **Landing page** organized into DNA (Charter, Archetypes) and Emergent (registry, curriculum, network) layers, with an animated compass icon and orientation rotator
 - **Sidebar navigation** across all pages showing the full site map
-- **Registry pages** for People, Projects, Initiatives, Institutions, Courses, and Events with expandable cards showing full details
+- **Registry pages** for People, Projects, Initiatives, Institutions, Courses, Events, Domains, and Places with expandable cards showing full details
 - **Network visualization** — an interactive 3D graph showing relationships between all registry entries, color-coded by type
 - **Curriculum page** rendering the full program structure with course tables
 - **History page** showing the project's commit history pulled live from GitHub

@@ -2114,6 +2114,8 @@
       'institutions': null, // Registry list page
       'courses': null, // Registry list page
       'events': null, // Registry list page
+      'domains': null, // Registry list page
+      'places': null, // Registry list page
       'network': null, // Graph visualization page
       'feedback': null // Feedback submission page
     };
@@ -2134,6 +2136,8 @@
       { key: 'theses', label: 'Theses', placeholder: true },
       { key: 'posts', label: 'Posts', placeholder: true },
       { key: 'events', label: 'Events' },
+      { key: 'places', label: 'Places' },
+      { key: 'domains', label: 'Domains' },
       { group: 'Info' },
       { key: 'about', label: 'About' },
       { key: 'references', label: 'References' },
@@ -2257,7 +2261,7 @@
             <div class="landing-cards">
               <a href="#network" class="landing-card full-row">
                 <div class="card-title">Network</div>
-                <div class="card-desc">Interactive 3D graph of people, projects, initiatives, courses, events, and institutions.</div>
+                <div class="card-desc">Interactive 3D graph of people, projects, initiatives, courses, events, institutions, domains, and places.</div>
               </a>
               <a href="#people" class="landing-card">
                 <div class="card-title">People</div>
@@ -2295,6 +2299,14 @@
                 <div class="card-title">Theses</div>
                 <div class="card-desc">Student research with advisors, committees, and milestones. Coming soon.</div>
               </span>
+              <a href="#places" class="landing-card">
+                <div class="card-title">Places</div>
+                <div class="card-desc">Campuses, coworking spaces, venues, and gathering spots in the ecosystem.</div>
+              </a>
+              <a href="#domains" class="landing-card">
+                <div class="card-title">Domains</div>
+                <div class="card-desc">Knowledge and research areas that map the intellectual landscape.</div>
+              </a>
             </div>
           </div>
 
@@ -2595,6 +2607,18 @@
         plural: 'Events',
         description: 'Time-bound gatherings — symposia, workshops, lectures, and other occasions that bring people together.',
         color: '#c06050'
+      },
+      domains: {
+        singular: 'Domain',
+        plural: 'Domains',
+        description: 'Knowledge and research areas that map the intellectual landscape of the ecosystem.',
+        color: '#999999'
+      },
+      places: {
+        singular: 'Place',
+        plural: 'Places',
+        description: 'Physical locations where ecosystem activities happen — campuses, coworking spaces, venues, and gathering spots.',
+        color: '#2a9d8f'
       }
     };
 
@@ -2679,6 +2703,18 @@
           }
           if (entry.location && entry.location.venue) {
             relationsHtml += `<strong>Location:</strong> ${entry.location.venue}`;
+          }
+          break;
+
+        case 'domains':
+          break;
+
+        case 'places':
+          if (entry.place_type) {
+            metaHtml += `<span class="type-badge">${entry.place_type}</span>`;
+          }
+          if (entry.address) {
+            relationsHtml += `<strong>Address:</strong> ${entry.address}`;
           }
           break;
       }
@@ -2832,6 +2868,23 @@
         detailHtml += renderRelationsDetailHtml(entry.id);
       }
 
+      if (type === 'domains') {
+        detailHtml += renderRelationsDetailHtml(entry.id);
+      }
+
+      if (type === 'places') {
+        if (entry.place_type) {
+          detailHtml += `<p class="detail-label">Place Type</p><p>${entry.place_type}</p>`;
+        }
+        if (entry.address) {
+          detailHtml += `<p class="detail-label">Address</p><p>${entry.address}</p>`;
+        }
+        if (entry.website) {
+          detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+        }
+        detailHtml += renderRelationsDetailHtml(entry.id);
+      }
+
       const editBtnHtml = isLoggedIn() ? `<button class="card-edit-btn">Edit</button>` : '';
 
       card.innerHTML = `
@@ -2912,7 +2965,9 @@
       projects: '#e8a840',
       initiatives: '#4a9e6a',
       courses: '#7b68ae',
-      events: '#c06050'
+      events: '#c06050',
+      domains: '#999999',
+      places: '#2a9d8f'
     };
 
     // buildGraphData is now provided by compass-data.js
@@ -2934,6 +2989,8 @@
               <button class="network-toggle" data-type="initiatives"><span class="toggle-dot" style="background: ${nodeColors.initiatives}"></span> Initiatives</button>
               <button class="network-toggle" data-type="courses"><span class="toggle-dot" style="background: ${nodeColors.courses}"></span> Courses</button>
               <button class="network-toggle" data-type="events"><span class="toggle-dot" style="background: ${nodeColors.events}"></span> Events</button>
+              <button class="network-toggle off" data-type="domains"><span class="toggle-dot" style="background: ${nodeColors.domains}"></span> Domains</button>
+              <button class="network-toggle off" data-type="places"><span class="toggle-dot" style="background: ${nodeColors.places}"></span> Places</button>
             </div>
           </div>
           <div class="network-container" id="network-container"></div>
@@ -3170,6 +3227,12 @@
                 if (data.date) html += `<p><strong>Date:</strong> ${data.date}</p>`;
                 if (data.event_type) html += `<p><strong>Type:</strong> ${data.event_type}</p>`;
                 break;
+              case 'domains':
+                break;
+              case 'places':
+                if (data.place_type) html += `<p><strong>Type:</strong> ${data.place_type}</p>`;
+                if (data.address) html += `<p><strong>Address:</strong> ${data.address}</p>`;
+                break;
             }
 
             html += `<p style="margin-top: 0.75rem;"><a href="#${type}" style="color: ${nodeColors[type]}; text-decoration: none; border-bottom: 1px solid ${nodeColors[type]};">View all ${(registryMeta[type] || {}).plural || type}</a></p>`;
@@ -3192,6 +3255,9 @@
               });
             });
           }
+
+          // Apply initial filters (respects buttons that start with .off)
+          applyTypeFilters();
         })
         .catch(err => {
           const container = document.getElementById('network-container');
@@ -3595,7 +3661,9 @@
       events: ['proposed', 'confirmed', 'completed', 'cancelled'],
       projects: ['proposed', 'active', 'paused', 'completed'],
       initiatives: ['active', 'paused', 'completed'],
-      institutions: ['active', 'inactive']
+      institutions: ['active', 'inactive'],
+      domains: ['active', 'inactive'],
+      places: ['active', 'inactive']
     };
     var editSkipFields = ['portrait', 'type'];
 
@@ -3632,6 +3700,13 @@
         id: '', type: 'event', name: '', status: 'proposed', summary: '', event_type: '',
         purpose: '', audience: '', date: '', time: '', duration: '', domains: [],
         expected_outcomes: [], notes: ''
+      },
+      domains: {
+        id: '', type: 'domain', name: '', status: 'active', summary: '', notes: ''
+      },
+      places: {
+        id: '', type: 'place', name: '', status: 'active', summary: '', place_type: '',
+        address: '', website: '', notes: ''
       }
     };
 
@@ -3668,6 +3743,10 @@
       ],
       events: [
         { type: 'partner', targetTypes: ['institutions'], label: 'Partner' }
+      ],
+      domains: [],
+      places: [
+        { type: 'located_at', targetTypes: ['institutions'], label: 'Located at' }
       ]
     };
 
@@ -4257,7 +4336,7 @@
         loadReferences();
       } else if (docKey === 'history') {
         loadHistory();
-      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events'].includes(docKey)) {
+      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places'].includes(docKey)) {
         loadRegistryList(docKey);
       } else if (docKey === 'network') {
         loadNetwork();

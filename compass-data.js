@@ -47,6 +47,11 @@ const RELATION_TYPES = {
   dependency_of:    { inverse: 'depends_on',       label: 'Dependency of',  inverseLabel: 'Depends on' },
   has_prerequisite: { inverse: 'prerequisite_of',  label: 'Has prerequisite',inverseLabel: 'Prerequisite of' },
   prerequisite_of:  { inverse: 'has_prerequisite', label: 'Prerequisite of',inverseLabel: 'Has prerequisite' },
+  // Place relations
+  located_at:       { inverse: 'location_of',      label: 'Located at',     inverseLabel: 'Location of' },
+  location_of:      { inverse: 'located_at',        label: 'Location of',    inverseLabel: 'Located at' },
+  interested_in:    { inverse: 'interest_of',       label: 'Interested in',  inverseLabel: 'Interest of' },
+  interest_of:      { inverse: 'interested_in',     label: 'Interest of',    inverseLabel: 'Interested in' },
   // Symmetric
   partner:          { inverse: 'partner',          label: 'Partner',        inverseLabel: 'Partner' },
   related:          { inverse: 'related',          label: 'Related',        inverseLabel: 'Related' },
@@ -60,6 +65,8 @@ const TYPE_FILE_MAP = {
   institution: 'institutions',
   course: 'courses',
   event: 'events',
+  domain: 'domains',
+  place: 'places',
 };
 
 const TYPE_FROM_PLURAL = {};
@@ -79,7 +86,7 @@ const store = {
 // --- Loading ---
 
 async function loadStore() {
-  const types = ['people', 'projects', 'initiatives', 'institutions', 'courses', 'events'];
+  const types = ['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places'];
   const cacheBuster = `?t=${Date.now()}`;
 
   const fetches = types.map(t =>

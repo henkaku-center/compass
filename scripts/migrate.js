@@ -27,6 +27,8 @@ const initiatives = readJSON('initiatives.json');
 const institutions = readJSON('institutions.json');
 const courses = readJSON('courses.json');
 const events = readJSON('events.json');
+const domains = readJSON('domains.json');
+const places = readJSON('places.json');
 
 // --- Relations accumulator ---
 
@@ -363,6 +365,26 @@ const transformedEvents = events.map(e => {
   return out;
 });
 
+// Domains — no embedded relations to extract
+const transformedDomains = domains.map(d => {
+  const out = { id: d.id, type: 'domain' };
+  for (const [key, val] of Object.entries(d)) {
+    if (key === 'id') continue;
+    out[key] = val;
+  }
+  return out;
+});
+
+// Places — no embedded relations to extract
+const transformedPlaces = places.map(p => {
+  const out = { id: p.id, type: 'place' };
+  for (const [key, val] of Object.entries(p)) {
+    if (key === 'id') continue;
+    out[key] = val;
+  }
+  return out;
+});
+
 // --- Write output ---
 
 function writeJSON(filename, data) {
@@ -393,6 +415,8 @@ writeJSON('initiatives.json', transformedInitiatives);
 writeJSON('institutions.json', transformedInstitutions);
 writeJSON('courses.json', transformedCourses);
 writeJSON('events.json', transformedEvents);
+writeJSON('domains.json', transformedDomains);
+writeJSON('places.json', transformedPlaces);
 writeJSON('relations.json', relations);
 
 // --- Summary ---
@@ -403,6 +427,8 @@ console.log(`  Initiatives: ${transformedInitiatives.length} entities`);
 console.log(`  Institutions: ${transformedInstitutions.length} entities`);
 console.log(`  Courses: ${transformedCourses.length} entities`);
 console.log(`  Events: ${transformedEvents.length} entities`);
+console.log(`  Domains: ${transformedDomains.length} entities`);
+console.log(`  Places: ${transformedPlaces.length} entities`);
 console.log(`  Relations: ${relations.length} extracted`);
 
 // Relation type breakdown

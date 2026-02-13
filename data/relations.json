@@ -141,6 +141,11 @@
   },
   {
     "source": "inst_chibatech",
+    "target": "place_tsudanuma_campus",
+    "type": "located_at"
+  },
+  {
+    "source": "inst_chibatech",
     "target": "init_compass_initiative",
     "type": "hosts"
   },
@@ -173,6 +178,11 @@
     "source": "inst_fujita",
     "target": "init_ai_healthcare",
     "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "place_henkaku_center",
+    "type": "located_at"
   },
   {
     "source": "inst_henkaku",

@@ -1,0 +1,254 @@
+[
+  {
+    "id": "domain_complex_systems",
+    "type": "domain",
+    "name": "Complex Systems",
+    "summary": "Emergent, dynamic, and nonlinear systems across natural and artificial domains.",
+    "status": "active"
+  },
+  {
+    "id": "domain_ai",
+    "type": "domain",
+    "name": "Artificial Life",
+    "summary": "The design and study of life-like behaviors in software and machines. Includes generative systems, synthetic biology, open-ended evolution, and adaptive autonomy.",
+    "status": "active"
+  },
+  {
+    "id": "domain_prob_comp",
+    "type": "domain",
+    "name": "Probabilistic Computing",
+    "summary": "Structured reasoning under uncertainty and statistical inference.",
+    "status": "active"
+  },
+  {
+    "id": "domain_simulation",
+    "type": "domain",
+    "name": "Simulation",
+    "summary": "Digital models of behavior, cities, systems, and agents.",
+    "status": "active"
+  },
+  {
+    "id": "domain_cognitive_sci",
+    "type": "domain",
+    "name": "Cognitive Science",
+    "summary": "Study of knowledge, reasoning, memory, perception, attention, judgment, and decision-making.",
+    "status": "active"
+  },
+  {
+    "id": "domain_neurodiversity",
+    "type": "domain",
+    "name": "Neurodiversity",
+    "summary": "Design for and study of cognitive differences and inclusion.",
+    "status": "active"
+  },
+  {
+    "id": "domain_design_thinking",
+    "type": "domain",
+    "name": "Design Thinking",
+    "summary": "Creative and iterative problem-solving methods.",
+    "status": "active"
+  },
+  {
+    "id": "domain_speculative_design",
+    "type": "domain",
+    "name": "Speculative Design",
+    "summary": "Critical design that imagines alternative futures.",
+    "status": "active"
+  },
+  {
+    "id": "domain_technology_policy",
+    "type": "domain",
+    "name": "Technology Policy",
+    "summary": "Law and regulation frameworks for technology and society.",
+    "status": "active"
+  },
+  {
+    "id": "domain_governance",
+    "type": "domain",
+    "name": "Governance Architecture",
+    "summary": "Design of institutions, rules, and collective norms.",
+    "status": "active"
+  },
+  {
+    "id": "domain_digital_identity",
+    "type": "domain",
+    "name": "Digital Identity",
+    "summary": "Self-expression and reputation systems online.",
+    "status": "active"
+  },
+  {
+    "id": "domain_platform_ethics",
+    "type": "domain",
+    "name": "Platform Ethics",
+    "summary": "Ethical issues in user experience, attention, and digital life.",
+    "status": "active"
+  },
+  {
+    "id": "domain_cultural_systems",
+    "type": "domain",
+    "name": "Cultural Contexts",
+    "summary": "Values, narratives, and meaning-making across societies.",
+    "status": "active"
+  },
+  {
+    "id": "domain_gender_tech",
+    "type": "domain",
+    "name": "Gender & Technology",
+    "summary": "Power and identity examined through technical systems.",
+    "status": "active"
+  },
+  {
+    "id": "domain_participatory",
+    "type": "domain",
+    "name": "Participatory Interfaces",
+    "summary": "Interactive systems built for feedback and engagement.",
+    "status": "active"
+  },
+  {
+    "id": "domain_edu_systems",
+    "type": "domain",
+    "name": "Education Systems",
+    "summary": "The structure and transformation of teaching and learning.",
+    "status": "active"
+  },
+  {
+    "id": "domain_intentional",
+    "type": "domain",
+    "name": "Intentional Design",
+    "summary": "Feedback-driven frameworks that align effort with impact, including systems for time design, productivity, decision-making, and reflective evaluation across personal and institutional scales.",
+    "status": "active"
+  },
+  {
+    "id": "domain_knowledge_repr",
+    "type": "domain",
+    "name": "Knowledge Representation",
+    "summary": "Structures for modeling, accessing, and organizing information.",
+    "status": "active"
+  },
+  {
+    "id": "domain_collective_intel",
+    "type": "domain",
+    "name": "Collective Intelligence",
+    "summary": "Group cognition, coordination, and decision-making.",
+    "status": "active"
+  },
+  {
+    "id": "domain_digital_infra",
+    "type": "domain",
+    "name": "Digital Infrastructure",
+    "summary": "Civic tech, networks, protocols, and data systems.",
+    "status": "active"
+  },
+  {
+    "id": "domain_design_ethics",
+    "type": "domain",
+    "name": "Design Ethics",
+    "summary": "Moral reflection embedded in design decisions.",
+    "status": "active"
+  },
+  {
+    "id": "domain_aesthetic",
+    "type": "domain",
+    "name": "Aesthetic Forms",
+    "summary": "Visual and symbolic expression in cultural and technical systems.",
+    "status": "active"
+  },
+  {
+    "id": "domain_emotional_tech",
+    "type": "domain",
+    "name": "Emotional Technology",
+    "summary": "Technology that engages, supports, or manipulates affect.",
+    "status": "active"
+  },
+  {
+    "id": "domain_institutional_resilience",
+    "type": "domain",
+    "name": "Institutional Resilience",
+    "summary": "Adaptability and longevity of socio-technical systems.",
+    "status": "active"
+  },
+  {
+    "id": "domain_embodied_intelligence",
+    "type": "domain",
+    "name": "Embodied Intelligence",
+    "summary": "Systems that emphasize physical, biological, and spatial grounding in cognition, perception, interaction, and design. This includes embodied AI, sensorimotor intelligence, and biohybrid interaction.",
+    "status": "active"
+  },
+  {
+    "id": "domain_philosophy",
+    "type": "domain",
+    "name": "Philosophy",
+    "summary": "Theoretical foundations of ethics, knowledge, and being, as applied to technology and complex systems.",
+    "status": "active"
+  },
+  {
+    "id": "domain_society",
+    "type": "domain",
+    "name": "Society",
+    "summary": "Social systems, norms, rituals, and the collective structures that shape human life.",
+    "status": "active"
+  },
+  {
+    "id": "domain_awareness",
+    "type": "domain",
+    "name": "Awareness",
+    "summary": "Investigation of conscious experience, perception, selfhood, and intersubjectivity\u2014bridging biological, philosophical, and computational perspectives.",
+    "status": "active"
+  },
+  {
+    "id": "domain_rapid_prototyping",
+    "type": "domain",
+    "name": "Rapid Prototyping",
+    "summary": "Design and fabrication processes that support fast, iterative development of ideas through tangible or testable outputs. Emphasizes experimentation, learning, and material feedback.",
+    "status": "active"
+  },
+  {
+    "id": "domain_machine_reasoning",
+    "type": "domain",
+    "name": "Machine Reasoning",
+    "summary": "Design of symbolic, statistical, and hybrid methods for rule-based logic, inference, and explainable decision-making in machines.",
+    "status": "active"
+  },
+  {
+    "id": "domain_cognitive_architecture",
+    "type": "domain",
+    "name": "Cognitive Architecture",
+    "summary": "Study and construction of computational models that mimic or simulate human-like cognition\u2014integrating memory, reasoning, and perception.",
+    "status": "active"
+  },
+  {
+    "id": "domain_story_telling",
+    "type": "domain",
+    "name": "Story Telling",
+    "summary": "Design of environments, media, and narratives that communicate complex ideas, cultural values, or speculative futures through storytelling and experiential formats.",
+    "status": "active"
+  },
+  {
+    "id": "domain_incentive_design",
+    "type": "domain",
+    "name": "Incentives Design",
+    "summary": "Development of mechanisms\u2014financial, social, or symbolic\u2014that influence behavior, motivate participation, and shape organizational dynamics.",
+    "status": "active"
+  },
+  {
+    "id": "domain_radical_economics",
+    "type": "domain",
+    "name": "Novel Economics",
+    "summary": "Exploration of alternative economic models that challenge traditional assumptions about the nature of value, transactions, and growth.",
+    "status": "active"
+  },
+  {
+    "id": "domain_financial_engineering",
+    "type": "domain",
+    "name": "Financial Engineering",
+    "summary": "Modeling, optimization, and structuring of financial instruments and systems\u2014with applications in risk, sustainability, and experimental value creation.",
+    "status": "active"
+  },
+  {
+    "id": "domain_asian_sensibilities",
+    "type": "domain",
+    "name": "Asian Sensibilities",
+    "summary": "Exploration of aesthetic, philosophical, and cultural values rooted in diverse Asian traditions\u2014emphasizing harmony, relationality, impermanence, and context-aware design across art, technology, and society.",
+    "status": "active"
+  }
+]

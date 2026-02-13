@@ -14,11 +14,11 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 **DNA** — Foundational documents that define principles, governance, and structural templates:
 - **Charter** — Values, governance, and operational commitments (9 sections). Lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center) (source: `https://charter.henkaku.center/content/CHARTER.md`)
-- `docs/ARCHETYPES.md` — Structural templates for eight registry entry types
+- `docs/ARCHETYPES.md` — Structural templates for ten registry entry types
 
 **Emergent** — Living content instantiated from the foundational templates:
 - `docs/CURRICULUM.md` — SDS Master's and PhD curriculum
-- `data/` — Registry entries as JSON files (people, projects, initiatives, institutions, courses, events) plus `relations.json`
+- `data/` — Registry entries as JSON files (people, projects, initiatives, institutions, courses, events, domains, places) plus `relations.json`
 - *(future)* Theses and posts registry entries
 
 **Supporting:**
@@ -36,13 +36,15 @@ Compass documents are organized into two layers, inspired by a biological analog
 compass/
 ├── data/
 │   ├── courses.json       (27 courses)
+│   ├── domains.json       (36 domains)
 │   ├── events.json        (1 event)
 │   ├── initiatives.json   (10 initiatives)
 │   ├── institutions.json  (8 institutions)
 │   ├── people.json        (62 people)
+│   ├── places.json        (4 places)
 │   ├── portraits/         (profile photos for people entries)
 │   ├── projects.json      (3 projects)
-│   └── relations.json     (316 relations between entities)
+│   └── relations.json     (318 relations between entities)
 ├── docs/
 │   ├── ARCHETYPES.md
 │   └── CURRICULUM.md
@@ -115,7 +117,7 @@ All sections contain full text. The draft is ready for review by ratifying membe
 
 The Charter (Section V) mandates a shared registry. The **Archetypes** document defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
-Eight entry types:
+Ten entry types:
 - **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 - **People** — Roles, expertise, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
@@ -124,6 +126,8 @@ Eight entry types:
 - **Theses** — Bounded academic works with advisors, committees, and defense milestones
 - **Events** — Time-bound gatherings that connect people and advance work
 - **Posts** — Written contributions (reflections, updates, announcements, commentary) from participants
+- **Places** — Physical locations where ecosystem activities happen (campuses, coworking spaces, venues)
+- **Domains** — Knowledge and research areas that map the intellectual landscape
 
 **Essential questions** guide each entry type (4 prompts each — see `docs/ARCHETYPES.md`).
 
@@ -147,7 +151,7 @@ Eight entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html` + `compass-data.js`):
-- Single-page app with hash routing. Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`
+- Single-page app with hash routing. Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#domains`, `#places`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`
 - `#charter` fetches and renders Charter markdown from `charter.henkaku.center/content/CHARTER.md` inline (with a banner linking to the definitive source and showing the current version dynamically)
 - Top nav bar shows minimal links (Feedback, GitHub, Login). Full site navigation is in a left sidebar organized into DNA, Emergent, and Info groups (with Theses and Posts as placeholders)
 - Right-hand document TOC sidebar with scroll-spy for Charter, Archetypes, About, and Status pages
@@ -165,8 +169,8 @@ Eight entry types:
 **Registry data** (`data/` directory):
 - One JSON file per entity type, each containing an array of objects with intrinsic attributes only
 - `data/relations.json` stores all cross-references as `{source, target, type, meta?}` triples
-- Field names match `docs/ARCHETYPES.md` schemas; IDs follow patterns like `person_winder_ira`, `proj_compass`, `course_dna`, `event_2025_symposium`
-- Contains real data: 62 people (with portraits), 10 initiatives, 8 institutions, 3 projects, 27 courses, 1 event, 316 relations
+- Field names match `docs/ARCHETYPES.md` schemas; IDs follow patterns like `person_winder_ira`, `proj_compass`, `course_dna`, `event_2025_symposium`, `domain_complex_systems`, `place_henkaku_center`
+- Contains real data: 62 people (with portraits), 10 initiatives, 8 institutions, 3 projects, 27 courses, 1 event, 36 domains, 4 places, 318 relations
 - `data/portraits/` contains profile photos referenced by people entries
 - `data/feedback/` stores file attachments uploaded with feedback submissions
 

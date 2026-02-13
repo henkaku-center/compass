@@ -1,0 +1,57 @@
+[
+  {
+    "id": "place_henkaku_center",
+    "type": "place",
+    "name": "Henkaku Center for Radical Transformation",
+    "summary": "Shared coworking and research space for Henkaku Center members, located on the Tsudanuma Campus of Chiba Institute of Technology.",
+    "place_type": "coworking",
+    "address": "2-17-1 Tsudanuma, Narashino, Chiba 275-0016, Japan",
+    "location": {
+      "lat": 35.6818,
+      "lng": 140.0244
+    },
+    "website": "https://henkaku.center",
+    "status": "active"
+  },
+  {
+    "id": "place_tsudanuma_campus",
+    "type": "place",
+    "name": "Tsudanuma Campus",
+    "summary": "Main campus of Chiba Institute of Technology in Narashino, hosting SDS and Henkaku Center facilities.",
+    "place_type": "campus",
+    "address": "2-17-1 Tsudanuma, Narashino, Chiba 275-0016, Japan",
+    "location": {
+      "lat": 35.6818,
+      "lng": 140.0244
+    },
+    "website": "https://chibatech.jp",
+    "status": "active"
+  },
+  {
+    "id": "place_loftwork_fabcafe",
+    "type": "place",
+    "name": "Loftwork (FabCafe Tokyo)",
+    "summary": "Creative coworking and fabrication venue in Shibuya, used for workshops, exhibitions, and community events.",
+    "place_type": "venue",
+    "address": "1-22-7 Dogenzaka, Shibuya, Tokyo 150-0043, Japan",
+    "location": {
+      "lat": 35.6580,
+      "lng": 139.6945
+    },
+    "website": "https://fabcafe.com/tokyo",
+    "status": "active"
+  },
+  {
+    "id": "place_crypto_cafe",
+    "type": "place",
+    "name": "Crypto Cafe & Bar",
+    "summary": "Web3-themed cafe and bar in Shibuya, venue for informal meetups and community gatherings.",
+    "place_type": "cafe",
+    "address": "2F, 1-6-10 Jinnan, Shibuya, Tokyo 150-0041, Japan",
+    "location": {
+      "lat": 35.6625,
+      "lng": 139.7005
+    },
+    "status": "active"
+  }
+]

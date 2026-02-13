@@ -4,7 +4,7 @@ This document defines the structural archetypes—the templates and schemas—fo
 
 ## Overview
 
-The Charter mandates a **shared registry** that tracks eight types of entries:
+The Charter mandates a **shared registry** that tracks ten types of entries:
 
 - **Institutions**: Organizations that participate in the ecosystem—their mandates, capabilities, and relationships
 - **People**: Participants in the ecosystem—their roles, expertise, affiliations, and involvement
@@ -14,6 +14,8 @@ The Charter mandates a **shared registry** that tracks eight types of entries:
 - **Theses**: Bounded academic works with advisors, committees, and defense milestones
 - **Events**: Time-bound gatherings—seminars, workshops, conferences, and other convening occasions
 - **Posts**: Written contributions—reflections, updates, announcements, and commentary from participants
+- **Places**: Physical locations where ecosystem activities happen—campuses, coworking spaces, venues, and gathering spots
+- **Domains**: Knowledge and research areas that map the intellectual landscape of the ecosystem
 
 The registry serves as coordination infrastructure, making work and people visible and enabling participants to identify connections, gaps, potential collaborators, and network structure across the ecosystem.
 
@@ -22,14 +24,16 @@ The registry serves as coordination infrastructure, making work and people visib
 **Shared, not fragmented**: The registry must be shared across all Charter-covered institutions. Separate tracking systems undermine coordination.
 
 **Interoperating schemas**: Entry types reference each other:
-- Institutions link to people, projects, initiatives, and other institutions they collaborate with
-- People link to projects, initiatives, courses, theses, events, and institutions they're involved in
+- Institutions link to people, projects, initiatives, places, and other institutions they collaborate with
+- People link to projects, initiatives, courses, theses, events, domains, and institutions they're involved in
 - Projects reference people as owners/contributors and institutions as hosts or sponsors
 - Initiatives reference people as leads/participants and track spawned/contained projects
 - Courses link to instructors, Charter principles, and related projects
 - Theses link to advisors, committees, and related projects or initiatives
 - Events link to organizers, related initiatives/projects, and participants
 - Posts link to authors and optionally to projects, initiatives, or events they relate to
+- Places link to institutions they belong to and events held there
+- Domains link to people interested in them and to other entities tagged with related topics
 
 **Measurability with forgiveness**: The Charter recognizes that systemic, cultural, and long-term impacts may resist clean measurement while still being evaluable through qualitative assessment, stakeholder feedback, and narrative evidence.
 
@@ -84,6 +88,18 @@ Each entry type is grounded by essential questions:
 2. What prompted it—what event, realization, or development?
 3. How does it connect to ongoing work in the ecosystem?
 4. What response or action, if any, does it invite?
+
+**Places**:
+1. What activities happen at this location?
+2. Which institutions or programs operate here?
+3. How accessible is this place to ecosystem participants?
+4. What makes this location distinctive for the ecosystem's work?
+
+**Domains**:
+1. What intellectual territory does this domain cover?
+2. Which people, projects, and initiatives work within it?
+3. How does it relate to other domains in the ecosystem?
+4. What Charter principles or values does work in this domain embody?
 
 ---
 
@@ -854,16 +870,109 @@ Posts connect to the ecosystem by referencing the projects, initiatives, or even
 
 ---
 
+## Part IX: Places
+
+Places are **physical locations** where ecosystem activities happen—campuses, coworking spaces, fabrication labs, event venues, and informal gathering spots. Unlike institutions (which are organizational entities with mandates and governance), places are spatial: they have addresses, coordinates, and physical characteristics.
+
+Tracking places in the registry connects the ecosystem's organizational and human dimensions to its physical geography: where people work, where events happen, where projects are prototyped, and where informal connections form. This supports coordination across distributed locations and makes the ecosystem's spatial footprint visible.
+
+### Basic Information
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Place ID** | Unique internal identifier (e.g., `place_henkaku_center`, `place_tsudanuma_campus`) | *Enables tracking and cross-referencing* |
+| `name` | **Place Name** | Name of the location | *Part of making work visible* |
+| `summary` | **Place Summary** | A short paragraph (1–2 sentences) describing what the place is and its role in the ecosystem | *Supports discoverability* |
+| `place_type` | **Place Type** | Category of place. One of:<br>• `campus` - University or institutional campus<br>• `coworking` - Shared working space<br>• `venue` - Event or exhibition space<br>• `lab` - Research or fabrication laboratory<br>• `cafe` - Informal gathering spot<br>• `other` - Places that don't fit other categories | **Classification** |
+
+---
+
+### Location
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `address` | **Address** | Street address of the place | **Logistics** |
+| `location` | **Coordinates** | *(optional)* Geographic coordinates (`lat`, `lng`) for mapping | **Logistics** |
+| `capacity` | **Capacity** | *(optional)* How many people the space can accommodate | **Logistics** |
+| `accessibility` | **Accessibility** | *(optional)* Notes on physical accessibility | **Logistics** |
+
+---
+
+### Place Context
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `website` | **Website** | *(optional)* URL for the place or its parent organization | *Discoverability* |
+| `domains` | **Related Domains** | *(optional)* Tags that map this place to research or practice areas | *Enables overlap/coherence analysis* |
+
+---
+
+### Place Status
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Place Status** | Current state. Must be one of:<br>• `active` - Currently in use by the ecosystem<br>• `inactive` - No longer in regular use | **Status** |
+
+---
+
+### Place Notes
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for operational details, access instructions, or context | *Flexibility for additional context* |
+
+---
+
+## Part X: Domains
+
+Domains are **knowledge and research areas** that map the intellectual landscape of the ecosystem. Unlike the `domains` tag arrays on other entity types (which are informal labels), Domain entities are first-class registry entries with their own descriptions and relationships.
+
+Tracking domains in the registry makes the ecosystem's intellectual territory visible: what areas of inquiry exist, how they overlap, and which people and projects work within them. This supports the Charter's commitment to **antidisciplinary** coordination by making the landscape of knowledge explicit rather than siloed by discipline.
+
+### Basic Information
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `id` | **Domain ID** | Unique internal identifier (e.g., `domain_complex_systems`, `domain_governance`) | *Enables tracking and cross-referencing* |
+| `name` | **Domain Name** | Name of the knowledge or research area | *Part of making work visible* |
+| `summary` | **Domain Summary** | A short paragraph (1–2 sentences) describing the intellectual territory this domain covers. Answers essential prompt #1. | *Supports discoverability* |
+
+---
+
+### Domain Context
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `domains` | **Sub-domains** | *(optional)* Tags for finer-grained categorization within this domain | *Enables overlap/coherence analysis* |
+
+---
+
+### Domain Status
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `status` | **Domain Status** | Current state. Must be one of:<br>• `active` - Currently recognized as an area of ecosystem activity<br>• `inactive` - No longer an active area of focus | **Status** |
+
+---
+
+### Domain Notes
+
+| **Field** | **Name** | **Description** | **Charter Mapping** |
+| --- | --- | --- | --- |
+| `notes` | **Notes** | Freeform space for context, relationships to other domains, or editorial notes | *Flexibility for additional context* |
+
+---
+
 ## Comparison of Entry Types
 
-| | **Institutions** | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** | **Posts** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **Nature** | Persistent, organizational | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening | Asynchronous, written |
-| **End condition** | Dissolution or withdrawal | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes | Published or archived |
-| **Evaluation** | Is the relationship productive? | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? | Does it make thinking visible? |
-| **Time horizon** | Indefinite | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) | Point in time |
-| **Contains** | People, programs, infrastructure | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations | Ideas, updates, commentary |
-| **Key question** | "What does this enable?" | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" | "What needs to be said?" |
+| | **Institutions** | **Projects** | **Initiatives** | **Courses** | **Theses** | **Events** | **Posts** | **Places** | **Domains** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Nature** | Persistent, organizational | Bounded, finite | Ongoing, open-ended | Recurring, structured | Bounded, academic | Time-bound, convening | Asynchronous, written | Spatial, physical | Conceptual, intellectual |
+| **End condition** | Dissolution or withdrawal | Completion criteria | Deliberate conclusion | End of term/cycle | Defense and approval | Event concludes | Published or archived | Closure or relocation | Deprecated or merged |
+| **Evaluation** | Is the relationship productive? | Did it achieve outcomes? | Is it still serving its purpose? | Does it develop promised capabilities? | Quality of contribution and rigor | Did it achieve its convening purpose? | Does it make thinking visible? | Is this location serving the ecosystem? | Is this area still active? |
+| **Time horizon** | Indefinite | Defined start and end | No predetermined end | Recurring per cohort | Defined by degree timeline | Specific date(s) | Point in time | Indefinite | Indefinite |
+| **Contains** | People, programs, infrastructure | Tasks, milestones | Projects, activities | Lectures, assignments | Chapters, research | Sessions, presentations | Ideas, updates, commentary | Spaces, facilities | Topics, questions |
+| **Key question** | "What does this enable?" | "What would make this complete?" | "Should this continue?" | "What does this develop?" | "What does this contribute?" | "Why gather?" | "What needs to be said?" | "What happens here?" | "What territory is this?" |
 
 ---
 
@@ -878,7 +987,7 @@ This schema implements Section V of the Charter by:
 5. **Ongoing justification**: Initiative fields ensure programs articulate why they should continue
 6. **Measurability with forgiveness**: Success criteria and health indicators support both quantitative and qualitative assessment
 7. **Accountability**: Owner, lead, and contributor fields establish clear responsibility
-8. **Network visibility**: Cross-references between people, projects, initiatives, courses, theses, events, posts, and institutions show how the ecosystem connects
+8. **Network visibility**: Cross-references between people, projects, initiatives, courses, theses, events, posts, institutions, places, and domains show how the ecosystem connects
 9. **Coordination infrastructure**: Dependencies, domains, and scope boundaries enable overlap/coherence analysis
 
 The schema may evolve through Charter governance processes (Section VII), with changes preserving backward compatibility or providing migration paths for existing entries.
