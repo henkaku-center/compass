@@ -53,5 +53,19 @@
       "lng": 139.7005
     },
     "status": "active"
+  },
+  {
+    "id": "place_azabudai_hills",
+    "type": "place",
+    "name": "Azabudai Hills House",
+    "summary": "Members-only creative hub in Azabudai Hills, Minato, used for events, meetings, and community gatherings.",
+    "place_type": "venue",
+    "address": "5-8-1 Toranomon, Minato, Tokyo 105-0001, Japan",
+    "location": {
+      "lat": 35.6607,
+      "lng": 139.7385
+    },
+    "website": "https://www.azabudai-hills.com",
+    "status": "active"
   }
 ]
