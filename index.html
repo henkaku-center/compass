@@ -1068,42 +1068,81 @@
       color: #555;
     }
 
-    .registry-card.expandable {
+    .registry-card {
       cursor: pointer;
     }
 
-    .registry-card .card-detail {
-      display: none;
-      margin-top: 0.75rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid #e5e5e5;
-      font-size: 0.875rem;
-      line-height: 1.5;
+    /* Entity detail page */
+    .entity-detail {
+      max-width: 800px;
+    }
+
+    .entity-detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: #555;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .entity-detail-back:hover {
+      color: #111;
+    }
+
+    .entity-detail-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .entity-detail-portrait {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .entity-detail-header-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .entity-detail-header-info h1 {
+      font-size: 1.5rem;
+      margin: 0 0 0.15rem;
+      border: none;
+      padding: 0;
+    }
+
+    .entity-detail-name-ja {
+      opacity: 0.5;
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .entity-detail-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+    }
+
+    .entity-detail-summary {
+      font-size: 1rem;
       color: #444;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
 
-    .registry-card.expanded .card-detail {
-      display: block;
+    .entity-detail-section {
+      margin-bottom: 1.5rem;
     }
 
-    .registry-card.expanded {
-      grid-column: 1 / -1;
-    }
-
-    .registry-card.expanded .card-header {
-      gap: 1rem;
-    }
-
-    .registry-card.expanded .card-portrait {
-      width: 80px;
-      height: 80px;
-    }
-
-    .registry-card .card-detail p {
-      margin: 0.4rem 0;
-    }
-
-    .registry-card .card-detail .detail-label {
+    .entity-detail-section .detail-label {
       font-weight: 600;
       color: #555;
       font-size: 0.8rem;
@@ -1113,25 +1152,41 @@
       margin-bottom: 0.15rem;
     }
 
-    .registry-card .card-detail .detail-label:first-child {
+    .entity-detail-section .detail-label:first-child {
       margin-top: 0;
     }
 
-    .registry-card .card-detail a {
+    .entity-detail-section p {
+      margin: 0.4rem 0;
+      font-size: 0.925rem;
+      line-height: 1.55;
+      color: #444;
+    }
+
+    .entity-detail-section a {
       color: #2563eb;
       text-decoration: none;
     }
 
-    .registry-card .card-detail a:hover {
+    .entity-detail-section a:hover {
       text-decoration: underline;
     }
 
-    .registry-card .person-bio {
+    .entity-detail .person-bio {
       line-height: 1.6;
+      font-size: 0.95rem;
+      color: #333;
     }
 
-    .registry-card .person-bio p {
+    .entity-detail .person-bio p {
       margin: 0.6rem 0;
+    }
+
+    .entity-detail-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.25rem;
     }
 
     .status-badge {
@@ -2630,9 +2685,40 @@
       }
     };
 
+    // URL slug helpers — strip type prefix from IDs for cleaner URLs
+    // e.g. "proj_compass" → "compass", "person_winder_ira" → "winder_ira"
+    const ID_PREFIXES = {
+      people: 'person_',
+      projects: 'proj_',
+      initiatives: 'init_',
+      institutions: 'inst_',
+      courses: 'course_',
+      events: 'event_',
+      domains: 'domain_',
+      places: 'place_'
+    };
+
+    function entitySlug(type, id) {
+      const prefix = ID_PREFIXES[type];
+      return (prefix && id.startsWith(prefix)) ? id.slice(prefix.length) : id;
+    }
+
+    function slugToEntityId(type, slug) {
+      const prefix = ID_PREFIXES[type];
+      if (!prefix) return slug;
+      const candidate = prefix + slug;
+      // Verify it exists; fall back to raw slug (handles IDs that don't follow the convention)
+      return (store.entities && store.entities[candidate]) ? candidate : slug;
+    }
+
+    function entityHref(type, id) {
+      return '#' + type + '/' + entitySlug(type, id);
+    }
+
     function renderRegistryCard(entry, type) {
       const card = document.createElement('div');
       card.className = 'registry-card';
+      card.dataset.entityId = entry.id;
 
       let nameField = entry.name || entry.id;
       let summaryField = entry.summary || '';
@@ -2673,7 +2759,7 @@
           const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
           if (domainRels.length > 0) {
             relationsHtml += `<strong>Domains:</strong> ${domainRels.map(r =>
-              `<a href="#domains" style="color:inherit;text-decoration:underline dotted;text-underline-offset:2px;">${getEntityDisplay(r.entity.id)}</a>`
+              `<a href="${entityHref('domains', r.entity.id)}" style="color:inherit;text-decoration:underline dotted;text-underline-offset:2px;">${getEntityDisplay(r.entity.id)}</a>`
             ).join(', ')}`;
           }
           break;
@@ -2745,180 +2831,21 @@
       const portraitSrc = entry.portrait || 'compass-icon.png';
       const portraitHtml = `<img class="card-portrait" src="${portraitSrc}" alt="" loading="lazy">`;
 
-      // Build expanded detail section
-      let detailHtml = '';
-      card.classList.add('expandable');
-
-      if (type === 'people') {
-        if (entry.bio) {
-          detailHtml += `<div class="person-bio">${marked.parse(entry.bio)}</div>`;
-        }
-        if (entry.links && entry.links.length > 0) {
-          detailHtml += `<p class="detail-label">Links</p>`;
-          detailHtml += entry.links.map(l =>
-            `<p><a href="${l.url}" target="_blank" rel="noopener">${l.type || l.url}</a></p>`
-          ).join('');
-        }
-        // Relations (affiliations, projects, initiatives — excludes domain affinities shown on card)
-        detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for']);
-      }
-
-      if (type === 'institutions') {
-        if (entry.mandate) {
-          detailHtml += `<p class="detail-label">Mandate</p><p>${entry.mandate}</p>`;
-        }
-        if (entry.ecosystem_role) {
-          detailHtml += `<p class="detail-label">Ecosystem Role</p><p>${entry.ecosystem_role}</p>`;
-        }
-        if (entry.capabilities && entry.capabilities.length > 0) {
-          detailHtml += `<p class="detail-label">Capabilities</p><p>${entry.capabilities.join(', ')}</p>`;
-        }
-        if (entry.constraints && entry.constraints.length > 0) {
-          detailHtml += `<p class="detail-label">Constraints</p><p>${entry.constraints.join(', ')}</p>`;
-        }
-        if (entry.charter_coverage) {
-          detailHtml += `<p class="detail-label">Charter Coverage</p><p>${entry.charter_coverage}</p>`;
-        }
-        if (entry.location) {
-          detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
-        }
-        if (entry.founding_date) {
-          detailHtml += `<p class="detail-label">Founded</p><p>${entry.founding_date}</p>`;
-        }
-        if (entry.website) {
-          detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
-        }
-        detailHtml += renderRelationsDetailHtml(entry.id);
-      }
-
-      if (type === 'projects') {
-        if (entry.project_goals && entry.project_goals.length > 0) {
-          detailHtml += `<p class="detail-label">Goals</p>`;
-          detailHtml += entry.project_goals.map(g => `<p>${g}</p>`).join('');
-        }
-        if (entry.completion_criterion) {
-          detailHtml += `<p class="detail-label">Completion Criterion</p><p>${entry.completion_criterion}</p>`;
-        }
-        if (entry.problem_statement) {
-          detailHtml += `<p class="detail-label">Problem Statement</p><p>${entry.problem_statement}</p>`;
-        }
-        if (entry.scope_boundaries) {
-          detailHtml += `<p class="detail-label">Scope Boundaries</p><p>${entry.scope_boundaries}</p>`;
-        }
-        if (entry.success_criteria) {
-          detailHtml += `<p class="detail-label">Success Criteria</p><p>${entry.success_criteria}</p>`;
-        }
-        detailHtml += renderRelationsDetailHtml(entry.id);
-      }
-
-      if (type === 'initiatives') {
-        if (entry.purpose) {
-          detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
-        }
-        if (entry.activities && entry.activities.length > 0) {
-          detailHtml += `<p class="detail-label">Activities</p>`;
-          detailHtml += entry.activities.map(a => `<p>${a}</p>`).join('');
-        }
-        if (entry.health_indicators && entry.health_indicators.length > 0) {
-          detailHtml += `<p class="detail-label">Health Indicators</p><p>${entry.health_indicators.join(', ')}</p>`;
-        }
-        if (entry.review_cycle) {
-          detailHtml += `<p class="detail-label">Review Cycle</p><p>${entry.review_cycle}</p>`;
-        }
-        detailHtml += renderRelationsDetailHtml(entry.id);
-      }
-
-      if (type === 'courses') {
-        if (entry.charter_alignment && entry.charter_alignment.length > 0) {
-          detailHtml += `<p class="detail-label">Charter Alignment</p>`;
-          detailHtml += entry.charter_alignment.map(a => `<p>${a}</p>`).join('');
-        }
-        detailHtml += renderRelationsDetailHtml(entry.id);
-      }
-
-      if (type === 'events') {
-        if (entry.purpose) {
-          detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
-        }
-        if (entry.schedule && entry.schedule.length > 0) {
-          detailHtml += `<p class="detail-label">Schedule</p>`;
-          detailHtml += entry.schedule.map(s => {
-            let speakers = '';
-            if (s.speakers && s.speakers.length > 0) {
-              speakers = ' — ' + s.speakers.map(sp =>
-                sp.person_id ? personName(sp.person_id) : sp.external_name
-              ).join(', ');
-            }
-            return `<p>${s.time} ${s.title}${speakers}</p>`;
-          }).join('');
-        }
-        if (entry.exhibitions && entry.exhibitions.length > 0) {
-          detailHtml += `<p class="detail-label">Exhibitions</p>`;
-          detailHtml += entry.exhibitions.map(ex => {
-            let people = '';
-            if (ex.participants && ex.participants.length > 0) {
-              people = ' — ' + ex.participants.map(p =>
-                p.person_id ? personName(p.person_id) : p.external_name
-              ).join(', ');
-            }
-            return `<p>${ex.title}${people}</p>`;
-          }).join('');
-        }
-        if (entry.expected_outcomes && entry.expected_outcomes.length > 0) {
-          detailHtml += `<p class="detail-label">Expected Outcomes</p>`;
-          detailHtml += entry.expected_outcomes.map(o => `<p>${o}</p>`).join('');
-        }
-        if (entry.website) {
-          detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
-        }
-        detailHtml += renderRelationsDetailHtml(entry.id);
-      }
-
-      if (type === 'domains') {
-        detailHtml += renderRelationsDetailHtml(entry.id);
-      }
-
-      if (type === 'places') {
-        if (entry.place_type) {
-          detailHtml += `<p class="detail-label">Place Type</p><p>${entry.place_type}</p>`;
-        }
-        if (entry.address) {
-          detailHtml += `<p class="detail-label">Address</p><p>${entry.address}</p>`;
-        }
-        if (entry.website) {
-          detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
-        }
-        detailHtml += renderRelationsDetailHtml(entry.id);
-      }
-
-      const editBtnHtml = isLoggedIn() ? `<button class="card-edit-btn">Edit</button>` : '';
-
       card.innerHTML = `
         <div class="card-header">
           ${portraitHtml}
           <div class="card-name">${nameField}</div>
-          ${editBtnHtml}
         </div>
         <div class="card-meta">${metaHtml}</div>
         ${summaryField ? `<div class="card-summary">${summaryField}</div>` : ''}
         ${relationsHtml ? `<div class="card-relations">${relationsHtml}</div>` : ''}
-        ${detailHtml ? `<div class="card-detail">${detailHtml}</div>` : ''}
       `;
 
       card.addEventListener('click', (e) => {
-        // Don't toggle if clicking a link or button
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
-        card.classList.toggle('expanded');
+        // Don't navigate if clicking a link
+        if (e.target.tagName === 'A') return;
+        location.hash = entityHref(type, entry.id);
       });
-
-      // Edit button handler
-      const editBtn = card.querySelector('.card-edit-btn');
-      if (editBtn) {
-        editBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          showEditModal(entry, type);
-        });
-      }
 
       return card;
     }
@@ -2960,6 +2887,290 @@
           if (list) {
             list.innerHTML = `<p style="color: #c62828;">Error loading data: ${err.message}</p>`;
           }
+        });
+    }
+
+    function loadEntityDetail(type, entityId) {
+      clearOrientationRotator();
+      currentDoc = type;
+      showSidebar(type);
+
+      const meta = registryMeta[type];
+      contentEl.innerHTML = `
+        <div class="entity-detail">
+          <p style="color: #999;">Loading&hellip;</p>
+        </div>
+      `;
+
+      updateActiveNavLink(type);
+      window.scrollTo(0, 0);
+
+      ensureStore()
+        .then(() => {
+          // Resolve slug to full entity ID (e.g. "compass" → "proj_compass")
+          const resolvedId = slugToEntityId(type, entityId);
+          const entry = store.entities[resolvedId];
+          if (!entry) {
+            contentEl.innerHTML = `
+              <div class="entity-detail">
+                <a href="#${type}" class="entity-detail-back">&larr; Back to ${meta.plural}</a>
+                <p style="color: #c62828;">Entity not found: ${escapeHtml(entityId)}</p>
+              </div>
+            `;
+            return;
+          }
+
+          const editBtnHtml = isLoggedIn()
+            ? `<button class="card-edit-btn" id="entity-detail-edit-btn">Edit</button>`
+            : '';
+
+          // Header info
+          let nameHtml = entry.name || entry.id;
+          if (type === 'institutions' && entry.short_name) {
+            nameHtml = `${entry.name} (${entry.short_name})`;
+          }
+          if (type === 'courses' && entry.short_name) {
+            nameHtml = `${entry.name} (${entry.short_name})`;
+          }
+
+          let nameJaHtml = '';
+          if (type === 'people' && entry.name_ja) {
+            nameJaHtml = `<div class="entity-detail-name-ja">${entry.name_ja}</div>`;
+          }
+
+          // Badges
+          let badgesHtml = '';
+          if (entry.status) {
+            badgesHtml += `<span class="status-badge ${entry.status}">${entry.status}</span>`;
+          }
+          if (type === 'people' && entry.role_categories) {
+            entry.role_categories.forEach(r => {
+              badgesHtml += `<span class="type-badge">${r.replace(/_/g, ' ')}</span>`;
+            });
+          }
+          if (type === 'institutions' && entry.institution_type) {
+            badgesHtml += `<span class="type-badge">${entry.institution_type.replace(/_/g, ' ')}</span>`;
+          }
+          if (type === 'projects' && entry.domains) {
+            entry.domains.forEach(d => { badgesHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          if (type === 'initiatives' && entry.domains) {
+            entry.domains.forEach(d => { badgesHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          if (type === 'courses') {
+            badgesHtml += `<span class="type-badge">${entry.credits} credit${entry.credits !== 1 ? 's' : ''}</span>`;
+            if (entry.program) {
+              entry.program.forEach(p => { badgesHtml += `<span class="type-badge">${p.replace(/_/g, ' ')}</span>`; });
+            }
+          }
+          if (type === 'events') {
+            if (entry.event_type) badgesHtml += `<span class="type-badge">${entry.event_type}</span>`;
+            if (entry.date) badgesHtml += `<span class="type-badge">${entry.date}</span>`;
+          }
+          if (type === 'places' && entry.place_type) {
+            badgesHtml += `<span class="type-badge">${entry.place_type}</span>`;
+          }
+
+          // Summary
+          let summaryHtml = '';
+          if (type === 'people' && entry.job_title) {
+            const affiliations = getRelated(entry.id, { type: 'affiliated' });
+            const instNames = affiliations.map(a => getEntityDisplay(a.entity.id));
+            summaryHtml = entry.job_title + (instNames.length > 0 ? ' — ' + instNames.join(', ') : '');
+          } else if (entry.summary) {
+            summaryHtml = entry.summary;
+          }
+
+          // Portrait
+          const portraitSrc = entry.portrait || 'compass-icon.png';
+
+          // Type-specific detail sections
+          let detailHtml = '';
+
+          if (type === 'people') {
+            if (entry.bio) {
+              // Strip leading lines that are just a standalone markdown link (redundant with Links section)
+              const bioText = entry.bio.replace(/^\s*\[.*?\]\(https?:\/\/.*?\)\s*\n+/, '');
+              detailHtml += `<div class="person-bio">${marked.parse(bioText)}</div>`;
+            }
+            if (entry.links && entry.links.length > 0) {
+              detailHtml += `<p class="detail-label">Links</p>`;
+              detailHtml += entry.links.map(l =>
+                `<p><a href="${l.url}" target="_blank" rel="noopener">${l.type || l.url}</a></p>`
+              ).join('');
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for']);
+            // Domains
+            const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
+            if (domainRels.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p>`;
+              detailHtml += `<p>${domainRels.map(r =>
+                `<a href="${entityHref('domains', r.entity.id)}">${getEntityDisplay(r.entity.id)}</a>`
+              ).join(', ')}</p>`;
+            }
+          }
+
+          if (type === 'institutions') {
+            if (entry.mandate) {
+              detailHtml += `<p class="detail-label">Mandate</p><p>${entry.mandate}</p>`;
+            }
+            if (entry.ecosystem_role) {
+              detailHtml += `<p class="detail-label">Ecosystem Role</p><p>${entry.ecosystem_role}</p>`;
+            }
+            if (entry.capabilities && entry.capabilities.length > 0) {
+              detailHtml += `<p class="detail-label">Capabilities</p><p>${entry.capabilities.join(', ')}</p>`;
+            }
+            if (entry.constraints && entry.constraints.length > 0) {
+              detailHtml += `<p class="detail-label">Constraints</p><p>${entry.constraints.join(', ')}</p>`;
+            }
+            if (entry.charter_coverage) {
+              detailHtml += `<p class="detail-label">Charter Coverage</p><p>${entry.charter_coverage}</p>`;
+            }
+            if (entry.location) {
+              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+            }
+            if (entry.founding_date) {
+              detailHtml += `<p class="detail-label">Founded</p><p>${entry.founding_date}</p>`;
+            }
+            if (entry.website) {
+              detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'projects') {
+            if (entry.project_goals && entry.project_goals.length > 0) {
+              detailHtml += `<p class="detail-label">Goals</p>`;
+              detailHtml += entry.project_goals.map(g => `<p>${g}</p>`).join('');
+            }
+            if (entry.completion_criterion) {
+              detailHtml += `<p class="detail-label">Completion Criterion</p><p>${entry.completion_criterion}</p>`;
+            }
+            if (entry.problem_statement) {
+              detailHtml += `<p class="detail-label">Problem Statement</p><p>${entry.problem_statement}</p>`;
+            }
+            if (entry.scope_boundaries) {
+              detailHtml += `<p class="detail-label">Scope Boundaries</p><p>${entry.scope_boundaries}</p>`;
+            }
+            if (entry.success_criteria) {
+              detailHtml += `<p class="detail-label">Success Criteria</p><p>${entry.success_criteria}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'initiatives') {
+            if (entry.purpose) {
+              detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
+            }
+            if (entry.activities && entry.activities.length > 0) {
+              detailHtml += `<p class="detail-label">Activities</p>`;
+              detailHtml += entry.activities.map(a => `<p>${a}</p>`).join('');
+            }
+            if (entry.health_indicators && entry.health_indicators.length > 0) {
+              detailHtml += `<p class="detail-label">Health Indicators</p><p>${entry.health_indicators.join(', ')}</p>`;
+            }
+            if (entry.review_cycle) {
+              detailHtml += `<p class="detail-label">Review Cycle</p><p>${entry.review_cycle}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'courses') {
+            if (entry.charter_alignment && entry.charter_alignment.length > 0) {
+              detailHtml += `<p class="detail-label">Charter Alignment</p>`;
+              detailHtml += entry.charter_alignment.map(a => `<p>${a}</p>`).join('');
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'events') {
+            if (entry.purpose) {
+              detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
+            }
+            if (entry.schedule && entry.schedule.length > 0) {
+              detailHtml += `<p class="detail-label">Schedule</p>`;
+              detailHtml += entry.schedule.map(s => {
+                let speakers = '';
+                if (s.speakers && s.speakers.length > 0) {
+                  speakers = ' — ' + s.speakers.map(sp =>
+                    sp.person_id ? personName(sp.person_id) : sp.external_name
+                  ).join(', ');
+                }
+                return `<p>${s.time} ${s.title}${speakers}</p>`;
+              }).join('');
+            }
+            if (entry.exhibitions && entry.exhibitions.length > 0) {
+              detailHtml += `<p class="detail-label">Exhibitions</p>`;
+              detailHtml += entry.exhibitions.map(ex => {
+                let people = '';
+                if (ex.participants && ex.participants.length > 0) {
+                  people = ' — ' + ex.participants.map(p =>
+                    p.person_id ? personName(p.person_id) : p.external_name
+                  ).join(', ');
+                }
+                return `<p>${ex.title}${people}</p>`;
+              }).join('');
+            }
+            if (entry.expected_outcomes && entry.expected_outcomes.length > 0) {
+              detailHtml += `<p class="detail-label">Expected Outcomes</p>`;
+              detailHtml += entry.expected_outcomes.map(o => `<p>${o}</p>`).join('');
+            }
+            if (entry.website) {
+              detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'domains') {
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'places') {
+            if (entry.address) {
+              detailHtml += `<p class="detail-label">Address</p><p>${entry.address}</p>`;
+            }
+            if (entry.website) {
+              detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          contentEl.innerHTML = `
+            <div class="entity-detail">
+              <div class="entity-detail-top-row">
+                <a href="#${type}" class="entity-detail-back">&larr; Back to ${meta.plural}</a>
+                ${editBtnHtml}
+              </div>
+              <div class="entity-detail-header">
+                <img class="entity-detail-portrait" src="${portraitSrc}" alt="">
+                <div class="entity-detail-header-info">
+                  <h1>${nameHtml}</h1>
+                  ${nameJaHtml}
+                  ${badgesHtml ? `<div class="entity-detail-badges">${badgesHtml}</div>` : ''}
+                </div>
+              </div>
+              ${summaryHtml ? `<div class="entity-detail-summary">${summaryHtml}</div>` : ''}
+              <div class="entity-detail-section">
+                ${detailHtml}
+              </div>
+            </div>
+          `;
+
+          // Edit button handler
+          const editBtn = document.getElementById('entity-detail-edit-btn');
+          if (editBtn) {
+            editBtn.addEventListener('click', () => {
+              showEditModal(entry, type);
+            });
+          }
+        })
+        .catch(err => {
+          contentEl.innerHTML = `
+            <div class="entity-detail">
+              <a href="#${type}" class="entity-detail-back">&larr; Back to ${meta.plural}</a>
+              <p style="color: #c62828;">Error loading data: ${err.message}</p>
+            </div>
+          `;
         });
     }
 
@@ -3211,7 +3422,7 @@
                 if (data.job_title) html += `<p><strong>Title:</strong> ${data.job_title}</p>`;
                 if (data.role_categories) html += `<p><strong>Roles:</strong> ${data.role_categories.join(', ')}</p>`;
                 const netDomains = getRelated(data.id, { type: 'has_affinity_for' });
-                if (netDomains.length > 0) html += `<p><strong>Domains:</strong> ${netDomains.map(r => getEntityDisplay(r.entity.id)).join(', ')}</p>`;
+                if (netDomains.length > 0) html += `<p><strong>Domains:</strong> ${netDomains.map(r => `<a href="${entityHref('domains', r.entity.id)}" style="color:inherit;text-decoration:underline dotted;">${getEntityDisplay(r.entity.id)}</a>`).join(', ')}</p>`;
                 if (data.background) html += `<p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.85rem;">${data.background}</p>`;
                 break;
               case 'institutions':
@@ -3242,7 +3453,7 @@
                 break;
             }
 
-            html += `<p style="margin-top: 0.75rem;"><a href="#${type}" style="color: ${nodeColors[type]}; text-decoration: none; border-bottom: 1px solid ${nodeColors[type]};">View all ${(registryMeta[type] || {}).plural || type}</a></p>`;
+            html += `<p style="margin-top: 0.75rem;"><a href="${entityHref(type, data.id)}" style="color: ${nodeColors[type]}; text-decoration: none; border-bottom: 1px solid ${nodeColors[type]};">View detail</a> &middot; <a href="#${type}" style="color: ${nodeColors[type]}; text-decoration: none; border-bottom: 1px solid ${nodeColors[type]};">View all ${(registryMeta[type] || {}).plural || type}</a></p>`;
 
             detail.innerHTML = html;
             detail.classList.add('visible');
@@ -4318,7 +4529,11 @@
 
     // Load document based on hash
     function loadFromHash() {
-      const hash = window.location.hash.slice(1) || 'home';
+      const rawHash = window.location.hash.slice(1) || 'home';
+      // Parse entity deep link: #type/entityId
+      const slashIdx = rawHash.indexOf('/');
+      const hash = slashIdx > 0 ? rawHash.slice(0, slashIdx) : rawHash;
+      const entityId = slashIdx > 0 ? rawHash.slice(slashIdx + 1) : null;
       const docKey = Object.keys(routes).includes(hash) ? hash : 'home';
 
       // Clean up network resize listener when leaving
@@ -4344,7 +4559,11 @@
       } else if (docKey === 'history') {
         loadHistory();
       } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places'].includes(docKey)) {
-        loadRegistryList(docKey);
+        if (entityId) {
+          loadEntityDetail(docKey, entityId);
+        } else {
+          loadRegistryList(docKey);
+        }
       } else if (docKey === 'network') {
         loadNetwork();
       } else if (docKey === 'feedback') {
