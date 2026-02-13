@@ -326,5 +326,32 @@
       "sustainability"
     ],
     "website": "https://symposium25.chibatech.dev"
+  },
+  {
+    "id": "event_2025_ai_safety_workshop",
+    "type": "event",
+    "name": "AI Safety Workshop 2025",
+    "summary": "Japan AISI's first international AI Safety convening, bringing together over 40 participants from academia, government, industry, and civil society across six countries.",
+    "event_type": "workshop",
+    "purpose": "Build international community and institutional capacity to support Japanese leadership in the global AI conversation by connecting policymakers, researchers, and major industry players.",
+    "audience": "Policymakers, researchers, and industry leaders from Japan, South Korea, Singapore, US, UK, and Germany",
+    "date": "2025-07",
+    "duration": "multi-day",
+    "location": {
+      "venue": "Tokyo, Japan",
+      "room": null,
+      "remote_url": null
+    },
+    "expected_outcomes": [
+      "Strengthen Japan's role in international AI safety governance",
+      "Connect policymakers, researchers, and industry players across six countries",
+      "Advance practical AI governance approaches through direct engagement with Japanese corporations"
+    ],
+    "status": "completed",
+    "domains": [
+      "AI safety",
+      "governance",
+      "technology policy"
+    ]
   }
 ]

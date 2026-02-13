@@ -131,6 +131,11 @@
   },
   {
     "source": "inst_aisi",
+    "target": "event_2025_ai_safety_workshop",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_aisi",
     "target": "init_ai_safety_workshop",
     "type": "hosts"
   },
@@ -549,6 +554,11 @@
     "meta": {
       "role": "Academic Director"
     }
+  },
+  {
+    "source": "person_bates_samantha",
+    "target": "event_2025_ai_safety_workshop",
+    "type": "organizes"
   },
   {
     "source": "person_bates_samantha",
