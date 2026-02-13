@@ -1,6 +1,0 @@
----
-name: Vikash K. Mansinghka
-position: visiting_researcher
----
-
-Vikash Mansinghka is a Principal Research Scientist at [MIT](http://web.mit.edu/), where he leads the [Probabilistic Computing Project](http://probcomp.csail.mit.edu/). Vikash holds S.B. degrees in Mathematics and in Computer Science from MIT, as well as an M.Eng. in Computer Science and a PhD in Computation. He also held graduate fellowships from the National Science Foundation and MIT’s Lincoln Laboratory. His PhD dissertation on natively probabilistic computation won the MIT George M. Sprowls dissertation award in computer science, and his research on the Picture probabilistic programming language won an award at CVPR. He co-founded two VC-backed startups: Prior Knowledge (acquired by Salesforce in 2012) and Empirical Systems (acquired by Tableau in 2018). He served on DARPA’s Information Science and Technology advisory board from 2010-2012, currently serves on the editorial boards for the Journal of Machine Learning Research and the journal Statistics and Computation, and co-founded the International Conference on Probabilistic Programming.
