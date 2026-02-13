@@ -14,7 +14,6 @@ Compass exists to:
 2. **Lower the barrier to contribution** — Provide clear pathways so that anyone in the ecosystem can propose changes, not just those comfortable with technical tooling
 3. **Anchor values over time** — Provide a stable set of principles that persist even as people, projects, and structures change
 4. **Enable antidisciplinary work** — Support collaboration across disciplines by focusing on paradigms, systems, and shared purpose
-5. **Make institutional drift visible** — Track how decisions evolve, so that changes to principles are traceable and auditable rather than silent
 
 ---
 

@@ -35,14 +35,14 @@ Compass documents are organized into two layers, inspired by a biological analog
 ```
 compass/
 ├── data/
-│   ├── courses.json       (25 courses)
+│   ├── courses.json       (27 courses)
 │   ├── events.json        (1 event)
 │   ├── initiatives.json   (10 initiatives)
 │   ├── institutions.json  (8 institutions)
 │   ├── people.json        (62 people)
 │   ├── portraits/         (profile photos for people entries)
 │   ├── projects.json      (3 projects)
-│   └── relations.json     (231 relations between entities)
+│   └── relations.json     (316 relations between entities)
 ├── docs/
 │   ├── ARCHETYPES.md
 │   └── CURRICULUM.md
@@ -147,14 +147,17 @@ Eight entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html` + `compass-data.js`):
-- Single-page app with hash routing. Routes: `#home`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`. Charter links navigate to external site `charter.henkaku.center`.
-- Top nav bar shows minimal links (Feedback, GitHub, Login). Full site navigation is in a sidebar organized into DNA, Emergent, and Info groups (with Theses and Posts as placeholders)
+- Single-page app with hash routing. Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`
+- `#charter` fetches and renders Charter markdown from `charter.henkaku.center/content/CHARTER.md` inline (with a banner linking to the definitive source and showing the current version dynamically)
+- Top nav bar shows minimal links (Feedback, GitHub, Login). Full site navigation is in a left sidebar organized into DNA, Emergent, and Info groups (with Theses and Posts as placeholders)
+- Right-hand document TOC sidebar with scroll-spy for Charter, Archetypes, About, and Status pages
 - Client-side markdown rendering with marked.js (no build process)
 - `compass-data.js` provides the unified data layer: entity store, relation management, generic graph building, and relation rendering
+- Curriculum tables use page-scoped CSS (`table-layout: fixed`, 55%/10%/35% column widths for Course/Credits/Instructor); other pages use auto layout
 - `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes)
-- `#feedback` page lets logged-in users submit bug reports and feature requests via GitHub API
+- `#feedback` page lets logged-in users submit bug reports and feature requests with file/image attachments (10 MB max per file), committed to `data/feedback/` via GitHub API
 - Landing page organized into three labeled groups: DNA, Emergent, and Info, with animated card entrances
-- Compass icon has a magnetic-settle animation tied to the orientation rotator
+- Compass icon has a magnetic-settle animation tied to the orientation rotator; nav icon aligns with left sidebar content
 - Login via GitHub personal access token (stored in sessionStorage) enables inline editing of registry entries and feedback submission
 - Cache-busting with timestamp query parameters
 - 3D network graph visualization uses 3d-force-graph (CDN) with Three.js and d3-force-3d
@@ -163,8 +166,9 @@ Eight entry types:
 - One JSON file per entity type, each containing an array of objects with intrinsic attributes only
 - `data/relations.json` stores all cross-references as `{source, target, type, meta?}` triples
 - Field names match `docs/ARCHETYPES.md` schemas; IDs follow patterns like `person_winder_ira`, `proj_compass`, `course_dna`, `event_2025_symposium`
-- Contains real data: 62 people (with portraits), 10 initiatives, 8 institutions, 3 projects, 25 courses, 1 event, 231 relations
+- Contains real data: 62 people (with portraits), 10 initiatives, 8 institutions, 3 projects, 27 courses, 1 event, 316 relations
 - `data/portraits/` contains profile photos referenced by people entries
+- `data/feedback/` stores file attachments uploaded with feedback submissions
 
 ### Version Control
 
