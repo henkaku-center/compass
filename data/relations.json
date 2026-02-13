@@ -131,11 +131,6 @@
   },
   {
     "source": "inst_chibatech",
-    "target": "init_compass_initiative",
-    "type": "hosts"
-  },
-  {
-    "source": "inst_chibatech",
     "target": "inst_henkaku",
     "type": "hosts"
   },
@@ -773,14 +768,6 @@
   {
     "source": "person_ito_joi",
     "target": "init_ai_safety_workshop",
-    "type": "participant",
-    "meta": {
-      "role": "Sponsor"
-    }
-  },
-  {
-    "source": "person_ito_joi",
-    "target": "init_compass_initiative",
     "type": "participant",
     "meta": {
       "role": "Sponsor"
@@ -1832,7 +1819,10 @@
   {
     "source": "person_winder_ira",
     "target": "init_compass_initiative",
-    "type": "owner"
+    "type": "owner",
+    "meta": {
+      "role": "Director"
+    }
   },
   {
     "source": "person_winder_ira",
@@ -2727,5 +2717,10 @@
     "meta": {
       "role": "Principal Investigator"
     }
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "init_compass_initiative",
+    "type": "participant"
   }
 ]
