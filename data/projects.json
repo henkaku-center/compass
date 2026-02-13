@@ -7,14 +7,15 @@
     "status": "active",
     "project_goals": [
       "Define shared charter and governance framework",
-      "Design registry archetypes for 7 entry types",
+      "Design registry archetypes for 10 entry types",
       "Build web viewer for coordination documents"
     ],
     "domains": [
       "coordination",
       "governance",
       "infrastructure"
-    ]
+    ],
+    "website": "https://compass.henkaku.center"
   },
   {
     "id": "proj_sds_launch",

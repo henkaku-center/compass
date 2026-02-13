@@ -105,26 +105,6 @@
     "type": "partner"
   },
   {
-    "source": "init_compass_initiative",
-    "target": "proj_charter",
-    "type": "contains"
-  },
-  {
-    "source": "init_compass_initiative",
-    "target": "proj_charter",
-    "type": "spawned"
-  },
-  {
-    "source": "init_compass_initiative",
-    "target": "proj_compass",
-    "type": "contains"
-  },
-  {
-    "source": "init_compass_initiative",
-    "target": "proj_compass",
-    "type": "spawned"
-  },
-  {
     "source": "init_probabilistic_computing",
     "target": "inst_jpcca",
     "type": "partner"
@@ -1873,22 +1853,34 @@
   {
     "source": "person_winder_ira",
     "target": "proj_charter",
-    "type": "contributor"
+    "type": "contributor",
+    "meta": {
+      "role": "Principal Investigator"
+    }
   },
   {
     "source": "person_winder_ira",
     "target": "proj_charter",
-    "type": "owner"
+    "type": "owner",
+    "meta": {
+      "role": "Principal Investigator"
+    }
   },
   {
     "source": "person_winder_ira",
     "target": "proj_compass",
-    "type": "owner"
+    "type": "owner",
+    "meta": {
+      "role": "Principal Investigator"
+    }
   },
   {
     "source": "person_winder_ira",
     "target": "proj_sds_launch",
-    "type": "contributor"
+    "type": "contributor",
+    "meta": {
+      "role": "Incoming Faculty"
+    }
   },
   {
     "source": "person_xiao_xiao",
@@ -2717,5 +2709,23 @@
     "source": "person_bates_samantha",
     "target": "init_compass_initiative",
     "type": "participant"
+  },
+  {
+    "source": "proj_charter",
+    "target": "init_compass_initiative",
+    "type": "spawned_by"
+  },
+  {
+    "source": "proj_compass",
+    "target": "init_compass_initiative",
+    "type": "spawned_by"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "proj_compass",
+    "type": "contributor",
+    "meta": {
+      "role": "Principal Investigator"
+    }
   }
 ]

@@ -35,8 +35,6 @@ const RELATION_TYPES = {
   hosted_by:        { inverse: 'hosts',            label: 'Hosted by',      inverseLabel: 'Hosts' },
   spawned:          { inverse: 'spawned_by',       label: 'Spawned',        inverseLabel: 'Spawned by' },
   spawned_by:       { inverse: 'spawned',          label: 'Spawned by',     inverseLabel: 'Spawned' },
-  contains:         { inverse: 'contained_by',     label: 'Contains',       inverseLabel: 'Contained by' },
-  contained_by:     { inverse: 'contains',         label: 'Contained by',   inverseLabel: 'Contains' },
   parent:           { inverse: 'child',            label: 'Parent of',      inverseLabel: 'Child of' },
   child:            { inverse: 'parent',           label: 'Child of',       inverseLabel: 'Parent of' },
   depends_on:       { inverse: 'dependency_of',    label: 'Depends on',     inverseLabel: 'Dependency of' },
