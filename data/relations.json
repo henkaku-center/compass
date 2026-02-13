@@ -356,6 +356,11 @@
   },
   {
     "source": "inst_sds",
+    "target": "course_entrepreneurship",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
     "target": "course_human_machine_learning",
     "type": "hosts"
   },
@@ -386,6 +391,11 @@
   },
   {
     "source": "inst_sds",
+    "target": "course_speculative_design",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
     "target": "course_tech_values",
     "type": "hosts"
   },
@@ -402,6 +412,71 @@
       "role": "Visiting Researcher",
       "primary": true
     }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_adv_human_machine_learning",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_aps_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_aps_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_career_development",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_communication",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_dna",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_doctoral_research_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_doctoral_research_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_doctoral_research_3",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_engineering_ethics",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_human_machine_learning",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_masters_research",
+    "type": "teaches"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "course_modular_seminar",
+    "type": "teaches"
   },
   {
     "source": "person_austerweil_joseph",
@@ -669,6 +744,56 @@
   },
   {
     "source": "person_ito_joi",
+    "target": "course_aps_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_aps_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_awareness",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_dna",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_doctoral_research_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_doctoral_research_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_doctoral_research_3",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_entrepreneurship",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_masters_research",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "course_modular_seminar",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ito_joi",
     "target": "event_2025_symposium",
     "type": "organizes"
   },
@@ -809,6 +934,51 @@
   },
   {
     "source": "person_kim_daum",
+    "target": "course_aps_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "course_aps_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "course_digital_media",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "course_dna",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "course_doctoral_research_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "course_doctoral_research_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "course_doctoral_research_3",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "course_masters_research",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "course_modular_seminar",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kim_daum",
     "target": "event_2025_symposium",
     "type": "speaks_at",
     "meta": {
@@ -856,6 +1026,61 @@
     "meta": {
       "role": "Incoming Faculty"
     }
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_adv_complex_systems",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_aps_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_aps_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_complex_systems",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_dna",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_doctoral_research_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_doctoral_research_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_doctoral_research_3",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_masters_research",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_modern_physics",
+    "type": "teaches"
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "course_modular_seminar",
+    "type": "teaches"
   },
   {
     "source": "person_kojima_hiroki",
@@ -973,6 +1198,61 @@
       "role": "Visiting Researcher",
       "primary": true
     }
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_adv_law_governance",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_aps_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_aps_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_dna",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_doctoral_research_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_doctoral_research_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_doctoral_research_3",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_law_governance",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_masters_research",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_modular_seminar",
+    "type": "teaches"
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "course_tech_values",
+    "type": "teaches"
   },
   {
     "source": "person_maracke_catharina",
@@ -1127,6 +1407,56 @@
   },
   {
     "source": "person_oka_mizuki",
+    "target": "course_adv_intelligent_agents",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_aps_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_aps_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_dna",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_doctoral_research_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_doctoral_research_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_doctoral_research_3",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_intelligent_agents",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_masters_research",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "course_modular_seminar",
+    "type": "teaches"
+  },
+  {
+    "source": "person_oka_mizuki",
     "target": "event_2025_symposium",
     "type": "speaks_at",
     "meta": {
@@ -1195,6 +1525,51 @@
     "meta": {
       "role": "Incoming Faculty"
     }
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_aps_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_aps_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_dna",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_doctoral_research_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_doctoral_research_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_doctoral_research_3",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_masters_research",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_modular_seminar",
+    "type": "teaches"
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "course_speculative_design",
+    "type": "teaches"
   },
   {
     "source": "person_ozaki_hiromi",
@@ -1547,31 +1922,54 @@
     }
   },
   {
-    "source": "person_xiao_xiao",
-    "target": "event_2025_symposium",
-    "type": "speaks_at",
-    "meta": {
-      "session": "Building an Antidisciplinary Organization",
-      "role": "panelist"
-    }
+    "source": "person_winder_ira",
+    "target": "course_adv_design_prototyping",
+    "type": "teaches"
   },
   {
-    "source": "person_xiao_xiao",
-    "target": "inst_henkaku",
-    "type": "affiliated",
-    "meta": {
-      "role": "Visiting Researcher",
-      "primary": true
-    }
+    "source": "person_winder_ira",
+    "target": "course_aps_1",
+    "type": "teaches"
   },
   {
-    "source": "person_zamma_toshiyuki",
-    "target": "inst_henkaku",
-    "type": "affiliated",
-    "meta": {
-      "role": "Visiting Researcher",
-      "primary": true
-    }
+    "source": "person_winder_ira",
+    "target": "course_aps_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "course_design_prototyping",
+    "type": "teaches"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "course_dna",
+    "type": "teaches"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "course_doctoral_research_1",
+    "type": "teaches"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "course_doctoral_research_2",
+    "type": "teaches"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "course_doctoral_research_3",
+    "type": "teaches"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "course_masters_research",
+    "type": "teaches"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "course_modular_seminar",
+    "type": "teaches"
   },
   {
     "source": "person_winder_ira",
@@ -1622,5 +2020,32 @@
     "source": "person_winder_ira",
     "target": "proj_sds_launch",
     "type": "contributor"
+  },
+  {
+    "source": "person_xiao_xiao",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Building an Antidisciplinary Organization",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_xiao_xiao",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_zamma_toshiyuki",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
   }
 ]

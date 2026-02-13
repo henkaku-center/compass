@@ -464,5 +464,45 @@
       "making"
     ],
     "status": "planned"
+  },
+  {
+    "id": "course_speculative_design",
+    "type": "course",
+    "name": "Speculative Design",
+    "summary": "Explores the intersection of technology, identity, and society through speculative artifacts that challenge social norms and imagine ethical implications of emerging technologies.",
+    "credits": 2,
+    "program": [
+      "masters_elective"
+    ],
+    "charter_alignment": [
+      "Section II.2 Radical Transformation and Human Flourishing — imagining alternative futures",
+      "Section IV.2 Learning Through Making — producing artifacts that exist in the world"
+    ],
+    "domains": [
+      "speculative design",
+      "art",
+      "technology",
+      "society"
+    ],
+    "status": "planned"
+  },
+  {
+    "id": "course_entrepreneurship",
+    "type": "course",
+    "name": "Entrepreneurship",
+    "summary": "Explores venture creation, business models, and innovation ecosystems with emphasis on technology entrepreneurship in Japan.",
+    "credits": 2,
+    "program": [
+      "masters_elective"
+    ],
+    "charter_alignment": [
+      "Section II.6 Experimentation and Risk — real stakes, failure as learning"
+    ],
+    "domains": [
+      "entrepreneurship",
+      "innovation",
+      "business"
+    ],
+    "status": "planned"
   }
 ]
