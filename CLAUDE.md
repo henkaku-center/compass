@@ -44,7 +44,7 @@ compass/
 │   ├── places.json        (4 places)
 │   ├── portraits/         (profile photos for people entries)
 │   ├── projects.json      (3 projects)
-│   └── relations.json     (477 relations between entities)
+│   └── relations.json     (460 relations between entities)
 ├── docs/
 │   ├── ARCHETYPES.md
 │   └── CURRICULUM.md
@@ -170,7 +170,7 @@ Ten entry types:
 - One JSON file per entity type, each containing an array of objects with intrinsic attributes only
 - `data/relations.json` stores all cross-references as `{source, target, type, meta?}` triples
 - Field names match `docs/ARCHETYPES.md` schemas; IDs follow patterns like `person_winder_ira`, `proj_compass`, `course_dna`, `event_2025_symposium`, `domain_complex_systems`, `place_henkaku_center`
-- Contains real data: 62 people (with portraits), 10 initiatives, 9 institutions, 3 projects, 27 courses, 1 event, 50 domains, 4 places, 477 relations
+- Contains real data: 62 people (with portraits), 10 initiatives, 9 institutions, 3 projects, 27 courses, 1 event, 50 domains, 4 places, 460 relations
 - `data/portraits/` contains profile photos referenced by people entries
 - `data/feedback/` stores file attachments uploaded with feedback submissions
 
