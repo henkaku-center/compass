@@ -524,25 +524,16 @@
   },
   {
     "source": "person_austerweil_joseph",
-    "target": "inst_jpcca",
-    "type": "contact_for",
+    "target": "inst_sds",
+    "type": "affiliated",
     "meta": {
-      "role": "researcher"
+      "role": "Faculty"
     }
   },
   {
     "source": "person_austerweil_joseph",
     "target": "inst_sds",
     "type": "affiliated",
-    "meta": {
-      "role": "Faculty",
-      "primary": true
-    }
-  },
-  {
-    "source": "person_austerweil_joseph",
-    "target": "inst_sds",
-    "type": "contact_for",
     "meta": {
       "role": "Academic Director"
     }
@@ -764,16 +755,6 @@
   },
   {
     "source": "person_ito_joi",
-    "target": "course_aps_1",
-    "type": "teaches"
-  },
-  {
-    "source": "person_ito_joi",
-    "target": "course_aps_2",
-    "type": "teaches"
-  },
-  {
-    "source": "person_ito_joi",
     "target": "course_awareness",
     "type": "teaches"
   },
@@ -784,32 +765,7 @@
   },
   {
     "source": "person_ito_joi",
-    "target": "course_doctoral_research_1",
-    "type": "teaches"
-  },
-  {
-    "source": "person_ito_joi",
-    "target": "course_doctoral_research_2",
-    "type": "teaches"
-  },
-  {
-    "source": "person_ito_joi",
-    "target": "course_doctoral_research_3",
-    "type": "teaches"
-  },
-  {
-    "source": "person_ito_joi",
     "target": "course_entrepreneurship",
-    "type": "teaches"
-  },
-  {
-    "source": "person_ito_joi",
-    "target": "course_masters_research",
-    "type": "teaches"
-  },
-  {
-    "source": "person_ito_joi",
-    "target": "course_modular_seminar",
     "type": "teaches"
   },
   {
@@ -832,7 +788,7 @@
     "type": "speaks_at",
     "meta": {
       "session": "Entrepreneurship in Japan",
-      "role": "panelist"
+      "role": "moderator"
     }
   },
   {
@@ -891,14 +847,6 @@
   },
   {
     "source": "person_ito_joi",
-    "target": "inst_chibatech",
-    "type": "contact_for",
-    "meta": {
-      "role": "director"
-    }
-  },
-  {
-    "source": "person_ito_joi",
     "target": "inst_henkaku",
     "type": "affiliated",
     "meta": {
@@ -907,26 +855,10 @@
   },
   {
     "source": "person_ito_joi",
-    "target": "inst_henkaku",
-    "type": "contact_for",
-    "meta": {
-      "role": "director"
-    }
-  },
-  {
-    "source": "person_ito_joi",
     "target": "inst_jpcca",
     "type": "affiliated",
     "meta": {
       "role": "Director"
-    }
-  },
-  {
-    "source": "person_ito_joi",
-    "target": "inst_jpcca",
-    "type": "contact_for",
-    "meta": {
-      "role": "director"
     }
   },
   {
@@ -969,21 +901,6 @@
   {
     "source": "person_kim_daum",
     "target": "course_dna",
-    "type": "teaches"
-  },
-  {
-    "source": "person_kim_daum",
-    "target": "course_doctoral_research_1",
-    "type": "teaches"
-  },
-  {
-    "source": "person_kim_daum",
-    "target": "course_doctoral_research_2",
-    "type": "teaches"
-  },
-  {
-    "source": "person_kim_daum",
-    "target": "course_doctoral_research_3",
     "type": "teaches"
   },
   {
@@ -1498,14 +1415,6 @@
   },
   {
     "source": "person_oka_mizuki",
-    "target": "inst_alife",
-    "type": "contact_for",
-    "meta": {
-      "role": "steering committee"
-    }
-  },
-  {
-    "source": "person_oka_mizuki",
     "target": "inst_henkaku",
     "type": "affiliated",
     "meta": {
@@ -1522,19 +1431,19 @@
   },
   {
     "source": "person_oka_mizuki",
-    "target": "inst_jpcca",
-    "type": "contact_for",
-    "meta": {
-      "role": "researcher"
-    }
-  },
-  {
-    "source": "person_oka_mizuki",
     "target": "inst_sds",
     "type": "affiliated",
     "meta": {
       "role": "Faculty",
       "primary": true
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "inst_alife",
+    "type": "affiliated",
+    "meta": {
+      "role": "Steering Committee"
     }
   },
   {
@@ -1823,14 +1732,6 @@
   },
   {
     "source": "person_szep_grisha",
-    "target": "inst_alife",
-    "type": "contact_for",
-    "meta": {
-      "role": "researcher"
-    }
-  },
-  {
-    "source": "person_szep_grisha",
     "target": "inst_henkaku",
     "type": "affiliated",
     "meta": {
@@ -1844,14 +1745,6 @@
     "type": "affiliated",
     "meta": {
       "role": "Researcher"
-    }
-  },
-  {
-    "source": "person_szep_grisha",
-    "target": "inst_jpcca",
-    "type": "contact_for",
-    "meta": {
-      "role": "researcher"
     }
   },
   {
@@ -1963,21 +1856,6 @@
   {
     "source": "person_winder_ira",
     "target": "course_dna",
-    "type": "teaches"
-  },
-  {
-    "source": "person_winder_ira",
-    "target": "course_doctoral_research_1",
-    "type": "teaches"
-  },
-  {
-    "source": "person_winder_ira",
-    "target": "course_doctoral_research_2",
-    "type": "teaches"
-  },
-  {
-    "source": "person_winder_ira",
-    "target": "course_doctoral_research_3",
     "type": "teaches"
   },
   {

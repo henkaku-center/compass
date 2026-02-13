@@ -2656,7 +2656,7 @@
 
         case 'people':
           if (entry.name_ja) {
-            nameField += ` <span style="opacity:0.5;font-weight:normal;">${entry.name_ja}</span>`;
+            nameField += `<div style="opacity:0.5;font-weight:normal;font-size:0.85em;">${entry.name_ja}</div>`;
           }
           if (entry.role_categories) {
             entry.role_categories.forEach(r => {
@@ -3725,7 +3725,6 @@
         { type: 'contributor', targetTypes: ['projects'], label: 'Contributor to' },
         { type: 'owner', targetTypes: ['initiatives'], label: 'Owner of' },
         { type: 'participant', targetTypes: ['initiatives'], label: 'Participant in' },
-        { type: 'contact_for', targetTypes: ['institutions'], label: 'Contact for' },
         { type: 'teaches', targetTypes: ['courses'], label: 'Teaches' },
         { type: 'organizes', targetTypes: ['events'], label: 'Organizes' },
         { type: 'speaks_at', targetTypes: ['events'], label: 'Speaks at' },

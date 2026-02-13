@@ -65,7 +65,7 @@
     "id": "person_maracke_catharina",
     "type": "person",
     "name": "Catharina Maracke",
-    "name_ja": "カタリーナ・マラッケ",
+    "name_ja": "カタリーナ マラッケ",
     "role_categories": [
       "faculty",
       "visiting_researcher"
@@ -160,7 +160,7 @@
     ],
     "status": "active",
     "portrait": "data/portraits/tenzin-priyadarshi.jpg",
-    "name_ja": "テンジン・プリヤダルシ",
+    "name_ja": "テンジン プリヤダルシ",
     "bio": "Tenzin Priyadarshi is the president and CEO of the Dalai Lama Center for Ethics and Transformative Values at the [Massachusetts Institute of Technology](https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology).",
     "bio_ja": "テンジン・プリヤダルシは、[マサチューセッツ工科大学](https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology)のダライ・ラマ倫理・変革的価値センターの代表兼CEOです。"
   },
@@ -168,7 +168,7 @@
     "id": "person_raz_gal",
     "type": "person",
     "name": "Gal Raz",
-    "name_ja": "ガル・ラズ",
+    "name_ja": "ガル ラズ",
     "role_categories": [
       "researcher"
     ],
@@ -213,7 +213,7 @@
     "id": "person_bates_samantha",
     "type": "person",
     "name": "Samantha Bates",
-    "name_ja": "サマンサ・ベイツ",
+    "name_ja": "サマンサ ベイツ",
     "role_categories": [
       "staff"
     ],
@@ -316,7 +316,7 @@
     ],
     "status": "active",
     "portrait": "data/portraits/eduardo-castello.jpg",
-    "name_ja": "エドゥアルド・カステッロ",
+    "name_ja": "エドゥアルド カステッロ",
     "bio": "**Postdoctoral research affiliate at Massachusetts Institute of Technology (MIT)**\n\nResearcher specialized in robotics. I have collaborated on international projects in Japan, Europe and the United States, with world-class academics such as Alex ('Sandy') Pentland and Hiroshi Ishiguro. Currently conducting research and participating in projects on robotics and blockchain technology.\n\nI have written in various generalist publications such as El País, El Mundo as well as scientific publications such as Advanced Robotics or Swarm Intelligence. My projects have had repercussions in several media outlets, like BBC, Wired, The Guardian or MIT Technology Review. I've given masterclasses and lectures at international congresses such as ICRA, EMTECH or GREX.\n\nMy goal is to build new distributed robotic systems that can change the way humanity feeds, communicates, transports and lives. These new decentralized technologies will have a great weight to build more open, fair and transparent ecosystems for their future users.",
     "bio_ja": "**マサチューセッツ工科大学（MIT）博士研究員**\n\nロボティクスを専門とする研究者。日本、欧州、米国の国際プロジェクトにおいて、Alex（\"Sandy\"）PentlandやHiroshi Ishiguroなど世界的な研究者と共同研究を行ってきました。現在はロボティクスとブロックチェーン技術に関する研究およびプロジェクトに参加しています。\n\nEl País、El Mundoなどの総合メディアや、Advanced Robotics、Swarm Intelligenceなどの学術誌に寄稿しています。プロジェクトはBBC、Wired、The Guardian、MIT Technology Reviewなど複数のメディアで取り上げられています。ICRA、EMTECH、GREXなどの国際会議でマスタークラスや講演を行っています。\n\n目標は、人類の食料供給、コミュニケーション、輸送、生活のあり方を変えることができる新しい分散型ロボットシステムを構築することです。これらの新しい分散型技術は、将来のユーザーのためにより開かれた、公正で透明なエコシステムを構築する上で大きな役割を果たすでしょう。"
   },
@@ -324,7 +324,7 @@
     "id": "person_cohen_revital",
     "type": "person",
     "name": "Revital Cohen",
-    "name_ja": "レヴィタル・コーエン",
+    "name_ja": "レヴィタル コーエン",
     "role_categories": [
       "visiting_researcher"
     ],
@@ -346,7 +346,7 @@
     "links": [],
     "status": "active",
     "portrait": "data/portraits/karthik-dinakar.jpg",
-    "name_ja": "カーティック・ディナカー",
+    "name_ja": "カーティック ディナカー",
     "bio": "Karthik Dinakar is a computer scientist in machine learning, natural language processing, and human-computer interaction. Karthik was a Reid Hoffman Fellow at MIT and the recipient of the 2015 Dewey Winburne Award. Karthik has previously held positions at Microsoft and Deutsche. He was invited to the White House on two occasions to present hisresearch on the computational detection of cyberbullying and use of probabilistic graphical Bayesian models for crisis counseling. Karthik holds a doctoral degree from MIT.",
     "bio_ja": "カーティック・ディナカーは、機械学習、自然言語処理、ヒューマンコンピュータインタラクションを専門とするコンピュータ科学者です。MITのReid Hoffmanフェローであり、2015年のDewey Winburne賞を受賞しています。以前はMicrosoftおよびDeutscheに勤務していました。サイバーいじめの計算的検出および危機カウンセリングにおける確率的グラフィカルベイズモデルの活用に関する研究を発表するため、2度ホワイトハウスに招かれました。MITで博士号を取得しています。"
   },
@@ -381,7 +381,7 @@
     ],
     "status": "active",
     "portrait": "data/portraits/ariel-ekblaw.jpg",
-    "name_ja": "アリエル・エクブロー",
+    "name_ja": "アリエル エクブロー",
     "bio": "Ariel Ekblaw is the founder and Director of the MIT Space Exploration Initiative, a team of over 50 graduate students, staff, and faculty actively prototyping the artifacts of our sci-fi space future. Founded in 2016, the Initiative now includes a portfolio of 40+ research projects focused on life in space (from astrobiology to space habitats), and supports an accelerator-like R&D program that enables a broad range of payload development.\n\nFor the Initiative, Ariel drives space-related research across science, engineering, art, and design, and charters an annually recurring cadence of parabolic flights, sub-orbital, and orbital launch opportunities. Ariel forges collaborations on this work with MIT departments and space industry partners, while mentoring Initiative research projects and providing technical advice for all mission deployments.",
     "bio_ja": "アリエル・エクブローは、MIT宇宙探査イニシアティブの創設者兼ディレクターであり、50名以上の大学院生、スタッフ、教員からなるチームで、SF的な宇宙の未来のプロトタイプを積極的に開発しています。2016年に設立されたこのイニシアティブは、宇宙での生活（宇宙生物学から宇宙居住施設まで）に焦点を当てた40以上の研究プロジェクトのポートフォリオを持ち、幅広いペイロード開発を可能にするアクセラレーター型の研究開発プログラムを支援しています。\n\nこのイニシアティブにおいて、アリエルは科学、工学、芸術、デザインにまたがる宇宙関連の研究を推進し、毎年繰り返される放物線飛行、準軌道、および軌道打ち上げの機会を企画しています。MIT各学部や宇宙産業パートナーとの連携を構築しつつ、イニシアティブの研究プロジェクトのメンタリングやすべてのミッション展開に対する技術的助言を提供しています。"
   },
@@ -389,7 +389,7 @@
     "id": "person_goldman_daniel",
     "type": "person",
     "name": "Daniel Goldman",
-    "name_ja": "ダニエル・ゴールドマン",
+    "name_ja": "ダニエル ゴールドマン",
     "role_categories": [
       "visiting_researcher"
     ],
@@ -416,7 +416,7 @@
     ],
     "status": "active",
     "portrait": "data/portraits/merve-hickok.jpg",
-    "name_ja": "メルヴェ・ヒコック",
+    "name_ja": "メルヴェ ヒコック",
     "bio": "Merve Hickok is the President at [Center for AI & Digital Policy](http://www.caidp.org/), providing expertise in global AI policy and regulations across the U.S. federal government, European Commission, UNESCO, the Council of Europe, OECD, and United Nations. CAIDP educates AI policy practitioners and advocates across 80+ countries, advises national governments and international organizations. Merve has testified at the U.S. Congress on AI policy, as well as the State of California, New York City, and Detroit City. Her work focuses on the impact of AI systems on individuals and society – with a particular focus on fundamental rights, democratic values, and public sector use of AI. She has written extensively about these topics in her [book](https://www.degruyter.com/document/isbn/9783111250182/html), leading [journals](https://www.aiethicist.org/mervehickok) and other publications.\n\nMerve is a Council on Foreign Relations – Hitachi International Affairs Fellow, researching Japan's approach to AI policy and governance, and understanding the cultural, geopolitical, and social priorities shaping Japan's perspective.\n\nMerve is also the founder of [AIethicist.org](http://aiethicist.org/), providing training and consultancy to C-suite leaders, and to public and private organizations on responsible AI development, procurement, and governance. At University of Michigan, Merve is a lecturer at School of Information, Responsible Data and AI Advisor at Michigan Institute for Data, AI and Society, and affiliated faculty at Gerald R. Ford School of Public Policy (Science, Technology, and Public Policy Program).\n\nShe is a globally renowned expert on AI policy, ethics and governance. Her contributions and perspective have featured in the Guardian, CNN, Forbes, Bloomberg, Wired, Scientific American, Politico, Protocol, Vox, The Economist and S&P. Merve has been recognized by several organizations – most recently with [Lifetime Achievement Award - Women in AI of the Year - 2023, as Runner-up for Responsible AI Leader of the Year - 2022 (Women in AI)](https://www.womeninai.co/waiawardsna) and as one of the [100 Brilliant Women in AI Ethics™ – 2021](https://100brilliantwomeninaiethics.com/the-list/of-2021/). Previously, Merve held various senior roles in Fortune 100 companies for more than 15 years.",
     "bio_ja": "メルヴェ・ヒコックは、[AIデジタル政策センター](http://www.caidp.org/)の代表として、米国連邦政府、欧州委員会、UNESCO、欧州評議会、OECD、国際連合にわたるグローバルAI政策および規制の専門知識を提供しています。CAIDPは80か国以上のAI政策の実務家やアドボケイトを教育し、各国政府や国際機関への助言を行っています。メルヴェは米国議会をはじめ、カリフォルニア州、ニューヨーク市、デトロイト市でAI政策に関する証言を行いました。彼女の研究は、AIシステムが個人と社会に与える影響に焦点を当てており、特に基本的権利、民主的価値観、公共部門でのAI利用に注力しています。これらのテーマについて[著書](https://www.degruyter.com/document/isbn/9783111250182/html)、主要[学術誌](https://www.aiethicist.org/mervehickok)、その他の出版物で精力的に執筆しています。\n\nメルヴェは外交問題評議会・日立国際問題フェローとして、日本のAI政策・ガバナンスへのアプローチを研究し、日本の視点を形成する文化的、地政学的、社会的優先事項の理解に取り組んでいます。\n\nメルヴェはまた[AIethicist.org](http://aiethicist.org/)の創設者でもあり、経営幹部や公的・民間組織に対して責任あるAIの開発、調達、ガバナンスに関するトレーニングとコンサルティングを提供しています。ミシガン大学では情報学部の講師、Michigan Institute for Data, AI and Societyの責任あるデータ・AIアドバイザー、ジェラルド・R・フォード公共政策大学院（科学技術公共政策プログラム）の関連教員を務めています。\n\n彼女はAI政策、倫理、ガバナンスにおいて世界的に著名な専門家です。Guardian、CNN、Forbes、Bloomberg、Wired、Scientific American、Politico、Protocol、Vox、The Economist、S&Pなどで取り上げられています。複数の組織から表彰を受けており、最近では[Women in AI - 2023年生涯功労賞、2022年責任あるAIリーダー・オブ・ザ・イヤー次点（Women in AI）](https://www.womeninai.co/waiawardsna)、および[100 Brilliant Women in AI Ethics™ – 2021](https://100brilliantwomeninaiethics.com/the-list/of-2021/)に選出されています。以前は、フォーチュン100企業で15年以上にわたりさまざまな上級職を歴任しました。"
   },
@@ -424,7 +424,7 @@
     "id": "person_huang_michelle",
     "type": "person",
     "name": "Michelle Huang",
-    "name_ja": "フアン・ミシェル",
+    "name_ja": "フアン ミシェル",
     "role_categories": [
       "visiting_researcher"
     ],
@@ -460,7 +460,7 @@
     "links": [],
     "status": "active",
     "portrait": "data/portraits/louis-kang.jpg",
-    "name_ja": "ルイス・カン",
+    "name_ja": "ルイス カン",
     "bio": "Louis Kang is a research affiliate at CCI exploring the role of impact investing and financial engineering in healthcare and climate change mitigation. Prior to CCI, Louis received his PhD in Applied Physics from Harvard while working on neuroscience research at MIT. Louis has a BS in Electrical Engineering, Computer Sciences, and Materials Science and Engineering from UC Berkeley.",
     "bio_ja": "ルイス・カンは、CCIの研究提携者として、インパクト投資と金融工学が医療と気候変動緩和に果たす役割を研究しています。CCIに参加する前は、ハーバード大学で応用物理学の博士号を取得し、MITで神経科学の研究を行いました。カリフォルニア大学バークレー校で電気工学、コンピュータサイエンス、材料科学・工学の理学士号を取得しています。"
   },
@@ -512,7 +512,7 @@
     ],
     "status": "active",
     "portrait": "data/portraits/lawrence-lessig.jpg",
-    "name_ja": "ローレンス・レッシグ",
+    "name_ja": "ローレンス レッシグ",
     "bio": "Lawrence Lessig is the Roy L. Furman Professor of Law and Leadership at Harvard Law School. (The Roy Furman chair is in honor of **[this extraordinary alumnus](https://today.law.harvard.edu/leadership-profile-a-conversation-with-roy-l-furman-63/)**.)\n\nPrior to rejoining the Harvard faculty, where he was the Berkman Professor of Law until 2000, Lessig was a professor at Stanford Law School, where he founded the school's Center for Internet and Society, and at the University of Chicago.\n\nLessig clerked for Judge Richard Posner on the 7th Circuit Court of Appeals and Justice Antonin Scalia on the United States Supreme Court. He serves on the Board of the AXA Research Fund, and is an Emeritus member of the board at Creative Commons.\n\nLessig is a Member of the American Academy of Arts and Sciences, and the American Philosophical Association, and has received numerous awards, including the Free Software Foundation's Freedom Award, Fastcase 50 Award.  In 2002, he was named one of Scientific American's Top 50 Visionaries.\n\nLessig holds a BA in economics and a BS in management from the University of Pennsylvania, an MA in philosophy from Cambridge, and a JD from Yale.",
     "bio_ja": "ローレンス・レッシグは、ハーバード・ロースクールのロイ・L・ファーマン記念法学・リーダーシップ教授です。（ロイ・ファーマン記念講座は**[この卓越した卒業生](https://today.law.harvard.edu/leadership-profile-a-conversation-with-roy-l-furman-63/)**を称えるものです。）\n\nハーバード大学に再び着任する前（2000年までバークマン法学教授を務めていた）、レッシグはスタンフォード・ロースクールの教授として同校のCenter for Internet and Societyを創設し、シカゴ大学でも教鞭を執りました。\n\nレッシグは、第7巡回控訴裁判所のリチャード・ポズナー判事およびアメリカ合衆国最高裁判所のアントニン・スカリア判事のもとで法務書記官を務めました。AXAリサーチファンドの理事を務め、クリエイティブ・コモンズの名誉理事でもあります。\n\nレッシグはアメリカ芸術科学アカデミーおよびアメリカ哲学協会の会員であり、フリーソフトウェア財団のフリーダム賞、Fastcase 50 Awardなど数多くの賞を受賞しています。2002年には、Scientific Americanの「トップ50ビジョナリー」の一人に選ばれました。\n\nレッシグは、ペンシルベニア大学で経済学学士および経営学理学士、ケンブリッジ大学で哲学修士、イェール大学で法務博士の学位を取得しています。"
   },
@@ -527,7 +527,7 @@
     "links": [],
     "status": "active",
     "portrait": "data/portraits/vikash-k-mansinghka.jpg",
-    "name_ja": "ヴィカシュ・マンシンカ",
+    "name_ja": "ヴィカシュ マンシンカ",
     "bio": "Vikash Mansinghka is a Principal Research Scientist at [MIT](http://web.mit.edu/), where he leads the [Probabilistic Computing Project](http://probcomp.csail.mit.edu/). Vikash holds S.B. degrees in Mathematics and in Computer Science from MIT, as well as an M.Eng. in Computer Science and a PhD in Computation. He also held graduate fellowships from the National Science Foundation and MIT's Lincoln Laboratory. His PhD dissertation on natively probabilistic computation won the MIT George M. Sprowls dissertation award in computer science, and his research on the Picture probabilistic programming language won an award at CVPR. He co-founded two VC-backed startups: Prior Knowledge (acquired by Salesforce in 2012) and Empirical Systems (acquired by Tableau in 2018). He served on DARPA's Information Science and Technology advisory board from 2010-2012, currently serves on the editorial boards for the Journal of Machine Learning Research and the journal Statistics and Computation, and co-founded the International Conference on Probabilistic Programming.",
     "bio_ja": "ヴィカシュ・マンシンカは、[MIT](http://web.mit.edu/)の主任研究科学者であり、[確率的コンピューティング・プロジェクト](http://probcomp.csail.mit.edu/)を率いています。MITで数学およびコンピュータサイエンスの理学士号、コンピュータサイエンスの工学修士号、および計算学の博士号を取得しています。全米科学財団およびMITリンカーン研究所の大学院フェローシップも受けました。ネイティブ確率的コンピューティングに関する博士論文はMITのGeorge M. Sprowlsコンピュータサイエンス博士論文賞を受賞し、確率的プログラミング言語Pictureに関する研究はCVPRで賞を獲得しました。VC支援による2つのスタートアップ、Prior Knowledge（2012年にSalesforceが買収）およびEmpirical Systems（2018年にTableauが買収）を共同創設しました。2010年から2012年までDARPAの情報科学技術諮問委員会に参加し、現在はJournal of Machine Learning Researchおよび学術誌Statistics and Computationの編集委員を務め、International Conference on Probabilistic Programmingを共同設立しました。"
   },
@@ -542,7 +542,7 @@
     "links": [],
     "status": "active",
     "portrait": "data/portraits/kate-mccall-kiley.jpg",
-    "name_ja": "ケイト・マッコール＝カイリー",
+    "name_ja": "ケイト マッコール＝カイリー",
     "bio": "Kate McCall-Kiley is a complex system enthusiast helping to execute on special projects at CCI. Outside of that, she is a co-founder and director at xD, an experimental data lab within the US federal government. She also is a co-founder of the Space Governance Collaborative at MIT Media Lab, prototyping governance futures. Her work aims to create new environments and mechanisms for behavior change while experimenting with different ways to productively challenge convention. Previously, Kate served the White House as a Presidential Innovation Fellow. She holds a Master's in Design Leadership from Maryland Institute College of Art and an MBA from Johns Hopkins University; she also studied philosophy and psychology at The College of Wooster. In aspirational parallel lives, Kate would love to be a philosopher/ethicist, DJ, and participatory graffiti artist.",
     "bio_ja": "ケイト・マッコール＝カイリーは、複雑系の愛好者であり、CCIの特別プロジェクトの実行を支援しています。それ以外では、米国連邦政府内の実験的データラボであるxDの共同創設者兼ディレクターを務めています。また、MITメディアラボのSpace Governance Collaborativeの共同創設者として、ガバナンスの未来のプロトタイプを作成しています。彼女の仕事は、行動変容のための新しい環境とメカニズムを構築しながら、従来の常識に生産的に挑戦するさまざまな方法を模索することを目指しています。以前は、大統領イノベーションフェローとしてホワイトハウスに奉職しました。メリーランド・インスティテュート・カレッジ・オブ・アートでデザインリーダーシップ修士号、ジョンズ・ホプキンス大学でMBAを取得。ウースター大学で哲学と心理学も学びました。もし別の人生があるなら、哲学者／倫理学者、DJ、参加型グラフィティアーティストになりたいと思っています。"
   },
@@ -582,7 +582,7 @@
     "links": [],
     "status": "active",
     "portrait": "data/portraits/margarita-mora.jpg",
-    "name_ja": "マルガリータ・モラ",
+    "name_ja": "マルガリータ モラ",
     "bio": "Managing Director, Partnerships at Nia Tero",
     "bio_ja": "Nia Tero パートナーシップ担当マネージングディレクター。"
   },
@@ -628,7 +628,7 @@
     "links": [],
     "status": "active",
     "portrait": "data/portraits/travis-rich.jpg",
-    "name_ja": "トラヴィス・リッチ",
+    "name_ja": "トラヴィス リッチ",
     "bio": "Executive Director at Knowledge Futures Group",
     "bio_ja": "Knowledge Futures Group エグゼクティブ・ディレクター。"
   },
@@ -643,7 +643,7 @@
     "links": [],
     "status": "active",
     "portrait": "data/portraits/eric-salobir.jpg",
-    "name_ja": "エリック・サロビール",
+    "name_ja": "エリック サロビール",
     "bio": "Fr Eric Salobir is a Roman catholic priest and a member of the Order of Preachers (known as Dominicans). He chairs the executive committee of the Human Technology Foundation. He is a member of the Conseil National du Numérique, in France and an expert at the Holy See (Vatican) for media and technologies.\n\nFr Salobir is also the founder the OPTIC network aimed to promote researches and innovation in the field of digital humanities. As part of the General curia (government) of this religious order, he was in charge media and technology. He has contributed to the reorganization of the Vatican media.\n\nGraduated from the ISC Paris business school, Fr Salobir worked at the French Embassy in Prague (Economy and trade section), and for Credit Lyonnais bank (now LCL) in the merchant bank department, in Paris.\n\nHe joined the Order of Preachers in the year 2000 and graduated in theology and philosophy. He was the chief editor of ROC FM radio and a member of the board of the Federation of French Radio Stations. He was also in charge of catholic digital media production for the French TV channel France2.",
     "bio_ja": "エリック・サロビール神父は、ローマ・カトリック教会の司祭であり、説教者修道会（ドミニコ会）の会員です。ヒューマン・テクノロジー財団の執行委員会議長を務めています。フランスのConseil National du Numérique（国家デジタル評議会）のメンバーであり、バチカンにおけるメディアおよびテクノロジーの専門家です。\n\nサロビール神父はまた、デジタル・ヒューマニティーズ分野の研究とイノベーションを推進するOPTICネットワークの創設者でもあります。この修道会の総本部（統治機関）の一員として、メディアとテクノロジーを担当しました。バチカンのメディア再編にも貢献しています。\n\nISCパリ・ビジネススクールを卒業後、サロビール神父はプラハのフランス大使館（経済・貿易部門）およびクレディ・リヨネ銀行（現LCL）のマーチャントバンク部門（パリ）に勤務しました。\n\n2000年に説教者修道会に入会し、神学と哲学の学位を取得。ROC FMラジオの編集長を務め、フランスラジオ局連盟の理事会メンバーでもありました。また、フランスのテレビチャンネルFrance2のカトリック・デジタルメディア制作も担当しました。"
   },
@@ -651,7 +651,7 @@
     "id": "person_schingler_jessykate",
     "type": "person",
     "name": "Jessy Kate Schingler",
-    "name_ja": "ジェシー・ケイト・シングラー",
+    "name_ja": "ジェシー ケイト シングラー",
     "role_categories": [
       "visiting_researcher"
     ],
@@ -678,7 +678,7 @@
     ],
     "status": "active",
     "portrait": "data/portraits/bruce-schneier.jpg",
-    "name_ja": "ブルース・シュナイアー",
+    "name_ja": "ブルース シュナイアー",
     "bio": "Bruce Schneier is an internationally renowned security technologist, called a \"security guru\" by *The Economist*. He is the author of over one dozen [books](https://schneier-production.mystagingwebsite.com/books/)–including his latest, *[We Have Root](https://www.schneier.com/books/root/)*–as well as hundreds of articles, [essays](https://schneier-production.mystagingwebsite.com/essays/), and [academic papers](https://schneier-production.mystagingwebsite.com/cryptography.html). His influential newsletter \"[Crypto-Gram](https://schneier-production.mystagingwebsite.com/crypto-gram/)\" and his blog \"[Schneier on Security](https://schneier-production.mystagingwebsite.com/)\" are read by over 250,000 people. He has testified before Congress, is a frequent guest on television and radio, has served on several government committees, and is regularly [quoted](https://schneier-production.mystagingwebsite.com/news/) in the press. Schneier is a fellow at the [Berkman Klein Center for Internet & Society](http://cyber.law.harvard.edu/) at Harvard University; a Lecturer in Public Policy at the [Harvard Kennedy School](https://www.hks.harvard.edu/); a board member of the [Electronic Frontier Foundation](https://www.eff.org/) and [AccessNow](https://www.accessnow.org/); and an Advisory Board Member of the [Electronic Privacy Information Center](https://epic.org/) and [VerifiedVoting.org](https://www.verifiedvoting.org/). He is the Chief of Security Architecture at [Inrupt, Inc.](https://inrupt.com/)",
     "bio_ja": "ブルース・シュナイアーは、*The Economist*誌に「セキュリティの第一人者」と評された、国際的に著名なセキュリティ技術者です。最新作『*[We Have Root](https://www.schneier.com/books/root/)*』をはじめとする十数冊の[著書](https://schneier-production.mystagingwebsite.com/books/)、数百の記事、[エッセイ](https://schneier-production.mystagingwebsite.com/essays/)、[学術論文](https://schneier-production.mystagingwebsite.com/cryptography.html)を執筆しています。影響力あるニュースレター「[Crypto-Gram](https://schneier-production.mystagingwebsite.com/crypto-gram/)」とブログ「[Schneier on Security](https://schneier-production.mystagingwebsite.com/)」は25万人以上に読まれています。議会で証言を行い、テレビやラジオに頻繁に出演し、複数の政府委員会に参加し、メディアで定期的に[引用](https://schneier-production.mystagingwebsite.com/news/)されています。シュナイアーは、ハーバード大学[バークマン・クライン・インターネット＆ソサエティセンター](http://cyber.law.harvard.edu/)のフェロー、[ハーバード・ケネディスクール](https://www.hks.harvard.edu/)の公共政策講師、[電子フロンティア財団](https://www.eff.org/)および[AccessNow](https://www.accessnow.org/)の理事、[電子プライバシー情報センター](https://epic.org/)および[VerifiedVoting.org](https://www.verifiedvoting.org/)の諮問委員会メンバーを務めています。[Inrupt, Inc.](https://inrupt.com/)のチーフ・セキュリティ・アーキテクトです。"
   },
@@ -732,7 +732,7 @@
     "id": "person_vanbalen_tuur",
     "type": "person",
     "name": "Tuur Van Balen",
-    "name_ja": "トゥール・ヴァン・バレン",
+    "name_ja": "トゥール ヴァン バレン",
     "role_categories": [
       "visiting_researcher"
     ],
@@ -759,7 +759,7 @@
     ],
     "status": "active",
     "portrait": "data/portraits/madars-virza.jpg",
-    "name_ja": "マダース・ヴィルザ",
+    "name_ja": "マダース ヴィルザ",
     "bio": "I am a Research Scientist at [MIT](http://web.mit.edu/) [Media Lab](https://www.media.mit.edu/) where I work with [Joi Ito](https://joi.ito.com/) on cryptocurrencies (at the [Digital Currency Initiative](https://dci.mit.edu/)) and Ethics of Artificial Intelligence (at the [Ethics Initiative](https://www.media.mit.edu/groups/ethics/overview/)).\n\nI co-invented [Zerocash](http://zerocash-project.org/) and co-founded [Zcash](https://z.cash/). Both of these rely on *[libsnark](https://github.com/scipr-lab/libsnark)*, the efficient C++ library for zero-knowledge proofs, that I am an author of.\n\nI recently graduated with Ph.D. in Computer Science from MIT, where I was fortunate to be advised by incomparable [Ron Rivest](https://people.csail.mit.edu/rivest/). My [Ph.D. thesis](https://madars.org/phd-thesis/), also on *libsnark*, won the [George M. Sprowls Award](https://www.eecs.mit.edu/news-events/announcements/eecs-presents-awards-outstanding-phd-and-sm-theses-0) for Best MIT Ph.D. Thesis in Computer Science. Before coming to MIT I did my undergraduate work at [University of Latvia](https://www.lu.lv/eng/) under the excellent guidance of [Andris Ambainis](https://en.wikipedia.org/wiki/Andris_Ambainis).",
     "bio_ja": "[MIT](http://web.mit.edu/) [メディアラボ](https://www.media.mit.edu/)の研究科学者であり、[Joi Ito](https://joi.ito.com/)のもとで暗号通貨（[デジタル通貨イニシアティブ](https://dci.mit.edu/)）および人工知能の倫理（[倫理イニシアティブ](https://www.media.mit.edu/groups/ethics/overview/)）に取り組んでいます。\n\n[Zerocash](http://zerocash-project.org/)の共同発明者であり、[Zcash](https://z.cash/)の共同創設者です。これらはいずれも、私が共同開発者であるゼロ知識証明のための効率的なC++ライブラリ*[libsnark](https://github.com/scipr-lab/libsnark)*に基づいています。\n\n最近MITでコンピュータサイエンスの博士号を取得しました。指導教官は比類なき[Ron Rivest](https://people.csail.mit.edu/rivest/)です。*libsnark*に関する[博士論文](https://madars.org/phd-thesis/)は、MITコンピュータサイエンス最優秀博士論文に贈られる[George M. Sprowls賞](https://www.eecs.mit.edu/news-events/announcements/eecs-presents-awards-outstanding-phd-and-sm-theses-0)を受賞しました。MITに来る前は、[ラトビア大学](https://www.lu.lv/eng/)で[Andris Ambainis](https://en.wikipedia.org/wiki/Andris_Ambainis)の優れた指導のもと、学部課程を修了しました。"
   },
@@ -782,7 +782,7 @@
     "id": "person_xiao_xiao",
     "type": "person",
     "name": "Xiao Xiao",
-    "name_ja": "シャオ・シャオ",
+    "name_ja": "シャオ シャオ",
     "role_categories": [
       "visiting_researcher"
     ],

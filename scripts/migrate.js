@@ -165,7 +165,7 @@ institutions.forEach(inst => {
     inst.key_contacts.forEach(c => {
       const meta = {};
       if (c.role) meta.role = c.role;
-      addRelation(c.person_id, inst.id, 'contact_for', meta);
+      addRelation(c.person_id, inst.id, 'affiliated', meta);
     });
   }
 

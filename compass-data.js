@@ -30,8 +30,6 @@ const RELATION_TYPES = {
   has_exhibitor:    { inverse: 'exhibits_at',      label: 'Has exhibitor',  inverseLabel: 'Exhibits at' },
   authored:         { inverse: 'authored_by',      label: 'Authored',       inverseLabel: 'Authored by' },
   authored_by:      { inverse: 'authored',         label: 'Authored by',    inverseLabel: 'Authored' },
-  contact_for:      { inverse: 'has_contact',      label: 'Contact for',    inverseLabel: 'Has contact' },
-  has_contact:      { inverse: 'contact_for',      label: 'Has contact',    inverseLabel: 'Contact for' },
   // Entity → entity
   hosts:            { inverse: 'hosted_by',        label: 'Hosts',          inverseLabel: 'Hosted by' },
   hosted_by:        { inverse: 'hosts',            label: 'Hosted by',      inverseLabel: 'Hosts' },
