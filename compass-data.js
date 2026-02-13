@@ -50,8 +50,8 @@ const RELATION_TYPES = {
   // Place relations
   located_at:       { inverse: 'location_of',      label: 'Located at',     inverseLabel: 'Location of' },
   location_of:      { inverse: 'located_at',        label: 'Location of',    inverseLabel: 'Located at' },
-  interested_in:    { inverse: 'interest_of',       label: 'Interested in',  inverseLabel: 'Interest of' },
-  interest_of:      { inverse: 'interested_in',     label: 'Interest of',    inverseLabel: 'Interested in' },
+  has_affinity_for: { inverse: 'affinity_of',        label: 'Has affinity for', inverseLabel: 'Affinity of' },
+  affinity_of:      { inverse: 'has_affinity_for',  label: 'Affinity of',    inverseLabel: 'Has affinity for' },
   // Symmetric
   partner:          { inverse: 'partner',          label: 'Partner',        inverseLabel: 'Partner' },
   related:          { inverse: 'related',          label: 'Related',        inverseLabel: 'Related' },
@@ -348,13 +348,15 @@ function renderRelationsHtml(entityId) {
 }
 
 // Render detailed relations for expanded card view
-function renderRelationsDetailHtml(entityId) {
+// Optional excludeTypes: array of relation types to skip (e.g. ['has_affinity_for'])
+function renderRelationsDetailHtml(entityId, excludeTypes) {
   const related = getRelated(entityId);
   if (related.length === 0) return '';
 
   // Group by relation type
   const groups = {};
   related.forEach(({ entity, relationType, meta }) => {
+    if (excludeTypes && excludeTypes.includes(relationType)) return;
     if (!groups[relationType]) groups[relationType] = [];
     groups[relationType].push({ entity, meta });
   });

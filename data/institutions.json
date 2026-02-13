@@ -243,5 +243,31 @@
       "neuroscience"
     ],
     "website": "https://www.fujita-hu.ac.jp"
+  },
+  {
+    "id": "inst_dalab",
+    "type": "institution",
+    "name": "Digital Architecture Lab",
+    "short_name": "DALab",
+    "summary": "Research and design lab exploring digital architecture — the design of digital spaces through technology, norms, laws, and business.",
+    "institution_type": "research_center",
+    "mandate": "Design new digital sensibilities by revolutionizing approaches to digital spaces across technology, norms, laws, and business.",
+    "ecosystem_role": "External partner contributing research on digital architecture, community design, and cultural innovation.",
+    "capabilities": [
+      "digital architecture research",
+      "community design",
+      "cultural innovation",
+      "design philosophy"
+    ],
+    "location": "Tokyo, Japan",
+    "charter_coverage": "partner",
+    "constraints": [],
+    "status": "active",
+    "domains": [
+      "digital culture",
+      "design",
+      "community"
+    ],
+    "website": "https://dalab.xyz"
   }
 ]

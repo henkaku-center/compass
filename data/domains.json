@@ -250,5 +250,103 @@
     "name": "Asian Sensibilities",
     "summary": "Exploration of aesthetic, philosophical, and cultural values rooted in diverse Asian traditions\u2014emphasizing harmony, relationality, impermanence, and context-aware design across art, technology, and society.",
     "status": "active"
+  },
+  {
+    "id": "domain_robotics",
+    "type": "domain",
+    "name": "Robotics",
+    "summary": "Design, construction, and operation of robots and automated physical systems.",
+    "status": "active"
+  },
+  {
+    "id": "domain_cryptography",
+    "type": "domain",
+    "name": "Cryptography & Digital Currency",
+    "summary": "Mathematical techniques for secure communication, privacy-preserving computation, and decentralized digital currencies.",
+    "status": "active"
+  },
+  {
+    "id": "domain_security",
+    "type": "domain",
+    "name": "Security & Privacy",
+    "summary": "Protection of information systems, networks, and personal data from unauthorized access and misuse.",
+    "status": "active"
+  },
+  {
+    "id": "domain_ai_ethics",
+    "type": "domain",
+    "name": "AI Ethics & Safety",
+    "summary": "Ethical frameworks, safety research, and value alignment for artificial intelligence systems and their societal impact.",
+    "status": "active"
+  },
+  {
+    "id": "domain_legal",
+    "type": "domain",
+    "name": "Law & Legal Design",
+    "summary": "Legal frameworks, intellectual property, licensing, and institutional design at the intersection of law, technology, and governance.",
+    "status": "active"
+  },
+  {
+    "id": "domain_coordination",
+    "type": "domain",
+    "name": "Coordination Technology",
+    "summary": "Tools, frameworks, and practices that help groups align, make decisions, and evolve together without rigid hierarchy.",
+    "status": "active"
+  },
+  {
+    "id": "domain_art",
+    "type": "domain",
+    "name": "Art & Creative Practice",
+    "summary": "Artistic production across media\u2014film, sculpture, installation, and material culture\u2014as inquiry into society, technology, and human experience.",
+    "status": "active"
+  },
+  {
+    "id": "domain_hci",
+    "type": "domain",
+    "name": "Human-Computer Interaction",
+    "summary": "Design and study of interfaces between people and computational systems, including experimental, spatial, and care-oriented approaches.",
+    "status": "active"
+  },
+  {
+    "id": "domain_public_policy",
+    "type": "domain",
+    "name": "Public Policy",
+    "summary": "Analysis and design of government policies, digital governance, and federal innovation strategies.",
+    "status": "active"
+  },
+  {
+    "id": "domain_open_knowledge",
+    "type": "domain",
+    "name": "Open Knowledge & Publishing",
+    "summary": "Open-access publishing, knowledge infrastructure, creative commons, and open-source ecosystems for shared intellectual resources.",
+    "status": "active"
+  },
+  {
+    "id": "domain_software",
+    "type": "domain",
+    "name": "Software & Data Engineering",
+    "summary": "Design, development, and operation of software systems, databases, and data pipelines\u2014including computational design and workflow automation.",
+    "status": "active"
+  },
+  {
+    "id": "domain_health",
+    "type": "domain",
+    "name": "Health & Life Sciences",
+    "summary": "Healthcare delivery, biomedical research, neuroscience, and the intersection of technology with human health and the environment.",
+    "status": "active"
+  },
+  {
+    "id": "domain_space",
+    "type": "domain",
+    "name": "Space Exploration",
+    "summary": "Research, engineering, and prototyping for life and infrastructure beyond Earth\u2014including self-assembly and hardware for space missions.",
+    "status": "active"
+  },
+  {
+    "id": "domain_media",
+    "type": "domain",
+    "name": "Media Studies",
+    "summary": "Critical study of media environments, aesthetics, governance, and the role of information design in shaping culture and society.",
+    "status": "active"
   }
 ]

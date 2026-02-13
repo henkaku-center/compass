@@ -239,10 +239,16 @@ People appear in the registry not as isolated entries but as nodes in a network�
 
 *Supports Charter's coordination function: enabling others to identify potential collaborators*
 
+Expertise and interests are represented as **domain affinity relations** (`has_affinity_for`) linking people to domain entries in the registry. Each relation carries a `meta.origin` field distinguishing demonstrated expertise from exploratory interest:
+
+- `meta.origin: "expertise"` — domains the person has demonstrated competence in
+- `meta.origin: "interest"` — domains the person is interested in exploring, whether or not they have current expertise
+
+This replaces inline `expertise` and `interests` arrays, connecting people directly to the shared domain vocabulary and enabling discovery through the network graph.
+
 | **Field** | **Name** | **Description** | **Charter Mapping** |
 | --- | --- | --- | --- |
-| `expertise` | **Areas of Expertise** | List of domains, skills, or methods the person has demonstrated competence in. Use specific, searchable terms (e.g., "machine learning", "qualitative research", "interaction design") | *Finding potential collaborators* |
-| `interests` | **Research/Work Interests** | List of topics, questions, or domains the person is interested in exploring—whether or not they have current expertise | *Finding potential collaborators* |
+| *(relation)* | **Domain Affinities** | `has_affinity_for` relations to domain entries, with `meta.origin` distinguishing expertise from interest. Stored in `relations.json`, not on the person entity. | *Finding potential collaborators* |
 | `background` | **Background Summary** | *(optional)* Brief narrative (2-3 sentences) describing the person's background, trajectory, or perspective | *Contextual understanding* |
 
 ---
