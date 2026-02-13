@@ -1993,11 +1993,6 @@
   },
   {
     "source": "person_ito_joi",
-    "target": "domain_coordination",
-    "type": "has_affinity_for"
-  },
-  {
-    "source": "person_ito_joi",
     "target": "domain_awareness",
     "type": "has_affinity_for"
   },
@@ -2397,11 +2392,6 @@
     "type": "has_affinity_for"
   },
   {
-    "source": "person_razik_fiza",
-    "target": "domain_coordination",
-    "type": "has_affinity_for"
-  },
-  {
     "source": "person_bateson_nora",
     "target": "domain_complex_systems",
     "type": "has_affinity_for"
@@ -2748,5 +2738,15 @@
     "meta": {
       "role": "Deputy Architect"
     }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "domain_neurodiversity",
+    "type": "has_affinity_for"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "domain_intentional",
+    "type": "has_affinity_for"
   }
 ]
