@@ -55,7 +55,7 @@
     }
 
     .nav-inner {
-      max-width: 1200px;
+      max-width: 1440px;
       margin: 0 auto;
       padding: 0.75rem 2rem;
       display: flex;
@@ -70,6 +70,8 @@
       gap: 0.5rem;
       text-decoration: none;
       color: inherit;
+      width: 248px;
+      flex-shrink: 0;
     }
 
     .site-title:hover {
@@ -1303,6 +1305,11 @@
 
       .landing-cards {
         grid-template-columns: 1fr;
+      }
+
+      .site-title {
+        width: auto;
+        flex-shrink: 1;
       }
 
       /* Show hamburger */
