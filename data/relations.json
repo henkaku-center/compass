@@ -1,0 +1,1626 @@
+[
+  {
+    "source": "course_adv_complex_systems",
+    "target": "course_complex_systems",
+    "type": "has_prerequisite"
+  },
+  {
+    "source": "course_adv_design_prototyping",
+    "target": "course_design_prototyping",
+    "type": "has_prerequisite"
+  },
+  {
+    "source": "course_adv_human_machine_learning",
+    "target": "course_human_machine_learning",
+    "type": "has_prerequisite"
+  },
+  {
+    "source": "course_adv_intelligent_agents",
+    "target": "course_intelligent_agents",
+    "type": "has_prerequisite"
+  },
+  {
+    "source": "course_adv_law_governance",
+    "target": "course_law_governance",
+    "type": "has_prerequisite"
+  },
+  {
+    "source": "course_aps_1",
+    "target": "course_aps_2",
+    "type": "related"
+  },
+  {
+    "source": "course_aps_2",
+    "target": "course_aps_1",
+    "type": "has_prerequisite"
+  },
+  {
+    "source": "course_complex_systems",
+    "target": "course_adv_complex_systems",
+    "type": "related"
+  },
+  {
+    "source": "course_design_prototyping",
+    "target": "course_adv_design_prototyping",
+    "type": "related"
+  },
+  {
+    "source": "course_doctoral_research_1",
+    "target": "course_doctoral_research_2",
+    "type": "related"
+  },
+  {
+    "source": "course_doctoral_research_1",
+    "target": "course_doctoral_research_3",
+    "type": "related"
+  },
+  {
+    "source": "course_doctoral_research_2",
+    "target": "course_doctoral_research_1",
+    "type": "has_prerequisite"
+  },
+  {
+    "source": "course_doctoral_research_2",
+    "target": "course_doctoral_research_3",
+    "type": "related"
+  },
+  {
+    "source": "course_doctoral_research_3",
+    "target": "course_doctoral_research_2",
+    "type": "has_prerequisite"
+  },
+  {
+    "source": "course_human_machine_learning",
+    "target": "course_adv_human_machine_learning",
+    "type": "related"
+  },
+  {
+    "source": "course_intelligent_agents",
+    "target": "course_adv_intelligent_agents",
+    "type": "related"
+  },
+  {
+    "source": "course_law_governance",
+    "target": "course_adv_law_governance",
+    "type": "related"
+  },
+  {
+    "source": "init_ai_safety_workshop",
+    "target": "inst_aisi",
+    "type": "partner"
+  },
+  {
+    "source": "init_artificial_life",
+    "target": "inst_alife",
+    "type": "partner"
+  },
+  {
+    "source": "init_compass_initiative",
+    "target": "inst_chibatech",
+    "type": "partner"
+  },
+  {
+    "source": "init_compass_initiative",
+    "target": "inst_sds",
+    "type": "partner"
+  },
+  {
+    "source": "init_compass_initiative",
+    "target": "proj_charter",
+    "type": "contains"
+  },
+  {
+    "source": "init_compass_initiative",
+    "target": "proj_charter",
+    "type": "spawned"
+  },
+  {
+    "source": "init_compass_initiative",
+    "target": "proj_compass",
+    "type": "contains"
+  },
+  {
+    "source": "init_compass_initiative",
+    "target": "proj_compass",
+    "type": "spawned"
+  },
+  {
+    "source": "init_probabilistic_computing",
+    "target": "inst_jpcca",
+    "type": "partner"
+  },
+  {
+    "source": "inst_aisi",
+    "target": "init_ai_safety_workshop",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_alife",
+    "target": "init_artificial_life",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_chibatech",
+    "target": "init_compass_initiative",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_chibatech",
+    "target": "inst_henkaku",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_chibatech",
+    "target": "inst_henkaku",
+    "type": "parent"
+  },
+  {
+    "source": "inst_chibatech",
+    "target": "inst_sds",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_chibatech",
+    "target": "inst_sds",
+    "type": "parent"
+  },
+  {
+    "source": "inst_chibatech",
+    "target": "proj_sds_launch",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_fujita",
+    "target": "init_ai_healthcare",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "event_2025_symposium",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "init_ai_healthcare",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "init_compass_initiative",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "init_daboteng_house",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "init_neurodiversity_connected_learning",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "init_radical_transformation_award",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "init_sustainable_robotics",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "init_tea_project",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "inst_aisi",
+    "type": "partner"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "inst_alife",
+    "type": "partner"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "inst_fujita",
+    "type": "partner"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "inst_jpcca",
+    "type": "partner"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "inst_mountsinai",
+    "type": "partner"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "inst_sds",
+    "type": "partner"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "proj_compass",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_henkaku",
+    "target": "proj_sds_launch",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_jpcca",
+    "target": "init_probabilistic_computing",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_mountsinai",
+    "target": "init_ai_healthcare",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_adv_complex_systems",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_adv_design_prototyping",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_adv_human_machine_learning",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_adv_intelligent_agents",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_adv_law_governance",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_aps_1",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_aps_2",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_awareness",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_career_development",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_communication",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_complex_systems",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_design_prototyping",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_digital_media",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_dna",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_doctoral_research_1",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_doctoral_research_2",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_doctoral_research_3",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_engineering_ethics",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_human_machine_learning",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_intelligent_agents",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_law_governance",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_masters_research",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_modern_physics",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_modular_seminar",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "course_tech_values",
+    "type": "hosts"
+  },
+  {
+    "source": "inst_sds",
+    "target": "proj_sds_launch",
+    "type": "hosts"
+  },
+  {
+    "source": "person_anthony_boris",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "event_2025_symposium",
+    "type": "exhibits_at",
+    "meta": {
+      "exhibition": "Probabilistic Programming"
+    }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "init_neurodiversity_connected_learning",
+    "type": "lead"
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Senior Researcher"
+    }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "inst_jpcca",
+    "type": "affiliated",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "inst_jpcca",
+    "type": "contact_for",
+    "meta": {
+      "role": "researcher"
+    }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "inst_sds",
+    "type": "affiliated",
+    "meta": {
+      "role": "Faculty",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "inst_sds",
+    "type": "contact_for",
+    "meta": {
+      "role": "Academic Director"
+    }
+  },
+  {
+    "source": "person_austerweil_joseph",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Academic Director"
+    }
+  },
+  {
+    "source": "person_bates_samantha",
+    "target": "init_ai_safety_workshop",
+    "type": "lead"
+  },
+  {
+    "source": "person_bates_samantha",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Program Director",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_bates_samantha",
+    "target": "proj_charter",
+    "type": "contributor",
+    "meta": {
+      "role": "Collaborator"
+    }
+  },
+  {
+    "source": "person_bates_samantha",
+    "target": "proj_compass",
+    "type": "contributor",
+    "meta": {
+      "role": "Collaborator"
+    }
+  },
+  {
+    "source": "person_bates_samantha",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Collaborator"
+    }
+  },
+  {
+    "source": "person_bateson_nora",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_bletsas_michael",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_castello_eduardo",
+    "target": "init_sustainable_robotics",
+    "type": "lead"
+  },
+  {
+    "source": "person_castello_eduardo",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_cohen_revital",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_dinakar_karthik",
+    "target": "init_ai_healthcare",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_dinakar_karthik",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_druga_stefania",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_ekblaw_ariel",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_freer_cameron",
+    "target": "init_probabilistic_computing",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_freer_cameron",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_godey_kriti",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_goldman_daniel",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_hickok_merve",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "AI Safety Evaluations",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_hickok_merve",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_hidaka_zenbo",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_huang_michelle",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_ikegami_eiko",
+    "target": "init_artificial_life",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_ikegami_eiko",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "event_2025_symposium",
+    "type": "organizes"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Welcome",
+      "role": "host"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Entrepreneurship in Japan",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Closing Remarks",
+      "role": "host"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "init_ai_healthcare",
+    "type": "lead"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "init_ai_safety_workshop",
+    "type": "participant",
+    "meta": {
+      "role": "Sponsor"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "init_compass_initiative",
+    "type": "participant",
+    "meta": {
+      "role": "Sponsor"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "init_daboteng_house",
+    "type": "lead"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "init_radical_transformation_award",
+    "type": "lead"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "init_tea_project",
+    "type": "lead"
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "inst_chibatech",
+    "type": "affiliated",
+    "meta": {
+      "role": "President",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "inst_chibatech",
+    "type": "contact_for",
+    "meta": {
+      "role": "director"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Director"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "inst_henkaku",
+    "type": "contact_for",
+    "meta": {
+      "role": "director"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "inst_jpcca",
+    "type": "affiliated",
+    "meta": {
+      "role": "Director"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "inst_jpcca",
+    "type": "contact_for",
+    "meta": {
+      "role": "director"
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "inst_sds",
+    "type": "affiliated",
+    "meta": {
+      "role": "Faculty",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_ito_joi",
+    "target": "proj_sds_launch",
+    "type": "owner"
+  },
+  {
+    "source": "person_kang_louis",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Bhutan and the Gelephu Mindfulness City",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Project Director"
+    }
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "inst_sds",
+    "type": "affiliated",
+    "meta": {
+      "role": "Faculty",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "proj_charter",
+    "type": "contributor",
+    "meta": {
+      "role": "Collaborator"
+    }
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "proj_compass",
+    "type": "contributor",
+    "meta": {
+      "role": "Collaborator"
+    }
+  },
+  {
+    "source": "person_kim_daum",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Incoming Faculty"
+    }
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "event_2025_symposium",
+    "type": "exhibits_at",
+    "meta": {
+      "exhibition": "Artificial Life"
+    }
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "init_artificial_life",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "init_probabilistic_computing",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher"
+    }
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "inst_sds",
+    "type": "affiliated",
+    "meta": {
+      "role": "Faculty",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_kojima_hiroki",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Incoming Faculty"
+    }
+  },
+  {
+    "source": "person_kokuryo_jiro",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Building an Antidisciplinary Organization",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_kokuryo_jiro",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_kumar_pavish",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_kuramata_toshio",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_lessig_lawrence",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_lin_kevin",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_mansinghka_vikash",
+    "target": "init_probabilistic_computing",
+    "type": "lead"
+  },
+  {
+    "source": "person_mansinghka_vikash",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "The Digital Commons and the Law",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher"
+    }
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "inst_sds",
+    "type": "affiliated",
+    "meta": {
+      "role": "Faculty",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_maracke_catharina",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Incoming Faculty"
+    }
+  },
+  {
+    "source": "person_matsubara_kota",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_mccallkiley_kate",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_miyaguchi_aya",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Bhutan and the Gelephu Mindfulness City",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_miyaguchi_aya",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_montgomery_mark",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_mora_margarita",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_moran_brent",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_mostauskis_dominykas",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_mulas_victor",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_murai_jun",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Building an Antidisciplinary Organization",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_murai_jun",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_murali_mukesh",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_noveck_beth",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "AI Safety Evaluations",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "init_artificial_life",
+    "type": "lead"
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "init_probabilistic_computing",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "inst_alife",
+    "type": "contact_for",
+    "meta": {
+      "role": "steering committee"
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Chief Researcher"
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "inst_jpcca",
+    "type": "affiliated",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "inst_jpcca",
+    "type": "contact_for",
+    "meta": {
+      "role": "researcher"
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "inst_sds",
+    "type": "affiliated",
+    "meta": {
+      "role": "Faculty",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_oka_mizuki",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Incoming Faculty"
+    }
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Building an Antidisciplinary Organization",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher"
+    }
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "inst_sds",
+    "type": "affiliated",
+    "meta": {
+      "role": "Faculty",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_ozaki_hiromi",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Incoming Faculty"
+    }
+  },
+  {
+    "source": "person_phillips_alexander",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_priyadarshi_tenzin",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Senior Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_raz_gal",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Bhutan and the Gelephu Mindfulness City",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_raz_gal",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_raz_gal",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Collaborator"
+    }
+  },
+  {
+    "source": "person_razik_fiza",
+    "target": "inst_sds",
+    "type": "affiliated",
+    "meta": {
+      "role": "Program Manager",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_razik_fiza",
+    "target": "proj_charter",
+    "type": "contributor",
+    "meta": {
+      "role": "Collaborator"
+    }
+  },
+  {
+    "source": "person_razik_fiza",
+    "target": "proj_sds_launch",
+    "type": "contributor",
+    "meta": {
+      "role": "Program Manager"
+    }
+  },
+  {
+    "source": "person_rich_travis",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_rich_travis",
+    "target": "proj_compass",
+    "type": "contributor",
+    "meta": {
+      "role": "Collaborator"
+    }
+  },
+  {
+    "source": "person_salobir_eric",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_schingler_jessykate",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "The Digital Commons and the Law",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_schingler_jessykate",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_schneier_bruce",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_schoeneich_magdalena",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_shinada_miho",
+    "target": "event_2025_symposium",
+    "type": "exhibits_at",
+    "meta": {
+      "exhibition": "web3/AI Sandbox"
+    }
+  },
+  {
+    "source": "person_shinada_miho",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_shinoda_kana",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "event_2025_symposium",
+    "type": "exhibits_at",
+    "meta": {
+      "exhibition": "Probabilistic Programming"
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "init_ai_healthcare",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "init_artificial_life",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "init_probabilistic_computing",
+    "type": "participant",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "inst_alife",
+    "type": "affiliated",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "inst_alife",
+    "type": "contact_for",
+    "meta": {
+      "role": "researcher"
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "inst_jpcca",
+    "type": "affiliated",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_szep_grisha",
+    "target": "inst_jpcca",
+    "type": "contact_for",
+    "meta": {
+      "role": "researcher"
+    }
+  },
+  {
+    "source": "person_tachibana_madoka",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Staff",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_takemura_mitsuhiro",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_tanaka_mika",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Staff",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_vanbalen_tuur",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_virza_madars",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_wang_sophia",
+    "target": "event_2025_symposium",
+    "type": "exhibits_at",
+    "meta": {
+      "exhibition": "Institutions of Impact"
+    }
+  },
+  {
+    "source": "person_wang_sophia",
+    "target": "event_2025_symposium",
+    "type": "exhibits_at",
+    "meta": {
+      "exhibition": "SDS Affinity Atlas"
+    }
+  },
+  {
+    "source": "person_wang_sophia",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_wang_sophia",
+    "target": "proj_charter",
+    "type": "contributor",
+    "meta": {
+      "role": "Project Lead"
+    }
+  },
+  {
+    "source": "person_wang_sophia",
+    "target": "proj_compass",
+    "type": "contributor",
+    "meta": {
+      "role": "Researcher"
+    }
+  },
+  {
+    "source": "person_xiao_xiao",
+    "target": "event_2025_symposium",
+    "type": "speaks_at",
+    "meta": {
+      "session": "Building an Antidisciplinary Organization",
+      "role": "panelist"
+    }
+  },
+  {
+    "source": "person_xiao_xiao",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_zamma_toshiyuki",
+    "target": "inst_henkaku",
+    "type": "affiliated",
+    "meta": {
+      "role": "Visiting Researcher",
+      "primary": true
+    }
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "event_2025_symposium",
+    "type": "exhibits_at"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "event_2025_symposium",
+    "type": "exhibits_at"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "event_2025_symposium",
+    "type": "speaks_at"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "init_compass_initiative",
+    "type": "lead"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "inst_henkaku",
+    "type": "affiliated"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "inst_sds",
+    "type": "affiliated"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "proj_charter",
+    "type": "contributor"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "proj_charter",
+    "type": "owner"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "proj_compass",
+    "type": "owner"
+  },
+  {
+    "source": "person_winder_ira",
+    "target": "proj_sds_launch",
+    "type": "contributor"
+  }
+]
