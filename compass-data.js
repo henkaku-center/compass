@@ -77,49 +77,117 @@ const store = {
   _dirty: new Set(), // track which file types have been modified
 };
 
+// --- API ↔ Frontend transforms ---
+
+// API entity {id, type, name, data: {…}} → flat frontend entity {id, type, name, short_name, …}
+function flattenEntity(apiEntity) {
+  const { id, type, name, data, created_at, updated_at } = apiEntity;
+  return { id, type, name, ...data };
+}
+
+// Flat frontend entity → API create payload {id, type, name, data: {…}}
+function unflattenEntityForCreate(flat) {
+  const { id, type, name, ...rest } = flat;
+  return { id, type, name, data: rest };
+}
+
+// Flat frontend entity → API update payload {name, data: {…}}
+function unflattenEntityForUpdate(flat) {
+  const { id, type, name, ...rest } = flat;
+  return { name, data: rest };
+}
+
+// API relation {id, source_id, target_id, type, meta} → frontend {source, target, type, meta, _apiId}
+function flattenRelation(apiRel) {
+  const rel = { source: apiRel.source_id, target: apiRel.target_id, type: apiRel.type, _apiId: apiRel.id };
+  if (apiRel.meta) rel.meta = apiRel.meta;
+  return rel;
+}
+
+// Frontend relation → API create payload {source_id, target_id, type, meta}
+function unflattenRelationForCreate(rel) {
+  const out = { source_id: rel.source, target_id: rel.target, type: rel.type };
+  if (rel.meta && Object.keys(rel.meta).length > 0) out.meta = rel.meta;
+  return out;
+}
+
+// Resolve portrait URL: handles local data/ paths and API-stored portraits/ paths
+function resolvePortraitUrl(entity, apiClient) {
+  const p = entity && entity.portrait;
+  if (!p) return 'compass-icon.png';
+  // Full URL — pass through
+  if (p.startsWith('http://') || p.startsWith('https://')) return p;
+  // Local data/ paths — pass through (works when served from same origin)
+  if (p.startsWith('data/')) return p;
+  // API-stored paths like "portraits/person_xyz.png" — build full API URL
+  if (apiClient && p.startsWith('portraits/')) {
+    return `${apiClient.baseUrl}/api/v1/compass/entities/${entity.id}/files/${p.replace('portraits/', '')}`;
+  }
+  return p;
+}
+
 // --- Loading ---
 
-async function loadStore() {
-  const types = ['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places'];
-  const cacheBuster = `?t=${Date.now()}`;
-
-  const fetches = types.map(t =>
-    fetch(`data/${t}.json${cacheBuster}`, { cache: 'no-store' })
-      .then(res => {
-        if (!res.ok) throw new Error(`Failed to load data/${t}.json`);
-        return res.json();
-      })
-      .then(data => ({ type: t, data }))
-  );
-
-  // Also fetch relations
-  fetches.push(
-    fetch(`data/relations.json${cacheBuster}`, { cache: 'no-store' })
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to load data/relations.json');
-        return res.json();
-      })
-      .then(data => ({ type: '_relations', data }))
-  );
-
-  const results = await Promise.all(fetches);
-
+async function loadStore(apiClient) {
   // Clear store
   store.entities = {};
   store.relations = [];
   store.byType = {};
   store._dirty.clear();
 
-  results.forEach(({ type, data }) => {
-    if (type === '_relations') {
-      store.relations = data;
-    } else {
-      store.byType[type] = data;
-      data.forEach(entity => {
-        store.entities[entity.id] = entity;
-      });
-    }
-  });
+  if (apiClient) {
+    // Fetch from Registry API
+    const [apiEntities, apiRelations] = await Promise.all([
+      apiClient.getEntities(),
+      apiClient.getRelations(),
+    ]);
+
+    apiEntities.forEach(ae => {
+      const entity = flattenEntity(ae);
+      store.entities[entity.id] = entity;
+      const plural = TYPE_FILE_MAP[entity.type];
+      if (plural) {
+        if (!store.byType[plural]) store.byType[plural] = [];
+        store.byType[plural].push(entity);
+      }
+    });
+
+    store.relations = apiRelations.map(flattenRelation);
+  } else {
+    // Fallback: load from local JSON files (for offline dev)
+    const types = ['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places'];
+    const cacheBuster = `?t=${Date.now()}`;
+
+    const fetches = types.map(t =>
+      fetch(`data/${t}.json${cacheBuster}`, { cache: 'no-store' })
+        .then(res => {
+          if (!res.ok) throw new Error(`Failed to load data/${t}.json`);
+          return res.json();
+        })
+        .then(data => ({ type: t, data }))
+    );
+
+    fetches.push(
+      fetch(`data/relations.json${cacheBuster}`, { cache: 'no-store' })
+        .then(res => {
+          if (!res.ok) throw new Error('Failed to load data/relations.json');
+          return res.json();
+        })
+        .then(data => ({ type: '_relations', data }))
+    );
+
+    const results = await Promise.all(fetches);
+    results.forEach(({ type, data }) => {
+      if (type === '_relations') {
+        store.relations = data;
+      } else {
+        store.byType[type] = data;
+        data.forEach(entity => {
+          store.entities[entity.id] = entity;
+        });
+      }
+    });
+  }
 
   return store;
 }

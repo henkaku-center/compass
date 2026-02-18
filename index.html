@@ -2061,6 +2061,7 @@
   <script src="//unpkg.com/three@0.160.0/build/three.min.js"></script>
   <script src="//unpkg.com/three-spritetext@1.9.5"></script>
   <script src="//unpkg.com/3d-force-graph@1.73.3"></script>
+  <script src="api-client.js"></script>
   <script src="compass-data.js"></script>
 </head>
 <body>
@@ -2181,7 +2182,7 @@
       'home': null, // Special case: landing page
       'about': 'README.md',
       'status': 'STATUS.md',
-      'charter': 'https://charter.henkaku.center/content/CHARTER.md',
+      'charter': null, // Special case: loaded from Registry API
       'curriculum': 'docs/CURRICULUM.md',
       'archetypes': 'docs/ARCHETYPES.md',
       'references': null, // Special case: rendered from data
@@ -2626,11 +2627,18 @@
     // --- Registry data loading and rendering ---
     // Data layer provided by compass-data.js (store, loadStore, getEntity, etc.)
 
+    // Registry API client
+    const api = new ApiClient('https://registry.henkaku.center');
+    api.init();
+
+    // Current user info (populated after login/session restore)
+    let currentUser = null;
+
     // Ensure store is loaded (cached after first call)
     let _storeReady = null;
     function ensureStore() {
       if (_storeReady) return _storeReady;
-      _storeReady = loadStore();
+      _storeReady = loadStore(api);
       return _storeReady;
     }
 
@@ -2821,7 +2829,7 @@
         }
       }
 
-      const portraitSrc = entry.portrait || 'compass-icon.png';
+      const portraitSrc = resolvePortraitUrl(entry, api);
       const portraitHtml = `<img class="card-portrait" src="${portraitSrc}" alt="" loading="lazy">`;
 
       card.innerHTML = `
@@ -2975,7 +2983,7 @@
           }
 
           // Portrait
-          const portraitSrc = entry.portrait || 'compass-icon.png';
+          const portraitSrc = resolvePortraitUrl(entry, api);
 
           // Type-specific detail sections
           let detailHtml = '';
@@ -3405,7 +3413,7 @@
             if (!detail || !data) return;
 
             let html = '';
-            const detailPortrait = data.portrait || 'compass-icon.png';
+            const detailPortrait = resolvePortraitUrl(data, api);
             html += `<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">`;
             html += `<img src="${detailPortrait}" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">`;
             html += `<h3 style="margin:0">${data.name || data.id}</h3></div>`;
@@ -3479,6 +3487,45 @@
             container.innerHTML = `<p style="color: #c62828; padding: 2rem;">Error loading network data: ${err.message}</p>`;
           }
         });
+    }
+
+    async function loadCharter() {
+      clearOrientationRotator();
+      currentDoc = 'charter';
+      showSidebar('charter');
+      contentEl.innerHTML = '<p>Loading Charter&hellip;</p>';
+      updateActiveNavLink('charter');
+
+      try {
+        const result = await api.getDocumentContent('charter');
+        const markdown = result.content || result;
+        let html = marked.parse(markdown);
+
+        html = '<div class="charter-banner">The definitive source for the Charter is <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer">charter.henkaku.center</a>, which also provides an interface for proposing and voting on amendments and exporting the Charter in various formats.</div><div class="charter-version" id="charter-version-info"></div>' + html;
+
+        contentEl.innerHTML = html;
+
+        // Fetch version info
+        try {
+          const head = await api.getHead('charter');
+          if (head && head.current_version_id) {
+            const versions = await api.getVersions('charter');
+            if (versions && versions.length > 0) {
+              const latest = versions[versions.length - 1];
+              const date = new Date(latest.approved_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+              const versionEl = document.getElementById('charter-version-info');
+              if (versionEl) versionEl.textContent = `Current version: ${date}`;
+            }
+          }
+        } catch (e) { /* version info is non-critical */ }
+
+        assignHeadingIds();
+        makeCollapsible();
+        buildDocToc('charter');
+        window.scrollTo(0, 0);
+      } catch (err) {
+        contentEl.innerHTML = `<p style="color:#c62828;">Error loading Charter: ${err.message}</p>`;
+      }
     }
 
     function loadDoc(path, docKey) {
@@ -3749,25 +3796,20 @@
     // --- Login & Editing ---
 
     function isLoggedIn() {
-      return !!sessionStorage.getItem('github_pat');
-    }
-
-    function getPAT() {
-      return sessionStorage.getItem('github_pat');
+      return api.isAuthenticated;
     }
 
     function getUsername() {
-      return sessionStorage.getItem('github_username');
+      if (currentUser) return currentUser.name || currentUser.email;
+      return '';
     }
 
     function updateLoginUI() {
       const loginEl = document.getElementById('nav-login');
       if (!loginEl) return;
-      if (isLoggedIn()) {
-        const avatar = sessionStorage.getItem('github_avatar');
-        const displayName = sessionStorage.getItem('github_name') || getUsername();
-        const avatarHtml = avatar ? `<img class="nav-avatar" src="${avatar}" alt="">` : '';
-        loginEl.innerHTML = `${avatarHtml}<span class="username">${displayName}</span> <button onclick="logout()">Logout</button>`;
+      if (isLoggedIn() && currentUser) {
+        const displayName = currentUser.name || currentUser.email;
+        loginEl.innerHTML = `<span class="username">${displayName}</span> <button onclick="logout()">Logout</button>`;
       } else {
         loginEl.innerHTML = `<button onclick="showLoginModal()">Login</button>`;
       }
@@ -3806,72 +3848,62 @@
 
     function showLoginModal() {
       var html = '<div class="form-group">' +
-        '<label for="pat-input">GitHub Personal Access Token</label>' +
-        '<input type="password" id="pat-input" placeholder="ghp_..." />' +
-        '<div class="field-hint">Needs <code>contents:write</code> scope for the compass repo.</div>' +
+        '<label for="login-email">Email</label>' +
+        '<input type="email" id="login-email" placeholder="you@example.com" />' +
+        '</div>' +
+        '<div class="form-group">' +
+        '<label for="login-password">Password</label>' +
+        '<input type="password" id="login-password" placeholder="Password" />' +
         '</div>' +
         '<div class="modal-actions">' +
         '<button class="btn" onclick="closeModal()">Cancel</button>' +
         '<button class="btn btn-primary" id="login-btn" onclick="handleLogin()">Login</button>' +
         '</div>';
-      showModal('Login with GitHub', html);
-      setTimeout(function() { var el = document.getElementById('pat-input'); if (el) el.focus(); }, 100);
+      showModal('Login', html);
+      setTimeout(function() { var el = document.getElementById('login-email'); if (el) el.focus(); }, 100);
     }
 
     async function handleLogin() {
-      var pat = document.getElementById('pat-input');
-      pat = pat ? pat.value.trim() : '';
-      if (!pat) { showModalError('Please enter a token.'); return; }
+      var email = document.getElementById('login-email');
+      email = email ? email.value.trim() : '';
+      var password = document.getElementById('login-password');
+      password = password ? password.value : '';
+      if (!email || !password) { showModalError('Please enter email and password.'); return; }
 
       var loginBtn = document.getElementById('login-btn');
       if (loginBtn) { loginBtn.disabled = true; loginBtn.textContent = 'Verifying\u2026'; }
 
       try {
-        // Verify repo access
-        var repoRes = await fetch('https://api.github.com/repos/henkaku-center/compass', {
-          headers: { 'Authorization': 'Bearer ' + pat, 'Accept': 'application/vnd.github.v3+json' }
-        });
-        if (!repoRes.ok) {
-          if (repoRes.status === 401) throw new Error('Invalid token.');
-          if (repoRes.status === 403) throw new Error('Insufficient permissions. Token needs repo access.');
-          if (repoRes.status === 404) throw new Error('Repository not found or no access.');
-          throw new Error('GitHub API error: ' + repoRes.status);
-        }
-
-        var repoData = await repoRes.json();
-        if (!repoData.permissions || !repoData.permissions.push) {
-          throw new Error('Token lacks write access to this repository.');
-        }
-
-        // Get username
-        var userRes = await fetch('https://api.github.com/user', {
-          headers: { 'Authorization': 'Bearer ' + pat, 'Accept': 'application/vnd.github.v3+json' }
-        });
-        if (!userRes.ok) throw new Error('Could not verify user identity.');
-        var userData = await userRes.json();
-
-        sessionStorage.setItem('github_pat', pat);
-        sessionStorage.setItem('github_username', userData.login);
-        sessionStorage.setItem('github_name', userData.name || userData.login);
-        sessionStorage.setItem('github_avatar', userData.avatar_url || '');
-
+        await api.login(email, password);
+        currentUser = await api.me();
         closeModal();
         updateLoginUI();
         loadFromHash();
       } catch (err) {
-        showModalError(err.message || 'Network error. Check your connection.');
+        showModalError(err.message || 'Login failed. Check your credentials.');
         if (loginBtn) { loginBtn.disabled = false; loginBtn.textContent = 'Login'; }
       }
     }
 
     function logout() {
-      sessionStorage.removeItem('github_pat');
-      sessionStorage.removeItem('github_username');
-      sessionStorage.removeItem('github_name');
-      sessionStorage.removeItem('github_avatar');
+      api.logout();
+      currentUser = null;
       updateLoginUI();
       loadFromHash();
     }
+
+    // Restore session on page load
+    (async function restoreSession() {
+      if (api.isAuthenticated) {
+        try {
+          currentUser = await api.me();
+        } catch (e) {
+          api.logout();
+          currentUser = null;
+        }
+        updateLoginUI();
+      }
+    })();
 
     // --- Edit Modal ---
 
@@ -4340,9 +4372,12 @@
       if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Saving\u2026'; }
 
       try {
-        await commitRegistryUpdate(type, entryId, updated, false, newRelations);
+        if (!isLoggedIn()) throw new Error('Not logged in.');
+        var payload = unflattenEntityForUpdate(updated);
+        await api.updateEntity(entryId, payload);
+        if (newRelations) await syncRelations(entryId, newRelations);
         closeModal();
-        _storeReady = null; // Force store reload
+        _storeReady = null;
         loadFromHash();
       } catch (err) {
         showModalError(err.message);
@@ -4373,9 +4408,11 @@
       if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Creating\u2026'; }
 
       try {
-        await commitRegistryUpdate(type, entryId, updated, true);
+        if (!isLoggedIn()) throw new Error('Not logged in.');
+        var payload = unflattenEntityForCreate(updated);
+        await api.createEntity(payload);
         closeModal();
-        _storeReady = null; // Force store reload
+        _storeReady = null;
         loadFromHash();
       } catch (err) {
         showModalError(err.message);
@@ -4383,150 +4420,56 @@
       }
     }
 
-    function encodeBase64Unicode(str) {
-      var bytes = new TextEncoder().encode(str);
-      var binary = '';
-      for (var i = 0; i < bytes.length; i++) {
-        binary += String.fromCharCode(bytes[i]);
-      }
-      return btoa(binary);
-    }
+    // Sync relations for an entity: diff current store against form state, delete/create as needed
+    async function syncRelations(entityId, newRelations) {
+      // Normalize form relations: flip inverse types back to canonical form
+      var normalizedNew = newRelations.map(function(rel) {
+        var s = rel.source;
+        var t = rel.target;
+        var type = rel.type;
 
-    function decodeBase64Unicode(b64) {
-      var binary = atob(b64);
-      var bytes = new Uint8Array(binary.length);
-      for (var i = 0; i < binary.length; i++) {
-        bytes[i] = binary.charCodeAt(i);
-      }
-      return new TextDecoder().decode(bytes);
-    }
+        // Check if this was an incoming relation shown as inverse — flip back
+        var typeInfo = RELATION_TYPES[type];
+        if (typeInfo && typeInfo.inverse !== type) {
+          var origRel = store.relations.find(function(r) {
+            return r.target === entityId && r.source === t && RELATION_TYPES[r.type] && RELATION_TYPES[r.type].inverse === type;
+          });
+          if (origRel) {
+            s = t;
+            t = entityId;
+            type = origRel.type;
+          }
+        }
 
-    async function commitGithubFile(pat, filePath, newContent, commitMessage) {
-      var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
-      var headers = {
-        'Authorization': 'Bearer ' + pat,
-        'Accept': 'application/vnd.github.v3+json'
-      };
-
-      // Get current file to get sha
-      var getRes = await fetch(apiUrl, { headers: headers });
-      var sha = null;
-      if (getRes.ok) {
-        var fileData = await getRes.json();
-        sha = fileData.sha;
-      } else if (getRes.status === 404) {
-        // File doesn't exist yet, will create
-      } else {
-        if (getRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
-        throw new Error('Failed to read ' + filePath + ': ' + getRes.status);
-      }
-
-      var encoded = encodeBase64Unicode(newContent);
-      var body = {
-        message: commitMessage,
-        content: encoded,
-        branch: 'main'
-      };
-      if (sha) body.sha = sha;
-
-      var putRes = await fetch(apiUrl, {
-        method: 'PUT',
-        headers: {
-          'Authorization': 'Bearer ' + pat,
-          'Accept': 'application/vnd.github.v3+json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
+        return { source: s, target: t, type: type, meta: rel.meta };
       });
 
-      if (!putRes.ok) {
-        if (putRes.status === 409) throw new Error('File was modified since you opened it. Reload and try again.');
-        if (putRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
-        var errData = {};
-        try { errData = await putRes.json(); } catch(e) {}
-        throw new Error(errData.message || 'Save failed: ' + putRes.status);
-      }
-    }
+      // Get current relations from store that involve this entity
+      var currentRels = store.relations.filter(function(r) {
+        return r.source === entityId || r.target === entityId;
+      });
 
-    async function commitRegistryUpdate(type, entryId, updatedEntry, isNew, newRelations) {
-      var pat = getPAT();
-      if (!pat) throw new Error('Not logged in.');
+      // Build key for comparison
+      function relKey(r) { return r.source + '|' + r.target + '|' + r.type; }
 
-      // --- Commit entity file ---
-      var filePath = 'data/' + type + '.json';
-      var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
-      var headers = {
-        'Authorization': 'Bearer ' + pat,
-        'Accept': 'application/vnd.github.v3+json'
-      };
+      var currentKeys = {};
+      currentRels.forEach(function(r) { currentKeys[relKey(r)] = r; });
 
-      var getRes = await fetch(apiUrl, { headers: headers });
-      if (!getRes.ok) {
-        if (getRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
-        throw new Error('Failed to read ' + filePath + ': ' + getRes.status);
-      }
-      var fileData = await getRes.json();
+      var newKeys = {};
+      normalizedNew.forEach(function(r) { newKeys[relKey(r)] = r; });
 
-      var content = decodeBase64Unicode(fileData.content.replace(/\n/g, ''));
-      var allEntries = JSON.parse(content);
-
-      if (isNew) {
-        if (allEntries.some(function(e) { return e.id === entryId; })) {
-          throw new Error('An entry with ID "' + entryId + '" already exists.');
+      // Delete removed relations
+      for (var key in currentKeys) {
+        if (!newKeys[key] && currentKeys[key]._apiId) {
+          await api.deleteRelation(currentKeys[key]._apiId);
         }
-        allEntries.push(updatedEntry);
-      } else {
-        var idx = allEntries.findIndex(function(e) { return e.id === entryId; });
-        if (idx === -1) throw new Error('Entry ' + entryId + ' not found in ' + filePath + '.');
-        allEntries[idx] = updatedEntry;
       }
 
-      var jsonString = JSON.stringify(allEntries, null, 2) + '\n';
-      var name = updatedEntry.name || updatedEntry.id;
-      var verb = isNew ? 'add' : 'update';
-
-      await commitGithubFile(pat, filePath, jsonString, 'registry: ' + verb + ' ' + name + ' in ' + type);
-
-      // --- Commit relations if changed ---
-      if (newRelations) {
-        // Remove old relations where this entity is source or target
-        var updatedRelations = store.relations.filter(function(r) {
-          return r.source !== entryId && r.target !== entryId;
-        });
-
-        // Add back the relations from the form
-        // Need to normalize: form stores all as outgoing from entityId,
-        // but some may actually be inverse types that need flipping
-        newRelations.forEach(function(rel) {
-          var s = rel.source === entryId ? rel.source : rel.source;
-          var t = rel.target;
-          var type = rel.type;
-
-          // Check if this is an inverse type — if so, flip and use canonical
-          var typeInfo = RELATION_TYPES[type];
-          if (typeInfo && typeInfo.inverse !== type) {
-            // Check if the canonical direction should be the other way
-            // We stored inverse types for incoming relations; flip them back
-            var isInverse = false;
-            // Check original store for canonical direction
-            var origRel = store.relations.find(function(r) {
-              return r.target === entryId && r.source === t && RELATION_TYPES[r.type] && RELATION_TYPES[r.type].inverse === type;
-            });
-            if (origRel) {
-              // This was an incoming relation shown as inverse — store in canonical form
-              s = t;
-              t = entryId;
-              type = origRel.type;
-            }
-          }
-
-          var newRel = { source: s, target: t, type: type };
-          if (rel.meta && Object.keys(rel.meta).length > 0) newRel.meta = rel.meta;
-          updatedRelations.push(newRel);
-        });
-
-        var relJsonString = JSON.stringify(updatedRelations, null, 2) + '\n';
-        await commitGithubFile(pat, 'data/relations.json', relJsonString, 'registry: update relations for ' + name);
+      // Create added relations
+      for (var key in newKeys) {
+        if (!currentKeys[key]) {
+          await api.createRelation(unflattenRelationForCreate(newKeys[key]));
+        }
       }
     }
 
@@ -4561,6 +4504,8 @@
         loadReferences();
       } else if (docKey === 'history') {
         loadHistory();
+      } else if (docKey === 'charter') {
+        loadCharter();
       } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places'].includes(docKey)) {
         if (entityId) {
           loadEntityDetail(docKey, entityId);
@@ -4618,7 +4563,7 @@
       } else {
         formHtml = `
           <div class="feedback-login-prompt">
-            <p>Log in with a GitHub token to submit feedback.</p>
+            <p>Log in to submit feedback.</p>
             <button class="btn" onclick="showLoginModal()">Login</button>
           </div>
         `;
@@ -4644,27 +4589,12 @@
       var entriesEl = document.getElementById('feedback-entries');
       if (!entriesEl) return;
 
-      var url = 'https://api.github.com/repos/henkaku-center/compass/contents/data/feedback.json';
-      var headers = { 'Accept': 'application/vnd.github.v3+json' };
-      var pat = getPAT();
-      if (pat) headers['Authorization'] = 'Bearer ' + pat;
-
-      fetch(url, { headers: headers })
-        .then(function(res) {
-          if (res.status === 404) return [];
-          if (!res.ok) throw new Error('Failed to load feedback: ' + res.status);
-          return res.json().then(function(fileData) {
-            var content = decodeBase64Unicode(fileData.content.replace(/\n/g, ''));
-            return JSON.parse(content);
-          });
-        })
+      api.getFeedback('compass')
         .then(function(entries) {
           if (!entries || entries.length === 0) {
             entriesEl.innerHTML = '<div class="feedback-empty">No feedback submitted yet.</div>';
             return;
           }
-          // Sort newest first
-          entries.sort(function(a, b) { return b.submitted_at.localeCompare(a.submitted_at); });
           entriesEl.innerHTML = '<h2 style="font-size:1rem;border:none;margin:0 0 1rem;padding:0;">Existing Feedback</h2>';
           entries.forEach(function(entry) {
             entriesEl.appendChild(renderFeedbackCard(entry));
@@ -4696,19 +4626,21 @@
         statusHtml = '<span class="feedback-status-badge ' + escapeAttr(entry.status || 'open') + '">' + escapeHtml(statusLabel) + '</span>';
       }
 
-      var date = entry.submitted_at ? new Date(entry.submitted_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+      var dateStr = entry.created_at || entry.submitted_at;
+      var date = dateStr ? new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+      var author = entry.author_id || entry.submitted_by || 'unknown';
 
       var attachmentsHtml = '';
       if (entry.attachments && entry.attachments.length > 0) {
-        var repoBase = 'https://raw.githubusercontent.com/henkaku-center/compass/main/';
         attachmentsHtml = '<div class="feedback-card-attachments">';
         entry.attachments.forEach(function(att) {
-          var url = repoBase + att.path;
-          var isImage = (att.type || '').startsWith('image/');
+          var url = api.getAttachmentUrl(entry.id, att.id);
+          var isImage = (att.content_type || att.type || '').startsWith('image/');
+          var name = att.filename || att.name || 'attachment';
           if (isImage) {
-            attachmentsHtml += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener noreferrer"><img class="attachment-thumb" src="' + escapeAttr(url) + '" alt="' + escapeAttr(att.name) + '" /></a>';
+            attachmentsHtml += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener noreferrer"><img class="attachment-thumb" src="' + escapeAttr(url) + '" alt="' + escapeAttr(name) + '" /></a>';
           } else {
-            attachmentsHtml += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(att.name) + '</a>';
+            attachmentsHtml += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(name) + '</a>';
           }
         });
         attachmentsHtml += '</div>';
@@ -4722,7 +4654,7 @@
         '</div>' +
         (entry.description ? '<div class="feedback-card-desc">' + escapeHtml(entry.description) + '</div>' : '') +
         attachmentsHtml +
-        '<div class="feedback-card-meta">by ' + escapeHtml(entry.submitted_by || 'unknown') + (date ? ' on ' + date : '') + '</div>';
+        '<div class="feedback-card-meta">by ' + escapeHtml(author) + (date ? ' on ' + date : '') + '</div>';
 
       return card;
     }
@@ -4786,61 +4718,7 @@
       });
     }
 
-    function readFileAsBase64(file) {
-      return new Promise(function(resolve, reject) {
-        var reader = new FileReader();
-        reader.onload = function() {
-          var result = reader.result;
-          var base64 = result.split(',')[1];
-          resolve(base64);
-        };
-        reader.onerror = function() { reject(new Error('Failed to read ' + file.name)); };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    async function uploadFeedbackFiles(pat, entryId) {
-      var attachments = [];
-      for (var i = 0; i < feedbackSelectedFiles.length; i++) {
-        var file = feedbackSelectedFiles[i];
-        var ext = file.name.split('.').pop().toLowerCase();
-        var safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-        var filePath = 'data/feedback/' + entryId + '_' + safeName;
-
-        var base64 = await readFileAsBase64(file);
-        var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
-
-        var res = await fetch(apiUrl, {
-          method: 'PUT',
-          headers: {
-            'Authorization': 'Bearer ' + pat,
-            'Accept': 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: 'feedback: attach ' + safeName,
-            content: base64,
-            branch: 'main'
-          })
-        });
-
-        if (!res.ok) {
-          var errData = {};
-          try { errData = await res.json(); } catch(e) {}
-          throw new Error('Failed to upload ' + file.name + ': ' + (errData.message || res.status));
-        }
-
-        attachments.push({
-          name: file.name,
-          path: filePath,
-          size: file.size,
-          type: file.type || 'application/octet-stream'
-        });
-      }
-      return attachments;
-    }
-
-    function handleFeedbackSubmit() {
+    async function handleFeedbackSubmit() {
       showFeedbackFormError('');
       var title = (document.getElementById('feedback-title').value || '').trim();
       var desc = (document.getElementById('feedback-desc').value || '').trim();
@@ -4850,110 +4728,42 @@
         showFeedbackFormError('Title is required.');
         return;
       }
+      if (!isLoggedIn()) {
+        showFeedbackFormError('Please log in first.');
+        return;
+      }
 
-      var entryId = 'fb_' + Date.now();
+      var entryId = 'fb_' + Date.now().toString(36);
       var btn = document.getElementById('feedback-submit-btn');
       if (btn) { btn.disabled = true; btn.textContent = 'Submitting\u2026'; }
 
-      var pat = getPAT();
+      try {
+        var feedbackData = {
+          id: entryId,
+          project: 'compass',
+          type: type,
+          author_id: currentUser ? currentUser.email : 'unknown',
+          title: title,
+          description: desc
+        };
 
-      (feedbackSelectedFiles.length > 0 ? uploadFeedbackFiles(pat, entryId) : Promise.resolve([]))
-        .then(function(attachments) {
-          var entry = {
-            id: entryId,
-            type: type,
-            title: title,
-            description: desc,
-            submitted_by: getUsername() || 'unknown',
-            submitted_at: new Date().toISOString(),
-            status: 'open'
-          };
-          if (attachments.length > 0) entry.attachments = attachments;
-          return commitFeedback(entry, false);
-        })
-        .then(function() {
-          document.getElementById('feedback-title').value = '';
-          document.getElementById('feedback-desc').value = '';
-          feedbackSelectedFiles = [];
-          renderFeedbackFileList();
-          showFeedbackFormError('');
-          if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
-          loadFeedbackEntries();
-        })
-        .catch(function(err) {
-          showFeedbackFormError(err.message);
-          if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
-        });
-    }
+        await api.createFeedback(feedbackData);
 
-    async function commitFeedback(entryOrUpdate, isStatusUpdate) {
-      var pat = getPAT();
-      if (!pat) throw new Error('Not logged in.');
+        // Upload attachments
+        for (var i = 0; i < feedbackSelectedFiles.length; i++) {
+          await api.uploadAttachment(entryId, feedbackSelectedFiles[i]);
+        }
 
-      var filePath = 'data/feedback.json';
-      var apiUrl = 'https://api.github.com/repos/henkaku-center/compass/contents/' + filePath;
-      var headers = {
-        'Authorization': 'Bearer ' + pat,
-        'Accept': 'application/vnd.github.v3+json'
-      };
-
-      // GET current file (404 means first-ever submission)
-      var getRes = await fetch(apiUrl, { headers: headers });
-      var allEntries = [];
-      var sha = null;
-
-      if (getRes.ok) {
-        var fileData = await getRes.json();
-        sha = fileData.sha;
-        var content = decodeBase64Unicode(fileData.content.replace(/\n/g, ''));
-        allEntries = JSON.parse(content);
-      } else if (getRes.status === 404) {
-        // File doesn't exist yet — will be created
-      } else {
-        if (getRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
-        throw new Error('Failed to read feedback: ' + getRes.status);
-      }
-
-      var commitMsg;
-      if (isStatusUpdate) {
-        // entryOrUpdate is { id, status }
-        var idx = allEntries.findIndex(function(e) { return e.id === entryOrUpdate.id; });
-        if (idx === -1) throw new Error('Feedback entry not found.');
-        allEntries[idx].status = entryOrUpdate.status;
-        commitMsg = 'feedback: update status of "' + (allEntries[idx].title || entryOrUpdate.id) + '" to ' + entryOrUpdate.status;
-      } else {
-        // New submission
-        allEntries.push(entryOrUpdate);
-        var typeLabel = entryOrUpdate.type === 'bug_report' ? 'bug report' : 'feature request';
-        commitMsg = 'feedback: add ' + typeLabel + ' "' + entryOrUpdate.title + '"';
-      }
-
-      var jsonString = JSON.stringify(allEntries, null, 2) + '\n';
-      var encoded = encodeBase64Unicode(jsonString);
-
-      var putBody = {
-        message: commitMsg,
-        content: encoded,
-        branch: 'main'
-      };
-      if (sha) putBody.sha = sha;
-
-      var putRes = await fetch(apiUrl, {
-        method: 'PUT',
-        headers: {
-          'Authorization': 'Bearer ' + pat,
-          'Accept': 'application/vnd.github.v3+json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(putBody)
-      });
-
-      if (!putRes.ok) {
-        if (putRes.status === 409) throw new Error('File was modified since you loaded it. Reload and try again.');
-        if (putRes.status === 403) throw new Error('Insufficient permissions. Token needs contents:write scope.');
-        var errData = {};
-        try { errData = await putRes.json(); } catch(e) {}
-        throw new Error(errData.message || 'Save failed: ' + putRes.status);
+        document.getElementById('feedback-title').value = '';
+        document.getElementById('feedback-desc').value = '';
+        feedbackSelectedFiles = [];
+        renderFeedbackFileList();
+        showFeedbackFormError('');
+        if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
+        loadFeedbackEntries();
+      } catch (err) {
+        showFeedbackFormError(err.message);
+        if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
       }
     }
 
@@ -4962,7 +4772,7 @@
       var newStatus = selectEl.value;
       selectEl.disabled = true;
 
-      commitFeedback({ id: entryId, status: newStatus }, true)
+      api.updateFeedback(entryId, { status: newStatus })
         .then(function() {
           selectEl.disabled = false;
         })
