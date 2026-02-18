@@ -1475,6 +1475,7 @@
 
     .nav-login .username {
       color: #333;
+      text-decoration: none;
     }
 
     .nav-login button {
@@ -3809,7 +3810,10 @@
       if (!loginEl) return;
       if (isLoggedIn() && currentUser) {
         const displayName = currentUser.name || currentUser.email;
-        loginEl.innerHTML = `<span class="username">${displayName}</span> <button onclick="logout()">Logout</button>`;
+        const nameHtml = currentUser.compass_entity_id
+          ? `<a href="${entityHrefById(currentUser.compass_entity_id)}" class="username">${displayName}</a>`
+          : `<span class="username">${displayName}</span>`;
+        loginEl.innerHTML = `${nameHtml} <button onclick="logout()">Logout</button>`;
       } else {
         loginEl.innerHTML = `<button onclick="showLoginModal()">Login</button>`;
       }
