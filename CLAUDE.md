@@ -158,11 +158,11 @@ Ten entry types:
 - Client-side markdown rendering with marked.js (no build process)
 - `compass-data.js` provides the unified data layer: entity store, relation management, generic graph building, and relation rendering
 - Curriculum tables use page-scoped CSS (`table-layout: fixed`, 55%/10%/35% column widths for Course/Credits/Instructor); other pages use auto layout
-- `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes)
-- `#feedback` page lets logged-in users submit bug reports and feature requests with file/image attachments (10 MB max per file), committed to `data/feedback/` via GitHub API
+- `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes) — the only remaining GitHub API dependency
+- `#feedback` page lets logged-in users submit bug reports and feature requests with file/image attachments (10 MB max per file) via the Registry API (`/api/v1/feedback`)
 - Landing page organized into three labeled groups: DNA, Emergent, and Info, with animated card entrances
 - Compass icon has a magnetic-settle animation tied to the orientation rotator; nav icon aligns with left sidebar content
-- Login via GitHub personal access token (stored in sessionStorage) enables inline editing of registry entries and feedback submission
+- Login via Registry auth (email/password → JWT tokens via `ApiClient`) enables inline editing of registry entries and feedback submission. User accounts are linked to compass person entities via `compass_entity_id`
 - Cache-busting with timestamp query parameters
 - 3D network graph visualization uses 3d-force-graph (CDN) with Three.js and d3-force-3d
 
