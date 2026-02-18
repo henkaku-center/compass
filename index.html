@@ -1526,6 +1526,10 @@
       max-width: 800px;
     }
 
+    .modal-box.narrow {
+      max-width: 400px;
+    }
+
     @keyframes modalIn {
       from { opacity: 0; transform: translateY(-12px); }
       to { opacity: 1; transform: translateY(0); }
@@ -1648,6 +1652,7 @@
     }
 
     .form-group input[type="text"],
+    .form-group input[type="email"],
     .form-group input[type="password"],
     .form-group textarea,
     .form-group select {
@@ -3832,6 +3837,7 @@
       errorEl.textContent = '';
       errorEl.classList.remove('visible');
       box.classList.toggle('wide', !!opts.wide);
+      box.classList.toggle('narrow', !!opts.narrow);
       overlay.classList.add('visible');
       document.body.style.overflow = 'hidden';
     }
@@ -3863,7 +3869,7 @@
         '<button class="btn" onclick="closeModal()">Cancel</button>' +
         '<button class="btn btn-primary" id="login-btn" onclick="handleLogin()">Login</button>' +
         '</div>';
-      showModal('Login', html);
+      showModal('Login', html, { narrow: true });
       setTimeout(function() { var el = document.getElementById('login-email'); if (el) el.focus(); }, 100);
     }
 
