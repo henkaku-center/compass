@@ -138,9 +138,10 @@ Ten entry types:
 - `#charter` fetches and renders Charter markdown from `charter.henkaku.center/content/CHARTER.md` inline (with a banner linking to the definitive source and showing the current version dynamically)
 - Top nav bar shows minimal links (Feedback, GitHub, Login). Full site navigation is in a left sidebar organized into DNA, Emergent, and Info groups (with Theses and Posts as placeholders)
 - Right-hand document TOC sidebar with scroll-spy for Charter, Archetypes, About, and Status pages
-- Client-side markdown rendering with marked.js (no build process)
+- Client-side markdown rendering with marked.js (no build process); external links open in new tab via custom renderer
 - `compass-data.js` provides the unified data layer: entity store, relation management, generic graph building, and relation rendering
 - Curriculum tables use page-scoped CSS (`table-layout: fixed`, 55%/10%/35% column widths for Course/Credits/Instructor); other pages use auto layout
+- `#references` page renders download/preview links pointing to Registry (`/api/v1/compass/files/reference/`)
 - `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes) — the only remaining GitHub API dependency
 - `#feedback` page lets logged-in users submit bug reports and feature requests with file/image attachments (10 MB max per file) via the Registry API (`/api/v1/feedback`)
 - Landing page organized into three labeled groups: DNA, Emergent, and Info, with animated card entrances
