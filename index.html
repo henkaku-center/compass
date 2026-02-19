@@ -2189,8 +2189,8 @@
       'about': 'README.md',
       'status': 'STATUS.md',
       'charter': null, // Special case: loaded from Registry API
-      'curriculum': 'docs/CURRICULUM.md',
-      'archetypes': 'docs/ARCHETYPES.md',
+      'curriculum': 'https://registry.henkaku.center/api/v1/compass/files/docs/CURRICULUM.md',
+      'archetypes': 'https://registry.henkaku.center/api/v1/compass/files/docs/ARCHETYPES.md',
       'references': null, // Special case: rendered from data
       'history': null, // Special case: rendered from GitHub API
       'people': null, // Registry list page
@@ -2517,10 +2517,10 @@
                 <div class="ref-meta">${file.description} · ${ext} · ${file.size} · ${file.date}</div>
               </div>
               <div>
-                <a href="reference/${file.filename}" download class="ref-download">
+                <a href="https://registry.henkaku.center/api/v1/compass/files/reference/${encodeURIComponent(file.filename)}" download class="ref-download">
                   ↓ Download
                 </a>
-                <a href="reference/${file.filename}" target="_blank" class="ref-preview">
+                <a href="https://registry.henkaku.center/api/v1/compass/files/reference/${encodeURIComponent(file.filename)}" target="_blank" class="ref-preview">
                   ${isImage ? '🖼 View' : '📄 Open'}
                 </a>
               </div>

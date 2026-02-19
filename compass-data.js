@@ -111,14 +111,12 @@ function unflattenRelationForCreate(rel) {
   return out;
 }
 
-// Resolve portrait URL: handles local data/ paths and API-stored portraits/ paths
+// Resolve portrait URL: handles API-stored portraits/ paths
 function resolvePortraitUrl(entity, apiClient) {
   const p = entity && entity.portrait;
   if (!p) return 'compass-icon.png';
   // Full URL — pass through
   if (p.startsWith('http://') || p.startsWith('https://')) return p;
-  // Local data/ paths — pass through (works when served from same origin)
-  if (p.startsWith('data/')) return p;
   // API-stored paths like "portraits/person_xyz.png" — build full API URL
   if (apiClient && p.startsWith('portraits/')) {
     return `${apiClient.baseUrl}/api/v1/compass/entities/${entity.id}/files/${p.replace('portraits/', '')}`;
@@ -153,40 +151,6 @@ async function loadStore(apiClient) {
     });
 
     store.relations = apiRelations.map(flattenRelation);
-  } else {
-    // Fallback: load from local JSON files (for offline dev)
-    const types = ['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places'];
-    const cacheBuster = `?t=${Date.now()}`;
-
-    const fetches = types.map(t =>
-      fetch(`data/${t}.json${cacheBuster}`, { cache: 'no-store' })
-        .then(res => {
-          if (!res.ok) throw new Error(`Failed to load data/${t}.json`);
-          return res.json();
-        })
-        .then(data => ({ type: t, data }))
-    );
-
-    fetches.push(
-      fetch(`data/relations.json${cacheBuster}`, { cache: 'no-store' })
-        .then(res => {
-          if (!res.ok) throw new Error('Failed to load data/relations.json');
-          return res.json();
-        })
-        .then(data => ({ type: '_relations', data }))
-    );
-
-    const results = await Promise.all(fetches);
-    results.forEach(({ type, data }) => {
-      if (type === '_relations') {
-        store.relations = data;
-      } else {
-        store.byType[type] = data;
-        data.forEach(entity => {
-          store.entities[entity.id] = entity;
-        });
-      }
-    });
   }
 
   return store;

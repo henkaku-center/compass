@@ -14,11 +14,11 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 **DNA** — Foundational documents that define principles, governance, and structural templates:
 - **Charter** — Values, governance, and operational commitments (9 sections). Lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center) (source: `https://charter.henkaku.center/content/CHARTER.md`)
-- `docs/ARCHETYPES.md` — Structural templates for ten registry entry types
+- **Archetypes** — Structural templates for ten registry entry types (served from Registry at `/api/v1/compass/files/docs/ARCHETYPES.md`)
 
 **Emergent** — Living content instantiated from the foundational templates:
-- `docs/CURRICULUM.md` — SDS Master's and PhD curriculum
-- `data/` — Registry entries as JSON files (people, projects, initiatives, institutions, courses, events, domains, places) plus `relations.json`
+- **Curriculum** — SDS Master's and PhD curriculum (served from Registry at `/api/v1/compass/files/docs/CURRICULUM.md`)
+- **Registry data** — Entities and relations stored in the Registry database, accessed via API
 - *(future)* Theses and posts registry entries
 
 **Supporting:**
@@ -26,50 +26,33 @@ Compass documents are organized into two layers, inspired by a biological analog
 - `STATUS.md` — Progress updates for non-technical stakeholders
 - `index.html` — Static web viewer with hash routing and marked.js rendering
 - `compass-data.js` — Unified data layer (entity store, relation management, graph building) loaded by `index.html`
-- `reference/` — Historical versions and source documents
 - `CLAUDE.md` — This file
 - `CNAME` — GitHub Pages custom domain (`compass.henkaku.center`)
+
+All data (entities, relations, portraits, docs, reference files) lives in the Registry. This repo is the app shell only.
 
 ## Repository Structure
 
 ```
 compass/
-├── data/
-│   ├── courses.json       (27 courses)
-│   ├── domains.json       (50 domains)
-│   ├── events.json        (1 event)
-│   ├── initiatives.json   (10 initiatives)
-│   ├── institutions.json  (9 institutions)
-│   ├── people.json        (62 people)
-│   ├── places.json        (4 places)
-│   ├── portraits/         (profile photos for people entries)
-│   ├── projects.json      (3 projects)
-│   └── relations.json     (460 relations between entities)
-├── docs/
-│   ├── ARCHETYPES.md
-│   └── CURRICULUM.md
-├── reference/
-│   ├── 20260203_Teaching AI and Teaching with AI.pdf
-│   ├── 20251114_SDS_Open House_Brochure_fin.pdf
-│   ├── 20251009_Ira_PBL_Example.pdf
-│   ├── 20250710_Research_Project_Schema.pdf
-│   ├── 20240705_Curriculum_Whiteboard.pdf
-│   ├── 20240613_SDS_DNA_CheatSheet.png
-│   ├── 20240612_GSDS Retreat.pdf
-│   ├── 20220329_Research_Report-compressed.pdf
-│   ├── 20171231_Neri Oxman Krebs Cycle of Creativity.jpeg
-│   └── (additional images and subdirectories)
-├── scripts/
-│   └── migrate.js         (entity + relations migration tool)
-├── compass-data.js
+├── api-client.js       (Registry API client with JWT auth)
+├── compass-data.js     (data layer: entity store, relations, graph)
 ├── compass-icon.png
 ├── network.png
+├── index.html          (single-page app shell)
+├── scripts/
+│   └── migrate.js      (entity + relations migration tool)
 ├── README.md
 ├── STATUS.md
 ├── CLAUDE.md
-├── index.html
 └── CNAME
 ```
+
+All data is served from the Registry API (`registry.henkaku.center`):
+- Entities & relations via `/api/v1/compass/entities` and `/api/v1/compass/relations`
+- Portraits via `/api/v1/compass/entities/{id}/files/{filename}`
+- Docs (ARCHETYPES.md, CURRICULUM.md) via `/api/v1/compass/files/docs/{filename}`
+- Reference files via `/api/v1/compass/files/reference/{filename}`
 
 ## Institutional Context
 
@@ -129,9 +112,9 @@ Ten entry types:
 - **Places** — Physical locations where ecosystem activities happen (campuses, coworking spaces, venues)
 - **Domains** — Knowledge and research areas that map the intellectual landscape
 
-**Essential questions** guide each entry type (4 prompts each — see `docs/ARCHETYPES.md`).
+**Essential questions** guide each entry type (4 prompts each — see ARCHETYPES.md served from Registry).
 
-**Unified entity + relations architecture**: Entity JSON files contain only intrinsic attributes. All cross-references (affiliations, contributors, instructors, prerequisites, etc.) are stored in `data/relations.json` as `{source, target, type, meta?}` triples. `compass-data.js` provides the runtime data layer that loads entities and relations, manages CRUD, and builds the network graph. `scripts/migrate.js` can re-extract relations from legacy embedded fields.
+**Unified entity + relations architecture**: Entities contain only intrinsic attributes. All cross-references (affiliations, contributors, instructors, prerequisites, etc.) are stored as `{source, target, type, meta?}` relation triples in the Registry database. `compass-data.js` provides the runtime data layer that loads entities and relations from the API, manages CRUD, and builds the network graph.
 
 **Privacy**: The registry is a coordination tool, not a public directory. Person records should be professionally relevant, participant-controlled, and appropriately scoped.
 
@@ -144,7 +127,7 @@ Ten entry types:
 - To read the Charter markdown source, fetch `https://charter.henkaku.center/content/CHARTER.md`
 - Changes to the Charter are made in the Charter repository, not here.
 
-**Archetypes** (`docs/ARCHETYPES.md`):
+**Archetypes** (served from Registry at `/api/v1/compass/files/docs/ARCHETYPES.md`):
 - Must remain aligned with Charter Section V requirements
 - Entry types interoperate via cross-references
 - Changes should preserve backward compatibility or provide migration paths
@@ -166,13 +149,12 @@ Ten entry types:
 - Cache-busting with timestamp query parameters
 - 3D network graph visualization uses 3d-force-graph (CDN) with Three.js and d3-force-3d
 
-**Registry data** (`data/` directory):
-- One JSON file per entity type, each containing an array of objects with intrinsic attributes only
-- `data/relations.json` stores all cross-references as `{source, target, type, meta?}` triples
-- Field names match `docs/ARCHETYPES.md` schemas; IDs follow patterns like `person_winder_ira`, `proj_compass`, `course_dna`, `event_2025_symposium`, `domain_complex_systems`, `place_henkaku_center`
+**Registry data** (served from Registry API):
+- Entities and relations accessed via `/api/v1/compass/entities` and `/api/v1/compass/relations`
+- Field names match Archetypes schemas; IDs follow patterns like `person_joiito`, `proj_compass`, `course_dna`, `event_2025_symposium`, `domain_complex_systems`, `place_henkaku_center`
 - Contains real data: 62 people (with portraits), 10 initiatives, 9 institutions, 3 projects, 27 courses, 1 event, 50 domains, 4 places, 460 relations
-- `data/portraits/` contains profile photos referenced by people entries
-- `data/feedback/` stores file attachments uploaded with feedback submissions
+- Portraits served via `/api/v1/compass/entities/{id}/files/{filename}`
+- Use `export-compass.sh` (in `charter/registry/scripts/`) to download a local copy
 
 ### Version Control
 
