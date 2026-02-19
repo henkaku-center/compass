@@ -325,7 +325,7 @@ function getRelationLabel(relationType) {
 
 // --- URL slug helpers ---
 // Strip type prefix from IDs for cleaner URLs
-// e.g. "proj_compass" → "compass", "person_winder_ira" → "winder_ira"
+// e.g. "proj_compass" → "compass", "person_irawinder" → "irawinder"
 
 const ID_PREFIXES = {
   people: 'person_',

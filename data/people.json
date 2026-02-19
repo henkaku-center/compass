@@ -1,6 +1,6 @@
 [
   {
-    "id": "person_ito_joi",
+    "id": "person_joiito",
     "type": "person",
     "name": "Joi Ito",
     "name_ja": "伊藤穰一",
@@ -23,7 +23,7 @@
     "bio_ja": "ベンチャーキャピタリスト、起業家、作家、学者として、主に社会とテクノロジーの変革に取り組む。\n\n現在は、千葉工業大学の変革センターの所長を務めている。\n\n2011年から2019年までは、米マサチューセッツ工科大学（MIT）メディアラボの所長に奉職。非営利団体クリエイティブコモンズの最高経営責任者のほか、ニューヨーク・タイムズ、ソニー、ナイト財団、マッカーサー財団、ICANN、Mozilla財団の取締役を歴任した。"
   },
   {
-    "id": "person_winder_ira",
+    "id": "person_irawinder",
     "type": "person",
     "name": "Ira Winder",
     "name_ja": "ウィンダー アイラ",
@@ -45,7 +45,7 @@
     "bio_ja": "[ira.mit.edu](https://ira.mit.edu)\n\nアイラは、産業、学術、公的機関における複雑な問題を解決するためのインタラクティブ・シミュレーションのエンドツーエンドの設計、開発、実装を専門とする研究者、教育者、実践者です。コンピュータサイエンス、数理モデリング、都市計画、建築デザインなど幅広い専門知識を持っています。現在は千葉工業大学変革センターの主任研究員を務めています。[MIT工学システム研究所](https://systems.mit.edu/)（ESL）および[東京大学大学院新領域創成科学研究科](https://is.edu.k.u-tokyo.ac.jp/)（GSFS）とも提携しています。都市計画修士（MIT、2013年）およびアート・アンド・デザイン理学士（MIT、2010年）を取得しています。\n\nMITのテクニカル・インストラクターとして、学部および大学院レベルで計算都市科学を教えてきました。MITメディアラボの研究科学者として、パラメトリックなボクセル化シミュレーションとユーザーフレンドリーなタンジブル・インターフェースを融合した統合ハードウェア・ソフトウェア・プラットフォームである[タンジブル・インタラクティブ・マトリクス（TIM）](https://ira.mit.edu/tactile-matrix)を発明しました。この研究はMITメディアラボ・シティサイエンスグループのCityScopeプロジェクトをはじめとする学際的研究のプラットフォームとなっています。Autodesk University、TEDxボストン、米国商工会議所、APA計画会議、シンガポール・ワールドシティーズサミット、ビッグデータアナリティクス東京、エディンバラ・カルチャーサミット、貴陽ビッグデータエキスポ、G7 ICT会議など、さまざまな場で講演や展示を行っています。シアトルでのアフォーダブル住宅サミットでは、特別依頼を受けてビル・ゲイツにカスタム・インタラクティブ・シミュレーションを披露しました。「A Lego Brickumentary」に出演し、CBS、Financial Times Magazine、The AtlanticのCityLab、大統領への「テクノロジーと都市の未来」に関するホワイトハウスレポートでも取り上げられています。"
   },
   {
-    "id": "person_kim_daum",
+    "id": "person_daumkim",
     "type": "person",
     "name": "Daum Kim",
     "name_ja": "金 ダウミ",
@@ -62,7 +62,7 @@
     "bio_ja": "金 ダウミは、変革センター（Henkaku Center）のプロジェクトディレクターとして、アンチディシプリナリー（越境的）な研究プロジェクトとコミュニケーションを統括しています。 また、[Digital Architecture Lab](https://dalab.xyz)の副アーキテクト、ブータンの新たな特別行政区である[ジェレプ・マインドフルネス・シティ](https://gmc.bt)のクリエイティブコンテンツディレクターとして、デジタルメディア戦略およびブランディングを主導しています。彼女の仕事は、学術、産業、そして公共サービスの領域を横断し、異文化間交流やコミュニティ形成を促進するシステム設計を行っています。\n\nさらに、金はNHKワールドのフリーランス記者であり、世界中の民族コミュニティを紹介するYouTubeチャンネル[Ethnic Neighbourhoods](https://www.youtube.com/EthnicNeighborhoods)の制作者でもあります。以前は、[国際オリンピック委員会](https://www.olympics.com/)および東京2020オリンピック・パラリンピック競技大会組織委員会において、グローバルソーシャルメディア戦略を担当していました。\n\n金は慶應義塾大学大学院メディアデザイン研究科にて博士号（メディアとガバナンス）を取得し、ネットワーク化された物語がソーシャルメディア上で他者に対する偏見を軽減または増幅する仕組みに関する研究を行いました。また、[Bai Xian Asia Institute](https://www.bxai.org/)のR. J. Chao Memorial Asian Scholarプログラムの修了生でもあります。"
   },
   {
-    "id": "person_maracke_catharina",
+    "id": "person_catharinamaracke",
     "type": "person",
     "name": "Catharina Maracke",
     "name_ja": "カタリーナ マラッケ",
@@ -78,7 +78,7 @@
     "bio_ja": "キャサリーナは法律を専門に訓練を受けた弁護士であり、20年以上にわたり知的財産およびパブリック・ライセンス・モデルに携わってきました。キャリアの初期には、Creative Commonsのディレクターとして、グローバルなライセンス移植（ポーティング）プロジェクトを統括しました。その後、オープンソースへの取り組みを支援するための民間の研修・コンサルティング機関であるソフトウェア・コンプライアンス・アカデミーを設立しました。また、世界経済フォーラム（World Economic Forum）とも密接に協力し、知的財産システムに関するグローバル・アジェンダ・カウンシルのメンバーを務めました。\n\n学術的な活動としては、慶應義塾大学での教員職のほか、ブチェリウス法科大学院、ベルリン・フンボルト大学、プエルトリコ大学、ハーバード大学バークマン・クライン・センターにて客員職を歴任しています。\n\nキャサリーナは、Free Software Foundation Europeのリーガル・ネットワーク評議会のメンバーであり、Open Forum Europeのフェローでもあります。2021年10月にOSI（Open Source Initiative）の理事に選出され、2022年4月から2024年3月まで理事長を務めました。"
   },
   {
-    "id": "person_kojima_hiroki",
+    "id": "person_hirokikojima",
     "type": "person",
     "name": "Hiroki Kojima",
     "name_ja": "小島 大樹",
@@ -94,7 +94,7 @@
     "bio_ja": "理学博士（物理学）。\n複雑系科学、人工生命の研究者として、生物・人工システム・社会の境界における情報ダイナミクスが適応的な行動や認知を生み出すメカニズムを研究している。\nこれまでに、人間の二者間相互作用の定量的解析、生成ニューラルネットワークにおける認知マップ形成、連続セルオートマトンLeniaと反応拡散系の統合、ALife-BLifeハイブリッドシステムの構築、繊毛虫テトラヒメナの集団行動解析など、幅広い分野の研究をおこなってきた。\n2018年に東京大学特任研究員に着任後、Alternative Machine Inc.シニアリサーチャーを経て、2021年より国立精神・神経医療研究センターにおいて計算精神医学の科研費研究員を務めている。\n情報ダイナミクスを通じて微生物、心、機械を結びつけ、生命と認知がどのように共創発するかの原理を明らかにすることで、人工生命と生物学的生命を包含した新たな存在を実現するシステムの設計を目指している。"
   },
   {
-    "id": "person_oka_mizuki",
+    "id": "person_mizukioka",
     "type": "person",
     "name": "Mizuki Oka",
     "name_ja": "岡 瑞起",
@@ -111,7 +111,7 @@
     "bio_ja": "筑波大学准教授。博士（工学）。IPA未踏IT人材発掘・育成事業PM。人工生命研究会主査。株式会社ブランクスペース技術顧問。人工生命技術、大規模言語モデルを使ったデータ分析・生成・活用の研究を行う。大学での研究をベースに、新しい技術の社会実装と、これまでにない視座を持ち込み、革新的な価値の提供に力をいれている。コミュニティを活性化するアルゴリズムの開発、オープンエンドなアルゴリズムの研究開発などを行っている。著書に「ALIFE | 人工生命 ―より生命的なAIへ」「作って動かすALife ―実装を通した人工生命モデル理論入門」がある。"
   },
   {
-    "id": "person_austerweil_joseph",
+    "id": "person_josephausterweil",
     "type": "person",
     "name": "Joseph Austerweil",
     "name_ja": "アウステルウェイル ジョセフ",
@@ -128,7 +128,7 @@
     "bio_ja": "ジョセフ・アウステルウェイルは、認知心理学者であり、機械学習研究者です。彼は、人々がどのように知識を検索し、学び、創造し、教えるのかを研究しています。そのために、知識が現実世界の状況にどのように影響を与えるかを調査し、そのアイデアを計算モデルとして形式化し、各モデルや理論の予測を心理学や神経科学の実証的結果と比較します。彼は、心理学のトップジャーナル（『Psychological Review』や『Trends in Cognitive Sciences』など）や機械学習の主要国際会議（Neural Information Processing Systemsでの複数の論文および講演など）において多数の論文を発表しています。\n\n2013年以降、彼はブラウン大学およびウィスコンシン大学マディソン校で教鞭をとっており、現在は心理学および計算機科学の准教授を務めています。2025年6月、彼は変革センター（Henkaku Center）のシニアリサーチャーとして、また千葉工業大学の新設スクール・オブ・デザイン＆サイエンスの共同創設教員として着任しました。"
   },
   {
-    "id": "person_ozaki_hiromi",
+    "id": "person_hiromiozaki",
     "type": "person",
     "name": "Sputniko! (Hiromi Ozaki)",
     "name_ja": "尾嵜 優美",
@@ -144,7 +144,7 @@
     "bio_ja": "尾嵜優美（スプツニ子！）は、テクノロジー、アイデンティティ、そして社会の交差点を、遊び心をもって、かつ挑発的に探求する英国と日本にルーツを持つアーティストです。映像、ロボティクス、音楽、インタラクティブ・インスタレーションなど多様なメディアを通じて、社会的規範に問いを投げかけ、新たに登場するテクノロジーの倫理的・文化的な意味を想像します。\n\n彼女の作品は、ニューヨーク近代美術館（MoMA）、ポンピドゥー・メス（フランス）、ヴィクトリア＆アルバート博物館（ロンドン）、クーパー・ヒューイット（ニューヨーク）、金沢21世紀美術館、東京都現代美術館など、世界有数の文化機関で国際的に展示されています。2013年から2017年までMITメディアラボで助教授を務め、デザイン・フィクション・グループを設立・主宰。その後、東京大学および東京藝術大学で准教授を務めました。\n\n2013年には「Vogue Japan Women of the Year」に選出され、2019年にはTEDフェローとしてTED 2019で高く評価された講演を行い、2017年には世界経済フォーラムの「Young Global Leader」にも選ばれました。彼女の作品は、M+（香港）、ヴィクトリア＆アルバート博物館（英国）、金沢21世紀美術館（日本）などの主要なパーマネントコレクションに収蔵されています。\n\n近年では、社会起業家としての活動にも領域を広げ、女性の健康とウェルビーイングを支援する企業 Cradle株式会社 を設立。代表取締役CEOとして、日本全国の80社以上の企業を支援しています。"
   },
   {
-    "id": "person_priyadarshi_tenzin",
+    "id": "person_tenzinpriyadarshi",
     "type": "person",
     "name": "Tenzin Priyadarshi",
     "role_categories": [
@@ -165,7 +165,7 @@
     "bio_ja": "テンジン・プリヤダルシは、[マサチューセッツ工科大学](https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology)のダライ・ラマ倫理・変革的価値センターの代表兼CEOです。"
   },
   {
-    "id": "person_raz_gal",
+    "id": "person_galraz",
     "type": "person",
     "name": "Gal Raz",
     "name_ja": "ガル ラズ",
@@ -180,7 +180,7 @@
     "bio_ja": "私は認知科学者で、最近MIT（マサチューセッツ工科大学）の脳・認知科学分野で博士号を取得しました。博士課程では主に視覚的注意を研究し、高スループットな行動実験のためのツールを開発してきました。それ以前は、オックスフォード大学にて修士課程の研究者として数的認知を研究していました。また、一人称的な心の研究にも関心があり、ヴィパッサナー瞑想を実践しています。\n\n現在は、ブータンの教育的・経済的発展に貢献することを目指しています。同時に、幸福とマインドフルネスに対するブータンの取り組みを世界に広め、これらの価値観が世界中に波及していくことを願っています。"
   },
   {
-    "id": "person_szep_grisha",
+    "id": "person_grishaszep",
     "type": "person",
     "name": "Grisha Szep",
     "name_ja": "グリシャ ゼップ",
@@ -195,7 +195,7 @@
     "bio_ja": "グリシャ・セペス（Grisha Szep）は、Henkaku Centerのリサーチャーとして、確率的計算、AIを統合したヘルスケアおよび教育システムの研究に取り組んでいる。京都に拠点を置く人工生命研究所（Artificial Life Institute）のオープンエンド型研究チームとも協働している。視覚的に美しいツールの構築や、GPUアクセラレーテッド・コンピューティングを活用した複雑問題の解決に強い情熱を持つ。\n\n生物医学研究、AI、ソフトウェア産業にまたがる10年以上の経験を有し、量子コンピューティング、免疫学、合成生物学、発生生物学など、複数の分野にわたって貢献してきた。Microsoft Research Cambridgeでの博士研究員時代には、合成生物学における幾何学的ディープラーニングの専門性を確立し、高次元シングルセル・サイトメトリーおよびマルチオミクス解析のためのソフトウェアを開発した。実験生物学者との協働を重視しており、その実践を強く動機づけとしている。オーストリア科学技術研究所（Institute of Science and Technology Austria）のSixt Groupでは、電子顕微鏡画像を収集する実験研究者と並んで、細胞骨格シミュレーションを構築した経験を誇りとしている。\n\n彼の研究を通じて一貫して重視されてきたテーマは、アクティブラーニングとデータ・フライホイールの重要性である。仮説生成と観測データによる検証の間にある密なフィードバックループは、長時間稼働するエージェント的ワークフローの時代においてますます重要になっている。近年は特に、School of Design and Science（SDS）の学部生エンジニアや教育者に対し、こうしたワークフローを活用できる環境を提供し、並列化可能な生産性への金銭的参入障壁を下げることに強い関心を注いでいる。ロンドンおよびヨーロッパ各地のスタートアップでの実務経験を活かし、若手リーダーによるスタートアップ事業を支援することにも尽力している。"
   },
   {
-    "id": "person_wang_sophia",
+    "id": "person_sophiawang",
     "type": "person",
     "name": "Sophia Wang",
     "name_ja": "ワン ソフィア",
@@ -210,7 +210,7 @@
     "bio_ja": "ソフィアはエンジニアであり、組織構築者、政策アナリストです。彼女は、技術的な公共財の生産を可能にする仕組みを構築しています。Henkakuでは、コーディネーション・テクノロジー・コンソーシアムおよびグローバル・システム＆公共政策ラボと共に、新しい法域のためのコーディネーション技術や法的枠組みを開発しています。\n\nソフィアは複雑系の分野でのキャリアを、NASAの航空宇宙エンジニアとして開始しました。系外惑星探査ミッション、火星サンプルリターン計画、宇宙での自己組立の初実証などに携わりました。この厳格な環境で培われた経験は、実験ベースかつファーストプリンシプルに基づくシステム設計手法を形作り、その後は国家技術政策や新興市場分析に導入されました。ソフィアは[ファブ財団](https://fabfoundation.org/)のグローバルアンバサダーも務めており、このネットワークは世界中に2,500以上の地域デジタルファブリケーション・ラボを有しています。この役割において、彼女はバルセロナからブータンに至るまで、世界的に広がった創造的なプロトタイピングツールを開発してきました。私生活では、シェフおよび農業技術者として食料システムを研究しています。"
   },
   {
-    "id": "person_bates_samantha",
+    "id": "person_samanthabates",
     "type": "person",
     "name": "Samantha Bates",
     "name_ja": "サマンサ ベイツ",
@@ -226,7 +226,7 @@
     "bio_ja": "サマンサ・ベイツは、変革センターの客員研究員であり、AI倫理および安全性に関するプロジェクトに取り組んでいます。サムは、運営と学術研究の豊富な経験をチームにもたらします。以前は、米国国勢調査局のデータサイエンスおよび新興技術チーム「xD.gov」で運営とパートナーシップの管理を担当していました。また、研究非営利団体「Center of Complex Interventions」の事務局長を務め、学術非営利団体の財務管理を行う「YarnLabs」を運営していました。さらに、MITで研究管理を行い、ハーバード大学法科大学院およびバークマン・クライン・センター for Internet & Societyで研究者として勤務しました。学術および非営利の分野に進む前は、Googleで勤務していました。彼女はケンブリッジ大学で現代ヨーロッパ史の修士号を、グリネル大学で歴史学の学士号を取得しています。"
   },
   {
-    "id": "person_razik_fiza",
+    "id": "person_fizarazik",
     "type": "person",
     "name": "Fiza Razik",
     "name_ja": "フィーザー ラッジク",
@@ -242,7 +242,7 @@
     "bio_ja": "フィーザーは、千葉工業大学デザイン・サイエンス学部（SDS）のプログラムマネージャーとして、日本初のアンチディシプリナリー（越境型）大学院の立ち上げを統括しています。この大学院は2026年4月に開校予定であり、フィーザーは学術的なイノベーションと実践的な実装の橋渡し役として、国際的な教員の調整や、従来の枠を超えた教育プログラムの設計に取り組んでいます。\n\nビジネスアナリストおよびコンサルタントとして5年以上の経験を持つフィーザーは、製薬業界およびテクノロジー業界において、複雑かつ多国籍なプロジェクトを数多くマネジメントしてきました。ファーマコビジランス業界では、RxLogix社においてグローバルなソフトウェアソリューションの日本市場向けローカライゼーションプロジェクトに携わり、ビジネス面と技術面の双方を担当しました。IT業界では、Infosys社にてビジネス／ITコンサルテーションを提供し、ECプラットフォームの立ち上げ、UXデザイン、システム管理などの重要な役割を果たしました。\n\nフィーザーは慶應義塾大学環境情報学部を卒業し、学年総代として表彰されるとともに、メンター三田会奨学金を受賞しています。日本の国際的なコミュニティで育った背景を持ち、テクノロジー、ビジネス、教育における東洋と西洋のアプローチをつなぐ独自の視点を有しています。"
   },
   {
-    "id": "person_tachibana_madoka",
+    "id": "person_madokatachibana",
     "type": "person",
     "name": "Madoka Tachibana",
     "role_categories": [
@@ -253,7 +253,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_tanaka_mika",
+    "id": "person_mikatanaka",
     "type": "person",
     "name": "Mika Tanaka",
     "name_ja": "田中美歌",
@@ -264,7 +264,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_anthony_boris",
+    "id": "person_borisanthony",
     "type": "person",
     "name": "Boris Anthony",
     "role_categories": [
@@ -275,7 +275,7 @@
     "portrait": "data/portraits/boris-anthony.jpg"
   },
   {
-    "id": "person_bateson_nora",
+    "id": "person_norabateson",
     "type": "person",
     "name": "Nora Bateson",
     "name_ja": "ベイトソン ノラ",
@@ -290,7 +290,7 @@
     "bio_ja": "ノラ・ベイトソンは、受賞歴のある映画監督、リサーチデザイナー、作家、教育者、国際的な講演者であり、スウェーデンと米国に拠点を置く[国際ベイトソン研究所](https://batesoninstitute.org/)の代表を務めています。彼女は[Warm Data](https://www.warmdata.life/)理論とその実践の創始者です。ノラの仕事は、生物学、認知科学、芸術、人類学、心理学、情報技術といった分野を結びつけ、生態系における生命システムのパターンを研究対象としています。\n\n彼女は、父であるグレゴリー・ベイトソンの人物像を描いた受賞作ドキュメンタリー映画『[An Ecology of Mind](https://vimeo.com/ondemand/bateson)』を脚本・監督・制作しました。\n\n彼女の最初の著書『[Small Arcs of Larger Circles](https://www.triarchypress.net/small-arcs.html)』は、システムと複雑性の研究に対する革新的かつ個人的なアプローチを提示しています。\n\n最新の第2著書『[Combining](https://www.combining.life/)』では、あらゆるものが単独では存在せず、すべての行為が予測不能な結果の連鎖を引き起こす「コミュニケーションの生態系」へと読者を招き入れます。彼女は、問題に対する従来型の解決策に異議を唱え、複数レベルでの課題解決、相互依存の理解、そして曖昧さの受容の必要性を強調しています。\n\n2019年には、公的知的活動における功績を称える「Neil Postman Award for Career Achievement」を受賞しました。"
   },
   {
-    "id": "person_bletsas_michael",
+    "id": "person_michaelbletsas",
     "type": "person",
     "name": "Michael Bletsas",
     "role_categories": [
@@ -301,7 +301,7 @@
     "portrait": "data/portraits/michael-bletsas.jpg"
   },
   {
-    "id": "person_castello_eduardo",
+    "id": "person_eduardocastello",
     "type": "person",
     "name": "Eduardo Castello",
     "role_categories": [
@@ -321,7 +321,7 @@
     "bio_ja": "**マサチューセッツ工科大学（MIT）博士研究員**\n\nロボティクスを専門とする研究者。日本、欧州、米国の国際プロジェクトにおいて、Alex（\"Sandy\"）PentlandやHiroshi Ishiguroなど世界的な研究者と共同研究を行ってきました。現在はロボティクスとブロックチェーン技術に関する研究およびプロジェクトに参加しています。\n\nEl País、El Mundoなどの総合メディアや、Advanced Robotics、Swarm Intelligenceなどの学術誌に寄稿しています。プロジェクトはBBC、Wired、The Guardian、MIT Technology Reviewなど複数のメディアで取り上げられています。ICRA、EMTECH、GREXなどの国際会議でマスタークラスや講演を行っています。\n\n目標は、人類の食料供給、コミュニケーション、輸送、生活のあり方を変えることができる新しい分散型ロボットシステムを構築することです。これらの新しい分散型技術は、将来のユーザーのためにより開かれた、公正で透明なエコシステムを構築する上で大きな役割を果たすでしょう。"
   },
   {
-    "id": "person_cohen_revital",
+    "id": "person_revitalcohen",
     "type": "person",
     "name": "Revital Cohen",
     "name_ja": "レヴィタル コーエン",
@@ -336,7 +336,7 @@
     "bio_ja": "レヴィタル・コーエンはロンドンを拠点とするアーティストで、オブジェ、インスタレーション、絵画、映像を横断して制作を行っています。トゥール・ヴァン・バレンとの協働作品では、大量生産されるモノや動物によって形成される素材、プロセス、行動、そして感情に目を向けています。\n\nコーエンとヴァン・バレンの作品は、国際的に幅広く展示されており、近年の主な会場には、モスティン・ギャラリー（ランドゥドノ、2023年）、Ghost 2565（バンコク、2022年）、ティンゲリー美術館（バーゼル、2022年）、E-WERKルッケンヴァルデ（2022年）、サーペンタイン・ギャラリーズ（ロンドン、2021年）、第13回上海ビエンナーレ（パワー・ステーション・オブ・アート、2021年）、パラッツォ・デッレ・エスポジツィオーニ（ローマ、2021年）、クンストハル・シャルロッテンボリ（コペンハーゲン、2021年）、ウォーカー・アート・センター（ミネアポリス、2020年）、フィラデルフィア美術館（2019年）、トロント・ビエンナーレ・オブ・アート（2019年）、ルネサンス・ソサエティ（シカゴ、2018年）、フォトムゼウム・ヴィンタートゥール（2018年）、Para Site（香港、2016年）、クンストフェライン・デュッセルドルフ（2016年）、ルンド・コンストホール（2016年）、ティッセン＝ボルネミッサ現代美術財団（ウィーン、2015年）、ハウス・デア・クルトゥーレン・デア・ヴェルト（ベルリン、2015年）、コンゴ国際映画祭（ゴマ、2015年）、東京都現代美術館（2013年）などがあります。\n\nまた、彼らの活動は書籍、展覧会カタログ、学術誌などで広く紹介されており、Afterall（2025年）、Art Review（2023年）、Monopol（2022年）、Artforum（2021年）、Texte zur Kunst（2018年）、Cultural Politics（デューク大学出版局、2016年）、Rare Earth（シュテルンベルク・プレス、2015年）などに掲載されています。共著モノグラフ『Not What I Meant but Anyway』は、2022年にColumbia Books on Architecture and the Cityより刊行されました。\n\n彼女の作品は、ニューヨーク近代美術館（MoMA）、リヴォリ城現代美術館（トリノ）、Mu.ZEE（オーステンデ）、M+（香港）などの美術館に永久収蔵されています。"
   },
   {
-    "id": "person_dinakar_karthik",
+    "id": "person_karthikdinakar",
     "type": "person",
     "name": "Karthik Dinakar",
     "role_categories": [
@@ -351,7 +351,7 @@
     "bio_ja": "カーティック・ディナカーは、機械学習、自然言語処理、ヒューマンコンピュータインタラクションを専門とするコンピュータ科学者です。MITのReid Hoffmanフェローであり、2015年のDewey Winburne賞を受賞しています。以前はMicrosoftおよびDeutscheに勤務していました。サイバーいじめの計算的検出および危機カウンセリングにおける確率的グラフィカルベイズモデルの活用に関する研究を発表するため、2度ホワイトハウスに招かれました。MITで博士号を取得しています。"
   },
   {
-    "id": "person_druga_stefania",
+    "id": "person_stefaniadruga",
     "type": "person",
     "name": "Stefania Druga",
     "name_ja": "ドウルーガ ステフアニア",
@@ -366,7 +366,7 @@
     "bio_ja": "ステファニア・ドルガは、Sakana.aiのリサーチサイエンティストであり、以前はGoogle DeepMindに在籍していました。AI・科学・教育の交差領域に強い関心を持ち、人間と機械の双方がリアルタイムでの共同発見やマルチモーダル学習に取り組めるようにする最先端のツールやプラットフォームの開発に取り組んでいます。\n\n主なプロジェクトには、リアルタイムAI共同サイエンティスト（Real-Time AI Co-Scientist）プラットフォームや、Scratch AI Copilotに代表される、子ども向けのマルチモーダルAIアプリケーションがあります。ステファニアは教育者としても活動しており、多様な対象に向けて、意味のあるAI活用ツールの構築方法を教えています。\n\n東京を拠点に世界各地と協働しながら、探究心がイノベーションを駆動し、本質的な問いを立てることが世代を超えて学習と発見を変革していく未来を描いています。"
   },
   {
-    "id": "person_ekblaw_ariel",
+    "id": "person_arielekblaw",
     "type": "person",
     "name": "Ariel Ekblaw",
     "role_categories": [
@@ -386,7 +386,7 @@
     "bio_ja": "アリエル・エクブローは、MIT宇宙探査イニシアティブの創設者兼ディレクターであり、50名以上の大学院生、スタッフ、教員からなるチームで、SF的な宇宙の未来のプロトタイプを積極的に開発しています。2016年に設立されたこのイニシアティブは、宇宙での生活（宇宙生物学から宇宙居住施設まで）に焦点を当てた40以上の研究プロジェクトのポートフォリオを持ち、幅広いペイロード開発を可能にするアクセラレーター型の研究開発プログラムを支援しています。\n\nこのイニシアティブにおいて、アリエルは科学、工学、芸術、デザインにまたがる宇宙関連の研究を推進し、毎年繰り返される放物線飛行、準軌道、および軌道打ち上げの機会を企画しています。MIT各学部や宇宙産業パートナーとの連携を構築しつつ、イニシアティブの研究プロジェクトのメンタリングやすべてのミッション展開に対する技術的助言を提供しています。"
   },
   {
-    "id": "person_goldman_daniel",
+    "id": "person_danielgoldman",
     "type": "person",
     "name": "Daniel Goldman",
     "name_ja": "ダニエル ゴールドマン",
@@ -401,7 +401,7 @@
     "bio_ja": "[Daniel Goldman](https://www.linkedin.com/in/danielgoldman) は、複雑性と事業としての実行可能性を人々が乗り越えるのを支援する、ITおよび対人関係のシステム構築に注力するテクノロジスト／システム志向のデザイナーです。\n\nダニエルはカリフォルニア大学バークレー校で物理学とコンピュータサイエンスを学び、在学中に一時休学してMaxisにてウィル・ライトと共に勤務しました。ヒットしたシミュレーションゲーム『SimCity』および関連タイトル（SimAnt、SimEarth、SimLifeなど）のシニア・デベロッパーを務めると同時に、史上初のインターネット・エンターテインメント企業であるTotal Entertainment Networkを率い、構築しました。\n\nコンピュータサイエンスの学位取得後は、コロンビア大学で認知神経科学の大学院課程に進学し、ナラティブ、意思決定、人間の発達に関する理解を深めました。その後、Posit ScienceにてCOOおよび最高プロダクト責任者（CPO）を務め、高齢者向けのソフトウェア型認知リハビリテーションの構築を主導するとともに、世界中の第一線の神経科学者と協働しました。\n\nやがてダニエルの活動は、プロダクトからエコシステムへと広がっていきます。エンジェル投資、取締役としてのリーダーシップ、メンタリング、200名以上の社会起業家へのインタビューを通じて得た知見を活かし、以下のようなリーダーシップおよびベンチャー創出の取り組みを共同設計・共同立ち上げしてきました。Future Champions、孫泰蔵氏とともに東京で立ち上げたゲームチェンジャーズ・スタジオ「EDGEof」、国際的なインパクト起業家と連携するHult Prizeのカウンシル、スモールホルダー農家を大規模に支援するProsperity Exchange、従来型教育に適応しにくい学習者の進路を広げるProsper HallおよびExceptional Schoolのイニシアティブ、そしてNECと協働し、未来学者として関わった体験型・協働型シミュレーションの取り組みであるPlanetary Insight Centerなどです。\n\nより大規模なシステムに対しては、シミュレーション、コミュニティ形成、没入型体験を通じて、認知負荷を下げ、ステークホルダー間の整合性、理解、視点取得を高めることを目指しています。\n\n客員研究員としてのダニエルの研究は、スケーラブルなインパクトをもたらす現実世界のシステム指向ソリューションに焦点を当て、官民双方の組織と協働して変革的な変化を実装すること、またスタートアップがゼロからイチへと進むのを支援することに取り組んでいます。\n\n彼を駆動する問いは次のとおりです。どのようにシステムを設計すれば、望ましい成果が自然発生的に立ち現れるのか。成果が目標から乖離したとき、どのようにフィードバックを収集し、システムを調整すればよいのか。これらの問いは、[TRAMS.Tokyo](mailto:info@trams.tokyo) におけるコンサルティング活動を通じて実践されています。\n\nダニエルは、ゲーム的ソフトウェアを用いた認知リハビリテーション、仮想空間における感情コミュニケーション、ソーシャルネットワーク上のアイデンティティを用いた仮想アバター生成に関する特許の共同発明者でもあります。\n\n最近の活動例は、彼の [LinkedInのプロジェクト一覧](https://www.linkedin.com/in/danielgoldman/details/projects/) から確認できます。\n\n**email**: [danielgoldman@berkeley.edu](mailto:danielgoldman@berkeley.edu)"
   },
   {
-    "id": "person_hickok_merve",
+    "id": "person_mervehickok",
     "type": "person",
     "name": "Merve Hickok",
     "role_categories": [
@@ -421,7 +421,7 @@
     "bio_ja": "メルヴェ・ヒコックは、[AIデジタル政策センター](http://www.caidp.org/)の代表として、米国連邦政府、欧州委員会、UNESCO、欧州評議会、OECD、国際連合にわたるグローバルAI政策および規制の専門知識を提供しています。CAIDPは80か国以上のAI政策の実務家やアドボケイトを教育し、各国政府や国際機関への助言を行っています。メルヴェは米国議会をはじめ、カリフォルニア州、ニューヨーク市、デトロイト市でAI政策に関する証言を行いました。彼女の研究は、AIシステムが個人と社会に与える影響に焦点を当てており、特に基本的権利、民主的価値観、公共部門でのAI利用に注力しています。これらのテーマについて[著書](https://www.degruyter.com/document/isbn/9783111250182/html)、主要[学術誌](https://www.aiethicist.org/mervehickok)、その他の出版物で精力的に執筆しています。\n\nメルヴェは外交問題評議会・日立国際問題フェローとして、日本のAI政策・ガバナンスへのアプローチを研究し、日本の視点を形成する文化的、地政学的、社会的優先事項の理解に取り組んでいます。\n\nメルヴェはまた[AIethicist.org](http://aiethicist.org/)の創設者でもあり、経営幹部や公的・民間組織に対して責任あるAIの開発、調達、ガバナンスに関するトレーニングとコンサルティングを提供しています。ミシガン大学では情報学部の講師、Michigan Institute for Data, AI and Societyの責任あるデータ・AIアドバイザー、ジェラルド・R・フォード公共政策大学院（科学技術公共政策プログラム）の関連教員を務めています。\n\n彼女はAI政策、倫理、ガバナンスにおいて世界的に著名な専門家です。Guardian、CNN、Forbes、Bloomberg、Wired、Scientific American、Politico、Protocol、Vox、The Economist、S&Pなどで取り上げられています。複数の組織から表彰を受けており、最近では[Women in AI - 2023年生涯功労賞、2022年責任あるAIリーダー・オブ・ザ・イヤー次点（Women in AI）](https://www.womeninai.co/waiawardsna)、および[100 Brilliant Women in AI Ethics™ – 2021](https://100brilliantwomeninaiethics.com/the-list/of-2021/)に選出されています。以前は、フォーチュン100企業で15年以上にわたりさまざまな上級職を歴任しました。"
   },
   {
-    "id": "person_huang_michelle",
+    "id": "person_michellehuang",
     "type": "person",
     "name": "Michelle Huang",
     "name_ja": "フアン ミシェル",
@@ -433,7 +433,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_ikegami_eiko",
+    "id": "person_eikoikegami",
     "type": "person",
     "name": "Eiko Ikegami",
     "name_ja": "池上英子",
@@ -450,7 +450,7 @@
     "portrait": "data/portraits/eiko-ikegami.jpg"
   },
   {
-    "id": "person_kang_louis",
+    "id": "person_louiskang",
     "type": "person",
     "name": "Louis Kang",
     "role_categories": [
@@ -465,7 +465,7 @@
     "bio_ja": "ルイス・カンは、CCIの研究提携者として、インパクト投資と金融工学が医療と気候変動緩和に果たす役割を研究しています。CCIに参加する前は、ハーバード大学で応用物理学の博士号を取得し、MITで神経科学の研究を行いました。カリフォルニア大学バークレー校で電気工学、コンピュータサイエンス、材料科学・工学の理学士号を取得しています。"
   },
   {
-    "id": "person_kokuryo_jiro",
+    "id": "person_jirokokuryo",
     "type": "person",
     "name": "Jiro Kokuryo",
     "name_ja": "國領二郎",
@@ -485,7 +485,7 @@
     "bio_ja": "**國領二郎**は、慶應義塾大学総合政策学部教授およびメディア・デザイン研究科教授を務めています。1993年に慶應義塾大学大学院経営管理研究科の准教授として着任し、2000年に教授に就任しました。SFC研究所所長（2005-2009年）、総合政策学部長（2009-2013年）を経て、国際連携・教育担当副塾長（2013-2021年）に就任しました。\n\n研究・教育の関心は、情報技術の利点を最大化するビジネスモデルおよび社会モデルの開発に集中しています。特にオープンシステムの効果的な活用の研究に力を入れています。学術業績に対して、経営情報学会（年間最優秀論文賞）、電気通信普及財団（テレコム社会科学賞）など多くの賞を受賞しています。\n\n國領教授は、東京大学経済学士（1982年）、ハーバード・ビジネススクール経営学修士（MBA、1988年）、およびハーバード・ビジネススクール経営学博士（DBA、1992年）の学位を取得しています。\n\n慶應義塾大学に着任する前は、日本電信電話株式会社（NTT）に勤務し、企業ユーザー向けの情報技術活用を推進しました。\n\n民間分野の関心に加え、國領教授は公益活動にも積極的です。IT戦略本部総理大臣会議のメンバーとして、日本の情報技術政策の策定において中心的な役割を果たしてきました。またボランティア団体とも緊密に連携し、地域社会の発展への顕著な貢献により総務大臣表彰を受けています。"
   },
   {
-    "id": "person_kuramata_toshio",
+    "id": "person_toshiokuramata",
     "type": "person",
     "name": "Toshio Kuramata",
     "name_ja": "倉又俊夫",
@@ -497,7 +497,7 @@
     "portrait": "data/portraits/toshio-kuramata.jpg"
   },
   {
-    "id": "person_lessig_lawrence",
+    "id": "person_lawrencelessig",
     "type": "person",
     "name": "Lawrence Lessig",
     "role_categories": [
@@ -517,7 +517,7 @@
     "bio_ja": "ローレンス・レッシグは、ハーバード・ロースクールのロイ・L・ファーマン記念法学・リーダーシップ教授です。（ロイ・ファーマン記念講座は**[この卓越した卒業生](https://today.law.harvard.edu/leadership-profile-a-conversation-with-roy-l-furman-63/)**を称えるものです。）\n\nハーバード大学に再び着任する前（2000年までバークマン法学教授を務めていた）、レッシグはスタンフォード・ロースクールの教授として同校のCenter for Internet and Societyを創設し、シカゴ大学でも教鞭を執りました。\n\nレッシグは、第7巡回控訴裁判所のリチャード・ポズナー判事およびアメリカ合衆国最高裁判所のアントニン・スカリア判事のもとで法務書記官を務めました。AXAリサーチファンドの理事を務め、クリエイティブ・コモンズの名誉理事でもあります。\n\nレッシグはアメリカ芸術科学アカデミーおよびアメリカ哲学協会の会員であり、フリーソフトウェア財団のフリーダム賞、Fastcase 50 Awardなど数多くの賞を受賞しています。2002年には、Scientific Americanの「トップ50ビジョナリー」の一人に選ばれました。\n\nレッシグは、ペンシルベニア大学で経済学学士および経営学理学士、ケンブリッジ大学で哲学修士、イェール大学で法務博士の学位を取得しています。"
   },
   {
-    "id": "person_mansinghka_vikash",
+    "id": "person_vikashmansinghka",
     "type": "person",
     "name": "Vikash K. Mansinghka",
     "role_categories": [
@@ -532,7 +532,7 @@
     "bio_ja": "ヴィカシュ・マンシンカは、[MIT](http://web.mit.edu/)の主任研究科学者であり、[確率的コンピューティング・プロジェクト](http://probcomp.csail.mit.edu/)を率いています。MITで数学およびコンピュータサイエンスの理学士号、コンピュータサイエンスの工学修士号、および計算学の博士号を取得しています。全米科学財団およびMITリンカーン研究所の大学院フェローシップも受けました。ネイティブ確率的コンピューティングに関する博士論文はMITのGeorge M. Sprowlsコンピュータサイエンス博士論文賞を受賞し、確率的プログラミング言語Pictureに関する研究はCVPRで賞を獲得しました。VC支援による2つのスタートアップ、Prior Knowledge（2012年にSalesforceが買収）およびEmpirical Systems（2018年にTableauが買収）を共同創設しました。2010年から2012年までDARPAの情報科学技術諮問委員会に参加し、現在はJournal of Machine Learning Researchおよび学術誌Statistics and Computationの編集委員を務め、International Conference on Probabilistic Programmingを共同設立しました。"
   },
   {
-    "id": "person_mccallkiley_kate",
+    "id": "person_katemccallkiley",
     "type": "person",
     "name": "Kate McCall-Kiley",
     "role_categories": [
@@ -547,7 +547,7 @@
     "bio_ja": "ケイト・マッコール＝カイリーは、複雑系の愛好者であり、CCIの特別プロジェクトの実行を支援しています。それ以外では、米国連邦政府内の実験的データラボであるxDの共同創設者兼ディレクターを務めています。また、MITメディアラボのSpace Governance Collaborativeの共同創設者として、ガバナンスの未来のプロトタイプを作成しています。彼女の仕事は、行動変容のための新しい環境とメカニズムを構築しながら、従来の常識に生産的に挑戦するさまざまな方法を模索することを目指しています。以前は、大統領イノベーションフェローとしてホワイトハウスに奉職しました。メリーランド・インスティテュート・カレッジ・オブ・アートでデザインリーダーシップ修士号、ジョンズ・ホプキンス大学でMBAを取得。ウースター大学で哲学と心理学も学びました。もし別の人生があるなら、哲学者／倫理学者、DJ、参加型グラフィティアーティストになりたいと思っています。"
   },
   {
-    "id": "person_miyaguchi_aya",
+    "id": "person_ayamiyaguchi",
     "type": "person",
     "name": "Aya Miyaguchi",
     "name_ja": "宮口あや",
@@ -562,7 +562,7 @@
     "bio_ja": "あやはイーサリアム財団のプレジデントとして、イーサリアムのビジョンと魂を育み、技術と価値観が文化や大陸を越えて広がるエコシステムの成長とともに対話を続けています。財団は、コア・プロトコルの研究開発、エコシステムのリソース提供、教育の促進、そして世界中でのコミュニティ構築を通じて、イーサリアムの長期的な健全性を支えています。\n\n2018年から2025年まで、あやは財団のエグゼクティブ・ディレクターを務め、「インフィニット・ガーデン」というビジョンを提唱しました。これは、オープンで、許可を必要とせず、進化し続けるエコシステムとしてのイーサリアムを表す比喩であり、指針となる哲学です。このビジョンは、ラテンアメリカ、東南アジア、アフリカなど世界各地のコミュニティをつなぐ取り組みを通じて根付いていきました。彼女のリーダーシップの下、財団はエコシステムのあらゆる側面において分散性を守り、ゼロ知識証明を含むプログラマブル暗号の研究や、イーサリアムと公共部門・学術機関・草の根コミュニティを結びつける活動を支援しました。\n\n現在もあやは「インフィニット・ガーデン」を育み続け、イーサリアムの枠を超えて、本当の意味で分散化された創造的空間とは何かを探求しています。それは、オープンソースで、包摂的で、許可不要な空間であり、コードと人間の物語が並び育っていく場所です。"
   },
   {
-    "id": "person_montgomery_mark",
+    "id": "person_markmontgomery",
     "type": "person",
     "name": "Mark Montgomery",
     "role_categories": [
@@ -572,7 +572,7 @@
     "status": "active"
   },
   {
-    "id": "person_mora_margarita",
+    "id": "person_margaritamora",
     "type": "person",
     "name": "Margarita Mora",
     "role_categories": [
@@ -587,7 +587,7 @@
     "bio_ja": "Nia Tero パートナーシップ担当マネージングディレクター。"
   },
   {
-    "id": "person_murai_jun",
+    "id": "person_junmurai",
     "type": "person",
     "name": "Jun Murai",
     "name_ja": "村井純",
@@ -602,7 +602,7 @@
     "bio_ja": "**Jun Murai** (村井 純, *Murai Jun*, born March 29, 1955 in [Tokyo](https://en.wikipedia.org/wiki/Tokyo)) is a Japanese professor and administrator known as \"the father of Internet in Japan\" and \"Internet Samurai\". He is a professor at [Keio University](https://en.wikipedia.org/wiki/Keio_University). Murai is the founder of [JUNET](https://en.wikipedia.org/wiki/JUNET) and founder of the [WIDE Project](https://en.wikipedia.org/wiki/WIDE_Project). Murai graduated from [Keio University](https://en.wikipedia.org/wiki/Keio_University) in 1979 and received a Ph.D. from the same school in 1984. On October 1, 2009, Murai became the Dean of the Faculty of Environment and Information Studies.\n\nMurai was awarded the 2011 [IEEE Internet Award](https://en.wikipedia.org/wiki/IEEE_Internet_Award) \"For his leadership in the development and deployment of the global Internet, especially across the Asia-Pacific region.” Murai entered the [Internet Hall of Fame](https://en.wikipedia.org/wiki/Internet_Hall_of_Fame) in 2013, recognizing his administrative and co-ordination efforts in establishing Internet connectivity in Japan, and serving as President of Japan Network Information Center.\n\nJun Murai accepted the Knight of the Legion of Honour Medal from the French government on 13 February 2019."
   },
   {
-    "id": "person_noveck_beth",
+    "id": "person_bethnoveck",
     "type": "person",
     "name": "Beth Noveck",
     "role_categories": [
@@ -618,7 +618,7 @@
     "portrait": "data/portraits/beth-noveck.jpg"
   },
   {
-    "id": "person_rich_travis",
+    "id": "person_travisrich",
     "type": "person",
     "name": "Travis Rich",
     "role_categories": [
@@ -633,7 +633,7 @@
     "bio_ja": "Knowledge Futures Group エグゼクティブ・ディレクター。"
   },
   {
-    "id": "person_salobir_eric",
+    "id": "person_ericsalobir",
     "type": "person",
     "name": "Eric Salobir",
     "role_categories": [
@@ -648,7 +648,7 @@
     "bio_ja": "エリック・サロビール神父は、ローマ・カトリック教会の司祭であり、説教者修道会（ドミニコ会）の会員です。ヒューマン・テクノロジー財団の執行委員会議長を務めています。フランスのConseil National du Numérique（国家デジタル評議会）のメンバーであり、バチカンにおけるメディアおよびテクノロジーの専門家です。\n\nサロビール神父はまた、デジタル・ヒューマニティーズ分野の研究とイノベーションを推進するOPTICネットワークの創設者でもあります。この修道会の総本部（統治機関）の一員として、メディアとテクノロジーを担当しました。バチカンのメディア再編にも貢献しています。\n\nISCパリ・ビジネススクールを卒業後、サロビール神父はプラハのフランス大使館（経済・貿易部門）およびクレディ・リヨネ銀行（現LCL）のマーチャントバンク部門（パリ）に勤務しました。\n\n2000年に説教者修道会に入会し、神学と哲学の学位を取得。ROC FMラジオの編集長を務め、フランスラジオ局連盟の理事会メンバーでもありました。また、フランスのテレビチャンネルFrance2のカトリック・デジタルメディア制作も担当しました。"
   },
   {
-    "id": "person_schingler_jessykate",
+    "id": "person_jessykateschingler",
     "type": "person",
     "name": "Jessy Kate Schingler",
     "name_ja": "ジェシー ケイト シングラー",
@@ -663,7 +663,7 @@
     "bio_ja": "ジェシー・ケイト・シングラーは、リーガルデザイン研究者であり、新しい組織体や管轄区域のガバナンス・イノベーションの専門家である。テクノロジー、法律、社会イノベーションの交差点における制度設計の先駆的研究に15年以上携わり、月面の土地保有権、公共財、共有インフラに関する協力的枠組みの発展を目指すオープン・ルナ財団を共同設立した。NASAのNebulaクラウド（OpenStackの前身）やAstra社の初期ロケット開発に携わった元ソフトウェアエンジニアとして、新興領域における法的枠組みの研究に技術的知見をもたらしている。私生活では、サンフランシスコにおいて、相互主義と参加型意思決定の新たなアプローチを中心とした地域密着型コミュニティ・イニシアチブの立ち上げと運営に関わってきた。これにはEmbassy SF、Red Victorian、そして最近ではThe Foldが含まれる。現在、Mill Law Centerで弁護士としての訓練を並行して受けている。以前は、Earth Law Centerのリーガルフェロー、ハーバード大学バークマン・クライン・センターの研究員を務めた。\n\n千葉大学では、テクノロジーの進歩によって可能となった新興管轄区域のリープフロッグ機会—特別行政・経済区域から新しい国家、移行期の国家まで—に焦点を当てた変革センターでのイニシアチブを共同主導する予定である。"
   },
   {
-    "id": "person_schneier_bruce",
+    "id": "person_bruceschneier",
     "type": "person",
     "name": "Bruce Schneier",
     "role_categories": [
@@ -683,7 +683,7 @@
     "bio_ja": "ブルース・シュナイアーは、*The Economist*誌に「セキュリティの第一人者」と評された、国際的に著名なセキュリティ技術者です。最新作『*[We Have Root](https://www.schneier.com/books/root/)*』をはじめとする十数冊の[著書](https://schneier-production.mystagingwebsite.com/books/)、数百の記事、[エッセイ](https://schneier-production.mystagingwebsite.com/essays/)、[学術論文](https://schneier-production.mystagingwebsite.com/cryptography.html)を執筆しています。影響力あるニュースレター「[Crypto-Gram](https://schneier-production.mystagingwebsite.com/crypto-gram/)」とブログ「[Schneier on Security](https://schneier-production.mystagingwebsite.com/)」は25万人以上に読まれています。議会で証言を行い、テレビやラジオに頻繁に出演し、複数の政府委員会に参加し、メディアで定期的に[引用](https://schneier-production.mystagingwebsite.com/news/)されています。シュナイアーは、ハーバード大学[バークマン・クライン・インターネット＆ソサエティセンター](http://cyber.law.harvard.edu/)のフェロー、[ハーバード・ケネディスクール](https://www.hks.harvard.edu/)の公共政策講師、[電子フロンティア財団](https://www.eff.org/)および[AccessNow](https://www.accessnow.org/)の理事、[電子プライバシー情報センター](https://epic.org/)および[VerifiedVoting.org](https://www.verifiedvoting.org/)の諮問委員会メンバーを務めています。[Inrupt, Inc.](https://inrupt.com/)のチーフ・セキュリティ・アーキテクトです。"
   },
   {
-    "id": "person_shinada_miho",
+    "id": "person_mihoshinada",
     "type": "person",
     "name": "Miho Shinada",
     "name_ja": "品田美帆",
@@ -694,7 +694,7 @@
     "status": "active"
   },
   {
-    "id": "person_shinoda_kana",
+    "id": "person_kanashinoda",
     "type": "person",
     "name": "Kana Shinoda",
     "name_ja": "篠田佳奈",
@@ -709,7 +709,7 @@
     "bio_ja": "CODE BLUEのオーガナイザー。CODE BLUEは、世界トップクラスの情報セキュリティ専門家が集結し、最先端の講演を行う国際カンファレンスであり、すべての参加者が国境や言語を超えて情報交換・交流できる場です。\n\n株式会社BLUE オーナー兼代表取締役。"
   },
   {
-    "id": "person_takemura_mitsuhiro",
+    "id": "person_mitsuhirotakemura",
     "type": "person",
     "name": "Mitsuhiro Takemura",
     "name_ja": "武邑光裕",
@@ -729,7 +729,7 @@
     "bio_ja": "メディア美学者、「武邑塾」塾長。日本大学芸術学部、京都造形芸術大学、東京大学大学院、札幌市立大学で教授職を歴任。1980年代よりカウンターカルチャーやメディア論を講じ、ＶＲからインターネットの黎明期、現代のソーシャルメディアからＡＩにいたるまで、デジタル社会環境を研究。2013年より武邑塾を主宰。著書『記憶のゆくたて―デジタル・アーカイヴの文化経済』（東京大学出版会）で、第19回電気通信普及財団テレコム社会科学賞を受賞。2017年、Center for the Study of Digital Life（NYC）フェローに就任。著書に『さよならインターネット GDPRはネットとデータをどう変えるのか』（ダイヤモンド社）、『ベルリン・都市・未来』（太田出版）、新著に『プライバシー・パラドックス　データ監視社会と「わたし」の再発明』（黒鳥社）がある。現在、ベルリン在住。"
   },
   {
-    "id": "person_vanbalen_tuur",
+    "id": "person_tuurvanbalen",
     "type": "person",
     "name": "Tuur Van Balen",
     "name_ja": "トゥール ヴァン バレン",
@@ -744,7 +744,7 @@
     "bio_ja": "トゥール・ヴァン・バレンはロンドンを拠点とするアーティスト／リサーチャーで、映像、彫刻、サウンドを用いた制作を行っています。\n\nレヴィタル・コーエンとの協働によるアート・プラクティスでは、生産のプロセスを文化的・個人的・政治的実践として捉えることを探究しています。彼らの実践は「状況に根ざした（situated）」ものと考えることができ、作品制作そのものが特定のネットワークの内部で遂行されます。鉱物資源の採掘は長年にわたる関心領域であり、近年はギャンブル産業が生み出す多様な「現実」のあり方にも焦点を当てています。また、人間を含む動物の身体は繰り返し扱われるテーマであり、とりわけそれらが置かれた状況によってどのように形づくられるのかが検討されています。「リハーサル（反復・予行）」という概念も、たびたび立ち現れます。\n\n近年の主な展覧会には、モスティン・ギャラリー（ランドゥドノ）、Ghost 2565（バンコク）、サーペンタイン（ロンドン）、第13回上海ビエンナーレ「Bodies of Water」、パラッツォ・デッレ・エスポジツィオーニ（ローマ）、ウォーカー・アート・センター（ミネアポリス）、ルネサンス・ソサエティ（シカゴ）、Para Site（香港）、HKW（ベルリン）、コンゴ国際映画祭（ゴマ）などがあります。共著モノグラフ『Not What I Meant but Anyway』は、Columbia Books on Architecture and the Cityより2022年に刊行されました。作品はニューヨーク近代美術館（MoMA）やM+（香港）をはじめ、複数の美術館の永久収蔵コレクションに含まれています。\n\nまたトゥールは、ゴールドスミス大学にてデザイン学部と美術学部を横断するパートタイムのリーダー（准教授相当）を務めています。振付研究ユニット（Choreographic Research Unit）およびクリティカル・エコロジーズ研究ストリームのメンバーでもあります。"
   },
   {
-    "id": "person_virza_madars",
+    "id": "person_madarsvirza",
     "type": "person",
     "name": "Madars Virza",
     "role_categories": [
@@ -764,7 +764,7 @@
     "bio_ja": "[MIT](http://web.mit.edu/) [メディアラボ](https://www.media.mit.edu/)の研究科学者であり、[Joi Ito](https://joi.ito.com/)のもとで暗号通貨（[デジタル通貨イニシアティブ](https://dci.mit.edu/)）および人工知能の倫理（[倫理イニシアティブ](https://www.media.mit.edu/groups/ethics/overview/)）に取り組んでいます。\n\n[Zerocash](http://zerocash-project.org/)の共同発明者であり、[Zcash](https://z.cash/)の共同創設者です。これらはいずれも、私が共同開発者であるゼロ知識証明のための効率的なC++ライブラリ*[libsnark](https://github.com/scipr-lab/libsnark)*に基づいています。\n\n最近MITでコンピュータサイエンスの博士号を取得しました。指導教官は比類なき[Ron Rivest](https://people.csail.mit.edu/rivest/)です。*libsnark*に関する[博士論文](https://madars.org/phd-thesis/)は、MITコンピュータサイエンス最優秀博士論文に贈られる[George M. Sprowls賞](https://www.eecs.mit.edu/news-events/announcements/eecs-presents-awards-outstanding-phd-and-sm-theses-0)を受賞しました。MITに来る前は、[ラトビア大学](https://www.lu.lv/eng/)で[Andris Ambainis](https://en.wikipedia.org/wiki/Andris_Ambainis)の優れた指導のもと、学部課程を修了しました。"
   },
   {
-    "id": "person_mulas_victor",
+    "id": "person_victormulas",
     "type": "person",
     "name": "Victor Mulas",
     "name_ja": "ムラス ビクター",
@@ -779,7 +779,7 @@
     "bio_ja": "ビクター・ムラスは、CICのアドバイザリーおよびコンサルティング部門であるイノベーション・エコシステム・サービスを統括しています。CICの戦略アドバイザーを務めた後、2024年2月に同組織初のチーフ・イノベーション・オフィサーに就任しました。\n\nビクターは、世界各国のイノベーション、テクノロジー、スタートアップ・エコシステム分野で20年以上の経験を有しています。これまで政府や企業のイノベーション戦略アドバイザーとして活動し、インパクトの高いプログラムや施策の策定を主導してきました。世界銀行では12年間にわたり、複数の国々でスタートアップおよびスマートシティ政策プログラムを率い、活発なスタートアップ・エコシステムやスマートシティの発展を牽引しました。その成果は、各国の国家イノベーション政策の策定、スタートアップ支援体制の構築、テクノロジーを活用した都市開発の推進に寄与しています。世界銀行では、大統領室における「開発のための破壊的テクノロジー・プログラム」、イノベーション・ラボでの「内部イノベーション加速プログラム」、そして日本の「東京開発学習センター」など、数々の画期的な取り組みを主導しました。\n\nビクターは、日本の内閣府における国家スタートアップ・エコシステム政策の諮問委員会委員を務めるほか、東京都のスタートアップ・フェローでもあります。また、千葉工業大学 変革センターにおいて客員研究員（Visiting Research Scientist）を務めています。キャリアを通じて、スタートアップ・エコシステム、イノベーション、そしてテクノロジーによる競争力強化に関する主要な研究の執筆や寄稿も行っています。"
   },
   {
-    "id": "person_xiao_xiao",
+    "id": "person_xiaoxiao",
     "type": "person",
     "name": "Xiao Xiao",
     "name_ja": "シャオ シャオ",
@@ -791,7 +791,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_phillips_alexander",
+    "id": "person_alexanderphillips",
     "type": "person",
     "name": "Alexander James Phillips",
     "role_categories": [
@@ -802,7 +802,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_moran_brent",
+    "id": "person_brentmoran",
     "type": "person",
     "name": "Brent Moran",
     "role_categories": [
@@ -813,7 +813,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_freer_cameron",
+    "id": "person_cameronfreer",
     "type": "person",
     "name": "Cameron Freer",
     "role_categories": [
@@ -829,7 +829,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_mostauskis_dominykas",
+    "id": "person_dominykasmostauskis",
     "type": "person",
     "name": "Dominykas Mostauskis",
     "role_categories": [
@@ -840,7 +840,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_lin_kevin",
+    "id": "person_kevinlin",
     "type": "person",
     "name": "Kevin Lin",
     "role_categories": [
@@ -850,7 +850,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_matsubara_kota",
+    "id": "person_kotamatsubara",
     "type": "person",
     "name": "Kota Matsubara",
     "name_ja": "松原康太",
@@ -861,7 +861,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_godey_kriti",
+    "id": "person_kritigodey",
     "type": "person",
     "name": "Kriti Godey",
     "role_categories": [
@@ -872,7 +872,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_schoeneich_magdalena",
+    "id": "person_magdalenaschoeneich",
     "type": "person",
     "name": "Magdalena Schoeneich",
     "role_categories": [
@@ -882,7 +882,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_murali_mukesh",
+    "id": "person_mukeshmurali",
     "type": "person",
     "name": "Mukesh Murali",
     "role_categories": [
@@ -893,7 +893,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_kumar_pavish",
+    "id": "person_pavishkumar",
     "type": "person",
     "name": "Pavish Kumar",
     "role_categories": [
@@ -904,7 +904,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_zamma_toshiyuki",
+    "id": "person_toshiyukizamma",
     "type": "person",
     "name": "Toshiyuki Zamma",
     "name_ja": "座間 敏如",
@@ -916,7 +916,7 @@
     "status": "alumni"
   },
   {
-    "id": "person_hidaka_zenbo",
+    "id": "person_zenbohidaka",
     "type": "person",
     "name": "Zenbo Hidaka",
     "name_ja": "飛鷹全法",
