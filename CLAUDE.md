@@ -14,7 +14,7 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 **DNA** — Foundational documents that define principles, governance, and structural templates:
 - **Charter** — Values, governance, and operational commitments (9 sections). Lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center) (source: `https://charter.henkaku.center/content/CHARTER.md`)
-- **Archetypes** — Structural templates for ten registry entry types (served from Registry at `/api/v1/compass/files/docs/ARCHETYPES.md`)
+- **Archetypes** — Structural templates for eleven registry entry types (served from Registry at `/api/v1/compass/files/docs/ARCHETYPES.md`)
 
 **Emergent** — Living content instantiated from the foundational templates:
 - **Curriculum** — SDS Master's and PhD curriculum (served from Registry at `/api/v1/compass/files/docs/CURRICULUM.md`)
@@ -100,7 +100,7 @@ All sections contain full text. The draft is ready for review by ratifying membe
 
 The Charter (Section V) mandates a shared registry. The **Archetypes** document defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
-Ten entry types:
+Eleven entry types:
 - **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 - **People** — Roles, domain affinities, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
@@ -111,6 +111,7 @@ Ten entry types:
 - **Posts** — Written contributions (reflections, updates, announcements, commentary) from participants
 - **Places** — Physical locations where ecosystem activities happen (campuses, coworking spaces, venues)
 - **Domains** — Knowledge and research areas that map the intellectual landscape
+- **Publications** — Peer-reviewed academic works — journal articles, conference papers, book chapters, and reports
 
 **Essential questions** guide each entry type (4 prompts each — see ARCHETYPES.md served from Registry).
 
@@ -134,7 +135,7 @@ Ten entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html` + `compass-data.js`):
-- Single-page app with hash routing. Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#domains`, `#places`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`
+- Single-page app with hash routing. Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#domains`, `#places`, `#publications`, `#network`, `#references`, `#history`, `#status`, `#about`, `#feedback`
 - `#charter` fetches and renders Charter markdown from `charter.henkaku.center/content/CHARTER.md` inline (with a banner linking to the definitive source and showing the current version dynamically)
 - Top nav bar shows minimal links (Feedback, GitHub, Login). Full site navigation is in a left sidebar organized into DNA, Emergent, and Info groups (with Theses and Posts as placeholders)
 - Right-hand document TOC sidebar with scroll-spy for Charter, Archetypes, About, and Status pages

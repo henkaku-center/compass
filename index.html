@@ -2215,6 +2215,7 @@
       'events': null, // Registry list page
       'domains': null, // Registry list page
       'places': null, // Registry list page
+      'publications': null, // Registry list page
       'network': null, // Graph visualization page
       'feedback': null // Feedback submission page
     };
@@ -2235,6 +2236,7 @@
       { key: 'theses', label: 'Theses', placeholder: true },
       { key: 'posts', label: 'Posts', placeholder: true },
       { key: 'events', label: 'Events' },
+      { key: 'publications', label: 'Publications' },
       { key: 'places', label: 'Places' },
       { key: 'domains', label: 'Domains' },
       { group: 'Info' },
@@ -2381,6 +2383,10 @@
               <a href="#events" class="landing-card">
                 <div class="card-title">Events</div>
                 <div class="card-desc">Symposia, workshops, and gatherings with schedules and speakers.</div>
+              </a>
+              <a href="#publications" class="landing-card">
+                <div class="card-title">Publications</div>
+                <div class="card-desc">Peer-reviewed journal articles, conference papers, and book chapters.</div>
               </a>
               <span class="landing-card placeholder">
                 <div class="card-title">Posts</div>
@@ -2725,6 +2731,12 @@
         plural: 'Places',
         description: 'Physical locations where ecosystem activities happen — campuses, coworking spaces, venues, and gathering spots.',
         color: '#2a9d8f'
+      },
+      publications: {
+        singular: 'Publication',
+        plural: 'Publications',
+        description: 'Peer-reviewed academic works — journal articles, conference papers, book chapters, and reports.',
+        color: '#3a7ca5'
       }
     };
 
@@ -2837,6 +2849,18 @@
           }
           if (entry.address) {
             relationsHtml += `<strong>Address:</strong> ${entry.address}`;
+          }
+          break;
+
+        case 'publications':
+          if (entry.publication_type) {
+            metaHtml += `<span class="type-badge">${entry.publication_type.replace(/_/g, ' ')}</span>`;
+          }
+          if (entry.published_date) {
+            metaHtml += `<span class="type-badge">${entry.published_date}</span>`;
+          }
+          if (entry.venue) {
+            relationsHtml += `<strong>Venue:</strong> ${entry.venue}`;
           }
           break;
       }
@@ -2990,6 +3014,10 @@
           }
           if (type === 'places' && entry.place_type) {
             badgesHtml += `<span class="type-badge">${entry.place_type}</span>`;
+          }
+          if (type === 'publications') {
+            if (entry.publication_type) badgesHtml += `<span class="type-badge">${entry.publication_type.replace(/_/g, ' ')}</span>`;
+            if (entry.published_date) badgesHtml += `<span class="type-badge">${entry.published_date}</span>`;
           }
 
           // Summary
@@ -3159,6 +3187,25 @@
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
 
+          if (type === 'publications') {
+            if (entry.abstract) {
+              detailHtml += `<p class="detail-label">Abstract</p><p>${entry.abstract}</p>`;
+            }
+            if (entry.venue) {
+              detailHtml += `<p class="detail-label">Venue</p><p>${entry.venue}</p>`;
+            }
+            if (entry.doi) {
+              detailHtml += `<p class="detail-label">DOI</p><p><a href="https://doi.org/${entry.doi}" target="_blank" rel="noopener">${entry.doi}</a></p>`;
+            }
+            if (entry.published_date) {
+              detailHtml += `<p class="detail-label">Published</p><p>${entry.published_date}</p>`;
+            }
+            if (entry.url) {
+              detailHtml += `<p class="detail-label">URL</p><p><a href="${entry.url}" target="_blank" rel="noopener">${entry.url}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
           contentEl.innerHTML = `
             <div class="entity-detail">
               <div class="entity-detail-top-row">
@@ -3208,7 +3255,8 @@
       courses: '#7b68ae',
       events: '#c06050',
       domains: '#999999',
-      places: '#2a9d8f'
+      places: '#2a9d8f',
+      publications: '#3a7ca5'
     };
 
     // buildGraphData is now provided by compass-data.js
@@ -3232,6 +3280,7 @@
               <button class="network-toggle" data-type="events"><span class="toggle-dot" style="background: ${nodeColors.events}"></span> Events</button>
               <button class="network-toggle off" data-type="domains"><span class="toggle-dot" style="background: ${nodeColors.domains}"></span> Domains</button>
               <button class="network-toggle off" data-type="places"><span class="toggle-dot" style="background: ${nodeColors.places}"></span> Places</button>
+              <button class="network-toggle off" data-type="publications"><span class="toggle-dot" style="background: ${nodeColors.publications}"></span> Publications</button>
             </div>
           </div>
           <div class="network-container" id="network-container"></div>
@@ -3474,6 +3523,11 @@
               case 'places':
                 if (data.place_type) html += `<p><strong>Type:</strong> ${data.place_type}</p>`;
                 if (data.address) html += `<p><strong>Address:</strong> ${data.address}</p>`;
+                break;
+              case 'publications':
+                if (data.publication_type) html += `<p><strong>Type:</strong> ${data.publication_type.replace(/_/g, ' ')}</p>`;
+                if (data.venue) html += `<p><strong>Venue:</strong> ${data.venue}</p>`;
+                if (data.published_date) html += `<p><strong>Published:</strong> ${data.published_date}</p>`;
                 break;
             }
 
@@ -3940,7 +3994,8 @@
       initiatives: ['active', 'paused', 'completed'],
       institutions: ['active', 'inactive'],
       domains: ['active', 'inactive'],
-      places: ['active', 'inactive']
+      places: ['active', 'inactive'],
+      publications: ['draft', 'submitted', 'in_review', 'accepted', 'published']
     };
     var editSkipFields = ['portrait', 'type'];
 
@@ -3984,6 +4039,11 @@
       places: {
         id: '', type: 'place', name: '', status: 'active', summary: '', place_type: '',
         address: '', website: '', notes: ''
+      },
+      publications: {
+        id: '', type: 'publication', name: '', status: 'published', summary: '',
+        publication_type: '', venue: '', published_date: '', doi: '', url: '',
+        domains: [], notes: ''
       }
     };
 
@@ -3999,7 +4059,8 @@
         { type: 'organizes', targetTypes: ['events'], label: 'Organizes' },
         { type: 'speaks_at', targetTypes: ['events'], label: 'Speaks at' },
         { type: 'exhibits_at', targetTypes: ['events'], label: 'Exhibits at' },
-        { type: 'has_affinity_for', targetTypes: ['domains'], label: 'Has affinity for' }
+        { type: 'has_affinity_for', targetTypes: ['domains'], label: 'Has affinity for' },
+        { type: 'authored', targetTypes: ['publications'], label: 'Author of' }
       ],
       projects: [
         { type: 'depends_on', targetTypes: ['projects'], label: 'Depends on' }
@@ -4024,6 +4085,9 @@
       domains: [],
       places: [
         { type: 'located_at', targetTypes: ['institutions'], label: 'Located at' }
+      ],
+      publications: [
+        { type: 'related', targetTypes: ['projects', 'initiatives'], label: 'Related to' }
       ]
     };
 
@@ -4530,7 +4594,7 @@
         loadHistory();
       } else if (docKey === 'charter') {
         loadCharter();
-      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places'].includes(docKey)) {
+      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places', 'publications'].includes(docKey)) {
         if (entityId) {
           loadEntityDetail(docKey, entityId);
         } else {

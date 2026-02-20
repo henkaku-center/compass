@@ -61,6 +61,7 @@ const TYPE_FILE_MAP = {
   event: 'events',
   domain: 'domains',
   place: 'places',
+  publication: 'publications',
 };
 
 const TYPE_FROM_PLURAL = {};
@@ -299,7 +300,8 @@ const ID_PREFIXES = {
   courses: 'course_',
   events: 'event_',
   domains: 'domain_',
-  places: 'place_'
+  places: 'place_',
+  publications: 'pub_'
 };
 
 function entitySlug(type, id) {

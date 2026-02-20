@@ -4,7 +4,7 @@
 
 ## Current Status
 
-**The initial Charter draft is complete. A mechanism for faculty submissions and voting on future updates is being developed at [charter.henkaku.center](https://charter.henkaku.center). The Compass website and registry are live with very rough populated data across eight of ten entry types. This data is extremely tentative.**
+**The initial Charter draft is complete. A mechanism for faculty submissions and voting on future updates is being developed at [charter.henkaku.center](https://charter.henkaku.center). The Compass website and registry are live with very rough populated data across eight of eleven entry types. This data is extremely tentative.**
 
 ---
 
@@ -16,7 +16,7 @@ The Charter articulates shared values, principles, and governance commitments ac
 
 ### Archetypes
 
-Structural templates for ten registry entry types: People, Projects, Initiatives, Institutions, Courses, Events, Theses, Posts, Places, and Domains. These templates define what information each type carries and how entries cross-reference each other.
+Structural templates for eleven registry entry types: People, Projects, Initiatives, Institutions, Courses, Events, Theses, Posts, Places, Domains, and Publications. These templates define what information each type carries and how entries cross-reference each other.
 
 ### Registry
 
@@ -32,8 +32,9 @@ Eight entry types are populated with real data:
 | Events | 1 | Symposium of Design and Science 2025 (July 5, Shibuya) |
 | Domains | 36 | Knowledge and research areas mapping the intellectual landscape |
 | Places | 4 | Physical locations including Henkaku Center, Tsudanuma Campus, FabCafe, Crypto Cafe |
+| Publications | 0 | Peer-reviewed academic works — journal articles, conference papers, book chapters |
 
-Two types remain as placeholders: **Theses** and **Posts**. All registry data is tentative and needs to be reviewed for accuracy.
+Publications was added as an 11th entity type. Two types remain as placeholders: **Theses** and **Posts**. All registry data is tentative and needs to be reviewed for accuracy.
 
 ### Curriculum
 
