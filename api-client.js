@@ -26,10 +26,10 @@ class ApiClient {
 
     // ── Auth ────────────────────────────────────────────────────
 
-    async register(email, password, name) {
+    async register(email, password, name, inviteCode) {
         const res = await this._fetch('/api/v1/auth/register', {
             method: 'POST',
-            body: JSON.stringify({ email, password, name }),
+            body: JSON.stringify({ email, password, name, invite_code: inviteCode }),
         }, false);
         return res;
     }
@@ -64,6 +64,17 @@ class ApiClient {
 
     async me() {
         return this._fetch('/api/v1/auth/me');
+    }
+
+    async createInviteCode(expiresAt = null) {
+        return this._fetch('/api/v1/auth/invite-codes', {
+            method: 'POST',
+            body: JSON.stringify({ expires_at: expiresAt }),
+        });
+    }
+
+    async getInviteCodes() {
+        return this._fetch('/api/v1/auth/invite-codes');
     }
 
     logout() {
