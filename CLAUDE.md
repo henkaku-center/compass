@@ -156,7 +156,7 @@ Eleven entry types:
 - Field names match Archetypes schemas; IDs follow patterns like `person_joiito`, `proj_compass`, `course_dna`, `event_2025_symposium`, `domain_complex_systems`, `place_henkaku_center`
 - Contains real data: 62 people (with portraits), 10 initiatives, 9 institutions, 3 projects, 27 courses, 1 event, 50 domains, 4 places, 460 relations
 - Portraits served via `/api/v1/compass/entities/{id}/files/{filename}`
-- Use `backup-registry.sh` (in `charter/registry/scripts/`) to download a full backup including compass data
+- Use `backup-registry.sh` (in `../registry/scripts/`) to download a full backup including compass data
 
 ### Version Control
 
