@@ -4701,18 +4701,8 @@
       var typeCls = entry.type === 'bug_report' ? 'bug' : 'feature';
       var statusLabel = (entry.status || 'open').replace('_', ' ');
 
-      var statusHtml = '';
-      if (isLoggedIn()) {
-        var statuses = ['open', 'in_progress', 'resolved', 'closed'];
-        statusHtml = '<select class="feedback-status-select" onchange="handleFeedbackStatusChange(this)" data-entry-id="' + escapeAttr(entry.id) + '">';
-        statuses.forEach(function(s) {
-          var selected = s === entry.status ? ' selected' : '';
-          statusHtml += '<option value="' + s + '"' + selected + '>' + s.replace('_', ' ') + '</option>';
-        });
-        statusHtml += '</select>';
-      } else {
-        statusHtml = '<span class="feedback-status-badge ' + escapeAttr(entry.status || 'open') + '">' + escapeHtml(statusLabel) + '</span>';
-      }
+      // Status changes are admin/developer-only via API
+      var statusHtml = '<span class="feedback-status-badge ' + escapeAttr(entry.status || 'open') + '">' + escapeHtml(statusLabel) + '</span>';
 
       var dateStr = entry.created_at || entry.submitted_at;
       var date = dateStr ? new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
