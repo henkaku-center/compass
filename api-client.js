@@ -113,24 +113,10 @@ class ApiClient {
         });
     }
 
-    // ── Charter: Stakeholders ───────────────────────────────────
+    // ── Charter: Governance Users (stakeholders) ──────────────────
 
     async getStakeholders() {
         return this._fetch('/api/v1/charter/stakeholders');
-    }
-
-    async createStakeholder(data) {
-        return this._fetch('/api/v1/charter/stakeholders', {
-            method: 'POST',
-            body: JSON.stringify(data),
-        });
-    }
-
-    async updateStakeholder(id, data) {
-        return this._fetch(`/api/v1/charter/stakeholders/${id}`, {
-            method: 'PATCH',
-            body: JSON.stringify(data),
-        });
     }
 
     async exportFullInstitutionalMemory() {
