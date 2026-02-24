@@ -2046,6 +2046,61 @@
       color: #999;
       padding: 3rem 0;
     }
+
+    .feedback-filter-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      width: fit-content;
+      margin-bottom: 1rem;
+    }
+    .feedback-filter-toggle .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border: none;
+      background: #fff;
+      color: #555;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .feedback-filter-toggle .filter-btn:not(:last-child) {
+      border-right: 1px solid #ddd;
+    }
+    .feedback-filter-toggle .filter-btn:hover { background: #f5f5f5; }
+    .feedback-filter-toggle .filter-btn.active { background: #333; color: #fff; }
+
+    .feedback-card.expandable { cursor: pointer; }
+    .feedback-card.expandable .feedback-chevron {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: #999;
+      transition: transform 0.2s;
+    }
+    .feedback-card.expandable.expanded .feedback-chevron { transform: rotate(90deg); }
+
+    .feedback-resolution {
+      display: none;
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: #f9f9f9;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      border-left: 3px solid #1565c0;
+    }
+    .feedback-resolution.visible { display: block; }
+    .feedback-resolution h4 {
+      margin: 0 0 0.25rem;
+      font-size: 0.78rem;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .feedback-resolution h4:not(:first-child) { margin-top: 0.6rem; }
+    .feedback-resolution p { margin: 0; color: #333; }
   </style>
 
   <!-- Structured Data -->
@@ -4687,9 +4742,40 @@
             entriesEl.innerHTML = '<div class="feedback-empty">No feedback submitted yet.</div>';
             return;
           }
-          entriesEl.innerHTML = '<h2 style="font-size:1rem;border:none;margin:0 0 1rem;padding:0;">Existing Feedback</h2>';
-          entries.forEach(function(entry) {
-            entriesEl.appendChild(renderFeedbackCard(entry, userNames));
+
+          var closedStatuses = { resolved: true, closed: true };
+          var openEntries = entries.filter(function(e) { return !closedStatuses[e.status]; });
+          var closedEntries = entries.filter(function(e) { return !!closedStatuses[e.status]; });
+
+          function renderList(list) {
+            var listEl = document.getElementById('feedback-list');
+            if (!listEl) return;
+            listEl.innerHTML = '';
+            if (list.length === 0) {
+              listEl.innerHTML = '<div class="feedback-empty">No items.</div>';
+              return;
+            }
+            list.forEach(function(entry) {
+              listEl.appendChild(renderFeedbackCard(entry, userNames));
+            });
+          }
+
+          entriesEl.innerHTML =
+            '<h2 style="font-size:1rem;border:none;margin:0 0 0.75rem;padding:0;">Existing Feedback</h2>' +
+            '<div class="feedback-filter-toggle">' +
+              '<button class="filter-btn active" data-filter="open">Open (' + openEntries.length + ')</button>' +
+              '<button class="filter-btn" data-filter="closed">Closed (' + closedEntries.length + ')</button>' +
+            '</div>' +
+            '<div id="feedback-list"></div>';
+
+          renderList(openEntries);
+
+          entriesEl.querySelector('.feedback-filter-toggle').addEventListener('click', function(e) {
+            var btn = e.target.closest('.filter-btn');
+            if (!btn) return;
+            entriesEl.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            renderList(btn.getAttribute('data-filter') === 'closed' ? closedEntries : openEntries);
           });
         })
         .catch(function(err) {
@@ -4701,8 +4787,9 @@
       var card = document.createElement('div');
       card.className = 'feedback-card';
 
-      var typeLabel = entry.type === 'bug_report' ? 'Bug' : 'Feature';
-      var typeCls = entry.type === 'bug_report' ? 'bug' : 'feature';
+      var isBug = entry.type === 'bug_report' || entry.type === 'bug';
+      var typeLabel = isBug ? 'Bug' : 'Feature';
+      var typeCls = isBug ? 'bug' : 'feature';
       var statusLabel = (entry.status || 'open').replace('_', ' ');
 
       // Status changes are admin/developer-only via API
@@ -4729,15 +4816,40 @@
         attachmentsHtml += '</div>';
       }
 
+      var hasResolution = entry.resolution && (entry.resolution.analysis || entry.resolution.fix);
+      var chevronHtml = '';
+      var resolutionHtml = '';
+      if (hasResolution) {
+        card.classList.add('expandable');
+        chevronHtml = '<span class="feedback-chevron">&#9654;</span>';
+        resolutionHtml = '<div class="feedback-resolution">';
+        if (entry.resolution.analysis) {
+          resolutionHtml += '<h4>Analysis</h4><p>' + escapeHtml(entry.resolution.analysis) + '</p>';
+        }
+        if (entry.resolution.fix) {
+          resolutionHtml += '<h4>Fix</h4><p>' + escapeHtml(entry.resolution.fix) + '</p>';
+        }
+        resolutionHtml += '</div>';
+      }
+
       card.innerHTML =
         '<div class="feedback-card-header">' +
           '<span class="feedback-type-badge ' + typeCls + '">' + escapeHtml(typeLabel) + '</span>' +
           statusHtml +
           '<span class="feedback-card-title">' + escapeHtml(entry.title || '') + '</span>' +
+          chevronHtml +
         '</div>' +
         (entry.description ? '<div class="feedback-card-desc">' + escapeHtml(entry.description) + '</div>' : '') +
         attachmentsHtml +
-        '<div class="feedback-card-meta">by ' + escapeHtml(author) + (date ? ' on ' + date : '') + '</div>';
+        '<div class="feedback-card-meta">by ' + escapeHtml(author) + (date ? ' on ' + date : '') + '</div>' +
+        resolutionHtml;
+
+      if (hasResolution) {
+        card.addEventListener('click', function() {
+          card.classList.toggle('expanded');
+          card.querySelector('.feedback-resolution').classList.toggle('visible');
+        });
+      }
 
       return card;
     }
