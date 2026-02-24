@@ -4677,15 +4677,19 @@
       var entriesEl = document.getElementById('feedback-entries');
       if (!entriesEl) return;
 
-      api.getFeedback('compass')
-        .then(function(entries) {
+      Promise.all([api.getFeedback('compass'), api.getStakeholders().catch(function() { return []; })])
+        .then(function(results) {
+          var entries = results[0];
+          var users = results[1];
+          var userNames = {};
+          users.forEach(function(u) { userNames[u.id] = u.name; });
           if (!entries || entries.length === 0) {
             entriesEl.innerHTML = '<div class="feedback-empty">No feedback submitted yet.</div>';
             return;
           }
           entriesEl.innerHTML = '<h2 style="font-size:1rem;border:none;margin:0 0 1rem;padding:0;">Existing Feedback</h2>';
           entries.forEach(function(entry) {
-            entriesEl.appendChild(renderFeedbackCard(entry));
+            entriesEl.appendChild(renderFeedbackCard(entry, userNames));
           });
         })
         .catch(function(err) {
@@ -4693,7 +4697,7 @@
         });
     }
 
-    function renderFeedbackCard(entry) {
+    function renderFeedbackCard(entry, userNames) {
       var card = document.createElement('div');
       card.className = 'feedback-card';
 
@@ -4706,7 +4710,8 @@
 
       var dateStr = entry.created_at || entry.submitted_at;
       var date = dateStr ? new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
-      var author = entry.author_id || entry.submitted_by || 'unknown';
+      var authorId = entry.author_id || entry.submitted_by || '';
+      var author = (userNames && userNames[authorId]) || authorId || 'unknown';
 
       var attachmentsHtml = '';
       if (entry.attachments && entry.attachments.length > 0) {
