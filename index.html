@@ -3625,11 +3625,10 @@
           <div class="network-container" id="network-container"></div>
           <div class="network-detail" id="network-detail"></div>
           <div class="network-controls-hint" id="network-controls-hint">
-            <div><kbd>Drag</kbd> Rotate</div>
+            <div><kbd>Left drag</kbd> Pan</div>
+            <div><kbd>Right drag</kbd> Orbit</div>
             <div><kbd>Scroll</kbd> Zoom</div>
-            <div><kbd>Shift + Drag</kbd> Pan</div>
             <div><kbd>Click</kbd> Select node</div>
-            <div><kbd>Bg click</kbd> Deselect</div>
           </div>
         </div>
       `;
@@ -3696,49 +3695,10 @@
           // Fit all nodes in view early
           setTimeout(() => graph.zoomToFit(400, 40), 500);
 
-          // Camera: rotate + zoom only; Shift + left-drag to pan
+          // Camera: left-drag = pan, right-drag = orbit, scroll = zoom
           const controls = graph.controls();
-          controls.enablePan = false;
-          controls.mouseButtons = { LEFT: THREE.MOUSE.ROTATE, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: null };
-          controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_ROTATE };
-
-          // Manual pan: Shift + left-drag moves camera target and position
-          (function() {
-            let panning = false, lastX = 0, lastY = 0;
-            const panVec = new THREE.Vector3();
-            const upVec = new THREE.Vector3();
-            container.addEventListener('pointerdown', (e) => {
-              if (e.button === 0 && e.shiftKey) {
-                panning = true;
-                lastX = e.clientX;
-                lastY = e.clientY;
-                controls.enabled = false;
-                container.setPointerCapture(e.pointerId);
-                e.stopPropagation();
-              }
-            }, true);
-            window.addEventListener('pointermove', (e) => {
-              if (!panning) return;
-              const camera = graph.camera();
-              const dx = e.clientX - lastX;
-              const dy = e.clientY - lastY;
-              lastX = e.clientX;
-              lastY = e.clientY;
-              const dist = camera.position.distanceTo(controls.target);
-              const scale = dist * 0.001;
-              panVec.setFromMatrixColumn(camera.matrix, 0).multiplyScalar(-dx * scale);
-              upVec.setFromMatrixColumn(camera.matrix, 1).multiplyScalar(dy * scale);
-              panVec.add(upVec);
-              camera.position.add(panVec);
-              controls.target.add(panVec);
-            });
-            window.addEventListener('pointerup', () => {
-              if (panning) {
-                panning = false;
-                controls.enabled = true;
-              }
-            });
-          })();
+          controls.mouseButtons = { LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.ROTATE };
+          controls.touches = { ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_ROTATE };
 
           // Keep labels slightly below nodes relative to camera orientation
           const _camUp = new THREE.Vector3();
