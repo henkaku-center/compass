@@ -46,6 +46,16 @@ const RELATION_TYPES = {
   location_of:      { inverse: 'located_at',        label: 'Location of',    inverseLabel: 'Located at' },
   has_affinity_for: { inverse: 'affinity_of',        label: 'Has affinity for', inverseLabel: 'Affinity of' },
   affinity_of:      { inverse: 'has_affinity_for',  label: 'Affinity of',    inverseLabel: 'Has affinity for' },
+  // Vector & delta relations
+  pursues:          { inverse: 'pursued_by',       label: 'Pursues',        inverseLabel: 'Pursued by' },
+  pursued_by:       { inverse: 'pursues',          label: 'Pursued by',     inverseLabel: 'Pursues' },
+  evidences:        { inverse: 'evidenced_by',     label: 'Evidences',      inverseLabel: 'Evidenced by' },
+  evidenced_by:     { inverse: 'evidences',        label: 'Evidenced by',   inverseLabel: 'Evidences' },
+  aligns_with:      { inverse: 'aligns_with',      label: 'Aligns with',    inverseLabel: 'Aligns with' },
+  composed_of:      { inverse: 'component_of',     label: 'Composed of',    inverseLabel: 'Component of' },
+  component_of:     { inverse: 'composed_of',      label: 'Component of',   inverseLabel: 'Composed of' },
+  produces:         { inverse: 'produced_by',       label: 'Produces',       inverseLabel: 'Produced by' },
+  produced_by:      { inverse: 'produces',          label: 'Produced by',    inverseLabel: 'Produces' },
   // Symmetric
   partner:          { inverse: 'partner',          label: 'Partner',        inverseLabel: 'Partner' },
   related:          { inverse: 'related',          label: 'Related',        inverseLabel: 'Related' },
@@ -62,6 +72,8 @@ const TYPE_FILE_MAP = {
   domain: 'domains',
   place: 'places',
   publication: 'publications',
+  vector: 'vectors',
+  delta: 'deltas',
 };
 
 const TYPE_FROM_PLURAL = {};
@@ -301,7 +313,9 @@ const ID_PREFIXES = {
   events: 'event_',
   domains: 'domain_',
   places: 'place_',
-  publications: 'pub_'
+  publications: 'pub_',
+  vectors: 'vec_',
+  deltas: 'delta_'
 };
 
 function entitySlug(type, id) {

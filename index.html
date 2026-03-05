@@ -2314,6 +2314,8 @@
       'domains': null, // Registry list page
       'places': null, // Registry list page
       'publications': null, // Registry list page
+      'vectors': null, // Registry list page
+      'deltas': null, // Registry list page
       'network': null, // Graph visualization page
       'feedback': null, // Feedback submission page
       'contribute': null, // Contribute with AI page
@@ -2334,6 +2336,8 @@
       { key: 'institutions', label: 'Institutions' },
       { key: 'curriculum', label: 'Curriculum' },
       { key: 'courses', label: 'Courses' },
+      { key: 'vectors', label: 'Vectors' },
+      { key: 'deltas', label: 'Deltas' },
       { key: 'theses', label: 'Theses', placeholder: true },
       { key: 'posts', label: 'Posts', placeholder: true },
       { key: 'events', label: 'Events' },
@@ -2497,6 +2501,14 @@
               <a href="#publications" class="landing-card">
                 <div class="card-title">Publications</div>
                 <div class="card-desc">Peer-reviewed journal articles, conference papers, and book chapters.</div>
+              </a>
+              <a href="#vectors" class="landing-card">
+                <div class="card-title">Vectors</div>
+                <div class="card-desc">Directional transformations people are pursuing — energy, purpose, and aspiration.</div>
+              </a>
+              <a href="#deltas" class="landing-card">
+                <div class="card-title">Deltas</div>
+                <div class="card-desc">Observable changes — concrete evidence of movement and transformation.</div>
               </a>
               <span class="landing-card placeholder">
                 <div class="card-title">Posts</div>
@@ -2851,6 +2863,18 @@
         plural: 'Publications',
         description: 'Peer-reviewed academic works — journal articles, conference papers, book chapters, and reports.',
         color: '#3a7ca5'
+      },
+      vectors: {
+        singular: 'Vector',
+        plural: 'Vectors',
+        description: 'Directional transformations someone is pursuing — aspirational, flexible, connecting energy to purpose.',
+        color: '#d4a017'
+      },
+      deltas: {
+        singular: 'Delta',
+        plural: 'Deltas',
+        description: 'Observable changes — concrete evidence of movement along a vector or within the ecosystem.',
+        color: '#17a2b8'
       }
     };
 
@@ -2975,6 +2999,33 @@
           }
           if (entry.venue) {
             relationsHtml += `<strong>Venue:</strong> ${entry.venue}`;
+          }
+          break;
+
+        case 'vectors':
+          if (entry.from) {
+            relationsHtml += `<strong>From:</strong> ${entry.from}`;
+          }
+          if (entry.toward) {
+            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Toward:</strong> ${entry.toward}`;
+          }
+          if (entry.domains) {
+            entry.domains.forEach(d => { metaHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          break;
+
+        case 'deltas':
+          if (entry.from) {
+            relationsHtml += `<strong>From:</strong> ${entry.from}`;
+          }
+          if (entry.toward) {
+            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Toward:</strong> ${entry.toward}`;
+          }
+          if (entry.observed_date) {
+            metaHtml += `<span class="type-badge">${entry.observed_date}</span>`;
+          }
+          if (entry.domains) {
+            entry.domains.forEach(d => { metaHtml += `<span class="type-badge">${d}</span>`; });
           }
           break;
       }
@@ -3132,6 +3183,15 @@
           if (type === 'publications') {
             if (entry.publication_type) badgesHtml += `<span class="type-badge">${entry.publication_type.replace(/_/g, ' ')}</span>`;
             if (entry.published_date) badgesHtml += `<span class="type-badge">${entry.published_date}</span>`;
+          }
+          if (type === 'vectors' && entry.domains) {
+            entry.domains.forEach(d => { badgesHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          if (type === 'deltas') {
+            if (entry.observed_date) badgesHtml += `<span class="type-badge">${entry.observed_date}</span>`;
+            if (entry.domains) {
+              entry.domains.forEach(d => { badgesHtml += `<span class="type-badge">${d}</span>`; });
+            }
           }
 
           // Summary
@@ -3369,6 +3429,48 @@
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
 
+          if (type === 'vectors') {
+            if (entry.from) {
+              detailHtml += `<p class="detail-label">From</p><p>${entry.from}</p>`;
+            }
+            if (entry.toward) {
+              detailHtml += `<p class="detail-label">Toward</p><p>${entry.toward}</p>`;
+            }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'deltas') {
+            if (entry.from) {
+              detailHtml += `<p class="detail-label">From</p><p>${entry.from}</p>`;
+            }
+            if (entry.toward) {
+              detailHtml += `<p class="detail-label">Toward</p><p>${entry.toward}</p>`;
+            }
+            if (entry.observed_date) {
+              detailHtml += `<p class="detail-label">Observed</p><p>${entry.observed_date}</p>`;
+            }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          // Check-in section
+          const checkinFormHtml = isLoggedIn() ? `
+            <form id="checkin-form" style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
+              <input type="text" id="checkin-note" placeholder="Check-in note (optional)" maxlength="500" style="flex:1; padding: 0.4rem 0.6rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9em;">
+              <button type="submit" style="padding: 0.4rem 1rem; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em;">Check in</button>
+            </form>` : '';
+
           contentEl.innerHTML = `
             <div class="entity-detail">
               <div class="entity-detail-top-row">
@@ -3387,8 +3489,56 @@
               <div class="entity-detail-section">
                 ${detailHtml}
               </div>
+              <div style="margin-top: 2rem; border-top: 1px solid #e5e5e5; padding-top: 1.5rem;">
+                <p class="detail-label" style="display: flex; align-items: center; gap: 0.5rem;">Health <span id="health-dot" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#ccc;"></span> <span id="health-score" style="font-weight:normal;color:#666;font-size:0.85em;"></span></p>
+                <div id="checkin-log" style="color:#666;font-size:0.9em;"></div>
+                ${checkinFormHtml}
+              </div>
             </div>
           `;
+
+          // Load health + check-ins asynchronously
+          api.getEntityHealth(resolvedId).then(h => {
+            const dot = document.getElementById('health-dot');
+            const score = document.getElementById('health-score');
+            if (dot) {
+              const hue = Math.round(h.health * 120); // 0=red, 120=green
+              dot.style.background = `hsl(${hue}, 70%, 50%)`;
+            }
+            if (score) score.textContent = h.health > 0 ? `${Math.round(h.health * 100)}%` : 'No check-ins';
+          }).catch(() => {});
+
+          api.getCheckIns(resolvedId, 5).then(checkins => {
+            const log = document.getElementById('checkin-log');
+            if (!log) return;
+            if (checkins.length === 0) {
+              log.textContent = 'No check-ins yet.';
+              return;
+            }
+            log.innerHTML = checkins.map(c => {
+              const date = new Date(c.created_at).toLocaleDateString();
+              const userName = getEntityDisplay(c.user_id) || 'Unknown';
+              return `<p style="margin:0.25rem 0;"><strong>${date}</strong>${c.note ? ' — ' + escapeHtml(c.note) : ''}</p>`;
+            }).join('');
+          }).catch(() => {});
+
+          // Check-in form handler
+          const checkinForm = document.getElementById('checkin-form');
+          if (checkinForm) {
+            checkinForm.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const noteInput = document.getElementById('checkin-note');
+              const note = noteInput.value.trim() || null;
+              try {
+                await api.createCheckIn(resolvedId, note);
+                noteInput.value = '';
+                // Reload the detail page to refresh health + log
+                loadEntityDetail(type, entityId);
+              } catch (err) {
+                alert('Check-in failed: ' + err.message);
+              }
+            });
+          }
 
           // Edit button handler
           const editBtn = document.getElementById('entity-detail-edit-btn');
@@ -3419,7 +3569,9 @@
       events: '#c06050',
       domains: '#999999',
       places: '#2a9d8f',
-      publications: '#3a7ca5'
+      publications: '#3a7ca5',
+      vectors: '#d4a017',
+      deltas: '#17a2b8'
     };
 
     // buildGraphData is now provided by compass-data.js
@@ -3444,6 +3596,8 @@
               <button class="network-toggle off" data-type="domains"><span class="toggle-dot" style="background: ${nodeColors.domains}"></span> Domains</button>
               <button class="network-toggle off" data-type="places"><span class="toggle-dot" style="background: ${nodeColors.places}"></span> Places</button>
               <button class="network-toggle off" data-type="publications"><span class="toggle-dot" style="background: ${nodeColors.publications}"></span> Publications</button>
+              <button class="network-toggle off" data-type="vectors"><span class="toggle-dot" style="background: ${nodeColors.vectors}"></span> Vectors</button>
+              <button class="network-toggle off" data-type="deltas"><span class="toggle-dot" style="background: ${nodeColors.deltas}"></span> Deltas</button>
             </div>
           </div>
           <div class="network-container" id="network-container"></div>
@@ -3513,11 +3667,49 @@
           // Fit all nodes in view early
           setTimeout(() => graph.zoomToFit(400, 40), 500);
 
-          // Camera: rotate + zoom only, no panning (graph auto-centers on origin)
+          // Camera: rotate + zoom only; Shift + left-drag to pan
           const controls = graph.controls();
           controls.enablePan = false;
           controls.mouseButtons = { LEFT: THREE.MOUSE.ROTATE, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: null };
           controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_ROTATE };
+
+          // Manual pan: Shift + left-drag moves camera target and position
+          (function() {
+            let panning = false, lastX = 0, lastY = 0;
+            const panVec = new THREE.Vector3();
+            const upVec = new THREE.Vector3();
+            container.addEventListener('pointerdown', (e) => {
+              if (e.button === 0 && e.shiftKey) {
+                panning = true;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                controls.enabled = false;
+                container.setPointerCapture(e.pointerId);
+                e.stopPropagation();
+              }
+            }, true);
+            window.addEventListener('pointermove', (e) => {
+              if (!panning) return;
+              const camera = graph.camera();
+              const dx = e.clientX - lastX;
+              const dy = e.clientY - lastY;
+              lastX = e.clientX;
+              lastY = e.clientY;
+              const dist = camera.position.distanceTo(controls.target);
+              const scale = dist * 0.001;
+              panVec.setFromMatrixColumn(camera.matrix, 0).multiplyScalar(-dx * scale);
+              upVec.setFromMatrixColumn(camera.matrix, 1).multiplyScalar(dy * scale);
+              panVec.add(upVec);
+              camera.position.add(panVec);
+              controls.target.add(panVec);
+            });
+            window.addEventListener('pointerup', () => {
+              if (panning) {
+                panning = false;
+                controls.enabled = true;
+              }
+            });
+          })();
 
           // Keep labels slightly below nodes relative to camera orientation
           const _camUp = new THREE.Vector3();
@@ -4211,6 +4403,14 @@
         id: '', type: 'publication', name: '', status: 'published', summary: '',
         publication_type: '', venue: '', published_date: '', doi: '', url: '',
         domains: [], notes: ''
+      },
+      vectors: {
+        id: '', type: 'vector', name: '', status: 'active', summary: '',
+        from: '', toward: '', domains: [], notes: ''
+      },
+      deltas: {
+        id: '', type: 'delta', name: '', status: 'observed', summary: '',
+        from: '', toward: '', observed_date: '', domains: [], notes: ''
       }
     };
 
@@ -4227,7 +4427,9 @@
         { type: 'speaks_at', targetTypes: ['events'], label: 'Speaks at' },
         { type: 'exhibits_at', targetTypes: ['events'], label: 'Exhibits at' },
         { type: 'has_affinity_for', targetTypes: ['domains'], label: 'Has affinity for' },
-        { type: 'authored', targetTypes: ['publications'], label: 'Author of' }
+        { type: 'authored', targetTypes: ['publications'], label: 'Author of' },
+        { type: 'pursues', targetTypes: ['vectors'], label: 'Pursues' },
+        { type: 'produces', targetTypes: ['deltas'], label: 'Produces' }
       ],
       projects: [
         { type: 'depends_on', targetTypes: ['projects'], label: 'Depends on' }
@@ -4255,6 +4457,15 @@
       ],
       publications: [
         { type: 'related', targetTypes: ['projects', 'initiatives'], label: 'Related to' }
+      ],
+      vectors: [
+        { type: 'aligns_with', targetTypes: ['vectors'], label: 'Aligns with' },
+        { type: 'composed_of', targetTypes: ['deltas'], label: 'Composed of' },
+        { type: 'related', targetTypes: ['initiatives', 'projects', 'domains'], label: 'Related to' }
+      ],
+      deltas: [
+        { type: 'evidences', targetTypes: ['vectors'], label: 'Evidences' },
+        { type: 'related', targetTypes: ['projects', 'courses', 'deltas'], label: 'Related to' }
       ]
     };
 
@@ -4761,7 +4972,7 @@
         loadHistory();
       } else if (docKey === 'charter') {
         loadCharter();
-      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places', 'publications'].includes(docKey)) {
+      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas'].includes(docKey)) {
         if (entityId) {
           loadEntityDetail(docKey, entityId);
         } else {

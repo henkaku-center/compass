@@ -311,6 +311,28 @@ class ApiClient {
         });
     }
 
+    // ── Compass: Check-ins ─────────────────────────────────────
+
+    async createCheckIn(entityId, note) {
+        return this._fetch('/api/v1/compass/checkins', {
+            method: 'POST',
+            body: JSON.stringify({ entity_id: entityId, note }),
+        });
+    }
+
+    async getCheckIns(entityId, limit = 20, offset = 0) {
+        const params = new URLSearchParams({ limit, offset });
+        return this._fetch(`/api/v1/compass/entities/${entityId}/checkins?${params}`);
+    }
+
+    async getEntityHealth(entityId) {
+        return this._fetch(`/api/v1/compass/entities/${entityId}/health`);
+    }
+
+    async getAllHealth() {
+        return this._fetch('/api/v1/compass/health');
+    }
+
     // ── Compass: Relations ──────────────────────────────────────
 
     async getRelations(sourceId = null, targetId = null, type = null) {
