@@ -333,6 +333,29 @@ class ApiClient {
         return this._fetch(`/api/v1/compass/relations/${id}`, { method: 'DELETE' });
     }
 
+    // ── Real-time updates (SSE) ───────────────────────────────
+
+    subscribeToChanges(onEvent) {
+        if (this._eventSource) this._eventSource.close();
+        const url = `${this.baseUrl}/api/v1/compass/events`;
+        const es = new EventSource(url);
+        es.onmessage = (e) => {
+            try { onEvent(JSON.parse(e.data)); } catch {}
+        };
+        es.onerror = () => {
+            // Browser will auto-reconnect; nothing to do here
+        };
+        this._eventSource = es;
+        return es;
+    }
+
+    unsubscribeFromChanges() {
+        if (this._eventSource) {
+            this._eventSource.close();
+            this._eventSource = null;
+        }
+    }
+
     // ── Internal ────────────────────────────────────────────────
 
     _storeTokens(access, refresh) {
