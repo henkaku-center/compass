@@ -3699,6 +3699,7 @@
           const controls = graph.controls();
           controls.mouseButtons = { LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.ROTATE };
           controls.touches = { ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_ROTATE };
+          controls.panSpeed = 0.3;
 
           // Keep labels slightly below nodes relative to camera orientation
           const _camUp = new THREE.Vector3();
