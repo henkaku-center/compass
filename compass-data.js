@@ -390,6 +390,24 @@ function buildGraphData() {
     });
   });
 
+  // Synthesize domain links from data.domains arrays (name-matched to domain entities)
+  const domainByName = {};
+  Object.values(store.entities).forEach(e => {
+    if (e.type === 'domain') domainByName[e.name.toLowerCase()] = e.id;
+  });
+  Object.values(store.entities).forEach(entity => {
+    if (!entity.domains || !Array.isArray(entity.domains) || entity.type === 'domain') return;
+    if (!nodeIds.has(entity.id)) return;
+    entity.domains.forEach(d => {
+      const domainId = domainByName[d.toLowerCase()];
+      if (!domainId || !nodeIds.has(domainId)) return;
+      const key = `${entity.id}->${domainId}:has_affinity_for`;
+      if (edgeSet.has(key)) return;
+      edgeSet.add(key);
+      links.push({ source: entity.id, target: domainId, label: 'has affinity for' });
+    });
+  });
+
   return { nodes, links };
 }
 
