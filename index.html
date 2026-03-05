@@ -2224,15 +2224,11 @@
 
   <footer id="site-footer">
     <div class="footer-inner">
-      <a href="https://chibatech.jp/" target="_blank" rel="noopener noreferrer">
-        Chiba Tech
-      </a>
-      <a href="https://henkaku.center" target="_blank" rel="noopener noreferrer">
-        Henkaku Center for Radical Transformation
-      </a>
-      <a href="https://sds.chibatech.dev" target="_blank" rel="noopener noreferrer">
-        Graduate School of Design and Science
-      </a>
+      <a href="https://chibatech.jp/" target="_blank" rel="noopener noreferrer">Chiba Tech</a>
+      <a href="https://henkaku.center" target="_blank" rel="noopener noreferrer">Henkaku Center</a>
+      <a href="https://sds.chibatech.dev" target="_blank" rel="noopener noreferrer">SDS</a>
+      <span style="color:#ccc;">|</span>
+      <a href="mailto:compass@henkaku.center">compass@henkaku.center</a>
     </div>
   </footer>
 
@@ -2304,7 +2300,6 @@
     const routes = {
       'home': null, // Special case: landing page
       'about': 'README.md',
-      'status': 'STATUS.md',
       'charter': null, // Special case: loaded from Registry API
       'curriculum': 'https://registry.henkaku.center/api/v1/compass/files/docs/CURRICULUM.md',
       'archetypes': 'https://registry.henkaku.center/api/v1/compass/files/docs/ARCHETYPES.md',
@@ -2321,11 +2316,13 @@
       'publications': null, // Registry list page
       'network': null, // Graph visualization page
       'feedback': null, // Feedback submission page
-      'contribute': null // Contribute with AI page
+      'contribute': null, // Contribute with AI page
+      'contact': null // Contact page
     };
 
     // Site map for sidebar navigation (groups + pages)
     const siteMap = [
+      { key: 'contribute', label: 'Contribute with AI' },
       { group: 'DNA' },
       { key: 'charter', label: 'Charter' },
       { key: 'archetypes', label: 'Archetypes' },
@@ -2344,12 +2341,11 @@
       { key: 'places', label: 'Places' },
       { key: 'domains', label: 'Domains' },
       { group: 'Info' },
-      { key: 'contribute', label: 'Contribute with AI' },
       { key: 'about', label: 'About' },
       { key: 'references', label: 'References' },
-      { key: 'status', label: 'Status' },
       { key: 'history', label: 'History' },
       { key: 'feedback', label: 'Feedback' },
+      { key: 'contact', label: 'Contact' },
     ];
 
     // Reference files data (sorted oldest to newest)
@@ -2540,10 +2536,6 @@
                 <div class="card-title">References</div>
                 <div class="card-desc">Brochures, whiteboards, and source documents behind the design.</div>
               </a>
-              <a href="#status" class="landing-card">
-                <div class="card-title">Status</div>
-                <div class="card-desc">Where things stand and what questions remain open.</div>
-              </a>
               <a href="#history" class="landing-card">
                 <div class="card-title">History</div>
                 <div class="card-desc">Every change to the repository, pulled live from GitHub.</div>
@@ -2555,6 +2547,10 @@
               <a href="#feedback" class="landing-card">
                 <div class="card-title">Feedback</div>
                 <div class="card-desc">Report issues or suggest improvements.</div>
+              </a>
+              <a href="#contact" class="landing-card">
+                <div class="card-title">Contact</div>
+                <div class="card-desc">Get in touch, request an invite, or find source code.</div>
               </a>
             </div>
           </div>
@@ -4105,7 +4101,11 @@
         '<button class="btn btn-primary" id="login-btn" onclick="handleLogin()">Login</button>' +
         '</div>';
       showModal('Login', html, { narrow: true });
-      setTimeout(function() { var el = document.getElementById('login-email'); if (el) el.focus(); }, 100);
+      setTimeout(function() {
+        var el = document.getElementById('login-email'); if (el) el.focus();
+        var pw = document.getElementById('login-password');
+        if (pw) pw.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleLogin(); });
+      }, 100);
     }
 
     async function handleLogin() {
@@ -4773,10 +4773,54 @@
         loadFeedback();
       } else if (docKey === 'contribute') {
         loadContribute();
+      } else if (docKey === 'contact') {
+        loadContact();
       } else {
         const path = routes[docKey];
         loadDoc(path, docKey);
       }
+    }
+
+    // --- Contact page ---
+
+    function loadContact() {
+      clearOrientationRotator();
+      currentDoc = 'contact';
+      showSidebar('contact');
+
+      contentEl.innerHTML = `
+        <div class="contact-page" style="max-width: 780px;">
+          <h1>Contact</h1>
+
+          <div style="margin:2rem 0;padding:1.5rem;border:1px solid #e5e5e5;border-radius:8px;background:#f9f9f9;">
+            <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:0.5rem;">Email</div>
+            <a href="mailto:compass@henkaku.center" style="font-size:1.1rem;">compass@henkaku.center</a>
+            <p style="margin:0.5rem 0 0;color:#666;font-size:0.9rem;">Questions, feedback, invite codes, or anything else.</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;">
+            <div>
+              <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:0.75rem;">Organizations</div>
+              <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                <a href="https://henkaku.center" target="_blank" rel="noopener">Henkaku Center</a>
+                <a href="https://sds.chibatech.dev" target="_blank" rel="noopener">Graduate School of Design &amp; Science</a>
+                <a href="https://chibatech.jp" target="_blank" rel="noopener">Chiba Institute of Technology</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:0.75rem;">Source Code</div>
+              <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener">Compass</a>
+                <a href="https://github.com/henkaku-center/charter" target="_blank" rel="noopener">Charter</a>
+                <a href="https://github.com/henkaku-center/registry" target="_blank" rel="noopener">Registry</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      updateActiveNavLink('contact');
+      window.scrollTo(0, 0);
     }
 
     // --- Contribute with AI page ---
@@ -4785,6 +4829,10 @@
       clearOrientationRotator();
       currentDoc = 'contribute';
       showSidebar('contribute');
+
+      var downloadBtn = isLoggedIn()
+        ? `<p><a href="#" onclick="downloadOnboarding(event)" style="display:inline-block;padding:0.5rem 1.25rem;background:#111;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;">Download ONBOARDING.md</a></p>`
+        : `<p><span style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.25rem;background:#e5e5e5;color:#999;border-radius:6px;font-weight:500;cursor:default;">Download ONBOARDING.md</span> <a href="#" onclick="showLoginModal();return false" style="font-size:0.85rem;margin-left:0.5rem;">Log in to download</a></p>`;
 
       contentEl.innerHTML = `
         <div class="contribute-page" style="max-width: 780px;">
@@ -4796,7 +4844,7 @@
 
           <h2>Step 1: Download the onboarding guide</h2>
           <p>This file tells your AI everything it needs to know about the Compass API &mdash; what endpoints exist, how authentication works, and what you can ask it to do.</p>
-          <p><a href="https://registry.henkaku.center/api/v1/compass/files/docs/ONBOARDING.md" target="_blank" rel="noopener" style="display:inline-block;padding:0.5rem 1.25rem;background:#111;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;">Download ONBOARDING.md</a></p>
+          ${downloadBtn}
 
           <h2>Step 2: Give it to your AI</h2>
           <p>How you do this depends on your platform. Here are instructions for the most common AI coding assistants:</p>
@@ -4851,6 +4899,30 @@ See ONBOARDING.md for the Compass API reference.</code></pre>
 
       updateActiveNavLink('contribute');
       window.scrollTo(0, 0);
+    }
+
+    function downloadOnboarding(e) {
+      e.preventDefault();
+      var token = localStorage.getItem('registry_access_token');
+      if (!token) return;
+      fetch('https://registry.henkaku.center/api/v1/compass/files/docs/ONBOARDING.md', {
+        headers: { 'Authorization': 'Bearer ' + token }
+      })
+        .then(function(res) {
+          if (!res.ok) throw new Error('Download failed');
+          return res.blob();
+        })
+        .then(function(blob) {
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'ONBOARDING.md';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        })
+        .catch(function(err) { alert('Download failed: ' + err.message); });
     }
 
     // --- Feedback page ---
