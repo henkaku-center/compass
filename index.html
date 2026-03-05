@@ -3183,6 +3183,12 @@
           }
 
           if (type === 'courses') {
+            if (entry.links && entry.links.length > 0) {
+              detailHtml += `<p class="detail-label">Links</p>`;
+              detailHtml += entry.links.map(l =>
+                `<p><a href="${l.url}" target="_blank" rel="noopener">${l.label || l.url}</a></p>`
+              ).join('');
+            }
             if (entry.charter_alignment && entry.charter_alignment.length > 0) {
               detailHtml += `<p class="detail-label">Charter Alignment</p>`;
               detailHtml += entry.charter_alignment.map(a => `<p>${a}</p>`).join('');

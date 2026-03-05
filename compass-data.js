@@ -393,6 +393,13 @@ function buildGraphData() {
   return { nodes, links };
 }
 
+// Format role strings: convert snake_case to Title Case, pass through already-formatted roles
+function formatRole(role) {
+  if (!role) return role;
+  if (role.includes('_')) return role.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  return role;
+}
+
 // --- Generic relation renderer ---
 
 function renderRelationsHtml(entityId) {
@@ -411,7 +418,7 @@ function renderRelationsHtml(entityId) {
     const label = getRelationLabel(relType);
     const itemStrs = items.map(({ entity, meta }) => {
       let display = entityLinkShort(entity.id);
-      if (meta && meta.role) display += ` (${meta.role})`;
+      if (meta && meta.role) display += ` (${formatRole(meta.role)})`;
       return display;
     });
     if (html) html += '<br>';
@@ -441,7 +448,7 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
     html += `<p class="detail-label">${label}</p>`;
     items.forEach(({ entity, meta }) => {
       let display = entityLink(entity.id);
-      if (meta && meta.role) display += ` — ${meta.role}`;
+      if (meta && meta.role) display += ` — ${formatRole(meta.role)}`;
       if (meta && meta.primary) display += ' (primary)';
       if (meta && meta.session) display += ` — ${meta.session}`;
       if (meta && meta.exhibition) display += ` — ${meta.exhibition}`;
