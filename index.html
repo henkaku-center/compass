@@ -1345,6 +1345,12 @@
       background: rgba(255,255,255,0.14);
     }
 
+    .network-toggle.connected {
+      opacity: 0.6;
+      background: transparent;
+      border-style: dashed;
+    }
+
     .network-toggle.off {
       opacity: 0.35;
       background: transparent;
@@ -2889,7 +2895,7 @@
       vectors: {
         singular: 'Vector',
         plural: 'Vectors',
-        description: 'Directional transformations someone is pursuing — aspirational, flexible, connecting energy to purpose.',
+        description: 'Directional transformations worth pursuing — aspirational, flexible, connecting energy to purpose.',
         color: '#d4a017'
       },
       deltas: {
@@ -3592,11 +3598,15 @@
       domains: '#999999',
       places: '#2a9d8f',
       publications: '#3a7ca5',
-      vectors: '#d4a017',
-      deltas: '#17a2b8'
+      vectors: '#7ccf9e',
+      deltas: '#d4b560'
     };
 
     // buildGraphData is now provided by compass-data.js
+
+    // Default entity types shown in network viz (override with ?show=type1,type2 in URL)
+    const networkDefaultOn = new Set(['institutions', 'people', 'projects', 'initiatives', 'courses', 'events']);
+    const networkAllTypes = ['institutions', 'people', 'projects', 'initiatives', 'courses', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas'];
 
     function loadNetwork() {
       clearOrientationRotator();
@@ -3605,21 +3615,33 @@
       docTocEl.classList.remove('visible');
       layoutEl.classList.remove('has-toc');
 
+      // Parse ?show= and ?connected= from hash (e.g. #network?show=people,projects&connected=domains)
+      const hashQuery = location.hash.split('?')[1];
+      const params = hashQuery ? new URLSearchParams(hashQuery) : null;
+      const showParam = params && params.get('show');
+      const connParam = params && params.get('connected');
+      let typeStates; // map of type -> 'on'|'connected'|'off'
+      if (showParam || connParam) {
+        const onSet = showParam ? new Set(showParam.split(',').filter(t => networkAllTypes.includes(t))) : new Set();
+        const connSet = connParam ? new Set(connParam.split(',').filter(t => networkAllTypes.includes(t))) : new Set();
+        typeStates = {};
+        networkAllTypes.forEach(t => { typeStates[t] = onSet.has(t) ? 'on' : connSet.has(t) ? 'connected' : 'off'; });
+      } else {
+        typeStates = {};
+        networkAllTypes.forEach(t => { typeStates[t] = networkDefaultOn.has(t) ? 'on' : 'off'; });
+      }
+
+      const filterButtons = networkAllTypes.map(t => {
+        const cls = typeStates[t] === 'on' ? '' : typeStates[t] === 'connected' ? ' connected' : ' off';
+        const label = t.charAt(0).toUpperCase() + t.slice(1);
+        return `<button class="network-toggle${cls}" data-type="${t}"><span class="toggle-dot" style="background: ${nodeColors[t]}"></span> ${label}</button>`;
+      }).join('\n              ');
+
       contentEl.innerHTML = `
         <div class="network-page">
           <div class="network-controls">
             <div class="network-filters" id="network-filters">
-              <button class="network-toggle" data-type="institutions"><span class="toggle-dot" style="background: ${nodeColors.institutions}"></span> Institutions</button>
-              <button class="network-toggle" data-type="people"><span class="toggle-dot" style="background: ${nodeColors.people}"></span> People</button>
-              <button class="network-toggle" data-type="projects"><span class="toggle-dot" style="background: ${nodeColors.projects}"></span> Projects</button>
-              <button class="network-toggle" data-type="initiatives"><span class="toggle-dot" style="background: ${nodeColors.initiatives}"></span> Initiatives</button>
-              <button class="network-toggle" data-type="courses"><span class="toggle-dot" style="background: ${nodeColors.courses}"></span> Courses</button>
-              <button class="network-toggle" data-type="events"><span class="toggle-dot" style="background: ${nodeColors.events}"></span> Events</button>
-              <button class="network-toggle off" data-type="domains"><span class="toggle-dot" style="background: ${nodeColors.domains}"></span> Domains</button>
-              <button class="network-toggle off" data-type="places"><span class="toggle-dot" style="background: ${nodeColors.places}"></span> Places</button>
-              <button class="network-toggle off" data-type="publications"><span class="toggle-dot" style="background: ${nodeColors.publications}"></span> Publications</button>
-              <button class="network-toggle off" data-type="vectors"><span class="toggle-dot" style="background: ${nodeColors.vectors}"></span> Vectors</button>
-              <button class="network-toggle off" data-type="deltas"><span class="toggle-dot" style="background: ${nodeColors.deltas}"></span> Deltas</button>
+              ${filterButtons}
             </div>
           </div>
           <div class="network-container" id="network-container"></div>
@@ -3745,23 +3767,41 @@
             return typeof endpoint === 'object' ? endpoint.id : endpoint;
           }
 
-          // Helper: get active type filters (buttons without .off class)
-          function getCheckedTypes() {
-            const types = [];
+          // Helper: get filter state for each type from buttons
+          function getTypeStates() {
+            const states = { on: new Set(), connected: new Set() };
             const filters = document.getElementById('network-filters');
             if (filters) {
-              filters.querySelectorAll('.network-toggle:not(.off)').forEach(btn => {
-                types.push(btn.dataset.type);
+              filters.querySelectorAll('.network-toggle').forEach(btn => {
+                if (btn.classList.contains('off')) return;
+                if (btn.classList.contains('connected')) states.connected.add(btn.dataset.type);
+                else states.on.add(btn.dataset.type);
               });
             }
-            return types;
+            return states;
+          }
+
+          // Helper: get all visible types (on + connected) for backward compat
+          function getCheckedTypes() {
+            const s = getTypeStates();
+            return [...s.on, ...s.connected];
           }
 
           // Helper: apply type filters to full data (no selection)
           function applyTypeFilters() {
-            const checkedTypes = getCheckedTypes();
+            const { on: onTypes, connected: connTypes } = getTypeStates();
             const fullData = window._forceGraphData;
-            const filteredNodes = fullData.nodes.filter(n => checkedTypes.includes(n.type));
+            // First pass: all fully-on nodes
+            const onNodes = fullData.nodes.filter(n => onTypes.has(n.type));
+            const onIds = new Set(onNodes.map(n => n.id));
+            // Second pass: connected-type nodes that link to at least one on-node
+            const connNodes = connTypes.size > 0
+              ? fullData.nodes.filter(n => connTypes.has(n.type) && fullData.links.some(l =>
+                  (linkId(l.source) === n.id && onIds.has(linkId(l.target))) ||
+                  (linkId(l.target) === n.id && onIds.has(linkId(l.source)))
+                ))
+              : [];
+            const filteredNodes = [...onNodes, ...connNodes];
             const visibleIds = new Set(filteredNodes.map(n => n.id));
             const filteredLinks = fullData.links.filter(l =>
               visibleIds.has(linkId(l.source)) && visibleIds.has(linkId(l.target))
@@ -3899,7 +3939,28 @@
           if (filters) {
             filters.querySelectorAll('.network-toggle').forEach(btn => {
               btn.addEventListener('click', function () {
-                btn.classList.toggle('off');
+                // Cycle: on → connected → off → on
+                if (!btn.classList.contains('off') && !btn.classList.contains('connected')) {
+                  btn.classList.add('connected');
+                } else if (btn.classList.contains('connected')) {
+                  btn.classList.remove('connected');
+                  btn.classList.add('off');
+                } else {
+                  btn.classList.remove('off');
+                }
+                // Update URL to reflect filter states
+                const states = getTypeStates();
+                const onArr = [...states.on];
+                const connArr = [...states.connected];
+                const isDefault = networkDefaultOn.size === onArr.length && onArr.every(t => networkDefaultOn.has(t)) && connArr.length === 0;
+                let newHash = '#network';
+                if (!isDefault) {
+                  const parts = [];
+                  if (onArr.length) parts.push('show=' + onArr.join(','));
+                  if (connArr.length) parts.push('connected=' + connArr.join(','));
+                  if (parts.length) newHash += '?' + parts.join('&');
+                }
+                history.replaceState(null, '', newHash);
                 if (window._selectedNode) {
                   selectNode(window._selectedNode);
                 } else {
@@ -4945,8 +5006,9 @@
     function loadFromHash() {
       const rawHash = window.location.hash.slice(1) || 'home';
       // Parse entity deep link: #type/entityId
-      const slashIdx = rawHash.indexOf('/');
-      const hash = slashIdx > 0 ? rawHash.slice(0, slashIdx) : rawHash;
+      const baseHash = rawHash.split('?')[0];
+      const slashIdx = baseHash.indexOf('/');
+      const hash = slashIdx > 0 ? baseHash.slice(0, slashIdx) : baseHash;
       const entityId = slashIdx > 0 ? rawHash.slice(slashIdx + 1) : null;
       const docKey = Object.keys(routes).includes(hash) ? hash : 'home';
 
