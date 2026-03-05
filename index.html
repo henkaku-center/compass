@@ -98,7 +98,7 @@
       color: #000;
     }
 
-    .nav-links .github-link {
+    .nav-links .contribute-link {
       margin-left: 1.5rem;
       padding-left: 1.5rem;
       border-left: 1px solid #ddd;
@@ -689,6 +689,54 @@
     .landing-hero .subtitle a:hover {
       color: #111;
       border-bottom-color: #999;
+    }
+
+    .landing-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background: #f9f9f9;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 2.5rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      opacity: 0;
+      animation: cardIn 0.4s ease-out forwards;
+    }
+
+    .landing-cta:hover {
+      border-color: #ccc;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .landing-cta-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .landing-cta-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .landing-cta-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .landing-cta-desc {
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 0.15rem;
+    }
+
+    .landing-cta-arrow {
+      font-size: 1.1rem;
+      color: #999;
+      flex-shrink: 0;
     }
 
     .landing-group {
@@ -1427,7 +1475,7 @@
         background: #f5f5f5;
       }
 
-      .nav-links .github-link {
+      .nav-links .contribute-link {
         margin-left: 0;
         padding-left: 2rem;
         border-left: none;
@@ -2151,7 +2199,7 @@
       </button>
       <div class="nav-links" id="nav-links">
         <a href="#feedback">Feedback</a>
-        <a href="https://github.com/henkaku-center/compass" target="_blank" rel="noopener noreferrer" class="github-link" title="View on GitHub">GitHub</a>
+        <a href="#contribute" class="contribute-link" title="Contribute with AI">Contribute</a>
         <span class="nav-login" id="nav-login"></span>
       </div>
     </div>
@@ -2272,7 +2320,8 @@
       'places': null, // Registry list page
       'publications': null, // Registry list page
       'network': null, // Graph visualization page
-      'feedback': null // Feedback submission page
+      'feedback': null, // Feedback submission page
+      'contribute': null // Contribute with AI page
     };
 
     // Site map for sidebar navigation (groups + pages)
@@ -2280,7 +2329,7 @@
       { group: 'DNA' },
       { key: 'charter', label: 'Charter' },
       { key: 'archetypes', label: 'Archetypes' },
-      { group: 'Emergent' },
+      { group: 'Entities' },
       { key: 'network', label: 'Network' },
       { key: 'people', label: 'People' },
       { key: 'projects', label: 'Projects' },
@@ -2295,6 +2344,7 @@
       { key: 'places', label: 'Places' },
       { key: 'domains', label: 'Domains' },
       { group: 'Info' },
+      { key: 'contribute', label: 'Contribute with AI' },
       { key: 'about', label: 'About' },
       { key: 'references', label: 'References' },
       { key: 'status', label: 'Status' },
@@ -2396,9 +2446,18 @@
             </p>
           </div>
 
+          <a href="#contribute" class="landing-cta">
+            <div class="landing-cta-icon">&gt;_</div>
+            <div class="landing-cta-text">
+              <div class="landing-cta-title">Contribute with AI</div>
+              <div class="landing-cta-desc">Use your own AI assistant to explore, query, and contribute to Compass through natural conversation.</div>
+            </div>
+            <div class="landing-cta-arrow">&rsaquo;</div>
+          </a>
+
           <div class="landing-group">
             <div class="landing-group-label">DNA</div>
-            <div class="landing-group-desc">Two documents. The rest follows from them.</div>
+            <div class="landing-group-desc">Blueprints and scaffolding for our ecosystem.</div>
             <div class="landing-cards">
               <a href="#charter" class="landing-card">
                 <div class="card-title">Charter</div>
@@ -2412,8 +2471,8 @@
           </div>
 
           <div class="landing-group">
-            <div class="landing-group-label">Emergent</div>
-            <div class="landing-group-desc">Living content&mdash;programs, people, and activities that grow from the DNA.</div>
+            <div class="landing-group-label">Entities</div>
+            <div class="landing-group-desc">Living content&mdash;programs, people, and activities.</div>
             <div class="landing-cards">
               <a href="#network" class="landing-card full-row">
                 <div class="card-title">Network</div>
@@ -2489,9 +2548,13 @@
                 <div class="card-title">History</div>
                 <div class="card-desc">Every change to the repository, pulled live from GitHub.</div>
               </a>
+              <a href="#contribute" class="landing-card">
+                <div class="card-title">Contribute with AI</div>
+                <div class="card-desc">Use your own AI assistant to explore, query, and contribute to Compass.</div>
+              </a>
               <a href="#feedback" class="landing-card">
                 <div class="card-title">Feedback</div>
-                <div class="card-desc">Report issues or suggest improvements via GitHub.</div>
+                <div class="card-desc">Report issues or suggest improvements.</div>
               </a>
             </div>
           </div>
@@ -4708,10 +4771,86 @@
         loadNetwork();
       } else if (docKey === 'feedback') {
         loadFeedback();
+      } else if (docKey === 'contribute') {
+        loadContribute();
       } else {
         const path = routes[docKey];
         loadDoc(path, docKey);
       }
+    }
+
+    // --- Contribute with AI page ---
+
+    function loadContribute() {
+      clearOrientationRotator();
+      currentDoc = 'contribute';
+      showSidebar('contribute');
+
+      contentEl.innerHTML = `
+        <div class="contribute-page" style="max-width: 780px;">
+          <h1>Contribute with AI</h1>
+          <p>You can interact with Compass using your own AI assistant &mdash; exploring data, querying the registry, and even making contributions &mdash; all through natural conversation.</p>
+
+          <h2>How it works</h2>
+          <p>Compass has a public API that any AI coding assistant can use on your behalf. You give your AI the onboarding guide (a single file), and it learns how to read the registry, look up people and projects, browse the Charter, submit feedback, and more.</p>
+
+          <h2>Step 1: Download the onboarding guide</h2>
+          <p>This file tells your AI everything it needs to know about the Compass API &mdash; what endpoints exist, how authentication works, and what you can ask it to do.</p>
+          <p><a href="https://registry.henkaku.center/api/v1/compass/files/docs/ONBOARDING.md" target="_blank" rel="noopener" style="display:inline-block;padding:0.5rem 1.25rem;background:#111;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;">Download ONBOARDING.md</a></p>
+
+          <h2>Step 2: Give it to your AI</h2>
+          <p>How you do this depends on your platform. Here are instructions for the most common AI coding assistants:</p>
+
+          <h3>Claude Code <span style="font-size:0.85em;color:#666;font-weight:normal;">(recommended)</span></h3>
+          <p><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a> is Anthropic&rsquo;s CLI agent. It can read files, make API calls, and handle multi-step tasks autonomously.</p>
+          <ol>
+            <li>Save <code>ONBOARDING.md</code> to your working directory</li>
+            <li>Open Claude Code in a terminal: <code>claude</code></li>
+            <li>Tell it: <em>&ldquo;Read ONBOARDING.md &mdash; that&rsquo;s the Compass API guide. Show me who&rsquo;s in the registry.&rdquo;</em></li>
+          </ol>
+          <p>Claude Code can read the file directly, make <code>curl</code> calls to the API, and present results conversationally. It handles authentication, multi-step workflows (like creating proposals), and can even upload files.</p>
+          <p>For persistent access, add the file to your project&rsquo;s <code>CLAUDE.md</code> or reference it in your instructions:</p>
+          <pre><code># In your CLAUDE.md
+See ONBOARDING.md for the Compass API reference.</code></pre>
+
+          <h3>ChatGPT (with Code Interpreter or browsing)</h3>
+          <ol>
+            <li>Upload <code>ONBOARDING.md</code> as a file attachment in a conversation</li>
+            <li>Say: <em>&ldquo;Use this API guide to help me explore Compass. Start by showing me all the people.&rdquo;</em></li>
+          </ol>
+          <p>ChatGPT can read the file and make API calls if browsing is enabled. For write operations, you&rsquo;ll need to provide your credentials.</p>
+
+          <h3>Cursor / Windsurf / Copilot</h3>
+          <ol>
+            <li>Save <code>ONBOARDING.md</code> in your project directory</li>
+            <li>Reference it in the AI chat: <em>&ldquo;@ONBOARDING.md &mdash; use this API guide to fetch all projects from Compass&rdquo;</em></li>
+          </ol>
+          <p>These editor-based agents can read the file and run terminal commands to interact with the API.</p>
+
+          <h3>Other AI assistants</h3>
+          <p>Any AI that can read documents and make HTTP requests will work. The key is giving it the <code>ONBOARDING.md</code> file so it knows the API structure. Copy-paste the contents if file upload isn&rsquo;t available.</p>
+
+          <h2>What you can do</h2>
+          <p>Once your AI has the onboarding guide, you can ask it to:</p>
+          <ul>
+            <li><strong>Explore</strong> &mdash; browse people, projects, initiatives, courses, events, and more</li>
+            <li><strong>Read the Charter</strong> &mdash; fetch and walk through governance documents</li>
+            <li><strong>See how things connect</strong> &mdash; who works on what, which institutions host which programs</li>
+            <li><strong>Check proposals</strong> &mdash; see what&rsquo;s up for a vote and how people voted</li>
+            <li><strong>Add yourself</strong> &mdash; create your own person entry in the registry</li>
+            <li><strong>Propose changes</strong> &mdash; draft and submit Charter amendments</li>
+            <li><strong>Submit feedback</strong> &mdash; report bugs or suggest features</li>
+          </ul>
+          <p>Read operations work immediately. Write operations require a Compass account &mdash; ask an admin for an invite code if you don&rsquo;t have one.</p>
+
+          <h2>Why this matters</h2>
+          <p>Compass is coordination infrastructure designed to be accessed by both humans and AI agents. Instead of requiring everyone to learn a web interface, the API lets your personal AI act as your guide &mdash; fetching data, explaining context, and handling the mechanics of contribution so you can focus on what you want to say or do.</p>
+          <p>This is one of the ways the <a href="#charter">Charter&rsquo;s</a> commitment to human-AI collaboration shows up in practice: AI assists with access and mechanics, while authority and decisions remain with you.</p>
+        </div>
+      `;
+
+      updateActiveNavLink('contribute');
+      window.scrollTo(0, 0);
     }
 
     // --- Feedback page ---
