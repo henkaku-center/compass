@@ -411,6 +411,20 @@ function buildGraphData() {
   return { nodes, links };
 }
 
+// Render domain strings as links when they match domain entities, plain text otherwise
+function renderDomainLinks(domains) {
+  if (!domains || !Array.isArray(domains)) return '';
+  const domainByName = {};
+  Object.values(store.entities).forEach(e => {
+    if (e.type === 'domain') domainByName[e.name.toLowerCase()] = e.id;
+  });
+  return domains.map(d => {
+    const domainId = domainByName[d.toLowerCase()];
+    if (domainId) return `<a href="${entityHref('domains', domainId)}">${d}</a>`;
+    return d;
+  }).join(', ');
+}
+
 // Format role strings: convert snake_case to Title Case, pass through already-formatted roles
 function formatRole(role) {
   if (!role) return role;

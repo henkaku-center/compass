@@ -2879,7 +2879,7 @@
             });
           }
           if (entry.domains) {
-            relationsHtml += `<strong>Domains:</strong> ${entry.domains.join(', ')}`;
+            relationsHtml += `<strong>Domains:</strong> ${renderDomainLinks(entry.domains)}`;
           }
           break;
 
@@ -3140,7 +3140,7 @@
               detailHtml += `<p class="detail-label">Charter Coverage</p><p>${entry.charter_coverage}</p>`;
             }
             if (entry.domains && entry.domains.length > 0) {
-              detailHtml += `<p class="detail-label">Domains</p><p>${entry.domains.join(', ')}</p>`;
+              detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
             }
             if (entry.location) {
               detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
@@ -3213,7 +3213,7 @@
             }
             if (entry.domains && entry.domains.length > 0) {
               detailHtml += `<p class="detail-label">Domains</p>`;
-              detailHtml += `<p>${entry.domains.join(', ')}</p>`;
+              detailHtml += `<p>${renderDomainLinks(entry.domains)}</p>`;
             }
             if (entry.notes) {
               detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
@@ -3266,7 +3266,7 @@
               detailHtml += entry.expected_outcomes.map(o => `<p>${o}</p>`).join('');
             }
             if (entry.domains && entry.domains.length > 0) {
-              detailHtml += `<p class="detail-label">Domains</p><p>${entry.domains.join(', ')}</p>`;
+              detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
             }
             if (entry.website) {
               detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
