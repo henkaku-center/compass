@@ -1389,6 +1389,28 @@
       color: rgba(255,255,255,0.7);
     }
 
+    .network-controls-hint {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.7;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .network-controls-hint kbd {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.45);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 3px;
+      padding: 0.05em 0.4em;
+      margin-right: 0.3em;
+    }
+
     .registry-page-header {
       margin-bottom: 0.5rem;
     }
@@ -3602,6 +3624,13 @@
           </div>
           <div class="network-container" id="network-container"></div>
           <div class="network-detail" id="network-detail"></div>
+          <div class="network-controls-hint" id="network-controls-hint">
+            <div><kbd>Drag</kbd> Rotate</div>
+            <div><kbd>Scroll</kbd> Zoom</div>
+            <div><kbd>Shift + Drag</kbd> Pan</div>
+            <div><kbd>Click</kbd> Select node</div>
+            <div><kbd>Bg click</kbd> Deselect</div>
+          </div>
         </div>
       `;
 
@@ -3737,6 +3766,18 @@
           window._forceGraph = graph;
           window._forceGraphData = graphData;
           window._selectedNode = null;
+
+          // Fade out controls hint after first interaction
+          const hint = document.getElementById('network-controls-hint');
+          if (hint) {
+            const fadeHint = () => {
+              hint.style.opacity = '0';
+              container.removeEventListener('pointerdown', fadeHint);
+              container.removeEventListener('wheel', fadeHint);
+            };
+            container.addEventListener('pointerdown', fadeHint);
+            container.addEventListener('wheel', fadeHint);
+          }
 
           // Helper: get link endpoint ID (handles both string and object refs)
           function linkId(endpoint) {
