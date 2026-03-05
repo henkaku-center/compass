@@ -3092,10 +3092,19 @@
           let detailHtml = '';
 
           if (type === 'people') {
+            if (entry.job_title) {
+              detailHtml += `<p class="detail-label">Title</p><p>${entry.job_title}</p>`;
+            }
             if (entry.bio) {
               // Strip leading lines that are just a standalone markdown link (redundant with Links section)
               const bioText = entry.bio.replace(/^\s*\[.*?\]\(https?:\/\/.*?\)\s*\n+/, '');
               detailHtml += `<div class="person-bio">${marked.parse(bioText)}</div>`;
+            }
+            if (entry.bio_ja) {
+              detailHtml += `<div class="person-bio">${marked.parse(entry.bio_ja)}</div>`;
+            }
+            if (entry.background) {
+              detailHtml += `<p class="detail-label">Background</p><p>${entry.background}</p>`;
             }
             if (entry.links && entry.links.length > 0) {
               detailHtml += `<p class="detail-label">Links</p>`;
@@ -3130,11 +3139,17 @@
             if (entry.charter_coverage) {
               detailHtml += `<p class="detail-label">Charter Coverage</p><p>${entry.charter_coverage}</p>`;
             }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p><p>${entry.domains.join(', ')}</p>`;
+            }
             if (entry.location) {
               detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
             }
             if (entry.founding_date) {
               detailHtml += `<p class="detail-label">Founded</p><p>${entry.founding_date}</p>`;
+            }
+            if (entry.language) {
+              detailHtml += `<p class="detail-label">Language</p><p>${entry.language}</p>`;
             }
             if (entry.website) {
               detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
@@ -3158,6 +3173,9 @@
             }
             if (entry.success_criteria) {
               detailHtml += `<p class="detail-label">Success Criteria</p><p>${entry.success_criteria}</p>`;
+            }
+            if (entry.timeline) {
+              detailHtml += `<p class="detail-label">Timeline</p><p>${entry.timeline}</p>`;
             }
             if (entry.website) {
               detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
@@ -3193,12 +3211,31 @@
               detailHtml += `<p class="detail-label">Charter Alignment</p>`;
               detailHtml += entry.charter_alignment.map(a => `<p>${a}</p>`).join('');
             }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p>`;
+              detailHtml += `<p>${entry.domains.join(', ')}</p>`;
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
+            }
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
 
           if (type === 'events') {
             if (entry.purpose) {
               detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
+            }
+            if (entry.location) {
+              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+            }
+            if (entry.time) {
+              detailHtml += `<p class="detail-label">Time</p><p>${entry.time}</p>`;
+            }
+            if (entry.duration) {
+              detailHtml += `<p class="detail-label">Duration</p><p>${entry.duration}</p>`;
+            }
+            if (entry.audience) {
+              detailHtml += `<p class="detail-label">Audience</p><p>${entry.audience}</p>`;
             }
             if (entry.schedule && entry.schedule.length > 0) {
               detailHtml += `<p class="detail-label">Schedule</p>`;
@@ -3228,6 +3265,9 @@
               detailHtml += `<p class="detail-label">Expected Outcomes</p>`;
               detailHtml += entry.expected_outcomes.map(o => `<p>${o}</p>`).join('');
             }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p><p>${entry.domains.join(', ')}</p>`;
+            }
             if (entry.website) {
               detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
             }
@@ -3241,6 +3281,9 @@
           if (type === 'places') {
             if (entry.address) {
               detailHtml += `<p class="detail-label">Address</p><p>${entry.address}</p>`;
+            }
+            if (entry.location) {
+              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
             }
             if (entry.website) {
               detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
