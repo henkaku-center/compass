@@ -3371,9 +3371,6 @@
             if (entry.program && entry.program.length > 0) {
               detailHtml += `<p class="detail-label">Program</p><p>${entry.program.map(p => p.replace(/_/g, ' ')).join(', ')}</p>`;
             }
-            if (entry.summary) {
-              detailHtml += `<p class="detail-label">Summary</p><p>${entry.summary}</p>`;
-            }
             if (entry.outcomes) {
               detailHtml += `<p class="detail-label">Learning Outcomes</p><p>${entry.outcomes}</p>`;
             }
