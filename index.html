@@ -2209,9 +2209,17 @@
       }
     });
   </script>
-  <script src="//unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script src="//unpkg.com/three-spritetext@1.9.5"></script>
-  <script src="//unpkg.com/3d-force-graph@1.73.3"></script>
+  <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/": "https://unpkg.com/three@0.160.0/" } }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import SpriteText from 'https://unpkg.com/three-spritetext@1.9.5/dist/three-spritetext.mjs';
+    import ForceGraph3D from 'https://unpkg.com/3d-force-graph@1.73.3/dist/3d-force-graph.mjs';
+    window.THREE = THREE;
+    window.SpriteText = SpriteText;
+    window.ForceGraph3D = ForceGraph3D;
+  </script>
   <script src="api-client.js"></script>
   <script src="compass-data.js"></script>
 </head>
@@ -3348,6 +3356,33 @@
           }
 
           if (type === 'courses') {
+            if (entry.name_ja) {
+              detailHtml += `<p style="opacity:0.6; margin-bottom:0.5rem;">${entry.name_ja}</p>`;
+            }
+            if (entry.credits) {
+              detailHtml += `<p class="detail-label">Credits</p><p>${entry.credits}</p>`;
+            }
+            if (entry.semester) {
+              detailHtml += `<p class="detail-label">Semester</p><p>${entry.semester}${entry.semester_jp ? ' / ' + entry.semester_jp : ''}</p>`;
+            }
+            if (entry.schedule) {
+              detailHtml += `<p class="detail-label">Schedule</p><p>${entry.schedule}${entry.schedule_jp && entry.schedule_jp !== '未定' ? ' / ' + entry.schedule_jp : ''}</p>`;
+            }
+            if (entry.program && entry.program.length > 0) {
+              detailHtml += `<p class="detail-label">Program</p><p>${entry.program.map(p => p.replace(/_/g, ' ')).join(', ')}</p>`;
+            }
+            if (entry.summary) {
+              detailHtml += `<p class="detail-label">Summary</p><p>${entry.summary}</p>`;
+            }
+            if (entry.outcomes) {
+              detailHtml += `<p class="detail-label">Learning Outcomes</p><p>${entry.outcomes}</p>`;
+            }
+            if (entry.requirements) {
+              detailHtml += `<p class="detail-label">Requirements</p><p>${entry.requirements}</p>`;
+            }
+            if (entry.reading) {
+              detailHtml += `<p class="detail-label">Reading</p><p>${entry.reading}</p>`;
+            }
             if (entry.links && entry.links.length > 0) {
               detailHtml += `<p class="detail-label">Links</p>`;
               detailHtml += entry.links.map(l =>
@@ -3908,8 +3943,11 @@
                 if (data.domains) html += `<p><strong>Domains:</strong> ${data.domains.join(', ')}</p>`;
                 break;
               case 'courses':
-                if (data.domains) html += `<p><strong>Domains:</strong> ${data.domains.join(', ')}</p>`;
+                if (data.name_ja) html += `<p style="opacity:0.6;">${data.name_ja}</p>`;
                 if (data.credits) html += `<p><strong>Credits:</strong> ${data.credits}</p>`;
+                if (data.semester) html += `<p><strong>Semester:</strong> ${data.semester}</p>`;
+                if (data.schedule) html += `<p><strong>Schedule:</strong> ${data.schedule}</p>`;
+                if (data.program) html += `<p><strong>Program:</strong> ${data.program.map(p => p.replace(/_/g, ' ')).join(', ')}</p>`;
                 break;
               case 'events':
                 if (data.date) html += `<p><strong>Date:</strong> ${data.date}</p>`;
