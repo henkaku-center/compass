@@ -2209,17 +2209,9 @@
       }
     });
   </script>
-  <script type="importmap">
-    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/": "https://unpkg.com/three@0.160.0/" } }
-  </script>
-  <script type="module">
-    import * as THREE from 'three';
-    import SpriteText from 'https://unpkg.com/three-spritetext@1.9.5/dist/three-spritetext.mjs';
-    import ForceGraph3D from 'https://unpkg.com/3d-force-graph@1.73.3/dist/3d-force-graph.mjs';
-    window.THREE = THREE;
-    window.SpriteText = SpriteText;
-    window.ForceGraph3D = ForceGraph3D;
-  </script>
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three-spritetext@1.9.5/dist/three-spritetext.min.js"></script>
+  <script src="https://unpkg.com/3d-force-graph@1.73.3/dist/3d-force-graph.min.js"></script>
   <script src="api-client.js"></script>
   <script src="compass-data.js"></script>
 </head>
@@ -3690,14 +3682,7 @@
       updateActiveNavLink('network');
       window.scrollTo(0, 0);
 
-      function waitForForceGraph3D(tries) {
-        if (window.ForceGraph3D) return Promise.resolve();
-        if (tries <= 0) return Promise.reject(new Error('ForceGraph3D failed to load'));
-        return new Promise(r => setTimeout(r, 100)).then(() => waitForForceGraph3D(tries - 1));
-      }
-
-      Promise.all([ensureStore(), waitForForceGraph3D(50)])
-        .then(() => {
+      ensureStore().then(() => {
           const graphData = buildGraphData();
           const container = document.getElementById('network-container');
           if (!container) return;
