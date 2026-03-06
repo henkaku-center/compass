@@ -3690,7 +3690,13 @@
       updateActiveNavLink('network');
       window.scrollTo(0, 0);
 
-      ensureStore()
+      function waitForForceGraph3D(tries) {
+        if (window.ForceGraph3D) return Promise.resolve();
+        if (tries <= 0) return Promise.reject(new Error('ForceGraph3D failed to load'));
+        return new Promise(r => setTimeout(r, 100)).then(() => waitForForceGraph3D(tries - 1));
+      }
+
+      Promise.all([ensureStore(), waitForForceGraph3D(50)])
         .then(() => {
           const graphData = buildGraphData();
           const container = document.getElementById('network-container');
