@@ -22,6 +22,8 @@ const RELATION_TYPES = {
   taught_by:        { inverse: 'teaches',          label: 'Taught by',      inverseLabel: 'Teaches' },
   supports:         { inverse: 'supported_by',     label: 'Supports',       inverseLabel: 'Supported by' },
   supported_by:     { inverse: 'supports',          label: 'Supported by',   inverseLabel: 'Supports' },
+  guest_lectures:   { inverse: 'has_guest_lecturer', label: 'Guest lectures', inverseLabel: 'Has guest lecturer' },
+  has_guest_lecturer: { inverse: 'guest_lectures',   label: 'Has guest lecturer', inverseLabel: 'Guest lectures' },
   advises:          { inverse: 'advised_by',       label: 'Advises',        inverseLabel: 'Advised by' },
   advised_by:       { inverse: 'advises',          label: 'Advised by',     inverseLabel: 'Advises' },
   organizes:        { inverse: 'organized_by',     label: 'Organizes',      inverseLabel: 'Organized by' },
