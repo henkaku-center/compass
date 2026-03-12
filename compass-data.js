@@ -499,8 +499,19 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
     groups[relationType].push({ entity, meta });
   });
 
+  // Sort relation groups: teaching relations first for courses
+  const priorityTypes = ['taught_by', 'supported_by', 'has_guest_lecturer'];
+  const sortedEntries = Object.entries(groups).sort(([a], [b]) => {
+    const aIdx = priorityTypes.indexOf(a);
+    const bIdx = priorityTypes.indexOf(b);
+    if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx;
+    if (aIdx !== -1) return -1;
+    if (bIdx !== -1) return 1;
+    return 0;
+  });
+
   let html = '';
-  Object.entries(groups).forEach(([relType, items]) => {
+  sortedEntries.forEach(([relType, items]) => {
     const label = getRelationLabel(relType);
     html += `<p class="detail-label">${label}</p>`;
     items.forEach(({ entity, meta }) => {
