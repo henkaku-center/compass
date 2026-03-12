@@ -66,6 +66,13 @@ class ApiClient {
         return this._fetch('/api/v1/auth/me');
     }
 
+    async changePassword(currentPassword, newPassword) {
+        return this._fetch('/api/v1/auth/change-password', {
+            method: 'POST',
+            body: JSON.stringify({ current_password: currentPassword, new_password: newPassword }),
+        });
+    }
+
     async createInviteCode(expiresAt = null) {
         return this._fetch('/api/v1/auth/invite-codes', {
             method: 'POST',

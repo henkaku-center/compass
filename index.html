@@ -4583,12 +4583,50 @@
       try {
         await api.login(email, password);
         currentUser = await api.me();
+        if (currentUser.must_change_password) {
+          closeModal();
+          showForcePasswordChange();
+          return;
+        }
         closeModal();
         updateLoginUI();
         loadFromHash();
       } catch (err) {
         showModalError(err.message || 'Login failed. Check your credentials.');
         if (loginBtn) { loginBtn.disabled = false; loginBtn.textContent = 'Login'; }
+      }
+    }
+
+    function showForcePasswordChange() {
+      var html = '<p style="color:#555;margin-bottom:16px;">You have a temporary password. Please set a new password to continue.</p>' +
+        '<div class="form-group"><label for="force-cur-pw">Current password</label>' +
+        '<input type="password" id="force-cur-pw" /></div>' +
+        '<div class="form-group"><label for="force-new-pw">New password</label>' +
+        '<input type="password" id="force-new-pw" /></div>' +
+        '<div class="form-group"><label for="force-confirm-pw">Confirm new password</label>' +
+        '<input type="password" id="force-confirm-pw" /></div>' +
+        '<div class="modal-actions"><button class="btn btn-primary" onclick="handleForcePasswordChange()">Set new password</button></div>';
+      showModal('Password change required', html, { narrow: true });
+      // Prevent closing
+      document.getElementById('modal-close').style.display = 'none';
+      document.getElementById('modal-overlay').onclick = null;
+    }
+
+    async function handleForcePasswordChange() {
+      var cur = document.getElementById('force-cur-pw').value;
+      var pw = document.getElementById('force-new-pw').value;
+      var confirm = document.getElementById('force-confirm-pw').value;
+      if (pw !== confirm) { showModalError('New passwords do not match.'); return; }
+      if (!cur || !pw) { showModalError('Please fill in all fields.'); return; }
+      try {
+        await api.changePassword(cur, pw);
+        currentUser.must_change_password = false;
+        document.getElementById('modal-close').style.display = '';
+        closeModal();
+        updateLoginUI();
+        loadFromHash();
+      } catch (err) {
+        showModalError(err.message || 'Failed to change password.');
       }
     }
 
@@ -4607,6 +4645,10 @@
         } catch (e) {
           api.logout();
           currentUser = null;
+        }
+        if (currentUser && currentUser.must_change_password) {
+          showForcePasswordChange();
+          return;
         }
         updateLoginUI();
       }
