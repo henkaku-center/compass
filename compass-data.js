@@ -181,7 +181,11 @@ function getEntity(id) {
 
 function listEntities(typePlural, filterFn) {
   const list = store.byType[typePlural] || [];
-  return filterFn ? list.filter(filterFn) : list;
+  const filtered = filterFn ? list.filter(filterFn) : [...list];
+  // Randomize people; alphabetize everything else
+  if (typePlural === 'people') shuffle(filtered);
+  else filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+  return filtered;
 }
 
 function addEntity(entity) {
@@ -468,6 +472,8 @@ function shuffle(arr) {
   return arr;
 }
 
+const RANDOM_ORDER_NOTE = `<p style="font-size:12px;color:#5A5A5A;margin-top:4px;">&middot; <a href="https://doi.org/10.1257/aer.20161492" style="color:#5A5A5A;">random name order</a></p>`;
+
 function renderRelationsHtml(entityId) {
   const related = getRelated(entityId);
   if (related.length === 0) return '';
@@ -480,9 +486,10 @@ function renderRelationsHtml(entityId) {
   });
 
   let html = '';
+  let hasPersonGroup = false;
   Object.entries(groups).forEach(([relType, items]) => {
     // Randomize person order; alphabetize everything else
-    if (items.some(i => i.entity.type === 'person')) shuffle(items);
+    if (items.some(i => i.entity.type === 'person')) { shuffle(items); hasPersonGroup = true; }
     else items.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
     const label = getRelationLabel(relType);
     const itemStrs = items.map(({ entity, meta }) => {
@@ -494,6 +501,7 @@ function renderRelationsHtml(entityId) {
     html += `<strong>${label}:</strong> ${itemStrs.join(', ')}`;
   });
 
+  if (hasPersonGroup) html += RANDOM_ORDER_NOTE;
   return html;
 }
 
@@ -523,9 +531,10 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
   });
 
   let html = '';
+  let hasPersonGroup = false;
   sortedEntries.forEach(([relType, items]) => {
     // Randomize person order; alphabetize everything else
-    if (items.some(i => i.entity.type === 'person')) shuffle(items);
+    if (items.some(i => i.entity.type === 'person')) { shuffle(items); hasPersonGroup = true; }
     else items.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
     const label = getRelationLabel(relType);
     html += `<p class="detail-label">${label}</p>`;
@@ -539,5 +548,6 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
     });
   });
 
+  if (hasPersonGroup) html += RANDOM_ORDER_NOTE;
   return html;
 }

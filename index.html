@@ -3088,6 +3088,16 @@
       return card;
     }
 
+    function filterRegistryList(query) {
+      const list = document.getElementById('registry-list');
+      if (!list) return;
+      const q = query.toLowerCase().trim();
+      Array.from(list.children).forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = !q || text.includes(q) ? '' : 'none';
+      });
+    }
+
     function loadRegistryList(type) {
       clearOrientationRotator();
       currentDoc = type;
@@ -3102,6 +3112,9 @@
           <h1>${meta.plural}${addNewBtn}</h1>
           <p>${meta.description}</p>
         </div>
+        <input type="text" id="registry-search" placeholder="Filter by keyword…"
+          style="width:100%;max-width:480px;padding:8px 12px;font-size:15px;font-family:inherit;border:1px solid #ccc;margin-bottom:16px;"
+          oninput="filterRegistryList(this.value)">
         <div class="registry-list" id="registry-list">
           <p style="color: #999;">Loading&hellip;</p>
         </div>
@@ -3116,6 +3129,9 @@
           const list = document.getElementById('registry-list');
           if (!list) return;
           list.innerHTML = '';
+          if (type === 'people') {
+            list.insertAdjacentHTML('beforebegin', RANDOM_ORDER_NOTE);
+          }
           entries.forEach(entry => {
             list.appendChild(renderRegistryCard(entry, type));
           });
