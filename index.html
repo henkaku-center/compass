@@ -4014,39 +4014,61 @@
               n.fx = undefined; n.fy = undefined; n.fz = undefined;
             });
 
-            // Restore center force immediately (gentle pull, not violent)
+            // Restore center force
             graph.d3Force('center', window._d3ForceCenter);
 
             // Gradually ramp link strength and charge back to defaults
             if (window._forceRampInterval) clearInterval(window._forceRampInterval);
             const savedLinkStr = window._d3DefaultLinkStrength;
             let t = 0;
-            const steps = 90; // ~3s at 33ms interval
+            const steps = 120; // ~4s at 33ms interval
+            // Increase velocity decay so nodes slow down faster (less bouncing)
+            graph.d3VelocityDecay(0.6);
+            // Single gentle reheat — don't re-spike alpha each frame
+            graph.d3AlphaDecay(0.01);
+            graph.d3ReheatSimulation();
+
             window._forceRampInterval = setInterval(() => {
               t = Math.min(t + 1 / steps, 1);
-              // Ease-in-out for smoother feel
               const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
               // Charge: -200 → -30
-              graph.d3Force('charge').strength(n => {
-                return -200 + (-30 - -200) * ease;
-              });
+              graph.d3Force('charge').strength(() => -200 + 170 * ease);
               // Link strength: 0 → default
               graph.d3Force('link').strength(typeof savedLinkStr === 'function'
                 ? (l => savedLinkStr(l) * ease)
                 : ease);
-              graph.d3ReheatSimulation();
 
               if (t >= 1) {
                 graph.d3Force('link').strength(savedLinkStr);
                 graph.d3Force('charge').strength(-30);
+                // Restore default simulation parameters
+                graph.d3VelocityDecay(0.4);
+                graph.d3AlphaDecay(0.0228);
                 clearInterval(window._forceRampInterval);
               }
             }, 33);
 
-            // Restore camera to pre-selection position
+            // Restore camera: use saved zoom distance but target the graph centroid
+            // (nodes may have shifted, so the old look-at could be off-screen)
             if (window._preSelectCameraPos) {
-              graph.cameraPosition(window._preSelectCameraPos, window._preSelectCameraLookAt, 1500);
+              const pre = window._preSelectCameraPos;
+              const preLook = window._preSelectCameraLookAt;
+              // Compute saved distance from camera to look-at
+              const dx = pre.x - preLook.x, dy = pre.y - preLook.y, dz = pre.z - preLook.z;
+              const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+              // Wait for nodes to start settling, then target their centroid
+              setTimeout(() => {
+                const nodes = graph.graphData().nodes;
+                let cx = 0, cy = 0, cz = 0;
+                nodes.forEach(n => { cx += n.x || 0; cy += n.y || 0; cz += n.z || 0; });
+                cx /= nodes.length; cy /= nodes.length; cz /= nodes.length;
+                graph.cameraPosition(
+                  { x: cx, y: cy, z: cz + dist },
+                  { x: cx, y: cy, z: cz },
+                  1500
+                );
+              }, 800);
             }
 
             const detail = document.getElementById('network-detail');
