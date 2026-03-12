@@ -20,6 +20,8 @@ const RELATION_TYPES = {
   has_affiliate:    { inverse: 'affiliated',       label: 'Has affiliate',  inverseLabel: 'Affiliated with' },
   teaches:          { inverse: 'taught_by',        label: 'Teaches',        inverseLabel: 'Taught by' },
   taught_by:        { inverse: 'teaches',          label: 'Taught by',      inverseLabel: 'Teaches' },
+  supports:         { inverse: 'supported_by',     label: 'Supports',       inverseLabel: 'Supported by' },
+  supported_by:     { inverse: 'supports',          label: 'Supported by',   inverseLabel: 'Supports' },
   advises:          { inverse: 'advised_by',       label: 'Advises',        inverseLabel: 'Advised by' },
   advised_by:       { inverse: 'advises',          label: 'Advised by',     inverseLabel: 'Advises' },
   organizes:        { inverse: 'organized_by',     label: 'Organizes',      inverseLabel: 'Organized by' },
@@ -248,6 +250,7 @@ function removeRelation(source, target, type) {
 
 function getRelated(id, opts) {
   const results = [];
+  const seen = new Set();
   const filterType = opts && opts.type;
   const filterTargetType = opts && opts.targetType;
 
@@ -273,6 +276,12 @@ function getRelated(id, opts) {
     if (!entity) return;
     if (filterType && relationType !== filterType) return;
     if (filterTargetType && entity.type !== TYPE_FROM_PLURAL[filterTargetType] && entity.type !== filterTargetType) return;
+
+    // Deduplicate: same entity + relation type + meta
+    const metaKey = meta ? JSON.stringify(meta) : '';
+    const key = `${entity.id}:${relationType}:${metaKey}`;
+    if (seen.has(key)) return;
+    seen.add(key);
 
     results.push({ entity, relationType, direction, meta });
   });
