@@ -3737,19 +3737,29 @@
                 s.material.opacity = 1;
                 s.scale.set(bs.x * 1.3, bs.y * 1.3, bs.z * 1.3);
               }
-              // Build set of connected link IDs for highlight
-              window._hoveredLinks = new Set();
+              // Highlight connected edges by directly modifying link materials
+              const connectedIds = new Set();
+              const links = graph.graphData().links;
               if (node) {
-                graph.graphData().links.forEach(l => {
+                links.forEach(l => {
                   const src = typeof l.source === 'object' ? l.source.id : l.source;
                   const tgt = typeof l.target === 'object' ? l.target.id : l.target;
-                  if (src === node.id || tgt === node.id) window._hoveredLinks.add(l);
+                  if (src === node.id || tgt === node.id) connectedIds.add(l);
                 });
               }
+              links.forEach(l => {
+                const obj = l.__lineObj;
+                if (!obj) return;
+                const highlight = connectedIds.has(l);
+                obj.material.color.set(highlight ? '#ffffff' : 'rgba(255,255,255,0.15)');
+                obj.material.opacity = highlight ? 0.8 : 0.15;
+                obj.material.transparent = true;
+                obj.material.linewidth = highlight ? 2 : 1;
+              });
               container.style.cursor = node ? 'pointer' : 'default';
             })
-            .linkColor(link => window._hoveredLinks && window._hoveredLinks.has(link) ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.15)')
-            .linkWidth(link => window._hoveredLinks && window._hoveredLinks.has(link) ? 1.2 : 0.3)
+            .linkColor(() => 'rgba(255,255,255,0.15)')
+            .linkWidth(0.3)
             .backgroundColor('#1e1e1e')
             .onNodeClick(node => {
               selectNode(node);
