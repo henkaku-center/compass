@@ -3727,19 +3727,7 @@
               return sprite;
             })
             .onNodeHover(node => {
-              if (window._hoveredNode && window._hoveredNode.__labelSprite) {
-                const s = window._hoveredNode.__labelSprite;
-                const bs = window._hoveredNode.__labelBaseScale;
-                s.material.opacity = 0.55;
-                s.scale.set(bs.x, bs.y, bs.z);
-              }
               window._hoveredNode = node;
-              if (node && node.__labelSprite) {
-                const s = node.__labelSprite;
-                const bs = node.__labelBaseScale;
-                s.material.opacity = 1;
-                s.scale.set(bs.x * 1.3, bs.y * 1.3, bs.z * 1.3);
-              }
               // Build set of connected node IDs
               window._hoveredNodeId = node ? node.id : null;
               window._connectedNodeIds = new Set();
@@ -3752,35 +3740,17 @@
                   if (tgt === node.id) window._connectedNodeIds.add(src);
                 });
               }
-              // Force refresh of link and node styling
-              graph.linkColor(graph.linkColor());
-              graph.linkWidth(graph.linkWidth());
-              graph.nodeColor(graph.nodeColor());
-              graph.nodeOpacity(graph.nodeOpacity());
-              // Update label opacity for non-connected nodes
-              graph.graphData().nodes.forEach(n => {
-                if (!n.__labelSprite) return;
-                if (!window._hoveredNodeId) { n.__labelSprite.material.opacity = 0.55; return; }
-                n.__labelSprite.material.opacity = window._connectedNodeIds.has(n.id) ? 0.9 : 0.1;
-              });
               container.style.cursor = node ? 'pointer' : 'default';
             })
-            .linkColor(link => {
-              if (!window._hoveredNodeId) return 'rgba(255,255,255,0.15)';
-              const src = typeof link.source === 'object' ? link.source.id : link.source;
-              const tgt = typeof link.target === 'object' ? link.target.id : link.target;
-              return (src === window._hoveredNodeId || tgt === window._hoveredNodeId)
-                ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.05)';
-            })
-            .linkWidth(link => {
-              if (!window._hoveredNodeId) return 0.3;
-              const src = typeof link.source === 'object' ? link.source.id : link.source;
-              const tgt = typeof link.target === 'object' ? link.target.id : link.target;
-              return (src === window._hoveredNodeId || tgt === window._hoveredNodeId) ? 1.5 : 0.3;
-            })
+            .linkColor(() => 'rgba(255,255,255,0.15)')
+            .linkWidth(0.3)
             .backgroundColor('#1e1e1e')
             .onNodeClick(node => {
-              selectNode(node);
+              if (window._selectedNodeId === node.id) {
+                deselectNode();
+              } else {
+                selectNode(node);
+              }
             })
             .onBackgroundClick(() => {
               deselectNode();
@@ -3789,6 +3759,8 @@
           // Soften repulsion so disconnected nodes don't fly far away
           graph.d3Force('charge').strength(-30);
           graph.d3Force('center').strength(0.15);
+          window._d3ForceCenter = graph.d3Force('center');
+          window._d3DefaultLinkStrength = graph.d3Force('link').strength();
 
           // Fit all nodes in view early
           setTimeout(() => graph.zoomToFit(400, 40), 500);
@@ -3813,6 +3785,80 @@
             }
           });
 
+          // Animate hover transitions (~0.5s ease)
+          const LERP_SPEED = 0.08; // per frame, ~0.5s to settle at 60fps
+          function lerp(a, b, t) { return a + (b - a) * t; }
+          function lerpColor(current, target, t) {
+            // Parse hex #RRGGBB
+            const cr = parseInt(current.slice(1,3),16), cg = parseInt(current.slice(3,5),16), cb = parseInt(current.slice(5,7),16);
+            const tr = parseInt(target.slice(1,3),16), tg = parseInt(target.slice(3,5),16), tb = parseInt(target.slice(5,7),16);
+            const r = Math.round(lerp(cr,tr,t)), g = Math.round(lerp(cg,tg,t)), b2 = Math.round(lerp(cb,tb,t));
+            return '#' + ((1<<24)+(r<<16)+(g<<8)+b2).toString(16).slice(1);
+          }
+
+          // Initialize per-node/link animation state
+          graph.graphData().nodes.forEach(n => { n._curColor = nodeColors[n.type] || '#999999'; n._curLabelOp = 0.55; n._curScale = 1.0; });
+          graph.graphData().links.forEach(l => { l._curOp = 0.15; l._curWidth = 0.3; });
+
+          function animateHover() {
+            window._hoverAnimFrame = requestAnimationFrame(animateHover);
+            // Determine active focus: hover takes priority, then selection
+            const hId = window._hoveredNodeId;
+            const sId = window._selectedNodeId;
+            const sNeighbors = window._selectedNeighborIds;
+            const focusId = hId || sId;
+            // Connected set: for hover use hover connections, for selection use selection neighbors
+            let focusConn = null;
+            if (hId) {
+              focusConn = window._connectedNodeIds;
+            } else if (sId && sNeighbors) {
+              focusConn = new Set(sNeighbors);
+              focusConn.add(sId);
+            }
+
+            const nodes = graph.graphData().nodes;
+            const links = graph.graphData().links;
+
+            // Animate nodes
+            for (let i = 0; i < nodes.length; i++) {
+              const n = nodes[i];
+              const isConn = !focusId || (focusConn && focusConn.has(n.id));
+              const isFocused = focusId && n.id === focusId;
+              const targetColor = isConn ? (nodeColors[n.type] || '#999999') : '#2a2a2a';
+              const targetLabelOp = !focusId ? 0.55 : (isConn ? 0.9 : 0.1);
+              const targetScale = isFocused ? 1.3 : 1.0;
+
+              n._curColor = lerpColor(n._curColor || '#999999', targetColor, LERP_SPEED);
+              n._curLabelOp = lerp(n._curLabelOp || 0.55, targetLabelOp, LERP_SPEED);
+              n._curScale = lerp(n._curScale || 1.0, targetScale, LERP_SPEED);
+
+              if (n.__labelSprite) {
+                n.__labelSprite.material.opacity = n._curLabelOp;
+                const bs = n.__labelBaseScale;
+                if (bs) n.__labelSprite.scale.set(bs.x * n._curScale, bs.y * n._curScale, bs.z * n._curScale);
+              }
+            }
+            graph.nodeColor(n => n._curColor);
+
+            // Animate links
+            for (let i = 0; i < links.length; i++) {
+              const l = links[i];
+              const src = typeof l.source === 'object' ? l.source.id : l.source;
+              const tgt = typeof l.target === 'object' ? l.target.id : l.target;
+              const touchesFocus = focusId && (src === focusId || tgt === focusId);
+              // When selected, only show edges where both endpoints are in the connected set
+              const bothInSet = focusConn && focusConn.has(src) && focusConn.has(tgt);
+              const isConn = hId ? touchesFocus : (sId ? (touchesFocus && bothInSet) : false);
+              const targetOp = !focusId ? 0.15 : (isConn ? 0.8 : 0.0);
+              const targetWidth = !focusId ? 0.3 : (isConn ? 1.5 : 0.3);
+              l._curOp = lerp(l._curOp || 0.15, targetOp, LERP_SPEED);
+              l._curWidth = lerp(l._curWidth || 0.3, targetWidth, LERP_SPEED);
+            }
+            graph.linkColor(l => `rgba(255,255,255,${(l._curOp != null ? l._curOp : 0.15).toFixed(3)})`);
+            graph.linkWidth(l => l._curWidth);
+          }
+          animateHover();
+
           // Resize graph when window resizes
           function resizeGraph() {
             graph.width(container.clientWidth);
@@ -3824,6 +3870,7 @@
           // Store graph and full data for filtering
           window._forceGraph = graph;
           window._forceGraphData = graphData;
+          // No need to save link defs — we never swap graphData during selection
           window._selectedNode = null;
 
           // Fade out controls hint after first interaction
@@ -3885,44 +3932,52 @@
             graph.graphData({ nodes: filteredNodes, links: filteredLinks });
           }
 
-          // Select a node: show only it + neighbors, center camera
+          // Select a node: keep all nodes & links, but zero out forces for non-adjacent links
           function selectNode(node) {
             // Unpin all nodes from any previous selection
-            window._forceGraphData.nodes.forEach(n => {
+            graph.graphData().nodes.forEach(n => {
               n.fx = undefined; n.fy = undefined; n.fz = undefined;
             });
 
             window._selectedNode = node;
-            const fullData = window._forceGraphData;
-            const checkedTypes = getCheckedTypes();
             const nodeId = node.id;
 
-            // Find neighbor IDs from all links in full data
+            // Find neighbor IDs from current graph links
             const neighborIds = new Set();
-            const relevantLinks = [];
-            fullData.links.forEach(l => {
-              const srcId = linkId(l.source);
-              const tgtId = linkId(l.target);
-              if (srcId === nodeId) { neighborIds.add(tgtId); relevantLinks.push(l); }
-              else if (tgtId === nodeId) { neighborIds.add(srcId); relevantLinks.push(l); }
+            graph.graphData().links.forEach(l => {
+              const srcId = typeof l.source === 'object' ? l.source.id : l.source;
+              const tgtId = typeof l.target === 'object' ? l.target.id : l.target;
+              if (srcId === nodeId) neighborIds.add(tgtId);
+              else if (tgtId === nodeId) neighborIds.add(srcId);
             });
 
-            // Build subgraph: selected node + neighbors (respecting type filters)
-            const subNodes = fullData.nodes.filter(n =>
-              (n.id === nodeId || neighborIds.has(n.id)) && checkedTypes.includes(n.type)
-            );
-            const visibleIds = new Set(subNodes.map(n => n.id));
-            const subLinks = relevantLinks.filter(l =>
-              visibleIds.has(linkId(l.source)) && visibleIds.has(linkId(l.target))
-            );
+            // Store selection context for animation system
+            window._selectedNodeId = nodeId;
+            window._selectedNeighborIds = neighborIds;
 
             // Pin selected node at origin
-            const selectedInSub = subNodes.find(n => n.id === nodeId);
-            if (selectedInSub) {
-              selectedInSub.fx = 0; selectedInSub.fy = 0; selectedInSub.fz = 0;
+            const selectedInGraph = graph.graphData().nodes.find(n => n.id === nodeId);
+            if (selectedInGraph) {
+              selectedInGraph.fx = 0; selectedInGraph.fy = 0; selectedInGraph.fz = 0;
             }
 
-            graph.graphData({ nodes: subNodes, links: subLinks });
+            // Disable center force so unconnected nodes aren't pulled to origin
+            graph.d3Force('center', null);
+
+            // Zero out link force strength for non-adjacent links
+            // so unconnected nodes have no attractive pull from their edges
+            graph.d3Force('link').strength(l => {
+              const src = typeof l.source === 'object' ? l.source.id : l.source;
+              const tgt = typeof l.target === 'object' ? l.target.id : l.target;
+              return (src === nodeId || tgt === nodeId) ? 1 : 0;
+            });
+
+            // Strengthen charge repulsion for unconnected nodes to push them away
+            graph.d3Force('charge').strength(n => {
+              if (n.id === nodeId || neighborIds.has(n.id)) return -30;
+              return -200;
+            });
+            graph.d3ReheatSimulation();
 
             // Animate camera to look at selected node
             const dist = 300;
@@ -3932,16 +3987,22 @@
             showDetail(node);
           }
 
-          // Deselect: restore full graph
+          // Deselect: restore all forces
           function deselectNode() {
             window._selectedNode = null;
+            window._selectedNodeId = null;
+            window._selectedNeighborIds = null;
 
             // Unpin all nodes
-            window._forceGraphData.nodes.forEach(n => {
+            graph.graphData().nodes.forEach(n => {
               n.fx = undefined; n.fy = undefined; n.fz = undefined;
             });
 
-            applyTypeFilters();
+            // Restore all forces to defaults
+            graph.d3Force('center', window._d3ForceCenter);
+            graph.d3Force('link').strength(window._d3DefaultLinkStrength);
+            graph.d3Force('charge').strength(-30);
+            graph.d3ReheatSimulation();
 
             const detail = document.getElementById('network-detail');
             if (detail) detail.classList.remove('visible');
