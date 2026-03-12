@@ -3753,7 +3753,7 @@
               }
             })
             .onBackgroundClick(() => {
-              deselectNode();
+              if (window._selectedNodeId) deselectNode();
             });
 
           // Soften repulsion so disconnected nodes don't fly far away
@@ -3955,17 +3955,18 @@
             window._selectedNodeId = nodeId;
             window._selectedNeighborIds = neighborIds;
 
-            // Pin selected node at origin
+            // Pin selected node at its current position so the camera target stays valid
             const selectedInGraph = graph.graphData().nodes.find(n => n.id === nodeId);
             if (selectedInGraph) {
-              selectedInGraph.fx = 0; selectedInGraph.fy = 0; selectedInGraph.fz = 0;
+              selectedInGraph.fx = selectedInGraph.x;
+              selectedInGraph.fy = selectedInGraph.y;
+              selectedInGraph.fz = selectedInGraph.z;
             }
 
             // Disable center force so unconnected nodes aren't pulled to origin
             graph.d3Force('center', null);
 
             // Zero out link force strength for non-adjacent links
-            // so unconnected nodes have no attractive pull from their edges
             graph.d3Force('link').strength(l => {
               const src = typeof l.source === 'object' ? l.source.id : l.source;
               const tgt = typeof l.target === 'object' ? l.target.id : l.target;
@@ -3979,15 +3980,30 @@
             });
             graph.d3ReheatSimulation();
 
-            // Animate camera to look at selected node
-            const dist = 300;
-            graph.cameraPosition({ x: 0, y: 0, z: dist }, { x: 0, y: 0, z: 0 }, 600);
+            // Save camera state before zooming in
+            const cam = graph.camera();
+            window._preSelectCameraPos = { x: cam.position.x, y: cam.position.y, z: cam.position.z };
+            const lookAt = graph.controls().target;
+            window._preSelectCameraLookAt = { x: lookAt.x, y: lookAt.y, z: lookAt.z };
+
+            // Fly camera to the pinned node's position
+            const nx = selectedInGraph ? selectedInGraph.x : 0;
+            const ny = selectedInGraph ? selectedInGraph.y : 0;
+            const nz = selectedInGraph ? selectedInGraph.z : 0;
+            const ctrl = graph.controls();
+            ctrl.enabled = false;
+            graph.cameraPosition(
+              { x: nx, y: ny, z: nz + 300 },
+              { x: nx, y: ny, z: nz },
+              1500
+            );
+            setTimeout(() => { ctrl.enabled = true; }, 1550);
 
             // Show detail panel
             showDetail(node);
           }
 
-          // Deselect: restore all forces
+          // Deselect: gradually restore forces and zoom out
           function deselectNode() {
             window._selectedNode = null;
             window._selectedNodeId = null;
@@ -3998,11 +4014,40 @@
               n.fx = undefined; n.fy = undefined; n.fz = undefined;
             });
 
-            // Restore all forces to defaults
+            // Restore center force immediately (gentle pull, not violent)
             graph.d3Force('center', window._d3ForceCenter);
-            graph.d3Force('link').strength(window._d3DefaultLinkStrength);
-            graph.d3Force('charge').strength(-30);
-            graph.d3ReheatSimulation();
+
+            // Gradually ramp link strength and charge back to defaults
+            if (window._forceRampInterval) clearInterval(window._forceRampInterval);
+            const savedLinkStr = window._d3DefaultLinkStrength;
+            let t = 0;
+            const steps = 90; // ~3s at 33ms interval
+            window._forceRampInterval = setInterval(() => {
+              t = Math.min(t + 1 / steps, 1);
+              // Ease-in-out for smoother feel
+              const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+              // Charge: -200 → -30
+              graph.d3Force('charge').strength(n => {
+                return -200 + (-30 - -200) * ease;
+              });
+              // Link strength: 0 → default
+              graph.d3Force('link').strength(typeof savedLinkStr === 'function'
+                ? (l => savedLinkStr(l) * ease)
+                : ease);
+              graph.d3ReheatSimulation();
+
+              if (t >= 1) {
+                graph.d3Force('link').strength(savedLinkStr);
+                graph.d3Force('charge').strength(-30);
+                clearInterval(window._forceRampInterval);
+              }
+            }, 33);
+
+            // Restore camera to pre-selection position
+            if (window._preSelectCameraPos) {
+              graph.cameraPosition(window._preSelectCameraPos, window._preSelectCameraLookAt, 1500);
+            }
 
             const detail = document.getElementById('network-detail');
             if (detail) detail.classList.remove('visible');
