@@ -3707,7 +3707,10 @@
             .graphData(graphData)
             .nodeId('id')
             .nodeLabel(() => '')
-            .nodeColor(node => nodeColors[node.type] || '#999')
+            .nodeColor(node => {
+              if (!window._hoveredNodeId || (window._connectedNodeIds && window._connectedNodeIds.has(node.id))) return nodeColors[node.type] || '#999';
+              return '#2a2a2a';
+            })
             .nodeVal('val')
             .nodeRelSize(3)
             .nodeOpacity(0.9)
@@ -3737,29 +3740,44 @@
                 s.material.opacity = 1;
                 s.scale.set(bs.x * 1.3, bs.y * 1.3, bs.z * 1.3);
               }
-              // Highlight connected edges by directly modifying link materials
-              const connectedIds = new Set();
-              const links = graph.graphData().links;
+              // Build set of connected node IDs
+              window._hoveredNodeId = node ? node.id : null;
+              window._connectedNodeIds = new Set();
               if (node) {
-                links.forEach(l => {
+                window._connectedNodeIds.add(node.id);
+                graph.graphData().links.forEach(l => {
                   const src = typeof l.source === 'object' ? l.source.id : l.source;
                   const tgt = typeof l.target === 'object' ? l.target.id : l.target;
-                  if (src === node.id || tgt === node.id) connectedIds.add(l);
+                  if (src === node.id) window._connectedNodeIds.add(tgt);
+                  if (tgt === node.id) window._connectedNodeIds.add(src);
                 });
               }
-              links.forEach(l => {
-                const obj = l.__lineObj;
-                if (!obj) return;
-                const highlight = connectedIds.has(l);
-                obj.material.color.set(highlight ? '#ffffff' : 'rgba(255,255,255,0.15)');
-                obj.material.opacity = highlight ? 0.8 : 0.15;
-                obj.material.transparent = true;
-                obj.material.linewidth = highlight ? 2 : 1;
+              // Force refresh of link and node styling
+              graph.linkColor(graph.linkColor());
+              graph.linkWidth(graph.linkWidth());
+              graph.nodeColor(graph.nodeColor());
+              graph.nodeOpacity(graph.nodeOpacity());
+              // Update label opacity for non-connected nodes
+              graph.graphData().nodes.forEach(n => {
+                if (!n.__labelSprite) return;
+                if (!window._hoveredNodeId) { n.__labelSprite.material.opacity = 0.55; return; }
+                n.__labelSprite.material.opacity = window._connectedNodeIds.has(n.id) ? 0.9 : 0.1;
               });
               container.style.cursor = node ? 'pointer' : 'default';
             })
-            .linkColor(() => 'rgba(255,255,255,0.15)')
-            .linkWidth(0.3)
+            .linkColor(link => {
+              if (!window._hoveredNodeId) return 'rgba(255,255,255,0.15)';
+              const src = typeof link.source === 'object' ? link.source.id : link.source;
+              const tgt = typeof link.target === 'object' ? link.target.id : link.target;
+              return (src === window._hoveredNodeId || tgt === window._hoveredNodeId)
+                ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.05)';
+            })
+            .linkWidth(link => {
+              if (!window._hoveredNodeId) return 0.3;
+              const src = typeof link.source === 'object' ? link.source.id : link.source;
+              const tgt = typeof link.target === 'object' ? link.target.id : link.target;
+              return (src === window._hoveredNodeId || tgt === window._hoveredNodeId) ? 1.5 : 0.3;
+            })
             .backgroundColor('#1e1e1e')
             .onNodeClick(node => {
               selectNode(node);
