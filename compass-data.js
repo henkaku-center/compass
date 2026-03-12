@@ -459,6 +459,15 @@ function formatRole(role) {
 
 // --- Generic relation renderer ---
 
+// Fisher-Yates shuffle (in-place)
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 function renderRelationsHtml(entityId) {
   const related = getRelated(entityId);
   if (related.length === 0) return '';
@@ -472,6 +481,9 @@ function renderRelationsHtml(entityId) {
 
   let html = '';
   Object.entries(groups).forEach(([relType, items]) => {
+    // Randomize person order; alphabetize everything else
+    if (items.some(i => i.entity.type === 'person')) shuffle(items);
+    else items.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
     const label = getRelationLabel(relType);
     const itemStrs = items.map(({ entity, meta }) => {
       let display = entityLinkShort(entity.id);
@@ -512,6 +524,9 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
 
   let html = '';
   sortedEntries.forEach(([relType, items]) => {
+    // Randomize person order; alphabetize everything else
+    if (items.some(i => i.entity.type === 'person')) shuffle(items);
+    else items.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
     const label = getRelationLabel(relType);
     html += `<p class="detail-label">${label}</p>`;
     items.forEach(({ entity, meta }) => {
