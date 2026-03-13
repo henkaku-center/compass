@@ -3258,6 +3258,9 @@
             if (entry.job_title) {
               detailHtml += `<p class="detail-label">Title</p><p>${entry.job_title}</p>`;
             }
+            if (entry.email) {
+              detailHtml += `<p class="detail-label">Email</p><p><a href="mailto:${entry.email}">${entry.email}</a></p>`;
+            }
             if (entry.bio) {
               // Strip leading lines that are just a standalone markdown link (redundant with Links section)
               const bioText = entry.bio.replace(/^\s*\[.*?\]\(https?:\/\/.*?\)\s*\n+/, '');
@@ -4679,7 +4682,7 @@
     var entityTemplates = {
       people: {
         id: '', type: 'person', name: '', name_ja: '', status: 'active', role_categories: [],
-        job_title: '',
+        job_title: '', email: '',
         background: '', links: [], notes: ''
       },
       projects: {
