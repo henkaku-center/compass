@@ -26,6 +26,8 @@ const RELATION_TYPES = {
   has_guest_lecturer: { inverse: 'guest_lectures',   label: 'Has guest lecturer', inverseLabel: 'Guest lectures' },
   advises:          { inverse: 'advised_by',       label: 'Advises',        inverseLabel: 'Advised by' },
   advised_by:       { inverse: 'advises',          label: 'Advised by',     inverseLabel: 'Advises' },
+  directs:          { inverse: 'directed_by',      label: 'Directs',        inverseLabel: 'Directed by' },
+  directed_by:      { inverse: 'directs',          label: 'Directed by',    inverseLabel: 'Directs' },
   organizes:        { inverse: 'organized_by',     label: 'Organizes',      inverseLabel: 'Organized by' },
   organized_by:     { inverse: 'organizes',        label: 'Organized by',   inverseLabel: 'Organizes' },
   speaks_at:        { inverse: 'has_speaker',      label: 'Speaks at',      inverseLabel: 'Has speaker' },
@@ -488,9 +490,10 @@ function renderRelationsHtml(entityId) {
 
   let html = '';
   Object.entries(groups).forEach(([relType, items]) => {
-    // Randomize person order; alphabetize everything else
-    const isPeopleGroup = items.some(i => i.entity.type === 'person');
-    if (isPeopleGroup) shuffle(items);
+    // Randomize person order (only when multiple); alphabetize everything else
+    const peopleItems = items.filter(i => i.entity.type === 'person');
+    const isMultiPeople = peopleItems.length > 1;
+    if (isMultiPeople) shuffle(items);
     else items.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
     const label = getRelationLabel(relType);
     const itemStrs = items.map(({ entity, meta }) => {
@@ -500,7 +503,7 @@ function renderRelationsHtml(entityId) {
     });
     if (html) html += '<br>';
     html += `<strong>${label}:</strong> ${itemStrs.join(', ')}`;
-    if (isPeopleGroup) html += ` ${RANDOM_ORDER_NOTE_INLINE}`;
+    if (isMultiPeople) html += ` ${RANDOM_ORDER_NOTE_INLINE}`;
   });
   return html;
 }
@@ -532,9 +535,10 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
 
   let html = '';
   sortedEntries.forEach(([relType, items]) => {
-    // Randomize person order; alphabetize everything else
-    const isPeopleGroup = items.some(i => i.entity.type === 'person');
-    if (isPeopleGroup) shuffle(items);
+    // Randomize person order (only when multiple); alphabetize everything else
+    const peopleItems = items.filter(i => i.entity.type === 'person');
+    const isMultiPeople = peopleItems.length > 1;
+    if (isMultiPeople) shuffle(items);
     else items.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
     const label = getRelationLabel(relType);
     html += `<p class="detail-label">${label}</p>`;
@@ -546,7 +550,7 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
       if (meta && meta.exhibition) display += ` — ${meta.exhibition}`;
       html += `<p>${display}</p>`;
     });
-    if (isPeopleGroup) html += RANDOM_ORDER_NOTE;
+    if (isMultiPeople) html += RANDOM_ORDER_NOTE;
   });
   return html;
 }
