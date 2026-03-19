@@ -308,7 +308,7 @@ function getEntityDisplay(id) {
 function getEntityFullDisplay(id) {
   const entity = store.entities[id];
   if (!entity) return id;
-  if (entity.short_name) return `${entity.name} (${entity.short_name})`;
+  if (entity.short_name && !(entity.name || '').includes(`(${entity.short_name})`)) return `${entity.name} (${entity.short_name})`;
   return entity.name || id;
 }
 

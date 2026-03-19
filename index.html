@@ -2934,7 +2934,7 @@
           if (entry.institution_type) {
             metaHtml += `<span class="type-badge">${entry.institution_type.replace(/_/g, ' ')}</span>`;
           }
-          if (entry.short_name) {
+          if (entry.short_name && !(entry.name || '').includes(`(${entry.short_name})`)) {
             nameField = `${entry.name} (${entry.short_name})`;
           }
           break;
@@ -2980,10 +2980,13 @@
           break;
 
         case 'courses':
-          if (entry.short_name) {
+          if (entry.short_name && !(entry.name || '').includes(`(${entry.short_name})`)) {
             nameField = `${entry.name} (${entry.short_name})`;
           }
           metaHtml += `<span class="type-badge">${entry.credits} credit${entry.credits !== 1 ? 's' : ''}</span>`;
+          if (entry.duration) {
+            metaHtml += `<span class="type-badge">${entry.duration}</span>`;
+          }
           if (entry.program) {
             entry.program.forEach(p => {
               metaHtml += `<span class="type-badge">${p.replace(/_/g, ' ')}</span>`;
@@ -3180,10 +3183,7 @@
 
           // Header info
           let nameHtml = entry.name || entry.id;
-          if (type === 'institutions' && entry.short_name) {
-            nameHtml = `${entry.name} (${entry.short_name})`;
-          }
-          if (type === 'courses' && entry.short_name) {
+          if ((type === 'institutions' || type === 'courses') && entry.short_name && !(entry.name || '').includes(`(${entry.short_name})`)) {
             nameHtml = `${entry.name} (${entry.short_name})`;
           }
 
@@ -3213,6 +3213,7 @@
           }
           if (type === 'courses') {
             badgesHtml += `<span class="type-badge">${entry.credits} credit${entry.credits !== 1 ? 's' : ''}</span>`;
+            if (entry.duration) { badgesHtml += `<span class="type-badge">${entry.duration}</span>`; }
             if (entry.program) {
               entry.program.forEach(p => { badgesHtml += `<span class="type-badge">${p.replace(/_/g, ' ')}</span>`; });
             }
@@ -3377,7 +3378,7 @@
               detailHtml += `<p class="detail-label">Semester</p><p>${entry.semester}${entry.semester_jp ? ' / ' + entry.semester_jp : ''}</p>`;
             }
             if (entry.schedule) {
-              detailHtml += `<p class="detail-label">Schedule</p><p>${entry.schedule}${entry.schedule_jp && entry.schedule_jp !== '未定' ? ' / ' + entry.schedule_jp : ''}</p>`;
+              detailHtml += `<p class="detail-label">Schedule</p><p>${entry.schedule}${entry.schedule_jp && entry.schedule_jp !== '未定' ? ' / ' + entry.schedule_jp : ''}${entry.duration ? ' (' + entry.duration + ')' : ''}</p>`;
             }
             if (entry.program && entry.program.length > 0) {
               detailHtml += `<p class="detail-label">Program</p><p>${entry.program.map(p => p.replace(/_/g, ' ')).join(', ')}</p>`;
@@ -4797,7 +4798,7 @@
       var list = store.byType[typePlural] || [];
       var html = '<option value="">-- None --</option>';
       list.forEach(function(e) {
-        var label = e.short_name ? e.name + ' (' + e.short_name + ')' : (e.name || e.id);
+        var label = (e.short_name && !(e.name || '').includes('(' + e.short_name + ')')) ? e.name + ' (' + e.short_name + ')' : (e.name || e.id);
         html += '<option value="' + escapeAttr(e.id) + '"' +
           (e.id === selectedId ? ' selected' : '') + '>' + escapeHtml(label) + '</option>';
       });
@@ -4810,7 +4811,7 @@
       typeList.forEach(function(typePlural) {
         var list = store.byType[typePlural] || [];
         list.forEach(function(e) {
-          var label = e.short_name ? e.name + ' (' + e.short_name + ')' : (e.name || e.id);
+          var label = (e.short_name && !(e.name || '').includes('(' + e.short_name + ')')) ? e.name + ' (' + e.short_name + ')' : (e.name || e.id);
           html += '<option value="' + escapeAttr(e.id) + '"' +
             (e.id === selectedId ? ' selected' : '') + '>' + escapeHtml(label) + '</option>';
         });
