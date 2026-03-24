@@ -3466,7 +3466,7 @@
             const instLinks = affiliations.map(a => entityLink(a.entity.id, getEntityDisplay(a.entity.id)));
             summaryHtml = entry.job_title + (instLinks.length > 0 ? ' — ' + instLinks.join(', ') : '');
           } else if (entry.summary) {
-            summaryHtml = entry.summary;
+            summaryHtml = marked.parseInline(entry.summary);
           }
 
           // Portrait
@@ -3572,7 +3572,7 @@
 
           if (type === 'initiatives') {
             if (entry.purpose) {
-              detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
+              detailHtml += `<p class="detail-label">Purpose</p><p>${marked.parseInline(entry.purpose)}</p>`;
             }
             if (entry.activities && entry.activities.length > 0) {
               detailHtml += `<p class="detail-label">Activities</p>`;
@@ -3583,6 +3583,9 @@
             }
             if (entry.review_cycle) {
               detailHtml += `<p class="detail-label">Review Cycle</p><p>${entry.review_cycle}</p>`;
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
             }
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
@@ -3627,7 +3630,7 @@
               detailHtml += `<p>${renderDomainLinks(entry.domains)}</p>`;
             }
             if (entry.notes) {
-              detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
             }
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
@@ -3668,7 +3671,7 @@
             }
             detailHtml += renderRelationsDetailHtml(entry.id, ['requires', 'accepts']);
             if (entry.notes) {
-              detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
             }
             if (entry.content) {
               detailHtml += `<div class="curriculum-content">${marked.parse(entry.content)}</div>`;
@@ -3676,14 +3679,14 @@
           }
 
           if (type === 'events') {
-            if (entry.purpose) {
-              detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
+            if (entry.date) {
+              detailHtml += `<p class="detail-label">Date</p><p>${entry.date}${entry.time ? ' · ' + entry.time : ''}</p>`;
             }
             if (entry.location) {
               detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
             }
-            if (entry.time) {
-              detailHtml += `<p class="detail-label">Time</p><p>${entry.time}</p>`;
+            if (entry.purpose) {
+              detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
             }
             if (entry.duration) {
               detailHtml += `<p class="detail-label">Duration</p><p>${entry.duration}</p>`;
@@ -3775,7 +3778,7 @@
               detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
             }
             if (entry.notes) {
-              detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
             }
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
@@ -3794,7 +3797,7 @@
               detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
             }
             if (entry.notes) {
-              detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
             }
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
