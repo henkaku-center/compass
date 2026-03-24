@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Compass - Henkaku Center</title>
+  <title>Compass Registry</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Coordination infrastructure for antidisciplinary work: Charter, Archetypes, Curriculum, and governance tools from the Compass Initiative." />
@@ -344,24 +344,29 @@
     }
 
     /* Curriculum tables: fixed 3-column layout (Course / Credits / Instructors) */
-    main[data-page="curriculum"] table {
+    main[data-page="curriculum"] table,
+    main[data-page="curricula"] table {
       table-layout: fixed;
     }
 
-    main[data-page="curriculum"] table th:first-child {
+    main[data-page="curriculum"] table th:first-child,
+    main[data-page="curricula"] table th:first-child {
       width: 55%;
     }
 
-    main[data-page="curriculum"] table th:nth-child(2) {
+    main[data-page="curriculum"] table th:nth-child(2),
+    main[data-page="curricula"] table th:nth-child(2) {
       width: 10%;
       text-align: center;
     }
 
-    main[data-page="curriculum"] table td:nth-child(2) {
+    main[data-page="curriculum"] table td:nth-child(2),
+    main[data-page="curricula"] table td:nth-child(2) {
       text-align: center;
     }
 
-    main[data-page="curriculum"] table th:nth-child(3) {
+    main[data-page="curriculum"] table th:nth-child(3),
+    main[data-page="curricula"] table th:nth-child(3) {
       width: 35%;
     }
 
@@ -2329,7 +2334,7 @@
       'home': null, // Special case: landing page
       'about': 'README.md',
       'charter': null, // Special case: loaded from Registry API
-      'curriculum': 'https://registry.henkaku.center/api/v1/compass/files/docs/CURRICULUM.md',
+      'curricula': null, // Registry list page
       'archetypes': 'https://registry.henkaku.center/api/v1/compass/files/docs/ARCHETYPES.md',
       'references': null, // Special case: rendered from data
       'history': null, // Special case: rendered from GitHub API
@@ -2362,7 +2367,7 @@
       { key: 'projects', label: 'Projects' },
       { key: 'initiatives', label: 'Initiatives' },
       { key: 'institutions', label: 'Institutions' },
-      { key: 'curriculum', label: 'Curriculum' },
+      { key: 'curricula', label: 'Curricula' },
       { key: 'courses', label: 'Courses' },
       { key: 'vectors', label: 'Vectors' },
       { key: 'deltas', label: 'Deltas' },
@@ -2542,9 +2547,9 @@
                 <div class="card-title">Posts</div>
                 <div class="card-desc">Written reflections and updates from participants. Coming soon.</div>
               </span>
-              <a href="#curriculum" class="landing-card">
-                <div class="card-title">Curriculum</div>
-                <div class="card-desc">Master's and PhD degree requirements, course tables, and instructors.</div>
+              <a href="#curricula" class="landing-card">
+                <div class="card-title">Curricula</div>
+                <div class="card-desc">Degree programs with required and elective coursework, credit requirements, and milestones.</div>
               </a>
               <a href="#courses" class="landing-card">
                 <div class="card-title">Courses</div>
@@ -2903,6 +2908,12 @@
         plural: 'Deltas',
         description: 'Observable changes — concrete evidence of movement along a vector or within the ecosystem.',
         color: '#17a2b8'
+      },
+      curricula: {
+        singular: 'Curriculum',
+        plural: 'Curricula',
+        description: 'Degree programs with required and elective coursework, credit requirements, and milestones.',
+        color: '#6a4c93'
       }
     };
 
@@ -2994,6 +3005,15 @@
           }
           if (entry.domains) {
             relationsHtml += `<strong>Domains:</strong> ${renderDomainLinks(entry.domains)}`;
+          }
+          break;
+
+        case 'curricula':
+          if (entry.credit_requirement) {
+            metaHtml += `<span class="type-badge">${entry.credit_requirement} credits</span>`;
+          }
+          if (entry.duration) {
+            metaHtml += `<span class="type-badge">${entry.duration}</span>`;
           }
           break;
 
@@ -3643,14 +3663,15 @@
       places: '#2a9d8f',
       publications: '#3a7ca5',
       vectors: '#7ccf9e',
-      deltas: '#d4b560'
+      deltas: '#d4b560',
+      curricula: '#6a4c93'
     };
 
     // buildGraphData is now provided by compass-data.js
 
     // Default entity types shown in network viz (override with ?show=type1,type2 in URL)
     const networkDefaultOn = new Set(['institutions', 'people', 'projects', 'initiatives', 'courses', 'events']);
-    const networkAllTypes = ['institutions', 'people', 'projects', 'initiatives', 'courses', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas'];
+    const networkAllTypes = ['institutions', 'people', 'projects', 'initiatives', 'courses', 'curricula', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas'];
 
     function loadNetwork() {
       clearOrientationRotator();
@@ -5258,6 +5279,11 @@
     // Load document based on hash
     function loadFromHash() {
       const rawHash = window.location.hash.slice(1) || 'home';
+      // Backward-compatible redirect: #curriculum → #curricula
+      if (rawHash === 'curriculum' || rawHash.startsWith('curriculum/')) {
+        window.location.hash = '#' + rawHash.replace(/^curriculum/, 'curricula');
+        return;
+      }
       // Parse entity deep link: #type/entityId
       const baseHash = rawHash.split('?')[0];
       const slashIdx = baseHash.indexOf('/');
@@ -5289,7 +5315,7 @@
         loadHistory();
       } else if (docKey === 'charter') {
         loadCharter();
-      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas'].includes(docKey)) {
+      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'curricula', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas'].includes(docKey)) {
         if (entityId) {
           loadEntityDetail(docKey, entityId);
         } else {
