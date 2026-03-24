@@ -100,7 +100,7 @@ All sections contain full text. The draft is ready for review by ratifying membe
 
 The Charter (Section V) mandates a shared registry. The **Archetypes** document defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
-Thirteen entry types:
+Fourteen entry types:
 - **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 - **People** — Roles, domain affinities, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
@@ -114,6 +114,7 @@ Thirteen entry types:
 - **Publications** — Peer-reviewed academic works — journal articles, conference papers, book chapters, and reports
 - **Vectors** (`vec_` prefix) — Directional transformations with from/toward, domains, and status
 - **Deltas** (`delta_` prefix) — Observable changes with from/toward, observed_date, domains, and status
+- **Curricula** (`curriculum_` prefix) — Structured programs of study with requires/accepts relations to courses
 
 **Essential questions** guide each entry type (4 prompts each — see ARCHETYPES.md served from Registry).
 
@@ -137,7 +138,7 @@ Thirteen entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html` + `compass-data.js`):
-- Single-page app with hash routing. Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#domains`, `#places`, `#publications`, `#vectors`, `#deltas`, `#network`, `#references`, `#history`, `#about`, `#feedback`, `#contribute`, `#contact`
+- Single-page app with hash routing. Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#domains`, `#places`, `#publications`, `#vectors`, `#deltas`, `#curricula`, `#network`, `#references`, `#history`, `#about`, `#feedback`, `#contribute`, `#contact` (`#curriculum` redirects to `#curricula`)
 - `#charter` fetches and renders Charter markdown from `charter.henkaku.center/content/CHARTER.md` inline (with a banner linking to the definitive source and showing the current version dynamically)
 - Top nav bar shows minimal links (Feedback, Contribute, Login). Left sidebar: Contribute with AI at top, then DNA, Entities, and Info groups (with Theses and Posts as placeholders)
 - Right-hand document TOC sidebar with scroll-spy for Charter, Archetypes, and About pages
@@ -158,6 +159,8 @@ Thirteen entry types:
 - Person names are randomized (Fisher-Yates shuffle) in relation groups and the people list; non-person entities are alphabetized. A footnote links to [Rae & Rouse 2017](https://doi.org/10.1257/aer.20161492) on name-order effects
 - Teaching relations (`taught_by`, `supported_by`, `has_guest_lecturer`) are listed first in course detail views
 - `getRelated()` deduplicates relations to prevent duplicate entries from rendering
+- Card/List view toggle on entity list pages (view preference persisted in `localStorage`)
+- Mermaid.js integration for rendering Gantt charts in markdown content (used in curricula)
 
 **Registry data** (served from Registry API):
 - Entities and relations accessed via `/api/v1/compass/entities` and `/api/v1/compass/relations`
