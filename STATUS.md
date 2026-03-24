@@ -1,6 +1,6 @@
 # Compass Progress Update
 
-**Last Updated: February 12, 2026**
+**Last Updated: March 25, 2026**
 
 ## Current Status
 
@@ -16,43 +16,47 @@ The Charter articulates shared values, principles, and governance commitments ac
 
 ### Archetypes
 
-Structural templates for eleven registry entry types: People, Projects, Initiatives, Institutions, Courses, Events, Theses, Posts, Places, Domains, and Publications. These templates define what information each type carries and how entries cross-reference each other.
+Structural templates for fourteen registry entry types: People, Projects, Initiatives, Institutions, Courses, Curricula, Events, Theses, Posts, Places, Domains, Publications, Vectors, and Deltas. These templates define what information each type carries and how entries cross-reference each other.
 
 ### Registry
 
-Eight entry types are populated with real data:
+Twelve entity types are populated with real data:
 
 | Type | Count | Description |
 |------|-------|-------------|
-| People | 62 | With portrait photos, affiliations, domain links, and project links |
-| Initiatives | 10 | Ongoing programs like Probabilistic Computing, Artificial Life, AI Safety Workshop |
-| Institutions | 8 | Chiba Tech, Henkaku Center, SDS, plus partners JPCCA, ALife Institute, AISI, Mount Sinai, Fujita |
+| People | 66 | With portrait photos, affiliations, domain links, and project links |
+| Initiatives | 10 | Ongoing programs like Connected Learning & Neurodiversity, Probabilistic Computing, Artificial Life |
+| Institutions | 9 | Chiba Tech, Henkaku Center, SDS, plus partners |
 | Projects | 3 | Compass, SDS Launch, Antidisciplinary Charter |
-| Courses | 27 | All Master's and PhD courses extracted from the Curriculum |
-| Events | 1 | Symposium of Design and Science 2025 (July 5, Shibuya) |
-| Domains | 36 | Knowledge and research areas mapping the intellectual landscape |
-| Places | 4 | Physical locations including Henkaku Center, Tsudanuma Campus, FabCafe, Crypto Cafe |
-| Publications | 0 | Peer-reviewed academic works — journal articles, conference papers, book chapters |
+| Courses | 28 | All Master's and PhD courses including Henkaku electives |
+| Curricula | 2 | SDS Master's and PhD programs with milestones, requirements, and Gantt timelines |
+| Events | 3 | Including Connected Learning in Focus: Celebrating Neurodiversity (2023) |
+| Domains | 53 | Knowledge and research areas mapping the intellectual landscape |
+| Places | 5 | Physical locations including Henkaku Center, Tsudanuma Campus |
+| Vectors | 4 | Directional transformations |
+| Deltas | 10 | Observable changes |
+| Publications | 0 | Peer-reviewed academic works (structure ready, not yet populated) |
 
-Publications was added as an 11th entity type. Two types remain as placeholders: **Theses** and **Posts**. All registry data is tentative and needs to be reviewed for accuracy.
+Two types remain as placeholders: **Theses** and **Posts**.
 
-### Curriculum
+### Curricula
 
-The SDS Master's (30 credits) and PhD (17 credits) programs are documented, with each course mapped to Charter principles. The 25 individual courses are also available as browsable registry entries.
+The SDS Master's (30 credits) and PhD (17 credits) programs are stored as curriculum entities with full milestone content (timelines, committee requirements, thesis/dissertation processes, impact requirements). Courses are linked via `requires` (mandatory) and `accepts` (elective) relations rather than static markdown tables.
 
 ### Website
 
 The viewer at [compass.henkaku.center](https://compass.henkaku.center) includes:
 
-- **Landing page** organized into DNA (Charter, Archetypes) and Emergent (registry, curriculum, network) layers, with an animated compass icon and orientation rotator
+- **Landing page** organized into DNA (Charter, Archetypes) and Emergent (registry, curricula, network) layers, with an animated compass icon and orientation rotator
 - **Sidebar navigation** across all pages showing the full site map
-- **Registry pages** for People, Projects, Initiatives, Institutions, Courses, Events, Domains, and Places with expandable cards showing full details
+- **Registry pages** for all entity types with search/filter bar and Card/List view toggle (persisted across sessions)
 - **Network visualization** — an interactive 3D graph showing relationships between all registry entries, color-coded by type
-- **Curriculum page** rendering the full program structure with course tables
+- **Curricula pages** — list and detail views with dynamic course tables from relations and Mermaid Gantt timeline charts
 - **History page** showing the project's commit history pulled live from GitHub
 - **References page** linking to foundational source documents
-- **Login and inline editing** via GitHub personal access token, with structured forms for editing or creating registry entries
+- **Login and inline editing** via Registry auth (email/password), with structured forms for editing or creating registry entries
 - **Feedback page** for submitting bug reports and feature requests
+- **Markdown rendering** with Mermaid.js support and inline link rendering in summary/notes fields
 
 ### Partner Institutions
 

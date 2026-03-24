@@ -156,16 +156,18 @@ Fourteen entry types:
 - Cache-busting with timestamp query parameters
 - 3D network graph visualization uses 3d-force-graph (CDN) with Three.js and d3-force-3d
 - Entity category pages include a search/filter bar for keyword filtering
-- Person names are randomized (Fisher-Yates shuffle) in relation groups and the people list; non-person entities are alphabetized. A footnote links to [Rae & Rouse 2017](https://doi.org/10.1257/aer.20161492) on name-order effects
+- Person names are randomized (Fisher-Yates shuffle) in relation groups and the people list; non-person entities are alphabetized. An inline note "(names presented in random order)" links to [Rae & Rouse 2017](https://doi.org/10.1257/aer.20161492)
 - Teaching relations (`taught_by`, `supported_by`, `has_guest_lecturer`) are listed first in course detail views
 - `getRelated()` deduplicates relations to prevent duplicate entries from rendering
 - Card/List view toggle on entity list pages (view preference persisted in `localStorage`)
-- Mermaid.js integration for rendering Gantt charts in markdown content (used in curricula)
+- Mermaid.js integration for rendering Gantt charts in markdown content (used in curricula detail views)
+- Summary, purpose, and notes fields render markdown links via `marked.parseInline()`
+- Entity domains now use `has_affinity_for` relations to domain entities (preferred over string-based `domains` array)
 
 **Registry data** (served from Registry API):
 - Entities and relations accessed via `/api/v1/compass/entities` and `/api/v1/compass/relations`
 - Field names match Archetypes schemas; IDs follow patterns like `person_joiito`, `proj_compass`, `course_dna`, `event_2025_symposium`, `domain_complex_systems`, `place_henkaku_center`
-- Contains real data: 62 people (with portraits), 10 initiatives, 9 institutions, 3 projects, 27 courses, 1 event, 50 domains, 4 places, 460 relations
+- Contains real data: 66 people (with portraits), 10 initiatives, 9 institutions, 3 projects, 28 courses, 2 curricula, 3 events, 53 domains, 4 places, 600+ relations
 - Portraits served via `/api/v1/compass/entities/{id}/files/{filename}`
 - Use `backup-registry.sh` (in `../registry/scripts/`) to download a full backup including compass data
 
