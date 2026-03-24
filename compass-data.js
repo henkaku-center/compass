@@ -62,6 +62,11 @@ const RELATION_TYPES = {
   component_of:     { inverse: 'composed_of',      label: 'Component of',   inverseLabel: 'Composed of' },
   produces:         { inverse: 'produced_by',       label: 'Produces',       inverseLabel: 'Produced by' },
   produced_by:      { inverse: 'produces',          label: 'Produced by',    inverseLabel: 'Produces' },
+  // Curriculum → course
+  requires:         { inverse: 'required_by',      label: 'Requires',       inverseLabel: 'Required by' },
+  required_by:      { inverse: 'requires',         label: 'Required by',    inverseLabel: 'Requires' },
+  accepts:          { inverse: 'accepted_by',      label: 'Accepts',        inverseLabel: 'Accepted by' },
+  accepted_by:      { inverse: 'accepts',          label: 'Accepted by',    inverseLabel: 'Accepts' },
   // Symmetric
   partner:          { inverse: 'partner',          label: 'Partner',        inverseLabel: 'Partner' },
   related:          { inverse: 'related',          label: 'Related',        inverseLabel: 'Related' },
@@ -80,6 +85,7 @@ const TYPE_FILE_MAP = {
   publication: 'publications',
   vector: 'vectors',
   delta: 'deltas',
+  curriculum: 'curricula',
 };
 
 const TYPE_FROM_PLURAL = {};
@@ -332,7 +338,8 @@ const ID_PREFIXES = {
   places: 'place_',
   publications: 'pub_',
   vectors: 'vec_',
-  deltas: 'delta_'
+  deltas: 'delta_',
+  curricula: 'curriculum_'
 };
 
 function entitySlug(type, id) {
@@ -475,7 +482,7 @@ function shuffle(arr) {
 }
 
 const RANDOM_ORDER_NOTE = `<p style="font-size:12px;color:#5A5A5A;margin-top:4px;">&middot; <a href="https://doi.org/10.1257/aer.20161492" style="color:#5A5A5A;">random name order</a></p>`;
-const RANDOM_ORDER_NOTE_INLINE = `<span style="font-size:11px;color:#5A5A5A;">&middot; <a href="https://doi.org/10.1257/aer.20161492" style="color:#5A5A5A;">random</a></span>`;
+const RANDOM_ORDER_NOTE_INLINE = `<span style="font-size:11px;color:#5A5A5A;">(<a href="https://doi.org/10.1257/aer.20161492" style="color:#5A5A5A;">names presented in random order</a>)</span>`;
 
 function renderRelationsHtml(entityId) {
   const related = getRelated(entityId);
@@ -490,13 +497,15 @@ function renderRelationsHtml(entityId) {
 
   let html = '';
   Object.entries(groups).forEach(([relType, items]) => {
-    // Randomize person order (only when multiple); alphabetize everything else
-    const peopleItems = items.filter(i => i.entity.type === 'person');
-    const isMultiPeople = peopleItems.length > 1;
-    if (isMultiPeople) shuffle(items);
-    else items.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
+    // Separate people from non-people; shuffle people, alphabetize the rest
+    const people = items.filter(i => i.entity.type === 'person');
+    const nonPeople = items.filter(i => i.entity.type !== 'person');
+    const isMultiPeople = people.length > 1;
+    if (isMultiPeople) shuffle(people);
+    nonPeople.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
+    const sorted = [...people, ...nonPeople];
     const label = getRelationLabel(relType);
-    const itemStrs = items.map(({ entity, meta }) => {
+    const itemStrs = sorted.map(({ entity, meta }) => {
       let display = entityLinkShort(entity.id);
       if (meta && meta.role) display += ` (${formatRole(meta.role)})`;
       return display;
@@ -535,14 +544,16 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
 
   let html = '';
   sortedEntries.forEach(([relType, items]) => {
-    // Randomize person order (only when multiple); alphabetize everything else
-    const peopleItems = items.filter(i => i.entity.type === 'person');
-    const isMultiPeople = peopleItems.length > 1;
-    if (isMultiPeople) shuffle(items);
-    else items.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
+    // Separate people from non-people; shuffle people, alphabetize the rest
+    const people = items.filter(i => i.entity.type === 'person');
+    const nonPeople = items.filter(i => i.entity.type !== 'person');
+    const isMultiPeople = people.length > 1;
+    if (isMultiPeople) shuffle(people);
+    nonPeople.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
+    const sorted = [...people, ...nonPeople];
     const label = getRelationLabel(relType);
-    html += `<p class="detail-label">${label}</p>`;
-    items.forEach(({ entity, meta }) => {
+    html += `<p class="detail-label">${label}${isMultiPeople ? ' ' + RANDOM_ORDER_NOTE_INLINE : ''}</p>`;
+    sorted.forEach(({ entity, meta }) => {
       let display = entityLink(entity.id);
       if (meta && meta.role) display += ` — ${formatRole(meta.role)}`;
       if (meta && meta.primary) display += ' (primary)';
@@ -550,7 +561,6 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
       if (meta && meta.exhibition) display += ` — ${meta.exhibition}`;
       html += `<p>${display}</p>`;
     });
-    if (isMultiPeople) html += RANDOM_ORDER_NOTE;
   });
   return html;
 }

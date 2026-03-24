@@ -343,31 +343,78 @@
       color: #666;
     }
 
-    /* Curriculum tables: fixed 3-column layout (Course / Credits / Instructors) */
-    main[data-page="curriculum"] table,
+    /* Mermaid diagrams */
+    .mermaid-rendered {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: #fafafa;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+
+    .mermaid-rendered svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Curriculum markdown content */
+    .curriculum-content {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .curriculum-content h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin: 2rem 0 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .curriculum-content h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #555;
+      margin: 1.5rem 0 0.4rem;
+    }
+
+    .curriculum-content p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #444;
+      margin: 0.5rem 0;
+    }
+
+    .curriculum-content ul, .curriculum-content ol {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #444;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .curriculum-content blockquote {
+      border-left: 3px solid #ddd;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      color: #666;
+      font-size: 0.9rem;
+      background: #fafafa;
+    }
+
+    .curriculum-content table {
+      font-size: 0.85rem;
+    }
+
+    .curriculum-content strong {
+      color: #333;
+    }
+
+    /* Curriculum detail tables: auto layout for varied content */
     main[data-page="curricula"] table {
-      table-layout: fixed;
-    }
-
-    main[data-page="curriculum"] table th:first-child,
-    main[data-page="curricula"] table th:first-child {
-      width: 55%;
-    }
-
-    main[data-page="curriculum"] table th:nth-child(2),
-    main[data-page="curricula"] table th:nth-child(2) {
-      width: 10%;
-      text-align: center;
-    }
-
-    main[data-page="curriculum"] table td:nth-child(2),
-    main[data-page="curricula"] table td:nth-child(2) {
-      text-align: center;
-    }
-
-    main[data-page="curriculum"] table th:nth-child(3),
-    main[data-page="curricula"] table th:nth-child(3) {
-      width: 35%;
+      table-layout: auto;
+      width: 100%;
     }
 
     /* Charter banner */
@@ -1133,6 +1180,58 @@
 
     .registry-card {
       cursor: pointer;
+    }
+
+    /* Compact list mode */
+    .registry-list.list-mode {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .registry-list.list-mode .registry-card {
+      border-radius: 0;
+      border-bottom: 1px solid #e5e5e5;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      padding: 0.6rem 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .registry-list.list-mode .registry-card:hover {
+      background: #f8f8f8;
+      box-shadow: none;
+    }
+
+    .registry-list.list-mode .card-header {
+      margin-bottom: 0;
+    }
+
+    .registry-list.list-mode .card-portrait {
+      width: 28px;
+      height: 28px;
+    }
+
+    .registry-list.list-mode .card-summary,
+    .registry-list.list-mode .card-meta,
+    .registry-list.list-mode .card-relations {
+      display: none;
+    }
+
+    .registry-list.list-mode .card-name {
+      font-size: 0.9rem;
+    }
+
+    .view-toggle {
+      font-size: 14px;
+      font-family: inherit;
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      margin-left: 8px;
     }
 
     /* Entity detail page */
@@ -2200,9 +2299,54 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'base',
+      themeVariables: {
+        primaryColor: '#e8eaf6',
+        primaryTextColor: '#111',
+        primaryBorderColor: '#9fa8da',
+        lineColor: '#5c6bc0',
+        secondaryColor: '#f5f5f5',
+        tertiaryColor: '#fff',
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        fontSize: '14px',
+        sectionBkgColor: '#dde1f8',
+        sectionBkgColor2: '#f8f8f8',
+        altSectionBkgColor: '#dde1f8',
+        gridColor: '#e0e0e0',
+        todayLineColor: '#2C40D3',
+        taskBorderColor: '#5c6bc0',
+        taskBkgColor: '#c5cae9',
+        activeTaskBorderColor: '#2C40D3',
+        activeTaskBkgColor: '#9fa8da',
+        doneTaskBkgColor: '#e8eaf6',
+        doneTaskBorderColor: '#9fa8da',
+        milestoneTextColor: '#111'
+      },
+      gantt: {
+        titleTopMargin: 15,
+        barHeight: 24,
+        barGap: 6,
+        topPadding: 40,
+        sidePadding: 60,
+        numberSectionStyles: 2
+      }
+    });
+
+    let mermaidCounter = 0;
+
     marked.use({
       renderer: {
+        code({ text, lang }) {
+          if (lang && lang.toLowerCase() === 'mermaid') {
+            const id = 'mermaid-' + (mermaidCounter++);
+            return `<div class="mermaid-placeholder" data-id="${id}" data-content="${text.replace(/"/g, '&quot;')}" style="overflow-x:auto;"></div>`;
+          }
+          return `<pre><code class="language-${lang || ''}">${text}</code></pre>`;
+        },
         link({ href, title, tokens }) {
           const text = this.parser.parseInline(tokens);
           const titleAttr = title ? ` title="${title}"` : '';
@@ -2213,6 +2357,35 @@
         }
       }
     });
+
+    // Call after inserting marked HTML into the DOM
+    async function renderMermaidDiagrams() {
+      const placeholders = document.querySelectorAll('.mermaid-placeholder');
+      for (const el of placeholders) {
+        const id = el.dataset.id;
+        const content = el.dataset.content.replace(/&quot;/g, '"');
+        try {
+          const { svg } = await mermaid.render(id, content);
+          el.innerHTML = svg;
+          el.classList.add('mermaid-rendered');
+          // Fix alternating section colors post-render
+          // Mermaid Gantt uses .section0/.section1 for alternating row backgrounds
+          // With numberSectionStyles:2, even-indexed sections get .section0, odd get .section1
+          const svgEl = el.querySelector('svg');
+          if (svgEl) {
+            const styleEl = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+            styleEl.textContent = `
+              .section0 { fill: #dde1f8 !important; }
+              .section1 { fill: #f5f5f5 !important; }
+            `;
+            svgEl.insertBefore(styleEl, svgEl.firstChild);
+          }
+        } catch (e) {
+          el.innerHTML = `<pre style="color:#999;font-size:13px;">Diagram could not be rendered</pre>`;
+          console.error('Mermaid render error:', e);
+        }
+      }
+    }
   </script>
   <script src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
   <script src="https://unpkg.com/three-spritetext@1.9.5/dist/three-spritetext.min.js"></script>
@@ -3121,6 +3294,17 @@
       });
     }
 
+    function toggleListView(mode) {
+      const list = document.getElementById('registry-list');
+      if (!list) return;
+      if (mode === 'list') {
+        list.classList.add('list-mode');
+      } else {
+        list.classList.remove('list-mode');
+      }
+      localStorage.setItem('compass_view_mode', mode);
+    }
+
     function loadRegistryList(type) {
       clearOrientationRotator();
       currentDoc = type;
@@ -3135,9 +3319,15 @@
           <h1>${meta.plural}${addNewBtn}</h1>
           <p>${meta.description}</p>
         </div>
-        <input type="text" id="registry-search" placeholder="Filter by keyword…"
-          style="width:100%;max-width:480px;padding:8px 12px;font-size:15px;font-family:inherit;border:1px solid #ccc;margin-bottom:16px;"
-          oninput="filterRegistryList(this.value)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <input type="text" id="registry-search" placeholder="Filter by keyword…"
+            style="flex:1;max-width:480px;padding:8px 12px;font-size:15px;font-family:inherit;border:1px solid #ccc;"
+            oninput="filterRegistryList(this.value)">
+          <select class="view-toggle" id="view-toggle" onchange="toggleListView(this.value)">
+            <option value="cards">Cards</option>
+            <option value="list">List</option>
+          </select>
+        </div>
         <div class="registry-list" id="registry-list">
           <p style="color: #999;">Loading&hellip;</p>
         </div>
@@ -3158,6 +3348,11 @@
           entries.forEach(entry => {
             list.appendChild(renderRegistryCard(entry, type));
           });
+          // Restore saved view mode
+          const savedMode = localStorage.getItem('compass_view_mode') || 'cards';
+          const toggle = document.getElementById('view-toggle');
+          if (toggle) toggle.value = savedMode;
+          if (savedMode === 'list') list.classList.add('list-mode');
         })
         .catch(err => {
           const list = document.getElementById('registry-list');
@@ -3203,7 +3398,7 @@
 
           // Header info
           let nameHtml = entry.name || entry.id;
-          if ((type === 'institutions' || type === 'courses') && entry.short_name && !(entry.name || '').includes(`(${entry.short_name})`)) {
+          if ((type === 'institutions' || type === 'courses' || type === 'curricula') && entry.short_name && !(entry.name || '').includes(`(${entry.short_name})`)) {
             nameHtml = `${entry.name} (${entry.short_name})`;
           }
 
@@ -3237,6 +3432,11 @@
             if (entry.program) {
               entry.program.forEach(p => { badgesHtml += `<span class="type-badge">${p.replace(/_/g, ' ')}</span>`; });
             }
+          }
+          if (type === 'curricula') {
+            if (entry.credit_requirement) badgesHtml += `<span class="type-badge">${entry.credit_requirement} credits</span>`;
+            if (entry.duration) badgesHtml += `<span class="type-badge">${entry.duration}</span>`;
+            if (entry.degree) badgesHtml += `<span class="type-badge">${entry.degree}</span>`;
           }
           if (type === 'events') {
             if (entry.event_type) badgesHtml += `<span class="type-badge">${entry.event_type}</span>`;
@@ -3432,6 +3632,49 @@
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
 
+          if (type === 'curricula') {
+            if (entry.name_ja) {
+              detailHtml += `<p style="opacity:0.6; margin-bottom:0.5rem;">${entry.name_ja}</p>`;
+            }
+            if (entry.credit_requirement) {
+              detailHtml += `<p class="detail-label">Credit Requirement</p><p>${entry.credit_requirement}</p>`;
+            }
+            if (entry.mandatory_credits) {
+              detailHtml += `<p class="detail-label">Mandatory Credits</p><p>${entry.mandatory_credits}</p>`;
+            }
+            if (entry.elective_credits) {
+              detailHtml += `<p class="detail-label">Elective Credits</p><p>${entry.elective_credits}</p>`;
+            }
+            if (entry.duration) {
+              detailHtml += `<p class="detail-label">Duration</p><p>${entry.duration}</p>`;
+            }
+            if (entry.degree) {
+              detailHtml += `<p class="detail-label">Degree</p><p>${entry.degree}</p>`;
+            }
+            // Related courses grouped by relation type
+            const requiredCourses = getRelated(entry.id, { type: 'requires' });
+            const electiveCourses = getRelated(entry.id, { type: 'accepts' });
+            if (requiredCourses.length > 0) {
+              detailHtml += `<p class="detail-label">Mandatory Courses</p>`;
+              detailHtml += `<p>${requiredCourses.map(r =>
+                `<a href="${entityHref('courses', r.entity.id)}">${getEntityDisplay(r.entity.id)}</a>`
+              ).join(', ')}</p>`;
+            }
+            if (electiveCourses.length > 0) {
+              detailHtml += `<p class="detail-label">Elective Courses</p>`;
+              detailHtml += `<p>${electiveCourses.map(r =>
+                `<a href="${entityHref('courses', r.entity.id)}">${getEntityDisplay(r.entity.id)}</a>`
+              ).join(', ')}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id, ['requires', 'accepts']);
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${entry.notes}</p>`;
+            }
+            if (entry.content) {
+              detailHtml += `<div class="curriculum-content">${marked.parse(entry.content)}</div>`;
+            }
+          }
+
           if (type === 'events') {
             if (entry.purpose) {
               detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
@@ -3588,6 +3831,9 @@
               </div>
             </div>
           `;
+
+          // Render any mermaid diagrams in the detail content
+          renderMermaidDiagrams();
 
           // Load health + check-ins asynchronously
           api.getEntityHealth(resolvedId).then(h => {
@@ -4143,6 +4389,11 @@
                 if (data.schedule) html += `<p><strong>Schedule:</strong> ${data.schedule}</p>`;
                 if (data.program) html += `<p><strong>Program:</strong> ${data.program.map(p => p.replace(/_/g, ' ')).join(', ')}</p>`;
                 break;
+              case 'curricula':
+                if (data.credit_requirement) html += `<p><strong>Credits Required:</strong> ${data.credit_requirement}</p>`;
+                if (data.duration) html += `<p><strong>Duration:</strong> ${data.duration}</p>`;
+                if (data.degree) html += `<p><strong>Degree:</strong> ${data.degree}</p>`;
+                break;
               case 'events':
                 if (data.date) html += `<p><strong>Date:</strong> ${data.date}</p>`;
                 if (data.event_type) html += `<p><strong>Type:</strong> ${data.event_type}</p>`;
@@ -4228,6 +4479,7 @@
         html = '<div class="charter-banner">The definitive source for the Charter is <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer">charter.henkaku.center</a>, which also provides an interface for proposing and voting on amendments and exporting the Charter in various formats.</div><div class="charter-version" id="charter-version-info"></div>' + html;
 
         contentEl.innerHTML = html;
+        renderMermaidDiagrams();
 
         // Fetch version info
         try {
@@ -4292,6 +4544,7 @@
           }
 
           contentEl.innerHTML = html;
+          renderMermaidDiagrams();
 
           // Fetch Charter version info
           if (docKey === 'charter') {
@@ -4748,6 +5001,11 @@
       deltas: {
         id: '', type: 'delta', name: '', status: 'observed', summary: '',
         from: '', toward: '', observed_date: '', domains: [], notes: ''
+      },
+      curricula: {
+        id: '', type: 'curriculum', name: '', name_ja: '', short_name: '', status: 'active',
+        summary: '', credit_requirement: 0, mandatory_credits: 0, elective_credits: 0,
+        duration: '', degree: '', institution: '', school: '', content: '', notes: ''
       }
     };
 
@@ -4803,6 +5061,11 @@
       deltas: [
         { type: 'evidences', targetTypes: ['vectors'], label: 'Evidences' },
         { type: 'related', targetTypes: ['projects', 'courses', 'deltas'], label: 'Related to' }
+      ],
+      curricula: [
+        { type: 'requires', targetTypes: ['courses'], label: 'Requires (mandatory)' },
+        { type: 'accepts', targetTypes: ['courses'], label: 'Accepts (elective)' },
+        { type: 'related', targetTypes: ['institutions'], label: 'Related to' }
       ]
     };
 
