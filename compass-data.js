@@ -86,6 +86,8 @@ const TYPE_FILE_MAP = {
   vector: 'vectors',
   delta: 'deltas',
   curriculum: 'curricula',
+  thesis: 'theses',
+  post: 'posts',
 };
 
 const TYPE_FROM_PLURAL = {};
@@ -339,7 +341,9 @@ const ID_PREFIXES = {
   publications: 'pub_',
   vectors: 'vec_',
   deltas: 'delta_',
-  curricula: 'curriculum_'
+  curricula: 'curriculum_',
+  theses: 'thesis_',
+  posts: 'post_'
 };
 
 function entitySlug(type, id) {

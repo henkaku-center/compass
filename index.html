@@ -242,12 +242,14 @@
       margin-top: 0;
     }
 
-    .toc .toc-disabled {
-      display: block;
-      padding: 0.35rem 0.5rem;
-      color: #aaa;
-      font-size: 0.85rem;
-      cursor: default;
+    .toc a.toc-empty {
+      opacity: 0.4;
+    }
+
+    .nav-count {
+      font-size: 0.7rem;
+      color: #999;
+      margin-left: 4px;
     }
 
     /* Main content */
@@ -898,16 +900,15 @@
       color: #fff;
     }
 
-    .landing-card.placeholder {
-      border-style: dashed;
-      border-color: #ddd;
-      opacity: 0.55;
-      cursor: default;
+    .landing-card-empty {
+      opacity: 0.4;
     }
 
-    .landing-card.placeholder:hover {
-      border-color: #ddd;
-      box-shadow: none;
+    .card-count {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: #999;
+      margin-left: 6px;
     }
 
     @keyframes orientationIn {

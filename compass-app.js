@@ -42,7 +42,7 @@
         loadHistory();
       } else if (docKey === 'charter') {
         loadCharter();
-      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'curricula', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas'].includes(docKey)) {
+      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'curricula', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas', 'theses', 'posts'].includes(docKey)) {
         if (entityId) {
           loadEntityDetail(docKey, entityId);
         } else {
@@ -69,6 +69,7 @@
     api.subscribeToChanges(function(event) {
       // Reset the cached store promise so ensureStore() fetches fresh data
       _storeReady = loadStore(api).then(function() {
+        updateSidebarEmptyStates();
         loadFromHash();
       });
     });
@@ -76,6 +77,9 @@
     // Initial load
     updateLoginUI();
     loadFromHash();
+
+    // Update sidebar empty states after store loads
+    ensureStore().then(updateSidebarEmptyStates);
 
     // Listen for hash changes
     window.addEventListener('hashchange', loadFromHash);

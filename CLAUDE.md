@@ -119,7 +119,7 @@ All sections contain full text. The draft is ready for review by ratifying membe
 
 The Charter (Section V) mandates a shared registry. The **Archetypes** document defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
-Fourteen entry types:
+Sixteen entry types:
 - **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 - **People** — Roles, domain affinities, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
@@ -134,6 +134,8 @@ Fourteen entry types:
 - **Vectors** (`vec_` prefix) — Directional transformations with from/toward, domains, and status
 - **Deltas** (`delta_` prefix) — Observable changes with from/toward, observed_date, domains, and status
 - **Curricula** (`curriculum_` prefix) — Structured programs of study with requires/accepts relations to courses
+- **Theses** (`thesis_` prefix) — Bounded academic works with advisors, committees, and defense milestones
+- **Posts** (`post_` prefix) — Written contributions from participants — reflections, updates, announcements
 
 **Essential questions** guide each entry type (4 prompts each — see ARCHETYPES.md served from Registry).
 
@@ -180,6 +182,7 @@ Fourteen entry types:
 - Teaching relations (`taught_by`, `supported_by`, `has_guest_lecturer`) are listed first in course detail views
 - `getRelated()` deduplicates relations to prevent duplicate entries from rendering
 - Card/List view toggle on entity list pages (view preference persisted in `localStorage`)
+- Sidebar and landing page show entity counts per type; empty types are grayed out but still clickable
 - Mermaid.js integration for rendering Gantt charts in markdown content (used in curricula detail views)
 - Summary, purpose, and notes fields render markdown links via `marked.parseInline()`
 - Entity domains now use `has_affinity_for` relations to domain entities (preferred over string-based `domains` array)

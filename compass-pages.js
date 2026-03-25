@@ -54,66 +54,66 @@ function loadLanding() {
       </div>
 
       <div class="landing-group">
-        <div class="landing-group-label">Entities</div>
+        <div class="landing-group-label">Entities <span id="entities-total-count" class="card-count"></span></div>
         <div class="landing-group-desc">Living content&mdash;programs, people, and activities.</div>
         <div class="landing-cards">
           <a href="#network" class="landing-card full-row">
             <div class="card-title">Network</div>
             <div class="card-desc">Interactive 3D graph of people, projects, initiatives, courses, events, institutions, domains, and places.</div>
           </a>
-          <a href="#people" class="landing-card">
+          <a href="#people" class="landing-card" data-entity-type="people">
             <div class="card-title">People</div>
             <div class="card-desc">Faculty, researchers, staff, and students with roles and domains.</div>
           </a>
-          <a href="#projects" class="landing-card">
+          <a href="#projects" class="landing-card" data-entity-type="projects">
             <div class="card-title">Projects</div>
             <div class="card-desc">Bounded efforts with goals, teams, and completion criteria.</div>
           </a>
-          <a href="#initiatives" class="landing-card">
+          <a href="#initiatives" class="landing-card" data-entity-type="initiatives">
             <div class="card-title">Initiatives</div>
             <div class="card-desc">Ongoing programs spanning research, education, and coordination.</div>
           </a>
-          <a href="#institutions" class="landing-card">
+          <a href="#institutions" class="landing-card" data-entity-type="institutions">
             <div class="card-title">Institutions</div>
             <div class="card-desc">Universities, research centers, and partners in the ecosystem.</div>
           </a>
-          <a href="#events" class="landing-card">
+          <a href="#events" class="landing-card" data-entity-type="events">
             <div class="card-title">Events</div>
             <div class="card-desc">Symposia, workshops, and gatherings with schedules and speakers.</div>
           </a>
-          <a href="#publications" class="landing-card">
+          <a href="#publications" class="landing-card" data-entity-type="publications">
             <div class="card-title">Publications</div>
             <div class="card-desc">Peer-reviewed journal articles, conference papers, and book chapters.</div>
           </a>
-          <a href="#vectors" class="landing-card">
+          <a href="#vectors" class="landing-card" data-entity-type="vectors">
             <div class="card-title">Vectors</div>
             <div class="card-desc">Directional transformations people are pursuing — energy, purpose, and aspiration.</div>
           </a>
-          <a href="#deltas" class="landing-card">
+          <a href="#deltas" class="landing-card" data-entity-type="deltas">
             <div class="card-title">Deltas</div>
             <div class="card-desc">Observable changes — concrete evidence of movement and transformation.</div>
           </a>
-          <span class="landing-card placeholder">
+          <a href="#posts" class="landing-card" data-entity-type="posts">
             <div class="card-title">Posts</div>
-            <div class="card-desc">Written reflections and updates from participants. Coming soon.</div>
-          </span>
-          <a href="#curricula" class="landing-card">
+            <div class="card-desc">Written reflections and updates from participants.</div>
+          </a>
+          <a href="#curricula" class="landing-card" data-entity-type="curricula">
             <div class="card-title">Curricula</div>
             <div class="card-desc">Degree programs with required and elective coursework, credit requirements, and milestones.</div>
           </a>
-          <a href="#courses" class="landing-card">
+          <a href="#courses" class="landing-card" data-entity-type="courses">
             <div class="card-title">Courses</div>
             <div class="card-desc">Individual courses with credits, Charter alignment, and instructors.</div>
           </a>
-          <span class="landing-card placeholder">
+          <a href="#theses" class="landing-card" data-entity-type="theses">
             <div class="card-title">Theses</div>
-            <div class="card-desc">Student research with advisors, committees, and milestones. Coming soon.</div>
-          </span>
-          <a href="#places" class="landing-card">
+            <div class="card-desc">Student research with advisors, committees, and milestones.</div>
+          </a>
+          <a href="#places" class="landing-card" data-entity-type="places">
             <div class="card-title">Places</div>
             <div class="card-desc">Campuses, coworking spaces, venues, and gathering spots in the ecosystem.</div>
           </a>
-          <a href="#domains" class="landing-card">
+          <a href="#domains" class="landing-card" data-entity-type="domains">
             <div class="card-title">Domains</div>
             <div class="card-desc">Knowledge and research areas that map the intellectual landscape.</div>
           </a>
@@ -214,6 +214,29 @@ function loadLanding() {
 
   updateActiveNavLink('home');
   window.scrollTo(0, 0);
+
+  // Show counts and gray out landing cards for entity types with no entries
+  ensureStore().then(function() {
+    var totalEl = document.getElementById('entities-total-count');
+    if (totalEl) {
+      var total = Object.values(store.byType).reduce(function(sum, arr) { return sum + arr.length; }, 0);
+      totalEl.textContent = total;
+    }
+    contentEl.querySelectorAll('.landing-card[data-entity-type]').forEach(function(card) {
+      var key = card.dataset.entityType;
+      var entries = store.byType[key] || [];
+      var titleEl = card.querySelector('.card-title');
+      if (titleEl) {
+        var badge = document.createElement('span');
+        badge.className = 'card-count';
+        badge.textContent = entries.length;
+        titleEl.appendChild(badge);
+      }
+      if (entries.length === 0) {
+        card.classList.add('landing-card-empty');
+      }
+    });
+  });
 }
 
 // clearOrientationRotator() is defined in compass-ui.js

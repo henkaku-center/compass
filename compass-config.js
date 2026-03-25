@@ -23,6 +23,8 @@ const routes = {
   'publications': null, // Registry list page
   'vectors': null, // Registry list page
   'deltas': null, // Registry list page
+  'theses': null, // Registry list page
+  'posts': null, // Registry list page
   'network': null, // Graph visualization page
   'feedback': null, // Feedback submission page
   'contribute': null, // Contribute with AI page
@@ -45,8 +47,8 @@ const siteMap = [
   { key: 'courses', label: 'Courses' },
   { key: 'vectors', label: 'Vectors' },
   { key: 'deltas', label: 'Deltas' },
-  { key: 'theses', label: 'Theses', placeholder: true },
-  { key: 'posts', label: 'Posts', placeholder: true },
+  { key: 'theses', label: 'Theses' },
+  { key: 'posts', label: 'Posts' },
   { key: 'events', label: 'Events' },
   { key: 'publications', label: 'Publications' },
   { key: 'places', label: 'Places' },

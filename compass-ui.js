@@ -102,11 +102,13 @@ function showSidebar(activeKey) {
       var span = document.createElement('span');
       span.textContent = item.group;
       span.classList.add('toc-group-label');
-      li.appendChild(span);
-    } else if (item.placeholder) {
-      var span = document.createElement('span');
-      span.textContent = item.label;
-      span.classList.add('toc-disabled');
+      if (item.group === 'Entities' && store.byType) {
+        var total = Object.values(store.byType).reduce(function(sum, arr) { return sum + arr.length; }, 0);
+        var badge = document.createElement('span');
+        badge.className = 'nav-count';
+        badge.textContent = total;
+        span.appendChild(badge);
+      }
       li.appendChild(span);
     } else {
       var a = document.createElement('a');
@@ -118,7 +120,12 @@ function showSidebar(activeKey) {
         a.href = '#' + item.key;
       }
       a.textContent = item.label;
+      a.dataset.navKey = item.key;
       if (item.key === activeKey) a.classList.add('active');
+      // Gray out entity types with no entries (updated after store loads)
+      if (TYPE_FROM_PLURAL[item.key] && store.byType && store.byType[item.key] && store.byType[item.key].length === 0) {
+        a.classList.add('toc-empty');
+      }
       li.appendChild(a);
     }
     tocListEl.appendChild(li);
@@ -126,6 +133,32 @@ function showSidebar(activeKey) {
   tocEl.querySelector('h4').style.display = 'none';
   tocEl.classList.add('visible');
   layoutEl.classList.add('has-toc');
+
+  // Apply empty states if store is already loaded
+  if (store.byType) updateSidebarEmptyStates();
+}
+
+// Update sidebar links to show entity counts and gray out empty types
+function updateSidebarEmptyStates() {
+  tocListEl.querySelectorAll('a[data-nav-key]').forEach(function(a) {
+    var key = a.dataset.navKey;
+    if (TYPE_FROM_PLURAL[key] && store.byType) {
+      var entries = store.byType[key] || [];
+      // Remove any existing count badge
+      var existing = a.querySelector('.nav-count');
+      if (existing) existing.remove();
+      // Add count
+      var badge = document.createElement('span');
+      badge.className = 'nav-count';
+      badge.textContent = entries.length;
+      a.appendChild(badge);
+      if (entries.length === 0) {
+        a.classList.add('toc-empty');
+      } else {
+        a.classList.remove('toc-empty');
+      }
+    }
+  });
 }
 
 // --- Heading IDs & document TOC ---
