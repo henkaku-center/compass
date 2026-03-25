@@ -144,7 +144,7 @@ Sixteen entry types:
 
 **Unified entity + relations architecture**: Entities contain only intrinsic attributes. All cross-references (affiliations, contributors, instructors, prerequisites, etc.) are stored as `{source, target, type, meta?}` relation triples in the Registry database. `compass-data.js` provides the runtime data layer that loads entities and relations from the API, manages CRUD, and builds the network graph.
 
-**Privacy**: The registry is a coordination tool, not a public directory. Person records should be professionally relevant, participant-controlled, and appropriately scoped.
+**Privacy & visibility**: The registry is a coordination tool, not a public directory. Person records should be professionally relevant, participant-controlled, and appropriately scoped. Entities have a `visibility` field (`public`/`internal`/`restricted`) — the API filters results by user auth. The frontend includes `visibility` in flattened entities and shows badges on detail pages for non-public entities. The SSE connection passes `?token=` for authenticated event filtering.
 
 ## Working with This Repository
 

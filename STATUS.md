@@ -65,6 +65,10 @@ Three external partners are now linked to the ecosystem:
 - **ALife Institute** (Artificial Life Institute, Kyoto) — hosts the Artificial Life initiative
 - **AISI** (Japan AI Safety Institute) — hosts the AI Safety Workshop initiative
 
+### Entity Permissions
+
+Entity-level visibility and edit controls are in place. Entities can be `public` (anyone), `internal` (authenticated users), or `restricted` (explicit access grants). Edit permissions default to admin-only — other users can edit their own profile, entities they own, or entities they've been explicitly granted access to. Vectors and deltas are currently restricted to the project lead.
+
 ### Agentic Development
 
 Compass is developed using LLM coding agents under human direction. This is deliberate practice that informs how contribution workflows are designed, spanning three dimensions: development with agents, agent-assisted contribution, and planned agentic interfaces for contributors without direct repository access.
