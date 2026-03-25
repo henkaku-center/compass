@@ -281,6 +281,10 @@ class ApiClient {
 
     // ── Compass: Entities ───────────────────────────────────────
 
+    async getEntityTypes() {
+        return this._fetch('/api/v1/compass/entity-types');
+    }
+
     async getEntities(type = null) {
         const qs = type ? `?type=${type}` : '';
         return this._fetch(`/api/v1/compass/entities${qs}`);

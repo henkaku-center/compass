@@ -7,11 +7,45 @@ api.init();
 // Current user info (populated after login/session restore)
 let currentUser = null;
 
+// Load entity type metadata from Registry API (progressive enhancement)
+let _entityTypesReady = null;
+function loadEntityTypes() {
+  if (_entityTypesReady) return _entityTypesReady;
+  _entityTypesReady = api.getEntityTypes().then(types => {
+    Object.entries(types).forEach(([key, t]) => {
+      registryMeta[key] = {
+        singular: t.singular,
+        plural: t.plural,
+        description: t.description,
+        color: t.color
+      };
+      nodeColors[key] = t.color;
+      if (t.id_prefix) ID_PREFIXES[key] = t.id_prefix;
+      if (t.db_type) {
+        TYPE_FILE_MAP[t.db_type] = key;
+        TYPE_FROM_PLURAL[key] = t.db_type;
+      }
+      if (t.status_options) statusOptionsByType[key] = t.status_options;
+      if (t.entity_template) entityTemplates[key] = t.entity_template;
+      if (t.relation_types) {
+        relationTypesByEntity[key] = t.relation_types.map(r => ({
+          type: r.type,
+          targetTypes: r.target_types,
+          label: r.label
+        }));
+      }
+    });
+  }).catch(err => {
+    console.warn('Entity types API unavailable, using defaults:', err.message);
+  });
+  return _entityTypesReady;
+}
+
 // Ensure store is loaded (cached after first call)
 let _storeReady = null;
 function ensureStore() {
   if (_storeReady) return _storeReady;
-  _storeReady = loadStore(api);
+  _storeReady = loadEntityTypes().then(() => loadStore(api));
   return _storeReady;
 }
 
