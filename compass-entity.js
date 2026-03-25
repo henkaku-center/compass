@@ -214,34 +214,35 @@
       currentDoc = type;
       showSidebar(type);
 
-      const meta = registryMeta[type];
-      const addNewBtn = isLoggedIn()
-        ? `<button class="new-entity-btn" onclick="showNewEntityModal('${type}')">+ New ${meta.singular}</button>`
-        : '';
-      contentEl.innerHTML = `
-        <div class="registry-page-header">
-          <h1>${meta.plural}${addNewBtn}</h1>
-          <p>${meta.description}</p>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-          <input type="text" id="registry-search" placeholder="Filter by keyword…"
-            style="flex:1;max-width:480px;padding:8px 12px;font-size:15px;font-family:inherit;border:1px solid #ccc;"
-            oninput="filterRegistryList(this.value)">
-          <select class="view-toggle" id="view-toggle" onchange="toggleListView(this.value)">
-            <option value="cards">Cards</option>
-            <option value="list">List</option>
-          </select>
-        </div>
-        <div class="registry-list" id="registry-list">
-          <p style="color: #999;">Loading&hellip;</p>
-        </div>
-      `;
-
+      contentEl.innerHTML = '<p style="color: #999;">Loading&hellip;</p>';
       updateActiveNavLink(type);
       window.scrollTo(0, 0);
 
       ensureStore()
         .then(() => {
+          const meta = registryMeta[type];
+          if (!meta) { contentEl.innerHTML = `<p style="color:#c62828;">Unknown entity type: ${type}</p>`; return; }
+          const addNewBtn = isLoggedIn()
+            ? `<button class="new-entity-btn" onclick="showNewEntityModal('${type}')">+ New ${meta.singular}</button>`
+            : '';
+          contentEl.innerHTML = `
+            <div class="registry-page-header">
+              <h1>${meta.plural}${addNewBtn}</h1>
+              <p>${meta.description}</p>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <input type="text" id="registry-search" placeholder="Filter by keyword…"
+                style="flex:1;max-width:480px;padding:8px 12px;font-size:15px;font-family:inherit;border:1px solid #ccc;"
+                oninput="filterRegistryList(this.value)">
+              <select class="view-toggle" id="view-toggle" onchange="toggleListView(this.value)">
+                <option value="cards">Cards</option>
+                <option value="list">List</option>
+              </select>
+            </div>
+            <div class="registry-list" id="registry-list">
+              <p style="color: #999;">Loading&hellip;</p>
+            </div>
+          `;
           const entries = listEntities(type, e => !e.status || e.status !== 'cancelled');
           const list = document.getElementById('registry-list');
           if (!list) return;
@@ -271,18 +272,13 @@
       currentDoc = type;
       showSidebar(type);
 
-      const meta = registryMeta[type];
-      contentEl.innerHTML = `
-        <div class="entity-detail">
-          <p style="color: #999;">Loading&hellip;</p>
-        </div>
-      `;
-
+      contentEl.innerHTML = '<p style="color: #999;">Loading&hellip;</p>';
       updateActiveNavLink(type);
       window.scrollTo(0, 0);
 
       ensureStore()
         .then(() => {
+          const meta = registryMeta[type] || { singular: type, plural: type };
           // Resolve slug to full entity ID (e.g. "compass" → "proj_compass")
           const resolvedId = slugToEntityId(type, entityId);
           const entry = store.entities[resolvedId];
