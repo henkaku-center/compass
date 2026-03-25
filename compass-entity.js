@@ -887,23 +887,86 @@ function renderRemainingFields(entry, renderedFields) {
                 historyLog.innerHTML = history.map(h => {
                   const date = new Date(h.created_at).toLocaleString();
                   const typeLabel = h.change_type.replace(/_/g, ' ');
-                  let detail = '';
+                  // Resolve user name from compass entity store
+                  let userName = '';
+                  if (h.user_id) {
+                    // Find user's compass entity by checking all people
+                    const people = Object.values(store.entities).filter(e => e.type === 'person');
+                    // We don't have user→entity mapping client-side, so show user_id truncated
+                    userName = ' by <span style="color:#666;">' + (h.user_id.substring(0, 8) + '…') + '</span>';
+                  }
+
+                  let detailHtml = '';
+
+                  if (h.change_type === 'created') {
+                    detailHtml = '<div style="margin:0.2rem 0 0.5rem 1rem; color:#555;">Entity created</div>';
+                  }
+
+                  if (h.change_type === 'deleted') {
+                    const relCount = (h.snapshot.relations || []).length;
+                    detailHtml = '<div style="margin:0.2rem 0 0.5rem 1rem; color:#c62828;">Entity deleted'
+                      + (relCount > 0 ? ` (${relCount} relation${relCount !== 1 ? 's' : ''} removed)` : '')
+                      + '</div>';
+                  }
+
+                  if (h.change_type === 'restored') {
+                    detailHtml = '<div style="margin:0.2rem 0 0.5rem 1rem; color:#2e7d32;">Restored to previous state</div>';
+                  }
+
                   if (h.change_type === 'updated' && h.changes) {
-                    const fields = Object.keys(h.changes).filter(k => k !== 'from_change_id');
+                    const fields = Object.entries(h.changes).filter(([k]) => k !== 'from_change_id');
                     if (fields.length > 0) {
-                      detail = ' — ' + fields.map(f => f.replace(/_/g, ' ')).join(', ');
+                      detailHtml = '<div style="margin:0.2rem 0 0.5rem 1rem;">' + fields.map(([field, diff]) => {
+                        const label = field.replace(/_/g, ' ');
+                        let oldVal = diff.old;
+                        let newVal = diff.new;
+                        // For data field, show sub-field diffs
+                        if (field === 'data' && typeof oldVal === 'object' && typeof newVal === 'object') {
+                          const subChanges = [];
+                          const allKeys = new Set([...Object.keys(oldVal || {}), ...Object.keys(newVal || {})]);
+                          for (const k of allKeys) {
+                            const ov = (oldVal || {})[k];
+                            const nv = (newVal || {})[k];
+                            if (JSON.stringify(ov) !== JSON.stringify(nv)) {
+                              const kLabel = k.replace(/_/g, ' ');
+                              if (nv === undefined || nv === null) {
+                                subChanges.push(`<span style="color:#999;">${kLabel}</span> removed`);
+                              } else if (ov === undefined || ov === null) {
+                                const preview = typeof nv === 'string' ? nv.substring(0, 60) + (nv.length > 60 ? '…' : '') : JSON.stringify(nv).substring(0, 60);
+                                subChanges.push(`<span style="color:#999;">${kLabel}</span> set to "${escapeHtml(preview)}"`);
+                              } else {
+                                const oldPreview = typeof ov === 'string' ? ov.substring(0, 40) : JSON.stringify(ov).substring(0, 40);
+                                const newPreview = typeof nv === 'string' ? nv.substring(0, 40) : JSON.stringify(nv).substring(0, 40);
+                                subChanges.push(`<span style="color:#999;">${kLabel}</span> changed from "${escapeHtml(oldPreview)}…" to "${escapeHtml(newPreview)}…"`);
+                              }
+                            }
+                          }
+                          return subChanges.join('<br>');
+                        }
+                        // Simple field
+                        const oldStr = oldVal != null ? String(oldVal).substring(0, 50) : '(empty)';
+                        const newStr = newVal != null ? String(newVal).substring(0, 50) : '(empty)';
+                        return `<span style="color:#999;">${label}</span>: "${escapeHtml(oldStr)}" → "${escapeHtml(newStr)}"`;
+                      }).join('<br>') + '</div>';
                     }
                   }
+
                   if ((h.change_type === 'relation_added' || h.change_type === 'relation_removed') && h.changes && h.changes.relation) {
                     const r = h.changes.relation;
+                    const isAdd = h.change_type === 'relation_added';
+                    const color = isAdd ? '#2e7d32' : '#c62828';
+                    const verb = isAdd ? 'Added' : 'Removed';
                     const other = r.source_id === resolvedId ? r.target_id : r.source_id;
                     const otherName = getEntityDisplay(other) || other;
-                    detail = ` — ${r.type.replace(/_/g, ' ')} ${otherName}`;
+                    const relLabel = r.type.replace(/_/g, ' ');
+                    const otherLink = `<a href="${entityHrefById(other)}" style="color:inherit;text-decoration:underline;">${escapeHtml(otherName)}</a>`;
+                    detailHtml = `<div style="margin:0.2rem 0 0.5rem 1rem; color:${color};">${verb} relation: <strong>${relLabel}</strong> → ${otherLink}</div>`;
                   }
-                  if (h.change_type === 'restored') {
-                    detail = ' — restored to previous state';
-                  }
-                  return `<p style="margin:0.3rem 0;"><span style="color:#999;">${date}</span> <span style="font-weight:500;">${typeLabel}</span>${detail}</p>`;
+
+                  return `<div style="margin:0.4rem 0; padding:0.4rem 0; border-bottom:1px solid #f0f0f0;">
+                    <div><span style="color:#999;">${date}</span> <span style="font-weight:600; text-transform:capitalize;">${typeLabel}</span>${userName}</div>
+                    ${detailHtml}
+                  </div>`;
                 }).join('');
               } catch {
                 historyLog.textContent = 'Could not load history.';
