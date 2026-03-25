@@ -192,9 +192,7 @@ function getEntity(id) {
 function listEntities(typePlural, filterFn) {
   const list = store.byType[typePlural] || [];
   const filtered = filterFn ? list.filter(filterFn) : [...list];
-  // Randomize people; alphabetize everything else
-  if (typePlural === 'people') shuffle(filtered);
-  else filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+  filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
   return filtered;
 }
 

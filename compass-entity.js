@@ -247,9 +247,6 @@
           const list = document.getElementById('registry-list');
           if (!list) return;
           list.innerHTML = '';
-          if (type === 'people' && entries.length > 1) {
-            list.insertAdjacentHTML('beforebegin', RANDOM_ORDER_NOTE);
-          }
           entries.forEach(entry => {
             list.appendChild(renderRegistryCard(entry, type));
           });
