@@ -26,7 +26,7 @@ Compass documents are organized into two layers:
 Foundational documents that define principles, governance, and structural templates.
 
 - **[Charter](https://charter.henkaku.center)** — Values, governance principles, and operational commitments across 9 sections (hosted externally)
-- **Archetypes** — Structural templates for seven registry entry types: people, projects, initiatives, courses, theses, events, and institutions
+- **Archetypes** — Structural templates for sixteen registry entry types: people, projects, initiatives, institutions, courses, curricula, events, theses, posts, domains, places, publications, vectors, and deltas
 
 ### Emergent
 

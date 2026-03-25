@@ -453,7 +453,7 @@
                 if (data.role_categories) html += `<p><strong>Roles:</strong> ${data.role_categories.join(', ')}</p>`;
                 const netDomains = getRelated(data.id, { type: 'has_affinity_for' });
                 if (netDomains.length > 0) html += `<p><strong>Domains:</strong> ${netDomains.map(r => `<a href="${entityHref('domains', r.entity.id)}" style="color:inherit;text-decoration:underline dotted;">${getEntityDisplay(r.entity.id)}</a>`).join(', ')}</p>`;
-                if (data.background) html += `<p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.85rem;">${data.background}</p>`;
+                if (data.bio) html += `<p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.85rem;">${data.bio}</p>`;
                 break;
               case 'institutions':
                 if (data.institution_type) html += `<p><strong>Type:</strong> ${data.institution_type.replace(/_/g, ' ')}</p>`;

@@ -14,7 +14,7 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 **DNA** — Foundational documents that define principles, governance, and structural templates:
 - **Charter** — Values, governance, and operational commitments (9 sections). Lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center) (source: `https://charter.henkaku.center/content/CHARTER.md`)
-- **Archetypes** — Structural templates for eleven registry entry types (served from Registry at `/api/v1/compass/files/docs/ARCHETYPES.md`)
+- **Archetypes** — Structural templates for sixteen registry entry types (served from Registry at `/api/v1/compass/files/docs/ARCHETYPES.md`)
 
 **Emergent** — Living content instantiated from the foundational templates:
 - **Curriculum** — SDS Master's and PhD curriculum (served from Registry at `/api/v1/compass/files/docs/CURRICULUM.md`)
@@ -188,12 +188,12 @@ Sixteen entry types:
 - Sidebar and landing page show entity counts per type; empty types are grayed out but still clickable
 - Mermaid.js integration for rendering Gantt charts in markdown content (used in curricula detail views)
 - Summary, purpose, and notes fields render markdown links via `marked.parseInline()`
-- Entity domains now use `has_affinity_for` relations to domain entities (preferred over string-based `domains` array)
+- Entity domains use `has_affinity_for` relations to domain entities (string-based `domains` arrays have been removed from all templates)
 
 **Registry data** (served from Registry API):
 - Entities and relations accessed via `/api/v1/compass/entities` and `/api/v1/compass/relations`
 - Field names match Archetypes schemas; IDs follow patterns like `person_joiito`, `proj_compass`, `course_dna`, `event_2025_symposium`, `domain_complex_systems`, `place_henkaku_center`
-- Contains real data: 66 people (with portraits), 10 initiatives, 9 institutions, 3 projects, 28 courses, 2 curricula, 3 events, 53 domains, 4 places, 600+ relations
+- Contains real data: 210 entities across 14 types (66 people, 66 domains, 28 courses, 11 initiatives, 10 deltas, 9 institutions, 6 projects, 5 places, 4 vectors, 3 events, 2 curricula) and 717 relations
 - Portraits served via `/api/v1/compass/entities/{id}/files/{filename}`
 - Use `backup-registry.sh` (in `../registry/scripts/`) to download a full backup including compass data
 

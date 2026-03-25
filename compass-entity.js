@@ -387,9 +387,6 @@
             if (entry.bio_ja) {
               detailHtml += `<div class="person-bio">${marked.parse(entry.bio_ja)}</div>`;
             }
-            if (entry.background) {
-              detailHtml += `<p class="detail-label">Background</p><p>${entry.background}</p>`;
-            }
             if (entry.links && entry.links.length > 0) {
               detailHtml += `<p class="detail-label">Links</p>`;
               detailHtml += entry.links.map(l =>

@@ -4,7 +4,7 @@
 
 ## Current Status
 
-**The initial Charter draft is complete. A mechanism for faculty submissions and voting on future updates is being developed at [charter.henkaku.center](https://charter.henkaku.center). The Compass website and registry are live with very rough populated data across eight of eleven entry types. This data is extremely tentative.**
+**The initial Charter draft is complete. The Charter amendment and voting platform is live at [charter.henkaku.center](https://charter.henkaku.center). The Compass website and registry are live with 210 entities across 14 of 16 entity types and 717 relations.**
 
 ---
 
@@ -16,28 +16,27 @@ The Charter articulates shared values, principles, and governance commitments ac
 
 ### Archetypes
 
-Structural templates for fourteen registry entry types: People, Projects, Initiatives, Institutions, Courses, Curricula, Events, Theses, Posts, Places, Domains, Publications, Vectors, and Deltas. These templates define what information each type carries and how entries cross-reference each other.
+Structural templates for sixteen registry entry types: People, Projects, Initiatives, Institutions, Courses, Curricula, Events, Theses, Posts, Places, Domains, Publications, Vectors, and Deltas. These templates define what information each type carries and how entries cross-reference each other. Templates are served from the Registry API at `GET /compass/entity-types` — the single source of truth for entity schemas.
 
 ### Registry
 
-Twelve entity types are populated with real data:
+Fourteen of sixteen entity types are populated with real data (210 entities, 717 relations):
 
 | Type | Count | Description |
 |------|-------|-------------|
 | People | 66 | With portrait photos, affiliations, domain links, and project links |
-| Initiatives | 10 | Ongoing programs like Connected Learning & Neurodiversity, Probabilistic Computing, Artificial Life |
-| Institutions | 9 | Chiba Tech, Henkaku Center, SDS, plus partners |
-| Projects | 3 | Compass, SDS Launch, Antidisciplinary Charter |
+| Domains | 66 | Knowledge and research areas mapping the intellectual landscape |
 | Courses | 28 | All Master's and PhD courses including Henkaku electives |
-| Curricula | 2 | SDS Master's and PhD programs with milestones, requirements, and Gantt timelines |
-| Events | 3 | Including Connected Learning in Focus: Celebrating Neurodiversity (2023) |
-| Domains | 53 | Knowledge and research areas mapping the intellectual landscape |
+| Initiatives | 11 | Ongoing programs like AI in Education, Connected Learning & Neurodiversity, Probabilistic Computing |
+| Deltas | 10 | Observable changes — concrete evidence of ecosystem movement |
+| Institutions | 9 | Chiba Tech, Henkaku Center, SDS, plus partners (JPCCA, ALife Institute, AISI) |
+| Projects | 6 | Compass, Charter, SDS Launch, Student Portal, Degree Milestones |
 | Places | 5 | Physical locations including Henkaku Center, Tsudanuma Campus |
-| Vectors | 4 | Directional transformations |
-| Deltas | 10 | Observable changes |
-| Publications | 0 | Peer-reviewed academic works (structure ready, not yet populated) |
+| Vectors | 4 | Directional transformations worth pursuing |
+| Events | 3 | Including Connected Learning in Focus: Celebrating Neurodiversity (2023) |
+| Curricula | 2 | SDS Master's and PhD programs with milestones, requirements, and Gantt timelines |
 
-Two types remain as placeholders: **Theses** and **Posts**.
+Three types remain as placeholders: **Theses**, **Posts**, and **Publications**.
 
 ### Curricula
 
@@ -74,6 +73,5 @@ Compass is developed using LLM coding agents under human direction. This is deli
 
 ## What Still Needs Work
 
-1. **Charter Amendment System** — A mechanism for faculty to submit, discuss, and vote on Charter updates is being developed at [charter.henkaku.center](https://charter.henkaku.center)
-3. **Remaining Registry Types** — Theses and Posts are defined in the Archetypes but not yet populated
-4. **Agentic Contribution Interfaces** — Tools (chat bots, Slack integrations) for contributors without direct repository access
+1. **Remaining Registry Types** — Theses, Posts, and Publications are defined in the Archetypes but not yet populated
+2. **Agentic Contribution Interfaces** — Tools (chat bots, Slack integrations) for contributors without direct repository access

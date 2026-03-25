@@ -142,7 +142,7 @@ const docTocPages = ['charter', 'archetypes', 'about', 'status'];
 
 // --- Entity edit form constants ---
 
-var longTextFields = ['background', 'summary', 'purpose', 'ecosystem_role', 'description', 'scope', 'notes', 'mandate'];
+var longTextFields = ['bio', 'bio_ja', 'summary', 'purpose', 'ecosystem_role', 'description', 'scope', 'notes', 'mandate'];
 // Populated from API; empty fallback
 var statusOptionsByType = {};
 var editSkipFields = ['portrait', 'type'];
