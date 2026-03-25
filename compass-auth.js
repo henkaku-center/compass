@@ -68,7 +68,7 @@ function updateLoginUI() {
   if (isLoggedIn() && currentUser) {
     const displayName = currentUser.name || currentUser.email;
     const nameHtml = currentUser.compass_entity_id
-      ? `<a href="${entityHrefById(currentUser.compass_entity_id)}" class="username">${displayName}</a>`
+      ? `<a href="#people/${currentUser.compass_entity_id}" class="username">${displayName}</a>`
       : `<span class="username">${displayName}</span>`;
     loginEl.innerHTML = `${nameHtml} <button onclick="logout()">Logout</button>`;
   } else {
