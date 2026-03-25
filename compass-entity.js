@@ -2,6 +2,75 @@
 // Extracted from index.html. All functions reference globals defined in index.html,
 // compass-data.js, compass-config.js, and api-client.js.
 
+// --- Generic field renderer ---
+// Fields that are handled by type-specific code or are structural (not user-facing data).
+const SKIP_FIELDS = new Set([
+  'id', 'type', 'name', 'status', 'visibility', 'portrait', 'short_name', 'name_ja',
+]);
+
+function formatFieldLabel(key) {
+  return key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function renderFieldValue(value) {
+  if (value == null || value === '') return null;
+  if (Array.isArray(value)) {
+    if (value.length === 0) return null;
+    // Array of link objects
+    if (typeof value[0] === 'object' && value[0] !== null && ('url' in value[0] || 'label' in value[0])) {
+      return value.map(l =>
+        `<a href="${l.url}" target="_blank" rel="noopener">${l.label || l.type || l.url}</a>`
+      ).join('<br>');
+    }
+    // Array of objects with nested structure (schedules, exhibitions, etc.)
+    if (typeof value[0] === 'object') {
+      return value.map(item => {
+        const parts = Object.entries(item)
+          .filter(([, v]) => v != null && v !== '' && !Array.isArray(v))
+          .map(([, v]) => String(v));
+        return parts.join(' — ');
+      }).join('<br>');
+    }
+    return value.join(', ');
+  }
+  if (typeof value === 'object') {
+    // Location objects
+    if ('lat' in value && 'lng' in value) {
+      return `<a href="https://maps.google.com/?q=${value.lat},${value.lng}" target="_blank" rel="noopener">${Number(value.lat).toFixed(4)}, ${Number(value.lng).toFixed(4)}</a>`;
+    }
+    return JSON.stringify(value);
+  }
+  if (typeof value === 'string') {
+    // URLs
+    if (value.startsWith('http://') || value.startsWith('https://')) {
+      return `<a href="${value}" target="_blank" rel="noopener">${value}</a>`;
+    }
+    // Email
+    if (value.includes('@') && value.includes('.') && !value.includes(' ')) {
+      return `<a href="mailto:${value}">${value}</a>`;
+    }
+    // Markdown-ish content (multi-line or contains markdown links)
+    if (value.includes('\n') || value.match(/\[.*?\]\(.*?\)/)) {
+      return marked.parse(value);
+    }
+    // Inline markdown (single line that may have links)
+    return marked.parseInline(value);
+  }
+  return String(value);
+}
+
+function renderRemainingFields(entry, renderedFields) {
+  const skip = new Set([...SKIP_FIELDS, ...renderedFields]);
+  let html = '';
+  for (const [key, value] of Object.entries(entry)) {
+    if (skip.has(key)) continue;
+    const rendered = renderFieldValue(value);
+    if (rendered === null) continue;
+    html += `<p class="detail-label">${formatFieldLabel(key)}</p><div>${rendered}</div>`;
+  }
+  return html;
+}
+
     function renderRegistryCard(entry, type) {
       const card = document.createElement('div');
       card.className = 'registry-card';
@@ -378,8 +447,11 @@
 
           // Type-specific detail sections
           let detailHtml = '';
+          // Track which fields the type-specific code renders (so the generic fallback skips them)
+          const renderedFields = new Set(['summary']);
 
           if (type === 'people') {
+            ['job_title', 'email', 'bio', 'bio_ja', 'links', 'role_categories'].forEach(f => renderedFields.add(f));
             if (entry.job_title) {
               detailHtml += `<p class="detail-label">Title</p><p>${entry.job_title}</p>`;
             }
@@ -387,7 +459,6 @@
               detailHtml += `<p class="detail-label">Email</p><p><a href="mailto:${entry.email}">${entry.email}</a></p>`;
             }
             if (entry.bio) {
-              // Strip leading lines that are just a standalone markdown link (redundant with Links section)
               const bioText = entry.bio.replace(/^\s*\[.*?\]\(https?:\/\/.*?\)\s*\n+/, '');
               detailHtml += `<div class="person-bio">${marked.parse(bioText)}</div>`;
             }
@@ -401,7 +472,6 @@
               ).join('');
             }
             detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for']);
-            // Domains
             const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
             if (domainRels.length > 0) {
               detailHtml += `<p class="detail-label">Domains</p>`;
@@ -412,6 +482,7 @@
           }
 
           if (type === 'institutions') {
+            ['mandate', 'ecosystem_role', 'capabilities', 'constraints', 'charter_coverage', 'domains', 'location', 'founding_date', 'language', 'website'].forEach(f => renderedFields.add(f));
             if (entry.mandate) {
               detailHtml += `<p class="detail-label">Mandate</p><p>${entry.mandate}</p>`;
             }
@@ -450,6 +521,7 @@
           }
 
           if (type === 'projects') {
+            ['project_goals', 'completion_criterion', 'problem_statement', 'scope_boundaries', 'success_criteria', 'timeline', 'website'].forEach(f => renderedFields.add(f));
             if (entry.project_goals && entry.project_goals.length > 0) {
               detailHtml += `<p class="detail-label">Goals</p>`;
               detailHtml += entry.project_goals.map(g => `<p>${g}</p>`).join('');
@@ -476,6 +548,7 @@
           }
 
           if (type === 'initiatives') {
+            ['purpose', 'activities', 'health_indicators', 'review_cycle', 'notes', 'domains'].forEach(f => renderedFields.add(f));
             if (entry.purpose) {
               detailHtml += `<p class="detail-label">Purpose</p><p>${marked.parseInline(entry.purpose)}</p>`;
             }
@@ -496,6 +569,7 @@
           }
 
           if (type === 'courses') {
+            ['name_ja', 'credits', 'semester', 'semester_jp', 'schedule', 'schedule_jp', 'duration', 'program', 'outcomes', 'requirements', 'reading', 'links', 'charter_alignment', 'domains', 'notes'].forEach(f => renderedFields.add(f));
             if (entry.name_ja) {
               detailHtml += `<p style="opacity:0.6; margin-bottom:0.5rem;">${entry.name_ja}</p>`;
             }
@@ -541,6 +615,7 @@
           }
 
           if (type === 'curricula') {
+            ['name_ja', 'credit_requirement', 'mandatory_credits', 'elective_credits', 'duration', 'degree', 'notes', 'content'].forEach(f => renderedFields.add(f));
             if (entry.name_ja) {
               detailHtml += `<p style="opacity:0.6; margin-bottom:0.5rem;">${entry.name_ja}</p>`;
             }
@@ -584,6 +659,7 @@
           }
 
           if (type === 'events') {
+            ['date', 'time', 'location', 'purpose', 'duration', 'audience', 'schedule', 'exhibitions', 'expected_outcomes', 'domains', 'website', 'event_type'].forEach(f => renderedFields.add(f));
             if (entry.date) {
               detailHtml += `<p class="detail-label">Date</p><p>${entry.date}${entry.time ? ' · ' + entry.time : ''}</p>`;
             }
@@ -645,6 +721,7 @@
           }
 
           if (type === 'places') {
+            ['address', 'location', 'website', 'place_type'].forEach(f => renderedFields.add(f));
             if (entry.address) {
               detailHtml += `<p class="detail-label">Address</p><p>${entry.address}</p>`;
             }
@@ -662,6 +739,7 @@
           }
 
           if (type === 'publications') {
+            ['abstract', 'venue', 'doi', 'published_date', 'url', 'publication_type'].forEach(f => renderedFields.add(f));
             if (entry.abstract) {
               detailHtml += `<p class="detail-label">Abstract</p><p>${entry.abstract}</p>`;
             }
@@ -681,6 +759,7 @@
           }
 
           if (type === 'vectors') {
+            ['from', 'toward', 'domains', 'notes'].forEach(f => renderedFields.add(f));
             if (entry.from) {
               detailHtml += `<p class="detail-label">From</p><p>${entry.from}</p>`;
             }
@@ -697,6 +776,7 @@
           }
 
           if (type === 'deltas') {
+            ['from', 'toward', 'observed_date', 'domains', 'notes'].forEach(f => renderedFields.add(f));
             if (entry.from) {
               detailHtml += `<p class="detail-label">From</p><p>${entry.from}</p>`;
             }
@@ -714,6 +794,14 @@
             }
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
+
+          // For types with no specific block, render relations
+          if (renderedFields.size <= 1) {
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          // Generic fallback: render any data fields not handled by type-specific code
+          detailHtml += renderRemainingFields(entry, renderedFields);
 
           // Check-in section
           const checkinFormHtml = isLoggedIn() ? `
