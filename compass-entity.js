@@ -833,6 +833,12 @@ function renderRemainingFields(entry, renderedFields) {
                 <div id="checkin-log" style="color:#666;font-size:0.9em;"></div>
                 ${checkinFormHtml}
               </div>
+              <div style="margin-top: 1.5rem; border-top: 1px solid #e5e5e5; padding-top: 1.5rem;">
+                <details id="entity-history-details">
+                  <summary style="cursor:pointer; font-weight:600; font-size:0.95em; color:#333; user-select:none;">Change History</summary>
+                  <div id="entity-history-log" style="color:#666; font-size:0.85em; margin-top:0.75rem;">Loading...</div>
+                </details>
+              </div>
             </div>
           `;
 
@@ -863,6 +869,47 @@ function renderRemainingFields(entry, renderedFields) {
               return `<p style="margin:0.25rem 0;"><strong>${date}</strong>${c.note ? ' — ' + escapeHtml(c.note) : ''}</p>`;
             }).join('');
           }).catch(() => {});
+
+          // History: load on first expand
+          const historyDetails = document.getElementById('entity-history-details');
+          if (historyDetails) {
+            let historyLoaded = false;
+            historyDetails.addEventListener('toggle', async () => {
+              if (!historyDetails.open || historyLoaded) return;
+              historyLoaded = true;
+              const historyLog = document.getElementById('entity-history-log');
+              try {
+                const history = await api.getEntityHistory(resolvedId, 30);
+                if (history.length === 0) {
+                  historyLog.textContent = 'No changes recorded.';
+                  return;
+                }
+                historyLog.innerHTML = history.map(h => {
+                  const date = new Date(h.created_at).toLocaleString();
+                  const typeLabel = h.change_type.replace(/_/g, ' ');
+                  let detail = '';
+                  if (h.change_type === 'updated' && h.changes) {
+                    const fields = Object.keys(h.changes).filter(k => k !== 'from_change_id');
+                    if (fields.length > 0) {
+                      detail = ' — ' + fields.map(f => f.replace(/_/g, ' ')).join(', ');
+                    }
+                  }
+                  if ((h.change_type === 'relation_added' || h.change_type === 'relation_removed') && h.changes && h.changes.relation) {
+                    const r = h.changes.relation;
+                    const other = r.source_id === resolvedId ? r.target_id : r.source_id;
+                    const otherName = getEntityDisplay(other) || other;
+                    detail = ` — ${r.type.replace(/_/g, ' ')} ${otherName}`;
+                  }
+                  if (h.change_type === 'restored') {
+                    detail = ' — restored to previous state';
+                  }
+                  return `<p style="margin:0.3rem 0;"><span style="color:#999;">${date}</span> <span style="font-weight:500;">${typeLabel}</span>${detail}</p>`;
+                }).join('');
+              } catch {
+                historyLog.textContent = 'Could not load history.';
+              }
+            });
+          }
 
           // Check-in form handler
           const checkinForm = document.getElementById('checkin-form');

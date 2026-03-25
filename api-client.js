@@ -347,6 +347,13 @@ class ApiClient {
         return this._fetch('/api/v1/compass/health');
     }
 
+    // ── Compass: Entity History ────────────────────────────────
+
+    async getEntityHistory(entityId, limit = 50, offset = 0) {
+        const params = new URLSearchParams({ limit, offset });
+        return this._fetch(`/api/v1/compass/entities/${entityId}/history?${params}`);
+    }
+
     // ── Compass: Relations ──────────────────────────────────────
 
     async getRelations(sourceId = null, targetId = null, type = null) {
