@@ -135,7 +135,7 @@ const nodeColors = {};
 
 // Default entity types shown in network viz (override with ?show=type1,type2 in URL)
 const networkDefaultOn = new Set(['institutions', 'people', 'projects', 'initiatives', 'courses', 'events']);
-const networkAllTypes = ['institutions', 'people', 'projects', 'initiatives', 'courses', 'curricula', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas'];
+const networkAllTypes = ['institutions', 'people', 'projects', 'initiatives', 'courses', 'curricula', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas', 'theses', 'posts'];
 
 // Pages that get a right-hand document TOC
 const docTocPages = ['charter', 'archetypes', 'about', 'status'];
