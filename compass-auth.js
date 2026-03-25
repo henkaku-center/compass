@@ -25,15 +25,6 @@ function loadEntityTypes() {
         TYPE_FILE_MAP[t.db_type] = key;
         TYPE_FROM_PLURAL[key] = t.db_type;
       }
-      if (t.status_options) statusOptionsByType[key] = t.status_options;
-      if (t.entity_template) entityTemplates[key] = t.entity_template;
-      if (t.relation_types) {
-        relationTypesByEntity[key] = t.relation_types.map(r => ({
-          type: r.type,
-          targetTypes: r.target_types,
-          label: r.label
-        }));
-      }
     });
   }).catch(err => {
     console.warn('Entity types API unavailable, using defaults:', err.message);

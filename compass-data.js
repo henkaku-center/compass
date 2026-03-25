@@ -112,30 +112,11 @@ function flattenEntity(apiEntity) {
   return { id, type, name, ...data };
 }
 
-// Flat frontend entity → API create payload {id, type, name, data: {…}}
-function unflattenEntityForCreate(flat) {
-  const { id, type, name, ...rest } = flat;
-  return { id, type, name, data: rest };
-}
-
-// Flat frontend entity → API update payload {name, data: {…}}
-function unflattenEntityForUpdate(flat) {
-  const { id, type, name, ...rest } = flat;
-  return { name, data: rest };
-}
-
 // API relation {id, source_id, target_id, type, meta} → frontend {source, target, type, meta, _apiId}
 function flattenRelation(apiRel) {
   const rel = { source: apiRel.source_id, target: apiRel.target_id, type: apiRel.type, _apiId: apiRel.id };
   if (apiRel.meta) rel.meta = apiRel.meta;
   return rel;
-}
-
-// Frontend relation → API create payload {source_id, target_id, type, meta}
-function unflattenRelationForCreate(rel) {
-  const out = { source_id: rel.source, target_id: rel.target, type: rel.type };
-  if (rel.meta && Object.keys(rel.meta).length > 0) out.meta = rel.meta;
-  return out;
 }
 
 // Resolve portrait URL: handles API-stored portraits/ paths
