@@ -1,0 +1,1265 @@
+// compass-entity.js — Entity card rendering, list/detail pages, edit modal, and CRUD operations.
+// Extracted from index.html. All functions reference globals defined in index.html,
+// compass-data.js, compass-config.js, and api-client.js.
+
+    function renderRegistryCard(entry, type) {
+      const card = document.createElement('div');
+      card.className = 'registry-card';
+      card.dataset.entityId = entry.id;
+
+      let nameField = entry.name || entry.id;
+      let summaryField = entry.summary || '';
+      let metaHtml = '';
+      let relationsHtml = '';
+
+      // Status badge
+      if (entry.status) {
+        metaHtml += `<span class="status-badge ${entry.status}">${entry.status}</span>`;
+      }
+
+      switch (type) {
+        case 'institutions':
+          if (entry.institution_type) {
+            metaHtml += `<span class="type-badge">${entry.institution_type.replace(/_/g, ' ')}</span>`;
+          }
+          if (entry.short_name && !(entry.name || '').includes(`(${entry.short_name})`)) {
+            nameField = `${entry.name} (${entry.short_name})`;
+          }
+          break;
+
+        case 'people':
+          if (entry.name_ja) {
+            nameField += `<div style="opacity:0.5;font-weight:normal;font-size:0.85em;">${entry.name_ja}</div>`;
+          }
+          if (entry.role_categories) {
+            entry.role_categories.forEach(r => {
+              metaHtml += `<span class="type-badge">${r.replace(/_/g, ' ')}</span>`;
+            });
+          }
+          if (entry.job_title) {
+            // Build summary from job_title + affiliations from relations
+            const affiliations = getRelated(entry.id, { type: 'affiliated' });
+            const instNames = affiliations.map(a => getEntityDisplay(a.entity.id));
+            summaryField = entry.job_title + (instNames.length > 0 ? ' — ' + instNames.join(', ') : '');
+          }
+          // Show domains from affinity relations
+          const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
+          if (domainRels.length > 0) {
+            relationsHtml += `<strong>Domains:</strong> ${domainRels.map(r =>
+              `<a href="${entityHref('domains', r.entity.id)}" style="color:inherit;text-decoration:underline dotted;text-underline-offset:2px;">${getEntityDisplay(r.entity.id)}</a>`
+            ).join(', ')}`;
+          }
+          break;
+
+        case 'projects':
+          if (entry.domains) {
+            entry.domains.forEach(d => {
+              metaHtml += `<span class="type-badge">${d}</span>`;
+            });
+          }
+          break;
+
+        case 'initiatives':
+          if (entry.domains) {
+            entry.domains.forEach(d => {
+              metaHtml += `<span class="type-badge">${d}</span>`;
+            });
+          }
+          break;
+
+        case 'courses':
+          if (entry.short_name && !(entry.name || '').includes(`(${entry.short_name})`)) {
+            nameField = `${entry.name} (${entry.short_name})`;
+          }
+          metaHtml += `<span class="type-badge">${entry.credits} credit${entry.credits !== 1 ? 's' : ''}</span>`;
+          if (entry.duration) {
+            metaHtml += `<span class="type-badge">${entry.duration}</span>`;
+          }
+          if (entry.program) {
+            entry.program.forEach(p => {
+              metaHtml += `<span class="type-badge">${p.replace(/_/g, ' ')}</span>`;
+            });
+          }
+          if (entry.domains) {
+            relationsHtml += `<strong>Domains:</strong> ${renderDomainLinks(entry.domains)}`;
+          }
+          break;
+
+        case 'curricula':
+          if (entry.credit_requirement) {
+            metaHtml += `<span class="type-badge">${entry.credit_requirement} credits</span>`;
+          }
+          if (entry.duration) {
+            metaHtml += `<span class="type-badge">${entry.duration}</span>`;
+          }
+          break;
+
+        case 'events':
+          if (entry.event_type) {
+            metaHtml += `<span class="type-badge">${entry.event_type}</span>`;
+          }
+          if (entry.date) {
+            metaHtml += `<span class="type-badge">${entry.date}</span>`;
+          }
+          if (entry.location && entry.location.venue) {
+            relationsHtml += `<strong>Location:</strong> ${entry.location.venue}`;
+          }
+          break;
+
+        case 'domains':
+          break;
+
+        case 'places':
+          if (entry.place_type) {
+            metaHtml += `<span class="type-badge">${entry.place_type}</span>`;
+          }
+          if (entry.address) {
+            relationsHtml += `<strong>Address:</strong> ${entry.address}`;
+          }
+          break;
+
+        case 'publications':
+          if (entry.publication_type) {
+            metaHtml += `<span class="type-badge">${entry.publication_type.replace(/_/g, ' ')}</span>`;
+          }
+          if (entry.published_date) {
+            metaHtml += `<span class="type-badge">${entry.published_date}</span>`;
+          }
+          if (entry.venue) {
+            relationsHtml += `<strong>Venue:</strong> ${entry.venue}`;
+          }
+          break;
+
+        case 'vectors':
+          if (entry.from) {
+            relationsHtml += `<strong>From:</strong> ${entry.from}`;
+          }
+          if (entry.toward) {
+            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Toward:</strong> ${entry.toward}`;
+          }
+          if (entry.domains) {
+            entry.domains.forEach(d => { metaHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          break;
+
+        case 'deltas':
+          if (entry.from) {
+            relationsHtml += `<strong>From:</strong> ${entry.from}`;
+          }
+          if (entry.toward) {
+            relationsHtml += (relationsHtml ? '<br>' : '') + `<strong>Toward:</strong> ${entry.toward}`;
+          }
+          if (entry.observed_date) {
+            metaHtml += `<span class="type-badge">${entry.observed_date}</span>`;
+          }
+          if (entry.domains) {
+            entry.domains.forEach(d => { metaHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          break;
+      }
+
+      // Generic relations for card summary (non-people types that don't already set relationsHtml)
+      if (type !== 'people' && type !== 'courses' && type !== 'events') {
+        const genRels = renderRelationsHtml(entry.id);
+        if (genRels) {
+          relationsHtml += (relationsHtml ? '<br>' : '') + genRels;
+        }
+      }
+
+      const portraitSrc = resolvePortraitUrl(entry, api);
+      const portraitHtml = `<img class="card-portrait" src="${portraitSrc}" alt="" loading="lazy">`;
+
+      card.innerHTML = `
+        <div class="card-header">
+          ${portraitHtml}
+          <div class="card-name">${nameField}</div>
+        </div>
+        <div class="card-meta">${metaHtml}</div>
+        ${summaryField ? `<div class="card-summary">${summaryField}</div>` : ''}
+        ${relationsHtml ? `<div class="card-relations">${relationsHtml}</div>` : ''}
+      `;
+
+      card.addEventListener('click', (e) => {
+        // Don't navigate if clicking a link
+        if (e.target.tagName === 'A') return;
+        location.hash = entityHref(type, entry.id);
+      });
+
+      return card;
+    }
+
+    function filterRegistryList(query) {
+      const list = document.getElementById('registry-list');
+      if (!list) return;
+      const q = query.toLowerCase().trim();
+      Array.from(list.children).forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = !q || text.includes(q) ? '' : 'none';
+      });
+    }
+
+    function toggleListView(mode) {
+      const list = document.getElementById('registry-list');
+      if (!list) return;
+      if (mode === 'list') {
+        list.classList.add('list-mode');
+      } else {
+        list.classList.remove('list-mode');
+      }
+      localStorage.setItem('compass_view_mode', mode);
+    }
+
+    function loadRegistryList(type) {
+      clearOrientationRotator();
+      currentDoc = type;
+      showSidebar(type);
+
+      const meta = registryMeta[type];
+      const addNewBtn = isLoggedIn()
+        ? `<button class="new-entity-btn" onclick="showNewEntityModal('${type}')">+ New ${meta.singular}</button>`
+        : '';
+      contentEl.innerHTML = `
+        <div class="registry-page-header">
+          <h1>${meta.plural}${addNewBtn}</h1>
+          <p>${meta.description}</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <input type="text" id="registry-search" placeholder="Filter by keyword…"
+            style="flex:1;max-width:480px;padding:8px 12px;font-size:15px;font-family:inherit;border:1px solid #ccc;"
+            oninput="filterRegistryList(this.value)">
+          <select class="view-toggle" id="view-toggle" onchange="toggleListView(this.value)">
+            <option value="cards">Cards</option>
+            <option value="list">List</option>
+          </select>
+        </div>
+        <div class="registry-list" id="registry-list">
+          <p style="color: #999;">Loading&hellip;</p>
+        </div>
+      `;
+
+      updateActiveNavLink(type);
+      window.scrollTo(0, 0);
+
+      ensureStore()
+        .then(() => {
+          const entries = listEntities(type, e => !e.status || e.status !== 'cancelled');
+          const list = document.getElementById('registry-list');
+          if (!list) return;
+          list.innerHTML = '';
+          if (type === 'people' && entries.length > 1) {
+            list.insertAdjacentHTML('beforebegin', RANDOM_ORDER_NOTE);
+          }
+          entries.forEach(entry => {
+            list.appendChild(renderRegistryCard(entry, type));
+          });
+          // Restore saved view mode
+          const savedMode = localStorage.getItem('compass_view_mode') || 'cards';
+          const toggle = document.getElementById('view-toggle');
+          if (toggle) toggle.value = savedMode;
+          if (savedMode === 'list') list.classList.add('list-mode');
+        })
+        .catch(err => {
+          const list = document.getElementById('registry-list');
+          if (list) {
+            list.innerHTML = `<p style="color: #c62828;">Error loading data: ${err.message}</p>`;
+          }
+        });
+    }
+
+    function loadEntityDetail(type, entityId) {
+      clearOrientationRotator();
+      currentDoc = type;
+      showSidebar(type);
+
+      const meta = registryMeta[type];
+      contentEl.innerHTML = `
+        <div class="entity-detail">
+          <p style="color: #999;">Loading&hellip;</p>
+        </div>
+      `;
+
+      updateActiveNavLink(type);
+      window.scrollTo(0, 0);
+
+      ensureStore()
+        .then(() => {
+          // Resolve slug to full entity ID (e.g. "compass" → "proj_compass")
+          const resolvedId = slugToEntityId(type, entityId);
+          const entry = store.entities[resolvedId];
+          if (!entry) {
+            contentEl.innerHTML = `
+              <div class="entity-detail">
+                <a href="#${type}" class="entity-detail-back">&larr; Back to ${meta.plural}</a>
+                <p style="color: #c62828;">Entity not found: ${escapeHtml(entityId)}</p>
+              </div>
+            `;
+            return;
+          }
+
+          const editBtnHtml = isLoggedIn()
+            ? `<button class="card-edit-btn" id="entity-detail-edit-btn">Edit</button>`
+            : '';
+
+          // Header info
+          let nameHtml = entry.name || entry.id;
+          if ((type === 'institutions' || type === 'courses' || type === 'curricula') && entry.short_name && !(entry.name || '').includes(`(${entry.short_name})`)) {
+            nameHtml = `${entry.name} (${entry.short_name})`;
+          }
+
+          let nameJaHtml = '';
+          if (type === 'people' && entry.name_ja) {
+            nameJaHtml = `<div class="entity-detail-name-ja">${entry.name_ja}</div>`;
+          }
+
+          // Badges
+          let badgesHtml = '';
+          if (entry.status) {
+            badgesHtml += `<span class="status-badge ${entry.status}">${entry.status}</span>`;
+          }
+          if (type === 'people' && entry.role_categories) {
+            entry.role_categories.forEach(r => {
+              badgesHtml += `<span class="type-badge">${r.replace(/_/g, ' ')}</span>`;
+            });
+          }
+          if (type === 'institutions' && entry.institution_type) {
+            badgesHtml += `<span class="type-badge">${entry.institution_type.replace(/_/g, ' ')}</span>`;
+          }
+          if (type === 'projects' && entry.domains) {
+            entry.domains.forEach(d => { badgesHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          if (type === 'initiatives' && entry.domains) {
+            entry.domains.forEach(d => { badgesHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          if (type === 'courses') {
+            badgesHtml += `<span class="type-badge">${entry.credits} credit${entry.credits !== 1 ? 's' : ''}</span>`;
+            if (entry.duration) { badgesHtml += `<span class="type-badge">${entry.duration}</span>`; }
+            if (entry.program) {
+              entry.program.forEach(p => { badgesHtml += `<span class="type-badge">${p.replace(/_/g, ' ')}</span>`; });
+            }
+          }
+          if (type === 'curricula') {
+            if (entry.credit_requirement) badgesHtml += `<span class="type-badge">${entry.credit_requirement} credits</span>`;
+            if (entry.duration) badgesHtml += `<span class="type-badge">${entry.duration}</span>`;
+            if (entry.degree) badgesHtml += `<span class="type-badge">${entry.degree}</span>`;
+          }
+          if (type === 'events') {
+            if (entry.event_type) badgesHtml += `<span class="type-badge">${entry.event_type}</span>`;
+            if (entry.date) badgesHtml += `<span class="type-badge">${entry.date}</span>`;
+          }
+          if (type === 'places' && entry.place_type) {
+            badgesHtml += `<span class="type-badge">${entry.place_type}</span>`;
+          }
+          if (type === 'publications') {
+            if (entry.publication_type) badgesHtml += `<span class="type-badge">${entry.publication_type.replace(/_/g, ' ')}</span>`;
+            if (entry.published_date) badgesHtml += `<span class="type-badge">${entry.published_date}</span>`;
+          }
+          if (type === 'vectors' && entry.domains) {
+            entry.domains.forEach(d => { badgesHtml += `<span class="type-badge">${d}</span>`; });
+          }
+          if (type === 'deltas') {
+            if (entry.observed_date) badgesHtml += `<span class="type-badge">${entry.observed_date}</span>`;
+            if (entry.domains) {
+              entry.domains.forEach(d => { badgesHtml += `<span class="type-badge">${d}</span>`; });
+            }
+          }
+
+          // Summary
+          let summaryHtml = '';
+          if (type === 'people' && entry.job_title) {
+            const affiliations = getRelated(entry.id, { type: 'affiliated' });
+            const instLinks = affiliations.map(a => entityLink(a.entity.id, getEntityDisplay(a.entity.id)));
+            summaryHtml = entry.job_title + (instLinks.length > 0 ? ' — ' + instLinks.join(', ') : '');
+          } else if (entry.summary) {
+            summaryHtml = marked.parseInline(entry.summary);
+          }
+
+          // Portrait
+          const portraitSrc = resolvePortraitUrl(entry, api);
+
+          // Type-specific detail sections
+          let detailHtml = '';
+
+          if (type === 'people') {
+            if (entry.job_title) {
+              detailHtml += `<p class="detail-label">Title</p><p>${entry.job_title}</p>`;
+            }
+            if (entry.email) {
+              detailHtml += `<p class="detail-label">Email</p><p><a href="mailto:${entry.email}">${entry.email}</a></p>`;
+            }
+            if (entry.bio) {
+              // Strip leading lines that are just a standalone markdown link (redundant with Links section)
+              const bioText = entry.bio.replace(/^\s*\[.*?\]\(https?:\/\/.*?\)\s*\n+/, '');
+              detailHtml += `<div class="person-bio">${marked.parse(bioText)}</div>`;
+            }
+            if (entry.bio_ja) {
+              detailHtml += `<div class="person-bio">${marked.parse(entry.bio_ja)}</div>`;
+            }
+            if (entry.background) {
+              detailHtml += `<p class="detail-label">Background</p><p>${entry.background}</p>`;
+            }
+            if (entry.links && entry.links.length > 0) {
+              detailHtml += `<p class="detail-label">Links</p>`;
+              detailHtml += entry.links.map(l =>
+                `<p><a href="${l.url}" target="_blank" rel="noopener">${l.type || l.url}</a></p>`
+              ).join('');
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for']);
+            // Domains
+            const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
+            if (domainRels.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p>`;
+              detailHtml += `<p>${domainRels.map(r =>
+                `<a href="${entityHref('domains', r.entity.id)}">${getEntityDisplay(r.entity.id)}</a>`
+              ).join(', ')}</p>`;
+            }
+          }
+
+          if (type === 'institutions') {
+            if (entry.mandate) {
+              detailHtml += `<p class="detail-label">Mandate</p><p>${entry.mandate}</p>`;
+            }
+            if (entry.ecosystem_role) {
+              detailHtml += `<p class="detail-label">Ecosystem Role</p><p>${entry.ecosystem_role}</p>`;
+            }
+            if (entry.capabilities && entry.capabilities.length > 0) {
+              detailHtml += `<p class="detail-label">Capabilities</p><p>${entry.capabilities.join(', ')}</p>`;
+            }
+            if (entry.constraints && entry.constraints.length > 0) {
+              detailHtml += `<p class="detail-label">Constraints</p><p>${entry.constraints.join(', ')}</p>`;
+            }
+            if (entry.charter_coverage) {
+              detailHtml += `<p class="detail-label">Charter Coverage</p><p>${entry.charter_coverage}</p>`;
+            }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
+            }
+            if (entry.location) {
+              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+            }
+            if (entry.founding_date) {
+              detailHtml += `<p class="detail-label">Founded</p><p>${entry.founding_date}</p>`;
+            }
+            if (entry.language) {
+              detailHtml += `<p class="detail-label">Language</p><p>${entry.language}</p>`;
+            }
+            if (entry.website) {
+              detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'projects') {
+            if (entry.project_goals && entry.project_goals.length > 0) {
+              detailHtml += `<p class="detail-label">Goals</p>`;
+              detailHtml += entry.project_goals.map(g => `<p>${g}</p>`).join('');
+            }
+            if (entry.completion_criterion) {
+              detailHtml += `<p class="detail-label">Completion Criterion</p><p>${entry.completion_criterion}</p>`;
+            }
+            if (entry.problem_statement) {
+              detailHtml += `<p class="detail-label">Problem Statement</p><p>${entry.problem_statement}</p>`;
+            }
+            if (entry.scope_boundaries) {
+              detailHtml += `<p class="detail-label">Scope Boundaries</p><p>${entry.scope_boundaries}</p>`;
+            }
+            if (entry.success_criteria) {
+              detailHtml += `<p class="detail-label">Success Criteria</p><p>${entry.success_criteria}</p>`;
+            }
+            if (entry.timeline) {
+              detailHtml += `<p class="detail-label">Timeline</p><p>${entry.timeline}</p>`;
+            }
+            if (entry.website) {
+              detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'initiatives') {
+            if (entry.purpose) {
+              detailHtml += `<p class="detail-label">Purpose</p><p>${marked.parseInline(entry.purpose)}</p>`;
+            }
+            if (entry.activities && entry.activities.length > 0) {
+              detailHtml += `<p class="detail-label">Activities</p>`;
+              detailHtml += entry.activities.map(a => `<p>${a}</p>`).join('');
+            }
+            if (entry.health_indicators && entry.health_indicators.length > 0) {
+              detailHtml += `<p class="detail-label">Health Indicators</p><p>${entry.health_indicators.join(', ')}</p>`;
+            }
+            if (entry.review_cycle) {
+              detailHtml += `<p class="detail-label">Review Cycle</p><p>${entry.review_cycle}</p>`;
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'courses') {
+            if (entry.name_ja) {
+              detailHtml += `<p style="opacity:0.6; margin-bottom:0.5rem;">${entry.name_ja}</p>`;
+            }
+            if (entry.credits) {
+              detailHtml += `<p class="detail-label">Credits</p><p>${entry.credits}</p>`;
+            }
+            if (entry.semester) {
+              detailHtml += `<p class="detail-label">Semester</p><p>${entry.semester}${entry.semester_jp ? ' / ' + entry.semester_jp : ''}</p>`;
+            }
+            if (entry.schedule) {
+              detailHtml += `<p class="detail-label">Schedule</p><p>${entry.schedule}${entry.schedule_jp && entry.schedule_jp !== '未定' ? ' / ' + entry.schedule_jp : ''}${entry.duration ? ' (' + entry.duration + ')' : ''}</p>`;
+            }
+            if (entry.program && entry.program.length > 0) {
+              detailHtml += `<p class="detail-label">Program</p><p>${entry.program.map(p => p.replace(/_/g, ' ')).join(', ')}</p>`;
+            }
+            if (entry.outcomes) {
+              detailHtml += `<p class="detail-label">Learning Outcomes</p><p>${entry.outcomes}</p>`;
+            }
+            if (entry.requirements) {
+              detailHtml += `<p class="detail-label">Requirements</p><p>${entry.requirements}</p>`;
+            }
+            if (entry.reading) {
+              detailHtml += `<p class="detail-label">Reading</p><p>${entry.reading}</p>`;
+            }
+            if (entry.links && entry.links.length > 0) {
+              detailHtml += `<p class="detail-label">Links</p>`;
+              detailHtml += entry.links.map(l =>
+                `<p><a href="${l.url}" target="_blank" rel="noopener">${l.label || l.url}</a></p>`
+              ).join('');
+            }
+            if (entry.charter_alignment && entry.charter_alignment.length > 0) {
+              detailHtml += `<p class="detail-label">Charter Alignment</p>`;
+              detailHtml += entry.charter_alignment.map(a => `<p>${a}</p>`).join('');
+            }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p>`;
+              detailHtml += `<p>${renderDomainLinks(entry.domains)}</p>`;
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'curricula') {
+            if (entry.name_ja) {
+              detailHtml += `<p style="opacity:0.6; margin-bottom:0.5rem;">${entry.name_ja}</p>`;
+            }
+            if (entry.credit_requirement) {
+              detailHtml += `<p class="detail-label">Credit Requirement</p><p>${entry.credit_requirement}</p>`;
+            }
+            if (entry.mandatory_credits) {
+              detailHtml += `<p class="detail-label">Mandatory Credits</p><p>${entry.mandatory_credits}</p>`;
+            }
+            if (entry.elective_credits) {
+              detailHtml += `<p class="detail-label">Elective Credits</p><p>${entry.elective_credits}</p>`;
+            }
+            if (entry.duration) {
+              detailHtml += `<p class="detail-label">Duration</p><p>${entry.duration}</p>`;
+            }
+            if (entry.degree) {
+              detailHtml += `<p class="detail-label">Degree</p><p>${entry.degree}</p>`;
+            }
+            // Related courses grouped by relation type
+            const requiredCourses = getRelated(entry.id, { type: 'requires' });
+            const electiveCourses = getRelated(entry.id, { type: 'accepts' });
+            if (requiredCourses.length > 0) {
+              detailHtml += `<p class="detail-label">Mandatory Courses</p>`;
+              detailHtml += `<p>${requiredCourses.map(r =>
+                `<a href="${entityHref('courses', r.entity.id)}">${getEntityDisplay(r.entity.id)}</a>`
+              ).join(', ')}</p>`;
+            }
+            if (electiveCourses.length > 0) {
+              detailHtml += `<p class="detail-label">Elective Courses</p>`;
+              detailHtml += `<p>${electiveCourses.map(r =>
+                `<a href="${entityHref('courses', r.entity.id)}">${getEntityDisplay(r.entity.id)}</a>`
+              ).join(', ')}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id, ['requires', 'accepts']);
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
+            }
+            if (entry.content) {
+              detailHtml += `<div class="curriculum-content">${marked.parse(entry.content)}</div>`;
+            }
+          }
+
+          if (type === 'events') {
+            if (entry.date) {
+              detailHtml += `<p class="detail-label">Date</p><p>${entry.date}${entry.time ? ' · ' + entry.time : ''}</p>`;
+            }
+            if (entry.location) {
+              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+            }
+            if (entry.purpose) {
+              detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
+            }
+            if (entry.duration) {
+              detailHtml += `<p class="detail-label">Duration</p><p>${entry.duration}</p>`;
+            }
+            if (entry.audience) {
+              detailHtml += `<p class="detail-label">Audience</p><p>${entry.audience}</p>`;
+            }
+            if (entry.schedule && entry.schedule.length > 0) {
+              detailHtml += `<p class="detail-label">Schedule</p>`;
+              detailHtml += entry.schedule.map(s => {
+                let speakers = '';
+                if (s.speakers && s.speakers.length > 0) {
+                  speakers = ' — ' + s.speakers.map(sp =>
+                    sp.person_id ? entityLink(sp.person_id, personName(sp.person_id)) : sp.external_name
+                  ).join(', ');
+                }
+                return `<p>${s.time} ${s.title}${speakers}</p>`;
+              }).join('');
+            }
+            if (entry.exhibitions && entry.exhibitions.length > 0) {
+              detailHtml += `<p class="detail-label">Exhibitions</p>`;
+              detailHtml += entry.exhibitions.map(ex => {
+                let people = '';
+                if (ex.participants && ex.participants.length > 0) {
+                  people = ' — ' + ex.participants.map(p =>
+                    p.person_id ? entityLink(p.person_id, personName(p.person_id)) : p.external_name
+                  ).join(', ');
+                }
+                return `<p>${ex.title}${people}</p>`;
+              }).join('');
+            }
+            if (entry.expected_outcomes && entry.expected_outcomes.length > 0) {
+              detailHtml += `<p class="detail-label">Expected Outcomes</p>`;
+              detailHtml += entry.expected_outcomes.map(o => `<p>${o}</p>`).join('');
+            }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
+            }
+            if (entry.website) {
+              detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'domains') {
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'places') {
+            if (entry.address) {
+              detailHtml += `<p class="detail-label">Address</p><p>${entry.address}</p>`;
+            }
+            if (entry.location) {
+              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+            }
+            if (entry.website) {
+              detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'publications') {
+            if (entry.abstract) {
+              detailHtml += `<p class="detail-label">Abstract</p><p>${entry.abstract}</p>`;
+            }
+            if (entry.venue) {
+              detailHtml += `<p class="detail-label">Venue</p><p>${entry.venue}</p>`;
+            }
+            if (entry.doi) {
+              detailHtml += `<p class="detail-label">DOI</p><p><a href="https://doi.org/${entry.doi}" target="_blank" rel="noopener">${entry.doi}</a></p>`;
+            }
+            if (entry.published_date) {
+              detailHtml += `<p class="detail-label">Published</p><p>${entry.published_date}</p>`;
+            }
+            if (entry.url) {
+              detailHtml += `<p class="detail-label">URL</p><p><a href="${entry.url}" target="_blank" rel="noopener">${entry.url}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'vectors') {
+            if (entry.from) {
+              detailHtml += `<p class="detail-label">From</p><p>${entry.from}</p>`;
+            }
+            if (entry.toward) {
+              detailHtml += `<p class="detail-label">Toward</p><p>${entry.toward}</p>`;
+            }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'deltas') {
+            if (entry.from) {
+              detailHtml += `<p class="detail-label">From</p><p>${entry.from}</p>`;
+            }
+            if (entry.toward) {
+              detailHtml += `<p class="detail-label">Toward</p><p>${entry.toward}</p>`;
+            }
+            if (entry.observed_date) {
+              detailHtml += `<p class="detail-label">Observed</p><p>${entry.observed_date}</p>`;
+            }
+            if (entry.domains && entry.domains.length > 0) {
+              detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          // Check-in section
+          const checkinFormHtml = isLoggedIn() ? `
+            <form id="checkin-form" style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
+              <input type="text" id="checkin-note" placeholder="Check-in note (optional)" maxlength="500" style="flex:1; padding: 0.4rem 0.6rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9em;">
+              <button type="submit" style="padding: 0.4rem 1rem; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em;">Check in</button>
+            </form>` : '';
+
+          contentEl.innerHTML = `
+            <div class="entity-detail">
+              <div class="entity-detail-top-row">
+                <a href="#${type}" class="entity-detail-back">&larr; Back to ${meta.plural}</a>
+                ${editBtnHtml}
+              </div>
+              <div class="entity-detail-header">
+                <img class="entity-detail-portrait" src="${portraitSrc}" alt="">
+                <div class="entity-detail-header-info">
+                  <h1>${nameHtml}</h1>
+                  ${nameJaHtml}
+                  ${badgesHtml ? `<div class="entity-detail-badges">${badgesHtml}</div>` : ''}
+                </div>
+              </div>
+              ${summaryHtml ? `<div class="entity-detail-summary">${summaryHtml}</div>` : ''}
+              <div class="entity-detail-section">
+                ${detailHtml}
+              </div>
+              <div style="margin-top: 2rem; border-top: 1px solid #e5e5e5; padding-top: 1.5rem;">
+                <p class="detail-label" style="display: flex; align-items: center; gap: 0.5rem;">Health <span id="health-dot" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#ccc;"></span> <span id="health-score" style="font-weight:normal;color:#666;font-size:0.85em;"></span></p>
+                <div id="checkin-log" style="color:#666;font-size:0.9em;"></div>
+                ${checkinFormHtml}
+              </div>
+            </div>
+          `;
+
+          // Render any mermaid diagrams in the detail content
+          renderMermaidDiagrams();
+
+          // Load health + check-ins asynchronously
+          api.getEntityHealth(resolvedId).then(h => {
+            const dot = document.getElementById('health-dot');
+            const score = document.getElementById('health-score');
+            if (dot) {
+              const hue = Math.round(h.health * 120); // 0=red, 120=green
+              dot.style.background = `hsl(${hue}, 70%, 50%)`;
+            }
+            if (score) score.textContent = h.health > 0 ? `${Math.round(h.health * 100)}%` : 'No check-ins';
+          }).catch(() => {});
+
+          api.getCheckIns(resolvedId, 5).then(checkins => {
+            const log = document.getElementById('checkin-log');
+            if (!log) return;
+            if (checkins.length === 0) {
+              log.textContent = 'No check-ins yet.';
+              return;
+            }
+            log.innerHTML = checkins.map(c => {
+              const date = new Date(c.created_at).toLocaleDateString();
+              const userName = getEntityDisplay(c.user_id) || 'Unknown';
+              return `<p style="margin:0.25rem 0;"><strong>${date}</strong>${c.note ? ' — ' + escapeHtml(c.note) : ''}</p>`;
+            }).join('');
+          }).catch(() => {});
+
+          // Check-in form handler
+          const checkinForm = document.getElementById('checkin-form');
+          if (checkinForm) {
+            checkinForm.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const noteInput = document.getElementById('checkin-note');
+              const note = noteInput.value.trim() || null;
+              try {
+                await api.createCheckIn(resolvedId, note);
+                noteInput.value = '';
+                // Reload the detail page to refresh health + log
+                loadEntityDetail(type, entityId);
+              } catch (err) {
+                alert('Check-in failed: ' + err.message);
+              }
+            });
+          }
+
+          // Edit button handler
+          const editBtn = document.getElementById('entity-detail-edit-btn');
+          if (editBtn) {
+            editBtn.addEventListener('click', () => {
+              showEditModal(entry, type);
+            });
+          }
+        })
+        .catch(err => {
+          contentEl.innerHTML = `
+            <div class="entity-detail">
+              <a href="#${type}" class="entity-detail-back">&larr; Back to ${meta.plural}</a>
+              <p style="color: #c62828;">Error loading data: ${err.message}</p>
+            </div>
+          `;
+        });
+    }
+
+    function refOptionsFromStore(typePlural, selectedId) {
+      var list = store.byType[typePlural] || [];
+      var html = '<option value="">-- None --</option>';
+      list.forEach(function(e) {
+        var label = (e.short_name && !(e.name || '').includes('(' + e.short_name + ')')) ? e.name + ' (' + e.short_name + ')' : (e.name || e.id);
+        html += '<option value="' + escapeAttr(e.id) + '"' +
+          (e.id === selectedId ? ' selected' : '') + '>' + escapeHtml(label) + '</option>';
+      });
+      return html;
+    }
+
+    // Build combined options from multiple type arrays
+    function refOptionsMultiType(typeList, selectedId) {
+      var html = '<option value="">-- None --</option>';
+      typeList.forEach(function(typePlural) {
+        var list = store.byType[typePlural] || [];
+        list.forEach(function(e) {
+          var label = (e.short_name && !(e.name || '').includes('(' + e.short_name + ')')) ? e.name + ' (' + e.short_name + ')' : (e.name || e.id);
+          html += '<option value="' + escapeAttr(e.id) + '"' +
+            (e.id === selectedId ? ' selected' : '') + '>' + escapeHtml(label) + '</option>';
+        });
+      });
+      return html;
+    }
+
+    // Render a single relation row in the edit modal
+    function renderRelationRowHtml(rel) {
+      var targetEntity = store.entities[rel.target];
+      var targetName = targetEntity ? getEntityFullDisplay(rel.target) : rel.target;
+      var relLabel = getRelationLabel(rel.type);
+      var metaStr = '';
+      if (rel.meta) {
+        var parts = [];
+        Object.entries(rel.meta).forEach(function(pair) { parts.push(pair[0] + ': ' + pair[1]); });
+        metaStr = parts.join(', ');
+      }
+      return '<div class="array-item relation-row" data-source="' + escapeAttr(rel.source) +
+        '" data-target="' + escapeAttr(rel.target) + '" data-type="' + escapeAttr(rel.type) + '">' +
+        '<div class="sub-fields"><span class="rel-type-label">' + escapeHtml(relLabel) + '</span> ' +
+        '<span class="rel-target-name">' + escapeHtml(targetName) + '</span>' +
+        (metaStr ? ' <span style="opacity:0.6;font-size:0.85em;">(' + escapeHtml(metaStr) + ')</span>' : '') +
+        '</div>' +
+        '<button type="button" class="remove-item-btn" onclick="this.closest(\'.relation-row\').remove()">\u00d7</button></div>';
+    }
+
+    // Render the relation editor section for an entity
+    function buildRelationEditor(entityId, type) {
+      var related = getRelated(entityId);
+      var html = '<div class="form-group"><label>Relations</label>';
+      html += '<div class="array-items" id="relation-items">';
+
+      // Show outgoing relations (source = this entity)
+      store.relations.forEach(function(r) {
+        if (r.source === entityId) {
+          html += renderRelationRowHtml(r);
+        }
+      });
+
+      // Show incoming relations (target = this entity) with inverse label
+      store.relations.forEach(function(r) {
+        if (r.target === entityId) {
+          var inverse = RELATION_TYPES[r.type] ? RELATION_TYPES[r.type].inverse : r.type;
+          html += renderRelationRowHtml({ source: entityId, target: r.source, type: inverse, meta: r.meta });
+        }
+      });
+
+      html += '</div>';
+
+      // Add relation controls
+      var relTypes = relationTypesByEntity[type] || [];
+      if (relTypes.length > 0) {
+        html += '<div class="add-relation-controls" style="display:flex;gap:0.5rem;margin-top:0.5rem;flex-wrap:wrap;">';
+        html += '<select id="new-rel-type">';
+        relTypes.forEach(function(rt) {
+          html += '<option value="' + escapeAttr(rt.type) + '" data-targets="' + escapeAttr(rt.targetTypes.join(',')) + '">' +
+            escapeHtml(rt.label) + '</option>';
+        });
+        html += '</select>';
+        // Target dropdown (populated based on selected relation type)
+        html += '<select id="new-rel-target" style="flex:1;min-width:200px;"></select>';
+        html += '<input type="text" id="new-rel-role" placeholder="role (optional)" style="width:120px;">';
+        html += '<button type="button" class="add-item-btn" onclick="addRelationRow()">+ Add</button>';
+        html += '</div>';
+      }
+
+      html += '</div>';
+      return html;
+    }
+
+    function updateRelationTargetDropdown() {
+      var typeSelect = document.getElementById('new-rel-type');
+      var targetSelect = document.getElementById('new-rel-target');
+      if (!typeSelect || !targetSelect) return;
+      var opt = typeSelect.options[typeSelect.selectedIndex];
+      var targetTypes = opt ? opt.getAttribute('data-targets').split(',') : [];
+      targetSelect.innerHTML = refOptionsMultiType(targetTypes, '');
+    }
+
+    function addRelationRow() {
+      var typeSelect = document.getElementById('new-rel-type');
+      var targetSelect = document.getElementById('new-rel-target');
+      var roleInput = document.getElementById('new-rel-role');
+      var container = document.getElementById('relation-items');
+      if (!typeSelect || !targetSelect || !container) return;
+
+      var relType = typeSelect.value;
+      var targetId = targetSelect.value;
+      if (!targetId) return;
+
+      var meta = {};
+      if (roleInput && roleInput.value.trim()) meta.role = roleInput.value.trim();
+
+      var rel = { source: '_current', target: targetId, type: relType };
+      if (Object.keys(meta).length > 0) rel.meta = meta;
+      container.insertAdjacentHTML('beforeend', renderRelationRowHtml(rel));
+
+      // Reset
+      targetSelect.value = '';
+      if (roleInput) roleInput.value = '';
+    }
+
+    // Render a single item row for an array-of-objects field (links only now)
+    function renderArrayItemHtml(fieldName, item) {
+      var html = '<div class="array-item"><div class="sub-fields">';
+      Object.keys(item).forEach(function(subKey) {
+        var subVal = item[subKey];
+        html += '<div class="sub-field"><label>' + escapeHtml(subKey.replace(/_/g, ' ')) + '</label>' +
+          '<input type="text" data-subfield="' + subKey + '" value="' + escapeAttr(String(subVal == null ? '' : subVal)) + '"></div>';
+      });
+      html += '</div><button type="button" class="remove-item-btn" onclick="this.closest(\'.array-item\').remove()">\u00d7</button></div>';
+      return html;
+    }
+
+    function addArrayItem(fieldName) {
+      var container = document.querySelector('[data-array-field="' + fieldName + '"]');
+      if (!container) return;
+      var template = arrayItemTemplates[fieldName] || {};
+      container.insertAdjacentHTML('beforeend', renderArrayItemHtml(fieldName, template));
+    }
+
+    function showEditModal(entry, type, isNew) {
+      var name = isNew ? ('New ' + registryMeta[type].singular) : (entry.name || entry.id);
+      var formHtml = buildEditForm(entry, type, isNew);
+      var saveAction = isNew ? 'handleSaveNew' : 'handleSave';
+      var html = '<form id="edit-form" onsubmit="return false;">' +
+        formHtml +
+        '<div class="modal-actions">' +
+        '<button type="button" class="btn" onclick="closeModal()">Cancel</button>' +
+        '<button type="button" class="btn btn-primary" id="save-btn" onclick="' + saveAction + '(\'' + type + '\')">' + (isNew ? 'Create' : 'Save') + '</button>' +
+        '</div></form>';
+      showModal((isNew ? 'New ' : 'Edit ') + name, html, { wide: true });
+
+      // Wire up relation type dropdown change handler
+      var typeSelect = document.getElementById('new-rel-type');
+      if (typeSelect) {
+        typeSelect.addEventListener('change', updateRelationTargetDropdown);
+        updateRelationTargetDropdown();
+      }
+    }
+
+    function showNewEntityModal(type) {
+      var template = JSON.parse(JSON.stringify(entityTemplates[type]));
+      showEditModal(template, type, true);
+    }
+
+    function buildEditForm(entry, type, isNew) {
+      var html = '';
+      var keys = Object.keys(entry);
+
+      keys.forEach(function(key) {
+        if (editSkipFields.indexOf(key) !== -1) return;
+        var val = entry[key];
+        var label = escapeHtml(key.replace(/_/g, ' '));
+
+        // ID field
+        if (key === 'id') {
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<input type="text" name="id" value="' + escapeAttr(val) + '"' + (isNew ? '' : ' readonly') + ' />' +
+            (isNew ? '<div class="field-hint">e.g. person_firstlast, proj_short_name</div>' : '') + '</div>';
+          return;
+        }
+
+        // Status dropdown
+        if (key === 'status' && statusOptionsByType[type]) {
+          var opts = statusOptionsByType[type].map(function(s) {
+            return '<option value="' + s + '"' + (val === s ? ' selected' : '') + '>' + s + '</option>';
+          }).join('');
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<select name="' + key + '">' + opts + '</select></div>';
+          return;
+        }
+
+        // institution_type dropdown
+        if (key === 'institution_type') {
+          var itypes = ['university', 'graduate_school', 'research_center', 'lab', 'institute', 'foundation', 'company', 'government', 'ngo', 'nonprofit', 'hospital'];
+          var iopts = '<option value="">-- Select --</option>' + itypes.map(function(t) {
+            return '<option value="' + t + '"' + (val === t ? ' selected' : '') + '>' + escapeHtml(t.replace(/_/g, ' ')) + '</option>';
+          }).join('');
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<select name="' + key + '">' + iopts + '</select></div>';
+          return;
+        }
+
+        // String field
+        if (typeof val === 'string') {
+          if (longTextFields.indexOf(key) !== -1) {
+            html += '<div class="form-group"><label>' + label + '</label>' +
+              '<textarea name="' + key + '" class="tall">' + escapeHtml(val) + '</textarea></div>';
+          } else {
+            html += '<div class="form-group"><label>' + label + '</label>' +
+              '<input type="text" name="' + key + '" value="' + escapeAttr(val) + '" /></div>';
+          }
+          return;
+        }
+
+        // Number field
+        if (typeof val === 'number') {
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<input type="number" name="' + key + '" value="' + val + '" /></div>';
+          return;
+        }
+
+        // Array of objects (links)
+        if (Array.isArray(val) && arrayItemTemplates[key]) {
+          html += '<div class="form-group"><label>' + label + '</label><div class="array-items" data-array-field="' + key + '">';
+          val.forEach(function(item) {
+            html += renderArrayItemHtml(key, item);
+          });
+          html += '</div><button type="button" class="add-item-btn" onclick="addArrayItem(\'' + key + '\')">+ Add</button></div>';
+          return;
+        }
+
+        // Array of strings (domains, capabilities, etc.)
+        if (Array.isArray(val)) {
+          html += '<div class="form-group"><label>' + label + '</label>' +
+            '<textarea name="' + key + '" data-field-type="string-array">' + escapeHtml((val || []).join('\n')) + '</textarea>' +
+            '<div class="field-hint">One item per line</div></div>';
+          return;
+        }
+
+        // Skip complex objects (schedule, exhibitions, location) — not editable inline
+        if (typeof val === 'object' && val !== null) {
+          return;
+        }
+
+        // Fallback
+        html += '<div class="form-group"><label>' + label + '</label>' +
+          '<input type="text" name="' + key + '" value="' + escapeAttr(String(val == null ? '' : val)) + '" /></div>';
+      });
+
+      // Add relation editor (only for existing entities)
+      if (!isNew && entry.id) {
+        html += buildRelationEditor(entry.id, type);
+      }
+
+      return html;
+    }
+
+    function collectFormData(entry, type) {
+      var form = document.getElementById('edit-form');
+      if (!form) return null;
+      var updated = {};
+      var keys = Object.keys(entry);
+
+      keys.forEach(function(key) {
+        if (editSkipFields.indexOf(key) !== -1) {
+          updated[key] = entry[key];
+          return;
+        }
+
+        // Array of objects (links)
+        if (Array.isArray(entry[key]) && arrayItemTemplates[key]) {
+          var container = form.querySelector('[data-array-field="' + key + '"]');
+          if (!container) { updated[key] = entry[key]; return; }
+          var items = [];
+          container.querySelectorAll('.array-item').forEach(function(row) {
+            var item = {};
+            var template = arrayItemTemplates[key];
+            Object.keys(template).forEach(function(subKey) {
+              var el = row.querySelector('[data-subfield="' + subKey + '"]');
+              item[subKey] = el ? el.value : '';
+            });
+            items.push(item);
+          });
+          updated[key] = items;
+          return;
+        }
+
+        // Simple fields (string, number, select, textarea)
+        var input = form.querySelector('[name="' + key + '"]');
+        if (!input) { updated[key] = entry[key]; return; }
+
+        var fieldType = input.getAttribute('data-field-type');
+        var rawVal = input.value;
+
+        if (key === 'id') { updated[key] = rawVal; return; }
+
+        if (fieldType === 'string-array') {
+          updated[key] = rawVal.split('\n').map(function(s) { return s.trim(); }).filter(function(s) { return s; });
+          return;
+        }
+
+        var originalVal = entry[key];
+        if (typeof originalVal === 'number') {
+          updated[key] = Number(rawVal);
+        } else if (typeof originalVal === 'boolean') {
+          updated[key] = rawVal === 'true';
+        } else {
+          updated[key] = rawVal;
+        }
+      });
+
+      return updated;
+    }
+
+    // Collect relations from the edit modal's relation editor
+    function collectRelationsFromForm(entityId) {
+      var container = document.getElementById('relation-items');
+      if (!container) return null;
+
+      var newRelations = [];
+      container.querySelectorAll('.relation-row').forEach(function(row) {
+        var source = row.getAttribute('data-source');
+        var target = row.getAttribute('data-target');
+        var type = row.getAttribute('data-type');
+        if (source === '_current') source = entityId;
+        if (target === '_current') target = entityId;
+        if (source && target && type) {
+          newRelations.push({ source: source, target: target, type: type });
+        }
+      });
+
+      return newRelations;
+    }
+
+    async function handleSave(type) {
+      var saveBtn = document.getElementById('save-btn');
+      var form = document.getElementById('edit-form');
+      var entryId = form ? form.querySelector('[name="id"]').value : '';
+      var entries = store.byType[type];
+      if (!entries) { showModalError('Data not loaded.'); return; }
+
+      var original = entries.find(function(e) { return e.id === entryId; });
+      if (!original) { showModalError('Entry not found.'); return; }
+
+      var updated;
+      try {
+        updated = collectFormData(original, type);
+      } catch (err) {
+        showModalError('Error reading form: ' + err.message);
+        return;
+      }
+      if (!updated) { showModalError('Could not read form data.'); return; }
+
+      // Collect updated relations
+      var newRelations = collectRelationsFromForm(entryId);
+
+      if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Saving\u2026'; }
+
+      try {
+        if (!isLoggedIn()) throw new Error('Not logged in.');
+        var payload = unflattenEntityForUpdate(updated);
+        await api.updateEntity(entryId, payload);
+        if (newRelations) await syncRelations(entryId, newRelations);
+        closeModal();
+        _storeReady = null;
+        loadFromHash();
+      } catch (err) {
+        showModalError(err.message);
+        if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save'; }
+      }
+    }
+
+    async function handleSaveNew(type) {
+      var saveBtn = document.getElementById('save-btn');
+      var form = document.getElementById('edit-form');
+      var entryId = form ? form.querySelector('[name="id"]').value.trim() : '';
+
+      if (!entryId) { showModalError('ID is required.'); return; }
+      if (/\s/.test(entryId)) { showModalError('ID must not contain spaces.'); return; }
+
+      var template = entityTemplates[type];
+      var updated;
+      try {
+        updated = collectFormData(template, type);
+      } catch (err) {
+        showModalError('Error reading form: ' + err.message);
+        return;
+      }
+      if (!updated) { showModalError('Could not read form data.'); return; }
+      updated.id = entryId;
+      updated.type = TYPE_FROM_PLURAL[type] || type;
+
+      if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Creating\u2026'; }
+
+      try {
+        if (!isLoggedIn()) throw new Error('Not logged in.');
+        var payload = unflattenEntityForCreate(updated);
+        await api.createEntity(payload);
+        closeModal();
+        _storeReady = null;
+        loadFromHash();
+      } catch (err) {
+        showModalError(err.message);
+        if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Create'; }
+      }
+    }
+
+    // Sync relations for an entity: diff current store against form state, delete/create as needed
+    async function syncRelations(entityId, newRelations) {
+      // Normalize form relations: flip inverse types back to canonical form
+      var normalizedNew = newRelations.map(function(rel) {
+        var s = rel.source;
+        var t = rel.target;
+        var type = rel.type;
+
+        // Check if this was an incoming relation shown as inverse — flip back
+        var typeInfo = RELATION_TYPES[type];
+        if (typeInfo && typeInfo.inverse !== type) {
+          var origRel = store.relations.find(function(r) {
+            return r.target === entityId && r.source === t && RELATION_TYPES[r.type] && RELATION_TYPES[r.type].inverse === type;
+          });
+          if (origRel) {
+            s = t;
+            t = entityId;
+            type = origRel.type;
+          }
+        }
+
+        return { source: s, target: t, type: type, meta: rel.meta };
+      });
+
+      // Get current relations from store that involve this entity
+      var currentRels = store.relations.filter(function(r) {
+        return r.source === entityId || r.target === entityId;
+      });
+
+      // Build key for comparison
+      function relKey(r) { return r.source + '|' + r.target + '|' + r.type; }
+
+      var currentKeys = {};
+      currentRels.forEach(function(r) { currentKeys[relKey(r)] = r; });
+
+      var newKeys = {};
+      normalizedNew.forEach(function(r) { newKeys[relKey(r)] = r; });
+
+      // Delete removed relations
+      for (var key in currentKeys) {
+        if (!newKeys[key] && currentKeys[key]._apiId) {
+          await api.deleteRelation(currentKeys[key]._apiId);
+        }
+      }
+
+      // Create added relations
+      for (var key in newKeys) {
+        if (!currentKeys[key]) {
+          await api.createRelation(unflattenRelationForCreate(newKeys[key]));
+        }
+      }
+    }

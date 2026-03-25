@@ -35,18 +35,37 @@ All data (entities, relations, portraits, docs, reference files) lives in the Re
 
 ```
 compass/
-├── api-client.js       (Registry API client with JWT auth)
-├── compass-data.js     (data layer: entity store, relations, graph)
+├── index.html            (HTML shell + CSS — no inline JS)
+├── api-client.js         (Registry API client with JWT auth)
+├── compass-data.js       (data layer: entity store, relations, graph)
+├── compass-config.js     (routes, siteMap, registryMeta, entity templates, colors)
+├── compass-ui.js         (DOM refs, nav, modal, sidebar, TOC, scroll, utilities)
+├── compass-auth.js       (API client init, login/logout, session, store loader)
+├── compass-entity.js     (entity cards, list pages, detail pages, edit modal, CRUD)
+├── compass-network.js    (3D force-directed graph visualization)
+├── compass-pages.js      (landing, charter, archetypes, references, history, feedback, contact, contribute)
+├── compass-app.js        (router: loadFromHash, SSE subscription, bootstrap)
 ├── compass-icon.png
 ├── network.png
-├── index.html          (single-page app shell)
 ├── scripts/
-│   └── migrate.js      (entity + relations migration tool)
+│   └── migrate.js        (entity + relations migration tool)
 ├── README.md
 ├── STATUS.md
 ├── CLAUDE.md
 └── CNAME
 ```
+
+### JavaScript Module Structure
+
+The app JavaScript is split into 7 files loaded in dependency order (no build step, no ES modules — plain `<script>` tags in global scope):
+
+1. **compass-config.js** — Pure data: routes, sidebar map, entity type metadata, network colors, edit form templates
+2. **compass-ui.js** — Shared UI: DOM refs, mobile nav, modal system, sidebar builder, TOC/scroll, utilities
+3. **compass-auth.js** — Auth: ApiClient instance, login/logout, session restore, store loader
+4. **compass-entity.js** — Entities: card rendering, list pages, detail views (per-type), edit modal with relation editor
+5. **compass-network.js** — Network: 3D force graph with type filters, node selection, hover animation
+6. **compass-pages.js** — Pages: landing, charter, archetypes, references, history, feedback, contact, contribute
+7. **compass-app.js** — Router: `loadFromHash()` dispatch, SSE subscription, bootstrap
 
 All data is served from the Registry API (`registry.henkaku.center`):
 - Entities & relations via `/api/v1/compass/entities` and `/api/v1/compass/relations`
@@ -137,14 +156,15 @@ Fourteen entry types:
 - Changes should preserve backward compatibility or provide migration paths
 - Charter Mapping column helps verify alignment
 
-**Web viewer** (`index.html` + `compass-data.js`):
-- Single-page app with hash routing. Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#domains`, `#places`, `#publications`, `#vectors`, `#deltas`, `#curricula`, `#network`, `#references`, `#history`, `#about`, `#feedback`, `#contribute`, `#contact` (`#curriculum` redirects to `#curricula`)
+**Web viewer** (`index.html` + 9 JS files):
+- Single-page app with hash routing (`compass-app.js`). Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#domains`, `#places`, `#publications`, `#vectors`, `#deltas`, `#curricula`, `#network`, `#references`, `#history`, `#about`, `#feedback`, `#contribute`, `#contact` (`#curriculum` redirects to `#curricula`)
 - `#charter` fetches and renders Charter markdown from `charter.henkaku.center/content/CHARTER.md` inline (with a banner linking to the definitive source and showing the current version dynamically)
 - Top nav bar shows minimal links (Feedback, Contribute, Login). Left sidebar: Contribute with AI at top, then DNA, Entities, and Info groups (with Theses and Posts as placeholders)
 - Right-hand document TOC sidebar with scroll-spy for Charter, Archetypes, and About pages
 - Client-side markdown rendering with marked.js (no build process); external links open in new tab via custom renderer
 - `compass-data.js` provides the unified data layer: entity store, relation management, generic graph building, and relation rendering
-- Curriculum tables use page-scoped CSS (`table-layout: fixed`, 55%/10%/35% column widths for Course/Credits/Instructor); other pages use auto layout
+- `compass-config.js` centralizes all route definitions, entity type metadata (`registryMeta`), network colors, and edit form templates
+- `compass-entity.js` handles entity cards, list pages, detail views (with per-type rendering), and the edit modal with relation editor
 - `#references` page renders download/preview links pointing to Registry (`/api/v1/compass/files/reference/`)
 - `#history` page fetches commit history from the GitHub API at runtime (no backing `.md` file, unlike other routes) — the only remaining GitHub API dependency
 - `#feedback` page lets logged-in users submit bug reports and feature requests with file/image attachments (10 MB max per file) via the Registry API (`/api/v1/feedback`)
