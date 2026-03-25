@@ -285,8 +285,11 @@ class ApiClient {
         return this._fetch('/api/v1/compass/entity-types');
     }
 
-    async getEntities(type = null) {
-        const qs = type ? `?type=${type}` : '';
+    async getEntities(type = null, { editable = false } = {}) {
+        const params = new URLSearchParams();
+        if (type) params.set('type', type);
+        if (editable) params.set('editable', 'true');
+        const qs = params.toString() ? `?${params}` : '';
         return this._fetch(`/api/v1/compass/entities${qs}`);
     }
 
