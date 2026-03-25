@@ -240,7 +240,15 @@
               <p style="color: #999;">Loading&hellip;</p>
             </div>
           `;
-          const entries = listEntities(type, e => !e.status || e.status !== 'cancelled');
+          let entries = listEntities(type, e => !e.status || e.status !== 'cancelled');
+          // People: sort active before alumni
+          if (type === 'people') {
+            entries.sort((a, b) => {
+              const aAlumni = a.status === 'alumni' ? 1 : 0;
+              const bAlumni = b.status === 'alumni' ? 1 : 0;
+              return aAlumni - bAlumni || (a.name || '').localeCompare(b.name || '');
+            });
+          }
           const list = document.getElementById('registry-list');
           if (!list) return;
           list.innerHTML = '';
@@ -301,6 +309,10 @@
 
           // Badges
           let badgesHtml = '';
+          if (isLoggedIn() && entry.visibility && entry.visibility !== 'public') {
+            const visLabel = entry.visibility.charAt(0).toUpperCase() + entry.visibility.slice(1);
+            badgesHtml += `<span class="type-badge" style="background:#e8e0f0;color:#6a3d9a;">${visLabel}</span>`;
+          }
           if (entry.status) {
             badgesHtml += `<span class="status-badge ${entry.status}">${entry.status}</span>`;
           }

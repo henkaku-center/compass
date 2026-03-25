@@ -108,8 +108,8 @@ const store = {
 
 // API entity {id, type, name, data: {…}} → flat frontend entity {id, type, name, short_name, …}
 function flattenEntity(apiEntity) {
-  const { id, type, name, data, created_at, updated_at } = apiEntity;
-  return { id, type, name, ...data };
+  const { id, type, name, data, visibility, created_at, updated_at } = apiEntity;
+  return { id, type, name, visibility, ...data };
 }
 
 // API relation {id, source_id, target_id, type, meta} → frontend {source, target, type, meta, _apiId}

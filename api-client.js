@@ -370,7 +370,10 @@ class ApiClient {
 
     subscribeToChanges(onEvent) {
         if (this._eventSource) this._eventSource.close();
-        const url = `${this.baseUrl}/api/v1/compass/events`;
+        let url = `${this.baseUrl}/api/v1/compass/events`;
+        if (this.accessToken) {
+            url += `?token=${encodeURIComponent(this.accessToken)}`;
+        }
         const es = new EventSource(url);
         es.onmessage = (e) => {
             try { onEvent(JSON.parse(e.data)); } catch {}
