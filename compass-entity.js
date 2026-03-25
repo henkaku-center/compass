@@ -427,7 +427,11 @@
               detailHtml += `<p class="detail-label">Domains</p><p>${renderDomainLinks(entry.domains)}</p>`;
             }
             if (entry.location) {
-              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+              if (typeof entry.location === 'object' && entry.location.lat) {
+                detailHtml += `<p class="detail-label">Location</p><p><a href="https://maps.google.com/?q=${entry.location.lat},${entry.location.lng}" target="_blank" rel="noopener">${entry.location.lat.toFixed(4)}, ${entry.location.lng.toFixed(4)}</a></p>`;
+              } else {
+                detailHtml += `<p class="detail-label">Location</p><p>${marked.parseInline(String(entry.location))}</p>`;
+              }
             }
             if (entry.founding_date) {
               detailHtml += `<p class="detail-label">Founded</p><p>${entry.founding_date}</p>`;
@@ -580,7 +584,11 @@
               detailHtml += `<p class="detail-label">Date</p><p>${entry.date}${entry.time ? ' · ' + entry.time : ''}</p>`;
             }
             if (entry.location) {
-              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+              if (typeof entry.location === 'object' && entry.location.lat) {
+                detailHtml += `<p class="detail-label">Location</p><p><a href="https://maps.google.com/?q=${entry.location.lat},${entry.location.lng}" target="_blank" rel="noopener">${entry.location.lat.toFixed(4)}, ${entry.location.lng.toFixed(4)}</a></p>`;
+              } else {
+                detailHtml += `<p class="detail-label">Location</p><p>${marked.parseInline(String(entry.location))}</p>`;
+              }
             }
             if (entry.purpose) {
               detailHtml += `<p class="detail-label">Purpose</p><p>${entry.purpose}</p>`;
@@ -637,7 +645,11 @@
               detailHtml += `<p class="detail-label">Address</p><p>${entry.address}</p>`;
             }
             if (entry.location) {
-              detailHtml += `<p class="detail-label">Location</p><p>${entry.location}</p>`;
+              if (typeof entry.location === 'object' && entry.location.lat) {
+                detailHtml += `<p class="detail-label">Location</p><p><a href="https://maps.google.com/?q=${entry.location.lat},${entry.location.lng}" target="_blank" rel="noopener">${entry.location.lat.toFixed(4)}, ${entry.location.lng.toFixed(4)}</a></p>`;
+              } else {
+                detailHtml += `<p class="detail-label">Location</p><p>${marked.parseInline(String(entry.location))}</p>`;
+              }
             }
             if (entry.website) {
               detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
