@@ -887,13 +887,11 @@ function renderRemainingFields(entry, renderedFields) {
                 historyLog.innerHTML = history.map(h => {
                   const date = new Date(h.created_at).toLocaleString();
                   const typeLabel = h.change_type.replace(/_/g, ' ');
-                  // Resolve user name from compass entity store
                   let userName = '';
-                  if (h.user_id) {
-                    // Find user's compass entity by checking all people
-                    const people = Object.values(store.entities).filter(e => e.type === 'person');
-                    // We don't have user→entity mapping client-side, so show user_id truncated
-                    userName = ' by <span style="color:#666;">' + (h.user_id.substring(0, 8) + '…') + '</span>';
+                  if (h.user_name) {
+                    userName = ` by <span style="color:#555; font-weight:500;">${escapeHtml(h.user_name)}</span>`;
+                  } else if (h.user_id) {
+                    userName = ` by <span style="color:#999;">${h.user_id.substring(0, 8)}…</span>`;
                   }
 
                   let detailHtml = '';
