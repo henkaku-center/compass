@@ -126,97 +126,10 @@ const referenceFiles = [
   }
 ];
 
-// Entity type metadata (singular/plural names, descriptions, colors)
-const registryMeta = {
-  people: {
-    singular: 'Person',
-    plural: 'People',
-    description: 'Participants in the ecosystem — their roles, domain affinities, affiliations, and project involvement.',
-    color: '#e8a0b0'
-  },
-  projects: {
-    singular: 'Project',
-    plural: 'Projects',
-    description: 'Bounded units of transformation with clear goals, collaborators, and completion criteria.',
-    color: '#e8a840'
-  },
-  initiatives: {
-    singular: 'Initiative',
-    plural: 'Initiatives',
-    description: 'Ongoing programs that spawn and coordinate projects across the ecosystem.',
-    color: '#5a6270'
-  },
-  institutions: {
-    singular: 'Institution',
-    plural: 'Institutions',
-    description: 'Organizations that provide infrastructure, legitimacy, resources, and collaboration.',
-    color: '#7a8490'
-  },
-  courses: {
-    singular: 'Course',
-    plural: 'Courses',
-    description: 'Recurring educational units with learning objectives, credit values, and Charter alignment.',
-    color: '#7b68ae'
-  },
-  events: {
-    singular: 'Event',
-    plural: 'Events',
-    description: 'Time-bound gatherings — symposia, workshops, lectures, and other occasions that bring people together.',
-    color: '#c06050'
-  },
-  domains: {
-    singular: 'Domain',
-    plural: 'Domains',
-    description: 'Knowledge and research areas that map the intellectual landscape of the ecosystem.',
-    color: '#999999'
-  },
-  places: {
-    singular: 'Place',
-    plural: 'Places',
-    description: 'Physical locations where ecosystem activities happen — campuses, coworking spaces, venues, and gathering spots.',
-    color: '#2a9d8f'
-  },
-  publications: {
-    singular: 'Publication',
-    plural: 'Publications',
-    description: 'Peer-reviewed academic works — journal articles, conference papers, book chapters, and reports.',
-    color: '#3a7ca5'
-  },
-  vectors: {
-    singular: 'Vector',
-    plural: 'Vectors',
-    description: 'Directional transformations worth pursuing — aspirational, flexible, connecting energy to purpose.',
-    color: '#d4a017'
-  },
-  deltas: {
-    singular: 'Delta',
-    plural: 'Deltas',
-    description: 'Observable changes — concrete evidence of movement along a vector or within the ecosystem.',
-    color: '#17a2b8'
-  },
-  curricula: {
-    singular: 'Curriculum',
-    plural: 'Curricula',
-    description: 'Degree programs with required and elective coursework, credit requirements, and milestones.',
-    color: '#6a4c93'
-  }
-};
-
-// Network graph colors per entity type
-const nodeColors = {
-  institutions: '#7a8490',
-  people: '#e8a0b0',
-  projects: '#e8a840',
-  initiatives: '#4a9e6a',
-  courses: '#7b68ae',
-  events: '#c06050',
-  domains: '#999999',
-  places: '#2a9d8f',
-  publications: '#3a7ca5',
-  vectors: '#7ccf9e',
-  deltas: '#d4b560',
-  curricula: '#6a4c93'
-};
+// Entity type metadata — populated from GET /compass/entity-types on startup.
+// Empty fallbacks here; loadEntityTypes() in compass-auth.js fills these.
+const registryMeta = {};
+const nodeColors = {};
 
 // Default entity types shown in network viz (override with ?show=type1,type2 in URL)
 const networkDefaultOn = new Set(['institutions', 'people', 'projects', 'initiatives', 'courses', 'events']);
@@ -228,17 +141,8 @@ const docTocPages = ['charter', 'archetypes', 'about', 'status'];
 // --- Entity edit form constants ---
 
 var longTextFields = ['background', 'summary', 'purpose', 'ecosystem_role', 'description', 'scope', 'notes', 'mandate'];
-var statusOptionsByType = {
-  people: ['active', 'alumni', 'emeritus'],
-  courses: ['planned', 'active', 'archived'],
-  events: ['proposed', 'confirmed', 'completed', 'cancelled'],
-  projects: ['proposed', 'active', 'paused', 'completed'],
-  initiatives: ['active', 'paused', 'completed'],
-  institutions: ['active', 'inactive'],
-  domains: ['active', 'inactive'],
-  places: ['active', 'inactive'],
-  publications: ['draft', 'submitted', 'in_review', 'accepted', 'published']
-};
+// Populated from API; empty fallback
+var statusOptionsByType = {};
 var editSkipFields = ['portrait', 'type'];
 
 // Array-of-objects item templates (for structural content remaining on entities)
@@ -246,118 +150,8 @@ var arrayItemTemplates = {
   links: { type: '', url: '' }
 };
 
-// Blank entity templates for "Add New"
-var entityTemplates = {
-  people: {
-    id: '', type: 'person', name: '', name_ja: '', status: 'active', role_categories: [],
-    job_title: '', email: '',
-    background: '', links: [], notes: ''
-  },
-  projects: {
-    id: '', type: 'project', name: '', status: 'proposed', summary: '', domains: [],
-    project_goals: [], links: [], notes: ''
-  },
-  initiatives: {
-    id: '', type: 'initiative', name: '', status: 'active', summary: '', purpose: '', domains: [],
-    activities: [], health_indicators: [], review_cycle: '', links: [], notes: ''
-  },
-  institutions: {
-    id: '', type: 'institution', name: '', name_ja: '', short_name: '', status: 'active',
-    institution_type: '', summary: '', ecosystem_role: '', mandate: '',
-    capabilities: [], domains: [], links: [], notes: ''
-  },
-  courses: {
-    id: '', type: 'course', name: '', short_name: '', status: 'planned', summary: '',
-    credits: 2, program: [], charter_alignment: [], domains: [], notes: ''
-  },
-  events: {
-    id: '', type: 'event', name: '', status: 'proposed', summary: '', event_type: '',
-    purpose: '', audience: '', date: '', time: '', duration: '', domains: [],
-    expected_outcomes: [], notes: ''
-  },
-  domains: {
-    id: '', type: 'domain', name: '', status: 'active', summary: '', notes: ''
-  },
-  places: {
-    id: '', type: 'place', name: '', status: 'active', summary: '', place_type: '',
-    address: '', website: '', notes: ''
-  },
-  publications: {
-    id: '', type: 'publication', name: '', status: 'published', summary: '',
-    publication_type: '', venue: '', published_date: '', doi: '', url: '',
-    domains: [], notes: ''
-  },
-  vectors: {
-    id: '', type: 'vector', name: '', status: 'active', summary: '',
-    from: '', toward: '', domains: [], notes: ''
-  },
-  deltas: {
-    id: '', type: 'delta', name: '', status: 'observed', summary: '',
-    from: '', toward: '', observed_date: '', domains: [], notes: ''
-  },
-  curricula: {
-    id: '', type: 'curriculum', name: '', name_ja: '', short_name: '', status: 'active',
-    summary: '', credit_requirement: 0, mandatory_credits: 0, elective_credits: 0,
-    duration: '', degree: '', institution: '', school: '', content: '', notes: ''
-  }
-};
+// Populated from API; empty fallback
+var entityTemplates = {};
 
-// Relation types available per entity type for the relation editor
-var relationTypesByEntity = {
-  people: [
-    { type: 'affiliated', targetTypes: ['institutions'], label: 'Affiliated with' },
-    { type: 'owner', targetTypes: ['projects'], label: 'Owner of' },
-    { type: 'contributor', targetTypes: ['projects'], label: 'Contributor to' },
-    { type: 'owner', targetTypes: ['initiatives'], label: 'Owner of' },
-    { type: 'participant', targetTypes: ['initiatives'], label: 'Participant in' },
-    { type: 'teaches', targetTypes: ['courses'], label: 'Teaches' },
-    { type: 'organizes', targetTypes: ['events'], label: 'Organizes' },
-    { type: 'speaks_at', targetTypes: ['events'], label: 'Speaks at' },
-    { type: 'exhibits_at', targetTypes: ['events'], label: 'Exhibits at' },
-    { type: 'has_affinity_for', targetTypes: ['domains'], label: 'Has affinity for' },
-    { type: 'authored', targetTypes: ['publications'], label: 'Author of' },
-    { type: 'pursues', targetTypes: ['vectors'], label: 'Pursues' },
-    { type: 'produces', targetTypes: ['deltas'], label: 'Produces' }
-  ],
-  projects: [
-    { type: 'depends_on', targetTypes: ['projects'], label: 'Depends on' }
-  ],
-  initiatives: [
-    { type: 'spawned', targetTypes: ['projects'], label: 'Spawned project' },
-    { type: 'contains', targetTypes: ['projects'], label: 'Contains project' },
-    { type: 'partner', targetTypes: ['institutions'], label: 'Partner' }
-  ],
-  institutions: [
-    { type: 'hosts', targetTypes: ['projects', 'initiatives', 'institutions', 'events'], label: 'Hosts' },
-    { type: 'parent', targetTypes: ['institutions'], label: 'Parent of' },
-    { type: 'partner', targetTypes: ['institutions'], label: 'Partner' }
-  ],
-  courses: [
-    { type: 'has_prerequisite', targetTypes: ['courses'], label: 'Has prerequisite' },
-    { type: 'related', targetTypes: ['courses'], label: 'Related to' }
-  ],
-  events: [
-    { type: 'partner', targetTypes: ['institutions'], label: 'Partner' }
-  ],
-  domains: [],
-  places: [
-    { type: 'located_at', targetTypes: ['institutions'], label: 'Located at' }
-  ],
-  publications: [
-    { type: 'related', targetTypes: ['projects', 'initiatives'], label: 'Related to' }
-  ],
-  vectors: [
-    { type: 'aligns_with', targetTypes: ['vectors'], label: 'Aligns with' },
-    { type: 'composed_of', targetTypes: ['deltas'], label: 'Composed of' },
-    { type: 'related', targetTypes: ['initiatives', 'projects', 'domains'], label: 'Related to' }
-  ],
-  deltas: [
-    { type: 'evidences', targetTypes: ['vectors'], label: 'Evidences' },
-    { type: 'related', targetTypes: ['projects', 'courses', 'deltas'], label: 'Related to' }
-  ],
-  curricula: [
-    { type: 'requires', targetTypes: ['courses'], label: 'Requires (mandatory)' },
-    { type: 'accepts', targetTypes: ['courses'], label: 'Accepts (elective)' },
-    { type: 'related', targetTypes: ['institutions'], label: 'Related to' }
-  ]
-};
+// Populated from API; empty fallback
+var relationTypesByEntity = {};
