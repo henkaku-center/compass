@@ -116,6 +116,7 @@ async function handleLogin() {
       return;
     }
     closeModal();
+    _storeReady = null;
     updateLoginUI();
     loadFromHash();
   } catch (err) {
@@ -160,6 +161,7 @@ async function handleForcePasswordChange() {
 function logout() {
   api.logout();
   currentUser = null;
+  _storeReady = null;
   updateLoginUI();
   loadFromHash();
 }
