@@ -35,10 +35,12 @@ All data (entities, relations, portraits, docs, reference files) lives in the Re
 
 ```
 compass/
-├── index.html            (HTML shell + CSS — no inline JS)
+├── index.html            (HTML shell only — 126 lines, no inline CSS or JS)
+├── compass.css           (all styles — extracted from index.html)
 ├── api-client.js         (Registry API client with JWT auth)
 ├── compass-data.js       (data layer: entity store, relations, graph)
-├── compass-config.js     (routes, siteMap, registryMeta, entity templates, colors)
+├── compass-markdown.js   (Mermaid + Marked config, diagram renderer)
+├── compass-config.js     (routes, siteMap — entity metadata fetched from API)
 ├── compass-ui.js         (DOM refs, nav, modal, sidebar, TOC, scroll, utilities)
 ├── compass-auth.js       (API client init, login/logout, session, store loader)
 ├── compass-entity.js     (entity cards, list pages, detail pages, edit modal, CRUD)
@@ -59,13 +61,14 @@ compass/
 
 The app JavaScript is split into 7 files loaded in dependency order (no build step, no ES modules — plain `<script>` tags in global scope):
 
-1. **compass-config.js** — Pure data: routes, sidebar map, entity type metadata, network colors, edit form templates
-2. **compass-ui.js** — Shared UI: DOM refs, mobile nav, modal system, sidebar builder, TOC/scroll, utilities
-3. **compass-auth.js** — Auth: ApiClient instance, login/logout, session restore, store loader
-4. **compass-entity.js** — Entities: card rendering, list pages, detail views (per-type), edit modal with relation editor
-5. **compass-network.js** — Network: 3D force graph with type filters, node selection, hover animation
-6. **compass-pages.js** — Pages: landing, charter, archetypes, references, history, feedback, contact, contribute
-7. **compass-app.js** — Router: `loadFromHash()` dispatch, SSE subscription, bootstrap
+1. **compass-markdown.js** — Mermaid initialization + Marked renderer config + `renderMermaidDiagrams()`
+2. **compass-config.js** — Pure data: routes, sidebar map (entity type metadata fetched from API at runtime)
+3. **compass-ui.js** — Shared UI: DOM refs, mobile nav, modal system, sidebar builder, TOC/scroll, utilities
+4. **compass-auth.js** — Auth: ApiClient instance, login/logout, session restore, entity type + store loader
+5. **compass-entity.js** — Entities: card rendering, list pages, detail views (per-type), edit modal with relation editor
+6. **compass-network.js** — Network: 3D force graph with type filters, node selection, hover animation
+7. **compass-pages.js** — Pages: landing, charter, archetypes, references, history, feedback, contact, contribute
+8. **compass-app.js** — Router: `loadFromHash()` dispatch, SSE subscription, bootstrap
 
 All data is served from the Registry API (`registry.henkaku.center`):
 - Entities & relations via `/api/v1/compass/entities` and `/api/v1/compass/relations`
