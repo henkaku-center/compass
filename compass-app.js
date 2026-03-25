@@ -68,7 +68,9 @@
     // Real-time updates: reload store and re-render when Registry data changes
     api.subscribeToChanges(function(event) {
       // Reset the cached store promise so ensureStore() fetches fresh data
-      _storeReady = loadStore(api).then(function() {
+      _storeReady = null;
+      loadStore(api).then(function() {
+        _storeReady = Promise.resolve();
         updateSidebarEmptyStates();
         loadFromHash();
       });
