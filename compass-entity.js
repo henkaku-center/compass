@@ -717,6 +717,7 @@ function renderRemainingFields(entry, renderedFields) {
           }
 
           if (type === 'domains') {
+            ['description'].forEach(f => renderedFields.add(f));
             detailHtml += renderRelationsDetailHtml(entry.id);
           }
 
