@@ -127,7 +127,8 @@ function resolvePortraitUrl(entity, apiClient) {
   if (p.startsWith('http://') || p.startsWith('https://')) return p;
   // API-stored paths like "portraits/person_xyz.png" — build full API URL
   if (apiClient && p.startsWith('portraits/')) {
-    return `${apiClient.baseUrl}/api/v1/compass/entities/${entity.id}/files/${p.replace('portraits/', '')}`;
+    const base = `${apiClient.baseUrl}/api/v1/compass/entities/${entity.id}/files/${p.replace('portraits/', '')}`;
+    return apiClient.accessToken ? `${base}?token=${apiClient.accessToken}` : base;
   }
   return p;
 }
