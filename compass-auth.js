@@ -36,7 +36,8 @@ function loadEntityTypes() {
 let _storeReady = null;
 function ensureStore() {
   if (_storeReady) return _storeReady;
-  _storeReady = loadEntityTypes().then(() => loadStore(api));
+  // Wait for session restore so we fetch entities with a valid token
+  _storeReady = _sessionReady.then(() => loadEntityTypes()).then(() => loadStore(api));
   return _storeReady;
 }
 
@@ -166,7 +167,9 @@ function logout() {
   loadFromHash();
 }
 
-// Restore session on page load
+// Restore session on page load (promise used by ensureStore to wait for valid tokens)
+let _sessionResolve;
+const _sessionReady = new Promise(resolve => { _sessionResolve = resolve; });
 (async function restoreSession() {
   if (api.isAuthenticated) {
     try {
@@ -176,9 +179,11 @@ function logout() {
       currentUser = null;
     }
     if (currentUser && currentUser.must_change_password) {
+      _sessionResolve();
       showForcePasswordChange();
       return;
     }
     updateLoginUI();
   }
+  _sessionResolve();
 })();

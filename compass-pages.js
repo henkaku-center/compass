@@ -567,7 +567,8 @@ function loadContribute() {
       <ol>
         <li>Save <code>ONBOARDING.md</code> to your working directory</li>
         <li>Open Claude Code in a terminal: <code>claude</code></li>
-        <li>Tell it: <em>&ldquo;Read ONBOARDING.md &mdash; that&rsquo;s the Compass API guide. Show me who&rsquo;s in the registry.&rdquo;</em></li>
+        <li>Run <code>/init</code> as your first command &mdash; this loads the project context, including the onboarding guide, and tells the agent how to work with the Compass APIs</li>
+        <li>Start asking: <em>&ldquo;Show me who&rsquo;s in the registry&rdquo;</em></li>
       </ol>
       <p>Claude Code can read the file directly, make <code>curl</code> calls to the API, and present results conversationally. It handles authentication, multi-step workflows (like creating proposals), and can even upload files.</p>
       <p>For persistent access, add the file to your project&rsquo;s <code>CLAUDE.md</code> or reference it in your instructions:</p>
@@ -595,12 +596,12 @@ See ONBOARDING.md for the Compass API reference.</code></pre>
       <p>Once your AI has the onboarding guide, you can ask it to:</p>
       <ul>
         <li><strong>Explore</strong> &mdash; browse people, projects, initiatives, courses, events, and more</li>
-        <li><strong>Read the Charter</strong> &mdash; fetch and walk through governance documents</li>
         <li><strong>See how things connect</strong> &mdash; who works on what, which institutions host which programs</li>
-        <li><strong>Check proposals</strong> &mdash; see what&rsquo;s up for a vote and how people voted</li>
         <li><strong>Add yourself</strong> &mdash; create your own person entry in the registry</li>
-        <li><strong>Propose changes</strong> &mdash; draft and submit Charter amendments</li>
         <li><strong>Submit feedback</strong> &mdash; report bugs or suggest features</li>
+        <li><strong>Read the Charter</strong> &mdash; fetch and walk through governance documents</li>
+        <li><strong>Check proposals</strong> &mdash; see what&rsquo;s up for a vote and how people voted</li>
+        <li><strong>Propose changes</strong> &mdash; draft and submit Charter amendments</li>
       </ul>
       <p>Read operations work immediately. Write operations require a Compass account &mdash; ask an admin for an invite code if you don&rsquo;t have one.</p>
 
