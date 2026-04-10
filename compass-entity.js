@@ -566,17 +566,14 @@ function renderRemainingFields(entry, renderedFields) {
 
           if (type === 'courses') {
             ['name_ja', 'credits', 'semester', 'semester_jp', 'schedule', 'schedule_jp', 'room', 'room_ja', 'duration', 'duration_jp', 'program', 'outcomes', 'requirements', 'reading', 'links', 'charter_alignment', 'domains', 'notes'].forEach(f => renderedFields.add(f));
-            if (entry.name_ja) {
-              detailHtml += `<p style="opacity:0.6; margin-bottom:0.5rem;">${entry.name_ja}</p>`;
-            }
             if (entry.credits) {
               detailHtml += `<p class="detail-label">Credits</p><p>${entry.credits}</p>`;
             }
             if (entry.semester) {
-              detailHtml += `<p class="detail-label">Semester</p><p>${entry.semester}${entry.semester_jp ? ' / ' + entry.semester_jp : ''}</p>`;
+              detailHtml += `<p class="detail-label">Semester</p><p>${entry.semester}</p>`;
             }
             if (entry.schedule) {
-              detailHtml += `<p class="detail-label">Schedule</p><p>${entry.schedule}${entry.schedule_jp && entry.schedule_jp !== '未定' ? ' / ' + entry.schedule_jp : ''}${entry.duration ? ' (' + entry.duration + ')' : ''}</p>`;
+              detailHtml += `<p class="detail-label">Schedule</p><p>${entry.schedule}${entry.duration ? ' (' + entry.duration + ')' : ''}</p>`;
             }
             if (entry.room) {
               detailHtml += `<p class="detail-label">Room</p><p>${entry.room}</p>`;
