@@ -464,7 +464,7 @@ function renderRemainingFields(entry, renderedFields) {
               detailHtml += `<p class="detail-label">Affiliations</p>`;
               detailHtml += sorted
                 .filter(a => a.meta && a.meta.role)
-                .map(a => `<p>${a.meta.role} — ${entityLink(a.entity.id, getEntityDisplay(a.entity.id))}</p>`)
+                .map(a => `<p>${a.meta.role} — ${entityLink(a.entity.id, a.entity.name || getEntityDisplay(a.entity.id))}</p>`)
                 .join('');
             }
             detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for', 'affiliated']);
