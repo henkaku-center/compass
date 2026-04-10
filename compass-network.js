@@ -449,7 +449,7 @@
             switch (type) {
               case 'people':
                 if (data.name_ja) html += `<p style="opacity: 0.6;">${data.name_ja}</p>`;
-                if (data.job_title) html += `<p><strong>Title:</strong> ${data.job_title}</p>`;
+                { const netAffils = getRelated(data.id, { type: 'affiliated' }); const netPrimary = netAffils.find(a => a.meta && a.meta.primary) || netAffils[0]; if (netPrimary && netPrimary.meta && netPrimary.meta.role) html += `<p><strong>Title:</strong> ${netPrimary.meta.role}</p>`; }
                 if (data.role_categories) html += `<p><strong>Roles:</strong> ${data.role_categories.join(', ')}</p>`;
                 const netDomains = getRelated(data.id, { type: 'has_affinity_for' });
                 if (netDomains.length > 0) html += `<p><strong>Domains:</strong> ${netDomains.map(r => `<a href="${entityHref('domains', r.entity.id)}" style="color:inherit;text-decoration:underline dotted;">${getEntityDisplay(r.entity.id)}</a>`).join(', ')}</p>`;

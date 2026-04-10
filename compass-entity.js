@@ -105,11 +105,14 @@ function renderRemainingFields(entry, renderedFields) {
               metaHtml += `<span class="type-badge">${r.replace(/_/g, ' ')}</span>`;
             });
           }
-          if (entry.job_title) {
-            // Build summary from job_title + affiliations from relations
+          {
+            // Derive title from primary affiliation role
             const affiliations = getRelated(entry.id, { type: 'affiliated' });
-            const instNames = affiliations.map(a => getEntityDisplay(a.entity.id));
-            summaryField = entry.job_title + (instNames.length > 0 ? ' — ' + instNames.join(', ') : '');
+            const primary = affiliations.find(a => a.meta && a.meta.primary) || affiliations[0];
+            if (primary && primary.meta && primary.meta.role) {
+              const instNames = affiliations.map(a => getEntityDisplay(a.entity.id));
+              summaryField = primary.meta.role + (instNames.length > 0 ? ' — ' + instNames.join(', ') : '');
+            }
           }
           // Show domains from affinity relations
           const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
@@ -434,10 +437,13 @@ function renderRemainingFields(entry, renderedFields) {
 
           // Summary
           let summaryHtml = '';
-          if (type === 'people' && entry.job_title) {
+          if (type === 'people') {
             const affiliations = getRelated(entry.id, { type: 'affiliated' });
-            const instLinks = affiliations.map(a => entityLink(a.entity.id, getEntityDisplay(a.entity.id)));
-            summaryHtml = entry.job_title + (instLinks.length > 0 ? ' — ' + instLinks.join(', ') : '');
+            const primary = affiliations.find(a => a.meta && a.meta.primary) || affiliations[0];
+            if (primary && primary.meta && primary.meta.role) {
+              const instLinks = affiliations.map(a => entityLink(a.entity.id, getEntityDisplay(a.entity.id)));
+              summaryHtml = primary.meta.role + (instLinks.length > 0 ? ' — ' + instLinks.join(', ') : '');
+            }
           } else if (entry.summary) {
             summaryHtml = marked.parseInline(entry.summary);
           }
@@ -451,10 +457,7 @@ function renderRemainingFields(entry, renderedFields) {
           const renderedFields = new Set(['summary']);
 
           if (type === 'people') {
-            ['job_title', 'email', 'bio', 'bio_ja', 'links', 'role_categories'].forEach(f => renderedFields.add(f));
-            if (entry.job_title) {
-              detailHtml += `<p class="detail-label">Title</p><p>${entry.job_title}</p>`;
-            }
+            ['email', 'bio', 'bio_ja', 'links', 'role_categories'].forEach(f => renderedFields.add(f));
             if (entry.email) {
               detailHtml += `<p class="detail-label">Email</p><p><a href="mailto:${entry.email}">${entry.email}</a></p>`;
             }
