@@ -439,10 +439,13 @@ function renderRemainingFields(entry, renderedFields) {
           let summaryHtml = '';
           if (type === 'people') {
             const affiliations = getRelated(entry.id, { type: 'affiliated' });
-            const primary = affiliations.find(a => a.meta && a.meta.primary) || affiliations[0];
-            if (primary && primary.meta && primary.meta.role) {
-              const instLinks = affiliations.map(a => entityLink(a.entity.id, getEntityDisplay(a.entity.id)));
-              summaryHtml = primary.meta.role + (instLinks.length > 0 ? ' — ' + instLinks.join(', ') : '');
+            if (affiliations.length > 0) {
+              // Sort primary first
+              const sorted = [...affiliations].sort((a, b) => (b.meta && b.meta.primary ? 1 : 0) - (a.meta && a.meta.primary ? 1 : 0));
+              summaryHtml = sorted
+                .filter(a => a.meta && a.meta.role)
+                .map(a => a.meta.role + ' — ' + entityLink(a.entity.id, getEntityDisplay(a.entity.id)))
+                .join('<br>');
             }
           } else if (entry.summary) {
             summaryHtml = marked.parseInline(entry.summary);
