@@ -106,12 +106,14 @@ function renderRemainingFields(entry, renderedFields) {
             });
           }
           {
-            // Derive title from primary affiliation role
+            // Show all affiliations, primary first
             const affiliations = getRelated(entry.id, { type: 'affiliated' });
-            const primary = affiliations.find(a => a.meta && a.meta.primary) || affiliations[0];
-            if (primary && primary.meta && primary.meta.role) {
-              const instNames = affiliations.map(a => getEntityDisplay(a.entity.id));
-              summaryField = primary.meta.role + (instNames.length > 0 ? ' — ' + instNames.join(', ') : '');
+            if (affiliations.length > 0) {
+              const sorted = [...affiliations].sort((a, b) => (b.meta && b.meta.primary ? 1 : 0) - (a.meta && a.meta.primary ? 1 : 0));
+              summaryField = sorted
+                .filter(a => a.meta && a.meta.role)
+                .map(a => a.meta.role + ' — ' + getEntityDisplay(a.entity.id))
+                .join('<br>');
             }
           }
           // Show domains from affinity relations
