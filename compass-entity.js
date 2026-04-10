@@ -450,9 +450,7 @@ function renderRemainingFields(entry, renderedFields) {
               const bioText = entry.bio.replace(/^\s*\[.*?\]\(https?:\/\/.*?\)\s*\n+/, '');
               detailHtml += `<div class="person-bio">${marked.parse(bioText)}</div>`;
             }
-            if (entry.bio_ja) {
-              detailHtml += `<div class="person-bio">${marked.parse(entry.bio_ja)}</div>`;
-            }
+            // bio_ja hidden until bilingual UI is implemented (see feedback item)
             if (entry.links && entry.links.length > 0) {
               detailHtml += `<p class="detail-label">Links</p>`;
               detailHtml += entry.links.map(l =>
