@@ -105,17 +105,7 @@ function renderRemainingFields(entry, renderedFields) {
               metaHtml += `<span class="type-badge">${r.replace(/_/g, ' ')}</span>`;
             });
           }
-          {
-            // Show all affiliations, primary first
-            const affiliations = getRelated(entry.id, { type: 'affiliated' });
-            if (affiliations.length > 0) {
-              const sorted = [...affiliations].sort((a, b) => (b.meta && b.meta.primary ? 1 : 0) - (a.meta && a.meta.primary ? 1 : 0));
-              summaryField = sorted
-                .filter(a => a.meta && a.meta.role)
-                .map(a => a.meta.role + ' — ' + getEntityDisplay(a.entity.id))
-                .join('<br>');
-            }
-          }
+          // Affiliations shown on detail page only
           // Show domains from affinity relations
           const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
           if (domainRels.length > 0) {
