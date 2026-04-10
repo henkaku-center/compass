@@ -429,17 +429,7 @@ function renderRemainingFields(entry, renderedFields) {
 
           // Summary
           let summaryHtml = '';
-          if (type === 'people') {
-            const affiliations = getRelated(entry.id, { type: 'affiliated' });
-            if (affiliations.length > 0) {
-              // Sort primary first
-              const sorted = [...affiliations].sort((a, b) => (b.meta && b.meta.primary ? 1 : 0) - (a.meta && a.meta.primary ? 1 : 0));
-              summaryHtml = sorted
-                .filter(a => a.meta && a.meta.role)
-                .map(a => a.meta.role + ' — ' + entityLink(a.entity.id, getEntityDisplay(a.entity.id)))
-                .join('<br>');
-            }
-          } else if (entry.summary) {
+          if (entry.summary) {
             summaryHtml = marked.parseInline(entry.summary);
           }
 
@@ -469,7 +459,17 @@ function renderRemainingFields(entry, renderedFields) {
                 `<p><a href="${l.url}" target="_blank" rel="noopener">${l.type || l.url}</a></p>`
               ).join('');
             }
-            detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for']);
+            // Affiliations as first relation group
+            const affiliations = getRelated(entry.id, { type: 'affiliated' });
+            if (affiliations.length > 0) {
+              const sorted = [...affiliations].sort((a, b) => (b.meta && b.meta.primary ? 1 : 0) - (a.meta && a.meta.primary ? 1 : 0));
+              detailHtml += `<p class="detail-label">Affiliations</p>`;
+              detailHtml += sorted
+                .filter(a => a.meta && a.meta.role)
+                .map(a => `<p>${a.meta.role} — ${entityLink(a.entity.id, getEntityDisplay(a.entity.id))}</p>`)
+                .join('');
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id, ['has_affinity_for', 'affiliated']);
             const domainRels = getRelated(entry.id, { type: 'has_affinity_for' });
             if (domainRels.length > 0) {
               detailHtml += `<p class="detail-label">Domains</p>`;
