@@ -81,9 +81,10 @@ function renderRemainingFields(entry, renderedFields) {
       let metaHtml = '';
       let relationsHtml = '';
 
-      // Status badge
-      if (entry.status) {
-        metaHtml += `<span class="status-badge ${entry.status}">${entry.status}</span>`;
+      // Status badge — people default to "active" when unset; other types only badge if status is present
+      const cardStatus = type === 'people' ? (entry.status || 'active') : entry.status;
+      if (cardStatus) {
+        metaHtml += `<span class="status-badge ${cardStatus}">${cardStatus}</span>`;
       }
 
       switch (type) {
@@ -377,8 +378,9 @@ function renderRemainingFields(entry, renderedFields) {
             const visLabel = entry.visibility.charAt(0).toUpperCase() + entry.visibility.slice(1);
             badgesHtml += `<span class="type-badge" style="background:#e8e0f0;color:#6a3d9a;">${visLabel}</span>`;
           }
-          if (entry.status) {
-            badgesHtml += `<span class="status-badge ${entry.status}">${entry.status}</span>`;
+          const detailStatus = type === 'people' ? (entry.status || 'active') : entry.status;
+          if (detailStatus) {
+            badgesHtml += `<span class="status-badge ${detailStatus}">${detailStatus}</span>`;
           }
           if (type === 'people' && entry.role_categories) {
             entry.role_categories.forEach(r => {
