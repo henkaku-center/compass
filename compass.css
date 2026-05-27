@@ -1286,6 +1286,11 @@
       margin-top: 0;
     }
 
+    .entity-detail-section .field-note {
+      font-size: 0.85em;
+      color: #888;
+    }
+
     .entity-detail-section p {
       margin: 0.4rem 0;
       font-size: 0.925rem;

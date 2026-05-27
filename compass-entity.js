@@ -738,7 +738,7 @@ function renderRemainingFields(entry, renderedFields) {
           }
 
           if (type === 'publications') {
-            ['abstract', 'venue', 'doi', 'published_date', 'url', 'publication_type'].forEach(f => renderedFields.add(f));
+            ['abstract', 'venue', 'doi', 'published_date', 'url', 'publication_type', 'citations', 'citations_date', 'display_rank'].forEach(f => renderedFields.add(f));
             if (entry.abstract) {
               detailHtml += `<p class="detail-label">Abstract</p><p>${entry.abstract}</p>`;
             }
@@ -750,6 +750,11 @@ function renderRemainingFields(entry, renderedFields) {
             }
             if (entry.published_date) {
               detailHtml += `<p class="detail-label">Published</p><p>${entry.published_date}</p>`;
+            }
+            if (entry.citations != null) {
+              let citationsText = `${entry.citations}`;
+              if (entry.citations_date) citationsText += ` <span class="field-note">(as of ${entry.citations_date})</span>`;
+              detailHtml += `<p class="detail-label">Citations</p><p>${citationsText}</p>`;
             }
             if (entry.url) {
               detailHtml += `<p class="detail-label">URL</p><p><a href="${entry.url}" target="_blank" rel="noopener">${entry.url}</a></p>`;

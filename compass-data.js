@@ -104,6 +104,15 @@ const store = {
   _dirty: new Set(), // track which file types have been modified
 };
 
+// --- Publication sort ---
+
+function comparePublications(a, b) {
+  const rankA = a.display_rank != null ? a.display_rank : Infinity;
+  const rankB = b.display_rank != null ? b.display_rank : Infinity;
+  if (rankA !== rankB) return rankA - rankB;
+  return (b.published_date || '').localeCompare(a.published_date || '') || (a.name || '').localeCompare(b.name || '');
+}
+
 // --- API ↔ Frontend transforms ---
 
 // API entity {id, type, name, data: {…}} → flat frontend entity {id, type, name, short_name, …}
@@ -175,7 +184,7 @@ function listEntities(typePlural, filterFn) {
   const list = store.byType[typePlural] || [];
   const filtered = filterFn ? list.filter(filterFn) : [...list];
   if (typePlural === 'publications') {
-    filtered.sort((a, b) => (b.published_date || '').localeCompare(a.published_date || '') || (a.name || '').localeCompare(b.name || ''));
+    filtered.sort(comparePublications);
   } else {
     filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
   }
@@ -492,7 +501,7 @@ function renderRelationsHtml(entityId) {
     if (isMultiPeople) shuffle(people);
     nonPeople.sort((a, b) => {
       if (a.entity.type === 'publication' && b.entity.type === 'publication') {
-        return (b.entity.published_date || '').localeCompare(a.entity.published_date || '') || (a.entity.name || '').localeCompare(b.entity.name || '');
+        return comparePublications(a.entity, b.entity);
       }
       return (a.entity.name || '').localeCompare(b.entity.name || '');
     });
@@ -544,7 +553,7 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
     if (isMultiPeople) shuffle(people);
     nonPeople.sort((a, b) => {
       if (a.entity.type === 'publication' && b.entity.type === 'publication') {
-        return (b.entity.published_date || '').localeCompare(a.entity.published_date || '') || (a.entity.name || '').localeCompare(b.entity.name || '');
+        return comparePublications(a.entity, b.entity);
       }
       return (a.entity.name || '').localeCompare(b.entity.name || '');
     });
