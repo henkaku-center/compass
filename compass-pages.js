@@ -384,6 +384,17 @@ async function loadCharter() {
   contentEl.innerHTML = '<p>Loading Charter&hellip;</p>';
   updateActiveNavLink('charter');
 
+  if (!isLoggedIn()) {
+    contentEl.innerHTML =
+      '<div class="charter-banner" style="border-left-color:#d4a017;">' +
+      '<strong>Charter Under Review</strong><br>' +
+      'The Charter is currently not public while undergoing review and ratification. ' +
+      'Please <a href="#" onclick="showLoginModal(); return false;">log in</a> to view the draft.' +
+      '</div>';
+    window.scrollTo(0, 0);
+    return;
+  }
+
   try {
     const result = await api.getDocumentContent('charter');
     const markdown = result.content || result;
