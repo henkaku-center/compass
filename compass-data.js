@@ -174,7 +174,11 @@ function getEntity(id) {
 function listEntities(typePlural, filterFn) {
   const list = store.byType[typePlural] || [];
   const filtered = filterFn ? list.filter(filterFn) : [...list];
-  filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+  if (typePlural === 'publications') {
+    filtered.sort((a, b) => (b.published_date || '').localeCompare(a.published_date || '') || (a.name || '').localeCompare(b.name || ''));
+  } else {
+    filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+  }
   return filtered;
 }
 
@@ -486,7 +490,12 @@ function renderRelationsHtml(entityId) {
     const nonPeople = items.filter(i => i.entity.type !== 'person');
     const isMultiPeople = people.length > 1;
     if (isMultiPeople) shuffle(people);
-    nonPeople.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
+    nonPeople.sort((a, b) => {
+      if (a.entity.type === 'publication' && b.entity.type === 'publication') {
+        return (b.entity.published_date || '').localeCompare(a.entity.published_date || '') || (a.entity.name || '').localeCompare(b.entity.name || '');
+      }
+      return (a.entity.name || '').localeCompare(b.entity.name || '');
+    });
     const sorted = [...people, ...nonPeople];
     const label = getRelationLabel(relType);
     const itemStrs = sorted.map(({ entity, meta }) => {
@@ -533,7 +542,12 @@ function renderRelationsDetailHtml(entityId, excludeTypes) {
     const nonPeople = items.filter(i => i.entity.type !== 'person');
     const isMultiPeople = people.length > 1;
     if (isMultiPeople) shuffle(people);
-    nonPeople.sort((a, b) => (a.entity.name || '').localeCompare(b.entity.name || ''));
+    nonPeople.sort((a, b) => {
+      if (a.entity.type === 'publication' && b.entity.type === 'publication') {
+        return (b.entity.published_date || '').localeCompare(a.entity.published_date || '') || (a.entity.name || '').localeCompare(b.entity.name || '');
+      }
+      return (a.entity.name || '').localeCompare(b.entity.name || '');
+    });
     const sorted = [...people, ...nonPeople];
     const label = getRelationLabel(relType);
     html += `<p class="detail-label">${label}${isMultiPeople ? ' ' + RANDOM_ORDER_NOTE_INLINE : ''}</p>`;
