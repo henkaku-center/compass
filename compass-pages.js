@@ -415,7 +415,7 @@ async function loadCharter() {
     const markdown = result.content || result;
     let html = marked.parse(markdown);
 
-    html = '<div class="charter-banner">The definitive source for the Charter is <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer">charter.henkaku.center</a>, which also provides an interface for proposing and voting on amendments and exporting the Charter in various formats.</div><div class="charter-version" id="charter-version-info"></div>' + html;
+    html = '<div class="charter-banner" style="border-left-color:#d4a017;"><strong>Charter Under Review</strong><br>The Charter is currently not public while undergoing review and ratification.</div><div class="charter-version" id="charter-version-info"></div>' + html;
 
     contentEl.innerHTML = html;
     renderMermaidDiagrams();
@@ -477,9 +477,9 @@ function loadDoc(path, docKey) {
         html = html.replace(placeholder, commentDiv);
       });
 
-      // Charter banner: link to definitive source with version info
+      // Charter banner: under-review notice with version info
       if (docKey === 'charter') {
-        html = '<div class="charter-banner">The definitive source for the Charter is <a href="https://charter.henkaku.center" target="_blank" rel="noopener noreferrer">charter.henkaku.center</a>, which also provides an interface for proposing and voting on amendments and exporting the Charter in various formats.</div><div class="charter-version" id="charter-version-info"></div>' + html;
+        html = '<div class="charter-banner" style="border-left-color:#d4a017;"><strong>Charter Under Review</strong><br>The Charter is currently not public while undergoing review and ratification.</div><div class="charter-version" id="charter-version-info"></div>' + html;
       }
 
       contentEl.innerHTML = html;
