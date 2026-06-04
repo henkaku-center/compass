@@ -384,7 +384,22 @@ async function loadCharter() {
   contentEl.innerHTML = '<p>Loading Charter&hellip;</p>';
   updateActiveNavLink('charter');
 
-  if (!isLoggedIn()) {
+  // Passcode bypass: allow viewing without login when URL carries ?key=<passcode>.
+  // Accepts the param in either the normal query string or after the hash
+  // (e.g. /?key=K3M9PX#charter or /#charter?key=K3M9PX). Once unlocked, the
+  // grant persists for the rest of the browser session via sessionStorage.
+  const CHARTER_KEY = 'K3M9PX';
+  try {
+    const searchKey = new URLSearchParams(window.location.search).get('key');
+    const hashQuery = window.location.hash.split('?')[1] || '';
+    const hashKey = new URLSearchParams(hashQuery).get('key');
+    if (searchKey === CHARTER_KEY || hashKey === CHARTER_KEY) {
+      sessionStorage.setItem('charter_unlocked', '1');
+    }
+  } catch (e) { /* sessionStorage / URL parsing may fail in rare contexts */ }
+  const unlocked = sessionStorage.getItem('charter_unlocked') === '1';
+
+  if (!isLoggedIn() && !unlocked) {
     contentEl.innerHTML =
       '<div class="charter-banner" style="border-left-color:#d4a017;">' +
       '<strong>Charter Under Review</strong><br>' +
