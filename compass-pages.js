@@ -447,7 +447,7 @@ async function loadCharter() {
   }
 }
 
-function loadDoc(path, docKey) {
+function loadDoc(path, docKey, sectionId) {
   clearOrientationRotator();
   currentDoc = docKey;
   const cacheBuster = `?t=${Date.now()}`;
@@ -519,8 +519,10 @@ function loadDoc(path, docKey) {
       // Update active nav link
       updateActiveNavLink(docKey);
 
-      // Scroll to top
-      window.scrollTo(0, 0);
+      // Scroll to the deep-linked section if present, otherwise to top.
+      if (!sectionId || !scrollToSection(sectionId, false)) {
+        window.scrollTo(0, 0);
+      }
     })
     .catch(error => {
       contentEl.innerHTML = "<p>Error loading document.</p>";

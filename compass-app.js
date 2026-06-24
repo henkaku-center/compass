@@ -58,7 +58,8 @@
         loadContact();
       } else {
         const path = routes[docKey];
-        loadDoc(path, docKey);
+        // For doc pages, the segment after the slash is a section anchor.
+        loadDoc(path, docKey, entityId);
       }
     }
 

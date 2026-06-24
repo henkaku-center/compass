@@ -163,17 +163,44 @@ function updateSidebarEmptyStates() {
 
 // --- Heading IDs & document TOC ---
 function assignHeadingIds() {
+  var used = {};
   contentEl.querySelectorAll('h2, h3').forEach(function(heading) {
-    var text = heading.textContent;
-    var id = 'section-' + text.toLowerCase()
+    var slug = heading.textContent.toLowerCase()
+      // Drop "Part I:", "Part XII:", "Part 3:" prefixes for cleaner anchors.
+      .replace(/^part\s+[ivxlcdm0-9]+\s*:\s*/i, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '')
-      .substring(0, 50);
-    heading.id = id;
+      .substring(0, 50)
+      .replace(/-$/, '');
+    if (!slug) slug = 'section';
+    // De-duplicate repeated headings (e.g. "Basic Information").
+    if (used[slug] != null) {
+      used[slug] += 1;
+      slug = slug + '-' + used[slug];
+    } else {
+      used[slug] = 1;
+    }
+    heading.id = slug;
   });
 }
 
 // docTocPages is defined in compass-config.js
+
+// Scroll to a heading by id, expanding its collapsible section if needed.
+function scrollToSection(id, smooth) {
+  var el = document.getElementById(id);
+  if (!el) return false;
+  // If the heading lives inside a collapsed section, expand it first.
+  var container = el.closest('.section-content');
+  if (container && container.classList.contains('collapsed')) {
+    container.classList.remove('collapsed');
+    if (container.previousElementSibling) {
+      container.previousElementSibling.classList.remove('collapsed');
+    }
+  }
+  el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+  return true;
+}
 
 function buildDocToc(docKey) {
   docTocListEl.innerHTML = '';
@@ -196,8 +223,9 @@ function buildDocToc(docKey) {
     if (heading.tagName === 'H3') li.classList.add('dtoc-h3');
     a.addEventListener('click', function(e) {
       e.preventDefault();
-      heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.replaceState(null, '', '#' + docKey);
+      scrollToSection(id, true);
+      // Update the URL so the section can be linked/shared directly.
+      history.replaceState(null, '', '#' + docKey + '/' + id);
     });
     li.appendChild(a);
     docTocListEl.appendChild(li);

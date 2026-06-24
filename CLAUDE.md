@@ -14,7 +14,7 @@ Compass documents are organized into two layers, inspired by a biological analog
 
 **DNA** — Foundational documents that define principles, governance, and structural templates:
 - **Charter** — Values, governance, and operational commitments (9 sections). Lives in its own repository at [charter.henkaku.center](https://charter.henkaku.center) (source: `https://charter.henkaku.center/content/CHARTER.md`)
-- **Archetypes** — Structural templates for sixteen registry entry types (served from Registry at `/api/v1/compass/files/docs/ARCHETYPES.md`)
+- **Archetypes** — Structural templates for fifteen registry entry types (served from Registry at `/api/v1/compass/files/docs/ARCHETYPES.md`)
 
 **Emergent** — Living content instantiated from the foundational templates:
 - **Curriculum** — SDS Master's and PhD curriculum (served from Registry at `/api/v1/compass/files/docs/CURRICULUM.md`)
@@ -122,21 +122,20 @@ All sections contain full text. The draft is ready for review by ratifying membe
 
 The Charter (Section V) mandates a shared registry. The **Archetypes** document defines the structural templates for registry entries. The Charter provides the mandate; the Archetypes define the forms.
 
-Sixteen entry types:
-- **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
+Fifteen entry types:
 - **People** — Roles, domain affinities, affiliations, project involvement. `role_categories` supports multiple roles.
 - **Projects** — Bounded units of transformation with completion criteria
 - **Initiatives** — Ongoing programs evaluated on continuing justification
+- **Institutions** — Organizations in the ecosystem with mandates, capabilities, and relationships
 - **Courses** — Recurring educational units with learning objectives and Charter alignment
-- **Theses** — Bounded academic works with advisors, committees, and defense milestones
+- **Curricula** (`curriculum_` prefix) — Structured programs of study with requires/accepts relations to courses
 - **Events** — Time-bound gatherings that connect people and advance work
-- **Posts** — Written contributions (reflections, updates, announcements, commentary) from participants
+- **Opportunities** (`opp_` prefix) — Openings individuals can pursue (jobs, internships, fellowships, grants, scholarships, residencies); linked to an institution via `offered_by`
 - **Places** — Physical locations where ecosystem activities happen (campuses, coworking spaces, venues)
 - **Domains** — Knowledge and research areas that map the intellectual landscape
 - **Publications** — Peer-reviewed academic works — journal articles, conference papers, book chapters, and reports
 - **Vectors** (`vec_` prefix) — Directional transformations with from/toward, domains, and status
 - **Deltas** (`delta_` prefix) — Observable changes with from/toward, observed_date, domains, and status
-- **Curricula** (`curriculum_` prefix) — Structured programs of study with requires/accepts relations to courses
 - **Theses** (`thesis_` prefix) — Bounded academic works with advisors, committees, and defense milestones
 - **Posts** (`post_` prefix) — Written contributions from participants — reflections, updates, announcements
 
@@ -162,7 +161,7 @@ Sixteen entry types:
 - Charter Mapping column helps verify alignment
 
 **Web viewer** (`index.html` + 9 JS files):
-- Single-page app with hash routing (`compass-app.js`). Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#domains`, `#places`, `#publications`, `#vectors`, `#deltas`, `#curricula`, `#network`, `#references`, `#history`, `#about`, `#feedback`, `#contribute`, `#contact` (`#curriculum` redirects to `#curricula`)
+- Single-page app with hash routing (`compass-app.js`). Routes: `#home`, `#charter`, `#archetypes`, `#curriculum`, `#people`, `#projects`, `#initiatives`, `#institutions`, `#courses`, `#events`, `#opportunities`, `#domains`, `#places`, `#publications`, `#vectors`, `#deltas`, `#curricula`, `#network`, `#references`, `#history`, `#about`, `#feedback`, `#contribute`, `#contact` (`#curriculum` redirects to `#curricula`)
 - `#charter` fetches and renders Charter markdown from `charter.henkaku.center/content/CHARTER.md` inline (with a banner linking to the definitive source and showing the current version dynamically)
 - Top nav bar shows minimal links (Feedback, Contribute, Login). Left sidebar: Contribute with AI at top, then DNA, Entities, and Info groups (with Theses and Posts as placeholders)
 - Right-hand document TOC sidebar with scroll-spy for Charter, Archetypes, and About pages
