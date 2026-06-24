@@ -39,6 +39,8 @@ const RELATION_TYPES = {
   // Entity → entity
   hosts:            { inverse: 'hosted_by',        label: 'Hosts',          inverseLabel: 'Hosted by' },
   hosted_by:        { inverse: 'hosts',            label: 'Hosted by',      inverseLabel: 'Hosts' },
+  offers:           { inverse: 'offered_by',       label: 'Offers',         inverseLabel: 'Offered by' },
+  offered_by:       { inverse: 'offers',           label: 'Offered by',     inverseLabel: 'Offers' },
   spawned:          { inverse: 'spawned_by',       label: 'Spawned',        inverseLabel: 'Spawned by' },
   spawned_by:       { inverse: 'spawned',          label: 'Spawned by',     inverseLabel: 'Spawned' },
   parent:           { inverse: 'child',            label: 'Parent of',      inverseLabel: 'Child of' },
@@ -88,6 +90,7 @@ const TYPE_FILE_MAP = {
   curriculum: 'curricula',
   thesis: 'theses',
   post: 'posts',
+  opportunity: 'opportunities',
 };
 
 const TYPE_FROM_PLURAL = {};

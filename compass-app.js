@@ -42,7 +42,7 @@
         loadHistory();
       } else if (docKey === 'charter') {
         loadCharter();
-      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'curricula', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas', 'theses', 'posts'].includes(docKey)) {
+      } else if (['people', 'projects', 'initiatives', 'institutions', 'courses', 'curricula', 'events', 'opportunities', 'domains', 'places', 'publications', 'vectors', 'deltas', 'theses', 'posts'].includes(docKey)) {
         if (entityId) {
           loadEntityDetail(docKey, entityId);
         } else {

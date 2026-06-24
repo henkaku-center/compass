@@ -81,6 +81,10 @@ function loadLanding() {
             <div class="card-title">Events</div>
             <div class="card-desc">Symposia, workshops, and gatherings with schedules and speakers.</div>
           </a>
+          <a href="#opportunities" class="landing-card" data-entity-type="opportunities">
+            <div class="card-title">Opportunities</div>
+            <div class="card-desc">Jobs, internships, fellowships, grants, and scholarships people can pursue.</div>
+          </a>
           <a href="#publications" class="landing-card" data-entity-type="publications">
             <div class="card-title">Publications</div>
             <div class="card-desc">Peer-reviewed journal articles, conference papers, and book chapters.</div>

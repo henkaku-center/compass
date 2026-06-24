@@ -171,6 +171,24 @@ function renderRemainingFields(entry, renderedFields) {
           }
           break;
 
+        case 'opportunities':
+          if (entry.opportunity_type) {
+            metaHtml += `<span class="type-badge">${entry.opportunity_type.replace(/_/g, ' ')}</span>`;
+          }
+          if (entry.status) {
+            metaHtml += `<span class="type-badge">${entry.status}</span>`;
+          }
+          if (entry.deadline) {
+            metaHtml += `<span class="type-badge">Deadline ${entry.deadline}</span>`;
+          }
+          const opOfferRels = getRelated(entry.id, { type: 'offered_by' });
+          if (opOfferRels.length > 0) {
+            relationsHtml += `<strong>Offered by:</strong> ${opOfferRels.map(r =>
+              `<a href="${entityHref('institutions', r.entity.id)}" style="color:inherit;text-decoration:underline dotted;text-underline-offset:2px;">${getEntityDisplay(r.entity.id)}</a>`
+            ).join(', ')}`;
+          }
+          break;
+
         case 'domains':
           break;
 
@@ -710,6 +728,54 @@ function renderRemainingFields(entry, renderedFields) {
             }
             if (entry.website) {
               detailHtml += `<p class="detail-label">Website</p><p><a href="${entry.website}" target="_blank" rel="noopener">${entry.website}</a></p>`;
+            }
+            detailHtml += renderRelationsDetailHtml(entry.id);
+          }
+
+          if (type === 'opportunities') {
+            ['name_ja', 'opportunity_type', 'description', 'eligibility', 'compensation', 'commitment', 'location', 'remote', 'deadline', 'start_date', 'end_date', 'requirements', 'application_url', 'contact', 'links', 'notes'].forEach(f => renderedFields.add(f));
+            if (entry.opportunity_type) {
+              detailHtml += `<p class="detail-label">Type</p><p>${entry.opportunity_type.replace(/_/g, ' ')}</p>`;
+            }
+            if (entry.description) {
+              detailHtml += `<div class="person-bio">${marked.parse(entry.description)}</div>`;
+            }
+            if (entry.eligibility && entry.eligibility.length > 0) {
+              detailHtml += `<p class="detail-label">Eligibility</p><p>${entry.eligibility.map(e => e.replace(/_/g, ' ')).join(', ')}</p>`;
+            }
+            if (entry.deadline) {
+              detailHtml += `<p class="detail-label">Application Deadline</p><p>${entry.deadline}</p>`;
+            }
+            if (entry.start_date || entry.end_date) {
+              detailHtml += `<p class="detail-label">Dates</p><p>${entry.start_date || ''}${entry.end_date ? ' – ' + entry.end_date : ''}</p>`;
+            }
+            if (entry.commitment) {
+              detailHtml += `<p class="detail-label">Commitment</p><p>${entry.commitment}</p>`;
+            }
+            if (entry.compensation) {
+              detailHtml += `<p class="detail-label">Compensation</p><p>${marked.parseInline(String(entry.compensation))}</p>`;
+            }
+            if (entry.location || entry.remote) {
+              detailHtml += `<p class="detail-label">Location</p><p>${[entry.location, entry.remote].filter(Boolean).join(' · ')}</p>`;
+            }
+            if (entry.requirements && entry.requirements.length > 0) {
+              detailHtml += `<p class="detail-label">Requirements</p>`;
+              detailHtml += entry.requirements.map(r => `<p>${r}</p>`).join('');
+            }
+            if (entry.application_url) {
+              detailHtml += `<p class="detail-label">Apply</p><p><a href="${entry.application_url}" target="_blank" rel="noopener">${entry.application_url}</a></p>`;
+            }
+            if (entry.contact) {
+              detailHtml += `<p class="detail-label">Contact</p><p>${marked.parseInline(String(entry.contact))}</p>`;
+            }
+            if (entry.links && entry.links.length > 0) {
+              detailHtml += `<p class="detail-label">Links</p>`;
+              detailHtml += entry.links.map(l =>
+                `<p><a href="${l.url}" target="_blank" rel="noopener">${l.label || l.url}</a></p>`
+              ).join('');
+            }
+            if (entry.notes) {
+              detailHtml += `<p class="detail-label">Notes</p><p>${marked.parseInline(entry.notes)}</p>`;
             }
             detailHtml += renderRelationsDetailHtml(entry.id);
           }

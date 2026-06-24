@@ -25,6 +25,7 @@ const routes = {
   'deltas': null, // Registry list page
   'theses': null, // Registry list page
   'posts': null, // Registry list page
+  'opportunities': null, // Registry list page
   'network': null, // Graph visualization page
   'feedback': null, // Feedback submission page
   'contribute': null, // Contribute with AI page
@@ -50,6 +51,7 @@ const siteMap = [
   { key: 'theses', label: 'Theses' },
   { key: 'posts', label: 'Posts' },
   { key: 'events', label: 'Events' },
+  { key: 'opportunities', label: 'Opportunities' },
   { key: 'publications', label: 'Publications' },
   { key: 'places', label: 'Places' },
   { key: 'domains', label: 'Domains' },
@@ -135,7 +137,7 @@ const nodeColors = {};
 
 // Default entity types shown in network viz (override with ?show=type1,type2 in URL)
 const networkDefaultOn = new Set(['institutions', 'people', 'projects', 'initiatives', 'courses', 'events']);
-const networkAllTypes = ['institutions', 'people', 'projects', 'initiatives', 'courses', 'curricula', 'events', 'domains', 'places', 'publications', 'vectors', 'deltas', 'theses', 'posts'];
+const networkAllTypes = ['institutions', 'people', 'projects', 'initiatives', 'courses', 'curricula', 'events', 'opportunities', 'domains', 'places', 'publications', 'vectors', 'deltas', 'theses', 'posts'];
 
 // Pages that get a right-hand document TOC
 const docTocPages = ['charter', 'archetypes', 'about', 'status'];
