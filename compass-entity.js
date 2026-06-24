@@ -733,7 +733,7 @@ function renderRemainingFields(entry, renderedFields) {
           }
 
           if (type === 'opportunities') {
-            ['name_ja', 'opportunity_type', 'description', 'eligibility', 'compensation', 'commitment', 'location', 'remote', 'deadline', 'start_date', 'end_date', 'requirements', 'application_url', 'contact', 'links', 'notes'].forEach(f => renderedFields.add(f));
+            ['name_ja', 'opportunity_type', 'description', 'eligibility', 'compensation', 'commitment', 'location', 'remote', 'deadline', 'start_date', 'end_date', 'requirements', 'conflicts_of_interest', 'application_url', 'contact', 'links', 'notes'].forEach(f => renderedFields.add(f));
             if (entry.opportunity_type) {
               detailHtml += `<p class="detail-label">Type</p><p>${entry.opportunity_type.replace(/_/g, ' ')}</p>`;
             }
@@ -761,6 +761,9 @@ function renderRemainingFields(entry, renderedFields) {
             if (entry.requirements && entry.requirements.length > 0) {
               detailHtml += `<p class="detail-label">Requirements</p>`;
               detailHtml += entry.requirements.map(r => `<p>${r}</p>`).join('');
+            }
+            if (entry.conflicts_of_interest) {
+              detailHtml += `<p class="detail-label">Potential Conflicts of Interest</p><p>${marked.parseInline(String(entry.conflicts_of_interest))}</p>`;
             }
             if (entry.application_url) {
               detailHtml += `<p class="detail-label">Apply</p><p><a href="${entry.application_url}" target="_blank" rel="noopener">${entry.application_url}</a></p>`;
