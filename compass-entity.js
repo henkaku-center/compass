@@ -733,7 +733,7 @@ function renderRemainingFields(entry, renderedFields) {
           }
 
           if (type === 'opportunities') {
-            ['name_ja', 'opportunity_type', 'description', 'eligibility', 'compensation', 'commitment', 'location', 'remote', 'deadline', 'start_date', 'end_date', 'requirements', 'conflicts_of_interest', 'application_url', 'contact', 'links', 'notes'].forEach(f => renderedFields.add(f));
+            ['name_ja', 'opportunity_type', 'description', 'eligibility', 'compensation', 'commitment', 'location', 'remote', 'deadline', 'date_posted', 'date_closed', 'start_date', 'end_date', 'requirements', 'conflicts_of_interest', 'application_url', 'contact', 'links', 'notes'].forEach(f => renderedFields.add(f));
             if (entry.opportunity_type) {
               detailHtml += `<p class="detail-label">Type</p><p>${entry.opportunity_type.replace(/_/g, ' ')}</p>`;
             }
@@ -743,8 +743,14 @@ function renderRemainingFields(entry, renderedFields) {
             if (entry.eligibility && entry.eligibility.length > 0) {
               detailHtml += `<p class="detail-label">Eligibility</p><p>${entry.eligibility.map(e => e.replace(/_/g, ' ')).join(', ')}</p>`;
             }
+            if (entry.date_posted) {
+              detailHtml += `<p class="detail-label">Date Posted</p><p>${entry.date_posted}</p>`;
+            }
             if (entry.deadline) {
               detailHtml += `<p class="detail-label">Application Deadline</p><p>${entry.deadline}</p>`;
+            }
+            if (entry.date_closed) {
+              detailHtml += `<p class="detail-label">Date Closed</p><p>${entry.date_closed}</p>`;
             }
             if (entry.start_date || entry.end_date) {
               detailHtml += `<p class="detail-label">Dates</p><p>${entry.start_date || ''}${entry.end_date ? ' – ' + entry.end_date : ''}</p>`;
